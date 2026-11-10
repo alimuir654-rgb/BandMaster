@@ -44,6 +44,7 @@ func run() -> void:
    ideas._play(first);check(not ideas.playing,"changed media fails closed "+str(person.id));row.sha256=original_sha
   parent.free()
  check(covered.size()==17 and "cast_tom" in covered,"17 distinct canonical Indie candidates; Nina separately held")
+ await create_timer(0.25).timeout
  await process_frame
  print("FEEDBACK47_AUDIO "+JSON.stringify({"checks":checks,"failures":failures,"covered":covered,"Nina":"review-only","Arjun_adjusted":"written-only","listening_verified":false,"physical_Android":false}))
  quit(0 if failures.is_empty() else 1)
