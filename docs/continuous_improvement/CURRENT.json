@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/CROWD36.json",
+  "session": "docs/continuous_improvement/sessions/CROWD37.json",
   "scope": "Owner-authorized gig crowd/music pass implemented and source/native verified; actual applause/boo recording acquisition remains blocked. Frozen V23 handoff deferred, no new APK.",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -10,8 +10,8 @@
   "frames": "Existing poster materials; calm small paper controls; original activity art and passive meters retained.",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "real_recording_candidates_verified_listening_and_mix_HELD",
-  "next_action": "Listen to exact private crowd candidates and check fit with restored owner arrangement; do not build or mark integrated before acceptance.",
+  "status": "CROWD37_approved_crowd_preflight",
+  "next_action": "Four source-distinct approved crowd responses with bound provenance and proper CC BY attribution replace repeated rejected clips. Character-specific singer masters plus coherent keys/stem briefs enable short same-take rearrangements without regenerated voice drift.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3205,7 +3205,7 @@
     }
   ],
   "last_completed_session": "SIGN20",
-  "writer": null,
+  "writer": "root",
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",

@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "id": "CROWD37",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "00f073825e67097adf19018d5dc6e349ce42d034",
+  "owner_request": "Go ahead with all four approved table crowd recordings; consider actual keys/vocal characters, identical vocals reused across arrangements, mainly short in-game snippets. Preserve app/key/frozenV23/private media.",
+  "dominant_issue": "BM-14",
+  "lesson_ids": [
+    "BM-14",
+    "BM-15",
+    "BM-24",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-40"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2142100,
+    "sha256": "3bd7b727ae4f8419a4f7c4a51670e737ba2c0a2d28aabf392ed02c10368d8514"
+  },
+  "target": {
+    "locator": "experiments/playable_flightcase/art/crowd34.png",
+    "original_sha256": "e9efabc9554f81367b061045dbeb3c2725e689aa465aa12ba7cf88a5427cb44b",
+    "pixels_inspected": true,
+    "note": "Original atlas opened in this thread; this batch changes audio only, no UI/art edits."
+  },
+  "controlled_comparison": "Same saved-event presentation owner with new versioned approved recordings; old rejected cue manifest never used. Decode real acquired recording, test at4viewport dimensions, conservative level/length/fade and mute/focus/queued/source interruption/no replay. Existing game/economy/save source unchanged.",
+  "hypothesis": "Four source-distinct approved crowd responses with bound provenance and proper CC BY attribution replace repeated rejected clips. Character-specific singer masters plus coherent keys/stem briefs enable short same-take rearrangements without regenerated voice drift.",
+  "stop_condition": "No host denial bypass, fake missing recordings, unapproved boo substitution, new song generation/paid call, invented voice gender/canon, production save/UI/art/key/app/frozenV23 changes or new APK/signing request. Missing host blocks full bank, not independent code/brief/real-file tests.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/gig_soundscape.gd",
+    "tools/prepare_crowd37.py",
+    "tests/crowd37*",
+    ".gitignore",
+    "docs/audio/**",
+    "docs/handover/START_HERE.md",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/CROWD37.json",
+    "Python source binding/approval/licence/overwrite/strict complete-bank tests; ffprobe/decoded level/encoding audits",
+    "Godot isolated headless import; actual approved source stream lifecycle and negative manifest checks at390x844,720x1280,1280x720,1600x900; no changed UI/pixel claim",
+    "Public V23 request checker; exact frozen public policy/request; Git privacy/diff/gate checks"
+  ],
+  "resource_plan": {
+    "persistent_budget_bytes": 134217728,
+    "qa_project": "/workspace/bandmaster-crowd36/project",
+    "evidence_root": "/workspace/bandmaster-crowd37",
+    "no_new_APK": true
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active"
+  },
+  "started_at": "2026-11-10T11:57:33.930499+00:00"
+}
