@@ -113,6 +113,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ['request', 'apk', 'v16', 'sdk']:
         parser.add_argument('--' + name, type=Path, required=True)
+    parser.add_argument('--policy', type=Path, help='Audited public policy for a post-V17 request')
     ARGS = parser.parse_args()
+    if ARGS.policy:
+        V2.load_policy(ARGS.policy)
     result = unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromTestCase(DetachedTests))
     raise SystemExit(0 if result.wasSuccessful() else 1)

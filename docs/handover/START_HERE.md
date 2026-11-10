@@ -1,0 +1,85 @@
+# BandMaster — next chat starts here
+
+Owner handover, 10 November 2026. Repository: `alimuir654-rgb/BandMaster`.
+Use **`feature/playtest-polish-v20`**. Do not work from `main` or rewrite/force-push commits.
+
+Read `AGENTS.md`, the improvement check/lessons, and
+`docs/continuous_improvement/CURRENT.json` before changes. Use one writer and a fresh scoped preflight.
+Historical overnight deadlines and older branch/build instructions do not supersede this handover.
+
+## Current work and evidence
+
+- V22 source: `16c477c588758eaf07418361fcae79b43f147b05`.
+- Formation/budget/portraits/three-act gig batch: `dba007e3022d9d1a39365aab78b127d6a1d79f84`.
+  See `docs/continuous_improvement/NEXT32_RESULTS.json`.
+- Latest **game** change: `c6f320bba6b6f6399f679daab07c9572fdbd0d55`.
+  Saved arrangements play during gigs. Four registered generated pub-crowd illustrations
+  respond to saved room feedback and the actual final receipt. Audio starts only after
+  successful original save; interruption/held-source/no-replay guards are tested.
+  See `docs/continuous_improvement/CROWD34_RESULTS.json`.
+- Crowd pass: **331 model + 808 native assertions**, four viewport sizes, 76 final original PNGs.
+  All final checks pass; early failed evidence retained. Independent AI source/pixel review,
+  **not** human testing, listening, physical Android verification or owner artwork acceptance.
+- **Actual cheers/boos are still missing.** The fade/manifest path exists; absent clips stay silent.
+  Do not describe crowd audio as complete or substitute generated noise.
+
+## Next work
+
+Finish the crowd/audio batch before another owner test release. Owner prefers bigger coherent updates.
+First check the **selected running environment**, not just the published settings:
+the last observation still showed enforced revision 1 with only
+`*.dl.dropboxusercontent.com` as a custom rule. `cdn.freesound.org` download returned CONNECT 403.
+No environment-change/restart tool was available. Recheck with a fresh connection in the new chat;
+do not bypass a denied destination or equate a published configuration with applied access.
+
+Exact CC0 candidates, pages and preview URLs are in `CROWD33_RESULTS.json`:
+Small Crowd Applause / miuziqa / Freesound 858309 and Booing Crowd / NeoSpica / 504621.
+Only source/licence pages were verified; no binaries acquired or listened to.
+Inspect actual encoding/hash/levels and listening/fit if listening tools exist, then integrate.
+Use modest pub ambience, fade in/out and receipt-driven final cheers/boos. Ordinary starting
+room vibe is 40; a blanket “below 50 means boo” is wrong. Do not predict success before saved wrap.
+No extra mandatory Continue screens or duplicate financial settlement.
+
+## Existing app and signing
+
+Keep app **`com.bandmaster.ownerplaytest.s40`**, entry scene
+`experiments/playable_flightcase/opening.tscn`, and save directory `BandMasterOwnerPlaytestS40`.
+Keep the original certificate/key; **never generate a replacement**.
+Read **[`../signing/README.md`](../signing/README.md)** for the reusable detached workflow.
+The original key remains in its original build environment. This chat has no original-key binding.
+Only a small public request and returned signature need travel between environments.
+
+V23 is a frozen **older, unsigned** candidate. It does **not** contain CROWD34.
+Its existing request is unchanged and has no returned signature.
+Do not sign it and call it the latest crowd build. A future package containing newer changes
+needs version code **greater than 23**, fresh package audit and a **new** bound request;
+retain V23 and its request byte-for-byte. No new APK is built by this handover.
+
+## Workspace/private media continuity
+
+Git contains source, generated artwork, public signing data and reports, **not the private owner stem banks or APKs**.
+Do not upload owner audio to public GitHub or change Dropbox sharing. Existing older repository
+audio is historical; this publication adds no audio/APK/key binaries.
+Music is owner-generated paid-plan **Suno audio**, not human performances;
+commercial interactive-game shipping permission remains separately unresolved.
+
+If the same workspace is retained, use:
+
+- Source: `/workspace/BandMaster-polish`.
+- Private QA project with recorded media: `/workspace/main-audio-proof/candidate/project`.
+- Crowd proof: `/workspace/bandmaster-crowd34/verification.json` and original PNGs/logs.
+- V23 unsigned APK, policy, audits and request: `/workspace/bandmaster-next32/`.
+- Original public V16 APK: `/workspace/main-app-check/BandMaster-Playtest-v16-arm64.apk`.
+- Android tools: `/workspace/tools/android-sdk/build-tools/35.0.0/`.
+- Godot: `/workspace/tools/godot-4.7.2/Godot_v4.7.2-stable_linux.x86_64`.
+
+These absolute paths are **workspace-local, not Git attachments or guaranteed in a new executor**.
+Check them before use. Restore missing private assets from retained owner Dropbox originals
+and source/hash manifests; scripts include `tools/prepare_indie29.py` and `prepare_next32_audio.py`.
+Do not silently relabel reconstructed media or a rebuilt APK as the frozen V23 bytes.
+If the retained APK is missing, its old detached signature cannot authorize another binary.
+
+Original owner source folder: connected Dropbox `/audio files` and the separately retained
+assessment/intake source identities. Exact source provenance and build details are in the
+existing AUDIO29/NEXT32/CROWD reports. Do not rerun unchanged broad QA or request music again
+without first checking these retained sources.
