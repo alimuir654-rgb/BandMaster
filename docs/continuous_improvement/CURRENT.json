@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/CROWD33.json",
+  "session": "docs/continuous_improvement/sessions/CROWD34.json",
   "scope": "Approved NEXT32 band formation/recruitment/portrait/cue/gig batch verified; one unsignedV23 prepared, original-key signature pending.",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -10,8 +10,8 @@
   "frames": "Existing poster materials; calm small paper controls; original activity art and passive meters retained.",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "CROWD33_audio_pass_scoped_asset_access_pending_owner_testing_deferred",
-  "next_action": "Obtain cleared crowd-effect binaries via allowed host or existing Dropbox, inspect actual format/hash/levels and listening/fit, then implement gig sound/crowd pass before next combined owner test.",
+  "status": "CROWD34_gig_music_visual_integration_in_progress_realFX_access_pending",
+  "next_action": "Implement/testactualsaved-songplayback andwarmcrowdreactions; acquireCC0FXonlyifnewhostpolicyreachesactualruntime. No newownerbuild orfrozenV23changes.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3205,7 +3205,7 @@
     }
   ],
   "last_completed_session": "SIGN20",
-  "writer": null,
+  "writer": "root",
   "historical_conditional_polish_before_s44_closeout": "Historical overnight09:00freeze completed; owner09:04dayplan prospectively authorises approvedwork only through15:00.14:50finalread-only.",
   "owner_unification_authority": {
     "owner_request": "Owner: I will not have much time over the next three hours...start unifying everything and pulling in the original work...feel free to go ahead.",
@@ -6325,7 +6325,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": null,
+  "root_writer": "root",
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {

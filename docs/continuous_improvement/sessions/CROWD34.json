@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "id": "CROWD34",
+  "status": "active",
+  "baseline_sha": "30f810f7ddd48501fad798330040de896946d727",
+  "dominant_issue": "BM-01",
+  "lesson_ids": [
+    "BM-01",
+    "BM-20",
+    "BM-22",
+    "BM-24",
+    "BM-25",
+    "BM-32",
+    "BM-35",
+    "BM-36",
+    "BM-40"
+  ],
+  "owner_approved": false,
+  "owner_request": "Resume owner-authorized crowd/audio immersionpass nowhostsaidactive: coherent gigmusic/entryexitreactivecrowds, poor-setboos, no prematuretestbuild.",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2131546,
+    "sha256": "e2b64609b77fa660a483f853a8c18efebfa762ee54dc19468870a0731c4f7c6d"
+  },
+  "target": {
+    "locator": "/workspace/BandMaster-polish/experiments/playable_flightcase/art/s53_stage.png",
+    "original_sha256": "8654f10d8143f2f841244b29d914f06a52cb2e13d13a26a81933d43d795a9c02",
+    "pixels_inspected": true
+  },
+  "controlled_comparison": "Sameone-songfirstgig4sizes; currentstaticstage vs independentwarmvenuecrowdatlasreaction. Actualrecordedsavedrecipe/cursor/successfulsaveevent, neutralroom40 vsnegativeslope andactualfinalreceipt. Source+nativeaudio lifecycle/mute/hidden/focus/resize/no-replay/failsave; noresultpredictionornewfinancialcall.",
+  "hypothesis": "Persistent presentation-onlyowner acrossredraws plays actualsupportedfrozenarrangement andreactivecrowdvariants, plusgatedCC0FXwhereactualmanifestavailable. Cues triggeronly after owneratomic save; missing FX honest/graceful, no newNexts.",
+  "stop_condition": "No originalart/media/canonicalcast/meter/save/model changes; no newAPK/signkey/request/push/merge/main. FrozenV23 unchanged. No fakecheers/CC0binary/listeningclaims ornetworkbypass. Userhostclaimdoesnotoverrideactual403.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/gig_soundscape.gd",
+    "experiments/playable_flightcase/crowd_reaction.gd",
+    "experiments/playable_flightcase/gig_journey_scene.gd",
+    "experiments/playable_flightcase/gig_journey_desk.gd",
+    "experiments/playable_flightcase/show_desk.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "experiments/playable_flightcase/art/crowd34*",
+    "experiments/playable_flightcase/audio/crowd34/**",
+    "tools/prepare_crowd34*",
+    "tests/crowd34*",
+    ".gitignore",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/CROWD34.json",
+    "Focusedowner/audiolifecycle/modeltests withactualrecordedsong; syntheticunitFXonlyexplicitlynotshippingcrowds.",
+    "Earlyphone/short thenfinal4sizes; originalpixels, independentreview, legacy/no-arrangement/failedsave/resume/once/soundoff/reducedmotion. No actuallisteningorphysicalAndroidclaim."
+  ],
+  "resource_plan": {
+    "free_bytes": 10800459776,
+    "persistent_budget_bytes": 268435456,
+    "peak_memory_budget_bytes": 805306368,
+    "qa_project": "/workspace/main-audio-proof/candidate/project",
+    "evidence_root": "/workspace/bandmaster-crowd34"
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active"
+  },
+  "review_task": {
+    "queue": "S80CROWD34",
+    "reviewer": "review_current_workbench",
+    "player_goal": "Hear actual saved arrangement with a coherent small-pub crowd responding to saved play, without extra pages/waits.",
+    "visible_acceptance": "Actualwarmstageframing preserved, restrained coherent reactionvariants, readablecontrols/noextraNext; nofictitiousattendance orroom-scoreboos."
+  },
+  "started_at": "2026-11-10T00:15:59.717967+00:00"
+}
