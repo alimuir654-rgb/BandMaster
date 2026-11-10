@@ -49,7 +49,8 @@
     "docs/audio/**",
     "docs/continuous_improvement/**",
     "docs/handover/START_HERE.md",
-    "docs/asset_base/LEDGER.md"
+    "docs/asset_base/LEDGER.md",
+    "experiments/playable_flightcase/poster_home.gd"
   ],
   "validation_commands": [
     "Actual improvement_gate with committed preflight SHA derived from git",
@@ -71,5 +72,6 @@
   },
   "started_at": "2026-11-10T23:11:55.486277+00:00",
   "queue_task": "Existing UX10 formation/branding, owner-requested Make alignment and source transfer advice",
-  "reviewer": "root, five explicitly simulated lenses; no delegation/human claim"
+  "reviewer": "root, five explicitly simulated lenses; no delegation/human claim",
+  "Make_alignment": "Centre both the six main activity labels and the What's next prompt; quick buttons/band name already centre. Status day/cash stays in its existing header."
 }
