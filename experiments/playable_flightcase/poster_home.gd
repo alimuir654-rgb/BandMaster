@@ -15,7 +15,9 @@ static func render(host,parent: Node,compact: bool) -> void:
   mark.name="CareerActivitiesBandName"
   mark.configure(str(state.get("band_name","YOUR BAND")),str(state.get("logo","Wordmark")),host.IdentityStyle.effective(state.get(host.IdentityStyle.KEY,{}),str(state.get("palette",""))),42,true,true,true)
   parent.add_child(mark)
-  parent.add_child(P.label("WHAT'S NEXT?",18,P.PAPER))
+  var prompt: Label=P.label("WHAT'S NEXT?",18,P.PAPER)
+  prompt.name="CareerMakePrompt";prompt.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+  parent.add_child(prompt)
   Launcher.render(host,parent,compact)
   var back: Button=P.quiet("BACK TO YOUR BAND  ↑");back.name="PosterActivitiesAction";back.pressed.connect(host._toggle_poster_activities);parent.add_child(back)
   return

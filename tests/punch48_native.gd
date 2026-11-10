@@ -15,6 +15,8 @@ func run() -> void:
  await capture("formation")
  await tap("StartPlayAction")
  if scene.find_child("PosterWriteAction",true,false)==null:await tap("PosterActivitiesAction")
+ var prompt: Label=scene.find_child("CareerMakePrompt",true,false)
+ check(prompt!=null and prompt.horizontal_alignment==HORIZONTAL_ALIGNMENT_CENTER,"centred Make heading")
  for route in ["create","practice","gigs","recording","promotion","offstage"]:
   var label: Label=scene.find_child("CareerLauncherLabel_"+route,true,false)
   check(label!=null and label.horizontal_alignment==HORIZONTAL_ALIGNMENT_CENTER,"centred Make text "+route)
