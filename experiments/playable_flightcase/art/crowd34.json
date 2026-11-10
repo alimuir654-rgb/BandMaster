@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "content_version": "crowd34",
+  "texture": "res://experiments/playable_flightcase/art/crowd34.png",
+  "sha256": "e9efabc9554f81367b061045dbeb3c2725e689aa465aa12ba7cf88a5427cb44b",
+  "regions": {
+    "watching": [
+      0,
+      0,
+      768,
+      512
+    ],
+    "enjoying": [
+      768,
+      0,
+      768,
+      512
+    ],
+    "restless": [
+      0,
+      512,
+      768,
+      512
+    ],
+    "displeased": [
+      768,
+      512,
+      768,
+      512
+    ]
+  },
+  "provenance": "AI-generated reference-based shared-origin4-cell venue reaction atlas; illustrative anonymous extras, not real crowd photos or measured attendance.",
+  "generated_original": "/workspace/generated_images/exec-9929f764-b326-4a7f-974e-8f040c5daaf8.png",
+  "reference": "res://experiments/playable_flightcase/art/s53_stage.png",
+  "reference_sha256": "8654f10d8143f2f841244b29d914f06a52cb2e13d13a26a81933d43d795a9c02",
+  "integration_review_accepted": true,
+  "authority": "owner_crowd_request_20261110",
+  "owner_art_acceptance": false,
+  "cell_resolution": [
+    768,
+    512
+  ]
+}

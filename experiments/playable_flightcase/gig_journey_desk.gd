@@ -10,6 +10,7 @@ const Cast = preload("res://experiments/character_cast/catalogue.gd")
 const Backstage = preload("res://Scripts/gig_backstage_incident.gd")
 const ShowDesk = preload("res://experiments/playable_flightcase/show_desk.gd")
 const Circuit=preload("res://experiments/playable_flightcase/scene_circuit.gd")
+const Crowd=preload("res://experiments/playable_flightcase/crowd_reaction.gd")
 const Incident=preload("res://experiments/playable_flightcase/gig_incident.gd")
 const ARRIVAL := "res://experiments/playable_flightcase/art/s53_arrival.png"
 const ROAD := "res://experiments/playable_flightcase/art/a07_road_travel_v1.png"
@@ -74,6 +75,8 @@ static func _text(phase: String, state: Dictionary, visit: Dictionary, actor: Di
 static func render(host, parent: Node, compact: bool) -> void:
  var state: Dictionary=host.game.career
  var view: Dictionary=Journey.view(state)
+ host._gig_presentation_valid=bool(view.get("ok",false))
+ host._gig_presentation_token=Journey.Policy.fingerprint(view.get("active",{})) if host._gig_presentation_valid else ""
  if not bool(view.get("ok",false)):
   parent.add_child(C.label(str(view.get("message","This saved night needs attention.")),18))
   return
@@ -94,6 +97,10 @@ static func render(host, parent: Node, compact: bool) -> void:
  var scene=Scene.new()
  scene.configure({"title":str(situation_copy.title) if pending_situation else ("ON THE ROAD TO "+str(Calendar.pending(state).get("city","THE SHOW"))) if phase=="travel" and Booking.modern(state) else str(TITLES.get(phase,"TONIGHT")),"image":image_path,"travel":phase=="travel","source_sha256":ROAD_SHA if phase=="travel" else "","caption":caption,"speaker":str(situation_copy.speaker) if pending_situation else str(actor.get("name","THE BAND")),"portrait":"" if pending_situation else str(source.get("portrait_preview","")),"text":"" if plan_focus else (str(situation_copy.text) if pending_situation else _text(phase,state,visit,actor)),"fresh":bool(host._journey_fresh),"side_by_side":paired,"soundcheck_workspace":soundcheck_workspace},bool(host.reduced_motion),maxf(280,host.size.x-88),short)
  parent.add_child(scene)
+ if phase in ["stage_entrance","performing","choice","reaction","after_set"]:
+  var reaction: String=Crowd.live(visit)
+  Crowd.apply(scene.image_view,reaction)
+  var room_caption: Label=C.label(str(Crowd.CAPTIONS[reaction]),16);room_caption.name="GigCrowdCaption";parent.add_child(room_caption)
  host._journey_fresh=false
  if plan_focus:scene.note.hide()
  if not str(host.notice).is_empty():

@@ -1,4 +1,5 @@
 extends RefCounted
+const Crowd=preload("res://experiments/playable_flightcase/crowd_reaction.gd")
 ## One new-booking journey over the original hometown models and real artwork.
 ## All callbacks edit host draft or invoke ONE explicit host transaction.
 const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
@@ -274,6 +275,8 @@ static func dock(host, parent: Node, _compact: bool) -> void:
  refresh(host)
 
 static func receipt(host, parent: Node, compact: bool, data: Dictionary) -> void:
+ host._gig_presentation_valid=not data.is_empty() and data==Flow.last_receipt(host.game.career)
+ host._gig_presentation_token=Crowd.source_token(data) if host._gig_presentation_valid else ""
  var body: VBoxContainer=host._paper(parent,compact)
  _copy(body,"THE SHOW IS IN THE BOOKS",16,true)
  _copy(body,str(data.get("venue","YOUR SHOW")),26)
@@ -283,7 +286,8 @@ static func receipt(host, parent: Node, compact: bool, data: Dictionary) -> void
  scene.add_theme_constant_override("separation",12)
  body.add_child(scene)
  var art_width: float=maxf(100.0,host.size.x-96.0) if compact else maxf(200.0,minf(620.0,(host.size.x-120.0)*0.46))
- hero(scene,STAGE,150.0 if compact else 210.0,art_width)
+ var crowd_photo: TextureRect=hero(scene,STAGE,150.0 if compact else 210.0,art_width)
+ Crowd.apply(crowd_photo,Crowd.finale(data))
  var words: VBoxContainer=host._box(8)
  words.name="ShowReceiptSummary"
  scene.add_child(words)

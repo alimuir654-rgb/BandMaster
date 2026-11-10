@@ -27,6 +27,8 @@ const ShowReplay = preload("res://experiments/playable_flightcase/show_replay.gd
 const Booking = preload("res://experiments/playable_flightcase/gig_booking_rules.gd")
 const BookingDesk = preload("res://experiments/playable_flightcase/gig_booking_desk.gd")
 const Journey = preload("res://experiments/playable_flightcase/gig_journey.gd")
+const GigSoundscape=preload("res://experiments/playable_flightcase/gig_soundscape.gd")
+const CrowdReaction=preload("res://experiments/playable_flightcase/crowd_reaction.gd")
 const JourneyDesk = preload("res://experiments/playable_flightcase/gig_journey_desk.gd")
 const RecordingDesk = preload("res://experiments/playable_flightcase/recording_desk.gd")
 const RadioVisit = preload("res://experiments/playable_flightcase/radio_visit_rules.gd")
@@ -115,11 +117,15 @@ var recording_mode := "select"
 var promotion_selection: Dictionary = {}
 var show_receipt_details_open := false
 var goal_notice := ""
+var _gig_audio
+var _gig_presentation_valid:=false
+var _gig_presentation_token: String=""
 
 func _ready() -> void:
  set_anchors_and_offsets_preset(PRESET_FULL_RECT)
  resized.connect(_render)
  visibility_changed.connect(_visibility_changed)
+ _gig_audio=GigSoundscape.new();_gig_audio.configure(_gig_audio_context);add_child(_gig_audio)
  _render()
 
 func open_home() -> void:
@@ -143,6 +149,7 @@ func open_home() -> void:
 
 func _visibility_changed() -> void:
  if not is_visible_in_tree():
+  if is_instance_valid(_gig_audio):_gig_audio.stop()
   _show_step_epoch+=1
   if is_instance_valid(_overlay):
    _overlay.abort()
@@ -155,6 +162,7 @@ func _visibility_changed() -> void:
   _live_dialog = null
 
 func _exit_tree() -> void:
+ if is_instance_valid(_gig_audio):_gig_audio.stop()
  if is_instance_valid(_overlay):
   _overlay.abort()
  busy = false
@@ -205,6 +213,7 @@ func _render() -> void:
  elif game!=null and (Journey.locked(game.career) or (Booking.modern(game.career) and LiveRules.show_day(game.career))) and page not in ["calendar","finance","band","songs"]:
   page="gigs"
   receipt_open=false
+ _gig_presentation_valid=false;_gig_presentation_token=""
  _render_generation += 1
  var focus: Control = get_viewport().gui_get_focus_owner()
  if not busy and not is_instance_valid(_live_dialog) and is_instance_valid(focus) and is_ancestor_of(focus) and _pending_focus.is_empty():
@@ -212,6 +221,7 @@ func _render() -> void:
  if is_instance_valid(_scroll):
   _scroll_position = _scroll.scroll_vertical
  for child in get_children():
+  if child==_gig_audio:continue
   if is_instance_valid(_overlay) and child==_overlay:
    continue
   if is_instance_valid(_live_dialog) and child==_live_dialog:
@@ -1603,6 +1613,12 @@ func _journey_restore_focus_wait(control_name: String, generation: int, remainin
  if is_instance_valid(_scroll) and _scroll.is_ancestor_of(target):_scroll.ensure_control_visible(target)
  _pending_focus=""
 
+func _gig_audio_context() -> Dictionary:
+ var identity: String=""
+ if receipt_open and receipt.get("show_receipt") is Dictionary:identity="result:"+str(receipt.show_receipt.get("id",""))
+ elif game!=null:identity=CrowdReaction.identity(Journey.active(game.career))
+ return {"allowed":_gig_presentation_valid and is_visible_in_tree() and page=="gigs" and not is_instance_valid(_live_dialog),"identity":identity,"source_token":_gig_presentation_token}
+
 func _journey_expected() -> Dictionary:
  return Journey.expected(game.career)
 
@@ -1744,6 +1760,7 @@ func _commit_journey(action: String, expected: Dictionary, payload: Dictionary =
   busy=false
   _pending_focus="CareerReceiptContinueAction"
   _render()
+  _gig_audio.on_saved(before,game.career,action)
   return
  if action=="cancel":
   receipt_open=false
@@ -1757,6 +1774,7 @@ func _commit_journey(action: String, expected: Dictionary, payload: Dictionary =
  # Hold duplicate input through one native frame after replacing the scene.
  # This callback only releases presentation busy; it never saves/resolves.
  _render()
+ _gig_audio.on_saved(before,game.career,action)
  _release_journey_input.call_deferred(_render_generation)
 
 func _release_journey_input(generation: int) -> void:

@@ -18,3 +18,6 @@ experiments/playable_flightcase/audio/title_indie29.ogg
 
 # NEXT32 owner-supplied private formation derivatives
 experiments/playable_flightcase/audio/formation_next32/
+
+# Crowd effect derivatives stay out of public Git
+experiments/playable_flightcase/audio/crowd34/
