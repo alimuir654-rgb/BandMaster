@@ -37,6 +37,7 @@ static func valid(value: Variant) -> bool:
  if value.has(LAYOUT_KEY):
   var mark: Variant=value[LAYOUT_KEY]
   if not (mark is Dictionary and typeof(mark.get("version"))==TYPE_INT and mark.version==1 and typeof(mark.get("kind"))==TYPE_STRING and LAYOUTS.has(mark.kind)):return false
+  if mark.has("cut_variant") and (typeof(mark.cut_variant)!=TYPE_INT or mark.cut_variant<0 or mark.cut_variant>9999):return false
  return true
 
 static func layout_kind(value: Dictionary) -> String:
@@ -49,6 +50,16 @@ static func with_layout(value: Dictionary,kind: String) -> Dictionary:
  token["version"]=1;token["kind"]=kind;result[LAYOUT_KEY]=token
  result["font"]=str(LAYOUT_FACES[kind])
  return with_finish(result,"plain")
+
+static func next_cut(value: Dictionary) -> Dictionary:
+ var result: Dictionary=with_layout(value,"cutout")
+ if result.is_empty():return {}
+ var token: Dictionary=result[LAYOUT_KEY]
+ token["cut_variant"]=(int(token.get("cut_variant",0))+1)%10000
+ return result
+
+static func cut_variant(value: Dictionary) -> int:
+ return int(value.get(LAYOUT_KEY,{}).get("cut_variant",0)) if valid(value) else 0
 
 static func layout_text(value: String,logo: String,style: Dictionary,single_line: bool=false) -> String:
  var words: String=mark_text(value,logo)

@@ -52,4 +52,4 @@ static func render(host,parent: Node,compact: bool) -> void:
   var words: String=str({"create":"WRITE\nA SONG","recording":"RECORD\nA DEMO","promotion":"SPREAD\nTHE WORD"}.get(destination,entry.label))
   var label: Label=P.label(words,28,P.PAPER if P.stock_index(Color(entry.color)) in [2,3] else P.INK)
   label.add_theme_font_override("font",P.FONT)
-  label.name="CareerLauncherLabel_"+destination;label.horizontal_alignment=HORIZONTAL_ALIGNMENT_LEFT;label.size_flags_vertical=Control.SIZE_EXPAND_FILL;label.vertical_alignment=VERTICAL_ALIGNMENT_CENTER;box.add_child(label)
+  label.name="CareerLauncherLabel_"+destination;label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;label.size_flags_vertical=Control.SIZE_EXPAND_FILL;label.vertical_alignment=VERTICAL_ALIGNMENT_CENTER;box.add_child(label)

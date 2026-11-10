@@ -133,7 +133,8 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
  var hero: bool=layout_hint=="hero"
  var viewport_height: float=get_viewport_rect().size.y if is_inside_tree() else 844.0
  var selected_style: Dictionary=Style.effective(style,palette)
- var dark: bool=Style.dark_paper(selected_style)
+ var punch: bool=variant in ["complete","formation"]
+ var dark: bool=punch or Style.dark_paper(selected_style)
  var paper:=PanelContainer.new()
  paper.name="IdentityPressPaper"
  paper.size_flags_horizontal=Control.SIZE_EXPAND_FILL
@@ -143,7 +144,8 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
  stock.texture=PAPER
  stock.set_texture_margin_all(8.0)
  stock.set_content_margin_all(12.0 if tiny else 18.0)
- if dark: stock.modulate_color=Color("30352f")
+ if punch:stock=Poster.stock(Poster.INK,12 if tiny else 18)
+ elif dark: stock.modulate_color=Color("30352f")
  paper.add_theme_stylebox_override("panel",stock)
  add_child(paper)
  var content:=VBoxContainer.new()
@@ -153,13 +155,18 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
  var mast: Label=_ink("FIRST PRESS / THE FOUNDING LINEUP" if variant=="formation" else ("TURN IT UP. THIS IS YOUR BAND." if variant=="complete" else ("THE NAME IS YOURS" if variant=="milestone" else "LIVE IDENTITY PROOF")),12,true,dark)
  if variant=="career":mast.text="YOUR BAND / CURRENT LINEUP"
  mast.name="IdentityPressMasthead"
+ if punch:
+  mast.text="THE FIRST LINEUP / TURN IT UP"
+  mast.add_theme_color_override("font_color",Poster.GOLD)
+  mast.add_theme_font_size_override("font_size",14)
  content.add_child(mast)
  var mark:=Mark.new()
  mark.name="IdentityLiveMark"
  var points: int=(46 if tiny else 62) if compact else (54 if tiny else 72)
  if short and not compact: points=54
  if hero: points=62 if viewport_height<700.0 else (72 if short else 84)
- mark.configure(band_name,logo,selected_style,points,false,true)
+ if punch:points+=10
+ mark.configure(band_name,logo,selected_style,points,punch,true)
  content.add_child(mark)
  var full: Label=_ink(band_name,16,false,dark)
  full.add_theme_font_override("font",Style.face({"version":1,"font":"mono","ink":selected_style["ink"]}))
@@ -170,7 +177,8 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
  rule.name="IdentityPressRule"
  rule.color=Style.ink(selected_style)
  rule.custom_minimum_size.y=4.0 if variant=="complete" else 1.0
- if variant=="complete":rule.color=Color("c64c30")
+ if punch:
+  rule.color=Color("df5635");rule.custom_minimum_size.y=6.0
  rule.mouse_filter=Control.MOUSE_FILTER_IGNORE
  content.add_child(rule)
  var entries: Array=[]
@@ -224,7 +232,7 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
   room.texture=load(FORMATION_ROOM);room.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
   room.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED
   room.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-  room.mouse_filter=Control.MOUSE_FILTER_IGNORE;room.modulate=Color(0.74,0.74,0.74)
+  room.mouse_filter=Control.MOUSE_FILTER_IGNORE;room.modulate=Color(0.88,0.88,0.88) if punch else Color(0.74,0.74,0.74)
   stage.add_child(room)
  var views: Array[TextureRect]=[]
  for person in entries:
@@ -305,6 +313,7 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
  stage.resized.connect(layout)
  layout.call_deferred()
  var credit: Label=_ink(" · ".join(names).to_upper(),14,true,dark)
+ if punch:credit.add_theme_color_override("font_color",Poster.GOLD)
  credit.name="IdentityPressMembers"
  content.add_child(credit)
  var lead: Label
@@ -315,6 +324,7 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
   content.add_child(lead)
  var footer: Label=_ink("THE PEOPLE ARE IN PLACE. THE NAME COMES NEXT." if variant=="formation" else ("FIRST REHEARSAL. FIRST SONG. FIRST GIG." if variant=="complete" else ("ONE NAME. ONE BAND." if variant=="milestone" else "YOUR NAME. YOUR LOOK.")),16,false,dark)
  if variant=="career":footer.text="THE LINEUP, AS IT STANDS."
+ if punch:footer.add_theme_font_size_override("font_size",18)
  footer.name="IdentityPressFooter"
  content.add_child(footer)
  if surface_budget.x>0.0 and surface_budget.y>0.0 and _full_length:

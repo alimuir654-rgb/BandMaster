@@ -1031,6 +1031,9 @@ func _identity() -> void:
   var example: Dictionary=IdentityStyle.with_layout(style,kind)
   choice.add_theme_font_override("font",IdentityStyle.face(example));choice.add_theme_font_size_override("font_size",20)
   layouts.add_child(choice)
+ var recut: Button=_identity_button("ANOTHER CUT & PASTE VERSION",_identity_recut,"tab","IdentityRecutAction")
+ recut.custom_minimum_size.y=52;recut.disabled=IdentityStyle.layout_kind(style)!="cutout"
+ controls.add_child(recut)
  controls.add_child(_label("TYPE DIRECTION",16))
  var type_grid:=GridContainer.new()
  type_grid.columns=2
@@ -1112,6 +1115,11 @@ func _identity() -> void:
   footer.add_child(commit_notice)
  footer.add_child(_identity_button("APPLY LOOK & FORM THE BAND ›",_finish,"action","IdentityFinishAction"))
  footer.add_child(_identity_button("BACK TO MENU",_home,"tab","IdentityBackAction"))
+
+func _identity_recut() -> void:
+ if setup.screen!="identity" or identity_draft.is_empty() or IdentityStyle.layout_kind(identity_draft["style"])!="cutout":return
+ identity_draft["style"]=IdentityStyle.next_cut(identity_draft["style"])
+ _refresh_identity_preview("IdentityRecutAction")
 
 func _identity_choose(family: String,value: String) -> void:
  if setup.screen!="identity" or identity_draft.is_empty(): return
