@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "id": "DELIVER46",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "d11f739e4ea4ffe10f4fbfd0399692a704e6df46",
+  "owner_request": "Owner cannot download local APK and explicitly asks to split load as before or use another route; confirmed Android phone. Deliver the exact signed V24 privately through usable small multipart archives and simple phone extraction, preserving APK/audio privacy and original app/signature.",
+  "dominant_issue": "BM-40",
+  "lesson_ids": [
+    "BM-13",
+    "BM-34",
+    "BM-40"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2178743,
+    "sha256": "68fb6ef95b69dbdf9116edcb00507f541027fe00a9df62809a185a007e59011f"
+  },
+  "target": {
+    "locator": "experiments/playable_flightcase/art/crowd34.png",
+    "original_sha256": "e9efabc9554f81367b061045dbeb3c2725e689aa465aa12ba7cf88a5427cb44b",
+    "pixels_inspected": true,
+    "note": "Previously opened unchanged crowd atlas and native journey. Audio-only restoration; no UI/source-art modifications."
+  },
+  "controlled_comparison": "Every archive volume hash and completearchive extractedAPK SHA must reproduce signedV24 a46446c507ba165fc79dc70dbadb73fe4861f04d71b3710e073afbee2f4bca66 /461783381bytes. Upload completed+remoteDropboxcontenthash for each smallpart; directlocalfile unavailable toowner is no longer treated as completeddelivery.",
+  "hypothesis": "A standard multipart7z archive split into <=48MiB transport volumes avoids the failed461MB ChatGPTblob-upload request. AndroidZArchiver can extract the single original APK without acomputer, scripts, signing or appchanges.",
+  "stop_condition": "No unsignedAPK rebuild/key/request/app/save changes or publicownersaudio hosting. No wholefileadapter retry unchanged; bounded smallpartuploads and changed technique on repeated samefailures. Do not count parts as separately installable apps. FrozenV23 retained.",
+  "allowed_paths": [
+    "tools/package_delivery46.py",
+    "docs/continuous_improvement/**",
+    "docs/signing/README.md",
+    "docs/handover/START_HERE.md",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "Hash retainedsignedAPK, preserve frozenV23/request/policy andoriginalsignature; no actualgamechanges",
+    "Standard7zip archive test and clean extraction reproduce exactoriginalAPK SHA/size; safeonefilecontents and orderedvolumes",
+    "Bounded2concurrent smallpartDropboxuploads into existingprivateBandMaster folder; metadata/fileID/size/remotecontenthashmatch; completefolderreadback; phone-readable instructions uploaded",
+    "Source-only expected-head nonforcefeaturepublication andactual improvementgate; no privatearchive/APK/audio inGit"
+  ],
+  "resource_plan": {
+    "evidence_root": "/workspace/bandmaster-deliver46",
+    "signed_APK": "/workspace/bandmaster-build43/BandMaster-Playtest-v24-arm64.apk",
+    "archive_volume_bytes_max": 50331648,
+    "owner_device": "Android phone",
+    "new_APK_export": false,
+    "private_key_used_here": false
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active"
+  },
+  "started_at": "2026-11-10T20:29:20.455612+00:00"
+}
