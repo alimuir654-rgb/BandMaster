@@ -44,6 +44,7 @@ func run() -> void:
  composition=mark.get_node_or_null("MarkComposition")
  check(composition!=null and composition.get_meta("cut_variant")==1,"new variant actually rendered")
  await reveal(mark);await capture("cutout-second")
+ check(scene.identity_draft.style.font=="mono","regenerated typeface is reflected in the actual saved draft")
  var draft: Dictionary=scene.identity_draft.duplicate(true)
  var disk: PackedByteArray=FileAccess.get_file_as_bytes(Owner.SAVE_PATH)
  var blocker: String=ProjectSettings.globalize_path(Owner.SAVE_PATH+".identity-tmp")

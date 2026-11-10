@@ -137,7 +137,8 @@ func _compose_cutout(font: Font) -> bool:
   for token in rows[row_index]:
    var width: float=token.width
    if token.text!=" ":
-    var material: Color=Poster.INK if index%3==1 else (Poster.GOLD if index%5==0 else Poster.PAPER)
+    var pattern: int=index+Style.cut_variant(identity_style)
+    var material: Color=Poster.INK if pattern%3==1 else (Poster.GOLD if pattern%5==0 else Poster.PAPER)
     var plate:=PanelContainer.new();plate.name="MarkCut_%d"%index;plate.mouse_filter=Control.MOUSE_FILTER_IGNORE
     plate.add_theme_stylebox_override("panel",Poster.control_stock(material,2))
     plate.position=Vector2(x,top+row_index*row_height+random.randf_range(-1.5,1.5));plate.size=Vector2(width,row_height-3.0)

@@ -56,6 +56,8 @@ static func next_cut(value: Dictionary) -> Dictionary:
  if result.is_empty():return {}
  var token: Dictionary=result[LAYOUT_KEY]
  token["cut_variant"]=(int(token.get("cut_variant",0))+1)%10000
+ var faces: Array=["blockprint","mono","condensed","handpainted","stencil"]
+ result["font"]=faces[int(token.cut_variant)%faces.size()]
  return result
 
 static func cut_variant(value: Dictionary) -> int:
