@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "SIGN45",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "50fffa7ba66991d1babf37807bc632a52947e026",
   "owner_request": "Owner returned the exact V24 detached RSA signature. Verify against audited request and original public certificate, assemble the retained unsigned V24 without rebuilding or key access, run final official Android audits and provide the completed private test build.",
@@ -17,8 +17,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2174618,
-    "sha256": "93b16f0a22ab14bc231e1072289fc24b9c7ccdca764282ce599fe95b7dd6b72a"
+    "bytes": 2178743,
+    "sha256": "68fb6ef95b69dbdf9116edcb00507f541027fe00a9df62809a185a007e59011f"
   },
   "target": {
     "locator": "experiments/playable_flightcase/art/crowd34.png",
@@ -53,7 +53,15 @@
   },
   "writer": {
     "owner": "root",
-    "status": "active"
+    "status": "released"
   },
-  "started_at": "2026-11-10T20:15:00.867514+00:00"
+  "started_at": "2026-11-10T20:15:00.867514+00:00",
+  "completed_at": "2026-11-10T20:24:57.408097+00:00",
+  "closeout": {
+    "tested_sha": "462b68ad7211a639bea204a6ab0d94f4fd942875",
+    "evidence": "docs/continuous_improvement/SIGN45_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Install signed V24 as an in-place update without uninstalling or clearing storage, then review crowd/vocal/legacy audio and saved-game Continue on the owner device.",
+    "new_issue_review": "Private helper syntax refusal retained/corrected before6727strict checks. Signature/official/finalpayload gates pass withoutweakening. Dropboxadaptertimeoutretained as unresolveddeliverylimit, directlocalAPKready. No newUI/runtime/listening/device/artapprovalclaim."
+  }
 }

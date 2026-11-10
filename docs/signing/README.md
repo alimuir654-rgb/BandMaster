@@ -12,7 +12,35 @@ The helpers use Python 3 with the existing `cryptography` dependency and Java 17
 `tools/detached_apk_v2.py` already prepares/assembles APK-v2 blocks and requires
 official Android `apksigner`, `zipalign`, app/version and unchanged-payload checks.
 
-## Current handoff — V24 ready for the original environment
+## V24 complete — signed APK ready
+
+The original environment returned the matching V24 signature. It verifies against
+the exact request and unchanged original public certificate. Assembly and a separate
+final audit pass official Android `apksigner`, 16 KiB alignment, app/version/SDK,
+ZIP CRC and byte-identical payload checks. No APK rebuild or private-key use here.
+
+- Private local APK: `/workspace/bandmaster-build43/BandMaster-Playtest-v24-arm64.apk` (461,783,381 bytes).
+- Signed APK SHA-256: `a46446c507ba165fc79dc70dbadb73fe4861f04d71b3710e073afbee2f4bca66`.
+- Original certificate: `83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2`.
+- Packaged source: `462b68ad7211a639bea204a6ab0d94f4fd942875`; version24, app `com.bandmaster.ownerplaytest.s40`.
+- Returned public response: `BandMaster-V24-signature-response.json`, SHA-256 `82dc9de589ed686bb35e2e8e3ba74cf5da183cb04b837ae27bea167134bffc50`.
+- Full receipt: `../continuous_improvement/SIGN45_RESULTS.json`.
+
+Dropbox upload to `/BandMaster/BandMaster-Playtest-v24-arm64.apk` failed before handoff: the ChatGPT file adapter
+timed out after 300 seconds uploading the source blob. A fresh complete folder
+listing confirms the APK is absent there. The verified local APK is ready for
+direct download; no public hosting or sharing changes were used. All 2,269 ZIP
+entries and 2,157 compiled payload assets are unchanged from the tested BUILD43 APK;
+its prior desktop model/four-viewport proof is retained, not claimed as a new run.
+The unsigned APK, request/policy and frozenV23 remain unchanged. Audio/APK stay
+outside public Git; the response contains only a public detached signature.
+
+**Owner next step:** install V24 as an update over the existing app; do not
+uninstall or clear storage. Review actual phone playback and saved-game Continue.
+Physical Android/listening and global artwork acceptance remain unverified here.
+No further original-key signing action is needed for this exact V24 build.
+
+## Previous handoff — V24 request preparation
 
 All requested audio is restored. The combined **V24** unsigned APK includes the
 approved real crowd recordings, three bound-vocal songs and restored older banks.

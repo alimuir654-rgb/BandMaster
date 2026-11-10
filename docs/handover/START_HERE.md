@@ -7,7 +7,31 @@ Read `AGENTS.md`, the improvement check/lessons, and
 `docs/continuous_improvement/CURRENT.json` before changes. Use one writer and a fresh scoped preflight.
 Historical overnight deadlines and older branch/build instructions do not supersede this handover.
 
-## Latest handoff — HANDOFF44 remote delivery verified
+## Latest continuation — SIGN45 / signed V24 ready
+
+V24 is now signed with the returned original-environment signature and ready
+for direct private download (461,783,381 bytes).
+SHA `a46446c507ba165fc79dc70dbadb73fe4861f04d71b3710e073afbee2f4bca66`. The returned signature, final official
+apksigner/original certificate, 16 KiB alignment, app/version/SDK/CRC and complete
+unchanged payload checks pass. The Dropbox source-file adapter timed out after 300s
+before handoff; complete folder listing confirms APK absent there. Do not claim
+Dropbox delivery or repeatedly retry an unchanged transfer. The direct local APK remains ready.
+Read `docs/continuous_improvement/SIGN45_RESULTS.json` and `docs/signing/README.md`.
+
+Actual packaged source `462b68ad7211a639bea204a6ab0d94f4fd942875` unchanged; 2,269 ZIP entries
+and 2,157 compiled assets match the previously tested BUILD43 payload byte for byte. No rebuild,
+request/policy change, private-key use, audio/APK publication, sharing change or new
+runtime/listening/Android device claim. The public response is retained in
+`docs/signing/BandMaster-V24-signature-response.json`. FrozenV23 stays unchanged.
+
+Current private APK: `/workspace/bandmaster-build43/BandMaster-Playtest-v24-arm64.apk`;
+audit/evidence `/workspace/bandmaster-sign45/`. Only next action: owner installs as
+an in-place update and reviews device audio and saved-game Continue. Do not uninstall or clear
+storage. No further signing handoff is needed for this exact build. Writer released;
+global owner artwork approval remains false. Older unsigned/signature-pending states
+below are historical.
+
+## Previous handoff — HANDOFF44 remote delivery verified
 
 The exact V24 public request is uploaded to Dropbox
 `/BandMaster/BandMaster-V24-APK-v2-signing-request.json` (7,781bytes). Rawdownload

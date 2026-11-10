@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "session": "SIGN45",
+  "completed_at": "2026-11-10T20:24:57.408097+00:00",
+  "tested_sha": "462b68ad7211a639bea204a6ab0d94f4fd942875",
+  "status": "signed_V24_original_certificate_verified_direct_APK_ready_Dropbox_adapter_timeout",
+  "owner_approved": false,
+  "signature_validation": {
+    "request_id": "e07c0d3f39b746b4cdcf6f9da50fb9a45b2dcb5c788f35de496fee9ed8dd63a5",
+    "response_sha256": "82dc9de589ed686bb35e2e8e3ba74cf5da183cb04b837ae27bea167134bffc50",
+    "request_sha256": "8072969d2d165075f5cf7df30aa118ed95232b8c7b71d10c2c3b732b02cc191b",
+    "signed_data_sha256": "97f109b3be35b32f2b20e4e04efba4c1fe7dd49a71d908aa4f747882c66ae35e",
+    "original_certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "RSA_signature_bytes": 256,
+    "RSA_signature_verified": true,
+    "private_key_used_here": false,
+    "APK_rebuilt": false
+  },
+  "assembly_audit": {
+    "request_id": "e07c0d3f39b746b4cdcf6f9da50fb9a45b2dcb5c788f35de496fee9ed8dd63a5",
+    "signed_apk_sha256": "a46446c507ba165fc79dc70dbadb73fe4861f04d71b3710e073afbee2f4bca66",
+    "signed_apk_size": 461783381,
+    "original_certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "version_code": 24,
+    "minimum_sdk": 24,
+    "official_apksigner_verified": true,
+    "alignment_16kb": true,
+    "payload_unchanged": true,
+    "unsigned_original_unchanged": true,
+    "private_key_used_here": false,
+    "physical_device_tested": false,
+    "official_verifier_output": "Verifies\nVerified using v1 scheme (JAR signing): false\nVerified using v2 scheme (APK Signature Scheme v2): true\nVerified using v3 scheme (APK Signature Scheme v3): false\nVerified using v3.1 scheme (APK Signature Scheme v3.1): false\nVerified using v4 scheme (APK Signature Scheme v4): false\nVerified for SourceStamp: false\nNumber of signers: 1\nSigner #1 certificate DN: CN=BandMaster Owner Playtest, O=BandMaster, C=GB\nSigner #1 certificate SHA-256 digest: 83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2\nSigner #1 certificate SHA-1 digest: 7c4b5c94522ebeba8360dba8053c84fd2d775130\nSigner #1 certificate MD5 digest: e85fd2e8d4c9cb5deccb8956eb1e29b1\nSigner #1 key algorithm: RSA\nSigner #1 key size (bits): 2048\nSigner #1 public key SHA-256 digest: 2420d32d076dcbdc11b4ca06f09009f18090ca08107755d827fe0506eeaabe5d\nSigner #1 public key SHA-1 digest: 0cc463deab85bd1fa1e083d1576267d12ed27fc7\nSigner #1 public key MD5 digest: ffcb0b436b1d0992bbec1f87e176ade2\n"
+  },
+  "independent_final_audit": {
+    "checks": 6727,
+    "failures": [],
+    "source_sha": "462b68ad7211a639bea204a6ab0d94f4fd942875",
+    "signed_APK": {
+      "path": "/workspace/bandmaster-build43/BandMaster-Playtest-v24-arm64.apk",
+      "bytes": 461783381,
+      "sha256": "a46446c507ba165fc79dc70dbadb73fe4861f04d71b3710e073afbee2f4bca66",
+      "Dropbox_content_hash": "96bf0dc779b1687678883a034a037dfffdd6349f648698e1691f1e8fba8e3b66"
+    },
+    "unsigned_APK_sha256": "e957cd727a2a584942c07170a7d298468017ec428f73754af82613b11a93a5f1",
+    "original_certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "official_apksigner_verified": true,
+    "official_zipalign_16KiB_verified": true,
+    "app_id": "com.bandmaster.ownerplaytest.s40",
+    "version_code": 24,
+    "version_name": "0.154.0-playtest-crowd-vocals",
+    "minimum_sdk": 24,
+    "target_sdk": 36,
+    "save_directory": "BandMasterOwnerPlaytestS40",
+    "entry_scene": "experiments/playable_flightcase/opening.tscn",
+    "permissions": [],
+    "abis": [
+      "arm64-v8a"
+    ],
+    "payload_entries": 2269,
+    "payload_byte_identical": true,
+    "previously_tested_compiled_APK_assets_byte_identical": 2157,
+    "private_key_used_here": false,
+    "physical_device_tested": false,
+    "new_listening_test": false,
+    "APK_rebuilt": false,
+    "only_signing_block_and_required_EOCD_offset_added": true,
+    "frozen_V23_unchanged": true
+  },
+  "private_delivery": {
+    "status": "local_verified_APK_ready_Dropbox_adapter_timeout",
+    "local_path": "/workspace/bandmaster-build43/BandMaster-Playtest-v24-arm64.apk",
+    "intended_Dropbox_path": "/BandMaster/BandMaster-Playtest-v24-arm64.apk",
+    "Dropbox_completed": false,
+    "Dropbox_operation_id_received": false,
+    "adapter_timeout_ms": 300000,
+    "remote_post_attempt_metadata": "NOT_FOUND",
+    "remote_post_attempt_complete_folder_listing_APK_absent": true,
+    "remote_folder_listing_entries": 18,
+    "checked_at": "2026-11-10T20:24:19.148657+00:00",
+    "no_sharing_changed": true,
+    "public_APK_or_audio_upload": false
+  },
+  "reused_exact_payload_evidence": {
+    "source": "462b68ad7211a639bea204a6ab0d94f4fd942875",
+    "record": "docs/continuous_improvement/BUILD43_RESULTS.json",
+    "record_sha256": "5791f60c4960bbf4d810c181b1f7fa629ac14aa5ed378a1c76990706cc4ed881",
+    "verification_sha256": "e3c61f18f1f34f4fd322ed1d69c4971f4c925b0e9d93c6e89842e1ea724d8fb6",
+    "compiled_model": 500,
+    "native_checks": 416,
+    "native_viewports": 4,
+    "focused_Settings": 10,
+    "payload_metadata": 69,
+    "public_signer_tests": 17,
+    "total_previous_checks": 1012,
+    "original_PNGs_retained": 62,
+    "original_PNG_files_previously_opened": 15,
+    "new_runtime_or_listening_tests": false,
+    "all_2157_compiled_asset_bytes_rechecked_against_exact_prior_tested_APK_proof": true,
+    "all_2269_ZIP_payload_entries_identical": true
+  },
+  "private_evidence_root": "/workspace/bandmaster-sign45",
+  "public_files_changed": [
+    "docs/signing/BandMaster-V24-signature-response.json",
+    "docs/signing/README.md",
+    "docs/handover/START_HERE.md",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "retained_failure_history": [
+    {
+      "issue": "Independent private audit helper contained an extra closing parenthesis; Python refused before any checks.",
+      "evidence": "/workspace/bandmaster-sign45/independent-audit-syntax-attempt.log",
+      "resolution": "Failed log retained. Corrected only helper syntax, compiled it before execution, then all6727strict integrity checks passed; no product/APK/request/check weakening."
+    },
+    {
+      "issue": "Dropbox source_file adapter upload of461783381byteAPK to OpenAI blob storage timed out after300000ms beforeDropboxhandoff; nooperationID/completedresponse.",
+      "evidence": "/workspace/bandmaster-sign45/Dropbox-upload-adapter-timeout.json",
+      "resolution": "Local verified APK retained for directdownload. Exact remote path returnedNOT_FOUND; complete fresh18entryfolderlisting confirms APKabsent. No publicaudiohosting, sharingchange or samefailedtransferloop. Dropboxdelivery remains incomplete."
+    }
+  ],
+  "simulated_review_lenses": {
+    "signing": "SIMULATED: supplied256byteRSA signature binds exactV24request/message/originalcertificate, then fresh officialapksigner on assembled APK passes. Originalprivatekey neverloaded/exportedhere.",
+    "release_identity": "SIMULATED: same appID/save/entry, V24arm64/API24+target36,16KiB alignment/no permissions; final APK SHA andlocalDropboxblockhash computed. RemoteDropboxuploadtimedout beforehandoff. Physicalupdate not performed here.",
+    "provenance_privacy": "SIMULATED: source462 unchanged, no rebuild; only publicresponse/docs inGit. Audio/APK remain private workspace artifacts; attempted establishedDropboxdelivery failed beforehandoff, no sharinggrant/publiclink changes. FrozenV23/request/policy untouched.",
+    "gameplay_save": "SIMULATED: every finalZIPpayload/compiledasset byte matches testedBUILD43; previous realpaidstage/save-fail/retry/reload/once-only checks apply to exactpayload; not new device proof.",
+    "audio_visual": "SIMULATED: approved crowd andvocalbanks plusrestoredlegacy media included in unchanged testedpayload; approvedsourceacceptance retained. No newlistening, rendering orglobalartapproval."
+  },
+  "images_opened_this_signature_task": [],
+  "visual_verdict": "partial; unchangedBUILD43nativeproof reused exactly, no UI/art changes or fresh renders",
+  "limitations": [
+    "Owner physical Android update/save retention and actual audio/listening remain to be reviewed.",
+    "No new artwork acceptance; owner_approved stays false.",
+    "The first BUILD43 editor import incident remains retained historical evidence; its unused default debug key was removed before export. No originalprivatekey was accessed in this assembly task.",
+    "Dropbox APK delivery did not complete: source_file adapter blob upload timed out beforeDropboxhandoff. Direct local APK download is available; no further signing or rebuilding needed."
+  ],
+  "next_action": "Install signed V24 as an in-place update without uninstalling or clearing storage, then review crowd/vocal/legacy audio and saved-game Continue on the owner device."
+}
