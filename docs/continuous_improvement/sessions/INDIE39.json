@@ -19,8 +19,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2146144,
-    "sha256": "baed21d7814ad3d7e8b0a33d70bef1a2704676da13ccde8048278aae1b25bf17"
+    "bytes": 2149318,
+    "sha256": "cae22131e0c82aaad95cfd4086a0e97abbe5bce742362572dceeb0ff9d01c2e4"
   },
   "target": {
     "locator": "experiments/playable_flightcase/art/crowd34.png",
@@ -49,7 +49,8 @@
     "docs/audio/**",
     "docs/handover/START_HERE.md",
     "docs/continuous_improvement/**",
-    "docs/asset_base/LEDGER.md"
+    "docs/asset_base/LEDGER.md",
+    "experiments/playable_flightcase/session.gd"
   ],
   "validation_commands": [
     "improvement_gate priorrecord/scoped checks",
