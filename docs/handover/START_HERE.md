@@ -7,7 +7,45 @@ Read `AGENTS.md`, the improvement check/lessons, and
 `docs/continuous_improvement/CURRENT.json` before changes. Use one writer and a fresh scoped preflight.
 Historical overnight deadlines and older branch/build instructions do not supersede this handover.
 
-## Latest continuation — INDIE39
+## Latest continuation — CROWD40
+
+The owner supplied all four approved crowd MP3s in chat. **The crowd bank is now
+complete**; the previous three-file acquisition blocker is resolved by these
+uploads. No further crowd download or environment allowance is needed for this bank.
+
+Source `4220499c1cdb6fff964e62d19a6de0b79625d21f`; read
+`docs/continuous_improvement/CROWD40_RESULTS.json`. Exact source hashes are pinned
+in `docs/audio/CROWD37_SOURCES.json`. Private originals/receipt, complete prepared
+bank and evidence are at `/workspace/bandmaster-crowd40/`; worktree and isolated
+QA project both contain the complete ignored `audio/crowd37/` bank.
+Run `tools/prepare_crowd37.py prepare --sources <private originals> --output <new directory>`
+to restore it offline. The pub upload matches the earlier official SHA; the three
+BigSoundBank files are owner uploads, not newly verified network downloads.
+
+Entrance2479, between-song2486, courtesy3521 and final cheer35748 use short real
+recordings. Courtesy starts at2.0s to include active applause. An initial FFmpeg
+seek/fade ordering defect was caught numerically and corrected with explicit
+trim/reset before fades; independent PCM comparison now checks every derivative.
+Both early attempts remain in private evidence. Required CC BY credit remains
+packaged and visible in Settings. No rejected boo is included.
+
+Final **495checks pass**:48source/preparation,7compatibility,60Godot decoder/lifecycle
+and380native. Four real main-app gig journeys use the paid Maya/Freya version5
+song, verify stage overlap/courtesy, failed-save rollback, held-source interruption,
+Menu/Continue no replay and exact reload. The one-song fixture earns a poor-show
+verdict, correctly leaving its unapproved boo silent; positive cheer is tested
+in the real-stream component proof.48original PNGs retained,12opened. No new
+assistant listening or physical Android claim; derivative listening remains unverified.
+
+**No APK or signing request was created.** The crowd preflight now passes for
+version24, but older private music banks and the Android SDK are absent here.
+Next restore those retained private banks into a fresh build workspace, audit
+the whole combined version24 package, then create a NEW detached-signing request.
+Keep frozenV23/request unchanged, app ID/save folder unchanged and the existing
+key in its original environment. Owner audio stays outside public GitHub.
+Writer released; global artwork approval remains false.
+
+## Previous continuation — INDIE39
 
 The owner approved the displayed **first** sparse/full excerpts for all three
 songs. These are now integrated privately: Maya/Freya — Get the Good Plates Down,
@@ -32,8 +70,8 @@ saves: `/workspace/bandmaster-indie39/`; QA project remains
 `/workspace/bandmaster-crowd36/project`. This is desktop source/native proof,
 not new assistant listening, physical Android proof or global artwork approval.
 
-**No new APK or signing request.** Crowd37 still needs the three approved
-BigSoundBank recordings; complete that batch before the next combined build.
+At the INDIE39 checkpoint there was **no new APK or signing request**, and Crowd37
+still needed three recordings. CROWD40 above completes that bank.
 Keep V23/request unchanged, use a new audited version>23 request, preserve app ID
 and sign only with the existing key in its original environment. All owner music
 and derivatives remain outside public GitHub. Writer released.
@@ -110,8 +148,8 @@ not Git attachments. All original app/key/privacy/frozenV23 rules below remain.
 - Crowd pass: **331 model + 808 native assertions**, four viewport sizes, 76 final original PNGs.
   All final checks pass; early failed evidence retained. Independent AI source/pixel review,
   **not** human testing, listening, physical Android verification or owner artwork acceptance.
-- **Actual cheers/boos are still missing.** The fade/manifest path exists; absent clips stay silent.
-  Do not describe crowd audio as complete or substitute generated noise.
+- Historical CROWD34 evidence lacked actual crowd clips. CROWD40 above now supplies
+  all four approved sources; no new boo was approved, so that cue stays silent.
 
 ## Next work
 

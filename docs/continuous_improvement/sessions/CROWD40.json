@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "CROWD40",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "e3b5f6a1bfa2b1c41bc5d855b644b2eee75ff14e",
   "owner_request": "Owner supplied all four approved crowd MP3 attachments after completion was held for the missing three sources. Complete private crowd intake/preparation and verify with approved version5 song before the next combined build; preserve private music/app/key/frozenV23.",
@@ -19,8 +19,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2159257,
-    "sha256": "4ef66d59ac2a0da63eeb03f07a51edf58ded93282f69c128d965601bde58276e"
+    "bytes": 2160769,
+    "sha256": "4f65b4ca2ac6eb7f2c874d04394f99997bf9ba9cb7e78dff28bcb45fe768340d"
   },
   "target": {
     "locator": "experiments/playable_flightcase/art/crowd34.png",
@@ -53,7 +53,15 @@
   },
   "writer": {
     "owner": "root",
-    "status": "active"
+    "status": "released"
   },
-  "started_at": "2026-11-10T15:22:53.936769+00:00"
+  "started_at": "2026-11-10T15:22:53.936769+00:00",
+  "completed_at": "2026-11-10T15:36:07.074069+00:00",
+  "closeout": {
+    "tested_sha": "4220499c1cdb6fff964e62d19a6de0b79625d21f",
+    "evidence": "docs/continuous_improvement/CROWD40_RESULTS.json",
+    "visual_verdict": "partial",
+    "new_issue_review": "Quiet leading excerpt and output-seek/fade ordering diagnosed numerically, retained and corrected with explicit timeline and independent PCM comparison. All final checks pass; listening/physical device and full new package remain separate.",
+    "next_action": "Restore the retained older private music banks into a fresh build workspace, materialize and audit the combined version24 candidate, then create a NEW request for detached signing in the original key environment. Preserve frozenV23 and its request."
+  }
 }

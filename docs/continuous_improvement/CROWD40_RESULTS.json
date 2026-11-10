@@ -1,0 +1,523 @@
+{
+  "schema_version": 1,
+  "session": "CROWD40",
+  "completed_at": "2026-11-10T15:36:07.074069+00:00",
+  "tested_sha": "4220499c1cdb6fff964e62d19a6de0b79625d21f",
+  "baseline_sha": "e3b5f6a1bfa2b1c41bc5d855b644b2eee75ff14e",
+  "preflight_sha": "d8e24218cb67c3a43b19b18df3d6f65fb0ac04a9",
+  "branch": "feature/playtest-polish-v20",
+  "status": "complete_private_crowd_bank_combined_native_verified_no_APK",
+  "owner_approved": false,
+  "source_specific_approval": "The four CROWD37 table sources were already explicitly approved. Owner supplied their MP3s in this turn. No new source or rejected boo is introduced.",
+  "acquisition": "Four exact owner attachments, copied byte-for-byte into private originals. Freesound35748 equals the previous official-download SHA. Three BigSoundBank source IDs are supplied by the owner, with filename/metadata consistent with approved sources; no new direct-download verification claimed.",
+  "private_root": "/workspace/bandmaster-crowd40",
+  "manifest_sha256": "bf18a8044a6f1bc5b958fe04bf5bf0ae87afc6d5185372462f99dc2a9ab2307e",
+  "complete": true,
+  "sources": [
+    {
+      "id": "2479",
+      "filename": "2479.mp3",
+      "bytes": 157005,
+      "sha256": "99ad29b28418a0ca637d1f2b5076c161ac557941f9bdddc3b930112c872ddd99"
+    },
+    {
+      "id": "2486",
+      "filename": "2486.mp3",
+      "bytes": 192141,
+      "sha256": "af86396fbc9e38bacffc85899356f533ccacce1cc7aae79681d296cb80d2f6c5"
+    },
+    {
+      "id": "3521",
+      "filename": "3521.mp3",
+      "bytes": 329640,
+      "sha256": "8902d0e04b1a5085318f35bff9c010cb7bff03e929b0773f90003aa0c882dbc1"
+    },
+    {
+      "id": "35748",
+      "filename": "35748_14771-lq.mp3",
+      "bytes": 156120,
+      "sha256": "e204241a600caebf06ee504a642e7d324fa7d60c638f6e58d8929d12d4f24d2c"
+    }
+  ],
+  "derivatives": [
+    {
+      "path": "res://experiments/playable_flightcase/audio/crowd37/entrance.ogg",
+      "sha256": "674fd39193c32300a6527a210710d29a1531f2e403c39a76884726b862989a54",
+      "source_id": "2479",
+      "source_sha256": "99ad29b28418a0ca637d1f2b5076c161ac557941f9bdddc3b930112c872ddd99",
+      "source_page": "https://bigsoundbank.com/applause-concert-bar-1-s2479.html",
+      "source_url": "https://bigsoundbank.com/UPLOAD/mp3/2479.mp3?v=d",
+      "creator": "Joseph SARDIN",
+      "title": "Applause Concert Bar #1",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "owner_source_listening_accepted": true,
+      "integration_review_accepted": true,
+      "authority": "owner_approved_table_20261110",
+      "source_type": "approved source MP3, not original WAV master",
+      "source_start_seconds": 0.0,
+      "duration_seconds": 3.6,
+      "sample_rate": 48000,
+      "gain_db": -9.926624,
+      "modifications": "Excerpt, level adjustment, fades and Vorbis encoding",
+      "output_rms_dbfs": -24.124496199657433,
+      "output_peak_dbfs": -10.255524036176965,
+      "source_excerpt_rms_dbfs": -14.073376434588639,
+      "source_excerpt_peak_dbfs": -0.3745668501264917
+    },
+    {
+      "path": "res://experiments/playable_flightcase/audio/crowd37/song.ogg",
+      "sha256": "c16e9bbefabac351105e2f1efa4957c0c65d31db806fea8132f52be6dbd21d9d",
+      "source_id": "2486",
+      "source_sha256": "af86396fbc9e38bacffc85899356f533ccacce1cc7aae79681d296cb80d2f6c5",
+      "source_page": "https://bigsoundbank.com/applause-concert-bar-8-s2486.html",
+      "source_url": "https://bigsoundbank.com/UPLOAD/mp3/2486.mp3?v=d",
+      "creator": "Joseph SARDIN",
+      "title": "Applause Concert Bar #8",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "owner_source_listening_accepted": true,
+      "integration_review_accepted": true,
+      "authority": "owner_approved_table_20261110",
+      "source_type": "approved source MP3, not original WAV master",
+      "source_start_seconds": 0.0,
+      "duration_seconds": 3.2,
+      "sample_rate": 48000,
+      "gain_db": -5.447642,
+      "modifications": "Excerpt, level adjustment, fades and Vorbis encoding",
+      "output_rms_dbfs": -24.07077682561356,
+      "output_peak_dbfs": -6.455143410365815,
+      "source_excerpt_rms_dbfs": -18.552358439988154,
+      "source_excerpt_peak_dbfs": -0.4344765510259976
+    },
+    {
+      "path": "res://experiments/playable_flightcase/audio/crowd37/courtesy.ogg",
+      "sha256": "07e7e432d206ae66eb572d410d5bc8324e42e5769ba9397e4a536e7c7f970b62",
+      "source_id": "3521",
+      "source_sha256": "8902d0e04b1a5085318f35bff9c010cb7bff03e929b0773f90003aa0c882dbc1",
+      "source_page": "https://bigsoundbank.com/applause-from-40-people-5-s3521.html",
+      "source_url": "https://bigsoundbank.com/UPLOAD/mp3/3521.mp3?v=d",
+      "creator": "Joseph SARDIN",
+      "title": "Applause from 40 People #5",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "owner_source_listening_accepted": true,
+      "integration_review_accepted": true,
+      "authority": "owner_approved_table_20261110",
+      "source_type": "approved source MP3, not original WAV master",
+      "source_start_seconds": 2.0,
+      "duration_seconds": 3.6,
+      "sample_rate": 48000,
+      "gain_db": -1.983945,
+      "modifications": "Excerpt, level adjustment, fades and Vorbis encoding",
+      "output_rms_dbfs": -32.6592712887718,
+      "output_peak_dbfs": -3.3084911738991774,
+      "source_excerpt_rms_dbfs": -30.304279985463744,
+      "source_excerpt_peak_dbfs": -1.0160552538236403
+    },
+    {
+      "path": "res://experiments/playable_flightcase/audio/crowd37/cheer.ogg",
+      "sha256": "d276b5de7fbd7aa3ca878f0fa75197327bb019369fc1bccf5211c264fc7428a2",
+      "source_id": "35748",
+      "source_sha256": "e204241a600caebf06ee504a642e7d324fa7d60c638f6e58d8929d12d4f24d2c",
+      "source_page": "https://freesound.org/people/sandyrb/sounds/35748/",
+      "source_url": "https://cdn.freesound.org/previews/35/35748_14771-lq.mp3",
+      "creator": "sandyrb",
+      "title": "CROWD NOISE IN SMALL VENUE 001.wav",
+      "license": "CC-BY-4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "owner_source_listening_accepted": true,
+      "integration_review_accepted": true,
+      "authority": "owner_approved_table_20261110",
+      "source_type": "approved source MP3, not original WAV master",
+      "source_start_seconds": 0.0,
+      "duration_seconds": 6.0,
+      "sample_rate": 24000,
+      "gain_db": -4.265129,
+      "modifications": "Excerpt, level adjustment, fades and Vorbis encoding",
+      "attribution_path": "res://experiments/playable_flightcase/audio/crowd37_credits.txt",
+      "attribution_sha256": "e5c0df80bb6186b81826295b44d2adbd8640ccf1f8d9f9688674ec9b564a8b9a",
+      "output_rms_dbfs": -24.00398016005985,
+      "output_peak_dbfs": -7.918687371519226,
+      "source_excerpt_rms_dbfs": -19.73487055744171,
+      "source_excerpt_peak_dbfs": -3.319348004242885
+    }
+  ],
+  "transforms": "Approved short excerpts; modest peak-safe gain, explicit trim and reset timestamps before fades, stereo Vorbis. Courtesy3521 uses source2.0..5.6s; other cues start at0. Original MP3s unchanged.",
+  "checks": {
+    "real_source_preparation_and_guards": 48,
+    "existing_partial_and_preservation_compatibility": 7,
+    "Godot_real_cue_decoder_lifecycle": 60,
+    "native_each": 95,
+    "native_total": 380,
+    "total": 495,
+    "viewports": [
+      "(390, 844)",
+      "(1280, 720)",
+      "(720, 1280)",
+      "(1600, 900)"
+    ],
+    "original_PNGs": 48,
+    "original_PNGs_opened": 12,
+    "all_final_failures": [],
+    "actual_worktree_version24_crowd_preflight": true,
+    "all_owner_attachments_unchanged": true,
+    "qa_and_worktree_media_identical": true,
+    "private_media_git_tracked": false
+  },
+  "coverage": "All four real Ogg streams decoded with duration/hash/source/licence/authority and attribution counterexamples. Each prepared waveform interior independently correlated above0.9 with a PCM slice from the complete original decode, preventing early silence or wrong-offset content. Existing final-cheer fade/mute/focus/source/context/no-replay checks pass. Four actual main-app journeys use the INDIE39 real paid Maya/Freya song fixture, booking, promoter decisions, three filesystem save failures/rollback, stage overlap, courtesy, held-source interruption, Menu/Continue no replay and final exact disk reload. This one-song fixture yields a saved poor-show verdict: final boo intent is correctly silent. Real positive cheer is covered by component playback; the between-song cue is decoded/validated but not a second song in these native runs.",
+  "logs": {
+    "model.log": {
+      "path": "/workspace/bandmaster-crowd40/model.log",
+      "sha256": "5a72c90d58c99797eba1e9f3b25b14d24291cea212570fa936ee0e773af645ee",
+      "result": {
+        "available_sources": 4,
+        "bank_complete": true,
+        "checks": 60,
+        "failures": [],
+        "mix_listening_here": false,
+        "owner_source_acceptance": true,
+        "physical_device": false
+      }
+    },
+    "phone.log": {
+      "path": "/workspace/bandmaster-crowd40/phone.log",
+      "sha256": "83e49fdf14500716c64a3de138765a3cdfa138a61c24b8da8cd42d00f384dc99",
+      "result": {
+        "actual_cues": [
+          "entrance",
+          "courtesy",
+          "boo"
+        ],
+        "checks": 95,
+        "failures": [],
+        "listening": false,
+        "physical_device": false,
+        "version5_main_app": true,
+        "viewport": "(390, 844)"
+      }
+    },
+    "short.log": {
+      "path": "/workspace/bandmaster-crowd40/short.log",
+      "sha256": "1ec1da0593d9294f19f68b0256d0310e292158d66a810f803091b3a90a171821",
+      "result": {
+        "actual_cues": [
+          "entrance",
+          "courtesy",
+          "boo"
+        ],
+        "checks": 95,
+        "failures": [],
+        "listening": false,
+        "physical_device": false,
+        "version5_main_app": true,
+        "viewport": "(1280, 720)"
+      }
+    },
+    "tall.log": {
+      "path": "/workspace/bandmaster-crowd40/tall.log",
+      "sha256": "c9c1676417c1d817f29d6a83a6d9ed233685099d77ee59a0ec62247b2a536edf",
+      "result": {
+        "actual_cues": [
+          "entrance",
+          "courtesy",
+          "boo"
+        ],
+        "checks": 95,
+        "failures": [],
+        "listening": false,
+        "physical_device": false,
+        "version5_main_app": true,
+        "viewport": "(720, 1280)"
+      }
+    },
+    "wide.log": {
+      "path": "/workspace/bandmaster-crowd40/wide.log",
+      "sha256": "ecca04411a0e86b7bfebabde8c6734242464c17cf0c2379ef6ac2057bd7f16e5",
+      "result": {
+        "actual_cues": [
+          "entrance",
+          "courtesy",
+          "boo"
+        ],
+        "checks": 95,
+        "failures": [],
+        "listening": false,
+        "physical_device": false,
+        "version5_main_app": true,
+        "viewport": "(1600, 900)"
+      }
+    },
+    "existing-prepare-test.json": {
+      "path": "/workspace/bandmaster-crowd40/existing-prepare-test.json",
+      "sha256": "2c31706152b37ba124e6dd7dcea7b6358c3a45b9d2c79e3b8657b21b2a83d00b",
+      "result": {
+        "checks": 7,
+        "failures": [],
+        "real_source": true,
+        "listening": false
+      }
+    },
+    "complete-prepare-test.json": {
+      "path": "/workspace/bandmaster-crowd40/complete-prepare-test.json",
+      "sha256": "da394d256a35384b649d112b0d8c2abbbdca12edac29c56531e3146b2a5e6ff1",
+      "result": {
+        "checks": 48,
+        "failures": [],
+        "complete_real_bank": true,
+        "listening": false
+      }
+    },
+    "import-final2.log": {
+      "path": "/workspace/bandmaster-crowd40/import-final2.log",
+      "sha256": "0cdfc13e1c10d34ae4e4c3c9adb3aa5354c82fdbec5c51509371ea0594acd3ec"
+    }
+  },
+  "captures": [
+    {
+      "path": "/workspace/bandmaster-crowd40/phone-after-set.png",
+      "sha256": "fa2b5390e5a0ca7789315b76c3ea0e0bdb53ccf75d37bf010d7900f10d0ddcc8"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/phone-backstage-advice.png",
+      "sha256": "e2e30b3eef3359f061854f590e483314419a1ca066b7f1ccb08aa6dca61574d5"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/phone-combined-vocal-crowd-playing.png",
+      "sha256": "d970082fd7809a758a6d325bc8495e251aa10c1e374be941a5455fae6d50efdc"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/phone-final once-only show settlement-save-error.png",
+      "sha256": "f0db967fc47703813d46068195163be55092c1bd8a50cefd1b719977f056fdbe"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/phone-night-result.png",
+      "sha256": "bb73439c5b6f03dd83bf55876a13eb8a0df981e806b977b9d5e458963ce25205"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/phone-on-stage.png",
+      "sha256": "d970082fd7809a758a6d325bc8495e251aa10c1e374be941a5455fae6d50efdc"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/phone-promoter-agreement.png",
+      "sha256": "90bfcf049872214b3da6ff5cf4db2bd10d44c08bca923ff4edc1d00ae5427655"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/phone-saved promoter answer-save-error.png",
+      "sha256": "460b3540e084d85bcecc5fd33ba8008b2ffcd5432b0a6de0fc2c1b611904dfd1"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/phone-settlement.png",
+      "sha256": "bd20c57d9e627bba98d4ee0f3f917bd49afad0ffea7224f76c3966efed7258f4"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/phone-soundcheck frozen context-save-error.png",
+      "sha256": "4b86f9a8a7b2beb0335d099ad883bf8d33b7d2db08fea356434108b68abd8cad"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/phone-soundcheck-plan.png",
+      "sha256": "29c55ede5c24fe0391f7e00b8adbf5a6f411130e1cb351b8a4894bf4e028b256"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/phone-soundcheck-situation.png",
+      "sha256": "caae4fcd9d6b4eb947f2d96e03ae6265e96e2b3535a152b7ce7503ca3cc19049"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/short-after-set.png",
+      "sha256": "dbd92cbdb2b43fab33f2dd0f555b66b4047cddb929ff6306c23dcb6bf121f663"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/short-backstage-advice.png",
+      "sha256": "d2b3845b5525bcbe347e603ae904f4a143924b5013a93e25cc8a66e7ed0d7cc4"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/short-combined-vocal-crowd-playing.png",
+      "sha256": "aa92c1cd9c8c8455a626e37d26160a6391cd73aaf5ea3c24e3b022b998a9834e"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/short-final once-only show settlement-save-error.png",
+      "sha256": "fec44083936ed3a520037169c1e00c4b8203beb83194d8fcbdab454f8a991fa4"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/short-night-result.png",
+      "sha256": "affa28775a9327584ed4a7945ce4e3a20e0dd2633962d31a99d5c9973e2341b6"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/short-on-stage.png",
+      "sha256": "aa92c1cd9c8c8455a626e37d26160a6391cd73aaf5ea3c24e3b022b998a9834e"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/short-promoter-agreement.png",
+      "sha256": "7f25b4b926fbe8e1d75b67cdf0a6386daff49a9e3538aa8fba075e226874413c"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/short-saved promoter answer-save-error.png",
+      "sha256": "7bf7444a6a2e76480073290821213ca75b3b2130210e1cd8b91bba0a6008f125"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/short-settlement.png",
+      "sha256": "b05431aa0c0865d932a70feb21b8d5714c0060b2159a91e0cd4fbc8b18d9f028"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/short-soundcheck frozen context-save-error.png",
+      "sha256": "0afd682c193605475c1819e2a87b0acc74ae2117685a075460283611840b096d"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/short-soundcheck-plan.png",
+      "sha256": "a4e1352e72f2a41b86bd340b78035a5639d82eaf11bbdc37d54d6e59a7a77484"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/short-soundcheck-situation.png",
+      "sha256": "c7449b953603506cbbb6f828c532f152e59804bcee99767713641203e0daa73c"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/tall-after-set.png",
+      "sha256": "5799c73e1cec8ab3dfcbf0cacb6094c1d08d19b987d51abced3c2b44594e3442"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/tall-backstage-advice.png",
+      "sha256": "b5c422be5bfdfed36d1379a3dcdf847d0f15117fe4b65152909380ad5b1ed7d9"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/tall-combined-vocal-crowd-playing.png",
+      "sha256": "9a20b80daa86df3a32376c3908cdb73ded43595491cf3122e95d090f5f1e1f02"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/tall-final once-only show settlement-save-error.png",
+      "sha256": "fa2977c428126cfbf4cdc837f616296eae0feb65d04920ced0ac0aecd758feb3"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/tall-night-result.png",
+      "sha256": "800b86d4b7a8d329b84a4a8d7073184bbcec0eaffffdd74f4b05148e4ba303b3"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/tall-on-stage.png",
+      "sha256": "9a20b80daa86df3a32376c3908cdb73ded43595491cf3122e95d090f5f1e1f02"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/tall-promoter-agreement.png",
+      "sha256": "c71bfd3c314287f11bde5bcd8c6f85013331d6b64320ff3add700412e8afc09e"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/tall-saved promoter answer-save-error.png",
+      "sha256": "972cff3af9abd2f512ba02950899a7220ccd489e3085df3736e795f7796f476a"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/tall-settlement.png",
+      "sha256": "a43e99083cde4f60e1c80f69c7a08d2203dacd636d4bdda5b42fc42ef9b87bae"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/tall-soundcheck frozen context-save-error.png",
+      "sha256": "dcc5bfb54020bf236656ec7648f93fc82cb5223e230def64b56706038fdb82a0"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/tall-soundcheck-plan.png",
+      "sha256": "4078b16c8fd181eb24953d183b4bf144ef5e9fecef7171402f28548896bcc1bc"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/tall-soundcheck-situation.png",
+      "sha256": "bfc0027e9ae721d76246b979e54a9492bfe473372c55585995ac003c371d3b96"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/wide-after-set.png",
+      "sha256": "2f51051e04c1b671cb0d540ce2b080e969d4f0597eeafa36428ef2ece9165ad8"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/wide-backstage-advice.png",
+      "sha256": "b63abc678eaf940e3a0204ec2de892f21c584cd1acfaa8602f8a2483d07501ac"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/wide-combined-vocal-crowd-playing.png",
+      "sha256": "efc7dbf56403208ea9dcf0d2c25dfe4f0721e5fed84567df5b51da6bfa45a624"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/wide-final once-only show settlement-save-error.png",
+      "sha256": "aa0e0134b98fc48d8ae287b6a3a381c04f51156f380cf249a9f9429f3c2a4c8d"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/wide-night-result.png",
+      "sha256": "852f10abda55f33ac60b8531c473b17c9fdfb5f6cadde1b87d6b0bec3f3ad72c"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/wide-on-stage.png",
+      "sha256": "efc7dbf56403208ea9dcf0d2c25dfe4f0721e5fed84567df5b51da6bfa45a624"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/wide-promoter-agreement.png",
+      "sha256": "2c6e8840b4e2362ca9e255a277cf938388003adac3072e26066b1f2032163ff5"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/wide-saved promoter answer-save-error.png",
+      "sha256": "fcce7176c6778816f0227193013a6daaab397d3a5d1ef16ffaabf76e9cf9cf2e"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/wide-settlement.png",
+      "sha256": "0bed96db1f44cb426d84bf009066722219bdfebdeab3f40fa0d6354f9297ceca"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/wide-soundcheck frozen context-save-error.png",
+      "sha256": "1656483f36e7e96f73291a00a519eaa724b23bee7ba7d4aac95c5886262ad074"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/wide-soundcheck-plan.png",
+      "sha256": "32165fa5d493d36e7a25ce076d9fea682511c0960a458c4c43d2f62356eb8418"
+    },
+    {
+      "path": "/workspace/bandmaster-crowd40/wide-soundcheck-situation.png",
+      "sha256": "868d29e70a500d7a7d008c7055b862a1bd778b0a441b701f411ff9a2982eb913"
+    }
+  ],
+  "originals_opened": [
+    "/workspace/bandmaster-crowd40/phone-combined-vocal-crowd-playing.png",
+    "/workspace/bandmaster-crowd40/phone-after-set.png",
+    "/workspace/bandmaster-crowd40/phone-final once-only show settlement-save-error.png",
+    "/workspace/bandmaster-crowd40/short-combined-vocal-crowd-playing.png",
+    "/workspace/bandmaster-crowd40/short-after-set.png",
+    "/workspace/bandmaster-crowd40/short-night-result.png",
+    "/workspace/bandmaster-crowd40/tall-combined-vocal-crowd-playing.png",
+    "/workspace/bandmaster-crowd40/tall-after-set.png",
+    "/workspace/bandmaster-crowd40/tall-night-result.png",
+    "/workspace/bandmaster-crowd40/wide-combined-vocal-crowd-playing.png",
+    "/workspace/bandmaster-crowd40/wide-after-set.png",
+    "/workspace/bandmaster-crowd40/wide-night-result.png"
+  ],
+  "unchanged_reference_opened": "experiments/playable_flightcase/art/crowd34.png",
+  "pixel_review": "Existing stage/after-set/result compositions retained at four sizes. Stage source text and playback icon, Finish Song, aftermath action and failed-save retry text remain readable/reachable. Captures include actual deliberate scrolling. No source/UI/save/economy redesign or artwork approval.",
+  "failed_attempts": [
+    {
+      "evidence": "/workspace/bandmaster-crowd40/initial-zero-offset",
+      "finding": "First complete preparation/decoder/native proof passed but3521 start0 excerpt includes a long quiet lead-in; numerical review held that derivative."
+    },
+    {
+      "evidence": "/workspace/bandmaster-crowd40/output-seek-fade-order",
+      "finding": "First offset implementation used FFmpeg output seek; fades ran on original timeline, leaving last1.6s silent. Stopped remaining native run, changed technique to explicit atrim/asetpts and added independent PCM correlation. All prior files/logs retained; final derivative passes."
+    }
+  ],
+  "simulated_review_lenses": {
+    "provenance": "SIMULATED: exact uploaded bytes pinned; known official pub hash equal; owner-supplied BigSoundBank bytes distinguished from direct fetch.",
+    "audio_content": "SIMULATED: genuine source excerpts, correct offset and waveform comparison, no invented boo. Numerical/decoder review is not listening.",
+    "player_journey": "SIMULATED: actual saved vocal song overlaps entrance applause; courtesy follows after-set, final poor-show cue stays silent. Four desktop viewport journeys, not physical Android.",
+    "save_and_replay": "SIMULATED: actual failure rollback, source hold, spent event, Menu/Continue and strict reload preserved. Production user data untouched.",
+    "release_and_privacy": "SIMULATED: complete-bank version24 guard passes; source only in Git, original/derived media private, credit preserved, original-key/frozenV23 unchanged."
+  },
+  "limitations": [
+    "No assistant listening or physical-device validation; derivative_mix_listening_verified remains false. Owner source acceptance is specific to the four files.",
+    "Older private recorded_steady/rehearsal/DGAD/indie29/character/formation banks and Android SDK are absent from this executor. Do not materialize an incomplete full owner package or mistake passing crowd preflight for whole-package audit.",
+    "No new APK, signing request or key access; no signing performed. Existing app ID/save folder and original certificate workflow retained.",
+    "Full licensing/source history remains in CROWD37 and INDIE38/39 handovers; this task changes no owner music licence claim."
+  ],
+  "frozen_V23": {
+    "request_sha256": "7ebd68fbbc5baaac8aa50afcb3fc884733a686394de36f96df04ccab95be6741",
+    "policy_sha256": "c04043e8cff82cbf7f6a7f7b4a9950c60650fc7fdbdc5cb5fc4e5476e0c73389",
+    "unchanged": true
+  },
+  "release": {
+    "app_id": "com.bandmaster.ownerplaytest.s40",
+    "save_directory": "BandMasterOwnerPlaytestS40",
+    "new_APK": false,
+    "new_request": false,
+    "next_version": 24,
+    "original_key_stays_in_original_environment": true
+  },
+  "next_action": "Restore the retained older private music banks into a fresh build workspace, materialize and audit the combined version24 candidate, then create a NEW request for detached signing in the original key environment. Preserve frozenV23 and its request."
+}

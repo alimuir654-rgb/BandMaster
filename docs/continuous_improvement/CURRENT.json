@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/INDIE39.json",
-  "scope": "Approved first vocal/keyboard excerpts integrated with canonical characters, additive recipes and preserved private media; crowd completion holds the next combined build.",
+  "session": "docs/continuous_improvement/sessions/CROWD40.json",
+  "scope": "All four approved crowd sources privately prepared and combined with the approved vocal song in the real gig journey; full new package not built.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "Existing poster materials; calm small paper controls; original activity art and passive meters retained.",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "approved_vocal_keys_source_verified_crowd_incomplete_no_build",
-  "next_action": "Acquire the three approved remaining BigSoundBank crowd sources when the running environment permits, complete their private preparation and verify the combined soundscape before a fresh >23 audited build/signing request.",
+  "status": "complete_crowd_bank_combined_native_verified_no_APK",
+  "next_action": "Restore the retained older private music banks into a fresh build workspace, materialize and audit the combined version24 candidate, then create a NEW request for detached signing in the original key environment. Preserve frozenV23 and its request.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -7742,7 +7742,7 @@
     "owner_approved": false,
     "writer": null
   },
-  "root_writer_released_at": "2026-11-10T15:10:44.338467+00:00",
+  "root_writer_released_at": "2026-11-10T15:36:07.074069+00:00",
   "next32_closeout": {
     "tested_sha": "dba007e3022d9d1a39365aab78b127d6a1d79f84",
     "evidence": "docs/continuous_improvement/NEXT32_RESULTS.json",
@@ -7795,10 +7795,12 @@
     "source": "503a7cd84cad1c65c37ffa7b197f282e852c6588",
     "results": "docs/continuous_improvement/CROWD37_RESULTS.json",
     "approved_source_count": 4,
-    "acquired_source_count": 1,
-    "complete": false,
+    "acquired_source_count": 4,
+    "complete": true,
     "new_build": false,
-    "character_brief": "docs/audio/INDIE_CHARACTER_VOCAL_KEYS_BRIEF.json"
+    "character_brief": "docs/audio/INDIE_CHARACTER_VOCAL_KEYS_BRIEF.json",
+    "completion_source": "4220499c1cdb6fff964e62d19a6de0b79625d21f",
+    "completion_record": "docs/continuous_improvement/CROWD40_RESULTS.json"
   },
   "indie38": {
     "source": "b6647d9943720174a3a266dccf3dc855f96b8012",
@@ -7821,6 +7823,15 @@
     "native_checks": 312,
     "legacy_cases": 5184,
     "new_build": false,
+    "writer": null
+  },
+  "crowd40": {
+    "source": "4220499c1cdb6fff964e62d19a6de0b79625d21f",
+    "results": "docs/continuous_improvement/CROWD40_RESULTS.json",
+    "complete": true,
+    "owner_source_accepted": true,
+    "new_APK": false,
+    "checks": 495,
     "writer": null
   }
 }
