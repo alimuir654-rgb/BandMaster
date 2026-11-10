@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "id": "INDIE39",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "09a96983ba8c8e08ab8515511fb467117889e0e5",
+  "owner_request": "Owner approves displayed candidate1 sparse/full excerpts for all3songsets and authorizes integration. Preserve private media, old saves/app/key/frozenV23; no new test build until complete crowd batch.",
+  "dominant_issue": "BM-35",
+  "lesson_ids": [
+    "BM-13",
+    "BM-14",
+    "BM-24",
+    "BM-34",
+    "BM-35",
+    "BM-40"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2146144,
+    "sha256": "baed21d7814ad3d7e8b0a33d70bef1a2704676da13ccde8048278aae1b25bf17"
+  },
+  "target": {
+    "locator": "experiments/playable_flightcase/art/crowd34.png",
+    "original_sha256": "e9efabc9554f81367b061045dbeb3c2725e689aa465aa12ba7cf88a5427cb44b",
+    "pixels_inspected": true,
+    "note": "Original atlas opened in this thread; this batch changes audio only, no UI/art edits."
+  },
+  "controlled_comparison": "Approved candidate1 exactPCM vs synchronized runtime vocal+keys/backing. Old recipe3/4 validation/receipts/uses preserved; new source required matching active singer+keyboardist at draft/try/paid actions; saved song retains frozen original performers. Main existing character idea/workbench/song/gig paths, four native viewports.",
+  "hypothesis": "Separate version5 recipe binds each approved first passage to exact singer/keyboardist; shared five-part synchronous playback preserves the same vocal while arrangement/stage/backing changes. Legacy versions untouched.",
+  "stop_condition": "No new source approvals inferred for candidates2/3, no singer reassignment/Nina substitute, no private mediaGit/paidcalls/key/app/V23/APK changes, no destructive migration or duplicate settlement.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/recorded_vocal_keys.gd",
+    "experiments/playable_flightcase/recorded_steady.gd",
+    "experiments/playable_flightcase/mixing_recipe.gd",
+    "experiments/playable_flightcase/producer_recipe.gd",
+    "experiments/playable_flightcase/mixing_audio.gd",
+    "experiments/playable_flightcase/mixing_desk.gd",
+    "experiments/playable_flightcase/character_audio.gd",
+    "experiments/playable_flightcase/song_workbench.gd",
+    "experiments/playable_flightcase/song_audio.gd",
+    "experiments/playable_flightcase/crowd_reaction.gd",
+    "tools/prepare_indie39.py",
+    "tests/indie39*",
+    ".gitignore",
+    "STATE_SCHEMA.md",
+    "docs/audio/**",
+    "docs/handover/START_HERE.md",
+    "docs/continuous_improvement/**",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "improvement_gate priorrecord/scoped checks",
+    "Exact firstcandidate approvedPCM/source hashes; 5part privatebank and6characterclips; no othercandidate promoted",
+    "Godot import/model ownertransaction failedsave rollback/typedreload/once use/boundcohort and legacyvalidation compatibility; actual5stream playback/mute/context/samevocal",
+    "Native actual characterideas/workbench/save/paid/reload and controls at390x844,720x1280,1280x720,1600x900; original screenshots opened",
+    "Gitprivacy/frozenV23 checks, noAPK/signing"
+  ],
+  "resource_plan": {
+    "evidence_root": "/workspace/bandmaster-indie39",
+    "persistent_budget_bytes": 536870912,
+    "qa_project": "/workspace/bandmaster-crowd36/project",
+    "no_APK": true
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active"
+  },
+  "started_at": "2026-11-10T14:48:41.754388+00:00"
+}
