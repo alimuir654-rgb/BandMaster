@@ -104,6 +104,25 @@ def toolchain(work):
 
 
 def build(work):
+    # A missing configured debug-key path makes the editor create a default key,
+    # even during import. An existing public JSON is an intentionally unusable
+    # signing placeholder. Deny key tooling as well; unsigned exports need none.
+    java = work / 'java-unsigned'
+    java.mkdir()
+    for child in JAVA.iterdir():
+        if child.name != 'bin':
+            (java / child.name).symlink_to(child, target_is_directory=child.is_dir())
+    (java / 'bin').mkdir()
+    for child in (JAVA / 'bin').iterdir():
+        target = java / 'bin' / child.name
+        if child.name in ['keytool', 'jarsigner']:
+            target.write_text('#!/bin/sh\nprintf "Signing and key generation are disabled for this unsigned build\\n" >&2\nexit 97\n')
+            target.chmod(0o755)
+        else:
+            target.symlink_to(child)
+    keys = work / 'data/godot/keystores'
+    keys.mkdir(parents=True)
+    keys.chmod(0o555)
     candidate = work / 'candidate'
     subprocess.run([sys.executable, str(ROOT / 'tools/build_recorded_owner.py'), '--output', str(candidate),
                     '--version-code', '24', '--version-name', VERSION_NAME], cwd=ROOT, check=True)
@@ -120,13 +139,16 @@ def build(work):
     config.mkdir(parents=True)
     # Explicit unsigned export; no fallback signing identity is supplied.
     settings = {'export/android/android_sdk_path': str(work / 'android-sdk'),
-                'export/android/java_sdk_path': str(JAVA),
-                'export/android/debug_keystore': str(work / 'DO_NOT_CREATE.keystore'),
-                'export/android/debug_keystore_user': '', 'export/android/debug_keystore_pass': ''}
+                'export/android/java_sdk_path': str(java),
+                'export/android/debug_keystore': str(ROOT / 'docs/signing/fixtures/v22-request.json'),
+                'export/android/debug_keystore_user': 'UNSIGNED_ONLY',
+                'export/android/debug_keystore_pass': 'UNSIGNED_ONLY'}
     (config / 'editor_settings-4.7.tres').write_text('[gd_resource type="EditorSettings" format=3]\n\n[resource]\n' +
         '\n'.join(k + '=' + json.dumps(v) for k, v in settings.items()) + '\n')
     env = dict(os.environ, XDG_DATA_HOME=str(work / 'data'), XDG_CONFIG_HOME=str(work / 'config'),
-               XDG_CACHE_HOME=str(work / 'cache'), JAVA_HOME=str(JAVA), ANDROID_SDK_ROOT=str(work / 'android-sdk'))
+               XDG_CACHE_HOME=str(work / 'cache'), JAVA_HOME=str(java),
+               PATH=str(java / 'bin') + os.pathsep + os.environ.get('PATH', ''),
+               ANDROID_SDK_ROOT=str(work / 'android-sdk'))
     (work / 'logs').mkdir()
     steps = []
 

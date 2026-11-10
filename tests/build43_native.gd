@@ -202,6 +202,19 @@ func act(node_name: String) -> bool:
  return true
 func finish_next_gig() -> void:
  if not fixture_path.is_empty():check(FileAccess.get_file_as_bytes(fixture_path)==fixture_bytes,"original paid-song fixture bytes unchanged")
+ if is_instance_valid(scene) and failures.is_empty():
+  var stable: Dictionary=owner.snapshot()
+  scene._home();await settle();await capture("v24-menu")
+  if await tap("SettingsAction"):
+   var sheet=scene._settings_sheet
+   var identity: Label=sheet.find_child("SettingsBuildIdentity",true,false)
+   check(identity!=null and identity.text.contains("V24"),"compiled Settings identifies V24")
+   await capture("v24-settings")
+   var credits: Label=sheet.find_child("SettingsCrowdCredits",true,false)
+   check(credits!=null and credits.text.contains("sandyrb") and credits.text.contains("creativecommons.org/licenses/by/4.0/"),"actual packaged CC BY credit")
+   sheet._options_scroll.scroll_vertical=int(sheet._options_scroll.get_v_scroll_bar().max_value)
+   await settle();await capture("v24-crowd-credits")
+   check(owner.snapshot()==stable,"native settings inspection preserves saved band")
  print("BUILD43_COMPILED_NATIVE "+JSON.stringify({"checks":checks,"failures":failures,"viewport":str(root.size),"actual_cues":actual_cues,"compiled_payload":packaged,"version5_main_app":true,"physical_device":false,"listening":false}))
  if is_instance_valid(scene):scene.free();scene=null
  owner=null;await create_timer(0.2).timeout
