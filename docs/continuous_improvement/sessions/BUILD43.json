@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "id": "BUILD43",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "b33ef250d67ac9532e6315fd699b13a5b1b96577",
+  "owner_request": "Continue the authorized combined test-build workflow now that the owner restored all required audio. Build version24 with a new audited detached request, unchanged app/save identity and original key in its original environment. Keep frozenV23 and private audio out of public GitHub.",
+  "dominant_issue": "BM-34",
+  "lesson_ids": [
+    "BM-13",
+    "BM-14",
+    "BM-24",
+    "BM-34",
+    "BM-35",
+    "BM-40"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2163883,
+    "sha256": "8e573d3fc2445c88097dedcc1c237d655b2cbe27776db929496900b85ee86748"
+  },
+  "target": {
+    "locator": "experiments/playable_flightcase/art/crowd34.png",
+    "original_sha256": "e9efabc9554f81367b061045dbeb3c2725e689aa465aa12ba7cf88a5427cb44b",
+    "pixels_inspected": true,
+    "note": "Previously opened unchanged crowd atlas and native journey. Audio-only restoration; no UI/source-art modifications."
+  },
+  "controlled_comparison": "Actual materialized source hashes versus exported APK resources/compiled scripts/media manifest and fresh source model/native checks. New public reference mode must retain immutable original certificate/SPKI pin, verify real V22 signature and retain all existing package/source/request checks. FrozenV23 and known signing fixtures byte-identical.",
+  "hypothesis": "The restored complete source project can produce a clean unsigned arm64 version24 payload with real compiled model/native verification and a fresh request. Missing old reference APK can be replaced by a strictly hash-pinned retained V22 public request plus real original-key signature proof, reusing its prior official certificate audit transparently; no key needed here.",
+  "stop_condition": "No key generation/loading/export or signing here, no app/save identity change, no public audio/APK upload, no frozenV23/fixture edits, no false physical/listening claim, no held audit bypass. No alternate network route for blockedapi.github.com; local pinned public proof only.",
+  "allowed_paths": [
+    "tools/build_unsigned43.py",
+    "tools/detached_apk_v2.py",
+    "tools/detached_sign_request.py",
+    "tests/build43*",
+    "tests/detached_sign_request_test.py",
+    "docs/signing/README.md",
+    "docs/signing/v24-policy.json",
+    "docs/signing/BandMaster-V24-APK-v2-signing-request.json",
+    "docs/continuous_improvement/**",
+    "docs/handover/START_HERE.md",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "Official same-version Godot export template and Google SDK tool archives with provider digest/size checks, private isolated toolchain/config; no key path fallback",
+    "Existing26publicsigner tests plus strict known-reference tamper/old-signature/new-build separation checks",
+    "Source closure/hash/clean import and unsignedversion24export; ZIP CRC/alignment/permissions/app/source/media/compiledscript exclusions audit",
+    "Actual compiled APK model tests >=91 and actual native mainapp cues/old/new audio on4viewports, originalPNG review; source/native proof honest about testfixture contexts",
+    "New exactAPKpolicy and request with public originalcertificate verified knownsignature chain, officialtools finalchecks after response later; frozenV23/privacy/diff/gate"
+  ],
+  "resource_plan": {
+    "evidence_root": "/workspace/bandmaster-build43",
+    "persistent_budget_bytes": 8589934592,
+    "engine": "/workspace/tools/godot-4.7.2/Godot_v4.7.2-stable_linux.x86_64",
+    "version_code": 24,
+    "new_unsigned_APK": true,
+    "signing_here": false
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active"
+  },
+  "started_at": "2026-11-10T18:36:57.125503+00:00"
+}
