@@ -256,9 +256,9 @@ func _refresh_bank() -> void:
 
 func _choose_foundation(index: int) -> void:
  var hooks: Array=Recipe.HOOKS+Recipe.Recorded.HOOKS
- if _busy or is_instance_valid(_dialog) or not Recipe.valid(_recipe) or _recipe.version!=4 or int(_recipe.stage)!=0 or index<0 or index>=hooks.size():return
+ if _busy or is_instance_valid(_dialog) or not Recipe.valid(_recipe) or _recipe.version not in [4,5] or int(_recipe.stage)!=0 or index<0 or index>=hooks.size():return
  if _recipe.hook==hooks[index]:return
- _stop_audio();_invalidate_response();_recipe["hook"]=hooks[index]
+ _stop_audio();_invalidate_response();_recipe=Recipe.Recorded.VocalKeys.select(_recipe,hooks[index])
  if Recipe.Recorded.has_hook(_recipe):_recipe.pace="driving";_recipe.groove="straight";_recipe.originality="familiar"
  _refresh()
 
@@ -306,6 +306,7 @@ func _audio_context() -> Dictionary:
  var selected: Dictionary=_previous() if _compare else _recipe
  var allowed: bool=is_visible_in_tree() and not _busy and not is_instance_valid(_dialog) and live.get("ok",false) and live.get("active",false) and not live.get("held",true) and Rules._same(_expected,owner_state.workbench_expected()) and Recipe.valid(selected)
  if allowed:allowed=Rules._same(selected.brief,Sound.read(owner_state.game.career)) and int(selected.stage)<=int(owner_state.game.career.get("song_draft_progress",0))
+ if allowed and selected.get("version")==5:allowed=Recipe.Recorded.VocalKeys.active_pair(owner_state.game.career,selected)
  return {"allowed":allowed,"recipe":selected.duplicate(true)}
 
 func _hear_take() -> void:
@@ -396,11 +397,13 @@ func _refresh() -> void:
  for button in _buttons:button.disabled=_busy or modal or not valid
  for i in range(_foundations.size()):
   var hook: String=(Recipe.HOOKS+Recipe.Recorded.HOOKS)[i]
-  var selection: Dictionary=_recipe.duplicate(true);selection.hook=hook
+  var selection: Dictionary=Recipe.Recorded.VocalKeys.select(_recipe,hook)
   var source_available: bool=Recipe.Recorded.available(owner_state.game.career,selection,str(_project().get("id","")))
-  _foundations[i].disabled=_busy or modal or not valid or stage>0 or _recipe.get("version")!=4
+  _foundations[i].disabled=_busy or modal or not valid or stage>0 or _recipe.get("version") not in [4,5]
   _foundations[i].tooltip_text=""
-  if not source_available:_foundations[i].disabled=true;_foundations[i].tooltip_text="Already used by a member of this band. Its saved song can still play."
+  if not source_available:
+   _foundations[i].disabled=true
+   _foundations[i].tooltip_text="Requires the named singer and keyboardist in this band, with this phrase unused." if Recipe.Recorded.VocalKeys.has_hook(selection) else "Already used by a member of this band. Its saved song can still play."
   _foundations[i].set_pressed_no_signal(valid and _recipe.hook==hook)
   _foundations[i].modulate=Color.WHITE
  _refresh_bank()

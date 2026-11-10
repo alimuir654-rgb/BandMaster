@@ -143,3 +143,31 @@ Version2 receipt facts add actual `member_fatigue` before/after rows; the nomina
 fatigue field allows -2 for reciprocal help. Own-band care eases only actually worn
 players. Old bill-v1 receipt bounds remain unchanged; all updates use existing
 owner save rollback and once-only journey identity.
+
+## Approved singer/keyboard recipes (INDIE39, additive version5)
+
+Existing recipe versions2/3/4 and recorded_phrase_uses_v1 records retain their
+meaning. Version5 uses the version4 fields plus `keys` (14 keys total). `hook`
+is one of indie39_plates_01 / indie39_wear_01 / indie39_stairs_01. `voice` pins
+Maya/Lily/Sam's canonical candidate ID; `keys` pins Freya/Dan/Oscar respectively.
+Hook, voice and keys form the immutable composition identity after the first
+paid session. Pace/groove/originality and tone remain source-fixed. Existing
+craft calculation, paid accounting, receipt hashing and full rollback are reused.
+
+The new hook's manifest and PCM fingerprints are immutable code-bound source
+identities. A live draft/trial/paid write requires its exact active singer and
+keyboardist. The first paid cohort records those two IDs in addition to existing
+instrument participants in the unchanged three-field phrase-use ledger. Later
+stages require the same binding; duplicate phrase use remains unavailable.
+Completed saved songs retain their frozen original voice/keys and can play after
+lineup changes. No legacy source, character, recipe or saved song is rewritten.
+Missing media stays unavailable, never a substitute singer. No Nina clip exists.
+
+Source phrase frames remain fixed (453120 / 403199 / 403199 at48000Hz stereo
+PCM16). Approximate onset-derived tempos are presentation clocks, not a claim
+of exact bars/key or a live musical performance by the named fictional cast.
+
+New formations store integral lead-vocal stats using the existing loader's
+number normalization. Numeric values and genuine fractional stats are preserved;
+this avoids a float/int representation change on the first reload. No save
+migration or loader change is introduced.

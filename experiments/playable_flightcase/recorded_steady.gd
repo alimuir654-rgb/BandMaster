@@ -1,11 +1,12 @@
 extends RefCounted
 ## Private recorded phrases. No audition state, paid resolver or filesystem writes.
+const VocalKeys=preload("res://experiments/playable_flightcase/recorded_vocal_keys.gd")
 const STEADY_HOOKS := ["steady_early_v1","steady_later_v1"]
 const REHEARSAL_HOOKS := ["rehearsal_01_v1","rehearsal_02_v1","rehearsal_03_v1","rehearsal_04_v1","rehearsal_05_v1","rehearsal_06_v1"]
 const DGAD_HOOKS := ["dgad_01_v1","dgad_02_v1","dgad_03_v1","dgad_04_v1","dgad_05_v1","dgad_06_v1"]
 const INDIE29_HOOKS := ["indie29_guitar90_01", "indie29_guitar90_02", "indie29_guitar90_03", "indie29_guitar90_04", "indie29_guitar90_05", "indie29_guitar90_06", "indie29_space_01", "indie29_space_02", "indie29_space_03", "indie29_space_04", "indie29_space_05", "indie29_space_06", "indie29_dark_01", "indie29_dark_02", "indie29_dark_03", "indie29_dark_04", "indie29_dark_05", "indie29_dark_06"]
-const HOOKS := STEADY_HOOKS+REHEARSAL_HOOKS+DGAD_HOOKS+INDIE29_HOOKS
-const LABELS := ["STEADY EARLY","STEADY LATER","REHEARSAL 01","REHEARSAL 02","REHEARSAL 03","REHEARSAL 04","REHEARSAL 05","REHEARSAL 06","D–G–A–D 01","D–G–A–D 02","D–G–A–D 03","D–G–A–D 04","D–G–A–D 05","D–G–A–D 06"]+ ["GUITAR ROOM 01", "GUITAR ROOM 02", "GUITAR ROOM 03", "GUITAR ROOM 04", "GUITAR ROOM 05", "GUITAR ROOM 06", "NIGHT COLOURS 01", "NIGHT COLOURS 02", "NIGHT COLOURS 03", "NIGHT COLOURS 04", "NIGHT COLOURS 05", "NIGHT COLOURS 06", "DARK CURRENT 01", "DARK CURRENT 02", "DARK CURRENT 03", "DARK CURRENT 04", "DARK CURRENT 05", "DARK CURRENT 06"]
+const HOOKS := STEADY_HOOKS+REHEARSAL_HOOKS+DGAD_HOOKS+INDIE29_HOOKS+VocalKeys.HOOKS
+const LABELS := ["STEADY EARLY","STEADY LATER","REHEARSAL 01","REHEARSAL 02","REHEARSAL 03","REHEARSAL 04","REHEARSAL 05","REHEARSAL 06","D–G–A–D 01","D–G–A–D 02","D–G–A–D 03","D–G–A–D 04","D–G–A–D 05","D–G–A–D 06"]+ ["GUITAR ROOM 01", "GUITAR ROOM 02", "GUITAR ROOM 03", "GUITAR ROOM 04", "GUITAR ROOM 05", "GUITAR ROOM 06", "NIGHT COLOURS 01", "NIGHT COLOURS 02", "NIGHT COLOURS 03", "NIGHT COLOURS 04", "NIGHT COLOURS 05", "NIGHT COLOURS 06", "DARK CURRENT 01", "DARK CURRENT 02", "DARK CURRENT 03", "DARK CURRENT 04", "DARK CURRENT 05", "DARK CURRENT 06"]+VocalKeys.LABELS
 const MANIFEST := "res://experiments/playable_flightcase/audio/recorded_steady_v2/manifest.json"
 const PREFIX := "res://experiments/playable_flightcase/audio/recorded_steady_v2/"
 const USES := "recorded_phrase_uses_v1"
@@ -33,13 +34,16 @@ static func expanded(value: Dictionary) -> bool:
 static func rehearsal(value: Dictionary) -> bool:
  return value.get("hook") in REHEARSAL_HOOKS
 
-static func tempo(value: Dictionary) -> int:
+static func tempo(value: Dictionary) -> float:
+ if VocalKeys.has_hook(value):return float(VocalKeys.TEMPOS[VocalKeys.index(value)])
  return int(bank_for(value).get("tempo",0))
 
 static func frames(value: Dictionary) -> int:
+ if VocalKeys.has_hook(value):return int(VocalKeys.FRAMES[VocalKeys.index(value)])
  return int(bank_for(value).get("frames",0))
 
 static func tempo_caption(value: Dictionary) -> String:
+ if VocalKeys.has_hook(value):return "FIXED RECORDED PHRASE"
  return str(bank_for(value).get("tempo_caption","REVIEW"))
 
 static func has_hook(value: Variant) -> bool:
@@ -69,6 +73,7 @@ static func uses_valid(career: Dictionary) -> bool:
  return true
 
 static func available(career: Dictionary,value: Dictionary,project_id: String) -> bool:
+ if VocalKeys.has_hook(value) and not VocalKeys.active_pair(career,value):return false
  if not has_hook(value):return true
  if project_id.is_empty() or not uses_valid(career):return false
  if int(value.get("stage",0))>0:
@@ -77,6 +82,7 @@ static func available(career: Dictionary,value: Dictionary,project_id: String) -
    if row.project_id==project_id and row.hook==value.hook:return true
   return false
  var people: Array=participants(career)
+ if VocalKeys.has_hook(value):people.append(value.voice);people.append(value.keys)
  if people.is_empty():return false
  for row in career.get(USES,{"records":[]}).records:
   if row.hook==value.hook and row.candidate_id in people and row.project_id!=project_id:return false
@@ -88,7 +94,9 @@ static func consume(career: Dictionary,value: Dictionary,project_id: String) -> 
  if int(value.get("stage",0))>0:return {"ok":true,"state":career.duplicate(true)}
  var next: Dictionary=career.duplicate(true)
  var data: Dictionary=next.get(USES,{"version":1,"records":[]}).duplicate(true)
- for id in participants(career):
+ var cohort: Array=participants(career)
+ if VocalKeys.has_hook(value):cohort.append(value.voice);cohort.append(value.keys)
+ for id in cohort:
   var exists: bool=false
   for row in data.records:
    if row.candidate_id==id and row.hook==value.hook:exists=true
@@ -97,6 +105,7 @@ static func consume(career: Dictionary,value: Dictionary,project_id: String) -> 
  return {"ok":true,"state":next}
 
 static func entry(value: Dictionary) -> Dictionary:
+ if VocalKeys.has_hook(value):return VocalKeys.entry(value)
  var bank: Dictionary=bank_for(value)
  if bank.is_empty() or not FileAccess.file_exists(bank.manifest):return {}
  var data: Variant=JSON.parse_string(FileAccess.get_file_as_string(bank.manifest))

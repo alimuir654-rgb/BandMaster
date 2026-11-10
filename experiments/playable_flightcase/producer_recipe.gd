@@ -30,7 +30,7 @@ const REASONS := [
 ]
 
 static func valid(value: Variant) -> bool:
- if value is Dictionary and Mixing.whole(value.get("version"),3,4):return Mixing.valid(value)
+ if value is Dictionary and Mixing.whole(value.get("version"),3,5):return Mixing.valid(value)
  if not value is Dictionary or value.size()!=9:return false
  if not (value.get("version") is int or value.get("version") is float) or value.version!=2:return false
  if not value.get("palette") is String or not value.get("hook") is String:return false
@@ -47,7 +47,7 @@ static func recipe(index: int=4,brief: Dictionary={"genre":"Indie rock","name_in
  return result
 
 static func audio_id(value: Dictionary) -> String:
- if Mixing.valid(value):return ("mix4_"+str(value.hook)+"_" if value.version==4 else "mix_")+Mixing.scenario_key(value)
+ if Mixing.valid(value):return (("mix5_" if value.version==5 else "mix4_")+str(value.hook)+"_" if value.version in [4,5] else "mix_")+Mixing.scenario_key(value)
  return "raw_s%d_%02d" % [int(value.stage),index(value)] if valid(value) else ""
 
 static func written(value: Dictionary) -> String:

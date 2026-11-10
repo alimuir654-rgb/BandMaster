@@ -114,6 +114,7 @@ func hint_for(value: Dictionary) -> String:
  if not Recipe.valid(value):return "Review the current song direction."
  if not Recipe.audio_supported(value):return "This style has written ideas; there isn't a matching demo yet."
  if _entry(value).is_empty():return "Demo unavailable. You can read the direction and continue writing."
+ if value.get("version")==5:return Recipe.foundation(value)+" · approved vocal/keys phrase · %.2f seconds. Same vocal; backing and entrances can change. Plays once." % (float(Recipe.Recorded.frames(value))/48000.0)
  if Recipe.Recorded.has_hook(value):return Recipe.foundation(value)+" · AI-generated Suno sketch · "+Recipe.Recorded.tempo_caption(value)+" · %.2f seconds. Fixed playing; tone, balance and entrances can change. Plays once." % (float(Recipe.Recorded.frames(value))/48000.0)
  return Recipe.foundation(value)+" · instrumental sketch, not a recording of your musicians."+(" Changes join at the next bar; STOP ends the audition." if live_audition else "")
 
@@ -187,18 +188,19 @@ func request_play(start_beat: float=0.0) -> bool:
 
 func _request_recorded(value: Dictionary,entry: Dictionary,start_beat: float) -> bool:
  if start_beat<0.0 or start_beat>=16.0:return false
- var together:=AudioStreamSynchronized.new();together.stream_count=3
- var parts: Array=["guitar_"+str(value.tone),"bass","kit"]
- for i in range(3):
+ var together:=AudioStreamSynchronized.new()
+ var parts: Array=Recipe.Recorded.VocalKeys.PARTS if value.get("version")==5 else ["guitar_"+str(value.tone),"bass","kit"]
+ together.stream_count=parts.size()
+ for i in range(parts.size()):
   var path: String=entry.parts[parts[i]].path
   var stream: AudioStreamWAV=_streams.get(path) as AudioStreamWAV
   if stream==null:
-   stream=Recipe.Recorded.stream(entry.parts[parts[i]],int(entry.frames))
+   stream=Recipe.Recorded.VocalKeys.stream(entry.parts[parts[i]],int(entry.frames)) if value.get("version")==5 else Recipe.Recorded.stream(entry.parts[parts[i]],int(entry.frames))
    if stream!=null:_streams[path]=stream
   if stream==null:status_changed.emit();return false
   together.set_sync_stream(i,stream)
  _active=value.duplicate(true);_entry_active=entry.duplicate(true);_bar=int(start_beat/4.0)
- _recorded_player.stream=together;_recorded_player.volume_db=-9.0
+ _recorded_player.stream=together;_recorded_player.volume_db=linear_to_db(float(entry.common_gain)) if value.get("version")==5 else -9.0
  set_meta("composition_id",str(value.hook));set_meta("source_frames",int(entry.frames));set_meta("playing_stage",int(value.stage))
  playing=true
  _shape_recorded(start_beat)
@@ -214,6 +216,13 @@ func _recorded_beat() -> float:
 func _shape_recorded(beat: float) -> void:
  var stream: AudioStreamSynchronized=_recorded_player.stream as AudioStreamSynchronized
  if stream==null:return
+ if _active.get("version")==5:
+  for i in range(5):
+   var gain: float=1.0 if i<2 or (i==2 and int(_active.stage)>=2) or (i>=3 and int(_active.stage)>=1) else 0.0
+   if i>0 and _active.energy=="open":gain*=0.67
+   if i>=2 and _active.shape=="build":gain*=clampf((beat-4.0)/4.0,0,1)
+   stream.set_sync_stream_volume(i,linear_to_db(gain) if gain>0.0001 else -80.0)
+  return
  for i in range(3):
   var gain: float=1.0 if i==0 or int(_active.stage)>=1 else 0.0
   if _active.energy=="open":gain*=0.67
@@ -286,7 +295,7 @@ func _apply_recorded_live(value: Dictionary) -> void:
   if latest.is_empty() or beat>=16.0:stop();return
   if request_play(beat):
    _recorded_player.volume_db=-65.0
-   _fade=create_tween();_fade.tween_property(_recorded_player,"volume_db",-9.0,0.016))
+   _fade=create_tween();_fade.tween_property(_recorded_player,"volume_db",linear_to_db(float(_entry_active.common_gain)) if _active.get("version")==5 else -9.0,0.016))
 
 func _process(delta: float) -> void:
  if playing:_shape()

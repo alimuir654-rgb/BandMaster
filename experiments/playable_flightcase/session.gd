@@ -137,7 +137,9 @@ func _commit_formation(lead_id: String,vocal_scores: Array) -> Dictionary:
   "action_count":0,"action_counters":{},"career_journal":[],"relationships":{}}
  if not lead_id.is_empty():
   career["lead_vocal_candidate_id"] = lead_id
-  career["lead_vocal_stats"] = vocal_scores.duplicate()
+  # Canonical JSON singer stats arrive as integral floats. Store the same
+  # numeric types as the existing loader, preserving genuine fractions.
+  career["lead_vocal_stats"] = _restore_integral_numbers(vocal_scores)
  phase = "play"
  return {"ok":true,"message":"Band formed. Book your first rehearsal."}
 

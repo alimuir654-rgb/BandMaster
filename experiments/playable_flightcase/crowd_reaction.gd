@@ -32,7 +32,7 @@ static func saved_event(before: Dictionary,after: Dictionary,action: String) -> 
   if visit.get("phase")=="after_set":return {"id":key,"kind":"courtesy","recipe":{}}
   var cursor: int=int(visit.get("cursor",0));var songs: Array=visit.get("plan",{}).get("song_snapshots",[])
   var recipe: Dictionary=Song.recipe(songs[cursor]) if cursor<songs.size() else {}
-  if recipe.get("version") not in [3,4]:recipe={}
+  if recipe.get("version") not in [3,4,5]:recipe={}
   return {"id":key,"kind":"entrance" if cursor==0 else "song","recipe":recipe}
  if action=="wrap":
   var receipt: Dictionary=Flow.last_receipt(after)

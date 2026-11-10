@@ -302,6 +302,8 @@ static func _binding(state: Dictionary) -> Dictionary:
  return {"progress":int(state.song_draft_progress),"canonical_draft":state.current_song_draft.duplicate(true),"canonical_draft_fingerprint":_hash(state.current_song_draft),"original_song_sequence":int(state.songs)}
 
 static func _binding_ok(state: Dictionary,project: Dictionary) -> bool:
+ var recipe: Dictionary=project.get("fragment",{}).get("producer_recipe",{})
+ if recipe.get("version")==5 and not Producer.Mixing.Recorded.VocalKeys.active_pair(state,recipe):return false
  var actual:=_binding(state)
  for field in actual:
   if not _same(project.binding.get(field),actual[field]):return false
@@ -382,7 +384,8 @@ static func begin(opening: Dictionary,title: String,leader_index: int,token: Dic
  if not checked.ok or checked.active or not _token(opening,token) or _priority(opening)!="workbench":return _mutation(opening,false,"Review the saved career and its current commitments before starting a lyric sketch.")
  var state:=_career(opening)
  if int(state.song_draft_progress)!=0 or not state.current_song_draft.is_empty():return _mutation(opening,false,"This earlier song has no lyric fragment recorded. Finish it through its original session route.")
- if not recipe.is_empty() and (not Producer.valid(recipe) or recipe.get("stage")!=0 or not _same(recipe.get("brief"),Sound.read(state)) or recipe.get("brief",{}).get("genre")!=opening.game.get("genre") or not Social.valid(state.get(Social.KEY,{"version":1,"members":{}})) or (opening.game.get("genre")!="Indie rock" and recipe.get("version") not in [3,4]) or not Producer.skills_ok(state)):return _mutation(opening,false,"This arrangement needs a compatible band and recorded participants.")
+ if not recipe.is_empty() and (not Producer.valid(recipe) or recipe.get("stage")!=0 or not _same(recipe.get("brief"),Sound.read(state)) or recipe.get("brief",{}).get("genre")!=opening.game.get("genre") or not Social.valid(state.get(Social.KEY,{"version":1,"members":{}})) or (opening.game.get("genre")!="Indie rock" and recipe.get("version") not in [3,4,5]) or not Producer.skills_ok(state)):return _mutation(opening,false,"This arrangement needs a compatible band and recorded participants.")
+ if recipe.get("version")==5 and not Producer.Mixing.Recorded.VocalKeys.active_pair(state,recipe):return _mutation(opening,false,"This phrase needs its named singer and keyboardist in the band.")
  var chosen:=_target(state,title,leader_index)
  if not chosen.ok:return _mutation(opening,false,chosen.message)
  var wrapper:=_wrapper(opening)
@@ -430,10 +433,11 @@ static func checkpoint(opening: Dictionary,action: String,token: Dictionary,payl
  if producer and action in ["save_sketch","try","use_alternate"]:return _mutation(opening,false,"Use the producer controls for this arrangement; the saved recipe is retained.")
  if action in ["producer_save","producer_try"]:
   if not producer or not _keys(payload,["recipe","title","leader_index"]) or not Producer.valid(payload.get("recipe")) or not payload.get("title") is String or not _whole(payload.get("leader_index"),0,5):return _mutation(opening,false,"Choose a compatible arrangement, title and leader.")
+  if payload.recipe.get("version")==5 and not Producer.Mixing.Recorded.VocalKeys.active_pair(state,payload.recipe):return _mutation(opening,false,"This phrase needs its named singer and keyboardist in the band.")
   if int(payload.recipe.stage)!=int(state.song_draft_progress) or not _same(payload.recipe.brief,Sound.read(state)):return _mutation(opening,false,"Develop the current writing stage with the confirmed band sound.")
   if int(state.song_draft_progress)>0:
    var recorded: Dictionary=project.fragment.producer_recipe
-   if recorded.version!=payload.recipe.version or recorded.hook!=payload.recipe.hook or recorded.get("voice","off")!=payload.recipe.get("voice","off"):return _mutation(opening,false,"This song's foundation is already recorded. Shape its arrangement, or finish it before starting another original.")
+   if recorded.version!=payload.recipe.version or recorded.hook!=payload.recipe.hook or recorded.get("voice","off")!=payload.recipe.get("voice","off") or recorded.get("keys","off")!=payload.recipe.get("keys","off"):return _mutation(opening,false,"This song's foundation is already recorded. Shape its arrangement, or finish it before starting another original.")
   if not _same(payload.recipe,project.fragment.producer_recipe):project.producer_decision={}
   material=_merge_material(material,Producer.material(payload.recipe))
   var chosen:=_target(state,payload.title,int(payload.leader_index))
@@ -593,7 +597,7 @@ static func _producer_receipt_ok(extension: Dictionary) -> bool:
  if not r is Dictionary or not _keys(r,["model","recipe_sha256","song_id","base_quality","delta","final_quality","context","reason"]):return false
  if not r.get("model") is String or not r.get("recipe_sha256") is String:return false
  if r.recipe_sha256!=_hash(extension.fragment.producer_recipe) or not r.song_id is String or not r.reason is String:return false
- if extension.fragment.producer_recipe.get("version") in [3,4]:return preload("res://experiments/playable_flightcase/mixing_recipe.gd").receipt_ok(r,extension.fragment.producer_recipe)
+ if extension.fragment.producer_recipe.get("version") in [3,4,5]:return preload("res://experiments/playable_flightcase/mixing_recipe.gd").receipt_ok(r,extension.fragment.producer_recipe)
  if r.model!="producer_raw_craft_v2":return false
  if not _whole(r.base_quality,0,100) or not _whole(r.final_quality,1,100) or not (r.delta is int or r.delta is float) or not is_finite(float(r.delta)) or float(r.delta)!=floor(float(r.delta)) or int(r.delta)<-3 or int(r.delta)>3:return false
  var c=r.context

@@ -1,6 +1,7 @@
 extends VBoxContainer
 ## Independent recorded ideas, never answers to the fingerprinted written exercise.
 const Poster=preload("res://experiments/playable_flightcase/poster_components.gd")
+const NEW_MANIFEST="res://experiments/playable_flightcase/audio/recorded_indie39/characters.json"
 const MANIFEST="res://experiments/playable_flightcase/audio/character_indie29/manifest.json"
 var paper:=false
 var candidate_id: String
@@ -12,8 +13,9 @@ var _registry: Dictionary={}
 var playing:=false
 
 static func attach(parent: Node,id: String,instrument: String,current: Callable,on_paper: bool=false) -> void:
- if not FileAccess.file_exists(MANIFEST):return
- var data: Variant=JSON.parse_string(FileAccess.get_file_as_string(MANIFEST))
+ var source: String=NEW_MANIFEST if instrument in ["Singer","Keyboardist"] else MANIFEST
+ if not FileAccess.file_exists(source):return
+ var data: Variant=JSON.parse_string(FileAccess.get_file_as_string(source))
  if not data is Dictionary or data.get("schema_version")!=1:return
  var entry: Variant=data.get("characters",{}).get(id)
  if not entry is Dictionary or entry.get("role")!=instrument:return
@@ -47,9 +49,11 @@ func _play(material: String) -> void:
  if not _allowed() or material not in _materials:return
  var entry: Dictionary=_registry.get(material,{})
  var path: String=str(entry.get("path",""))
- if not path.begins_with("res://experiments/playable_flightcase/audio/character_indie29/") or not ResourceLoader.exists(path):return
+ var new_source: bool=role in ["Singer","Keyboardist"]
+ var prefix: String="res://experiments/playable_flightcase/audio/recorded_indie39/" if new_source else "res://experiments/playable_flightcase/audio/character_indie29/"
+ if not path.begins_with(prefix) or not ResourceLoader.exists(path):return
  if FileAccess.file_exists(path) and FileAccess.get_sha256(path)!=entry.get("sha256"):return
- if entry.get("integration_authority")!="owner_request_20261109" or entry.get("integration_review_accepted")!=true:return
+ if entry.get("integration_authority")!=("owner_approved_first_excerpt_pairs_20261110" if new_source else "owner_request_20261109") or entry.get("integration_review_accepted")!=true:return
  var stream=load(path)
  if not stream is AudioStream:return
  var top: Node=self

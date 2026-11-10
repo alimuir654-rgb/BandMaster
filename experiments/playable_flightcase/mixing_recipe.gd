@@ -18,7 +18,9 @@ static func whole(value: Variant,low: int,high: int) -> bool:
  return (value is int or value is float) and is_finite(float(value)) and float(value)==floor(float(value)) and float(value)>=low and float(value)<=high
 
 static func valid(value: Variant) -> bool:
- if not value is Dictionary or not whole(value.get("version"),3,4) or not whole(value.get("stage"),0,2):return false
+ if not value is Dictionary or not whole(value.get("version"),3,5) or not whole(value.get("stage"),0,2):return false
+ if value.version==5 and (value.size()!=14 or not Recorded.VocalKeys.bound(value)):return false
+ if value.version!=5 and Recorded.VocalKeys.has_hook(value):return false
  if value.version==3 and value.size()!=12:return false
  if value.version==4 and (value.size()!=13 or not value.get("voice") is String or value.voice!="off"):return false
  for key in value:
@@ -34,21 +36,23 @@ static func recipe(brief: Dictionary,stage: int=0,composition_index: int=0) -> D
  return {"version":4,"palette":"mixing_desk_v1","hook":HOOKS[posmod(composition_index,HOOKS.size())],"voice":"off","brief":brief.duplicate(true),"stage":stage,"tone":"gritty","pace":"driving","energy":"full","originality":"familiar","groove":"straight","shape":"build","theme":"personal"}
 
 static func same_composition(first: Dictionary,second: Dictionary) -> bool:
- return valid(first) and valid(second) and first.version==second.version and first.hook==second.hook and first.get("voice","off")==second.get("voice","off")
+ return valid(first) and valid(second) and first.version==second.version and first.hook==second.hook and first.get("voice","off")==second.get("voice","off") and first.get("keys","off")==second.get("keys","off")
 
 static func foundation(value: Dictionary) -> String:
  if valid(value) and Recorded.has_hook(value):return Recorded.LABELS[Recorded.HOOKS.find(value.hook)]
  return HOOK_LABELS[HOOKS.find(value.hook)] if valid(value) else "REVIEW FOUNDATION"
 
 static func foundation_note(value: Dictionary) -> String:
+ if valid(value) and value.version==5:return Recorded.VocalKeys.TITLES[Recorded.VocalKeys.index(value)]+" · SAME VOCAL ACROSS ARRANGEMENTS"
  if not valid(value):return "Review the saved foundation."
  if Recorded.has_hook(value):return "SUNO SKETCH · "+Recorded.tempo_caption(value)+" · 4-BAR CANDIDATE · FIXED PLAYING"
  return HOOK_NOTES[HOOKS.find(value.hook)]
 
 static func adjustable(value: Dictionary,field: String) -> bool:
- return field in FIELDS and (not Recorded.has_hook(value) or field not in ["pace","groove","originality"])
+ return field in FIELDS and (value.get("version")!=5 or field!="tone") and (not Recorded.has_hook(value) or field not in ["pace","groove","originality"])
 
 static func label(value: Dictionary,field: String) -> String:
+ if valid(value) and value.version==5 and field=="tone":return "RECORDED"
  if valid(value) and Recorded.has_hook(value):
   if field=="pace":return Recorded.tempo_caption(value)
   if field=="groove":return "RECORDED"
@@ -71,10 +75,13 @@ static func summary(value: Dictionary) -> String:
  if not valid(value):return "This saved direction needs review."
  var words: Array[String]=[]
  for field in FIELDS:words.append(label(value,field))
- return (foundation(value)+" · " if value.version==4 else "")+" · ".join(words)
+ return (foundation(value)+" · " if value.version in [4,5] else "")+" · ".join(words)
 
 static func written(value: Dictionary) -> String:
  if not valid(value):return "This saved direction needs review."
+ if value.version==5:
+  var i: int=Recorded.VocalKeys.index(value)
+  return foundation(value)+". Approved AI-generated vocal and keyboard phrase, %.2f seconds. " % (float(Recorded.frames(value))/48000.0)+["Voice and keys","Voice, keys, bass and drums","The same voice with the full backing"][int(value.stage)]+". Backing balance and entrances can change; the vocal take stays the same."
  if Recorded.has_hook(value):
   return foundation(value)+". AI-generated Suno sketch, %.2f seconds at " % (float(Recorded.frames(value))/48000.0)+Recorded.tempo_caption(value)+". "+("Guitar alone" if int(value.stage)==0 else "Matched guitar, bass and drums")+"; "+label(value,"tone").to_lower()+" guitar tone, "+("quieter balance" if value.energy=="open" else "fuller balance")+"; "+("parts enter progressively" if value.shape=="build" else "parts enter together")+". Tempo and playing stay fixed. Lyrical direction: "+label(value,"theme").to_lower()+" (written intent)."
  var theme: String={"personal":"Something personal, held close.","streetlife":"Life outside the practice room.","escape":"Getting out without a clean answer."}[value.theme]
@@ -114,7 +121,8 @@ static func offer(value: Dictionary,respondent: Dictionary) -> Dictionary:
  var choices: Array=VALUES[FIELDS.find(field)]
  var next: String=choices[1-choices.find(value[field])]
  var pin: Array=[VERSION,value.brief.genre,value.brief.name_intent,value.brief.vibe,int(value.stage)]
- if value.version==4:pin.append(value.hook);pin.append(value.voice)
+ if value.version in [4,5]:pin.append(value.hook);pin.append(value.voice)
+ if value.version==5:pin.append(value.keys)
  for key in FIELDS:pin.append(value[key])
  for key in ["slot","member_id","candidate_id","name","role","bio_sha256"]:pin.append(respondent.get(key))
  return {"kind":"raw_change","field":field,"value":next,"stage":int(value.stage),"recipe":value.duplicate(true),"offer_id":JSON.stringify(pin).sha256_text()}
