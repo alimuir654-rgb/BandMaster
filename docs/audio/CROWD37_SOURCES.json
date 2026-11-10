@@ -37,7 +37,8 @@
       "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
       "source_sha256": "8902d0e04b1a5085318f35bff9c010cb7bff03e929b0773f90003aa0c882dbc1",
       "cue": "courtesy",
-      "duration_seconds": 3.6
+      "duration_seconds": 3.6,
+      "source_start_seconds": 2.0
     },
     "35748": {
       "title": "CROWD NOISE IN SMALL VENUE 001.wav",

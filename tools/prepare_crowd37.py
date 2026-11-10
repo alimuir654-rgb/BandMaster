@@ -50,9 +50,9 @@ def fetch(output):
         (output / 'receipt.json').write_text(json.dumps(receipt, indent=2) + '\n')
 
 
-def levels(path, seconds):
+def levels(path, seconds, start=0):
     pcm = subprocess.check_output(['ffmpeg', '-v', 'error', '-nostdin', '-i', str(path),
-                                   '-t', str(seconds), '-f', 'f32le', '-acodec', 'pcm_f32le', '-'])
+                                   '-ss', str(start), '-t', str(seconds), '-f', 'f32le', '-acodec', 'pcm_f32le', '-'])
     samples = array('f'); samples.frombytes(pcm)
     if sys.byteorder != 'little':
         samples.byteswap()
@@ -89,10 +89,15 @@ def prepare(sources, output, allow_partial=False):
         streams = probe['streams']
         if len(streams) != 1 or streams[0]['codec_type'] != 'audio':
             raise ValueError('Expected one audio stream')
-        duration = min(row['duration_seconds'], float(probe['format']['duration']) - 0.08)
-        mean, peak = levels(path, duration)
+        start = float(row.get('source_start_seconds', 0))
+        if not math.isfinite(start) or start < 0:
+            raise ValueError('Invalid source offset: ' + identity)
+        duration = min(row['duration_seconds'], float(probe['format']['duration']) - start - 0.08)
+        if not math.isfinite(duration) or duration <= 0.2:
+            raise ValueError('Source excerpt outside recording: ' + identity)
+        mean, peak = levels(path, duration, start)
         gain = min(6.0, -24.0 - mean, -3.0 - peak)
-        verified[identity] = (path, duration, gain, streams[0])
+        verified[identity] = (path, start, duration, gain, streams[0])
     if not verified:
         raise ValueError('No approved audio available')
     output.mkdir(parents=True, exist_ok=False)
@@ -101,10 +106,10 @@ def prepare(sources, output, allow_partial=False):
                 'complete': not missing, 'missing_sources': missing,
                 'owner_source_listening_accepted': True, 'derivative_mix_listening_verified': False,
                 'boo_approved': False, 'effects': {}}
-    for identity, (path, duration, gain, stream) in verified.items():
+    for identity, (path, start, duration, gain, stream) in verified.items():
         row = rows[identity]; cue = row['cue']; target = output / (cue + '.ogg')
         rate = int(stream['sample_rate'])
-        subprocess.run(['ffmpeg', '-v', 'error', '-nostdin', '-n', '-i', str(path), '-t', str(duration),
+        subprocess.run(['ffmpeg', '-v', 'error', '-nostdin', '-n', '-i', str(path), '-ss', str(start), '-t', str(duration),
             '-vn', '-ar', str(rate), '-ac', '2', '-af',
             f'volume={gain:.6f}dB,afade=t=in:d=0.04,afade=t=out:st={duration-0.15}:d=0.15',
             '-c:a', 'libvorbis', '-q:a', '5', '-map_metadata', '-1', str(target)], check=True)
@@ -116,7 +121,7 @@ def prepare(sources, output, allow_partial=False):
             'owner_source_listening_accepted': True, 'integration_review_accepted': True,
             'authority': 'owner_approved_table_20261110',
             'source_type': 'approved source MP3, not original WAV master',
-            'source_start_seconds': 0, 'duration_seconds': duration, 'sample_rate': rate,
+            'source_start_seconds': start, 'duration_seconds': duration, 'sample_rate': rate,
             'gain_db': round(gain, 6), 'modifications': 'Excerpt, level adjustment, fades and Vorbis encoding',
         }
         if row['license'] == 'CC-BY-4.0':
