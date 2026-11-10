@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "session": "AUDIO41",
+  "completed_at": "2026-11-10T18:15:55.484622+00:00",
+  "audited_sha": "42b54bc743cc18128f634aa955056ec2e2df55fb",
+  "runtime_baseline": "fbd1568747af59b5f2630f343e7ab90c2c3a4d74",
+  "status": "availability_audit_complete_original_legacy_stems_needed",
+  "owner_approved": false,
+  "findings": [
+    "Current /audio files listing exhausted:15WAVstems and1MP3 belonging to the three new songs; older requested sets absent there.",
+    "Current /BandMaster listing exhausted: no retained APK; a recorded-audio ZIP remains. Targeted active-file searches did not locate older source sets elsewhere. Search is not proof of permanent deletion or unrecoverability.",
+    "Downloaded recorded-audio ZIP read-only; exact historical SHA, Dropbox block-content hash and ZIP CRC pass. It contains10steady_v1WAVs plus manifest/old source/proof, not current steady_v2 or later rehearsal/DGAD/indie29 banks. No archive code applied.",
+    "Current worktree and retained QA lack the six older derivative banks; the three new songs/stems and complete crowd bank remain locally retained.",
+    "Earlier statement that no more audio would be needed was too definite without live source-availability checking. Owner cleanup makes original stems/recovery necessary."
+  ],
+  "archive": {
+    "dropbox_path": "/BandMaster/BandMaster-recorded-audio-source.zip",
+    "private_copy": "/workspace/bandmaster-audio41/BandMaster-recorded-audio-source.zip",
+    "bytes": 20785360,
+    "sha256": "33d96e02a9601f1c994e211cbd5cbe6aa6f4e1473176aacab42cf3e332ee167d",
+    "dropbox_content_hash": "a766ae6c6c706ac673adc4e60f8fd80d14a31875da75be417cc8aa1d1d371fb7",
+    "CRC": true,
+    "current_bank_recovered": false,
+    "why_insufficient": "Contains recorded_steady_v1 only; current game uses v2. Do not rename processed v1 audio into v2 or apply stale source."
+  },
+  "missing_required_sources": [
+    {
+      "title": "Steady Hundred",
+      "required_WAV_stems": [
+        "Guitar",
+        "Bass",
+        "Drums",
+        "Percussion"
+      ],
+      "basis": "Sources in retained original steady_v1 manifest; current runtime uses steady_v2 with different guitar processing."
+    },
+    {
+      "title": "Rehearsam",
+      "required_WAV_stems": [
+        "Guitar",
+        "Bass",
+        "Drums"
+      ],
+      "basis": "MAIN_AUDIO06 retained report names the source; original rehearsal bank consumes these three stems."
+    },
+    {
+      "title": "D\u2013G\u2013A\u2013D",
+      "required_WAV_stems": [
+        "Guitar",
+        "Bass",
+        "Drums"
+      ],
+      "basis": "MAIN_AUDIO07 source title and actual DGAD preparation code."
+    },
+    {
+      "title": "G\u2013D\u2013Em\u2013C",
+      "required_WAV_stems": [
+        "Guitar",
+        "Bass",
+        "Drums"
+      ],
+      "basis": "prepare_indie29.py exact source filenames."
+    },
+    {
+      "title": "Rehearsion Space",
+      "required_WAV_stems": [
+        "Guitar",
+        "Bass",
+        "Drums"
+      ],
+      "basis": "prepare_indie29.py exact source filenames, preserving original spelling."
+    },
+    {
+      "title": "Rehearsal D Minor",
+      "required_WAV_stems": [
+        "Guitar",
+        "Bass",
+        "Drums"
+      ],
+      "basis": "prepare_indie29.py exact source filenames."
+    }
+  ],
+  "required_stem_count": 19,
+  "full_mixes": "Optional references, not necessary to render these old guitar/bass/drum excerpts. Existing intake helpers may need a narrow missing-unused-Mix adjustment when reusing their old metadata contracts; no audio substitute or invented original provenance.",
+  "do_not_reupload": [
+    "Get the Good Plates Down \u20145stems retained",
+    "Wear and Tear \u20145stems retained",
+    "Underneath the Kitchen Stairs \u20145stems andMP3 retained",
+    "All four approved CROWD37/CROWD40 MP3s retained"
+  ],
+  "recovery_options": [
+    "Restore the original listed files from Dropbox Deleted files if still recoverable. No recovery action performed here.",
+    "Reupload the19original WAV stems to /audio files.",
+    "If available, inspect a retained signed V22 APK or complete private prepared-bank backup; embedded current media may reduce the original-stem requirement. No APK currently found."
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/bandmaster-audio41/dropbox-folder-inventory.json",
+      "sha256": "4741e959b0cf034888ef393f95b47599d1ec122a3d61703d807d13f1fc92b37a"
+    },
+    {
+      "path": "/workspace/bandmaster-audio41/zip-inventory.json",
+      "sha256": "39014b3f747888f7647cc0df13ae43ba6a364b0709b54bf808eaa6d08a6156c3"
+    }
+  ],
+  "lookup_limits": [
+    "Stale archived Steady guitar file ID metadata lookup returned INVALID_ARGUMENT; not used as deletion proof.",
+    "Active searches can miss renamed/moved files. No deleted-file history queried or Dropbox restore performed."
+  ],
+  "simulated_review_lenses": {
+    "availability": "SIMULATED: exhaust two known folders and compare local inventory, not assume former files persist.",
+    "source_identity": "SIMULATED: archive SHA and content hash match historic receipt; v1 and v2 are distinct.",
+    "user_effort": "SIMULATED: ask only19instrument stems; retain newer songs/crowds, mixes optional, recovery/backup alternative.",
+    "privacy": "SIMULATED: private ZIP downloaded locally, no shared link or Dropbox mutation/public audio.",
+    "release": "SIMULATED: no source/runtime/save/app/key/frozenV23 changes; full version24 package still held for source restoration."
+  },
+  "engine_runs": false,
+  "new_captures": false,
+  "new_APK": false,
+  "new_request": false,
+  "writer_released": true,
+  "next_action": "Owner restores from Dropbox Deleted files or reuploads the19original WAV stems in the six listed older source sets. Full mixes optional; new three songs and four crowd files need no reupload. A retained V22 APK/complete private audio-bank backup can be inspected as an alternate recovery source if available."
+}

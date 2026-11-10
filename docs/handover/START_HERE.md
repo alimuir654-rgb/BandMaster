@@ -7,7 +7,36 @@ Read `AGENTS.md`, the improvement check/lessons, and
 `docs/continuous_improvement/CURRENT.json` before changes. Use one writer and a fresh scoped preflight.
 Historical overnight deadlines and older branch/build instructions do not supersede this handover.
 
-## Latest continuation — CROWD40
+## Latest continuation — AUDIO41 source availability audit
+
+The owner cleared older Dropbox content. A fresh read-only audit exhausted
+`/audio files` and `/BandMaster` listings and checked local inventories. The new
+three songs and complete crowd bank are retained, but the older source sets are
+absent from the known audio folder/local banks. Do not promise full restoration
+from Dropbox without checking what is actually there.
+
+`/BandMaster/BandMaster-recorded-audio-source.zip` remains. Its20,785,360bytes,
+historical SHA`33d96e02a9601f1c994e211cbd5cbe6aa6f4e1473176aacab42cf3e332ee167d`,
+Dropbox block-content hash and ZIP CRC were verified. The ZIP contains only the
+old `recorded_steady_v1` bank, not currentv2 or the later banks. No old source was
+applied and no audio was relabeled. Private copy/inventory:
+`/workspace/bandmaster-audio41/`. Read `docs/continuous_improvement/AUDIO41_RESULTS.json`.
+
+Required original WAVs: **Guitar, Bass and Drums** for each of **Steady Hundred,
+Rehearsam** (earlier rehearsal instrumental), **D–G–A–D, G–D–Em–C,
+Rehearsion Space, Rehearsal D Minor**, plus **Percussion for Steady Hundred**:
+19stems total. Full mixes are optional references. The owner can restore these
+from Dropbox Deleted files if available or reupload to `/audio files`. No recovery
+or Dropbox mutation was performed here. A retained V22 APK or complete private
+prepared-bank backup could be inspected as an alternate source if supplied;
+none is currently in the known retained folders/local workspace.
+
+No need to reupload Get the Good Plates Down, Wear and Tear, Underneath the
+Kitchen Stairs or the four crowd MP3s. No engine/build/signing or app/key/V23
+change. The full version24 package remains held for legacy-media restoration.
+Writer released; global owner artwork approval remains false.
+
+## Previous continuation — CROWD40
 
 The owner supplied all four approved crowd MP3s in chat. **The crowd bank is now
 complete**; the previous three-file acquisition blocker is resolved by these

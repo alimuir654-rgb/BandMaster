@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "AUDIO41",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "fbd1568747af59b5f2630f343e7ab90c2c3a4d74",
   "owner_request": "Owner cleared older Dropbox files and may need to reupload. Audit current local/Dropbox sources and retained archive first, then identify exact necessary replacements without asking for files already retained.",
@@ -19,8 +19,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
   },
   "issue_log_review": {
-    "bytes": 2160769,
-    "sha256": "4f65b4ca2ac6eb7f2c874d04394f99997bf9ba9cb7e78dff28bcb45fe768340d"
+    "bytes": 2162377,
+    "sha256": "7e10a26cb9f17452a951123c9808fa50d1d6a3f5f54b331389e6b7d2f198e36e"
   },
   "target": {
     "locator": "experiments/playable_flightcase/art/crowd34.png",
@@ -50,7 +50,15 @@
   },
   "writer": {
     "owner": "root",
-    "status": "active"
+    "status": "released"
   },
-  "started_at": "2026-11-10T18:12:23.494638+00:00"
+  "started_at": "2026-11-10T18:12:23.494638+00:00",
+  "completed_at": "2026-11-10T18:15:55.484622+00:00",
+  "closeout": {
+    "tested_sha": "42b54bc743cc18128f634aa955056ec2e2df55fb",
+    "evidence": "docs/continuous_improvement/AUDIO41_RESULTS.json",
+    "visual_verdict": "partial",
+    "new_issue_review": "Live source availability corrected; v1-only archive cannot be relabeledv2. No engine/visual test claimed; original MP3/WAV/source/app/key/V23 unchanged.",
+    "next_action": "Owner restores from Dropbox Deleted files or reuploads the19original WAV stems in the six listed older source sets. Full mixes optional; new three songs and four crowd files need no reupload. A retained V22 APK/complete private audio-bank backup can be inspected as an alternate recovery source if available."
+  }
 }

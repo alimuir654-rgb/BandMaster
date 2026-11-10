@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/CROWD40.json",
-  "scope": "All four approved crowd sources privately prepared and combined with the approved vocal song in the real gig journey; full new package not built.",
+  "session": "docs/continuous_improvement/sessions/AUDIO41.json",
+  "scope": "Read-only live private audio availability audit after owner cleanup; crowd complete but six original legacy sets missing for full package restoration.",
   "owner_approved": false,
   "casting_reference_approved": true,
   "casting_reference_sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
@@ -10,8 +10,8 @@
   "frames": "Existing poster materials; calm small paper controls; original activity art and passive meters retained.",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "complete_crowd_bank_combined_native_verified_no_APK",
-  "next_action": "Restore the retained older private music banks into a fresh build workspace, materialize and audit the combined version24 candidate, then create a NEW request for detached signing in the original key environment. Preserve frozenV23 and its request.",
+  "status": "legacy_audio_recovery_or_19_stem_reupload_needed",
+  "next_action": "Owner restores from Dropbox Deleted files or reuploads the19original WAV stems in the six listed older source sets. Full mixes optional; new three songs and four crowd files need no reupload. A retained V22 APK/complete private audio-bank backup can be inspected as an alternate recovery source if available.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -7742,7 +7742,7 @@
     "owner_approved": false,
     "writer": null
   },
-  "root_writer_released_at": "2026-11-10T15:36:07.074069+00:00",
+  "root_writer_released_at": "2026-11-10T18:15:55.484622+00:00",
   "next32_closeout": {
     "tested_sha": "dba007e3022d9d1a39365aab78b127d6a1d79f84",
     "evidence": "docs/continuous_improvement/NEXT32_RESULTS.json",
@@ -7832,6 +7832,16 @@
     "owner_source_accepted": true,
     "new_APK": false,
     "checks": 495,
+    "writer": null
+  },
+  "audio41": {
+    "record": "docs/continuous_improvement/AUDIO41_RESULTS.json",
+    "audited_sha": "42b54bc743cc18128f634aa955056ec2e2df55fb",
+    "older_sets": 6,
+    "required_WAV_stems": 19,
+    "new_songs_and_crowd_retained": true,
+    "archive_v1_only": true,
+    "new_APK": false,
     "writer": null
   }
 }
