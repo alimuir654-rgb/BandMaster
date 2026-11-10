@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "id": "SIGN45",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "50fffa7ba66991d1babf37807bc632a52947e026",
+  "owner_request": "Owner returned the exact V24 detached RSA signature. Verify against audited request and original public certificate, assemble the retained unsigned V24 without rebuilding or key access, run final official Android audits and provide the completed private test build.",
+  "dominant_issue": "BM-34",
+  "lesson_ids": [
+    "BM-13",
+    "BM-34",
+    "BM-35",
+    "BM-40"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2174618,
+    "sha256": "93b16f0a22ab14bc231e1072289fc24b9c7ccdca764282ce599fe95b7dd6b72a"
+  },
+  "target": {
+    "locator": "experiments/playable_flightcase/art/crowd34.png",
+    "original_sha256": "e9efabc9554f81367b061045dbeb3c2725e689aa465aa12ba7cf88a5427cb44b",
+    "pixels_inspected": true,
+    "note": "Previously opened unchanged crowd atlas and native journey. Audio-only restoration; no UI/source-art modifications."
+  },
+  "controlled_comparison": "Unsigned APK SHAe957cd727a2a584942c07170a7d298468017ec428f73754af82613b11a93a5f1, request SHA8072969d2d165075f5cf7df30aa118ed95232b8c7b71d10c2c3b732b02cc191b, source462b68ad7211a639bea204a6ab0d94f4fd942875; final ZIP payload and metadata byte-identical. Prior exact compiled model/native proof remains applicable only if payload equality passes.",
+  "hypothesis": "The returned original-key signature matches the audited V24 signed data, allowing insertion of only the APK-v2 block and required EOCD offset into the exact retained unsigned APK, then strict official verification and private owner delivery.",
+  "stop_condition": "No key loading/generation/export, no product/source/APK rebuild/request/policy change, no frozenV23 changes, no app/save/entry change, no public audio/APK delivery or sharing grants; any signature or official audit failure holds candidate. Only public response and documentation enter Git.",
+  "allowed_paths": [
+    "docs/signing/BandMaster-V24-signature-response.json",
+    "docs/signing/README.md",
+    "docs/continuous_improvement/**",
+    "docs/handover/START_HERE.md",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "Pinned request check; exact response binding/signature with immutable original certificate before assembly",
+    "Existing detached assembler validates actual unsigned hash/content/source; APK-v2 insertion only, official apksigner/zipalign, exact metadata and ZIP-payload equality",
+    "Separate final audit using official tools + all ZIP CRC/content hashes, no unexpected permissions/test/key entries, unchanged original source compiled proof; no pointless unchanged runtime reruns",
+    "Private owner test build delivery in established /BandMaster destination; metadata and remote raw/block hash proof if delivery available; no public links",
+    "Frozen V23/request/policy and current unsigned APK unchanged; source-only nonforce feature publication; improvement gate"
+  ],
+  "resource_plan": {
+    "evidence_root": "/workspace/bandmaster-sign45",
+    "retained_unsigned_APK": "/workspace/bandmaster-build43/BandMaster-Playtest-v24-UNSIGNED.apk",
+    "signed_output": "/workspace/bandmaster-build43/BandMaster-Playtest-v24-arm64.apk",
+    "private_Dropbox_destination": "/BandMaster/BandMaster-Playtest-v24-arm64.apk",
+    "new_APK_export": false,
+    "private_key_used_here": false
+  },
+  "writer": {
+    "owner": "root",
+    "status": "active"
+  },
+  "started_at": "2026-11-10T20:15:00.867514+00:00"
+}
