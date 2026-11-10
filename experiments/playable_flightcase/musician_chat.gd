@@ -19,6 +19,38 @@ const LABELS := {
  "work_it_out":"LET'S PLAY AND LISTEN TO EACH OTHER",
  "push_on":"LET'S PUSH THROUGH THE NEXT SESSION"
 }
+## Authored from the existing cast's musical strengths/friction, not appearance.
+const VOICES={
+ "cast_jack":"I like a part you can remember before the second chorus.",
+ "cast_maya":"I've got a few lines in my notebook. They still sound different when I try them out loud.",
+ "cast_ellis":"Before we add anything, can we agree where the count-in lands?",
+ "cast_zoe":"Leave me a little space and I can give the song somewhere to lean.",
+ "cast_dan":"I keep hearing something underneath the guitar. It doesn't have to fill the whole room.",
+ "cast_ryan":"A rough take tells me more than another half-hour talking about it.",
+ "cast_lily":"Let's do a proper take. We'll hear what's missing.",
+ "cast_marcus":"The quiet bits count as part of the groove too.",
+ "cast_ben":"I can put the time in. Just play me the change once before we go again.",
+ "cast_freya":"There are a few notes I'd take out before I added another layer.",
+ "cast_arjun":"I don't need to play over the vocal. I want the chord underneath it to say something.",
+ "cast_nina":"Let me find the harmony quietly first. I can bring it up once I've got it.",
+ "cast_tom":"Play it once without me. I want to hear where my part belongs.",
+ "cast_casey":"I know I rush when I get carried away. Give me the look before the quiet bit.",
+ "cast_hannah":"If we know the ending, the rest of it has somewhere to go.",
+ "cast_oscar":"I'd rather find one texture that belongs than five that don't.",
+ "cast_bex":"Tell me what you actually want to change. I'm not sanding off every rough edge.",
+ "cast_sam":"The song needs to feel like somebody means it. I can work with rough."
+}
+const REPLY_LEADS={
+ "cast_jack":"I can get behind that.","cast_maya":"Alright. It helps to know we're trying it together.",
+ "cast_ellis":"Right. A plan we can actually count in.","cast_zoe":"That leaves us something to build on.",
+ "cast_dan":"I can hear a way into that.","cast_ryan":"Good. Let's make it something we do.",
+ "cast_lily":"Alright — but let's give it a proper go.","cast_marcus":"Good. No point rushing what needs room.",
+ "cast_ben":"That gives me something I can prepare for.","cast_freya":"Yes. Let's make the room for it.",
+ "cast_arjun":"I can work around that.","cast_nina":"That sounds like somewhere I can start.",
+ "cast_tom":"I can do that. I'll come in prepared.","cast_casey":"Alright. I'll try to hear you before I charge in.",
+ "cast_hannah":"Good. Let's mean it this time.","cast_oscar":"Then let's make something of it.",
+ "cast_bex":"Alright. I'll hear it out.","cast_sam":"If we're doing it, let's mean it."
+}
 
 static func whole(v: Variant,low: int=0,high: int=2147483647) -> bool:
  return typeof(v) in [TYPE_INT,TYPE_FLOAT] and is_finite(float(v)) and float(v)==floorf(float(v)) and v>=low and v<=high
@@ -89,6 +121,11 @@ static func record(state: Dictionary,id: String) -> Dictionary:
  return state.get(KEY,{}).get("records",{}).get(id,{}).duplicate(true)
 
 static func opening(state: Dictionary,id: String,topic: String) -> String:
+ var context: String=_situation_opening(state,id,topic)
+ if topic=="direction" and VOICES.has(id):return str(VOICES[id])+"\n\n"+context
+ return context
+
+static func _situation_opening(state: Dictionary,id: String,topic: String) -> String:
  var p: Dictionary=member(state,id)
  var plan: Dictionary=record(state,id).get("plan",{})
  if plan.get("status")=="missed":return "We said we'd make time, but that evening never happened. What are we actually doing next?"
@@ -168,6 +205,7 @@ static func answer(state: Dictionary,id: String,topic: String,choice: String,exp
  elif kind=="rehearse":reply="Let's agree an evening and rehearse within the next four days. Check that I'm actually free before you book it."
  if choice=="push_on" and int(p.get("fatigue",0))>=50:reply="I'll try, but I'm tired. Being in the room won't mean that pushing was the right call."
  if choice=="hold_off":reply="Fair. I'd rather hear that now than be promised an evening that never comes."
+ if REPLY_LEADS.has(id):reply=str(REPLY_LEADS[id])+" "+reply
  row.turns.append({"day":int(state.tour_day),"topic":topic,"choice":choice,"opening":str(view.opening),"reply":reply})
  while row.turns.size()>12:row.turns.pop_front()
  row.last_day=int(state.tour_day)

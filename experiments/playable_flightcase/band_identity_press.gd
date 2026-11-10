@@ -11,6 +11,7 @@ const Portraits=preload("res://experiments/playable_flightcase/formation_portrai
 const CAST_PATH := "res://experiments/playable_flightcase/art/identity/CAST.json"
 const APPROVED_REVISIONS := "res://experiments/playable_flightcase/art/owner_approved_revisions_v2.json"
 const POSE_COHORT := "res://experiments/playable_flightcase/art/identity/formation_pose_cohort_v1.json"
+const FORMATION_ROOM="res://Art/Backgrounds/indie/formation.webp"
 var cohort_registry_path := POSE_COHORT
 var member_ids: Array[String] = []
 var _full_length := false
@@ -217,6 +218,14 @@ func configure(roster: Array, lead_id: String, band_name: String, logo: String, 
  stage.custom_minimum_size.y=body_height if _full_length else (75.0 if compact else 120.0)
  stage.set_meta("height_cap",body_height)
  content.add_child(stage)
+ if _full_length and variant in ["complete","formation","career"]:
+  stage.clip_contents=true
+  var room:=TextureRect.new();room.name="IdentityRehearsalRoom"
+  room.texture=load(FORMATION_ROOM);room.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+  room.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED
+  room.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+  room.mouse_filter=Control.MOUSE_FILTER_IGNORE;room.modulate=Color(0.74,0.74,0.74)
+  stage.add_child(room)
  var views: Array[TextureRect]=[]
  for person in entries:
   var pid: String=str(person["id"])

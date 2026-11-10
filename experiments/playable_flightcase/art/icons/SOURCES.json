@@ -56,6 +56,38 @@
       "source": "Art/UI/Icons/guitar.svg",
       "upstream": "https://github.com/lucide-icons/lucide/tree/main/icons",
       "transformation": "None; existingrepositoryISCsourcebyteoriginal. Nativeiconpanelonly, existingLICENSE.txt retained."
+    },
+    {
+      "path": "experiments/playable_flightcase/art/icons/drum.svg",
+      "sha256": "9f9999335ff5067f3e519d153bf32d6ebe2ed6b36adb9610f50b9b6e37efc244",
+      "upstream": "https://raw.githubusercontent.com/lucide-icons/lucide/0.468.0/icons/drum.svg",
+      "upstream_sha256": "bd334f14dd0489e22ebd3b531605da25b39c54c0e16fb00a8dcaeda2201053e9",
+      "licence": "ISC; LICENSE-LUCIDE-0.468.0.txt",
+      "transformation": "Original vector geometry retained.96px intrinsic raster size,2.75-unit stroke andneutralwhite ink fornative theme tint; no raster upscaling."
+    },
+    {
+      "path": "experiments/playable_flightcase/art/icons/cassette-tape.svg",
+      "sha256": "ba16949b2829a4de87b0fce8f99e78f6c0ee949860d525db6aa63601cc89ee64",
+      "upstream": "https://raw.githubusercontent.com/lucide-icons/lucide/0.468.0/icons/cassette-tape.svg",
+      "upstream_sha256": "e455c58f99f70644ee15558a11c4eaaf56b780ab99b1a9738a2569aa6bb10926",
+      "licence": "ISC; LICENSE-LUCIDE-0.468.0.txt",
+      "transformation": "Original vector geometry retained.96px intrinsic raster size,2.75-unit stroke andneutralwhite ink fornative theme tint; no raster upscaling."
+    },
+    {
+      "path": "experiments/playable_flightcase/art/icons/megaphone.svg",
+      "sha256": "ca8ad15ebb5021c899e3e0e7d00516a84c428318fc93cfa745d30b11d69cc80e",
+      "upstream": "https://raw.githubusercontent.com/lucide-icons/lucide/0.468.0/icons/megaphone.svg",
+      "upstream_sha256": "fc7034672eed180a4d401f37cc8eafe019b97a3130c2c78775dc8f1bb4202c52",
+      "licence": "ISC; LICENSE-LUCIDE-0.468.0.txt",
+      "transformation": "Original vector geometry retained.96px intrinsic raster size,2.75-unit stroke andneutralwhite ink fornative theme tint; no raster upscaling."
+    },
+    {
+      "path": "experiments/playable_flightcase/art/icons/coffee.svg",
+      "sha256": "abe8f864923bec586f38f6172f5bf350022b44c5a8104134e1dee48e2b8dff51",
+      "upstream": "https://raw.githubusercontent.com/lucide-icons/lucide/0.468.0/icons/coffee.svg",
+      "upstream_sha256": "970595bdafac0df42c00b847d53fd00c2283ecc3b83881274de2aa7dbce2bbc8",
+      "licence": "ISC; LICENSE-LUCIDE-0.468.0.txt",
+      "transformation": "Original vector geometry retained.96px intrinsic raster size,2.75-unit stroke andneutralwhite ink fornative theme tint; no raster upscaling."
     }
   ],
   "owner_approved": false

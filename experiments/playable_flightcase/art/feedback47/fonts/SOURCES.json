@@ -1,0 +1,48 @@
+{
+  "source": "Google Fonts official repository",
+  "assets": [
+    {
+      "path": "experiments/playable_flightcase/art/feedback47/fonts/BlackOpsOne-Regular.ttf",
+      "upstream": "https://raw.githubusercontent.com/google/fonts/main/ofl/blackopsone/BlackOpsOne-Regular.ttf",
+      "sha256": "282a825b5f294377387e3969f765408157dbea8da0f5d0aae68c6bc704b145b3",
+      "licence": "SIL Open Font Licence; correspondingOFLretained",
+      "transformation": "None; originalfont/licencebytes"
+    },
+    {
+      "path": "experiments/playable_flightcase/art/feedback47/fonts/BlackOpsOne-OFL.txt",
+      "upstream": "https://raw.githubusercontent.com/google/fonts/main/ofl/blackopsone/OFL.txt",
+      "sha256": "f67ca4a200424868ee8fcd5464d7b35ac1cbf7723f6bfdbd19a8524689fab9a8",
+      "licence": "SIL Open Font Licence; correspondingOFLretained",
+      "transformation": "None; originalfont/licencebytes"
+    },
+    {
+      "path": "experiments/playable_flightcase/art/feedback47/fonts/RubikDirt-Regular.ttf",
+      "upstream": "https://raw.githubusercontent.com/google/fonts/main/ofl/rubikdirt/RubikDirt-Regular.ttf",
+      "sha256": "9de3d928e434a47ec85d759012c8a0ebfeab0860076eea4e3989a47c5e213123",
+      "licence": "SIL Open Font Licence; correspondingOFLretained",
+      "transformation": "None; originalfont/licencebytes"
+    },
+    {
+      "path": "experiments/playable_flightcase/art/feedback47/fonts/RubikDirt-OFL.txt",
+      "upstream": "https://raw.githubusercontent.com/google/fonts/main/ofl/rubikdirt/OFL.txt",
+      "sha256": "f9e2d4498ea80d38bac7b8841d68af68c132fa67e1552e7c05717e6987de1d74",
+      "licence": "SIL Open Font Licence; correspondingOFLretained",
+      "transformation": "None; originalfont/licencebytes"
+    },
+    {
+      "path": "experiments/playable_flightcase/art/feedback47/fonts/RubikGlitch-Regular.ttf",
+      "upstream": "https://raw.githubusercontent.com/google/fonts/main/ofl/rubikglitch/RubikGlitch-Regular.ttf",
+      "sha256": "260245012483d56956269100ebece747aa95b4b67e5a9411a81a36e91f55e653",
+      "licence": "SIL Open Font Licence; correspondingOFLretained",
+      "transformation": "None; originalfont/licencebytes"
+    },
+    {
+      "path": "experiments/playable_flightcase/art/feedback47/fonts/RubikGlitch-OFL.txt",
+      "upstream": "https://raw.githubusercontent.com/google/fonts/main/ofl/rubikglitch/OFL.txt",
+      "sha256": "f9e2d4498ea80d38bac7b8841d68af68c132fa67e1552e7c05717e6987de1d74",
+      "licence": "SIL Open Font Licence; correspondingOFLretained",
+      "transformation": "None; originalfont/licencebytes"
+    }
+  ],
+  "owner_approved": false
+}

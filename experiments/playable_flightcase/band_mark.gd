@@ -16,10 +16,10 @@ func configure(value: String, logo: String, style: Dictionary, points: int = 70,
  identity_style=style.duplicate(true)
  _finish=Style.finish_kind(style)
  _mark_color=Style.ink(style,on_dark)
- text=Style.mark_text(value,logo)
  _max_points=points
  _min_points=16 if compact else 22
  _single_line=compact and single_line
+ text=Style.layout_text(value,logo,style,_single_line)
  horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
  vertical_alignment=VERTICAL_ALIGNMENT_CENTER
  autowrap_mode=TextServer.AUTOWRAP_OFF if _single_line else TextServer.AUTOWRAP_WORD_SMART
@@ -32,10 +32,18 @@ func configure(value: String, logo: String, style: Dictionary, points: int = 70,
  focus_mode=Control.FOCUS_NONE
  add_theme_font_override("font",Style.face(style))
  add_theme_color_override("font_color",Style.ink(style,on_dark))
+ var prior: Node=get_node_or_null("MarkInkPlate")
+ if prior!=null:remove_child(prior);prior.queue_free()
+ if Style.layout_kind(style)=="cutout":
+  var plate:=ColorRect.new();plate.name="MarkInkPlate";plate.color=_mark_color
+  plate.mouse_filter=Control.MOUSE_FILTER_IGNORE;plate.show_behind_parent=true
+  plate.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);add_child(plate)
+  add_theme_color_override("font_color",Color("191b1a") if _mark_color.get_luminance()>0.45 else Color("eee8d8"))
  add_theme_font_size_override("font_size",points)
  if _finish!="plain":
   add_theme_constant_override("outline_size",0)
  custom_minimum_size.y=float(points)*1.52 if compact else float(points)*2.10
+ if text.contains("\n"):custom_minimum_size.y=float(points)*2.55
  if not resized.is_connected(_fit): resized.connect(_fit)
  call_deferred("_fit")
  queue_redraw()

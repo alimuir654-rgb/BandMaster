@@ -949,7 +949,7 @@ func _identity() -> void:
  if identity_draft.is_empty(): _load_identity_draft()
  var root: VBoxContainer=_make_shell()
  root.add_child(_label("DESIGN YOUR POSTER",24))
- if setup.identity_style.has(IdentityStyle.FINISH_KEY) and not IdentityStyle.valid(setup.identity_style):
+ if (setup.identity_style.has(IdentityStyle.FINISH_KEY) or setup.identity_style.has(IdentityStyle.LAYOUT_KEY)) and not IdentityStyle.valid(setup.identity_style):
   root.add_child(_label("SAVED PRINT TREATMENT HELD",22))
   root.add_child(_label("This saved print treatment needs a compatible version. Its original data is retained.",16))
   root.add_child(_button("BACK TO MENU",_home,"tab","IdentityBackAction"))
@@ -1018,13 +1018,25 @@ func _identity() -> void:
   proof_budget=Vector2(440.0,maxf(120.0,size.y-266.0-notice_height))
  identity_print.configure(setup.game.roster,setup.lead_vocal_id,setup.name_locked,str(identity_draft["logo"]),str(identity_draft["palette"]),str(identity_draft["vibe"]),size.x,"preview",identity_draft["style"],"",proof_budget)
  if not wide:controls.add_child(_label("Type and ink shape the poster. Your confirmed attitude also sets the band’s sound brief. Previews are free.",16))
+ var style: Dictionary=identity_draft["style"]
+ controls.add_child(_label("LOGO DIRECTION",16))
+ var layouts:=GridContainer.new();layouts.columns=2
+ layouts.add_theme_constant_override("h_separation",8);layouts.add_theme_constant_override("v_separation",8)
+ controls.add_child(layouts)
+ for i in range(IdentityStyle.LAYOUTS.size()):
+  var kind: String=IdentityStyle.LAYOUTS[i]
+  var chosen: bool=IdentityStyle.layout_kind(style)==kind
+  var choice: Button=_identity_button(IdentityStyle.LAYOUT_LABELS[i],_identity_choose.bind("layout",kind),"tab","IdentityLayout_"+kind)
+  choice.toggle_mode=true;choice.set_pressed_no_signal(chosen);choice.custom_minimum_size.y=58
+  var example: Dictionary=IdentityStyle.with_layout(style,kind)
+  choice.add_theme_font_override("font",IdentityStyle.face(example));choice.add_theme_font_size_override("font_size",20)
+  layouts.add_child(choice)
  controls.add_child(_label("TYPE DIRECTION",16))
  var type_grid:=GridContainer.new()
  type_grid.columns=2
  type_grid.add_theme_constant_override("h_separation",8)
  type_grid.add_theme_constant_override("v_separation",8)
  controls.add_child(type_grid)
- var style: Dictionary=identity_draft["style"]
  for i in range(IdentityStyle.FONTS.size()):
   var kind: String=str(IdentityStyle.FONTS[i])
   var chosen: bool=kind==style["font"]
@@ -1106,10 +1118,12 @@ func _identity_choose(family: String,value: String) -> void:
  if family=="font" and not IdentityStyle.FONTS.has(value): return
  if family=="ink" and not IdentityStyle.INKS.has(value): return
  if family=="finish" and not IdentityStyle.FINISHES.has(value):return
- if family not in ["font","ink","finish"]: return
+ if family=="layout" and not IdentityStyle.LAYOUTS.has(value):return
+ if family not in ["font","ink","finish","layout"]: return
  if family=="finish":identity_draft["style"]=IdentityStyle.with_finish(identity_draft["style"],value)
+ elif family=="layout":identity_draft["style"]=IdentityStyle.with_layout(identity_draft["style"],value)
  else:identity_draft["style"][family]=value
- _refresh_identity_preview("Identity"+({"font":"Type_","ink":"Ink_","finish":"Finish_"}[family])+value)
+ _refresh_identity_preview("Identity"+({"font":"Type_","ink":"Ink_","finish":"Finish_","layout":"Layout_"}[family])+value)
 
 func _refresh_identity_preview(focus_name: String) -> void:
  var old_scroll: ScrollContainer=find_child("IdentityChoicesScroll",true,false) as ScrollContainer
@@ -1129,7 +1143,7 @@ func _design(family: String,value: String) -> void:
 
 func _finish() -> void:
  if _identity_committing: return
- if setup.identity_style.has(IdentityStyle.FINISH_KEY) and not IdentityStyle.valid(setup.identity_style):return
+ if (setup.identity_style.has(IdentityStyle.FINISH_KEY) or setup.identity_style.has(IdentityStyle.LAYOUT_KEY)) and not IdentityStyle.valid(setup.identity_style):return
  _identity_committing=true
  if identity_draft.is_empty(): _load_identity_draft()
  var result: Dictionary=setup.finish_identity(identity_draft["style"],identity_draft)

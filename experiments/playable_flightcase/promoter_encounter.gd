@@ -1,6 +1,7 @@
 extends RefCounted
 ## Authored, read-only conversation framing. SceneCircuit owns every actual offer.
 const Circuit=preload("res://experiments/playable_flightcase/scene_circuit.gd")
+const Promoters=preload("res://experiments/playable_flightcase/promoter_profiles.gd")
 
 static func opening(state: Dictionary,venue: String) -> String:
  var proposal: Dictionary=Circuit.proposal(state,venue,"scene","standard")
@@ -10,7 +11,12 @@ static func opening(state: Dictionary,venue: String) -> String:
   return "You've played here before. What are you looking to do this time?"
  if int(context.shows)>0:
   return "New room for you, then. Tell me what your band can bring to this night."
- return "Your first night with us? Tell me what your band can bring. We need a bill that works in this room."
+ var id: String=str(Promoters.for_venue(venue).get("id",""))
+ return str({
+  "mo_farrow":"I'm Mo. We've got three bands to fit in and an engineer who'd like to get home. Tell me about the set you're bringing.",
+  "jules_okafor":"Jules. Good to meet you. Small room, close crowd — people hear everything here. What sort of night are you after?",
+  "ray_malik":"Ray. Put your bag down, have a look at the room. I book the night as much as the band. What have you got ready?"
+ }.get(id,"Your first night with us? Tell me about the set you're bringing."))
 
 static func reaction(state: Dictionary,venue: String,pitch: String) -> String:
  var proposal: Dictionary=Circuit.proposal(state,venue,pitch,"standard")

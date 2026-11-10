@@ -1,18 +1,25 @@
 extends RefCounted
 ## Cosmetic data only. The optional v1 token never changes taste, money or time.
 const KEY := "identity_style_v1"
-const FONTS := ["blockprint","condensed","handpainted","mono"]
+const FONTS := ["blockprint","condensed","handpainted","mono","stencil","xerox","glitch"]
 const INKS := ["charcoal","ivory","oxblood","burnt_amber","faded_teal","cobalt","forest","muted_violet"]
-const FONT_LABELS := ["BLOCKPRINT","CONDENSED","HANDPAINTED","MONO"]
+const FONT_LABELS := ["BLOCKPRINT","CONDENSED","HANDPAINTED","MONO","STENCIL","XEROX","GLITCH"]
 const INK_LABELS := ["CHARCOAL","IVORY","OXBLOOD","BURNT AMBER","FADED TEAL","COBALT","FOREST","MUTED VIOLET"]
 const FINISH_KEY := "print_finish_v1"
 const FINISHES := ["plain","underline","rules","brackets"]
 const FINISH_LABELS := ["PLAIN","UNDERLINED","DOUBLE RULE","BRACKETED"]
+const LAYOUT_KEY="mark_layout_v1"
+const LAYOUTS=["straight","stacked","cutout","stencil","xerox","afterhours"]
+const LAYOUT_LABELS=["STRAIGHT UP","STACKED","CUT & PASTE","STENCIL","XEROX","AFTER HOURS"]
+const LAYOUT_FACES={"straight":"blockprint","stacked":"condensed","cutout":"blockprint","stencil":"stencil","xerox":"xerox","afterhours":"glitch"}
 const FONT_FILES := {
  "blockprint":"res://experiments/playable_flightcase/fonts/identity/Anton-Regular.ttf",
  "condensed":"res://experiments/playable_flightcase/fonts/identity/BarlowCondensed-SemiBold.ttf",
  "handpainted":"res://experiments/playable_flightcase/fonts/identity/PermanentMarker-Regular.ttf",
- "mono":"res://experiments/playable_flightcase/fonts/identity/IBMPlexMono-Regular.ttf"
+ "mono":"res://experiments/playable_flightcase/fonts/identity/IBMPlexMono-Regular.ttf",
+ "stencil":"res://experiments/playable_flightcase/art/feedback47/fonts/BlackOpsOne-Regular.ttf",
+ "xerox":"res://experiments/playable_flightcase/art/feedback47/fonts/RubikDirt-Regular.ttf",
+ "glitch":"res://experiments/playable_flightcase/art/feedback47/fonts/RubikGlitch-Regular.ttf"
 }
 const INK_HEX := {"charcoal":"24211d","ivory":"f3ecda","oxblood":"752d34","burnt_amber":"884714","faded_teal":"285b60","cobalt":"293f83","forest":"324b39","muted_violet":"62465e"}
 static var _font_cache: Dictionary = {}
@@ -24,9 +31,36 @@ static func valid(value: Variant) -> bool:
  if not value is Dictionary:
   return false
  if not (typeof(value.get("version"))==TYPE_INT and value["version"]==1 and value.get("font") is String and FONTS.has(value["font"]) and value.get("ink") is String and INKS.has(value["ink"])):return false
- if not value.has(FINISH_KEY):return true
- var finish: Variant=value[FINISH_KEY]
- return finish is Dictionary and typeof(finish.get("version"))==TYPE_INT and finish.version==1 and typeof(finish.get("kind"))==TYPE_STRING and FINISHES.has(finish.kind)
+ if value.has(FINISH_KEY):
+  var finish: Variant=value[FINISH_KEY]
+  if not (finish is Dictionary and typeof(finish.get("version"))==TYPE_INT and finish.version==1 and typeof(finish.get("kind"))==TYPE_STRING and FINISHES.has(finish.kind)):return false
+ if value.has(LAYOUT_KEY):
+  var mark: Variant=value[LAYOUT_KEY]
+  if not (mark is Dictionary and typeof(mark.get("version"))==TYPE_INT and mark.version==1 and typeof(mark.get("kind"))==TYPE_STRING and LAYOUTS.has(mark.kind)):return false
+ return true
+
+static func layout_kind(value: Dictionary) -> String:
+ return str(value[LAYOUT_KEY]["kind"]) if valid(value) and value.has(LAYOUT_KEY) else "straight"
+
+static func with_layout(value: Dictionary,kind: String) -> Dictionary:
+ if not valid(value) or kind not in LAYOUTS:return {}
+ var result: Dictionary=value.duplicate(true)
+ var token: Dictionary=result.get(LAYOUT_KEY,{}).duplicate(true)
+ token["version"]=1;token["kind"]=kind;result[LAYOUT_KEY]=token
+ result["font"]=str(LAYOUT_FACES[kind])
+ return with_finish(result,"plain")
+
+static func layout_text(value: String,logo: String,style: Dictionary,single_line: bool=false) -> String:
+ var words: String=mark_text(value,logo)
+ if layout_kind(style)!="stacked" or single_line or logo=="Monogram":return words
+ var closest: int=-1
+ for i in range(words.length()):
+  if words[i]==" " and (closest<0 or absf(i-words.length()/2.0)<absf(closest-words.length()/2.0)):closest=i
+ if closest>0:return words.substr(0,closest)+"\n"+words.substr(closest+1)
+ if words.length()>4:
+  var cut: int=ceili(words.length()/2.0)
+  return words.substr(0,cut)+"\n"+words.substr(cut)
+ return words
 
 static func finish_kind(value: Dictionary) -> String:
  return str(value[FINISH_KEY].kind) if valid(value) and value.has(FINISH_KEY) else "plain"

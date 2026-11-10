@@ -1,6 +1,15 @@
 extends RefCounted
 ## Presentation-only registry. Canonical audition data and old sources stay intact.
 const PATH="res://experiments/playable_flightcase/art/identity/next32_portraits.json"
+# Authored presentation proportions, not measured real-world heights or stats.
+# Shared atlas framing must not make every selected musician the same stature.
+const LINEUP_SCALE={
+ "cast_jack":1.00,"cast_maya":0.91,"cast_ellis":0.96,"cast_zoe":0.94,
+ "cast_dan":1.05,"cast_ryan":1.02,"cast_lily":0.98,"cast_marcus":1.08,
+ "cast_ben":1.03,"cast_freya":0.96,"cast_arjun":1.04,"cast_nina":0.91,
+ "cast_tom":0.98,"cast_casey":0.90,"cast_hannah":0.97,"cast_oscar":1.01,
+ "cast_bex":0.95,"cast_sam":1.06
+}
 static var _cached: Dictionary={}
 static func entries() -> Dictionary:
  if not _cached.is_empty():return _cached.duplicate(true)
@@ -20,6 +29,7 @@ static func entries() -> Dictionary:
    if float(n)!=floorf(float(n)):return {}
   if r[0]<0 or r[1]<0 or r[2]<=8 or r[3]<=8 or r[0]+r[2]>1536 or r[1]+r[3]>1024:return {}
   result[id]=e.duplicate(true)
+  result[id]["pose_height_ratio"]=float(LINEUP_SCALE.get(id,1.0))
  if result.size()!=18:return {}
  _cached=result
  return _cached.duplicate(true)

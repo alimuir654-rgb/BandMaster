@@ -9,6 +9,7 @@ const Flow = preload("res://experiments/playable_flightcase/show_flow.gd")
 const Calendar = preload("res://Scripts/gig_calendar.gd")
 const Circuit=preload("res://experiments/playable_flightcase/scene_circuit.gd")
 const Encounter=preload("res://experiments/playable_flightcase/promoter_encounter.gd")
+const Promoters=preload("res://experiments/playable_flightcase/promoter_profiles.gd")
 const STAGE := "res://experiments/playable_flightcase/art/opening_stage.png"
 const OFFER_COPY := {"standard":"Accept the venue's ordinary arrangement.","guarantee":"Ask the promoter to add £15 to the settled fee.","guestlist":"Accept £10 less from the settled fee to make room for a guest list."}
 const OFFER_LABELS := {"standard":"STANDARD TERMS","guarantee":"ASK FOR A GUARANTEE","guestlist":"OFFER A GUEST LIST"}
@@ -63,15 +64,19 @@ static func render(host,parent: Node,compact: bool) -> void:
  if step=="rooms":
   _hero(parent,compact)
   var grid: GridContainer=GridContainer.new()
+  grid.mouse_filter=Control.MOUSE_FILTER_PASS
   grid.columns=1 if compact else 2
   grid.add_theme_constant_override("h_separation",12)
   grid.add_theme_constant_override("v_separation",12)
   parent.add_child(grid)
   for room in options["rooms"]:
    var frame:=PanelContainer.new();frame.add_theme_stylebox_override("panel",Poster.control_stock(Poster.INK,12))
+   # Decorative cards must pass a finger drag to the venue list's scroll.
+   frame.mouse_filter=Control.MOUSE_FILTER_PASS
    frame.size_flags_horizontal=Control.SIZE_EXPAND_FILL
    grid.add_child(frame)
    var card: VBoxContainer=VBoxContainer.new()
+   card.mouse_filter=Control.MOUSE_FILTER_PASS
    card.add_theme_constant_override("separation",6)
    frame.add_child(card)
    _copy(card,str(room["city"]),"",16)
@@ -81,7 +86,7 @@ static func render(host,parent: Node,compact: bool) -> void:
    var action: Button=_button(host,card,"TALK ABOUT THIS ROOM  ›","BookingVenue_"+str(room["id"]),host._booking_select.bind("venue_id",str(room["id"]),expected.duplicate(true),generation))
    action.disabled=bool(host.busy) or not bool(room["available"])
  else:
-  _presence(parent,_room_name(options,draft))
+  _presence(parent,_room_name(options,draft),str(draft.get("venue_id","")),compact)
   if step=="pitch":
    _dialogue(parent,Encounter.opening(host.game.career,str(draft.venue_id)))
    for pitch in Circuit.PITCHES:
@@ -125,10 +130,20 @@ static func render(host,parent: Node,compact: bool) -> void:
      _copy(parent,"Transport £%d · room £%d · %d career day(s)" % [int(trip["transport"]),int(trip["accommodation"]),int(trip["duration"])])
    if host._booking_session_needed():_copy(parent,"SESSION DRUMMER · £25 AT THE SHOW","BookingSessionCover")
 
-static func _presence(parent: Node,room: String) -> void:
- # Flat native ink keeps the speaker and location in the ordinary reading flow.
- _copy(parent,"THE PROMOTER","BookingPromoterHeading",18)
- _copy(parent,room,"BookingReviewVenue",20)
+static func _presence(parent: Node,room: String,venue: String,compact: bool) -> void:
+ var person: Dictionary=Promoters.for_venue(venue)
+ var row:=HBoxContainer.new();row.name="BookingPromoterPresence";row.mouse_filter=Control.MOUSE_FILTER_PASS
+ row.add_theme_constant_override("separation",14);parent.add_child(row)
+ var photo:=TextureRect.new();photo.name="BookingPromoterPortrait";photo.texture=Promoters.portrait(venue)
+ photo.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;photo.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+ photo.custom_minimum_size=Vector2(112,164) if compact else Vector2(150,210)
+ photo.mouse_filter=Control.MOUSE_FILTER_IGNORE;photo.set_meta("promoter_id",str(person.get("id","")));row.add_child(photo)
+ var detail:=VBoxContainer.new();detail.size_flags_horizontal=Control.SIZE_EXPAND_FILL;detail.mouse_filter=Control.MOUSE_FILTER_PASS
+ detail.add_theme_constant_override("separation",6);row.add_child(detail)
+ _copy(detail,str(person.get("name","The promoter")).to_upper(),"BookingPromoterHeading",24)
+ _copy(detail,str(person.get("role","Promoter")),"BookingPromoterRole",16)
+ _copy(detail,room,"BookingReviewVenue",18)
+ _copy(detail,str(person.get("detail","")),"BookingPromoterCharacter",16)
 
 static func _dialogue(parent: Node,text: String) -> void:
  var label: Label=_copy(parent,text,"BookingPromoterReply",20)

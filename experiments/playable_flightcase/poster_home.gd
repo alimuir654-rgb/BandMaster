@@ -11,8 +11,11 @@ static func render(host,parent: Node,compact: bool) -> void:
  var state: Dictionary=host.game.career
  var width: float=maxf(280,host.size.x-60)
  if host.poster_activities_open:
-  var heading: VBoxContainer=P.block(parent)
-  heading.add_child(P.label("WHAT'S THE PLAN?",42))
+  var mark=host.BandMark.new()
+  mark.name="CareerActivitiesBandName"
+  mark.configure(str(state.get("band_name","YOUR BAND")),str(state.get("logo","Wordmark")),host.IdentityStyle.effective(state.get(host.IdentityStyle.KEY,{}),str(state.get("palette",""))),42,true,true,true)
+  parent.add_child(mark)
+  parent.add_child(P.label("WHAT'S NEXT?",18,P.PAPER))
   Launcher.render(host,parent,compact)
   var back: Button=P.quiet("BACK TO YOUR BAND  ↑");back.name="PosterActivitiesAction";back.pressed.connect(host._toggle_poster_activities);parent.add_child(back)
   return

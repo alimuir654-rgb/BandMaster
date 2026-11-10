@@ -51,8 +51,18 @@ static func render(host,parent: Node,compact: bool) -> void:
    var action: Button=host._button(str(Chat.LABELS[choice]),"ChatReply_"+str(choice),host._chat_answer.bind(str(choice),host.chat_expected.duplicate(true),int(host._render_generation)))
    transcript.add_child(action)
  else:
-  words(transcript,str(person.get("name","Bandmate"))+":",18,Poster.INK)
-  words(transcript,str(view.get("opening","Let's make the next evening count.")),21,Poster.INK)
+  var recent: Array=row.get("turns",[])
+  # Show the actual saved exchange immediately. It used to disappear behind
+  # a collapsed history button, making a successful answer feel unresponsive.
+  if not recent.is_empty() and int(row.get("last_day",0))==int(state.get("tour_day",1)):
+   var last: Dictionary=recent.back()
+   words(transcript,"YOU",16,Poster.INK)
+   words(transcript,Chat.turn_label(last),18,Poster.INK).name="MusicianChatYourReply"
+   words(transcript,str(person.get("name","Bandmate")).to_upper(),18,Poster.INK)
+   words(transcript,str(last.reply),21,Poster.INK).name="MusicianChatSavedReply"
+  else:
+   words(transcript,str(person.get("name","Bandmate"))+":",18,Poster.INK)
+   words(transcript,str(view.get("opening","Let's make the next evening count.")),21,Poster.INK)
   if plan.get("status")!="pending":words(transcript,str(view.get("message","Come back when you can talk.")),16,Poster.INK)
   if view.get("can_revise",false):
    transcript.add_child(host._button("CHANGE OUR PLAN" if not host.chat_revising else "KEEP OUR CURRENT PLAN","ChatReviseAction",host._chat_disclose.bind(false)))

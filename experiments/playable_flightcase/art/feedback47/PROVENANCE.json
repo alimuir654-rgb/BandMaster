@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "source_type": "Image-generated fictional adult promoter NPCs; shared three-portrait source atlas, not independent portrait masters",
+  "provider": "image_gen",
+  "raw_source_path": "/workspace/generated_images/exec-94ca2e44-9a79-47e6-9494-caaeb705ca36.png",
+  "path": "experiments/playable_flightcase/art/feedback47/promoters.png",
+  "sha256": "39836bd691f52b74f858c6ec2a650569fd005894ca5c8ff63b5f9db4e49415b0",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "copied_byte_identical": true,
+  "people": {
+    "mo_farrow": {
+      "region": [
+        0,
+        0,
+        512,
+        760
+      ],
+      "name": "Mo Farrow"
+    },
+    "jules_okafor": {
+      "region": [
+        512,
+        0,
+        512,
+        760
+      ],
+      "name": "Jules Okafor"
+    },
+    "ray_malik": {
+      "region": [
+        1024,
+        0,
+        512,
+        760
+      ],
+      "name": "Ray Malik"
+    }
+  },
+  "owner_approved": false,
+  "authority": "OwnerV24feedback: promoter screen needs a character and a few promoters; no new musician cast or real-person likeness claimed."
+}

@@ -267,6 +267,7 @@ func _render() -> void:
  _scroll = ScrollContainer.new()
  _scroll.name = "CareerScroll"
  _scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+ _scroll.scroll_deadzone = 12
  _scroll.follow_focus = true
  _scroll.get_v_scroll_bar().focus_mode = Control.FOCUS_ALL
  _scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
