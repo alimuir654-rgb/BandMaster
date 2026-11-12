@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "id": "ROADMAP_20261112",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Can you create a roadmap in the git? Documentation only, incorporating the supplied SONG53 proposal and the simulated game-critic/musician source reviews on feature/playtest-polish-v20.",
+  "baseline_sha": "89ef136e232709742150e025b8d0eba9b3ada27f",
+  "branch": "feature/playtest-polish-v20",
+  "writer": "root; sole documentation writer",
+  "scope_authority": "Owner requested the roadmap in Git. This does not authorize gameplay implementation, a merge, an APK, audio generation, spending credits or an automated work schedule.",
+  "dominant_issue": "BM-43",
+  "hypothesis": "One acceptance-gated roadmap linked from the existing S80 operational queue can connect SONG53 and the reviews without mistaking proposed work or inaccessible newer source for implemented gameplay.",
+  "stop_condition": "Stop on a moved branch head, current conflicting lease, unscoped change, non-append-only issue history, misrepresented source provenance, or failed documentation validation. Reconcile before any implementation.",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2202714,
+    "sha256": "8eca69308fe2fe9889bb9006b5569a1bf3c543665a4a6a48c3f909d5a14ad173",
+    "events": 1485
+  },
+  "lesson_ids": [
+    "BM-15",
+    "BM-21",
+    "BM-35",
+    "BM-36",
+    "BM-37",
+    "BM-38",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "target": {
+    "locator": "Owner upload SONG53_LINKED_SONG_SUCCESS.md; roadmap destination docs/ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md",
+    "original_sha256": "1f59325bea98b510a63a41f27a649510eb65b5df38cd921868686a19673ff4e3",
+    "pixels_inspected": true,
+    "inspection_scope": "Full supplied Markdown read; top excerpt rendered offline and visually inspected as a static document reference. This is not a game screenshot, native UI test, audio listening test or artistic approval."
+  },
+  "controlled_comparison": "Keep the supplied SONG53 bytes unchanged. Preserve historical runtime/state records and existing S80 items; add clearly labelled proposed dependency stages. Compare remote trees against the pinned baseline: only the nine allowed documentation paths may differ.",
+  "protected_components": [
+    "All runtime source, scenes, assets, audio, tests, save schema, economy, application identity and signing",
+    "main, existing PRs, builds and automation",
+    "Historical CURRENT runtime fields and existing issue-log prefix",
+    "Owner biographies, character identities, accepted work and unknown legacy context"
+  ],
+  "allowed_paths": [
+    "docs/ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md",
+    "docs/continuous_improvement/SONG53_LINKED_SONG_SUCCESS.md",
+    "docs/continuous_improvement/sessions/ROADMAP_20261112.json",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/handover/START_HERE.md",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/ROADMAP_GAMEPLAY_REBUILD_2026.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/ROADMAP_20261112.json",
+    "Compare SHA256 of imported SONG53 with supplied attachment (must remain 1f59325bea98b510a63a41f27a649510eb65b5df38cd921868686a19673ff4e3)",
+    "Parse changed JSON/JSONL; confirm issue-log prefix and historical CURRENT fields unchanged",
+    "Resolve all new repository-relative links against the pinned tree plus proposed files; check roadmap stage IDs match the sole S80 queue",
+    "Verify prior preflight commit, exact remote content and documentation-only changed-path allowlist through GitHub; publish non-force with expected SHA"
+  ],
+  "source_reconciliation": {
+    "accessible_head": "89ef136e232709742150e025b8d0eba9b3ada27f",
+    "supplied_design_source": "b93f44809fab04c43c0f91fe90b0f6af468e48d5",
+    "supplied_runtime_reference": "81f6129d0f166ff0b854b0ae849bc419ccdcd60c",
+    "status": "Both supplied newer commit IDs returned No commit found in this connected repository. Preserve them as design references; reconcile the actual latest working source before gameplay implementation."
+  },
+  "review_lenses": "Simulated game-critic and musician reviews of accessible source/design, not human professional reviews or a new device playtest.",
+  "optional_renderer": "Chromium document preview failed with socket permission error. No escalation or retry; offline PIL static text rendering succeeded and was inspected. No browser or gameplay QA claimed.",
+  "created_at": "2026-11-12T20:46:00Z"
+}
