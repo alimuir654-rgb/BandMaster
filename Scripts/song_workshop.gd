@@ -12,7 +12,7 @@ static func options(state: Dictionary) -> Dictionary:
    leads.append({"index":i,"name":str(roster[i].get("name","Musician")),"trait":str(roster[i].get("trait",""))})
  return {"ideas":IDEAS,"forms":FORMS,"titles":TITLES,"leads":leads}
 
-static func develop(state: Dictionary, idea: String, form: String, title: String, leader_index: int) -> Dictionary:
+static func develop(state: Dictionary, idea: String, form: String, title: String, leader_index: int, lyrical_concept: String = "", vibe: String = "") -> Dictionary:
  if not IDEAS.has(idea) or not FORMS.has(form):
   return {"ok":false,"message":"Choose a valid idea and arrangement."}
  var clean_title := title.strip_edges().to_upper()
@@ -38,8 +38,19 @@ static func develop(state: Dictionary, idea: String, form: String, title: String
   draft["form"] = form
   draft["title"] = clean_title
   draft["leader"] = str(leader.get("name","Musician"))
+ var clean_concept := lyrical_concept.strip_edges().substr(0,90)
+ var clean_vibe := vibe.strip_edges().substr(0,40)
+ if not clean_concept.is_empty():
+  draft["lyrical_concept"] = clean_concept
+ if not clean_vibe.is_empty():
+  draft["vibe"] = clean_vibe
  var sessions: Array = draft.get("sessions",[]).duplicate(true)
- sessions.append({"day":int(next.get("tour_day",1)),"idea":idea,"form":form,"leader":str(leader.get("name","Musician"))})
+ var session_record := {"day":int(next.get("tour_day",1)),"idea":idea,"form":form,"leader":str(leader.get("name","Musician"))}
+ if not clean_concept.is_empty():
+  session_record["lyrical_concept"] = clean_concept
+ if not clean_vibe.is_empty():
+  session_record["vibe"] = clean_vibe
+ sessions.append(session_record)
  draft["sessions"] = sessions
  next["current_song_draft"] = draft
  var response: Dictionary = {"ok":true,"state":next,"message":"%s brings a %s idea. The band tries a %s arrangement." % [str(leader.get("name","Musician")),idea.to_lower(),form.to_lower()]}
@@ -59,6 +70,9 @@ static func finish(state: Dictionary) -> Dictionary:
  last["origin"] = str(draft.get("idea",""))
  last["arrangement"] = str(draft.get("form",""))
  last["writing_sessions"] = draft.get("sessions",[]).duplicate(true)
+ for story_key in ["lyrical_concept","vibe"]:
+  if draft.has(story_key):
+   last[story_key] = draft[story_key]
  var bonus := 3 if str(draft.get("form","")) == "Verse / Chorus" else (2 if str(draft.get("form","")) == "Slow Build" else 1)
  var chemistry: Dictionary = Chemistry.calculate(next)
  last["chemistry_bonus"] = int(chemistry["bonus"])

@@ -27,3 +27,13 @@ Every new shipping image, icon, texture, portrait or audio file must be entered 
 - `Art/Photography/approved/hq-corkboard-szczepanska.jpg` — Jo Szczepanska, https://unsplash.com/photos/sticky-notes-on-corkboard-5aiRb5f464A ; Unsplash License, direct photo page verified as free. Band HQ pinboard.
 - These JPEG destinations are **pending ingestion** until verified by repository byte fetch. The shell importer and GitHub workflow are not themselves evidence that image bytes exist.
 - Once downloaded, perform a manual visual and framing review and note any crop/derivative changes here before representing them as production-approved scene art.
+
+## Sprint A original vector artwork (26 October 2026)
+All four scenes are original hand-authored SVG illustrations created for BandMaster in this sprint, not third-party stock and not photographs. Copyright BandMaster project owner. No external attribution. Native UI labels overlay the illustrations; no user content is baked into SVG. Godot import and three viewport screenshot inspection must pass before production sign-off.
+
+| Destination path | Scene and illustration | Creator | Date | License | Crop / transform | Review |
+|---|---|---|---|---|---|---|
+| `Art/Journeys/Songwriting/01-spark.svg` | Warm songwriter's desk, paper, pencil and cup | Original project artwork | 2026-10-26 | Project-owned | Godot cover crop | Pending visual inspection |
+| `Art/Journeys/Songwriting/02-vibe.svg` | Cool cyan mixing console and signal wave | Original project artwork | 2026-10-26 | Project-owned | Godot cover crop | Pending visual inspection |
+| `Art/Journeys/Songwriting/03-jam.svg` | Magenta rehearsal room, drums, amps, silhouettes | Original project artwork | 2026-10-26 | Project-owned | Godot cover crop | Pending visual inspection |
+| `Art/Journeys/Songwriting/04-sleeve.svg` | Amber record sleeve and vinyl | Original project artwork | 2026-10-26 | Project-owned | Godot cover crop | Pending visual inspection |

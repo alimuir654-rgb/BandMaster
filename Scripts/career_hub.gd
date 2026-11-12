@@ -25,6 +25,7 @@ const Workshop = preload("res://Scripts/song_workshop.gd")
 const SongStudio = preload("res://Scripts/song_studio_presentation.gd")
 const Songbook = preload("res://Scripts/songbook_presentation.gd")
 const SongSleeve = preload("res://Scripts/song_sleeve.gd")
+const SongwritingJourney = preload("res://Scripts/songwriting_journey.gd")
 const SongLab = preload("res://Scripts/songwriting_lab.gd")
 const RosterView = preload("res://Scripts/band_roster_view.gd")
 const Social = preload("res://Scripts/band_social.gd")
@@ -2192,10 +2193,7 @@ func _actions() -> void:
   desk_jump.focus_mode = Control.FOCUS_ALL
   switches.add_child(desk_jump)
   switches.move_child(desk_jump,2)
-  desk_jump.pressed.connect(func() -> void:
-   if is_instance_valid(career_scroll) and is_instance_valid(writing_frame):
-    career_scroll.ensure_control_visible(writing_frame)
-  )
+  desk_jump.pressed.connect(func() -> void: _open_songwriting_journey())
   _label(workshop,"ON THE DESK  /  DRAFT PAPER  ·  SETLIST  ·  STUDIO NOTES",12,Color("#D6BE92"))
   var studio: Dictionary = SongStudio.view(_state())
   if wide_workspace:
@@ -2505,6 +2503,25 @@ func _actions() -> void:
  if action_view == "JAM" and is_instance_valid(songbook_panel) and songbook_panel.get_parent() == content:
   content.move_child(songbook_panel,content.get_child_count()-1)
  content = full_content
+
+func _save_song_journey_notes(notes: Dictionary) -> void:
+ # UI-only draft edits are free; they must survive a normal save/reload.
+ _extra()["song_journey_notes"] = notes.duplicate(true)
+ _save()
+
+func _open_songwriting_journey() -> void:
+ # Four visually distinct steps; only the final Practice.compose commits a day.
+ # Keep the legacy inline editor below as a safe fallback during migration.
+ var journey := SongwritingJourney.new()
+ add_child(journey)
+ journey.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ var on_commit := func(result: Dictionary) -> void:
+  if bool(result.get("ok",false)):
+   var updated: Dictionary = result["state"]
+   updated["song_journey_notes"] = {}
+  _finish(result)
+ var on_notes := func(notes: Dictionary) -> void: _save_song_journey_notes(notes)
+ journey.open(_state(),_genre_id(),on_commit,on_notes)
 
 func _open_song_sleeve(song: Dictionary, number: int) -> void:
  # A read-only liner-notes view: no day, cash, credit or save mutation.

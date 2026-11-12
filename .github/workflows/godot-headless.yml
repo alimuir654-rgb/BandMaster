@@ -959,6 +959,20 @@ jobs:
           timeout 45s godot --headless --path . --script res://tests/sprint07_song_sleeve_tests.gd 2>&1 | tee /tmp/sprint07-sleeve.log
           grep -q 'SPRINT 07 SONG SLEEVE TESTS PASSED' /tmp/sprint07-sleeve.log
           if grep -E 'SCRIPT ERROR:|Parse Error:|SPRINT 07 SLEEVE FAILURE:|ERROR:' /tmp/sprint07-sleeve.log; then exit 1; fi
+      - name: Validate songwriting metadata and reduced-motion transitions
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 45s godot --headless --path . --script res://tests/sprint09_songwriting_metadata_tests.gd 2>&1 | tee /tmp/sprint09-metadata.log
+          grep -q 'SPRINT A METADATA AND TRANSITIONS PASSED' /tmp/sprint09-metadata.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|SPRINT A METADATA FAILURE:|ERROR:' /tmp/sprint09-metadata.log; then exit 1; fi
+      - name: Verify four-stage art-led songwriting journey
+        shell: bash
+        run: |
+          set -euo pipefail
+          timeout 110s godot --headless --path . --script res://tests/sprint09_songwriting_journey_tests.gd 2>&1 | tee /tmp/sprint09-journey.log
+          grep -q 'SPRINT A SONGWRITING JOURNEY PASSED' /tmp/sprint09-journey.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|SPRINT A JOURNEY FAILURE:|ERROR:|Invalid call|Invalid get index' /tmp/sprint09-journey.log; then exit 1; fi
       - name: Validate songwriting desk and finished sleeve at three viewports
         shell: bash
         run: |

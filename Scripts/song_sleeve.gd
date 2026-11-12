@@ -55,7 +55,8 @@ static func describe(song: Dictionary, number: int) -> Dictionary:
   "number":maxi(1,number),"title":title,"credits":credits,
   "origin":origin if not origin.is_empty() else "ORIGIN NOT RECORDED",
   "arrangement":arrangement if not arrangement.is_empty() else "ARRANGEMENT NOT RECORDED",
-  "quality":quality,"day":day_label,"notes":notes
+  "quality":quality,"day":day_label,"notes":notes,
+  "concept":str(song.get("lyrical_concept","")),"vibe":str(song.get("vibe",""))
  }
 
 static func _line(parent: Node, value: String, size: int, colour: Color) -> Label:
@@ -110,6 +111,10 @@ static func build(parent: Node, song: Dictionary, number: int, genre_id: String 
  _line(body,str(info["title"]).to_upper(),24,Color("#241C15"))
  _line(body,str(info["credits"]),15,Color("#60462E"))
  _line(body,str(info["origin"])+"  /  "+str(info["arrangement"]),14,Color("#5E5245"))
+ if not str(info["concept"]).is_empty():
+  _line(body,"LYRICAL CONCEPT  /  "+str(info["concept"]),14,Color("#5E5245"))
+ if not str(info["vibe"]).is_empty():
+  _line(body,"VIBE  /  "+str(info["vibe"]),14,Color("#5E5245"))
  _line(body,str(info["quality"])+"  ·  "+str(info["day"]),14,Color("#785B39"))
  var separator := HSeparator.new()
  body.add_child(separator)
