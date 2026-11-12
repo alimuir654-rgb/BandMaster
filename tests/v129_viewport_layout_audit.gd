@@ -54,6 +54,7 @@ func _run() -> void:
      if str(target["tab"]) in ["HOME","ACTIONS","GIGS","SCENE","GEAR"]:
       _check(found,str(viewport)+" "+str(target["tab"])+" primary action below first fold")
      ui.free()
+     await process_frame
  if existing:
   _write(previous)
  else:
@@ -73,7 +74,17 @@ func _first_fold_buttons(root: Control) -> Array[String]:
   if node is BaseButton:
    var button := node as BaseButton
    var rect := button.get_global_rect()
-   if not button.disabled and button.visible and viewport_rect.intersects(rect):
+   # A scroll-clipped or ancestor-hidden control is not a first-fold action.
+   # Intersect every scrolling ancestor as well as the visible career viewport.
+   var clipped := rect.intersection(viewport_rect)
+   var ancestor := button.get_parent()
+   while ancestor != null and clipped.has_area():
+    if ancestor is ScrollContainer:
+     clipped = clipped.intersection((ancestor as Control).get_global_rect())
+    if ancestor is CanvasItem and not (ancestor as CanvasItem).visible:
+     clipped = Rect2()
+    ancestor = ancestor.get_parent()
+   if not button.disabled and button.is_visible_in_tree() and clipped.has_area():
     var caption: String = str(button.get("text"))
     if caption.is_empty():
      caption = button.tooltip_text
