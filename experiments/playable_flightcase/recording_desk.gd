@@ -271,7 +271,9 @@ static func _archive_session(host, parent: Node, session: Dictionary, compact: b
  parent.add_child(hero)
  var art:=Cover.new()
  art.name="DemoSleeveArt_"+str(index)
- art.custom_minimum_size=Vector2(112,112) if compact else Vector2(180,180)
+ # Archive identity is printed beside this thumbnail. Keep duplicate sleeve
+ # lettering off at small sizes; its full-size caption does not fit at180.
+ art.custom_minimum_size=Vector2(112,112) if compact else Vector2(160,160)
  art.identity=str(session.get("id","legacy:"+str(index)))+":"+str(host.game.career.get("band_name",""))
  art.caption="DEBUT DEMO" if index==0 else "DEMO %d" % (index+1)
  art.set_meta("recording_id",str(session.get("id","")))

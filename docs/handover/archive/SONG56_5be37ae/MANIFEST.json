@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "source_commit": "5be37ae719e836fc5189a8e34f972d8ab03b6ffa",
+  "purpose": "Exact-byte snapshots before compact continuation records; historical directions are not current scope.",
+  "files": [
+    {
+      "original": "docs/continuous_improvement/CURRENT.json",
+      "archive": "docs/handover/archive/SONG56_5be37ae/CURRENT.json",
+      "bytes": 441225,
+      "sha256": "e78053fef8b76bb0b0a783c2adabd1ace3804d629cae3b8605aee1e5283b664f",
+      "git_blob": "ee35177c8b23512297ca0e4a6b3d1d0de643440e",
+      "original_url": "https://github.com/alimuir654-rgb/BandMaster/blob/5be37ae719e836fc5189a8e34f972d8ab03b6ffa/docs/continuous_improvement/CURRENT.json"
+    },
+    {
+      "original": "docs/asset_base/STATE.json",
+      "archive": "docs/handover/archive/SONG56_5be37ae/STATE.json",
+      "bytes": 340064,
+      "sha256": "d8e5297d14c4308b5c7d1d6541f79945013c370996aa894a63bf81e28d35e3ca",
+      "git_blob": "47fccd0366052a911dfdb9ce618a3df9275c897b",
+      "original_url": "https://github.com/alimuir654-rgb/BandMaster/blob/5be37ae719e836fc5189a8e34f972d8ab03b6ffa/docs/asset_base/STATE.json"
+    },
+    {
+      "original": "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+      "archive": "docs/handover/archive/SONG56_5be37ae/CONTROL_SPRINT_LOCK.json",
+      "bytes": 228681,
+      "sha256": "cf12128805b2b4c2e3ce8e935855b037f62a07e76275c37c8d0f174f2c97206c",
+      "git_blob": "5b9b558d849282c262a90991ae5ac3c30e318df2",
+      "original_url": "https://github.com/alimuir654-rgb/BandMaster/blob/5be37ae719e836fc5189a8e34f972d8ab03b6ffa/docs/asset_base/CONTROL_SPRINT_LOCK.json"
+    },
+    {
+      "original": "docs/handover/START_HERE.md",
+      "archive": "docs/handover/archive/SONG56_5be37ae/START_HERE.md",
+      "bytes": 34195,
+      "sha256": "7f0fb37d166e5804482ae26994246049939a5b6c1ddff676d2f1f1ff5eb0a1c4",
+      "git_blob": "9e4aebb2e5853e007ebc5948f75d8882a12f4297",
+      "original_url": "https://github.com/alimuir654-rgb/BandMaster/blob/5be37ae719e836fc5189a8e34f972d8ab03b6ffa/docs/handover/START_HERE.md"
+    },
+    {
+      "original": "AGENTS.md",
+      "archive": "docs/handover/archive/SONG56_5be37ae/AGENTS.md",
+      "bytes": 8670,
+      "sha256": "74afa5d08a8a12eb82f91252c7562ead48586a4980a4735e625003fcd20b5083",
+      "git_blob": "90201ddaf885d7e57e90c3883515253119a9792a",
+      "original_url": "https://github.com/alimuir654-rgb/BandMaster/blob/5be37ae719e836fc5189a8e34f972d8ab03b6ffa/AGENTS.md"
+    },
+    {
+      "original": "docs/continuous_improvement/CHECK_BEFORE_WORK.md",
+      "archive": "docs/handover/archive/SONG56_5be37ae/CHECK_BEFORE_WORK.md",
+      "bytes": 6513,
+      "sha256": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+      "git_blob": "d68b2b36c7daa5d760e055ae3c3c43018a3b64e4",
+      "original_url": "https://github.com/alimuir654-rgb/BandMaster/blob/5be37ae719e836fc5189a8e34f972d8ab03b6ffa/docs/continuous_improvement/CHECK_BEFORE_WORK.md"
+    },
+    {
+      "original": "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+      "archive": "docs/handover/archive/SONG56_5be37ae/S80_EXECUTION_QUEUE.md",
+      "bytes": 114607,
+      "sha256": "c81f07ec64d1f5e5a3fc5c160b32aa08cd63c6457313c596cd1d542dd5f03d22",
+      "git_blob": "5e24f3de1e2d35e84e00434c173f381a53b8947e",
+      "original_url": "https://github.com/alimuir654-rgb/BandMaster/blob/5be37ae719e836fc5189a8e34f972d8ab03b6ffa/docs/continuous_improvement/S80_EXECUTION_QUEUE.md"
+    }
+  ],
+  "preserved_issue_prefix": {
+    "bytes": 2285624,
+    "sha256": "131654c867ce7f18b8f3d22a3a9f15a5db4ecf1f2312802a0bdd6d0172ae78e7"
+  },
+  "relative_links": "Archived Markdown retains exact original bytes; resolve its relative links from original_url at the pinned source, not from the archive directory."
+}

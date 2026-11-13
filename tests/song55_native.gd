@@ -346,6 +346,15 @@ func archive_release_unknown() -> bool:
 func desk():
  return scene.get("_career_view") if is_instance_valid(scene) else null
 
+func archive_thumbnail() -> bool:
+ if baseline:return true
+ var sleeve: Control=named("DemoSleeveArt_0")
+ var title: Label=named("RecordingSessionHeading_0") as Label
+ if not check(sleeve!=null and title!=null,"archive has artwork and separate native title"):return false
+ var lettering: Label=sleeve.get_node_or_null("NativeSleeveLettering") as Label
+ if not check(lettering!=null and not lettering.visible,"compact archive omits clipped duplicate sleeve lettering"):return false
+ return check(title.text=="DEBUT DEMO" and clipped_rect(title).encloses(title.get_global_rect()),"complete archive identity remains readable beside thumbnail")
+
 func songbook_recording_practice() -> bool:
  if not await mount_menu():return false
  if not await free_action("PosterNav_make") or not await free_action("CareerHome_songs"):return false
@@ -366,6 +375,7 @@ func songbook_recording_practice() -> bool:
  if not await capture("recording-selected-order"):return false
  if not await free_action("RecordingArchiveAction"):return false
  if not archive_release_unknown():return false
+ if not archive_thumbnail():return false
  if not await capture("recording-archive-entry"):return false
  if not await free_action("DemoTrackNotes_0"):return false
  if not await capture("recording-archive-open"):return false

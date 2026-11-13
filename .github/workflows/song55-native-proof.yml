@@ -114,18 +114,20 @@ jobs:
           printf '%s  %s\n' "$SONG56_ENGINE_SHA256" "$engine" | sha256sum --check --strict -
           chmod u+x "$engine"
 
-      - name: Capture early baseline and candidate phone and short layouts
+      - name: Verify final baseline and candidate across four native layouts
         timeout-minutes: 30
         shell: bash
         run: |
           set -euo pipefail
           test ! -e "$SONG56_WORK"
-          # First visual composition for the owner-requested SONG56 revision.
-          # Inspect phone and short originals before completing tall and wide.
+          # Early phone/short originals from run43524469210 were inspected.
+          # The archive-thumbnail repair changes source and adds a native
+          # caption guard, so final proof covers all four profiles together.
           # Exact unchanged model/fixture checks passed in run43523337054;
           # that run failed only display startup, before any UI capture.
-          # The runner creates isolated XDG/save paths, performs its model checks,
-          # and records its scratch-only legacy fixture availability/SAFE adaptations.
+          # This native-only invocation creates isolated XDG/save paths and
+          # retains actual input, captured-value and exact owner/save guards.
+          # It does not rerun or newly claim the unchanged pure model checks.
           python3 tools/song55_verify.py \
             --repo "$GITHUB_WORKSPACE" \
             --godot "$SONG56_TOOLCHAIN/Godot_v4.7.2-stable_linux.x86_64" \
@@ -133,7 +135,7 @@ jobs:
             --baseline "$SONG56_BASELINE" \
             --only both \
             --native-only \
-            --profiles phone short
+            --profiles phone short tall wide
 
       - name: Retain only manifests, logs, and PNG or JSON test results
         if: always()

@@ -18,6 +18,8 @@ jobs:
           BEFORE: ${{ github.event.before }}
         run: |
           python3 -m unittest discover -s tests -p test_improvement_gate.py -v
+          python3 -m unittest discover -s tests -p test_project_context.py -v
+          python3 tools/project_context.py check
           python3 - <<'PY'
           from pathlib import Path
           import json,os,subprocess,sys

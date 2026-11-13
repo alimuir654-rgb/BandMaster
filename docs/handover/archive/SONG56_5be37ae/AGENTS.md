@@ -1,0 +1,46 @@
+# BandMaster / Livin' The Dream — mandatory work contract
+
+## Read before ALL further work
+The owner requires a continuous-improvement function. Before planning, code, art, testing, integration or scheduled work, read:
+1. `docs/continuous_improvement/CHECK_BEFORE_WORK.md`
+2. `docs/continuous_improvement/LESSONS.md`
+3. `docs/continuous_improvement/ISSUES.jsonl` — including new events since the last task
+4. `docs/continuous_improvement/CURRENT.json`, the current session and latest owner direction
+5. Relevant source, latest native evidence and `docs/asset_base/CONTROL_SPRINT_LOCK.json` / `STATE.json`.
+
+**The target is the owner-approved mockups, not merely a functional approximation.** Technical PASS is not artistic PASS. C21 notepaper was subsequently rejected by the owner as worse than C20; preserve C21 reliability but do not treat its paper artwork as approved. Old positive internal reports remain history, not current acceptance.
+
+## Before editing
+- One writer on `dual-frame-proof-2026-10-28`; inspect live head/leases and publish non-force with expected SHA. Do not change main, PR #199, production scenes/saves or merge without explicit new authority.
+- Commit a scoped preflight session BEFORE implementation. Record current policy hashes, reviewed issue prefix, relevant BM lesson IDs, exact target/baseline, one dominant issue, controlled comparison, protected components and test commands.
+- Run `python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/<ID>.json`. Source/native workflows must run the gate, not merely mention it.
+- Reuse the verified existing components. Read project.godot, relevant scripts/scenes, ARCHITECTURE.md and save schema for affected code. Verify real APIs, paths and data; do not assume plugins/autoloads exist.
+
+## During and after work
+- Implement, test, render, inspect actual pixels and correct specific defects. Compare identical viewport/content/state/background/frame bounds against the mockup and previous baseline.
+- Log each new issue or recurrence in ISSUES.jsonl BEFORE the next implementation iteration. Include evidence, expected/observed result, severity, cause confidence, responsible role, preventive check and verification. Retain failed-attempt history. Two ineffective attempts mean change technique or hold, not more micro-polish.
+- Keep source-art provenance, native data/labels and interactions separate. No screenshot-as-interface, invented rights, upscaled detail claims, duplicate identities or unverified source imports.
+- Preserve owner-liked passive meter bytes and inert semantics, existing hardware, save compatibility and deterministic gameplay. No destructive migration, duplicate settlement or production user:// writes from isolated proofs.
+- Run actual Godot tests and four-viewpoint captures for changed UI. Bound tests; check error logs and exact tested SHA. Simulated personas are not human reviewers. Do not claim runtime, native screenshot or artistic success without corresponding evidence.
+- Closeout records files, source hashes, exact run/artifact, images opened, five simulated review lenses, remaining defects and ONE next action. Update live state/ledger and release writer. Owner artwork approval remains false until explicit acceptance.
+- No paid tools, engine migration, unapproved runtime dependencies, imaginary model/agent claims or continuous-background-work promises. Routine tool/log/source retrieval is the assistant's responsibility.
+
+## Current owner scope (updated 30 Oct 11:05 UTC)
+The owner authorised **Phase 2 after the 09:00 opening-journey review**, tracked in issue #201: S1 selected-member composite (verified S35), S2 non-cheesy editorial band-formed poster (verified S36), S3 live name/logo/member identity carry-through, S4 deterministic rehearsal outcomes, S5 member-specific result presentation and S6 QA/polish/packaging. This uses the EXISTING sole worker. Issue #200 and comment #6511055491 remain historical overnight constraints; the old 08:00/09:00 freeze has expired and does NOT revoke this new owner authorisation. Preserve verified C34 and S36 rollback, original C25 cast, six inert meters, controls and isolated saving. No production/main/PR199 edits, merge, paid audio/image runtime, new cast or false full-resolution portrait claims. Mockups remain the artistic target, technical green is not owner artwork acceptance. Global `owner_approved=false` until expressly accepted.
+
+Historical mission instructions are preserved in `docs/continuous_improvement/legacy/AGENTS_before_C22.md`. They never override newer owner direction or the canonical improvement checks. Every future task must update the session and append findings, not create another competing lesson register.
+
+## Post-review Phase 2 owner scope — 30 October 2026
+The owner issued new affirmative authorisation after the 09:00 review: “Add everything, queue it up, plan the sprints, run the sprints.” See issue #201 for the **six consecutive, evidence-gated Phase 2 sprints**: selected real musicians composited from source-honest previews, editorial band-formed milestone, saved live name/logo carry-through, rehearsal outcome consequences, member reactions/results, then QA/packaging. This supersedes the expired 08:00/09:00 **overnight** gates as authority for NEW work, without rewriting issue #200 or lifting its protected asset/save/merge rules. Continue one writer, scoped preflight/gate, four real native viewports, honest visual verdict; global owner_approved=false. No blanket permission to merge, use production saves, acquire paid assets or infer transparent/high-resolution masters from cast contact crops.
+
+## Core game design — uncertainty before decisions
+
+Owner direction, 2 November 2026: judging likely outcomes is part of play. Before a decision, show the situation, people, dialogue and what the action means in the game world. Do not expose exact nonfinancial bonuses, penalties, probabilities, internal formulas or hidden eligibility thresholds in labels, colour-coded options, tooltips, Details or final confirmations. Do not replace numbers with a stat-direction answer key or mark a best choice. Keep explicit prices, time commitments, current observable state and public objectives clear. After an action resolves, actual saved outcomes and meaningful feedback may be shown; never label an unresolved preview as a saved result. Internal deterministic models, QA oracles and save guards still calculate and verify the original consequences. This rule applies across existing and future game screens and supersedes earlier requests to show pre-choice metric pills.
+
+## Core game design — situations and consequences emerge from play
+
+Owner direction, 2 November 2026: the game must not become a sequence of fixed decision cards with fixed rewards. Earn situations from recorded actions, character circumstances, commitments, relationships, tension, recent band momentum and outside pressures. Musicians need authored biography context including work and financial support where established. The same action intent can have different supported consequences in different situations and histories. Keep durable promises/consequences, honest UNKNOWN legacy context, and once-only atomic save/rollback. Do not infer a character's wealth or employment from appearance or silently rewrite approved biographies. The source-grounded first-pilot proposal is docs/continuous_improvement/S77_EMERGENT_DECISION_CORE.md; this principle and that proposal are not a claim that the core is already implemented.
+
+## Core game design — lived band experiences
+
+Owner direction, 2 November 2026 evening: meaningful activities need anticipation, a sense of place, band interaction, visual continuity and aftermath. Design and review complete band experiences rather than isolated action screens. Travel, arrival, soundcheck, backstage, taking the stage, performance, after-show and packing up should form one coherent gig journey. Auditions need a substantive try-out and interpersonal response; songwriting needs development and iteration with actual bandmates and the saved song. Use deliberate scene motion/fades where they support the moment, responsive ordinary navigation, and equal-information reduced-motion/skip paths. Additional waits, text cards or Continue buttons alone do not satisfy this requirement. Keep animation separate from gameplay settlement, preserve uncertainty before decisions and all original save/once-only/economy guards. The next source-grounded brief is docs/continuous_improvement/S79_BAND_EXPERIENCE_BRIEF.md; it is design work, not a claim that these revisions are implemented in V8.
