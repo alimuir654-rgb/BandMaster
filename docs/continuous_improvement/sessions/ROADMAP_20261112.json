@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "id": "ROADMAP_20261112",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Can you create a roadmap in the git? Documentation only, incorporating the supplied SONG53 proposal and the simulated game-critic/musician source reviews on feature/playtest-polish-v20.",
   "baseline_sha": "89ef136e232709742150e025b8d0eba9b3ada27f",
   "branch": "feature/playtest-polish-v20",
-  "writer": "root; sole documentation writer",
+  "writer": "released; recovered documentation completed for publication",
   "scope_authority": "Owner requested the roadmap in Git. This does not authorize gameplay implementation, a merge, an APK, audio generation, spending credits or an automated work schedule.",
   "dominant_issue": "BM-43",
   "hypothesis": "One acceptance-gated roadmap linked from the existing S80 operational queue can connect SONG53 and the reviews without mistaking proposed work or inaccessible newer source for implemented gameplay.",
@@ -70,5 +70,115 @@
   },
   "review_lenses": "Simulated game-critic and musician reviews of accessible source/design, not human professional reviews or a new device playtest.",
   "optional_renderer": "Chromium document preview failed with socket permission error. No escalation or retry; offline PIL static text rendering succeeded and was inspected. No browser or gameplay QA claimed.",
-  "created_at": "2026-11-12T20:46:00Z"
+  "created_at": "2026-11-12T20:46:00Z",
+  "closed_at": "2026-11-13T18:03:39Z",
+  "preflight_commit": "3d19d236d4b9604d44ebbbc4e94cc20a34b9d0e4",
+  "closeout": {
+    "tested_sha": "3d19d236d4b9604d44ebbbc4e94cc20a34b9d0e4",
+    "tested_scope": "Exact remote preflight/baseline plus the local documentation candidate identified by artifact hashes; no runtime, native, audio or physical-device test.",
+    "evidence": {
+      "record_gate": "PASS: exact committed active preflight at 1485 events; final closed documentation gate at 1488 events. Both executed in this continuation.",
+      "documentation_validation": {
+        "status": "pass",
+        "design_sha256": "1f59325bea98b510a63a41f27a649510eb65b5df38cd921868686a19673ff4e3",
+        "design_exact": true,
+        "issue_prefix_exact": true,
+        "issue_events": 1488,
+        "roadmap_links_resolved": 10,
+        "queue_stages": 8,
+        "later_candidates": 4,
+        "all_new_documentation_links_resolved": 22,
+        "existing_handover_queue_and_roadmap_text_preserved": true,
+        "historical_runtime_fields_unchanged": true,
+        "remote_baseline_blob_hashes_verified": true,
+        "scoped_changed_paths": 9
+      },
+      "artifact_hashes": {
+        "docs/ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md": "b6159b3977d74be753668fb99990874053a912f39534fb9a337ff40c71d88ad6",
+        "docs/continuous_improvement/SONG53_LINKED_SONG_SUCCESS.md": "1f59325bea98b510a63a41f27a649510eb65b5df38cd921868686a19673ff4e3",
+        "docs/continuous_improvement/S80_EXECUTION_QUEUE.md": "5d657b97fd15d39b16a362045e1e96f1bf1135aef4e50693f0dc2000ba52e034",
+        "docs/handover/START_HERE.md": "4eea35aadf49d830145384ee967f21b9c94dbe9412524359f273c725e048bc5f",
+        "docs/continuous_improvement/CURRENT.json": "9a9506821cb3d4d5ed999f593817166855156998f9a79670e61bd1b0410126fe",
+        "docs/asset_base/LEDGER.md": "96abfd7fa15d7b607ff04b8d6a60e04adf5bd7c6c0cf7bac0aeae357ffd0cd10",
+        "docs/continuous_improvement/ISSUES.jsonl": "1aa1666f6b33782301f9da3d0b6f472e2f3b5545958397f7fa2c8794555d5a02",
+        "docs/ROADMAP_GAMEPLAY_REBUILD_2026.md": "0be84184f6b76f0fd9ccfee3a65e233f4b575c9024547e707b51acde2fb53635"
+      },
+      "publish_contract": "Expected-SHA non-force branch update; final tree must match all local blob hashes and contain only the nine allowed documentation paths.",
+      "review_corrections": [
+        "Legacy untracked preparation/execution is not known absence.",
+        "No implied audible improvement from a different execution assessment.",
+        "Revise/retake routes only when actually supported; no silent wider implementation scope."
+      ],
+      "publication_completion": "13 November continuation recovers the uncommitted draft and adds a status correction. Expected-SHA non-force update and exact remote-tree verification remain mandatory before user-facing delivery confirmation."
+    },
+    "visual_verdict": "internal_pass",
+    "visual_verdict_scope": "Document-only text/reference review, not a native game screenshot or artistic/gameplay acceptance.",
+    "review_lenses": [
+      {
+        "lens": "game critic",
+        "method": "read-only simulated reviewer",
+        "result": "Dependency order and bounded two-track first slice sound; corrected legacy/assessment wording."
+      },
+      {
+        "lens": "musician",
+        "method": "read-only simulated reviewer",
+        "result": "Musical causality and fairness sound; corrected implicit rewrite/retake/audio promises."
+      },
+      {
+        "lens": "source and continuity",
+        "method": "root self-review",
+        "result": "Newer source references explicitly unverified; R0 gates implementation; historical runtime pointers preserved."
+      },
+      {
+        "lens": "phone and accessibility",
+        "method": "root self-review of roadmap requirements only",
+        "result": "Four existing native sizes, long names, reduced motion and equal-information paths are future acceptance gates, not tests run here."
+      },
+      {
+        "lens": "save and delivery safety",
+        "method": "root self-review plus documentation checks",
+        "result": "Once-only/additive history protections retained in plan; no runtime change or build executed."
+      }
+    ],
+    "next_action": "No automatic continuation. On an implementation request, resolve SONG53-R0 source provenance before scoping R1.",
+    "new_issue_review": {
+      "events": [
+        "ROADMAP_20261112-source-scope-and-linked-delivery-review",
+        "ROADMAP_20261112-optional-document-renderer-held",
+        "ROADMAP_20261113-recovered-draft-publication-gap"
+      ],
+      "full_log_sha256": "1aa1666f6b33782301f9da3d0b6f472e2f3b5545958397f7fa2c8794555d5a02",
+      "full_log_bytes": 2207982,
+      "reviewed": true
+    },
+    "runtime_changed": false,
+    "main_or_pr_changed": false,
+    "apk_created": false,
+    "credits_spent": false,
+    "writer_released": true
+  },
+  "resumed_completion": {
+    "resumed_at": "2026-11-13T18:03:39Z",
+    "owner_authority": "Ok, go ahead, in response to completing and committing the roadmap with clear stages and acceptance criteria.",
+    "publication_parent": "3d19d236d4b9604d44ebbbc4e94cc20a34b9d0e4",
+    "original_local_closeout_at": "2026-11-12T20:55:49Z",
+    "previous_local_closeout_was_not_remote_publication": true,
+    "scope_unchanged": true,
+    "preflight_reused": "Original committed active preflight still covers the same nine documentation paths; policy hashes and all baseline blobs verified unchanged; active gate rerun successfully before this completion.",
+    "writer": "root; sole documentation writer",
+    "lease_check": "CURRENT writer/root_writer/root_lease and STATE writer/root_writer/root_lease null; historical control-lock root lease expired 7 November; no live competing lease observed.",
+    "reference_inspection": "Full source Markdown read; prior original static SONG53 excerpt PNG reopened. This is a document reference, not native gameplay evidence.",
+    "reviews": [
+      {
+        "role": "simulated game critic/product",
+        "agent": "roadmap_chat",
+        "result": "PASS; no necessary content correction"
+      },
+      {
+        "role": "simulated musician/system design",
+        "agent": "musician_roadmap_review",
+        "result": "PASS; no necessary content correction"
+      }
+    ]
+  }
 }

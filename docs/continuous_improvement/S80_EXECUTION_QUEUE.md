@@ -6,6 +6,37 @@ Retained S123/S116 delivery history (superseded by current S126 source below): `
 
 Retained S115 partial baseline: actual menus to DAY5, no completed show; it proved missing public due-day calendar access. That gap is now repaired and the full loop verified by S116. Original held runs and closeout remain /workspace/work/s115-first-career-loop-20261104/closeout.json; no failed proof was promoted.
 
+## Proposed roadmap — linked songs and band life (planned 12 November; documentation completed 13 November 2026)
+
+The owner requested a roadmap in Git, **not implementation or an automated schedule**.
+See [the roadmap](../ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md) for dependencies and acceptance
+gates, and [the unchanged SONG53 design](SONG53_LINKED_SONG_SUCCESS.md) for the metric/data contract.
+This table is the sole operational status list for these proposed stages; do not create a competing tracker.
+Accessible review baseline `89ef136e232709742150e025b8d0eba9b3ada27f`; the newer supplied
+ENGAGE52/SONG53 commit references were not found in the connected repository. Reconcile first.
+This documentation entry does not refresh or override historical audio-coverage claims below.
+
+| ID | Scope | Disposition |
+|---|---|---|
+| SONG53-R0 | Reconcile the actual latest source; classify existing/presentation/new-model work | PROPOSED / NOT SCHEDULED; required before gameplay implementation |
+| SONG53-R1 | Reusable honest song summary with explicit legacy unknowns | PROPOSED / NOT SCHEDULED; after R0 |
+| SONG53-R2 | Stable song/revision/participant identity; one meaningful co-writing contribution; skill fairness | PROPOSED / NOT SCHEDULED; after R0, reuse R1 |
+| SONG53-R3 | Song-specific purposeful rehearsal and proportionate preparation transfer | PROPOSED / NOT SCHEDULED; after R2 |
+| SONG53-R4 | Preparedness into live delivery, grounded feedback and character aftermath | PROPOSED / NOT SCHEDULED; after R3 |
+| SONG53-R5 | Immutable take and genuine recording-execution quality | PROPOSED / NOT SCHEDULED; after R2–R4 |
+| SONG53-R6 | Attributed lead-track promotion and evidenced reach | PROPOSED / NOT SCHEDULED; after R5 |
+| SONG53-R7 | Connected two-song slice: uncoached player understanding plus reliability/native gates | PROPOSED / NOT SCHEDULED; after R1–R6 |
+| BL1 | Clear dated commitments versus intention windows, using existing ownership/calendar | LATER CANDIDATE; no wider scheduling-system authorization |
+| BL2 | Distinct career ambitions with real trade-offs | LATER CANDIDATE; after first-slice acceptance |
+| BL3 | More reactive existing local venues, promoters and peer bands | LATER CANDIDATE; deepen before expanding |
+| BL4 | Wider grounded co-writing choices and empirical balance testing | LATER CANDIDATE; hypotheses are not proven defects |
+
+The 13 November continuation completes the original documentation handoff. The 12 November remote commit contained only its preflight; this completion adds the roadmap and unchanged design. The proposed implementation dispositions above are unchanged.
+
+Owner request fulfilled by the documentation handoff only. A queue row grants no source
+lease, production/merge/build authority, paid credit use or restart of an old finite worker.
+Historical delivery/owner-review entries remain intact below.
+
 ## Latest owner revision — PUNCH48 (10 November 2026)
 
 Continues UX10: stronger ink/rust formation composition and real cut-paper live

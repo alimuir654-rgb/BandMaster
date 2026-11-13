@@ -1788,3 +1788,53 @@ No new APK; frozenV23/signedV24/app/save/certificate exact. Original key stays
 original environment; future V25+ needs new audited request. Full record
 `docs/continuous_improvement/PUNCH48_RESULTS.json`. Next owner reviews revised
 native previews. Writer released.
+
+## 2026-11-12 — linked-song and band-life roadmap (documentation only)
+
+Owner request: create a roadmap in Git on `feature/playtest-polish-v20`.
+See [the roadmap](../ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md), unchanged
+[SONG53 design](../continuous_improvement/SONG53_LINKED_SONG_SUCCESS.md),
+[session](../continuous_improvement/sessions/ROADMAP_20261112.json) and proposed rows in
+[the existing S80 queue](../continuous_improvement/S80_EXECUTION_QUEUE.md).
+
+Accessible review baseline `89ef136e232709742150e025b8d0eba9b3ada27f`;
+preflight committed first as `3d19d236d4b9604d44ebbbc4e94cc20a34b9d0e4`.
+The supplied newer design/runtime references are not present in this connected repository:
+source reconciliation is the first implementation gate. Imported design SHA256
+`1f59325bea98b510a63a41f27a649510eb65b5df38cd921868686a19673ff4e3`.
+
+Eight dependency stages: reconcile, honest summary, song/revision and personal contribution,
+targeted rehearsal, live continuity, immutable recording, attributed reach, connected player test.
+Later candidates: dated commitments, distinct ambitions, reactive local scene and wider co-writing/balance.
+Two read-only simulated review lenses prompted explicit legacy unknowns, bounded revision/retake
+scope and no implied audible improvement from a changed gameplay score.
+
+No runtime, save/economy, scene/asset/audio, signing/build, main/PR or automation changes.
+Documentation gate and content/link/history/path checks are the proof scope; no native or device,
+listening, artistic or overall owner acceptance is claimed. Failed optional browser rendering
+is retained in the session/issue history; offline static document reference only.
+Root documentation writer released; historical runtime/state fields preserved.
+**Next action only upon implementation request:** SONG53-R0; no schedule or worker restart.
+
+## 2026-11-13 — completed publication of the recovered roadmap
+
+Latest owner authority: “Ok, go ahead” to completing and committing the roadmap on
+`feature/playtest-polish-v20`. The 12 November entry above records the recovered local
+draft's preparation; remote head `3d19d236d4b9604d44ebbbc4e94cc20a34b9d0e4`
+contained only its active preflight. The original draft and unchanged SONG53 attachment
+were recovered, and all existing baseline files were verified against the live Git blob IDs.
+
+The game-critic/product and musician/system-design reviewers independently returned
+PASS for the recovered document, with no additional content correction required.
+These are simulated document reviews. Root also checked continuity, accessibility
+requirements and save/delivery boundaries. The completed
+[roadmap](../ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md) retains eight dependency stages
+and four later candidates in S80. The two newer source references remain unresolved
+and SONG53-R0 remains the first implementation gate.
+
+Validation: original committed preflight gate; final documentation gate; unchanged
+original SONG53 hash; append-only issue and ledger history; unchanged historical
+CURRENT fields; resolved new links; one queue row per stage; nine-path documentation
+allowlist. Publish with the expected branch head, then verify the committed remote tree
+against every local blob before reporting completion. No gameplay/native/audio test
+or owner artistic acceptance is claimed. Writer released after this documentation scope.

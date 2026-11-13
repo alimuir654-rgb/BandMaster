@@ -1,4 +1,6 @@
 # BandMaster — three-release Gameplay & UX Rebuild
+
+> Historical 25 October roadmap. The later [linked-song and band-life roadmap](ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md) records the owner's 12 November planning request, completed for Git publication on 13 November; [S80](continuous_improvement/S80_EXECUTION_QUEUE.md) is the sole operational worklist. Preserve this history, but do not treat its old automatic CI/merge or release instructions as current authority. No gameplay implementation, merge or new build was authorized by the roadmap request.
 Approved direction 25 October 2026. Ship three substantive playable batches, with CI and merge after each.
 
 ## Principles

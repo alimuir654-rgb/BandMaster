@@ -7,6 +7,30 @@ Read `AGENTS.md`, the improvement check/lessons, and
 `docs/continuous_improvement/CURRENT.json` before changes. Use one writer and a fresh scoped preflight.
 Historical overnight deadlines and older branch/build instructions do not supersede this handover.
 
+## Latest documentation — linked-song and band-life roadmap (13 November 2026)
+
+The owner asked to create a roadmap in Git on 12 November and authorised completing its publication on 13 November. The earlier remote commit held only the preflight; this continuation recovers and completes the original draft. Read
+[the roadmap](../ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md),
+[the imported SONG53 design](../continuous_improvement/SONG53_LINKED_SONG_SUCCESS.md)
+and the new proposed rows in
+[the existing S80 queue](../continuous_improvement/S80_EXECUTION_QUEUE.md).
+Session: `docs/continuous_improvement/sessions/ROADMAP_20261112.json`.
+
+**Documentation only:** no gameplay/audio/build changes, no implementation schedule,
+no merge or release approval. S80 remains the sole operational worklist.
+The review used simulated game-critic and musician lenses, not a device playtest.
+
+Accessible source review baseline: `89ef136e232709742150e025b8d0eba9b3ada27f`.
+The supplied design references newer source
+`b93f44809fab04c43c0f91fe90b0f6af468e48d5` and ENGAGE52 runtime
+`81f6129d0f166ff0b854b0ae849bc419ccdcd60c`; both returned “No commit found”
+in this connected repository. Do not assume PUNCH48 is the owner's latest working copy,
+recreate missing work or re-open old audio gaps from this history.
+**First step if implementation is requested: SONG53-R0 source reconciliation.**
+
+The following PUNCH48 and earlier entries are retained runtime/build history,
+not evidence that SONG53 has been implemented.
+
 ## Latest continuation — PUNCH48 / stronger poster, generated cuts, centred Make
 
 Owner says the formation is better but needs more punch and logo work still
