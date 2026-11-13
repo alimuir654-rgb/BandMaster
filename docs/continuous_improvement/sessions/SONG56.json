@@ -39,8 +39,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 2279797,
-    "sha256": "6815114fbdcb6dd37a2e00d31a202284e0822278f3c139693b4abba901e9f025"
+    "bytes": 2280996,
+    "sha256": "1c3009aa0a5d3a491731911227120cf5defddd364df11b237b0fd2aa5c28cc6f"
   },
   "target": {
     "locator": "Owner text-heavy feedback; existing print_materials_v1.png original inspected plus final SONG55 phone songbook-entry/details, recording-selection-entry and captured-strength originals. No new owner mockup supplied; reference is an explicit revision of these rejected layouts.",
@@ -156,5 +156,24 @@
       "1280x720"
     ]
   },
-  "started_at": "2026-11-13T22:48:09.923940+00:00"
+  "started_at": "2026-11-13T22:48:09.923940+00:00",
+  "local_model_checkpoint": {
+    "path": "song56-models-01/RUN.json",
+    "import": "pass",
+    "native_script_parse": "pass",
+    "fixture_checks": 196,
+    "summary_checks": 1735,
+    "original_recording_checks": 337,
+    "error_lines": 0,
+    "key_material_paths": 0,
+    "source_hash_binding": "all changed product/test files exact",
+    "native_execution": "not run locally; early isolated CI pending"
+  },
+  "implementation_decisions": [
+    "Reuse Components.meter and original PassiveMeter artwork/semantics; no new generated or procedural art.",
+    "Songbook cards use a two-column spread on landscape, one column on portrait; full titles and native numbers remain visible.",
+    "Selection uses noninteractive three-track slots tied to the existing ordered draft; add/remove/reorder callbacks unchanged.",
+    "Archive uses a smaller sleeve with adjacent native identity and compact captured-strength tracks; original radio session rendering retained.",
+    "Credits, history, exact existing facts and unknowns remain in Notes; zero and unknown have distinct presentations."
+  ]
 }

@@ -1,8 +1,9 @@
 extends SceneTree
-## SONG55: real retained UI/owner, explicit deterministic QA setup.
+## SONG55 fixture reused for SONG56: real retained UI/owner and deterministic QA setup.
 ## Setup uses original model APIs; it is not a claim of a human writing a song.
 ## Event/reveal helpers follow character_consequence_visual and band_stories_visual.
-## Baseline has no preload of new SONG55 code and skips only new-summary assertions.
+## Both variants include SONG55; common facts/disclosure/scroll checks run on both.
+## Only SONG56-specific card/meter checks are candidate-only.
 const Owner = preload("res://experiments/playable_flightcase/opening_state.gd")
 const Recordings = preload("res://experiments/playable_flightcase/recording_rules.gd")
 const Live = preload("res://experiments/playable_flightcase/live_bridge.gd")
@@ -95,6 +96,8 @@ func activate(name: String, keyboard: bool=false) -> bool:
  if not await reveal(target):return false
  var rect: Rect2=target.get_global_rect()
  if not check(clipped_rect(target).encloses(rect),"whole target inside actual clips "+name):return false
+ var physical: Rect2=root.get_final_transform()*target.get_global_transform_with_canvas()*Rect2(Vector2.ZERO,target.size)
+ if not check(physical.size.x>=44 and physical.size.y>=44,"physical 44px action target "+name):return false
  if keyboard:
   target.grab_focus()
   await process_frame
@@ -129,13 +132,23 @@ func capture(label: String) -> bool:
  return true
 
 func inspect_summary(key: String, quality: int, label: String) -> bool:
- if baseline:return true
  var strength: Label=named("SongSummary_"+key+"_Strength") as Label
  if not check(strength!=null,"shared summary strength "+key):return false
  if not check(strength.text.contains("%d / 100" % quality),"literal saved strength "+key):return false
  if not check(strength.get_theme_font_size("font_size")>=16,"preserved readable summary type "+key):return false
+ if not baseline and (key.begins_with("book_") or key.begins_with("record_") or key.begins_with("take_")):
+  var gauge: Control=named("SongSummary_"+key+"_Gauge")
+  if not check(gauge!=null and gauge.get_meta("source_value",-1)==quality and gauge.get_meta("known_strength",false) and gauge.get_meta("read_only",false),"exact saved value on native passive gauge "+key):return false
+  var art: Control=gauge.get_node("CareerMeterArt") as Control
+  if not check(art!=null and art.mouse_filter==Control.MOUSE_FILTER_IGNORE and art.focus_mode==Control.FOCUS_NONE and gauge.focus_mode==Control.FOCUS_NONE,"original meter remains input-inert "+key):return false
+  if not await reveal(gauge):return false
+  if not await scroll_proof("CareerScroll",str(gauge.name)):return false
  if key=="take_0_0":
-  if not await reveal(strength) or not await capture(label+"-strength"):return false
+  if not await reveal(strength):return false
+  var title: Control=named("RecordingSavedTitle_0_0")
+  if not await reveal(title):return false
+  if not check(clipped_rect(title).encloses(title.get_global_rect()) and clipped_rect(strength).encloses(strength.get_global_rect()),"captured title and strength readable together"):return false
+  if not await capture(label+"-strength"):return false
  var details: Control=named("SongSummary_"+key+"_Details",true)
  if not check(details!=null,"summary details exist "+key):return false
  var toggle: Button=named("SongSummary_"+key+"_Toggle") as Button
@@ -198,10 +211,24 @@ func scroll_proof(name: String, text_target: String="") -> bool:
  scroll.gui_input.disconnect(observer)
  trace.append({"scroll":name,"start_text":text_target,"emulate_touch_from_mouse":Input.emulate_touch_from_mouse,"received":received,"available":available,"before":initial,"after":bar.value})
  Input.emulate_touch_from_mouse=prior_emulation
- if baseline and name=="PracticeScroll" and absf(bar.value-initial)<=0.1:
-  baseline_defects.append("Inherited rehearsal panel intercepts touch drag; reproduced in original run43514484130. Candidate must pass this check.")
-  return unchanged(before,"baseline known blocked practice scroll")
  return check(absf(bar.value-initial)>0.1,"genuine touch drag moves available content "+name) and unchanged(before,"native touch scroll")
+
+func visual_zero_unknown() -> bool:
+ if baseline:return true
+ var view=load("res://experiments/playable_flightcase/song_summary_view.gd")
+ var holder:=VBoxContainer.new()
+ holder.size=Vector2(300,200)
+ root.add_child(holder)
+ var before: Dictionary=guard()
+ var zero: Label=view.visual_strength(holder,{"known_strength":true,"quality":0},"zero_probe")
+ var unknown: Label=view.visual_strength(holder,{"known_strength":false,"quality":null},"unknown_probe")
+ await settle()
+ var zero_gauge: Control=holder.find_child("SongSummary_zero_probe_Gauge",true,false) as Control
+ var ok: bool=check(zero.text=="0 / 100" and zero_gauge!=null and zero_gauge.get_meta("source_value",-1)==0,"known zero is an explicitly scored zero")
+ ok=check(unknown.text=="UNKNOWN" and holder.find_child("SongSummary_unknown_probe_Gauge",true,false)==null,"unknown has no false zero gauge") and ok
+ ok=unchanged(before,"zero/unknown presentation") and ok
+ holder.free()
+ return ok
 
 func settle_fixture_practice(before: Dictionary, kind: String) -> bool:
  # The same protected settlement chain used by ui.gd after its original model.
@@ -295,6 +322,21 @@ func mount_menu() -> bool:
  await settle()
  return await free_action("ContinueAction",true)
 
+func archive_release_unknown() -> bool:
+ if baseline:return true
+ var view=load("res://experiments/playable_flightcase/recording_desk.gd")
+ var holder:=VBoxContainer.new()
+ var notes:=VBoxContainer.new()
+ holder.add_child(notes)
+ var before: Dictionary=guard()
+ view._session_facts(desk(),holder,{},90,false,notes)
+ view._session_facts(desk(),holder,{"released":false},91,false,notes)
+ var unknown: Label=holder.find_child("RecordingReleaseStatus_90",true,false) as Label
+ var unreleased: Label=holder.find_child("RecordingReleaseStatus_91",true,false) as Label
+ var ok: bool=check(unknown!=null and unknown.text=="RELEASE NOT RECORDED" and unreleased!=null and unreleased.text=="UNRELEASED","absent legacy release is distinct from explicitly unreleased")
+ holder.free()
+ return unchanged(before,"legacy release presentation") and ok
+
 func desk():
  return scene.get("_career_view") if is_instance_valid(scene) else null
 
@@ -316,7 +358,10 @@ func songbook_recording_practice() -> bool:
  if not await inspect_summary("record_original_1",91,"recording-selected"):return false
  if not check(desk().recording_ids==order,"details leave unsaved demo order unchanged"):return false
  if not await capture("recording-selected-order"):return false
- if not await free_action("RecordingArchiveAction") or not await free_action("DemoTrackNotes_0"):return false
+ if not await free_action("RecordingArchiveAction"):return false
+ if not archive_release_unknown():return false
+ if not await capture("recording-archive-entry"):return false
+ if not await free_action("DemoTrackNotes_0"):return false
  if not await capture("recording-archive-open"):return false
  if not await inspect_summary("take_0_0",72,"recording-captured"):return false
  if not check(Recordings.sessions(owner.game.career)[0]["song_links_v1"]["snapshots"][0]["title"]=="CAPTURED LAST TRAIN","archive keeps original title after current title differs"):return false
@@ -393,6 +438,7 @@ func run() -> void:
   var fresh=Owner.new()
   check(fresh.load_draft() and fresh.snapshot()==owner.snapshot(),"headless fixture exact isolated reload")
   finish();return
+ if not await visual_zero_unknown():finish();return
  if not await songbook_recording_practice():finish();return
  if not await actual_reload():finish();return
  if not await setlist():finish();return

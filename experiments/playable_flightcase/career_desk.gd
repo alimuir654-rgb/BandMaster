@@ -818,33 +818,42 @@ func _refresh_after_band_poster() -> void:
  _render()
 
 func _songs_page(parent: Node, compact: bool) -> void:
- var body := _paper(parent,compact)
- _copy(body,"YOUR SONGBOOK",26)
+ var entries: Variant=game.career.get("song_catalogue",[])
+ var count: int=entries.size() if entries is Array else 0
+ SongSummaryView.heading(parent,"YOUR SONGBOOK","%d ORIGINAL%s" % [count,"" if count==1 else "S"],"notebook-pen")
  var draft: Variant = game.career.get("current_song_draft",{})
  if draft is Dictionary and not draft.is_empty():
+  var body: VBoxContainer=SongSummaryView.card(parent,"draft")
   var draft_view: Dictionary=SongSummary.draft(game.career)
-  _copy(body,"SAVED WRITING DRAFT",14,true)
-  _copy(body,str(draft_view["title"]),21)
+  SongSummaryView.card_title(body,str(draft_view["title"]),"…","draft")
   SongSummaryView.strength(body,draft_view,"draft")
-  _copy(body,str(draft_view["credits"]),16)
-  _copy(body,str(draft.get("idea",""))+"  /  "+str(draft.get("form","")),16,true)
- var entries: Variant=game.career.get("song_catalogue",[])
+  var notes: VBoxContainer=SongSummaryView.disclosure(body,"draft","WRITING NOTES")
+  _copy(notes,str(draft_view["credits"]),16)
+  _copy(notes,str(draft.get("idea",""))+"  /  "+str(draft.get("form","")),16,true)
  if not entries is Array:
+  var body: VBoxContainer=SongSummaryView.card(parent,"invalid")
   _copy(body,"The saved song catalogue needs review. No song history has been changed.",16)
  elif entries.is_empty():
+  var body: VBoxContainer=SongSummaryView.card(parent,"empty")
   _copy(body,"Your first original takes three saved writing sessions. The band can keep developing its current idea in the practice room.",16)
  else:
+  var cards:=GridContainer.new()
+  cards.columns=1 if compact else 2
+  cards.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+  cards.mouse_filter=Control.MOUSE_FILTER_PASS
+  cards.add_theme_constant_override("h_separation",14)
+  cards.add_theme_constant_override("v_separation",14)
+  parent.add_child(cards)
   for index in range(entries.size()):
+   var body: VBoxContainer=SongSummaryView.card(cards,"book_"+str(index))
    if not entries[index] is Dictionary:
     _copy(body,"Saved original %d needs review." % (index+1),16)
     continue
    var summary: Dictionary=SongSummary.current(game.career,entries[index])
-   _copy(body,"%02d  /  %s" % [index+1,str(summary["title"])],22)
-   _copy(body,str(summary["credits"]),16)
-   _copy(body,str(summary["arrangement"]),16,true)
-   SongSummaryView.strength(body,summary,"book_"+str(index))
-   SongSummaryView.details(body,summary,"book_"+str(index))
- body.add_child(_button("BACK TO WRITING  ›","CareerSongPracticeAction",_practice.bind("create"),true))
+   SongSummaryView.card_title(body,str(summary["title"]),"%02d" % (index+1),"book_"+str(index))
+   SongSummaryView.visual_strength(body,summary,"book_"+str(index))
+   SongSummaryView.notes(body,summary,"book_"+str(index))
+ parent.add_child(_button("BACK TO WRITING  ›","CareerSongPracticeAction",_practice.bind("create"),true))
 
 func _decision_dock(parent: Node, compact: bool) -> void:
  if page=="home" and not receipt_open:
