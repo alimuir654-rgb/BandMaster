@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "programme": "phase2-visual-identity-rehearsal-2026-10-30",
-  "status": "SONG55_R1_source_native_verified_owner_review_pending",
+  "status": "SONG56_visual_revision_active_owner_feedback",
   "repository": "alimuir654-rgb/BandMaster",
   "branch": "feature/playtest-polish-v20",
   "timezone": "Europe/London",
@@ -9,8 +9,8 @@
   "production_authorised": false,
   "owner_approved": false,
   "owner_approval_evidence": null,
-  "scope": "Completed SONG53-R1 shared honest saved-song summary and native verification. Later song models remain proposed.",
-  "writer": null,
+  "scope": "Separating songs into compact printed cards with numerical strength graphics, using a sleeve plus short ordered demo tracks, and moving secondary prose into a single disclosure makes the screens visibly more scannable and musical without hiding commitment information or inventing data.",
+  "writer": "root-SONG56",
   "last_verified_code_sha": "bdb550b436f7f96412d9f8f25b9ce294a6acf6fe",
   "baseline": {
     "run_id": 40778019754,
@@ -1969,7 +1969,7 @@
     "packages": "/workspace/work/overnight-20261101/s55/checkpoint-db61d1d/packages/packaging.json",
     "artifact_closeout": "/workspace/work/overnight-20261101/s55/closeout.json"
   },
-  "session": "SONG55",
+  "session": "SONG56",
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-06T07:55:00Z",
   "hard_stop": "2026-11-06T08:00:00Z",
@@ -2266,14 +2266,14 @@
   "s67_owner_visual_revision": "NEWdirectowner20:44Nov1: latestscreenshots alltoo textheavy, needsmoreimages, suggestsmetricchangesaspills. Thisoverridesthepreviousinternalvisualjudgement prospectively; S66technicalproofretainedbutpresentationREVISIONREQUESTED. PriorownerartblockreviewworkflowauthorisesselectednewnativeA05compositionreview; no newrasterautoapproval/publicsource/build/schedule.",
   "released_at": "2026-11-13T22:20:19.444832+00:00",
   "last_writer": "root-SONG55",
-  "source_write_allowed": false,
+  "source_write_allowed": true,
   "pending_implementation": null,
   "pending_helpers": [],
   "s67_closeout": "/workspace/work/radio-visual-20261101/s67/closeout.json",
   "source_phase": "closed_verified",
   "claimed_at": "2026-11-05T23:30:55.976880+00:00",
   "expires_at": null,
-  "authority": "Owner 13 November 2026: Continue in the successor conversation after the previous chat reached maximum length. The bounded SONG55/R1 presentation, native verification and source-only publication are completed; writer released. No APK, main merge or later-model scope was added.",
+  "authority": "Owner 13 November 2026 asks to make Song and Demo screens less text heavy, more visual and engaging. Bounded source presentation revision and existing native verification/publication workflow; no later models or APK.",
   "delegated_source_writer": null,
   "overnight_flow_art_20261102": {
     "owner_request": "Keep going without the apk packaging. Plan in a run through from now to8am. Flow and game coherence alongside art led assets are the focus.",
@@ -2496,7 +2496,7 @@
   "all_source_corrections_stop": "2026-11-02T11:30:00Z",
   "candidate_sha": null,
   "s76_closeout": "/workspace/work/morning-20261102/s76/closeout.json",
-  "base_head": "8f222c8ac29ed6029be304549bd67a2cac9e07e9",
+  "base_head": "a0e0194e884fa5b562b303d16d639fd1581a27c9",
   "s77_closeout": "/workspace/work/morning-20261102/s77/closeout.json",
   "latest_emergent_core_proposal": {
     "document": "docs/continuous_improvement/S77_EMERGENT_DECISION_CORE.md",
@@ -2924,12 +2924,12 @@
   "s85_closeout": "/tmp/bandmaster-s85-process-20261103/closeout.json",
   "current_operational_queue": {
     "path": "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
-    "current_stage": "SONG53-R1 implemented/verified; owner review pending",
-    "next": "Review the completed SONG55 shared-summary presentation, then scope SONG53-R2 stable song/revision/participant identity and co-writing as the next roadmap slice.",
+    "current_stage": "SONG56: owner-requested visual revision of R1",
+    "next": "Implement and inspect early phone/short native composition.",
     "roles": {
-      "source_writer": null,
+      "source_writer": "root-SONG56",
       "artifact_writer": null,
-      "active_worker": null
+      "active_worker": "root-SONG56"
     },
     "later_stages": "SONG53-R2 through R7 proposed, not scheduled"
   },
@@ -5125,27 +5125,27 @@
     "evidence": "/workspace/work/s140-mixing-desk-20261106/review/final-source-native-f9-v1.json"
   },
   "active_day_authority": {
-    "session": "SONG55",
-    "active": false,
-    "source_writes": false,
+    "session": "SONG56",
+    "active": true,
+    "source_writes": true,
     "prepare_final_APK": false,
-    "active_worker": null,
-    "released_at": "2026-11-13T22:25:51.828534+00:00",
-    "scope": "Completed bounded SONG55/R1; no automatic future-model or build scope."
+    "active_worker": "root-SONG56",
+    "scope": "Songbook/demo visual presentation only",
+    "issued_at": "2026-11-13T22:48:09.923940+00:00"
   },
   "latest_owner_request": {
     "date": "2026-11-13",
-    "request": "Continue after the prior roadmap conversation reached maximum length.",
-    "scope": "Complete the already scoped SONG55/R1 source presentation, native verification and source-only publication.",
-    "status": "completed",
+    "request": "The song screen is too text heavy. It should be more visual and engaging. The same applies to the demo screen.",
+    "scope": "Bounded Song and Demo presentation revision",
+    "status": "active",
     "new_APK_authorised": false
   },
   "last_S112_metadata_release": "2026-11-04T09:14:34.378581+00:00",
-  "active_session": null,
+  "active_session": "SONG56",
   "game_source_sha": "bdb550b436f7f96412d9f8f25b9ce294a6acf6fe",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": false,
-  "source_writer": null,
+  "source_writer": "root-SONG56",
   "artifact_writer": null,
   "s117_closeout": "/workspace/work/s117-final-apk-v11-20261104/closeout.json",
   "latest_private_android": {
@@ -5359,7 +5359,7 @@
       "manual_old_automation_not_resumed": true
     }
   },
-  "engine_execution_allowed": false,
+  "engine_execution_allowed": true,
   "s125_closeout": "/workspace/work/s125-week-and-calendar-20261105/closeout.json",
   "S125_final_funding": {
     "S125cap": 7340032,
@@ -5367,8 +5367,8 @@
     "daycap": 18874368,
     "reason": "ExactmetadataGit estimate caught beforeGit allocation; no floorbreach orapprovalwait."
   },
-  "GL_owner": null,
-  "review_pending": false,
+  "GL_owner": "root-SONG56 via isolated CI",
+  "review_pending": true,
   "latest_verified_game_sha": "bdb550b436f7f96412d9f8f25b9ce294a6acf6fe",
   "latest_source_manifest": "docs/continuous_improvement/SONG55_RESULTS.json",
   "s127_closeout": {
@@ -5853,7 +5853,7 @@
     "scope": "Source-backed three-song demo/scalable music/UI review with primary developer research; proposal only, no Game/assets/engines/APK."
   },
   "s142_closeout": "/workspace/work/s142-three-song-demo-review-20261106/closeout.json",
-  "shipping_writer": null,
+  "shipping_writer": "root-SONG56",
   "released_S143_root_lease": {
     "owner": "root_S143_three_song_demo",
     "thread": "01a18d77-1c94-72b9-8b14-0f53990b9061",
@@ -6161,5 +6161,43 @@
     "owner_approved": false,
     "next_action": "Review the completed SONG55 shared-summary presentation, then scope SONG53-R2 stable song/revision/participant identity and co-writing as the next roadmap slice."
   },
-  "local_native_status": "No current local native run: display socket denied. Final native verification used the isolated GitHub job."
+  "local_native_status": "No current local native run: display socket denied. Final native verification used the isolated GitHub job.",
+  "song56_previous_scope": {
+    "session": "SONG55",
+    "scope": "Completed SONG53-R1 shared honest saved-song summary and native verification. Later song models remain proposed.",
+    "status": "SONG55_R1_source_native_verified_owner_review_pending",
+    "authority": "Owner 13 November 2026: Continue in the successor conversation after the previous chat reached maximum length. The bounded SONG55/R1 presentation, native verification and source-only publication are completed; writer released. No APK, main merge or later-model scope was added.",
+    "active_day_authority": {
+      "session": "SONG55",
+      "active": false,
+      "source_writes": false,
+      "prepare_final_APK": false,
+      "active_worker": null,
+      "released_at": "2026-11-13T22:25:51.828534+00:00",
+      "scope": "Completed bounded SONG55/R1; no automatic future-model or build scope."
+    },
+    "latest_owner_request": {
+      "date": "2026-11-13",
+      "request": "Continue after the prior roadmap conversation reached maximum length.",
+      "scope": "Complete the already scoped SONG55/R1 source presentation, native verification and source-only publication.",
+      "status": "completed",
+      "new_APK_authorised": false
+    },
+    "current_operational_queue": {
+      "path": "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+      "current_stage": "SONG53-R1 implemented/verified; owner review pending",
+      "next": "Review the completed SONG55 shared-summary presentation, then scope SONG53-R2 stable song/revision/participant identity and co-writing as the next roadmap slice.",
+      "roles": {
+        "source_writer": null,
+        "artifact_writer": null,
+        "active_worker": null
+      },
+      "later_stages": "SONG53-R2 through R7 proposed, not scheduled"
+    },
+    "writer": null,
+    "active_session": null,
+    "source_write_allowed": false,
+    "engine_execution_allowed": false,
+    "GL_owner": null
+  }
 }

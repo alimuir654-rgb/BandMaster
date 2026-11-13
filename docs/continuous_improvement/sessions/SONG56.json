@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "id": "SONG56",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "a0e0194e884fa5b562b303d16d639fd1581a27c9",
+  "local_baseline_equivalent": "e93497ecf318b5af13522558852ec1e22ca53cc6",
+  "baseline_tree": "8c73ddd933de2981dbf943262a3ca1f9e059ef02",
+  "owner_request": "The song screen is too text heavy. It should be more visual and engaging. The same applies to the demo screen.",
+  "dominant_issue": "BM-01",
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-15",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-26",
+    "BM-29",
+    "BM-30",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-39",
+    "BM-40",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 2279797,
+    "sha256": "6815114fbdcb6dd37a2e00d31a202284e0822278f3c139693b4abba901e9f025"
+  },
+  "target": {
+    "locator": "Owner text-heavy feedback; existing print_materials_v1.png original inspected plus final SONG55 phone songbook-entry/details, recording-selection-entry and captured-strength originals. No new owner mockup supplied; reference is an explicit revision of these rejected layouts.",
+    "original_sha256": "26e15e5ddf11506681244cf1a15090d865764d2a9fef76e24d4e9f4e1fc20702",
+    "pixels_inspected": true,
+    "visual_changes": true,
+    "reference_limit": "No new owner-approved composition is claimed. Existing material/icon/sleeve bytes remain unchanged."
+  },
+  "controlled_comparison": "Same retained SONG55 owner fixture, 91 current/72 captured contrast, viewport, source art/fonts/background and outer navigation bounds; baseline a0e0194 and candidate. Common summary and scroll assertions run on BOTH since baseline already includes SONG55. New visual-card assertions are candidate-only. Early phone/short pixels before full four-profile proof.",
+  "hypothesis": "Separating songs into compact printed cards with numerical strength graphics, using a sleeve plus short ordered demo tracks, and moving secondary prose into a single disclosure makes the screens visibly more scannable and musical without hiding commitment information or inventing data.",
+  "stop_condition": "Hold clipping, unreadable full titles, inaccessible/undersized controls, fabricated metric/audio/identity implications, changed transaction/save/art bytes or unrelated screen regression. After two ineffective corrections change method. No R2 model, APK/signing/export, main/PR199, merge, paid assets or force update.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/song_summary_view.gd",
+    "experiments/playable_flightcase/song_strength_strip.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "experiments/playable_flightcase/recording_desk.gd",
+    "tests/song55_native.gd",
+    "tools/song55_verify.py",
+    ".github/workflows/song55-native-proof.yml",
+    "docs/continuous_improvement/sessions/SONG56.json",
+    "docs/continuous_improvement/SONG56_RESULTS.json",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/handover/START_HERE.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/SONG56.json",
+    "python3 tools/song55_verify.py --godot <verified4.7.2> --work <fresh> --baseline <exact-baseline-or-documented-local-equivalent> --only candidate --models-only",
+    "Reused bounded isolated GitHub proof with SONG56 session and a0e0194 baseline, common baseline/candidate assertions, early phone/short then all four sizes.",
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/SONG56.json --before <full committed active preflight> --require-prior-record",
+    "Protected source/art/save diff, exact source tree and artifact hashes, real original pixel review, expected-head non-force publication/readback."
+  ],
+  "queue_task_ids": [
+    "SONG53-R1",
+    "SONG56-visual-revision"
+  ],
+  "writer": {
+    "owner": "root-SONG56",
+    "status": "active",
+    "source_writers": 1
+  },
+  "reviewers": [
+    {
+      "agent": "bandmaster_access_check",
+      "role": "read-only visual/source review",
+      "status": "baseline/API pre-review complete; four concrete acceptance conditions supplied"
+    },
+    {
+      "agent": "stalled_chat_guidance",
+      "role": "read-only QA/layout review",
+      "status": "baseline QA pre-review; current-source comparison and removal of obsolete baseline exemptions required"
+    }
+  ],
+  "player_task": {
+    "goal": "Recognise and compare own songs, choose/reorder a demo and understand its saved captured tracks with minimal reading.",
+    "start": "Make → Songbook",
+    "end": "Demo selection/archive → Songbook/Practice, Menu/Continue",
+    "commitment_point": "Unchanged record/release actions with full financial/time context; presentation and selection remain free.",
+    "important_beats": [
+      "Song title/strength scan",
+      "Expandable credits and honest unknowns",
+      "Two required and one optional demo slots",
+      "Captured sleeve/track identity and release action"
+    ],
+    "visible_acceptance": [
+      "Full native song titles, prominent saved-strength graphic and visually separated cards.",
+      "No repeated caveat paragraphs in default song/demo rows; all original facts remain in a reachable disclosure.",
+      "Cover identity plus saved track rows visible without a 280px hero consuming the phone fold.",
+      "Visible commitment price/time and real Add/Remove/order/return controls at original readable sizes."
+    ],
+    "state_matrix": [
+      "current/captured contrast",
+      "long Unicode titles",
+      "unknown strength/draft progress",
+      "collapsed/expanded details",
+      "selected/unselected/disabled ordering",
+      "genuine touch drag through new cards",
+      "Menu/Continue and exact owner/disk equality"
+    ]
+  },
+  "protected_components": [
+    "All existing art/font/control/passive-meter bytes",
+    "All Scripts, original gameplay/recording/finance/save/transaction modules",
+    "Owner production saves and private audio",
+    "R0 roadmap/design and previous records",
+    "Existing demo-size/cost/time and release semantics",
+    "song_summary.gd saved-data contract",
+    "Existing rehearsal/setlist presentation unless shared old functions used unchanged",
+    "demo_cover.gd and all existing icon sources"
+  ],
+  "resource_plan": {
+    "engine": "Godot4.7.2 stable official ed1daf0bf",
+    "engine_archive_sha256": "cadd3204e728a35d3f13adb7fd0d7902636b79f6b95c40c265eb73b6c35329e4",
+    "native_profiles": [
+      "390x844",
+      "1280x720",
+      "720x1280",
+      "1600x900"
+    ],
+    "source_workers": 1,
+    "new_APK": false,
+    "new_gameplay_model": false,
+    "private_audio_required_for_this_readonly_UI_proof": false,
+    "signing_generation": "blocked in isolated import/test environment; no export preset",
+    "engine_executable_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+    "native_display": "Reuse verified isolated GitHub native route; local headless only. No retry of prohibited local display escalation.",
+    "early_profiles": [
+      "390x844",
+      "1280x720"
+    ]
+  },
+  "started_at": "2026-11-13T22:48:09.923940+00:00"
+}
