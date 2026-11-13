@@ -9,6 +9,8 @@ const Promotion = preload("res://experiments/playable_flightcase/promotion_rules
 const GearArt = preload("res://experiments/playable_flightcase/gear_press.gd")
 const RadioVisit = preload("res://experiments/playable_flightcase/radio_visit_rules.gd")
 const RadioDesk = preload("res://experiments/playable_flightcase/radio_visit_desk.gd")
+const SongSummary = preload("res://experiments/playable_flightcase/song_summary.gd")
+const SongSummaryView = preload("res://experiments/playable_flightcase/song_summary_view.gd")
 
 static func _key(id: String) -> String:
  return id.replace(":","_").replace("/","_").replace(" ","_")
@@ -115,12 +117,12 @@ static func _selection(host, parent: Node, songs: Array) -> void:
   if ids.size()>=3: _copy(host,parent,"Remove a selected track before adding another.","RecordingSelectionLimit",16,true)
   for song in available: _selectable_track(host,parent,song,-1,ids.size())
 
-static func _song_facts(host, parent: Node, song: Dictionary, key: String) -> void:
- var view: Dictionary=Rules.describe_song(song)
+static func _song_facts(host, parent: Node, view: Dictionary, key: String) -> void:
  _copy(host,parent,str(view["credits"]),"RecordingCredits_"+key)
  _copy(host,parent,"IDEA / "+str(view["origin"])+"\nFORM / "+str(view["arrangement"]),"RecordingCreative_"+key,16,true)
- _copy(host,parent,str(view["quality"])+"  •  "+str(view["day"]),"RecordingQuality_"+key,16,true)
- var history: Array=view["notes"]
+ _copy(host,parent,str(view["finish"]),"RecordingQuality_"+key,16,true)
+ SongSummaryView.details(parent,view,key,false,true,false)
+ var history: Array=view["history"]
  var history_text: String="WRITING HISTORY NOT RECORDED" if history.is_empty() else "WRITING HISTORY\n"+"\n".join(PackedStringArray(history))
  _copy(host,parent,history_text,"RecordingHistory_"+key,16,true)
 
@@ -133,9 +135,10 @@ static func _selectable_track(host, parent: Node, song: Dictionary, selected_ind
  var title: String=("%d. " % (selected_index+1) if selected_index>=0 else "")+str(song["title"])
  # Full48-character title is a native wrapped label; action captions stay short.
  _copy(host,block,title,"RecordingTitle_"+key,20)
- var facts: Dictionary=Rules.describe_song(song)
+ var facts: Dictionary=SongSummary.current(host.game.career,song)
  _copy(host,block,str(facts["credits"]),"RecordingCredits_"+key)
- _copy(host,block,str(facts["arrangement"])+"  •  "+str(facts["quality"]),"RecordingSelectFacts_"+key,16,true)
+ _copy(host,block,str(facts["arrangement"]),"RecordingSelectFacts_"+key,16,true)
+ SongSummaryView.strength(block,facts,"record_"+key)
  var selected: bool=selected_index>=0
  var select: Button=_button(host,block,"REMOVE FROM DEMO" if selected else "ADD TO DEMO","RecordingSong_"+key,toggle.bind(host,id),false,selected or selected_count<3)
  select.set_meta("song_id",id)
@@ -147,6 +150,7 @@ static func _selectable_track(host, parent: Node, song: Dictionary, selected_ind
   block.add_child(moves)
   _button(host,moves,"UP","RecordingUp_"+key,move.bind(host,id,-1),false,selected_index>0)
   _button(host,moves,"DOWN","RecordingDown_"+key,move.bind(host,id,1),false,selected_index<selected_count-1)
+ SongSummaryView.details(block,facts,"record_"+key)
 
 static func _brief(host, parent: Node, state: Dictionary) -> void:
  _copy(host,parent,"THE SESSION BRIEF","RecordingBriefHeading",20)
@@ -159,7 +163,7 @@ static func _brief(host, parent: Node, state: Dictionary) -> void:
  else:
   _copy(host,parent,str(preview.get("message","Choose two or three tracks.")),"RecordingBriefEligibility")
  _copy(host,parent,"The displayed after-session cash includes the existing daily accounts.","RecordingAccountsNote",16,true)
- _copy(host,parent,"Demo quality follows the selected songs.","RecordingQualityBasis",16,true)
+ _copy(host,parent,"Song strength is saved with each track. Studio execution is not scored separately.","RecordingQualityBasis",16,true)
 
 static func dock(host, parent: Node, _compact: bool) -> void:
  if str(host.recording_mode)=="visit" or RadioVisit.locked(host.game.career):
@@ -235,6 +239,7 @@ static func _session(host, parent: Node, session: Dictionary, compact: bool, ind
  for track_index in range(list.size()):
   var track: Dictionary=list[track_index]
   _copy(host,tracks,"%02d  %s" % [track_index+1,str(track.get("title","UNTITLED"))],"RecordingSavedTitle_%d_%d" % [index,track_index],24)
+  SongSummaryView.strength(tracks,SongSummary.captured(session,track_index),"take_%d_%d" % [index,track_index])
  _session_facts(host,parent,session,index,release_action)
  var details:=VBoxContainer.new();details.name="DemoTrackDetails_"+str(index);details.visible=false;details.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  var toggle: Button=_button(host,parent,"TRACK NOTES  +","DemoTrackNotes_"+str(index),func():
@@ -245,19 +250,19 @@ static func _session(host, parent: Node, session: Dictionary, compact: bool, ind
   if is_instance_valid(toggle):toggle.text="TRACK NOTES  −" if open else "TRACK NOTES  +")
  parent.add_child(details)
  _copy(host,details,"SAVED SONG LINKS" if linked else "LEGACY RECORDING · SONG LINKS NOT RECORDED","RecordingLinkStatus_"+str(index),18,true)
- var snapshots: Array=(session["song_links_v1"] as Dictionary).get("snapshots",[]) if linked else []
  for track_index in range(list.size()):
   var track: Dictionary=list[track_index]
   _copy(host,details,str(track.get("title","UNTITLED")),"RecordingDetailTitle_%d_%d" % [index,track_index],22)
-  _copy(host,details,"QUALITY %d / 100" % int(track["quality"]) if track.has("quality") else "TRACK QUALITY NOT RECORDED","RecordingSavedQuality_%d_%d" % [index,track_index],18,true)
-  if linked and track_index<snapshots.size():_song_facts(host,details,snapshots[track_index],"saved_%d_%d" % [index,track_index])
-  else:_copy(host,details,"Writing credits, song ID and session history were not saved with this legacy track.","RecordingLegacyTrack_%d_%d" % [index,track_index],18,true)
+  _song_facts(host,details,SongSummary.captured(session,track_index),"take_%d_%d" % [index,track_index])
+  if not linked:_copy(host,details,"Writing credits, song ID and session history were not saved with this legacy track.","RecordingLegacyTrack_%d_%d" % [index,track_index],18,true)
 
 static func _session_facts(host, facts: Node, session: Dictionary, index: int, release_action: bool) -> void:
- _copy(host,facts,"SESSION QUALITY %d / 100" % int(session["quality"]) if session.has("quality") else "SESSION QUALITY NOT RECORDED","RecordingSavedSessionQuality_"+str(index))
+ var linked: bool=session.has(Rules.LINK_KEY) and Rules._links_valid(session)
+ _copy(host,facts,"CAPTURED SONG AVERAGE · %d / 100" % int(session["quality"]) if linked else "CAPTURED SONG AVERAGE NOT TRACKED","RecordingSavedSessionQuality_"+str(index))
+ _copy(host,facts,"RECORDING EXECUTION QUALITY NOT TRACKED","RecordingExecutionQuality_"+str(index),16,true)
  if bool(session.get("released",false)):
   _copy(host,facts,"RELEASED LOCALLY"+(" • DAY %d" % int(session["release_day"]) if session.has("release_day") else ""),"RecordingReleaseStatus_"+str(index))
-  if session.has("fans_gained"): _copy(host,facts,"SAVED RELEASE REACH / +%d FANS" % int(session["fans_gained"]),"RecordingSavedFans_"+str(index))
+  if session.has("fans_gained"): _copy(host,facts,"SAVED BAND FAN GAIN · +%d\nATTRIBUTED LISTENS NOT TRACKED" % int(session["fans_gained"]),"RecordingSavedFans_"+str(index))
  else:
   _copy(host,facts,"LOCAL RELEASE NOT YET SAVED","RecordingReleaseStatus_"+str(index))
  if release_action and not bool(session.get("released",false)):
@@ -305,7 +310,7 @@ static func _radio_metrics(host, parent: Node, before: Dictionary, after: Dictio
  _copy(host,parent,(rows[0]+"  •  "+rows[1]+"\n"+rows[2]) if compact else "\n".join(rows),"PromotionPreview")
 
 static func _radio_summary(before: Dictionary, after: Dictionary) -> String:
- return "%d new listeners found your band." % (int(after.get("fans",0))-int(before.get("fans",0)))
+ return "Your band's fan count grew by %d." % (int(after.get("fans",0))-int(before.get("fans",0)))
 
 static func _radio_hero(host, parent: Node, compact: bool, summary: String, fresh: bool=false) -> void:
  var row:=HBoxContainer.new()

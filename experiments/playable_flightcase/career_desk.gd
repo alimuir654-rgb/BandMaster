@@ -8,7 +8,8 @@ const Bridge = preload("res://experiments/playable_flightcase/career_bridge.gd")
 const Beat = preload("res://experiments/playable_flightcase/career_beat.gd")
 const Ink = preload("res://experiments/playable_flightcase/ink_note.gd")
 const Gear = preload("res://experiments/playable_flightcase/gear_catalog.gd")
-const Songs = preload("res://Scripts/songbook_presentation.gd")
+const SongSummary = preload("res://experiments/playable_flightcase/song_summary.gd")
+const SongSummaryView = preload("res://experiments/playable_flightcase/song_summary_view.gd")
 const Cast = preload("res://experiments/character_cast/catalogue.gd")
 const LiveRules = preload("res://experiments/playable_flightcase/live_bridge.gd")
 const LiveDesk = preload("res://experiments/playable_flightcase/live_desk.gd")
@@ -819,22 +820,30 @@ func _refresh_after_band_poster() -> void:
 func _songs_page(parent: Node, compact: bool) -> void:
  var body := _paper(parent,compact)
  _copy(body,"YOUR SONGBOOK",26)
- var draft: Dictionary = game.career.get("current_song_draft",{})
- if not draft.is_empty():
+ var draft: Variant = game.career.get("current_song_draft",{})
+ if draft is Dictionary and not draft.is_empty():
+  var draft_view: Dictionary=SongSummary.draft(game.career)
   _copy(body,"SAVED WRITING DRAFT",14,true)
-  _copy(body,str(draft.get("title","UNTITLED")),21)
-  var sessions: Variant = draft.get("sessions",[])
-  var count: int = sessions.size() if sessions is Array else int(game.career.get("song_draft_progress",0))
-  _copy(body,"SESSION %d / 3  •  %s" % [count,str(draft.get("leader","The band"))],16)
+  _copy(body,str(draft_view["title"]),21)
+  SongSummaryView.strength(body,draft_view,"draft")
+  _copy(body,str(draft_view["credits"]),16)
   _copy(body,str(draft.get("idea",""))+"  /  "+str(draft.get("form","")),16,true)
- var entries: Array = Songs.entries(game.career)
- if entries.is_empty():
+ var entries: Variant=game.career.get("song_catalogue",[])
+ if not entries is Array:
+  _copy(body,"The saved song catalogue needs review. No song history has been changed.",16)
+ elif entries.is_empty():
   _copy(body,"Your first original takes three saved writing sessions. The band can keep developing its current idea in the practice room.",16)
- for song in entries:
-  _copy(body,"%02d  /  %s" % [int(song["number"]),str(song["title"])],22)
-  _copy(body,str(song["writer"]),16)
-  _copy(body,str(song["arrangement"])+"  •  "+str(song["verdict"]),16,true)
-  _copy(body,"LIVE RECEPTION  /  "+str(song["reception"]),14,true)
+ else:
+  for index in range(entries.size()):
+   if not entries[index] is Dictionary:
+    _copy(body,"Saved original %d needs review." % (index+1),16)
+    continue
+   var summary: Dictionary=SongSummary.current(game.career,entries[index])
+   _copy(body,"%02d  /  %s" % [index+1,str(summary["title"])],22)
+   _copy(body,str(summary["credits"]),16)
+   _copy(body,str(summary["arrangement"]),16,true)
+   SongSummaryView.strength(body,summary,"book_"+str(index))
+   SongSummaryView.details(body,summary,"book_"+str(index))
  body.add_child(_button("BACK TO WRITING  ›","CareerSongPracticeAction",_practice.bind("create"),true))
 
 func _decision_dock(parent: Node, compact: bool) -> void:

@@ -16,6 +16,8 @@ const Ink = preload("res://experiments/playable_flightcase/ink_note.gd")
 const Backstage = preload("res://Scripts/gig_backstage_incident.gd")
 const Direction = preload("res://experiments/playable_flightcase/career_direction.gd")
 const DirectionCard = preload("res://experiments/playable_flightcase/direction_card.gd")
+const SongSummary = preload("res://experiments/playable_flightcase/song_summary.gd")
+const SongSummaryView = preload("res://experiments/playable_flightcase/song_summary_view.gd")
 const ARRIVAL := "res://experiments/playable_flightcase/art/s53_arrival.png"
 const STAGE := "res://experiments/playable_flightcase/art/s53_stage.png"
 const ROOM := "res://experiments/playable_flightcase/art/opening_stage.png"
@@ -171,6 +173,9 @@ static func _setlist(host, body: Node, state: Dictionary) -> void:
    _copy(body,"AVAILABLE ORIGINALS",20)
    available_heading=true
   _copy(body,(str(index+1)+". " if index>=0 else "")+str(song.get("title","UNTITLED")),16)
+  var summary: Dictionary=SongSummary.current(state,song)
+  var summary_key: String="set_"+id.replace(":","_")
+  SongSummaryView.strength(body,summary,summary_key)
   var row := HBoxContainer.new()
   row.add_theme_constant_override("separation",6)
   body.add_child(row)
@@ -186,6 +191,7 @@ static func _setlist(host, body: Node, state: Dictionary) -> void:
    var down: Button = host._button("DOWN","ShowDown_"+id.replace(":","_"),host._show_song_move.bind(id,1))
    down.disabled=index==selected.size()-1
    row.add_child(down)
+  SongSummaryView.details(body,summary,summary_key)
  if state.get("song_catalogue",[]).is_empty():_copy(body,"There are no completed originals. An unfinished draft cannot be put in the set.")
  _material_warning(body,selected.size())
 

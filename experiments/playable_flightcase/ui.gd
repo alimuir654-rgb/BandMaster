@@ -15,6 +15,8 @@ const MixingRecipe = preload("res://experiments/playable_flightcase/mixing_recip
 const Situation = preload("res://experiments/playable_flightcase/situation_core.gd")
 const DayNavigation=preload("res://experiments/playable_flightcase/day_navigation.gd")
 const BandWeek = preload("res://experiments/playable_flightcase/band_week.gd")
+const SongSummary = preload("res://experiments/playable_flightcase/song_summary.gd")
+const SongSummaryView = preload("res://experiments/playable_flightcase/song_summary_view.gd")
 const WorkConflict = preload("res://experiments/playable_flightcase/work_conflict_view.gd")
 signal lineup_confirmed
 signal back_requested
@@ -907,12 +909,20 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
   var sketches: Button=_button("FINISHED ORIGINALS",_open_finished_workbench,"tab")
   sketches.name="WorkbenchFinishedAction"
   info.add_child(sketches)
- info.add_child(_label("YOUR ORIGINALS",18))
- if game.career.get("song_catalogue",[]).is_empty():
+ info.add_child(_label("YOUR ORIGINALS · FOR REFERENCE",18))
+ var originals: Variant=game.career.get("song_catalogue",[])
+ if not originals is Array:
+  info.add_child(_label("The saved song catalogue needs review.",16))
+ elif originals.is_empty():
   info.add_child(_label("No finished originals yet. Three writing sessions will complete your first song.",16))
  else:
-  for song in game.career.get("song_catalogue",[]):
-   info.add_child(_label("%s  •  quality %d\nWritten by %s  •  %s" % [str(song.get("title","UNTITLED")),int(song.get("quality",0)),str(song.get("lead_writer","the band")),str(song.get("arrangement",""))],16))
+  for index in range(originals.size()):
+   if not originals[index] is Dictionary:continue
+   var summary: Dictionary=SongSummary.current(game.career,originals[index])
+   info.add_child(_label(str(summary["title"])+"\n"+str(summary["credits"]),16))
+   info.add_child(_label(str(summary["arrangement"]),16))
+   SongSummaryView.strength(info,summary,"practice_"+str(index),true)
+   SongSummaryView.details(info,summary,"practice_"+str(index),true)
  if not saved_report.is_empty():
   var reopen: Button = _button("VIEW LAST SESSION  ›",_toggle_recap,"tab")
   reopen.name = "ReopenSessionAction"

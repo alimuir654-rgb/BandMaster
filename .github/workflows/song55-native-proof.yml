@@ -1,0 +1,153 @@
+name: SONG55 native song summary proof
+
+on:
+  push:
+    branches:
+      - feature/playtest-polish-v20
+    paths:
+      - experiments/playable_flightcase/song_summary.gd
+      - experiments/playable_flightcase/song_summary_view.gd
+      - experiments/playable_flightcase/career_desk.gd
+      - experiments/playable_flightcase/ui.gd
+      - experiments/playable_flightcase/show_desk.gd
+      - experiments/playable_flightcase/recording_desk.gd
+      - tests/song55_summary.gd
+      - tests/song55_native.gd
+      - tools/song55_verify.py
+      - .github/workflows/song55-native-proof.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: song55-native-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  native-proof:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/feature/playtest-polish-v20'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    env:
+      SONG55_BASELINE: 8f222c8ac29ed6029be304549bd67a2cac9e07e9
+      SONG55_ARCHIVE_SHA256: cadd3204e728a35d3f13adb7fd0d7902636b79f6b95c40c265eb73b6c35329e4
+      SONG55_ENGINE_SHA256: 8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e
+      SONG55_TOOLCHAIN: /tmp/song55-toolchain-${{ github.run_id }}-${{ github.run_attempt }}
+      SONG55_WORK: /tmp/song55-native-proof-${{ github.run_id }}-${{ github.run_attempt }}
+      SONG55_GATE_RECEIPT: /tmp/song55-gate-${{ github.run_id }}-${{ github.run_attempt }}.json
+    steps:
+      - name: Check out the exact pushed source and baseline history
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+          # The curated opening/test closure does not reference addons/woldui.
+          # Git history is needed by the runner; the submodule is not needed.
+          submodules: false
+
+      - name: Check committed preflight against the actual previous push head
+        timeout-minutes: 3
+        env:
+          SONG55_BEFORE: ${{ github.event.before }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$SONG55_BEFORE" =~ ^[0-9a-f]{40}$ ]]
+          if [[ "$SONG55_BEFORE" == "0000000000000000000000000000000000000000" ]]; then
+            echo "This proof requires an existing branch with an actual previous push head." >&2
+            exit 1
+          fi
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          git cat-file -e "${SONG55_BASELINE}^{commit}"
+          git cat-file -e "${SONG55_BEFORE}^{commit}"
+          git merge-base --is-ancestor "$SONG55_BEFORE" HEAD
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          session_path = 'docs/continuous_improvement/sessions/SONG55.json'
+          current = json.loads(Path('docs/continuous_improvement/CURRENT.json').read_text())
+          session = json.loads(Path(session_path).read_text())
+          assert current.get('session') == session_path, 'SONG55 is not the current recorded session'
+          assert session['baseline_sha'] == os.environ['SONG55_BASELINE'], 'Baseline differs from recorded scope'
+          plan = session['resource_plan']
+          assert plan['engine_archive_sha256'] == os.environ['SONG55_ARCHIVE_SHA256'], 'Archive pin differs from preflight'
+          assert plan['engine_executable_sha256'] == os.environ['SONG55_ENGINE_SHA256'], 'Executable pin differs from preflight'
+          PY
+          python3 tools/improvement_gate.py check \
+            --session docs/continuous_improvement/sessions/SONG55.json \
+            --before "$SONG55_BEFORE" \
+            --require-prior-record | tee "$SONG55_GATE_RECEIPT"
+
+      - name: Install the isolated native display dependencies
+        timeout-minutes: 5
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            ca-certificates curl unzip \
+            xserver-xorg-core xserver-xorg-video-dummy x11-utils \
+            libgl1 libgl1-mesa-dri libglx-mesa0 \
+            libx11-6 libxrender1 libxi6 libxcursor1 libxrandr2 libxinerama1
+          # Use the packaged Xorg core executable; the Python runner owns its
+          # dummy display and does not use an externally started Xvfb session.
+          test -x /usr/lib/xorg/Xorg
+          printf '%s\n' /usr/lib/xorg >> "$GITHUB_PATH"
+          command -v xdpyinfo
+
+      - name: Download and verify the pinned Godot archive and executable
+        timeout-minutes: 5
+        shell: bash
+        run: |
+          set -euo pipefail
+          test ! -e "$SONG55_TOOLCHAIN"
+          mkdir "$SONG55_TOOLCHAIN"
+          archive="$SONG55_TOOLCHAIN/Godot_v4.7.2-stable_linux.x86_64.zip"
+          engine="$SONG55_TOOLCHAIN/Godot_v4.7.2-stable_linux.x86_64"
+          curl --fail --location --retry 2 --connect-timeout 20 --max-time 180 \
+            --output "$archive" \
+            https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip
+          printf '%s  %s\n' "$SONG55_ARCHIVE_SHA256" "$archive" | sha256sum --check --strict -
+          unzip -q "$archive" -d "$SONG55_TOOLCHAIN"
+          printf '%s  %s\n' "$SONG55_ENGINE_SHA256" "$engine" | sha256sum --check --strict -
+          chmod u+x "$engine"
+
+      - name: Capture baseline and candidate phone and short-window proof
+        timeout-minutes: 30
+        shell: bash
+        run: |
+          set -euo pipefail
+          test ! -e "$SONG55_WORK"
+          # This first pass deliberately stops at phone + short. Tall + wide
+          # require a subsequent scoped run after these actual pixels are reviewed.
+          # The runner creates isolated XDG/save paths, performs its model checks,
+          # and records its scratch-only legacy fixture availability/SAFE adaptations.
+          python3 tools/song55_verify.py \
+            --repo "$GITHUB_WORKSPACE" \
+            --godot "$SONG55_TOOLCHAIN/Godot_v4.7.2-stable_linux.x86_64" \
+            --work "$SONG55_WORK" \
+            --baseline "$SONG55_BASELINE" \
+            --only both \
+            --profiles phone short
+
+      - name: Retain only manifests, logs, and PNG or JSON test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: song55-native-${{ github.sha }}-${{ github.run_attempt }}
+          retention-days: 14
+          if-no-files-found: warn
+          # Exact evidence roots only. Do not upload project/, environment/,
+          # toolchain archives, source bundles, or isolated saved game files.
+          path: |
+            ${{ env.SONG55_GATE_RECEIPT }}
+            ${{ env.SONG55_WORK }}/RUN.json
+            ${{ env.SONG55_WORK }}/baseline/SOURCE_MANIFEST.json
+            ${{ env.SONG55_WORK }}/candidate/SOURCE_MANIFEST.json
+            ${{ env.SONG55_WORK }}/logs/*.log
+            ${{ env.SONG55_WORK }}/logs/*.stdout
+            ${{ env.SONG55_WORK }}/logs/*.result.json
+            ${{ env.SONG55_WORK }}/results/**/*.png
+            ${{ env.SONG55_WORK }}/results/**/*.json
