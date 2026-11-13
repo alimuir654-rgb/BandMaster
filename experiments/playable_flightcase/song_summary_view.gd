@@ -133,6 +133,7 @@ static func disclosure(parent: Node, key: String, caption: String="NOTES", toolb
  body.visible=false
  var toggle: Button=Poster.button(caption+"  +")
  Poster.choice_style(toggle)
+ toggle.custom_minimum_size.y=52
  toggle.name="SongSummary_"+key+"_Toggle"
  toggle.toggle_mode=true
  (toolbar if toolbar!=null else parent).add_child(toggle)

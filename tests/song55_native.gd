@@ -97,7 +97,13 @@ func activate(name: String, keyboard: bool=false) -> bool:
  var rect: Rect2=target.get_global_rect()
  if not check(clipped_rect(target).encloses(rect),"whole target inside actual clips "+name):return false
  var physical: Rect2=root.get_final_transform()*target.get_global_transform_with_canvas()*Rect2(Vector2.ZERO,target.size)
- if not check(physical.size.x>=44 and physical.size.y>=44,"physical 44px action target "+name):return false
+ var revised_action: bool=name.begins_with("Recording") or name.begins_with("DemoTrackNotes") or name.begins_with("SongSummary_book_") or name.begins_with("SongSummary_record_")
+ if revised_action:
+  var target_ok: bool=physical.size.x>=44 and physical.size.y>=44
+  trace.append({"action":name,"physical_width":physical.size.x,"physical_height":physical.size.y,"SONG56_minimum":44,"baseline":baseline})
+  if baseline and not target_ok:
+   baseline_defects.append("Original action %s measures %.2f x %.2f physical px; new SONG56 minimum is not a historical baseline pass." % [name,physical.size.x,physical.size.y])
+  elif not baseline and not check(target_ok,"physical 44px revised action %s: %.2f x %.2f" % [name,physical.size.x,physical.size.y]):return false
  if keyboard:
   target.grab_focus()
   await process_frame

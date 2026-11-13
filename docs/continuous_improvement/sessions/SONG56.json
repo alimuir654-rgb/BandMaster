@@ -39,8 +39,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 2282621,
-    "sha256": "19bf67866386db3efa738ae825cdae885624e03df74fb6b2065c1387dedd4426"
+    "bytes": 2285624,
+    "sha256": "131654c867ce7f18b8f3d22a3a9f15a5db4ecf1f2312802a0bdd6d0172ae78e7"
   },
   "target": {
     "locator": "Owner text-heavy feedback; existing print_materials_v1.png original inspected plus final SONG55 phone songbook-entry/details, recording-selection-entry and captured-strength originals. No new owner mockup supplied; reference is an explicit revision of these rejected layouts.",
@@ -184,6 +184,15 @@
       "model_checks": "196fixture,1735summary,337recording passed; imports/parse pass",
       "artifact": 14084735534,
       "sha256": "04bc3c8f789daf99c4074104fc2b84093565b2cfe269dc8dfb15eef715728907"
+    },
+    {
+      "run": 43523766364,
+      "source": "e5e2f0ca82d13200b63ca306d902dffb5b6599fb",
+      "status": "baseline-short old48logical target fails new44physical requirement; candidate not reached",
+      "baseline_phone_checks": 598,
+      "baseline_phone_images": 16,
+      "artifact": 14083607832,
+      "sha256": "16d3da8b0226a26fe700118f8c52d31ff64285e4fa3ed0e661979da27ed6e308"
     }
   ]
 }

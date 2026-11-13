@@ -174,6 +174,7 @@ static func _selectable_track(host, parent: Node, song: Dictionary, selected_ind
  block.add_child(actions)
  var select: Button=_button(host,actions,"REMOVE" if selected else "ADD TO DEMO","RecordingSong_"+key,toggle.bind(host,id),false,selected or selected_count<3)
  Poster.choice_style(select)
+ select.custom_minimum_size.y=52
  select.set_meta("song_id",id)
  select.toggle_mode=true
  select.set_pressed_no_signal(selected)
@@ -302,6 +303,7 @@ static func _archive_session(host, parent: Node, session: Dictionary, compact: b
   if not _editable(host) or not is_instance_valid(details):return
   details.visible=not details.visible)
  Poster.choice_style(toggle)
+ toggle.custom_minimum_size.y=52
  toggle.toggle_mode=true
  toggle.toggled.connect(func(open: bool):
   if is_instance_valid(toggle):toggle.text="TRACK NOTES  −" if open else "TRACK NOTES  +")
