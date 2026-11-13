@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "id": "SONG55",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "8f222c8ac29ed6029be304549bd67a2cac9e07e9",
+  "owner_request": "Owner: Continue, following verified source recovery and explicit recommendation of SONG53-R1 honest shared song summary. Implement and verify this bounded presentation slice on feature/playtest-polish-v20; source-only normal publication follows the established target workflow.",
+  "dominant_issue": "BM-33",
+  "lesson_ids": [
+    "BM-05",
+    "BM-15",
+    "BM-21",
+    "BM-22",
+    "BM-23",
+    "BM-24",
+    "BM-29",
+    "BM-30",
+    "BM-31",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-40",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 2252967,
+    "sha256": "357350be0bc569a80473891750d8c55f434fcc622ab5145e2f49af5777b7a517"
+  },
+  "target": {
+    "locator": "Existing native print source: experiments/playable_flightcase/art/poster/print_materials_v1.png; actual source pixels opened. Preserve this material and existing typography. Fresh baseline/candidate captures will compare the same current-source songbook, rehearsal, setlist and recording states.",
+    "original_sha256": "26e15e5ddf11506681244cf1a15090d865764d2a9fef76e24d4e9f4e1fc20702",
+    "pixels_inspected": true,
+    "visual_changes": true,
+    "reference_limit": "Accepted private ENGAGE52 capture originals are absent from this checkout; no claim of viewing those images or fresh owner art acceptance."
+  },
+  "controlled_comparison": "Same current-source data fixture, viewport, art/fonts, layout bounds and entry scene for baseline and candidate. First inspect phone/short baseline, then candidate phone/short before full four-size proof. The only project settings exception is an explicitly named isolated QA user directory and test entry/render settings; no owner build/export.",
+  "hypothesis": "One pure saved-data summary and reusable native presentation will make song strength, untracked preparation/recording execution/listens and identity-linked evidence consistent while compact disclosures preserve existing action space.",
+  "stop_condition": "Hold concrete clipping/unreadable context, false metric claims, source/snapshot identity confusion, owner/disk mutation from reading, errors, protected-art differences or scope drift. After two ineffective corrections change method or hold. No private media/history publication, audio integration, new rehearsal/recording/reach model, APK/signing, main/PR199 change or force update.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/song_summary.gd",
+    "experiments/playable_flightcase/song_summary_view.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "experiments/playable_flightcase/ui.gd",
+    "experiments/playable_flightcase/show_desk.gd",
+    "experiments/playable_flightcase/recording_desk.gd",
+    "tests/song55_summary.gd",
+    "tests/song55_native.gd",
+    "tools/song55_verify.py",
+    "docs/continuous_improvement/sessions/SONG55.json",
+    "docs/continuous_improvement/SONG55_RESULTS.json",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/handover/START_HERE.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/SONG55.json",
+    "python3 tools/song55_verify.py --godot <verified-Godot-4.7.2> --work <new-isolated-QA-directory> --baseline 8f222c8ac29ed6029be304549bd67a2cac9e07e9",
+    "Focused pure summary counterexamples and existing recording regression; four native profiles using actual UI events, saved owner/disk equality and reload.",
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/SONG55.json --before <committed-active-preflight> --require-prior-record",
+    "Exact changed-path/protected source/art diff and append-only prefix checks; inspect every execution log for errors; non-force expected-head publication and remote readback."
+  ],
+  "queue_task_ids": [
+    "SONG53-R1"
+  ],
+  "writer": {
+    "owner": "root-SONG55",
+    "status": "active",
+    "source_writers": 1
+  },
+  "reviewers": [
+    {
+      "role": "read-only source/data and UI review",
+      "agent": "roadmap_chat",
+      "status": "pre-review complete; candidate pixels pending"
+    },
+    {
+      "role": "read-only test/dependency review",
+      "agent": "r1_test_review",
+      "status": "pre-review complete"
+    }
+  ],
+  "player_task": {
+    "goal": "Understand the same saved song while browsing, preparing a set and reviewing a recorded snapshot.",
+    "start": "Existing songbook or informational rehearsal originals",
+    "end": "Existing setlist/demo choice and saved track notes",
+    "commitment_point": "Existing unchanged paid rehearsal/record/release actions; all summary reading is free",
+    "important_beats": [
+      "Saved draft progress without finished score",
+      "Saved composition strength and honest unknowns",
+      "Exact snapshot in recording track notes",
+      "Return/navigation without saving"
+    ],
+    "visible_acceptance": [
+      "Readable full titles and labels at 390x844 and 1280x720 before full proof",
+      "Always-visible song strength; compact detail disclosure on action-heavy surfaces",
+      "No numeric per-song readiness, recording execution or listens invented",
+      "Existing action/return routes reachable with original typography and materials",
+      "Rehearsal lists are explicitly informational"
+    ],
+    "state_matrix": [
+      "empty/draft/finished",
+      "legacy or malformed values",
+      "same-title/renamed/missing or duplicate IDs",
+      "linked take vs changed current song",
+      "legacy demos counter without archive",
+      "long Unicode title",
+      "collapsed/expanded/scroll/focus",
+      "Menu/Continue and exact isolated reload"
+    ]
+  },
+  "protected_components": [
+    "All existing art/font/control/passive-meter bytes",
+    "All Scripts, original gameplay/recording/finance/save/transaction modules",
+    "Owner production saves and private audio",
+    "R0 roadmap/design and previous records",
+    "Existing demo-size/cost/time and release semantics"
+  ],
+  "resource_plan": {
+    "engine": "Godot4.7.2 stable official ed1daf0bf",
+    "engine_archive_sha256": "cadd3204e728a35d3f13adb7fd0d7902636b79f6b95c40c265eb73b6c35329e4",
+    "native_profiles": [
+      "390x844",
+      "1280x720",
+      "720x1280",
+      "1600x900"
+    ],
+    "source_workers": 1,
+    "new_APK": false,
+    "new_gameplay_model": false,
+    "private_audio_required_for_this_readonly_UI_proof": false,
+    "signing_generation": "blocked in isolated import/test environment; no export preset"
+  },
+  "started_at": "2026-11-13T20:38:29Z"
+}
