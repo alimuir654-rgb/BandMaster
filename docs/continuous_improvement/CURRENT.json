@@ -20,7 +20,7 @@
     "recovered_draft": true
   },
   "schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/PUNCH48.json",
+  "session": "docs/continuous_improvement/sessions/RECOVER54.json",
   "scope": "Owner-directed stronger formation and generated logo compositions, centred Make text, and PCM-exact lossless stem transfer proof. No new audio-bank integration or APK.",
   "owner_approved": false,
   "casting_reference_approved": true,
@@ -30,7 +30,7 @@
   "frames": "Existing poster materials; calm small paper controls; original activity art and passive meters retained.",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "PUNCH48_source_UI_and_lossless_transfer_ready_owner_review_pending",
+  "status": "RECOVER54_active_source_reconciliation",
   "next_action": "Owner reviews the revised native poster/logo/Make previews; retain existing audition-source/listening holds before any new combined APK.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
@@ -4121,7 +4121,7 @@
     "historical_approvals_preserved": true,
     "exact_installed_APK_device_audio_output_and_retention_not_independently_verified": true
   },
-  "session_path": "docs/continuous_improvement/sessions/SIGN20.json",
+  "session_path": "docs/continuous_improvement/sessions/RECOVER54.json",
   "finite_end": "2026-11-06T08:00:00Z",
   "s80_closeout": "/tmp/bandmaster-s80-20261102/closeout.json",
   "art_pending_A06": false,
@@ -6345,7 +6345,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": null,
+  "root_writer": "root",
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -6587,7 +6587,7 @@
     "freeze_new_breadth": "2026-11-05T15:00:00Z"
   },
   "latest_owner_request": "Direct5Nov Continue with next development steps. Work through to5pm. Hardstop17:00Europe/London5Nov; routine creative/integration delegated, one finaltestingAPK; oldfinitequeue not restarted.",
-  "active_session": "NEXT32",
+  "active_session": "RECOVER54",
   "game_source_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": false,
@@ -7981,5 +7981,11 @@
     "PCM_identical": true,
     "audio_gaps_from_FEEDBACK47_unchanged": true,
     "owner_approved": false
+  },
+  "recover54_previous_live_aliases": {
+    "status": "PUNCH48_source_UI_and_lossless_transfer_ready_owner_review_pending",
+    "active_session": "NEXT32",
+    "root_writer": null,
+    "root_lease": null
   }
 }

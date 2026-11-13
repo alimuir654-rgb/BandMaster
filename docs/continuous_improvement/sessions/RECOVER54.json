@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "id": "RECOVER54",
+  "status": "active",
+  "owner_approved": false,
+  "baseline_sha": "13904e5b72d32d2cf514ae9d0509907fa95ab418",
+  "owner_request": "Recover original ENGAGE52/SONG53 implementation and later intended work, preserve latest roadmap, audit all publishable ancestry, publish source-only equivalents normally to feature/playtest-polish-v20 and verify directly on GitHub. No main/gameplay/APK work.",
+  "dominant_issue": "BM-15",
+  "lesson_ids": [
+    "BM-15",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38",
+    "BM-41",
+    "BM-43",
+    "BM-45"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb",
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+  },
+  "issue_log_review": {
+    "bytes": 2209648,
+    "sha256": "0d3ef3d2431a8e7ed17d10a69354b8ca603685cff90556c9e710c952c27caa4a"
+  },
+  "target": {
+    "locator": "Retained private ENGAGE52 final-phone-writing-selected.png, accepted owner screen; exact source recovery only",
+    "original_sha256": "f2022e3f2c0095cfb151a46a1d09ddaa6f6d25d0b236881ce0b72fe5a00c15b5",
+    "pixels_inspected": true,
+    "visual_changes": false
+  },
+  "controlled_comparison": "Recovered runtime .gd bytes must equal original final local source; current remote roadmap/imported SONG53 and unrelated source remain byte-identical. Isolated private runtime tests use retained private banks without publishing them. Append remote issue prefix unchanged; local divergent records sanitized and appended.",
+  "hypothesis": "Source-only equivalent commits on current remote reconcile the actual runtime and preserve roadmap without exposing original private ancestry. Exact source/harness hashes plus current model/native evidence and GitHub readback establish recovery.",
+  "stop_condition": "No private audio/archives/APKs/credentials/delivery identifiers/new private ancestry, force update, main merge, recreated mechanics or build/export/signing. Re-fetch if remote moves and reconcile. Original checkouts remain unchanged.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/audition_desk.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "experiments/playable_flightcase/character_audio.gd",
+    "experiments/playable_flightcase/conversation_musicians.gd",
+    "experiments/playable_flightcase/conversation_panel.gd",
+    "experiments/playable_flightcase/conversation_radio.gd",
+    "experiments/playable_flightcase/gig_booking_desk.gd",
+    "experiments/playable_flightcase/mixing_desk.gd",
+    "experiments/playable_flightcase/musician_chat.gd",
+    "experiments/playable_flightcase/musician_chat_desk.gd",
+    "experiments/playable_flightcase/packed_pcm.gd",
+    "experiments/playable_flightcase/promoter_encounter.gd",
+    "experiments/playable_flightcase/radio_visit_desk.gd",
+    "experiments/playable_flightcase/recorded_steady.gd",
+    "experiments/playable_flightcase/recorded_vocal_keys.gd",
+    "tests/engage52_model.gd",
+    "tests/engage52_native.gd",
+    "tests/feedback47_audio.gd",
+    "tests/pilot51_gig_native.gd",
+    "tests/pilot51_native.gd",
+    "tests/pilot51_pcm.gd",
+    "tests/pilot51_upgrade.gd",
+    "tools/build_recorded_owner.py",
+    "tools/engage52_audio.py",
+    "tools/engage52_native.py",
+    "tools/flac49_archive.py",
+    "tools/pilot51_arjun.py",
+    "tools/pilot51_build.py",
+    "tools/pilot51_nina.py",
+    "tools/pilot51_pcm.py",
+    ".gitignore",
+    "docs/continuous_improvement/**",
+    "docs/audio/**",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/handover/START_HERE.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/RECOVER54.json",
+    "Exact recovered source vs original commits; protected remote roadmap/imported design/unrelated tree and append-only prefix checks",
+    "Audit all outgoing commits/blobs, extensions, sizes, private identifiers, links and credential patterns; retain private audit/export provenance",
+    "Fresh isolated import; recovered model, band-stories, PCM/audio and four native profile tests; preserve logs and actual opened originals",
+    "Immediate remote fetch/reconciliation, normal non-force target update; GitHub branch/file readback and fetch exact pushed head"
+  ],
+  "writer": {
+    "owner": "root",
+    "status": "active"
+  },
+  "started_at": "2026-11-13T19:49:15.180741+00:00",
+  "publication": "Explicit owner-authorized audited source-only equivalents; inherited private original-history hold remains binding",
+  "protected_remote": {
+    "docs/ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md": "b6159b3977d74be753668fb99990874053a912f39534fb9a337ff40c71d88ad6",
+    "docs/ROADMAP_GAMEPLAY_REBUILD_2026.md": "0be84184f6b76f0fd9ccfee3a65e233f4b575c9024547e707b51acde2fb53635",
+    "docs/continuous_improvement/SONG53_LINKED_SONG_SUCCESS.md": "1f59325bea98b510a63a41f27a649510eb65b5df38cd921868686a19673ff4e3",
+    "docs/continuous_improvement/sessions/ROADMAP_20261112.json": "749120c92be6d93ab4c044ec6e8663258374e6aa8270ba6abf3a879a67b2430c"
+  },
+  "queue_task_ids": [
+    "SONG53-R0"
+  ],
+  "resource_plan": {
+    "workers": 1,
+    "new_APK": false,
+    "new_gameplay": false,
+    "private_audio_publication": false,
+    "original_checkouts_preserved": true
+  }
+}
