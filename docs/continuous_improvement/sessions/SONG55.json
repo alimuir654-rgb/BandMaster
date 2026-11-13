@@ -32,8 +32,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 2252967,
-    "sha256": "357350be0bc569a80473891750d8c55f434fcc622ab5145e2f49af5777b7a517"
+    "bytes": 2261050,
+    "sha256": "eb03e328199e9eeed16a2752d42a2eaaa0f9249144f1b1843af68f42781cfde5"
   },
   "target": {
     "locator": "Existing native print source: experiments/playable_flightcase/art/poster/print_materials_v1.png; actual source pixels opened. Preserve this material and existing typography. Fresh baseline/candidate captures will compare the same current-source songbook, rehearsal, setlist and recording states.",
@@ -63,14 +63,16 @@
     "docs/asset_base/CONTROL_SPRINT_LOCK.json",
     "docs/asset_base/STATE.json",
     "docs/asset_base/LEDGER.md",
-    "docs/handover/START_HERE.md"
+    "docs/handover/START_HERE.md",
+    ".github/workflows/song55-native-proof.yml"
   ],
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/SONG55.json",
     "python3 tools/song55_verify.py --godot <verified-Godot-4.7.2> --work <new-isolated-QA-directory> --baseline 8f222c8ac29ed6029be304549bd67a2cac9e07e9",
     "Focused pure summary counterexamples and existing recording regression; four native profiles using actual UI events, saved owner/disk equality and reload.",
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/SONG55.json --before <committed-active-preflight> --require-prior-record",
-    "Exact changed-path/protected source/art diff and append-only prefix checks; inspect every execution log for errors; non-force expected-head publication and remote readback."
+    "Exact changed-path/protected source/art diff and append-only prefix checks; inspect every execution log for errors; non-force expected-head publication and remote readback.",
+    "Bounded SONG55 GitHub native-proof job: exact source checkout and verified engine hashes, actual improvement gate, isolated baseline/candidate runner, screenshot/log-only artifacts and remote readback."
   ],
   "queue_task_ids": [
     "SONG53-R1"
@@ -83,13 +85,13 @@
   "reviewers": [
     {
       "role": "read-only source/data and UI review",
-      "agent": "roadmap_chat",
-      "status": "pre-review complete; candidate pixels pending"
+      "agent": "bandmaster_access_check",
+      "status": "source/data pre-review complete; candidate pixels pending"
     },
     {
       "role": "read-only test/dependency review",
-      "agent": "r1_test_review",
-      "status": "pre-review complete"
+      "agent": "stalled_chat_guidance",
+      "status": "pre-review complete; exact4.7.2 engine and Xorg dummy dependencies verified"
     }
   ],
   "player_task": {
@@ -141,7 +143,46 @@
     "new_APK": false,
     "new_gameplay_model": false,
     "private_audio_required_for_this_readonly_UI_proof": false,
-    "signing_generation": "blocked in isolated import/test environment; no export preset"
+    "signing_generation": "blocked in isolated import/test environment; no export preset",
+    "engine_executable_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+    "native_display": "Local native startup blocked by AF_UNIX EPERM and denied sandbox escalation. Separately scoped GitHub CI uses an isolated runner, read-only contents, existing Godot4.7.2 and Xorg dummy test dependencies; no APK/export/signing or production saves."
   },
-  "started_at": "2026-11-13T20:38:29Z"
+  "started_at": "2026-11-13T20:38:29Z",
+  "continuations": [
+    {
+      "at": "2026-11-13T21:27:56.161525Z",
+      "owner_request": "Continue, after confirming previous conversation reached maximum length.",
+      "source_checkpoint": "832e9ad20fc09504ef33d181f9dc53086fbb7277",
+      "recovered_uncommitted_code": false,
+      "original_checkout_preserved": true,
+      "writer": "root-SONG55",
+      "reviewers": [
+        "bandmaster_access_check: read-only source/data review",
+        "stalled_chat_guidance: read-only test/dependency review"
+      ]
+    }
+  ],
+  "validation_route_extension": {
+    "at": "2026-11-13T21:45:58.783567+00:00",
+    "reason": "Local native display is prohibited; existing CI jobs target older screens and cannot execute this scope unchanged. Add one bounded validation-only workflow on the already authorised feature branch to obtain required original pixels and UI input evidence.",
+    "paths": [
+      ".github/workflows/song55-native-proof.yml"
+    ],
+    "permissions": {
+      "contents": "read"
+    },
+    "early_profiles": [
+      "390x844",
+      "1280x720"
+    ],
+    "full_profiles_after_early_review": [
+      "390x844",
+      "1280x720",
+      "720x1280",
+      "1600x900"
+    ],
+    "no_new_gameplay_or_runtime_dependency": true,
+    "same_authorised_source_publication_target": "feature/playtest-polish-v20",
+    "automatic_local_escalation_rejection_retained": true
+  }
 }

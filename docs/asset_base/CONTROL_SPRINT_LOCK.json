@@ -2,12 +2,12 @@
   "writer": "root-SONG55",
   "base_head": "8f222c8ac29ed6029be304549bd67a2cac9e07e9",
   "claimed_at": "2026-11-13T20:39:29Z",
-  "expires_at": "2026-11-13T22:00:00Z",
+  "expires_at": "2026-11-14T00:30:00Z",
   "scope": "SONG53-R1 shared honest song summary and native proof only; preserve existing models, art, audio and saves.",
-  "authority": "Owner13Nov2026: Continue, after verified source recovery and recommended R1. Fresh manual scope; no APK, main merge or new models.",
+  "authority": "Owner13Nov2026: Continue in successor conversation after old chat reached maximum length. Same bounded R1 implementation/native/source-only publication; no APK, main merge or new models.",
   "owner_approved": false,
   "previous_closed_session": "S79",
-  "status": "SONG55_R1_honest_summary_active",
+  "status": "SONG55_R1_honest_summary_resumed",
   "released_at": "2026-11-13T19:58:42.062767+00:00",
   "previous_stale_lease": {
     "writer": "S39-rehearsal-recap-20261030T130900",
@@ -4092,5 +4092,12 @@
     "source_reconciliation_complete": true,
     "scope": "Existing source only; no gameplay/APK",
     "writer_released_at": "2026-11-13T19:58:42.062767+00:00"
-  }
+  },
+  "song55_continuations": [
+    {
+      "at": "2026-11-13T21:27:56.161525Z",
+      "previous_expires_at": "2026-11-13T22:00:00Z",
+      "reason": "Explicit owner Continue in successor chat after old conversation maximum-length lock; same sole writer/scope. Original checkout clean and preserved."
+    }
+  ]
 }
