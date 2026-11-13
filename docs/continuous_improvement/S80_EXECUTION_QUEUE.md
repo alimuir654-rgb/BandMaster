@@ -18,7 +18,7 @@ This documentation entry does not refresh or override historical audio-coverage 
 
 | ID | Scope | Disposition |
 |---|---|---|
-| SONG53-R0 | Reconcile the actual latest source; classify existing/presentation/new-model work | PROPOSED / NOT SCHEDULED; required before gameplay implementation |
+| SONG53-R0 | Reconcile the actual latest source; classify existing/presentation/new-model work | COMPLETE — RECOVER54; published source d5e1662 verified directly on GitHub; full mapping/inventory in RECOVER54_SOURCE_RECONCILIATION.json |
 | SONG53-R1 | Reusable honest song summary with explicit legacy unknowns | PROPOSED / NOT SCHEDULED; after R0 |
 | SONG53-R2 | Stable song/revision/participant identity; one meaningful co-writing contribution; skill fairness | PROPOSED / NOT SCHEDULED; after R0, reuse R1 |
 | SONG53-R3 | Song-specific purposeful rehearsal and proportionate preparation transfer | PROPOSED / NOT SCHEDULED; after R2 |
@@ -513,7 +513,7 @@ CROWD33 2026-11-09T23:49:43.987570+00:00 — Owner requests crowd/audio before f
 
 ## RECOVER54 source reconciliation — 13 November 2026
 
-SONG53-R0 recovery located original ENGAGE52, PILOT51 dependencies, later corrected tests and SONG53 acceptance records. Source-only replacement runtime commit: `31267fa` (full mapping in RECOVER54 reconciliation record). Fresh integration/privacy/remote verification is required before marking R0 complete. The original21local-only commits remain private; no merge of that history.
+SONG53-R0 recovery located original ENGAGE52, PILOT51 dependencies, later corrected tests and SONG53 acceptance records. Source-only replacement runtime commit: `31267fa` (full mapping in RECOVER54 reconciliation record). Fresh integration/privacy/remote verification passed; R0 is complete, with full evidence in RECOVER54_SOURCE_RECONCILIATION.json. The original21local-only commits remain private; no merge of that history.
 
 Owner's prior “Ok, these all look good” accepted ENGAGE52's three replacement clips and presented screens. Nina Last Bus Gone remains assigned; no repeat listening request for accepted clips. The source contains contextual musician/promoter/radio exchanges, writing/audition controls, packed PCM loading and accepted Nina/Arjun/Casey routes. Private media/registries stay separate from public Git. Audition response exercises remain written-only where recorded matching responses were never accepted.
 

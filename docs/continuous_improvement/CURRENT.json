@@ -30,8 +30,8 @@
   "frames": "Existing poster materials; calm small paper controls; original activity art and passive meters retained.",
   "characters": "approved casting reference; scores authored; no independent-master claim",
   "meters": "protected",
-  "status": "RECOVER54_active_source_reconciliation",
-  "next_action": "Owner reviews the revised native poster/logo/Make previews; retain existing audition-source/listening holds before any new combined APK.",
+  "status": "RECOVER54_source_reconciled_published_verified",
+  "next_action": "Use the reconciled public source and existing roadmap to scope SONG53-R1 separately when implementation is requested; do not recreate recovered work or start gameplay/APK work in this recovery task.",
   "owner_confirmation_issue": "https://github.com/alimuir654-rgb/BandMaster/issues/201",
   "conditional_polish": "S57 identity is complete; additional presentation requires a separate measured existing-screen scope. No new gameplay/gear/audio/cast breadth or activity-only QA/art/build.",
   "completion_gate": {
@@ -3439,7 +3439,7 @@
   "manual_identity_authority": "Owner explicitly answered YES to overriding overnight08:30writefreeze/09:00stop, and specified: Yes, continue on until4pm today. Work through any additional presentation improvements too. Sunday1November2026 Europe/London. This is MANUAL same-thread authority through16:00; root chooses15:50finalwritefreeze, one bounded writer, no automatic extension/newqueue/controller. Endedovernightschedule untouched. Existing source/publication/save/cast/hardware/model boundaries remain.",
   "all_write_freeze": "2026-11-06T07:55:00Z",
   "hard_stop": "2026-11-06T08:00:00Z",
-  "current_session": "NEXT32",
+  "current_session": "RECOVER54",
   "next_single_action": "Start Update A with the narrow actual-session promise-fairness correction and its gentle/hard/legacy counterexamples, on the verified existing source; carry the completed polish/chat work into the one combined review candidate.",
   "last_updated_utc": "2026-11-06T04:42:17.170959+00:00",
   "prepared_android_v7": {
@@ -6345,7 +6345,7 @@
     "closed_at": "2026-11-03T20:00:52.041351+00:00",
     "source_artifact_helpers_GL_released": true
   },
-  "root_writer": "root",
+  "root_writer": null,
   "active_sprint": null,
   "s96_closeout": "/workspace/work/s96-genre-preview-20261103/closeout.json",
   "s96_new_owner_variations_acceptance": {
@@ -6587,7 +6587,7 @@
     "freeze_new_breadth": "2026-11-05T15:00:00Z"
   },
   "latest_owner_request": "Direct5Nov Continue with next development steps. Work through to5pm. Hardstop17:00Europe/London5Nov; routine creative/integration delegated, one finaltestingAPK; oldfinitequeue not restarted.",
-  "active_session": "RECOVER54",
+  "active_session": null,
   "game_source_sha": "f9d26dba65b127cdbb8844aa570b7178c4858bea",
   "breadth_freeze": "2026-11-04T16:30:00Z",
   "native_review_allowed": false,
@@ -7987,5 +7987,13 @@
     "active_session": "NEXT32",
     "root_writer": null,
     "root_lease": null
+  },
+  "recover54_closeout": {
+    "evidence": "docs/continuous_improvement/RECOVER54_SOURCE_RECONCILIATION.json",
+    "tested_runtime_commit": "31267faafdea8556a085433f7e574745ea43a886",
+    "verified_published_source": "d5e1662318b0a47899570a938a09a340700b3e4a",
+    "source_reconciliation_complete": true,
+    "scope": "Existing source only; no gameplay/APK",
+    "writer_released_at": "2026-11-13T19:58:42.062767+00:00"
   }
 }

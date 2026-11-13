@@ -1,0 +1,408 @@
+{
+  "schema_version": 1,
+  "session": "RECOVER54",
+  "recorded_at": "2026-11-13T19:58:42.062767+00:00",
+  "status": "source_reconciliation_published_verified",
+  "source_reconciliation_complete": true,
+  "owner_approved": false,
+  "repository": "alimuir654-rgb/BandMaster",
+  "branch": "feature/playtest-polish-v20",
+  "remote_before": "13904e5b72d32d2cf514ae9d0509907fa95ab418",
+  "published_source_and_records": "d5e1662318b0a47899570a938a09a340700b3e4a",
+  "tested_runtime_commit": "31267faafdea8556a085433f7e574745ea43a886",
+  "original_local_final": "eef373a3fe62e8a083ca0fe0d440b8c177a63671",
+  "common_ancestor": "89ef136e232709742150e025b8d0eba9b3ada27f",
+  "mapping": [
+    {
+      "original": "81f6129d0f166ff0b854b0ae849bc419ccdcd60c",
+      "replacement": "31267faafdea8556a085433f7e574745ea43a886",
+      "scope": "All15changed runtime files exactly equal recovered original final runtime; corrected test helper from original b93f448 also included. No private original ancestors."
+    },
+    {
+      "original": "b93f44809fab04c43c0f91fe90b0f6af468e48d5",
+      "replacement": "d5e1662318b0a47899570a938a09a340700b3e4a",
+      "scope": "Corrected source/harness recovered exactly; historical project records recovered with private evidence/transfer identifiers redacted. This is a source/record equivalent, not an identical original commit object."
+    },
+    {
+      "original": "eef373a3fe62e8a083ca0fe0d440b8c177a63671",
+      "replacement": "d5e1662318b0a47899570a938a09a340700b3e4a",
+      "scope": "Later SONG53 design and scoped owner acceptance retained. Imported SONG53 already byte-identical on remote; three accepted audio binding flags remain in private manifest and no media/registry is published."
+    }
+  ],
+  "ancestry": "New commits descend only from current remote. Original private21commit branch was not merged or pushed. Original refs, checkouts, reflogs, ignored owner assets and untracked local files retained. Verified private bundle and source-only export retained with checksums/provenance.",
+  "source_files": [
+    {
+      "path": "experiments/playable_flightcase/audition_desk.gd",
+      "sha256": "1e30b3299541139ed4799f7cbdff04186d77b56b6f1966f93bf0fb488b459fea",
+      "git_blob": "168d77acc4fc58ad8694534f9603e3be088d28d4"
+    },
+    {
+      "path": "experiments/playable_flightcase/career_desk.gd",
+      "sha256": "8482bb6cba9f6353cd146a864b37957af3f867cbdf3b32ea55d5cd7b3027f208",
+      "git_blob": "a211cca9fd6a0a687285e1fd005cad836acaa713"
+    },
+    {
+      "path": "experiments/playable_flightcase/character_audio.gd",
+      "sha256": "3021e006c8d00fc15584f90ad53471b8e22662e4aa7fc3b435b52a2df6e9f805",
+      "git_blob": "5f84549a263a52d299dacdca0eff6573fdf241ad"
+    },
+    {
+      "path": "experiments/playable_flightcase/conversation_musicians.gd",
+      "sha256": "9555f812607f6a63cfbe7021b92e3e2f555ac9cd67443ec4803ec0c3c5e57c2b",
+      "git_blob": "ca092e5ad11d93309635ce2b8b53d181ab0bcccd"
+    },
+    {
+      "path": "experiments/playable_flightcase/conversation_panel.gd",
+      "sha256": "44ac0a60781e1b0d37bedfb0e69230258a16aad521ce278d646534779aa3a142",
+      "git_blob": "2cfd9d0371af7470f1137c7998006ba5d9fbc6de"
+    },
+    {
+      "path": "experiments/playable_flightcase/conversation_radio.gd",
+      "sha256": "2f3bbb257c55a8bde48a4c89d14491761b6531b479920ba60ecd2487b15f895b",
+      "git_blob": "276fbdb425c4b604955a126671d49ae1e856e7de"
+    },
+    {
+      "path": "experiments/playable_flightcase/gig_booking_desk.gd",
+      "sha256": "c5a46f1bb4cd4c7e49c659210530e971add18653afe8755770941b07d4c4d439",
+      "git_blob": "10217baf0ef1a7c2c185a5ce7ea94d0488a524b1"
+    },
+    {
+      "path": "experiments/playable_flightcase/mixing_desk.gd",
+      "sha256": "707954dad8e9b1d2fe96c492850be27bcddb020f9dfeb14fd50d8ad20fad9aef",
+      "git_blob": "8228485b465a51d1b25fb0ba11a0550b78daac46"
+    },
+    {
+      "path": "experiments/playable_flightcase/musician_chat.gd",
+      "sha256": "890dce6b3cf485e83c2e94bf2accd7a9844faa7940582a7486fee03b9375de01",
+      "git_blob": "35edd77f7902d493e3e23b354b786a265bdf0f1a"
+    },
+    {
+      "path": "experiments/playable_flightcase/musician_chat_desk.gd",
+      "sha256": "71825ef0d0a7fa54b52d0a1503f9f7ed5c7953b1e0619ec59054eca8323af253",
+      "git_blob": "fe20019c906e5b2abfcd3dc18b6192cfcd5329ec"
+    },
+    {
+      "path": "experiments/playable_flightcase/packed_pcm.gd",
+      "sha256": "9f1fb47a39cde9be674c234f4a0a163c1ee116e0ff39e878dc8764bea587bb5f",
+      "git_blob": "fe7044abbc63b86d2d15d9f21df69ab1d8cd4ab3"
+    },
+    {
+      "path": "experiments/playable_flightcase/promoter_encounter.gd",
+      "sha256": "499a5e1cad62b7b112d2b29e561cbe5703f5a402d39f21579c5eef8068c589fc",
+      "git_blob": "be9032f58a03011f2e29a96ede2fb6ef940bb3d9"
+    },
+    {
+      "path": "experiments/playable_flightcase/radio_visit_desk.gd",
+      "sha256": "826107ded9084f44aaa3e11ee0a8da1717a9b710ca840bedbccb45f170bd90b6",
+      "git_blob": "0e9991d4f2657078d5b6add3e9ed3dc5704eca16"
+    },
+    {
+      "path": "experiments/playable_flightcase/recorded_steady.gd",
+      "sha256": "e77c16df3c12b974b79c356d335a8d9cc48bbea08d60a97440e6c4678acd4205",
+      "git_blob": "4c510bad494f604fd324551e89a211e34e98874b"
+    },
+    {
+      "path": "experiments/playable_flightcase/recorded_vocal_keys.gd",
+      "sha256": "87a4ef9a52ddebfae86c963b333c2c63dd166f2f303ac32d0c8bac300b4be2d9",
+      "git_blob": "00458bd5f4814eca0c2dfdb3cb3b97235e79fcfe"
+    },
+    {
+      "path": "tests/engage52_model.gd",
+      "sha256": "bd469e5b5d0cc14364c6099864e4d45fc0957312a514d264d82acc7980592f7d",
+      "git_blob": "52c66b76743fe5a56c00dfb3c2e69ce59a0635a8"
+    },
+    {
+      "path": "tests/engage52_native.gd",
+      "sha256": "40f59cd80c7088eb31bf6a4e8dba5191fa63d8c51d355de67459ea6bc9403e34",
+      "git_blob": "94c09ca7561a11c0d28b650f63c08da06c69a886"
+    },
+    {
+      "path": "tests/feedback47_audio.gd",
+      "sha256": "dce2fef2ce9b29846d310c6faf4cdb238bcca597bf02e66248567173e993c84c",
+      "git_blob": "d6572d187de37b071ad67b4bf7e6e97dbe1320cf"
+    },
+    {
+      "path": "tests/pilot51_gig_native.gd",
+      "sha256": "4e4cbd43575472838e6243f98874f4ffd24a5cb98a44813b6c0f855d52089049",
+      "git_blob": "77686b48ed0d802c62b33ba4f322bf83105a1b32"
+    },
+    {
+      "path": "tests/pilot51_native.gd",
+      "sha256": "fb0de36f73f8bdf4c621259609196aee2e1e47f405ec477c2537ac577fe59dd7",
+      "git_blob": "5bf01eb32de12329f9315e86e2a6ad730559593b"
+    },
+    {
+      "path": "tests/pilot51_pcm.gd",
+      "sha256": "a1ce7be81722ae29d0815574d3ad6dc2ebc4b143e320e809cac4f9702fe50bf1",
+      "git_blob": "5dfbb2ab7f69a4d3cdf0a83d5ab28ed62aa82e2a"
+    },
+    {
+      "path": "tests/pilot51_upgrade.gd",
+      "sha256": "29f79b7367790f6f41bddfa31a9ebe096ed4cf4745d6c8b0b47b66fb4959a909",
+      "git_blob": "59028adce634b8d11410124d5b9da2b5814b1c13"
+    },
+    {
+      "path": "tools/build_recorded_owner.py",
+      "sha256": "32cc8b1fec3893448fe712853e119ad5f2733c70d28cf8cd8fcb7a5b4f4d358d",
+      "git_blob": "364e5449483e3caf31606a9f491beda2c8b7a946"
+    },
+    {
+      "path": "tools/engage52_audio.py",
+      "sha256": "db676dc599fe307a5c4e636f021481f339da94b789874480b7877a70355c2aa4",
+      "git_blob": "0764e9b5b4be9ff16d0c5a5347a25da771c8789c"
+    },
+    {
+      "path": "tools/engage52_native.py",
+      "sha256": "1f2b9223237290d42abc4c8f266ced92fcccbb9cefb028b326d525da91076f62",
+      "git_blob": "bbfc42b10d983229cd22a83bf49abf8e99d5d506"
+    },
+    {
+      "path": "tools/flac49_archive.py",
+      "sha256": "83d3cb577a3f89dedf22c87eb8060dad3ee12bd98c5387c8c745702d32735e3f",
+      "git_blob": "66787d9126fff8876460f93b9d02e22e17e5a124"
+    },
+    {
+      "path": "tools/pilot51_arjun.py",
+      "sha256": "ccf1309a040b99fd0dc65cf06eced6eb1fcd89a30b47324377d2ac70499198a3",
+      "git_blob": "e648a28ff82eab4b366bdf5b387f982207ea0074"
+    },
+    {
+      "path": "tools/pilot51_build.py",
+      "sha256": "9e8bd6d0598e779cd1ee666988f9f6ea7f6ca73ac73e5f8c04401b476bf3a3aa",
+      "git_blob": "93fc24076be13f3382684a9be92571efd457f575"
+    },
+    {
+      "path": "tools/pilot51_nina.py",
+      "sha256": "f82fcce4b591b2f026abfec172c789999c92284da9b9ec2d03e7938f86db3e66",
+      "git_blob": "ad721a3c8fd42f9f35db54198a15525c097daf06"
+    },
+    {
+      "path": "tools/pilot51_pcm.py",
+      "sha256": "6f37897fda91e869d662a423105027f0f847e2e9caf4bb21afb9ae0f8eb24b85",
+      "git_blob": "bc19ef7474f7f7a6041d8976519194f22ca11a1c"
+    }
+  ],
+  "recovered_changes": [
+    "Contextual musician/promoter/radio dialogue and saved-reply focus",
+    "Clear writing/audition selections and recorded-idea route",
+    "Original lossless packed-PCM loaders and approved Nina integration support",
+    "Later corrected tests, original authoring/guarded-build helpers and SONG53 acceptance records"
+  ],
+  "classification": {
+    "already_implemented": [
+      "ENGAGE52 dialogues/controls",
+      "Original saved writing recipe/craft quality and identities",
+      "Versioned gig journey and cumulative room feedback",
+      "Existing2–3track recording snapshot and once-only release/radio settlement",
+      "Lossless audio loading and owner-approved character-source route support"
+    ],
+    "presentation_only_next": [
+      "Shared honest song summary over current saved quality/recording/history facts",
+      "Unknown preparation/execution/reach labels where current schema has no evidence"
+    ],
+    "new_model_required": [
+      "Per-song/version/participant preparation",
+      "Consequential co-writing/revision and fair ability-demand model refinements",
+      "Independent immutable studio execution quality",
+      "Attributable song/lead-track listens and audience-response linkage"
+    ]
+  },
+  "verification": {
+    "Godot_assertions": 1338,
+    "tests": {
+      "recovered-model": {
+        "checks": 329,
+        "failures": [],
+        "log_sha256": "b472b0a80c10f9b6bdf7026485437e3644b3d014554772d11e148393fc2dce26"
+      },
+      "recovered-band-stories": {
+        "checks": 74,
+        "failures": [],
+        "log_sha256": "1de96c31cda55ea004285453ee5743c62ff2967b86758db52c21c3c6699ae977"
+      },
+      "recovered-audio": {
+        "checks": 169,
+        "failures": [],
+        "log_sha256": "4983cfd74e4d227101e0867e518cbb23fcce216997ba7474f2ce93c8b788b3c7"
+      },
+      "recovered-pcm": {
+        "checks": 378,
+        "failures": [],
+        "log_sha256": "770722a88b3e5dcc25bb72f7a543f33ee92506628aad8710178da4d170e44856"
+      },
+      "recovered-phone": {
+        "checks": 97,
+        "failures": [],
+        "log_sha256": "aae06bf1581d6a2be5d6135da17ad1d523451cd79d0d092d4afd2d1d0e157c7b"
+      },
+      "recovered-short": {
+        "checks": 97,
+        "failures": [],
+        "log_sha256": "5fe71dc5a4b5bbcbb4b4a77f2cc4852e3b3161c1c3079aa12b0e7944293654f8"
+      },
+      "recovered-tall": {
+        "checks": 97,
+        "failures": [],
+        "log_sha256": "1701129c2f59672a5055f4faf760b93fdbc7b423d564c8bf8d5c548f5792d922"
+      },
+      "recovered-wide": {
+        "checks": 97,
+        "failures": [],
+        "log_sha256": "c6a88101d97950a262c74057a3930265a966ba8ea701aba9fce2ea5baa726938"
+      }
+    },
+    "improvement_gate_unit_tests": 24,
+    "project_structure": "PASS",
+    "recovered_Python_helpers_syntax": "PASS",
+    "fresh_import": "PASS; no script/resource errors",
+    "four_native_sizes": [
+      "390x844",
+      "1280x720",
+      "720x1280",
+      "1600x900"
+    ],
+    "new_native_originals": 68,
+    "PNG_files_byte_identical_to_original_ENGAGE52": 68,
+    "native_originals_actually_opened": [
+      "recovered-phone-writing-selected.png",
+      "recovered-phone-audition-tryout.png",
+      "recovered-short-radio-reaction.png",
+      "recovered-tall-promoter-answer.png",
+      "recovered-wide-musician-reply.png"
+    ],
+    "GitHub_source_readback": {
+      "verified_remote_source_head": "d5e1662318b0a47899570a938a09a340700b3e4a",
+      "direct_GitHub_readback": true,
+      "files": [
+        {
+          "path": "experiments/playable_flightcase/audition_desk.gd",
+          "github_blob": "168d77acc4fc58ad8694534f9603e3be088d28d4",
+          "exact_match": true
+        },
+        {
+          "path": "experiments/playable_flightcase/career_desk.gd",
+          "github_blob": "a211cca9fd6a0a687285e1fd005cad836acaa713",
+          "exact_match": true
+        },
+        {
+          "path": "experiments/playable_flightcase/character_audio.gd",
+          "github_blob": "5f84549a263a52d299dacdca0eff6573fdf241ad",
+          "exact_match": true
+        },
+        {
+          "path": "experiments/playable_flightcase/conversation_musicians.gd",
+          "github_blob": "ca092e5ad11d93309635ce2b8b53d181ab0bcccd",
+          "exact_match": true
+        },
+        {
+          "path": "experiments/playable_flightcase/conversation_panel.gd",
+          "github_blob": "2cfd9d0371af7470f1137c7998006ba5d9fbc6de",
+          "exact_match": true
+        },
+        {
+          "path": "experiments/playable_flightcase/conversation_radio.gd",
+          "github_blob": "276fbdb425c4b604955a126671d49ae1e856e7de",
+          "exact_match": true
+        },
+        {
+          "path": "experiments/playable_flightcase/gig_booking_desk.gd",
+          "github_blob": "10217baf0ef1a7c2c185a5ce7ea94d0488a524b1",
+          "exact_match": true
+        },
+        {
+          "path": "experiments/playable_flightcase/mixing_desk.gd",
+          "github_blob": "8228485b465a51d1b25fb0ba11a0550b78daac46",
+          "exact_match": true
+        },
+        {
+          "path": "experiments/playable_flightcase/musician_chat.gd",
+          "github_blob": "35edd77f7902d493e3e23b354b786a265bdf0f1a",
+          "exact_match": true
+        },
+        {
+          "path": "experiments/playable_flightcase/musician_chat_desk.gd",
+          "github_blob": "fe20019c906e5b2abfcd3dc18b6192cfcd5329ec",
+          "exact_match": true
+        },
+        {
+          "path": "experiments/playable_flightcase/packed_pcm.gd",
+          "github_blob": "fe7044abbc63b86d2d15d9f21df69ab1d8cd4ab3",
+          "exact_match": true
+        },
+        {
+          "path": "experiments/playable_flightcase/promoter_encounter.gd",
+          "github_blob": "be9032f58a03011f2e29a96ede2fb6ef940bb3d9",
+          "exact_match": true
+        },
+        {
+          "path": "experiments/playable_flightcase/radio_visit_desk.gd",
+          "github_blob": "0e9991d4f2657078d5b6add3e9ed3dc5704eca16",
+          "exact_match": true
+        },
+        {
+          "path": "experiments/playable_flightcase/recorded_steady.gd",
+          "github_blob": "4c510bad494f604fd324551e89a211e34e98874b",
+          "exact_match": true
+        },
+        {
+          "path": "experiments/playable_flightcase/recorded_vocal_keys.gd",
+          "github_blob": "00458bd5f4814eca0c2dfdb3cb3b97235e79fcfe",
+          "exact_match": true
+        },
+        {
+          "path": "docs/ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md",
+          "github_blob": "2f090d4d20a51595ecc65719a7cbe1e2a90447c9",
+          "exact_match": true
+        },
+        {
+          "path": "docs/continuous_improvement/SONG53_LINKED_SONG_SUCCESS.md",
+          "github_blob": "16335bb3c1d9cd33b73e0f6b539ebcb680f5a427",
+          "exact_match": true
+        }
+      ]
+    },
+    "roadmap_and_imported_design": "Byte-identical to remote13904e5; GitHub blob hashes read back",
+    "all_outgoing_objects_privacy_audited": true,
+    "private_original_ancestors_excluded": true,
+    "remote_issue_prefix_preserved": true,
+    "new_audio_archives_APKs_credentials_published": false,
+    "physical_Android_test": false,
+    "new_audio_listening_test": false
+  },
+  "historical_records": "Recovered public copies identify original private record hashes and redactions. Their original issue-prefix fingerprints refer to retained private history; use current RECOVER54 session for the public merged register. Original records remain intact privately.",
+  "simulated_lenses": [
+    {
+      "lens": "SIMULATED source maintainer",
+      "finding": "Recovered30source inputs exactly:15runtime,7tests,8helpers. Original21commit ancestry privately preserved, no missing later dangling commits found. No recreation from design."
+    },
+    {
+      "lens": "SIMULATED roadmap owner",
+      "finding": "Published roadmap, supplied SONG53, prior roadmap session and gameplay roadmap remain byte-identical. Existing queue marks only R0complete;R1–R7remain proposed."
+    },
+    {
+      "lens": "SIMULATED privacy reviewer",
+      "finding": "Every newly reachable object audited. Private audio/registries/archives/APKs/keys stay local. Imported divergent records redacted; published issue prefix untouched."
+    },
+    {
+      "lens": "SIMULATED runtime/save reviewer",
+      "finding": "1338fresh Godot assertions pass,24gate-unit tests and project-structure validation pass.68fresh original PNGs exactly match retained proof;5actually opened. Real isolated save-failure/retry/reload covered; no physical Android claim."
+    },
+    {
+      "lens": "SIMULATED release reviewer",
+      "finding": "Source-only normal non-force target publication verified directly on GitHub; no main/merge/APK/export/signing work. Final metadata head verification remains a required post-push action."
+    }
+  ],
+  "remaining_gaps": [
+    "Private owner media/registries intentionally absent from public Git; retained in original private workspace for asset-backed testing/builds",
+    "No full APK/export/signing or physical-phone validation in this source recovery",
+    "SONG53-R1–R7 remain proposed/not implemented; scope separately",
+    "Original SHA objects intentionally unavailable publicly; use replacement mapping",
+    "GitHub-hosted Actions status is separate from the successful local checks; do not infer CI success from source upload"
+  ],
+  "next_action": "Use the reconciled public source and existing roadmap to scope SONG53-R1 separately when implementation is requested; do not recreate recovered work or start gameplay/APK work in this recovery task.",
+  "publication_sequence": {
+    "preflight": "548c60f8f1bd1a9f884945a2dee268a337134529",
+    "source_readback_verified": "d5e1662318b0a47899570a938a09a340700b3e4a",
+    "this_closeout": "Metadata-only normal target update; final exact remote head is verified after push and reported to owner."
+  }
+}

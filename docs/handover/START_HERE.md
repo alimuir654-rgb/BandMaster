@@ -7,6 +7,14 @@ Read `AGENTS.md`, the improvement check/lessons, and
 `docs/continuous_improvement/CURRENT.json` before changes. Use one writer and a fresh scoped preflight.
 Historical overnight deadlines and older branch/build instructions do not supersede this handover.
 
+## Latest recovery — RECOVER54 / original runtime reconciled and published
+
+The owner explicitly requested source recovery and publication, without new gameplay/APK work. Both missing original commits were found intact. Public runtime equivalent: `31267faafdea8556a085433f7e574745ea43a886` for original `81f6129d0f166ff0b854b0ae849bc419ccdcd60c`; corrected source/redacted-record equivalent: `d5e1662318b0a47899570a938a09a340700b3e4a` for original `b93f44809fab04c43c0f91fe90b0f6af468e48d5`. Later SONG53 records through `eef373a` are retained. Read [the full mapping and R0 inventory](../continuous_improvement/RECOVER54_SOURCE_RECONCILIATION.json). Original private ancestry was preserved locally and excluded from public Git.
+
+Direct GitHub readback verifies the published source head, all15changed runtime blobs and unchanged roadmap/SONG53. Fresh1338Godot assertions,24gate-unit tests and structure validation pass;68fresh native PNGs exactly equal original ENGAGE52,5opened. Source .gd/tests/helpers were recovered byte-for-byte, not recreated. Owner accepted the three ENGAGE52 clip replacements and presented screens; do not repeat that listening request or restore rejected sampler reviews. Private media/registries stay outside Git. No new APK/request/key/signature, main merge or gameplay implementation. Original app/save/signing identity and frozenV23/V24 unchanged.
+
+Use this reconciled source with [the existing roadmap](../ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md) and sole S80queue. R0source reconciliation is complete;R1–R7remain proposed. The older missing-commit paragraph below is preserved review history, superseded by this recovery/mapping. Next: scope R1separately when implementation is requested.
+
 ## Latest documentation — linked-song and band-life roadmap (13 November 2026)
 
 The owner asked to create a roadmap in Git on 12 November and authorised completing its publication on 13 November. The earlier remote commit held only the preflight; this continuation recovers and completes the original draft. Read
