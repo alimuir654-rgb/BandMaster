@@ -122,6 +122,8 @@ jobs:
           test ! -e "$SONG56_WORK"
           # First visual composition for the owner-requested SONG56 revision.
           # Inspect phone and short originals before completing tall and wide.
+          # Exact unchanged model/fixture checks passed in run43523337054;
+          # that run failed only display startup, before any UI capture.
           # The runner creates isolated XDG/save paths, performs its model checks,
           # and records its scratch-only legacy fixture availability/SAFE adaptations.
           python3 tools/song55_verify.py \
@@ -130,6 +132,7 @@ jobs:
             --work "$SONG56_WORK" \
             --baseline "$SONG56_BASELINE" \
             --only both \
+            --native-only \
             --profiles phone short
 
       - name: Retain only manifests, logs, and PNG or JSON test results

@@ -39,8 +39,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 2280996,
-    "sha256": "1c3009aa0a5d3a491731911227120cf5defddd364df11b237b0fd2aa5c28cc6f"
+    "bytes": 2282621,
+    "sha256": "19bf67866386db3efa738ae825cdae885624e03df74fb6b2065c1387dedd4426"
   },
   "target": {
     "locator": "Owner text-heavy feedback; existing print_materials_v1.png original inspected plus final SONG55 phone songbook-entry/details, recording-selection-entry and captured-strength originals. No new owner mockup supplied; reference is an explicit revision of these rejected layouts.",
@@ -175,5 +175,15 @@
     "Selection uses noninteractive three-track slots tied to the existing ordered draft; add/remove/reorder callbacks unchanged.",
     "Archive uses a smaller sleeve with adjacent native identity and compact captured-strength tracks; original radio session rendering retained.",
     "Credits, history, exact existing facts and unknowns remain in Notes; zero and unknown have distinct presentations."
+  ],
+  "retained_attempts": [
+    {
+      "run": 43523337054,
+      "source": "b4587e4ee876c8e7eff002a6e0499afab84bf5bd",
+      "status": "failed display readiness; no UI rendered",
+      "model_checks": "196fixture,1735summary,337recording passed; imports/parse pass",
+      "artifact": 14084735534,
+      "sha256": "04bc3c8f789daf99c4074104fc2b84093565b2cfe269dc8dfb15eef715728907"
+    }
   ]
 }

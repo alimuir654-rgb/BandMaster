@@ -264,18 +264,39 @@ EndSection
                              '-config', str(config), '-logfile', str(work / 'logs' / (tag + '.log'))],
                             stdout=stream, stderr=subprocess.STDOUT, env=env)
     env = dict(env, DISPLAY=f':{number}')
-    for _ in range(50):
-        if proc.poll() is not None:
+    started = time.monotonic()
+    deadline = started + 30.0
+    attempts = []
+    ready = False
+    try:
+        while time.monotonic() < deadline:
+            if proc.poll() is not None:
+                raise RuntimeError('Owned Xorg stopped before readiness: ' + tag)
+            try:
+                probe = subprocess.run(['xdpyinfo'], env=env, stdout=subprocess.DEVNULL,
+                    stderr=subprocess.DEVNULL, timeout=min(3.0, max(0.1, deadline - time.monotonic())))
+                attempts.append({'exit_code': probe.returncode, 'elapsed': time.monotonic() - started})
+                if probe.returncode == 0:
+                    write_json(work / 'logs' / 'display-ready.result.json',
+                        {'ready': True, 'display': env['DISPLAY'], 'attempts': attempts, 'deadline_seconds': 30})
+                    ready = True
+                    return proc, stream, env['DISPLAY']
+            except subprocess.TimeoutExpired:
+                attempts.append({'probe_timeout': True, 'elapsed': time.monotonic() - started})
+            time.sleep(min(0.1, max(0.0, deadline - time.monotonic())))
+        raise RuntimeError('Owned Xorg readiness deadline exceeded')
+    finally:
+        if not ready:
+            write_json(work / 'logs' / 'display-failed.result.json',
+                {'ready': False, 'display': env['DISPLAY'], 'attempts': attempts, 'deadline_seconds': 30})
+            if proc.poll() is None:
+                proc.terminate()
+                try:
+                    proc.wait(timeout=10)
+                except subprocess.TimeoutExpired:
+                    proc.kill()
+                    proc.wait(timeout=5)
             stream.close()
-            raise RuntimeError('Owned Xorg stopped before readiness: ' + tag)
-        probe = subprocess.run(['xdpyinfo'], env=env, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=3)
-        if probe.returncode == 0:
-            return proc, stream, env['DISPLAY']
-        time.sleep(0.1)
-    proc.terminate()
-    proc.wait(timeout=10)
-    stream.close()
-    raise RuntimeError('Owned Xorg readiness deadline exceeded')
 
 
 def main() -> None:
