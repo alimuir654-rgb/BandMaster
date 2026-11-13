@@ -2,6 +2,7 @@ extends RefCounted
 ## Authored, contextual conversation memory. No IO, clocks, payments or AI service.
 const KEY := "musician_chat_v1"
 const Situations=preload("res://experiments/playable_flightcase/musician_situations.gd")
+const Speech=preload("res://experiments/playable_flightcase/conversation_musicians.gd")
 const TOPICS := ["direction","time","pressure"]
 const CHOICES := {
  "direction":["write_together","prepare_set","listen"],
@@ -205,7 +206,8 @@ static func answer(state: Dictionary,id: String,topic: String,choice: String,exp
  elif kind=="rehearse":reply="Let's agree an evening and rehearse within the next four days. Check that I'm actually free before you book it."
  if choice=="push_on" and int(p.get("fatigue",0))>=50:reply="I'll try, but I'm tired. Being in the room won't mean that pushing was the right call."
  if choice=="hold_off":reply="Fair. I'd rather hear that now than be promised an evening that never comes."
- if REPLY_LEADS.has(id):reply=str(REPLY_LEADS[id])+" "+reply
+ if choice in ["listen","write_together","prepare_set","agree_evening","work_it_out"]:reply=Speech.reply(id,choice,reply)
+ elif REPLY_LEADS.has(id):reply=str(REPLY_LEADS[id])+" "+reply
  row.turns.append({"day":int(state.tour_day),"topic":topic,"choice":choice,"opening":str(view.opening),"reply":reply})
  while row.turns.size()>12:row.turns.pop_front()
  row.last_day=int(state.tour_day)

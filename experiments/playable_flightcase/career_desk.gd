@@ -678,7 +678,7 @@ func _chat_answer(choice: String,expected: Dictionary,generation: int) -> void:
  var result: Dictionary=opening_owner.answer_musician(expected,chat_member_id,chat_topic,choice)
  busy=false;notice=str(result.get("message","Read the current conversation."))
  chat_expected=opening_owner.snapshot().duplicate(true)
- _pending_focus="ChatNextStep" if result.get("ok",false) else "ChatReply_"+choice
+ _pending_focus="MusicianChatSavedReply" if result.get("ok",false) else "ChatReply_"+choice
  _render()
 
 func _open_situation() -> void:

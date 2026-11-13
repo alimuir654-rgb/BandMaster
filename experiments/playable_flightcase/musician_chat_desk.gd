@@ -4,6 +4,7 @@ const Chat=preload("res://experiments/playable_flightcase/musician_chat.gd")
 const Poster=preload("res://experiments/playable_flightcase/poster_components.gd")
 const Cast=preload("res://experiments/character_cast/catalogue.gd")
 const Situation=preload("res://experiments/playable_flightcase/situation_core.gd")
+const Conversation=preload("res://experiments/playable_flightcase/conversation_panel.gd")
 
 static func words(parent: Node,text: String,points: int=18,color: Color=Poster.PAPER) -> Label:
  var label: Label=Poster.label(text,points,color)
@@ -49,17 +50,16 @@ static func render(host,parent: Node,compact: bool) -> void:
   words(transcript,str(view.opening),21,Poster.INK)
   for choice in view.choices:
    var action: Button=host._button(str(Chat.LABELS[choice]),"ChatReply_"+str(choice),host._chat_answer.bind(str(choice),host.chat_expected.duplicate(true),int(host._render_generation)))
-   transcript.add_child(action)
+   Conversation.reply(action,true);transcript.add_child(action)
  else:
   var recent: Array=row.get("turns",[])
   # Show the actual saved exchange immediately. It used to disappear behind
   # a collapsed history button, making a successful answer feel unresponsive.
   if not recent.is_empty() and int(row.get("last_day",0))==int(state.get("tour_day",1)):
    var last: Dictionary=recent.back()
-   words(transcript,"YOU",16,Poster.INK)
-   words(transcript,Chat.turn_label(last),18,Poster.INK).name="MusicianChatYourReply"
-   words(transcript,str(person.get("name","Bandmate")).to_upper(),18,Poster.INK)
-   words(transcript,str(last.reply),21,Poster.INK).name="MusicianChatSavedReply"
+   Conversation.turn(transcript,"YOU",Chat.turn_label(last),"MusicianChatYourReply")
+   var reply: Label=Conversation.turn(transcript,str(person.get("name","Bandmate")),str(last.reply),"MusicianChatSavedReply")
+   reply.focus_mode=Control.FOCUS_ALL
   else:
    words(transcript,str(person.get("name","Bandmate"))+":",18,Poster.INK)
    words(transcript,str(view.get("opening","Let's make the next evening count.")),21,Poster.INK)

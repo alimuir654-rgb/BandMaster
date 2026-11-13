@@ -60,6 +60,8 @@ func _label(words: String,points: int=16) -> Label:
 
 func _button(words: String,node_name: String,callback: Callable) -> Button:
  var button:=C.button(words)
+ if node_name in ["AuditionStartTryout","AuditionInvite"]:
+  button.free();button=Poster.button(words,true)
  button.name=node_name
  button.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  button.mouse_filter=Control.MOUSE_FILTER_PASS
@@ -181,6 +183,7 @@ func _build() -> void:
   notes.add_child(C.paper_label("HEAR "+str(_view["person"]["name"]).to_upper()+" PLAY",18))
   var version_label:=C.paper_label("ORIGINAL PART" if phase=="tryout" else "ADJUSTED PART",16)
   version_label.name="AuditionCurrentVersion"
+  if str(_view.get("candidate_id",""))=="cast_arjun":version_label.text="RECORDED SKETCH · SEPARATE WRITTEN EXERCISE"
   notes.add_child(version_label)
   if _has_backing_choice():
    var modes:=HBoxContainer.new()
@@ -192,6 +195,7 @@ func _build() -> void:
     button.custom_minimum_size.y=48.0
     button.size_flags_horizontal=Control.SIZE_EXPAND_FILL
     button.toggle_mode=true
+    Poster.choice_style(button)
     button.add_theme_stylebox_override("hover_pressed",button.get_theme_stylebox("pressed"))
     button.focus_entered.connect(_reveal_audio_mode.bind(button))
     _mode_buttons[key]=button
@@ -201,23 +205,24 @@ func _build() -> void:
    notes.add_child(_audio_slot)
    _refresh_listening_audio()
   else:
-   notes.add_child(C.paper_label("Voice: a line in bars 1 and 3. "+_instrument()+": "+str(_view["person"]["name"])+"’s part."))
+   notes.add_child(C.paper_label("A recorded guitar idea. The four-bar request below is a separate written exercise." if str(_view.get("candidate_id",""))=="cast_arjun" else "Voice: a line in bars 1 and 3. "+_instrument()+": "+str(_view["person"]["name"])+"’s part."))
    _audio=AudioPart.new()
    _audio.controls_visible=false
    _audio.manifest_path=Profiles.audio_manifest(str(_view["candidate_id"]))
    _audio.configure(_audio_context)
    notes.add_child(_audio)
-   _audio.set_clip(_content.material_id(str(_view.get("request",""))))
+   if str(_view.get("candidate_id",""))!="cast_arjun":_audio.set_clip(_content.material_id(str(_view.get("request",""))))
   var takes:=HBoxContainer.new();takes.add_theme_constant_override("separation",5);notes.add_child(takes)
   var audio_supported: bool=owner_state.game.genre=="Indie rock"
   var first_take: Button=_button("▶ FIRST TAKE" if audio_supported else "WRITTEN EXAMPLE","AuditionPlayFirst",_hear_version.bind(true))
+  if str(_view.get("candidate_id",""))=="cast_arjun" and audio_supported:first_take.text="▶ HEAR RECORDED IDEA"
   first_take.disabled=not audio_supported;first_take.set_meta("permitted",audio_supported);takes.add_child(first_take)
   if not audio_supported:notes.add_child(C.paper_label("Audio samples are not available for this style. Read the written part below.",16))
   if phase in ["response","decision"]:
    var has_audio: bool=str(_view.get("candidate_id"))!="cast_arjun" and owner_state.game.genre=="Indie rock"
    var adjusted: Button=_button("▶ NEW TAKE" if has_audio else "WRITTEN ONLY","AuditionPlayAdjusted",_hear_version.bind(false))
    adjusted.disabled=not has_audio;adjusted.set_meta("permitted",has_audio);takes.add_child(adjusted)
-  var stop: Button=_quiet_button("STOP","AuditionStopTakes",_stop_takes,true)
+  var stop: Button=_button("■ STOP PLAYBACK","AuditionStopTakes",_stop_takes)
   notes.add_child(stop)
   var written:=VBoxContainer.new();written.name="AuditionWrittenParts";written.visible=false
   notes.add_child(_quiet_button("READ THE FOUR BARS","AuditionReadPart",func():written.visible=not written.visible,true))
@@ -319,9 +324,15 @@ func _questions(parent: Node) -> void:
 
 func _stop_takes() -> void:
  if is_instance_valid(_audio):_audio.stop()
+ var ideas: Node=find_child("CharacterRecordedIdeas",true,false)
+ if is_instance_valid(ideas):ideas.call("stop")
 
 func _hear_version(first: bool) -> void:
  if _busy or _finish_voice():return
+ if str(_view.get("candidate_id",""))=="cast_arjun":
+  var ideas: Node=find_child("CharacterRecordedIdeas",true,false)
+  if first and is_instance_valid(ideas) and not ideas.get("_materials").is_empty():ideas.call("_play",str(ideas.get("_materials")[0]))
+  return
  var wanted: bool=first and _view.get("phase") in ["response","decision"]
  if _show_prior!=wanted:_toggle_prior()
  if is_instance_valid(_audio):
@@ -340,6 +351,7 @@ func _fill_board() -> void:
  var current_version: Label=find_child("AuditionCurrentVersion",true,false) as Label
  if current_version!=null:
   current_version.text="ORIGINAL PART" if _show_prior or _view.get("phase")=="tryout" else "ADJUSTED PART"
+  if str(_view.get("candidate_id",""))=="cast_arjun":current_version.text="RECORDED IDEA · WRITTEN EXERCISE BELOW"
  for old in _board.get_children():
   if old is Button:_buttons.erase(old)
   _board.remove_child(old)
@@ -385,7 +397,7 @@ func _toggle_prior() -> void:
  if _busy:return
  _show_prior=not _show_prior
  if _has_backing_choice():_refresh_listening_audio()
- elif is_instance_valid(_audio):_audio.set_clip(_content.material_id("" if _show_prior else str(_view.get("request",""))))
+ elif is_instance_valid(_audio) and str(_view.get("candidate_id",""))!="cast_arjun":_audio.set_clip(_content.material_id("" if _show_prior else str(_view.get("request",""))))
  _prior_toggle.text="VIEW ADJUSTED PART" if _show_prior else "VIEW ORIGINAL PART"
  _fill_board()
  _inspector.text="First try — the same four bars." if _show_prior else "Adjusted try — inspect what "+str(_view["person"]["name"])+" changed."
@@ -403,7 +415,7 @@ func _finish_voice() -> bool:
  return false
 
 func _set_busy(value: bool) -> void:
- if value and is_instance_valid(_audio):_audio.stop()
+ if value:_stop_takes()
  _busy=value
  for button in _buttons:
   if is_instance_valid(button):button.disabled=value or not bool(button.get_meta("permitted",true))

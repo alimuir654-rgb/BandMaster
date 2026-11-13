@@ -18,9 +18,6 @@ func run() -> void:
   Ideas.attach(parent,str(person.id),str(person.roles[0]),func():return active)
   for _i in range(3):await process_frame
   var ideas=parent.find_child("CharacterRecordedIdeas",true,false)
-  if person.id=="cast_nina":
-   check(ideas==null,"Nina remains honestly held pending listening fit")
-   parent.free();continue
   check(ideas!=null,"real recorded control "+str(person.id))
   if ideas!=null:
    covered.append(person.id)
@@ -43,8 +40,8 @@ func run() -> void:
    var original_sha: String=str(row.sha256);row.sha256="00"
    ideas._play(first);check(not ideas.playing,"changed media fails closed "+str(person.id));row.sha256=original_sha
   parent.free()
- check(covered.size()==17 and "cast_tom" in covered,"17 distinct canonical Indie candidates; Nina separately held")
+ check(covered.size()==18 and "cast_tom" in covered and "cast_nina" in covered,"18 distinct canonical Indie candidates including owner-approved Nina")
  await create_timer(0.25).timeout
  await process_frame
- print("FEEDBACK47_AUDIO "+JSON.stringify({"checks":checks,"failures":failures,"covered":covered,"Nina":"review-only","Arjun_adjusted":"written-only","listening_verified":false,"physical_Android":false}))
+ print("FEEDBACK47_AUDIO "+JSON.stringify({"checks":checks,"failures":failures,"covered":covered,"Nina":"owner-approved Last Bus Gone","Arjun_adjusted":"written-only","listening_verified":false,"physical_Android":false}))
  quit(0 if failures.is_empty() else 1)

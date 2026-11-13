@@ -1,6 +1,7 @@
 extends VBoxContainer
 ## Independent recorded ideas, never answers to the fingerprinted written exercise.
 const Poster=preload("res://experiments/playable_flightcase/poster_components.gd")
+const PackedPcm=preload("res://experiments/playable_flightcase/packed_pcm.gd")
 const NEW_MANIFEST="res://experiments/playable_flightcase/audio/recorded_indie39/characters.json"
 const MANIFEST="res://experiments/playable_flightcase/audio/character_indie29/manifest.json"
 var paper:=false
@@ -51,10 +52,12 @@ func _play(material: String) -> void:
  var path: String=str(entry.get("path",""))
  var new_source: bool=role in ["Singer","Keyboardist"]
  var prefix: String="res://experiments/playable_flightcase/audio/recorded_indie39/" if new_source else "res://experiments/playable_flightcase/audio/character_indie29/"
- if not path.begins_with(prefix) or not ResourceLoader.exists(path):return
+ if not path.begins_with(prefix) or not PackedPcm.exists(path):return
  if FileAccess.file_exists(path) and FileAccess.get_sha256(path)!=entry.get("sha256"):return
- if entry.get("integration_authority")!=("owner_approved_first_excerpt_pairs_20261110" if new_source else "owner_request_20261109") or entry.get("integration_review_accepted")!=true:return
- var stream=load(path)
+ var authority: String="owner_approved_nina_20261111" if candidate_id=="cast_nina" else ("owner_approved_first_excerpt_pairs_20261110" if new_source else "owner_request_20261109")
+ var revised: bool=candidate_id in ["cast_arjun","cast_casey"] and entry.get("integration_authority")=="owner_requested_audio_revision_20261111"
+ if (entry.get("integration_authority")!=authority and not revised) or entry.get("integration_review_accepted")!=true:return
+ var stream=PackedPcm.stream(path,int(entry.get("frames",0)),str(entry.get("pcm_sha256","")),str(entry.get("sha256",""))) if path.ends_with(".wav") else load(path)
  if not stream is AudioStream:return
  var top: Node=self
  while top.get_parent() is Control:top=top.get_parent()

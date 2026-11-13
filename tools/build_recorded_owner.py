@@ -81,6 +81,7 @@ def main():
     parser.add_argument('--version-code', type=int, default=17)
     parser.add_argument('--version-name', default='0.147.0-playtest-audio')
     parser.add_argument('--baseline', help='Optional Git source for controlled legacy comparison')
+    parser.add_argument('--pack-pcm', action='store_true', help='Lossless recorded WAV transport; preserve original PCM identity')
     args = parser.parse_args()
     assert args.version_code > 16
     repo = Path(__file__).resolve().parents[1]
@@ -89,7 +90,7 @@ def main():
     out.mkdir(parents=True, exist_ok=False)
     project = out / 'project'
     project.mkdir()
-    files, queue = {}, [ENTRY, 'icon.svg']
+    files, queue, packed_sources = {}, [ENTRY, 'icon.svg'], []
     # Dynamic asset paths (cast portraits, atlases and manifests) remain unchanged.
     for folder in ['experiments/playable_flightcase', 'experiments/character_cast', 'components', 'Data', 'Art']:
         for path in (repo / folder).rglob('*'):
@@ -112,6 +113,14 @@ def main():
         if not path.is_file():
             continue  # Prefix literals are not dependency filenames.
         data = path.read_bytes()
+        if args.pack_pcm and path.suffix == '.wav':
+            from pilot51_pcm import encode as pack_pcm
+            packed, source = pack_pcm(path)
+            source.update(source_path=relative, packed_path=relative+'.pcmz')
+            packed_sources.append(source)
+            files[relative] = None  # already visited original; not a shipping file
+            relative += '.pcmz'
+            data = packed
         if args.baseline and path.suffix in ['.gd', '.tscn']:
             old = subprocess.run(['git', 'show', args.baseline + ':' + relative], cwd=repo, capture_output=True)
             if old.returncode == 0:
@@ -124,7 +133,7 @@ def main():
             for ref in re.findall(r'res://([^\s"\'<>]+)', data.decode('utf-8')):
                 if (repo / ref).is_file():
                     queue.append(ref)
-        if path.suffix == '.wav':
+        if path.suffix == '.wav' and not args.pack_pcm:
             # Keep every source frame; import must not trim, normalize, loop or compress.
             (target.parent / (target.name + '.import')).write_text('[remap]\nimporter="wav"\ntype="AudioStreamWAV"\n[params]\nedit/trim=false\nedit/normalize=false\nedit/loop_mode=0\ncompress/mode=0\n')
     project_text = PROJECT.replace('config/name="BandMaster Playtest"',
@@ -136,7 +145,7 @@ name="Owner Android Unsigned"
 platform="Android"
 runnable=true
 export_filter="all_resources"
-include_filter="*.json,*.csv,*.txt"
+include_filter="*.json,*.csv,*.txt,*.pcmz"
 exclude_filter="tests/*,SOURCE_MANIFEST.json"
 script_export_mode=2
 [preset.0.options]
@@ -164,9 +173,10 @@ permissions/camera=false
                     baseline=args.baseline, application_id=APP, version_code=args.version_code, version_name=args.version_name,
                     save_directory='BandMasterOwnerPlaytestS40', entry=ENTRY, original_certificate_sha256=CERT,
                     signing='UNSIGNED; original key required; never use a replacement key',
-                    files=[dict(path=p, sha256=h) for p, h in sorted(files.items())])
+                    packed_pcm=packed_sources,
+                    files=[dict(path=p, sha256=h) for p, h in sorted(files.items()) if h is not None])
     (out / 'SOURCE_MANIFEST.json').write_text(json.dumps(manifest, indent=2) + '\n')
-    print(json.dumps(dict(project=str(project), files=len(files), source_bytes=sum((project / f).stat().st_size for f in files), signing=manifest['signing'])))
+    print(json.dumps(dict(project=str(project), files=len(manifest['files']), source_bytes=sum((project / f['path']).stat().st_size for f in manifest['files']), signing=manifest['signing'])))
 
 
 if __name__ == '__main__':

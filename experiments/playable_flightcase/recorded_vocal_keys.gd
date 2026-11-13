@@ -1,4 +1,5 @@
 extends RefCounted
+const PackedPcm=preload("res://experiments/playable_flightcase/packed_pcm.gd")
 ## Approved first passages only. A new source/performer binding, no legacy migration.
 const HOOKS=["indie39_plates_01","indie39_wear_01","indie39_stairs_01"]
 const LABELS=["MAYA / FREYA","LILY / DAN","SAM / OSCAR"]
@@ -42,14 +43,14 @@ static func entry(value: Dictionary) -> Dictionary:
  var hashes: Array[String]=[]
  for part in PARTS:
   var asset: Variant=row.parts.get(part)
-  if not asset is Dictionary or asset.get("path")!=PREFIX+value.hook+"_"+part+".wav" or not asset.get("pcm_sha256") is String or asset.pcm_sha256.length()!=64 or not ResourceLoader.exists(asset.path):return {}
+  if not asset is Dictionary or asset.get("path")!=PREFIX+value.hook+"_"+part+".wav" or not asset.get("pcm_sha256") is String or asset.pcm_sha256.length()!=64 or not PackedPcm.exists(asset.path):return {}
   hashes.append(asset.pcm_sha256)
   if FileAccess.file_exists(asset.path) and FileAccess.get_sha256(asset.path)!=asset.get("sha256"):return {}
  if "|".join(hashes).sha256_text()!=FINGERPRINTS[i]:return {}
  return row.duplicate(true)
 static func stream(asset: Dictionary,frames: int) -> AudioStreamWAV:
  if frames not in FRAMES:return null
- var wav: AudioStreamWAV=load(str(asset.get("path",""))) as AudioStreamWAV
+ var wav: AudioStreamWAV=PackedPcm.stream(str(asset.get("path","")),frames,str(asset.get("pcm_sha256","")),str(asset.get("sha256","")))
  if wav==null or wav.format!=AudioStreamWAV.FORMAT_16_BITS or wav.mix_rate!=48000 or not wav.stereo or wav.loop_mode!=AudioStreamWAV.LOOP_DISABLED or wav.data.size()!=frames*4:return null
  var hash:=HashingContext.new();hash.start(HashingContext.HASH_SHA256);hash.update(wav.data)
  return wav if hash.finish().hex_encode()==asset.get("pcm_sha256") else null

@@ -5,6 +5,8 @@ const Promotion = preload("res://experiments/playable_flightcase/promotion_rules
 const Recording = preload("res://experiments/playable_flightcase/recording_rules.gd")
 const Scene = preload("res://experiments/playable_flightcase/activity_scene.gd")
 const Ink = preload("res://experiments/playable_flightcase/ink_note.gd")
+const Speech=preload("res://experiments/playable_flightcase/conversation_radio.gd")
+const Conversation=preload("res://experiments/playable_flightcase/conversation_panel.gd")
 const ART = preload("res://experiments/playable_flightcase/art/radio_student_studio_v3.png")
 const ART_PATH := "res://experiments/playable_flightcase/art/radio_student_studio_v3.png"
 const ART_SHA := "f860a57c7fc7d3ba17a693fbabb844303b20b69443a6666e29d41889bbf28bda"
@@ -39,7 +41,7 @@ static func _note(parent: Node, text: String, name: String) -> Label:
  return note
 
 static func _scene(host, parent: Node, compact: bool, text: String, progress: String="", note_name: String="StudioNote", interactive: bool=false, fresh: bool=false) -> Dictionary:
- return Scene.render(host,parent,compact,{"heading":"STUDENT RADIO","speaker":"STUDENT PRESENTER","text":text,"progress":progress,"texture":ART,"source":ART_PATH,"raw_sha256":ART_SHA,"note_name":note_name,"interactive":interactive,"fresh":fresh})
+ return Scene.render(host,parent,compact,{"heading":"STUDENT RADIO","speaker":Speech.SPEAKER,"text":text,"progress":progress,"texture":ART,"source":ART_PATH,"raw_sha256":ART_SHA,"note_name":note_name,"interactive":interactive,"fresh":fresh})
 
 static func render(host, parent: Node, compact: bool) -> void:
  if not Flow.locked(host.game.career):
@@ -50,13 +52,18 @@ static func render(host, parent: Node, compact: bool) -> void:
  var token: String=str(visit.get("id",""))+":"+str(visit.get("revision",""))
  var fresh: bool=host.has_meta("radio_reveal_pending") and str(host.get_meta("radio_reveal_pending"))==token
  if fresh:host.remove_meta("radio_reveal_pending")
- var prose: String="Both replies are saved. Wrap up the visit when you're ready." if bool(data["can_finish"]) else str(data["text"])
- var nodes: Dictionary=_scene(host,parent,compact,prose,"VISIT %d / 7" % (int(data["progress"])+1) if bool(data["ok"]) else "SAVED VISIT HELD","StudioNote",bool(data["ok"]),fresh)
+ var selected: Dictionary=Promotion.selection(host.game.career,str(visit.get("demo_id","")),str(visit.get("source_fingerprint","")),int(visit.get("demo_index",-1)))
+ var tracks: Array=selected.get("session",{}).get("tracks",[])
+ var title: String=str(tracks[0].get("title","your record")) if not tracks.is_empty() else "your record"
+ var prose: String=Speech.line(data,title) if bool(data["ok"]) else str(data["text"])
+ var nodes: Dictionary=_scene(host,parent,compact,prose,"YOUR RECORD · YOUR WORDS" if bool(data["ok"]) else "SAVED VISIT HELD","StudioNote",bool(data["ok"]),fresh)
+ var answer: String=Speech.answer(data)
+ if not answer.is_empty():
+  var remembered: Label=Conversation.turn(nodes["words"],"YOU SAID",answer,"StudioYourSavedAnswer")
+  nodes["words"].move_child(remembered.get_parent().get_parent(),0)
  if bool(data["ok"]) and not visit.is_empty():
-  var selected: Dictionary=Promotion.selection(host.game.career,str(visit["demo_id"]),str(visit["source_fingerprint"]),int(visit["demo_index"]))
   if bool(selected.get("ok",false)):
    var session: Dictionary=selected["session"]
-   var tracks: Array=session.get("tracks",[])
    var context: String="ON THE DESK / "+str(tracks[0].get("title","UNTITLED")) if not tracks.is_empty() else "TRACK DETAILS NOT RECORDED"
    if tracks.size()>1:context+=" + %d MORE" % (tracks.size()-1)
    var label: Label=Scene.copy(host,nodes["words"],context,"StudioDemoContext",16,true)
@@ -73,7 +80,7 @@ static func _brief(host, parent: Node, compact: bool) -> void:
  var selected: Dictionary=_selected(host)
  var completed: bool=bool(selected.get("completed",false))
  var saved: Dictionary=selected.get("saved_response",{})
- var text: String="Your demo. Two questions. At your pace."
+ var text: String="Frankie looks up from the desk.\n\nYou're the band with the demo? Come in. Let's work out how to introduce you to someone who hasn't heard you yet."
  if completed:text="This radio campaign is already saved. No interview transcript was recorded." if saved.is_empty() or not saved.has("interview_v1") else "Your student-radio visit is saved. Read the replies and the response whenever you like."
  if not bool(selected.get("ok",false)):text=str(selected.get("message","Choose a saved released demo."))
  var nodes: Dictionary=_scene(host,parent,compact,text,"SAVED RESPONSE" if completed else "BEFORE THE VISIT")
@@ -155,13 +162,13 @@ static func dock(host, parent: Node, compact: bool) -> void:
    choices.add_theme_constant_override("separation",6)
    parent.add_child(choices)
    for choice in data["choices"]:
-    var caption: String={"craft":"THE SONGWRITING","live_energy":"THE BAND'S ENERGY","invite":"BRING A FRIEND","critical_craft":"LISTEN CLOSELY"}[str(choice["id"])]
+    var caption: String={"craft":"Listen for the writing.","live_energy":"We want it to feel live.","invite":"Bring a friend.","critical_craft":"Give the record your time."}[str(choice["id"])]
     var button: Button=_button(host,choices,caption,"StudioChoice_"+str(choice["id"]),"answer",str(choice["id"]),true)
     button.tooltip_text=str(choice["text"])
   elif bool(data["can_finish"]):
    var preview: Dictionary=Flow.preview_finish(host.game.career,str(visit["id"]),int(visit["revision"]))
    _button(host,parent,"WRAP UP  •  £20 / 1 DAY","StudioFinishAction","finish","",true,bool(preview.get("ok",false)))
-  else:_button(host,parent,"CONTINUE","StudioContinueAction","advance","",true)
+  else:_button(host,parent,Speech.next_line(str(visit.get("phase",""))),"StudioContinueAction","advance","",true)
  if not confirmation:
   var free:=HBoxContainer.new()
   free.add_theme_constant_override("separation",6)

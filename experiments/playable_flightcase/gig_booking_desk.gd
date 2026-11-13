@@ -10,6 +10,7 @@ const Calendar = preload("res://Scripts/gig_calendar.gd")
 const Circuit=preload("res://experiments/playable_flightcase/scene_circuit.gd")
 const Encounter=preload("res://experiments/playable_flightcase/promoter_encounter.gd")
 const Promoters=preload("res://experiments/playable_flightcase/promoter_profiles.gd")
+const Conversation=preload("res://experiments/playable_flightcase/conversation_panel.gd")
 const STAGE := "res://experiments/playable_flightcase/art/opening_stage.png"
 const OFFER_COPY := {"standard":"Accept the venue's ordinary arrangement.","guarantee":"Ask the promoter to add £15 to the settled fee.","guestlist":"Accept £10 less from the settled fee to make room for a guest list."}
 const OFFER_LABELS := {"standard":"STANDARD TERMS","guarantee":"ASK FOR A GUARANTEE","guestlist":"OFFER A GUEST LIST"}
@@ -88,14 +89,20 @@ static func render(host,parent: Node,compact: bool) -> void:
  else:
   _presence(parent,_room_name(options,draft),str(draft.get("venue_id","")),compact)
   if step=="pitch":
-   _dialogue(parent,Encounter.opening(host.game.career,str(draft.venue_id)))
+   _copy(parent,Encounter.beat(str(draft.venue_id)),"BookingActionBeat",16)
+   _dialogue(parent,Encounter.opening(host.game.career,str(draft.venue_id)),str(Promoters.for_venue(str(draft.venue_id)).get("name","Promoter")))
    for pitch in Circuit.PITCHES:
-    _button(host,parent,("✓ " if host.booking_pitch==pitch else "")+str(Circuit.PITCHES[pitch]),"BookingPitch_"+str(pitch),host._booking_pitch_select.bind(str(pitch),expected.duplicate(true),generation),host.booking_pitch==pitch)
+    _button(host,parent,str(Encounter.PITCH_WORDS[pitch]),"BookingPitch_"+str(pitch),host._booking_pitch_select.bind(str(pitch),expected.duplicate(true),generation),host.booking_pitch==pitch)
+   var aside:=VBoxContainer.new();aside.visible=false
+   var question: Button=_button(host,parent,"What matters to you on a shared bill?","BookingPromoterQuestion",func():pass)
+   question.toggle_mode=true;question.toggled.connect(aside.set_visible)
+   parent.add_child(aside)
+   Conversation.turn(aside,str(Promoters.for_venue(str(draft.venue_id)).get("name","Promoter")),Encounter.aside(str(draft.venue_id)),"BookingPromoterAside")
   elif step=="terms":
-   _dialogue(parent,Encounter.reaction(host.game.career,str(draft.venue_id),host.booking_pitch))
-   _copy(parent,"YOU · "+str(Circuit.PITCHES.get(host.booking_pitch,"")),"BookingYourPitch")
+   Conversation.turn(parent,"YOU",str(Encounter.PITCH_WORDS.get(host.booking_pitch,"")),"BookingYourPitch",false)
+   _dialogue(parent,Encounter.reaction(host.game.career,str(draft.venue_id),host.booking_pitch),str(Promoters.for_venue(str(draft.venue_id)).get("name","Promoter")))
    for offer in ["standard","guarantee","guestlist"]:
-    var ask: Button=_button(host,parent,str(OFFER_LABELS[offer]),"BookingOffer_"+offer,host._booking_select.bind("offer_id",offer,expected.duplicate(true),generation),draft.get(Circuit.BILL,{}).get("asked")==offer)
+    var ask: Button=_button(host,parent,str(Encounter.ASKS[offer]),"BookingOffer_"+offer,host._booking_select.bind("offer_id",offer,expected.duplicate(true),generation),draft.get(Circuit.BILL,{}).get("asked")==offer)
     ask.disabled=bool(host.busy) or (bool(draft.get("session_drummer",false)) and offer!="standard")
    if host._booking_session_needed():_copy(parent,"Session cover needed: standard terms, with £25 drummer cover at the show.","BookingSessionCover")
    else:_copy(parent,"Guarantee: ask for £15 more at settlement. Guest list: £10 less.","BookingTermsPrices")
@@ -104,7 +111,8 @@ static func render(host,parent: Node,compact: bool) -> void:
    if not proposal.get("ok",false):
     _copy(parent,str(proposal.get("message","Review the offer.")),"BookingNotice")
     return
-   _dialogue(parent,str(proposal.reply))
+   Conversation.turn(parent,"YOU",str(Encounter.ASKS.get(str(draft[Circuit.BILL].asked),"")),"BookingYourAsk",false)
+   _dialogue(parent,Encounter.agreement(str(draft.venue_id),proposal),str(Promoters.for_venue(str(draft.venue_id)).get("name","Promoter")))
    for room in options["rooms"]:
     if room["id"]==draft.get("venue_id"):_copy(parent,"Listed fee £%d. Actual settlement depends on the show and agreed terms." % int(room["listed_fee"]),"BookingListedFee")
    var bill: Dictionary=draft[Circuit.BILL]
@@ -145,8 +153,8 @@ static func _presence(parent: Node,room: String,venue: String,compact: bool) -> 
  _copy(detail,room,"BookingReviewVenue",18)
  _copy(detail,str(person.get("detail","")),"BookingPromoterCharacter",16)
 
-static func _dialogue(parent: Node,text: String) -> void:
- var label: Label=_copy(parent,text,"BookingPromoterReply",20)
+static func _dialogue(parent: Node,text: String,speaker: String="PROMOTER") -> void:
+ var label: Label=Conversation.turn(parent,speaker,text,"BookingPromoterReply")
  label.focus_mode=Control.FOCUS_ALL
 
 static func _room_name(options: Dictionary,draft: Dictionary) -> String:
