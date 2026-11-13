@@ -134,6 +134,8 @@ func inspect_summary(key: String, quality: int, label: String) -> bool:
  if not check(strength!=null,"shared summary strength "+key):return false
  if not check(strength.text.contains("%d / 100" % quality),"literal saved strength "+key):return false
  if not check(strength.get_theme_font_size("font_size")>=16,"preserved readable summary type "+key):return false
+ if key=="take_0_0":
+  if not await reveal(strength) or not await capture(label+"-strength"):return false
  var details: Control=named("SongSummary_"+key+"_Details",true)
  if not check(details!=null,"summary details exist "+key):return false
  var toggle: Button=named("SongSummary_"+key+"_Toggle") as Button

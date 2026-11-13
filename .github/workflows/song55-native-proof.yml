@@ -114,14 +114,14 @@ jobs:
           printf '%s  %s\n' "$SONG55_ENGINE_SHA256" "$engine" | sha256sum --check --strict -
           chmod u+x "$engine"
 
-      - name: Capture baseline and candidate phone and short-window proof
+      - name: Capture baseline and candidate at all four supported viewports
         timeout-minutes: 30
         shell: bash
         run: |
           set -euo pipefail
           test ! -e "$SONG55_WORK"
-          # This first pass deliberately stops at phone + short. Tall + wide
-          # require a subsequent scoped run after these actual pixels are reviewed.
+          # Phone + short originals were reviewed in run43515462020. Product
+          # source is unchanged; this pass completes tall + wide and key isolation.
           # The runner creates isolated XDG/save paths, performs its model checks,
           # and records its scratch-only legacy fixture availability/SAFE adaptations.
           python3 tools/song55_verify.py \
@@ -130,7 +130,7 @@ jobs:
             --work "$SONG55_WORK" \
             --baseline "$SONG55_BASELINE" \
             --only both \
-            --profiles phone short
+            --profiles phone short tall wide
 
       - name: Retain only manifests, logs, and PNG or JSON test results
         if: always()

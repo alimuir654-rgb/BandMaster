@@ -32,8 +32,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 2268973,
-    "sha256": "f501c5db546582ff051ee244a8f8a733513ddc035c92dc9d0213a4d7bdd6cc04"
+    "bytes": 2272751,
+    "sha256": "ea8a1c660fd4d039370af06af9607f9ae7c2e7f926004b6df3267ed17997b93b"
   },
   "target": {
     "locator": "Existing native print source: experiments/playable_flightcase/art/poster/print_materials_v1.png; actual source pixels opened. Preserve this material and existing typography. Fresh baseline/candidate captures will compare the same current-source songbook, rehearsal, setlist and recording states.",
@@ -204,6 +204,33 @@
       "native_script_parse": "pass",
       "native_execution": "pending corrected CI run",
       "fixture_settlement": "original Situation/Live/Finance pipeline; no direct clock changes"
+    },
+    {
+      "work": "song55-models-04",
+      "summary_checks": 1735,
+      "recording_checks": 337,
+      "fixture_checks": 196,
+      "import": "pass",
+      "native_script_parse": "pass",
+      "signing_guards": "post-import and final passed with zero key paths",
+      "native_execution": "final four-profile CI pending"
     }
-  ]
+  ],
+  "early_native_review": {
+    "source_sha": "3502c90f20f43ab0d5ed492ebeaff2b4c1e6e5a6",
+    "run_id": 43515462020,
+    "artifact_id": 14079324621,
+    "candidate_checks": {
+      "phone": 553,
+      "short": 553
+    },
+    "candidate_pngs_opened": {
+      "root": "all14 phone",
+      "read_only_reviewer": "all14 short"
+    },
+    "visual_defects_found": [],
+    "evidence_gap": "add first captured-strength label capture for short viewport",
+    "overall_job": "failed final signing-material isolation check; retained",
+    "owner_approved": false
+  }
 }

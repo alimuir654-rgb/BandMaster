@@ -162,17 +162,44 @@ def copy_project(repo: Path, destination: Path, baseline: str | None, harness: P
 
 def environment(work: Path, identity: str) -> dict:
     base = work / 'environment' / identity
-    for name in ('data', 'config/godot', 'cache', 'tmp', 'blocked-bin'):
+    for name in ('data/godot/keystores', 'config/godot', 'cache', 'tmp', 'guarded-jdk/bin', 'android-disabled'):
         (base / name).mkdir(parents=True, exist_ok=True)
-    for name in ('keytool', 'jarsigner'):
-        tool = base / 'blocked-bin' / name
-        tool.write_text('#!/bin/sh\necho "SONG55: signing and key generation are disabled" >&2\nexit 97\n')
+    for name in ('java', 'keytool', 'jarsigner'):
+        tool = base / 'guarded-jdk/bin' / name
+        tool.write_text('#!/bin/sh\necho "SONG55: Java, signing and key generation are disabled in native UI proof" >&2\nexit 97\n')
         tool.chmod(0o755)
-    # No Android export preset is copied. Guard external signing commands as well.
+    # Godot's editor can create a debug key during import using an absolute
+    # JAVA_HOME/bin/keytool. A PATH-only guard does not prevent that setup.
+    # This existing plain-text sentinel is deliberately NOT a signing identity.
+    sentinel = base / 'NO_ANDROID_SIGNING.txt'
+    sentinel.write_text('SONG55 native UI proof: no Android export or signing identity.\n')
+    settings = {'export/android/java_sdk_path': str(base / 'guarded-jdk'),
+                'export/android/android_sdk_path': str(base / 'android-disabled'),
+                'export/android/debug_keystore': str(sentinel),
+                'export/android/debug_keystore_user': 'DISABLED',
+                'export/android/debug_keystore_pass': 'DISABLED'}
+    (base / 'config/godot/editor_settings-4.7.tres').write_text(
+        '[gd_resource type="EditorSettings" format=3]\n[resource]\n' +
+        '\n'.join(key + '=' + json.dumps(value) for key, value in settings.items()) + '\n')
+    (base / 'data/godot/keystores').chmod(0o555)
     return dict(os.environ, XDG_DATA_HOME=str(base / 'data'), XDG_CONFIG_HOME=str(base / 'config'),
                 XDG_CACHE_HOME=str(base / 'cache'), TMPDIR=str(base / 'tmp'),
-                PATH=str(base / 'blocked-bin') + os.pathsep + os.environ.get('PATH', ''),
+                JAVA_HOME=str(base / 'guarded-jdk'), ANDROID_HOME=str(base / 'android-disabled'),
+                ANDROID_SDK_ROOT=str(base / 'android-disabled'),
+                PATH=str(base / 'guarded-jdk/bin') + os.pathsep + os.environ.get('PATH', ''),
                 LIBGL_ALWAYS_SOFTWARE='1', GODOT_SILENCE_ROOT_WARNING='1')
+
+
+def signing_guard(work: Path, label: str) -> dict:
+    # Report location/size only. Never read or upload unexpected key bytes.
+    found = sorted(set(work.rglob('*.keystore')) | set(work.rglob('*.jks')))
+    result = {'pass': not found, 'key_paths': [
+        {'path': str(p.relative_to(work)), 'size': p.stat().st_size if p.is_file() else None}
+        for p in found], 'key_contents_read': False}
+    write_json(work / 'logs' / (label + '-signing-guard.result.json'), result)
+    if found:
+        raise RuntimeError('Unexpected signing material in isolated proof: ' + json.dumps(result))
+    return result
 
 
 def run(work: Path, name: str, command: list[str], env: dict, timeout: int = 180) -> dict:
@@ -308,6 +335,7 @@ def main() -> None:
         tag = variant + '-import'
         if tag not in manifest['runs']:
             manifest['runs'][tag] = run(work, tag, [str(engine), '--headless', '--editor', '--path', str(project), '--import'], environment(work, tag), 240)
+            manifest.setdefault('signing_guards', {})[tag] = signing_guard(work, tag)
             write_json(work / 'RUN.json', manifest)
     if models:
         for label, script in [('native-parse', NATIVE), ('native-fixture', NATIVE), ('summary', PURE), ('recording', RECORDING)]:
@@ -326,8 +354,8 @@ def main() -> None:
             manifest['runs'][tag] = run(work, tag, command, environment(work, tag))
             write_json(work / 'RUN.json', manifest)
     if a.models_only:
-        if any(work.rglob('*.keystore')) or any(work.rglob('*.jks')):
-            raise RuntimeError('Unexpected signing material in isolated proof; retain evidence and inspect')
+        manifest.setdefault('signing_guards', {})['models-final'] = signing_guard(work, 'models-final')
+        write_json(work / 'RUN.json', manifest)
         print(json.dumps({'work': str(work), 'receipt': str(work / 'RUN.json'),
                           'completed': sorted(manifest['runs']), 'native_not_run': True}))
         return
@@ -365,8 +393,8 @@ def main() -> None:
         proc.terminate()
         proc.wait(timeout=10)
         stream.close()
-    if any(work.rglob('*.keystore')) or any(work.rglob('*.jks')):
-        raise RuntimeError('Unexpected signing material in isolated proof; retain evidence and inspect')
+    manifest.setdefault('signing_guards', {})['native-final'] = signing_guard(work, 'native-final')
+    write_json(work / 'RUN.json', manifest)
     print(json.dumps({'work': str(work), 'receipt': str(work / 'RUN.json'),
                       'completed': sorted(manifest['runs']), 'visual_review_required': True}))
 
