@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "scope": "Private FLAC copies of all lossless source WAVs in current Dropbox [private-audio-folder] catalogue",
+  "source_WAVs": 51,
+  "source_bytes": 1356297816,
+  "FLAC_bytes": 467591336,
+  "saved_bytes": 888706480,
+  "saved_percent": 65.52,
+  "complete_decoded_samples_identical": true,
+  "sample_rate_channels_and_16bit_depth_preserved": true,
+  "originals_retained": true,
+  "source_records_Dropbox_hash_verified": 51,
+  "already_compressed_references": {
+    "mp3": 4,
+    "opus_in_m4a_filename": 1,
+    "action": "Retained unchanged; FLAC would not restore quality and normally expands these files"
+  },
+  "private_verification_manifest": {
+    "local_path": "[private-workspace]",
+    "sha256": "387ff05261f60bc2cb0e6f9ebf05358eb3a019c0a2b5a35cd3051891a19f5b13",
+    "bytes": 47315
+  },
+  "proposed_Dropbox_folder": "[private-audio-folder]",
+  "delivery_status": "COMPLETE_ALL51_FLACs_AND_MANIFEST_REMOTE_HASH_VERIFIED",
+  "game_runtime_changed": false,
+  "unchanged_tracked_runtime_and_signing_paths": 1037,
+  "new_APK": false,
+  "media_publication": false,
+  "owner_approved": false,
+  "Dropbox_folder": "[private-audio-folder]",
+  "Dropbox_folder_id": "[private-file-id]",
+  "uploaded_FLACs": 51,
+  "uploaded_audio_bytes": 467591336,
+  "manifest_uploaded_and_hash_verified": true,
+  "remaining_FLACs": 0,
+  "remaining_audio_bytes": 0,
+  "required_next_action": "None for FLAC delivery; complete.",
+  "original56_Dropbox_files_unchanged": true,
+  "completion_record": "docs/continuous_improvement/FLAC50_RESULTS.json",
+  "publication": "LOCAL_ONLY inherited automatic review hold",
+  "public_recovery": {
+    "original_commit": "eef373a3fe62e8a083ca0fe0d440b8c177a63671",
+    "original_record_sha256": "ccab61583c5da8ff6b59bff052bf95859143fc7adee2fff5da4f22dbd68acbae",
+    "scope": "Public source/progress record. Private transfer identifiers, links and evidence paths omitted; full original retained privately. Historical original SHA references require RECOVER54 mapping; not new test executions."
+  }
+}

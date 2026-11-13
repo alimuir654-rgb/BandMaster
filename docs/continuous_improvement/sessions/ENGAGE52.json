@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "id": "ENGAGE52",
+  "status": "closed",
+  "owner_approved": false,
+  "baseline_sha": "ba20d6b17a2acb2336d3fa65f58225092a8933b8",
+  "owner_request": "Owner rejects both Arjun old-generation sampled reviews; identifies probable Casey first drum breakdown, weak button clarity on writing/audition screens, and unengaging musician/promoter/radio encounters. Technical PILOT51 checks do not constitute pilot clearance. No repeat SFZ/DSP attempt. First source read guessed booking_desk.gd; actual inventory identifies gig_booking_desk.gd.",
+  "dominant_issue": "BM-21",
+  "lesson_ids": [
+    "BM-01",
+    "BM-05",
+    "BM-08",
+    "BM-10",
+    "BM-14",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-25",
+    "BM-30",
+    "BM-31",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-40",
+    "BM-41"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2234530,
+    "sha256": "e33968add468549bec9c6168e43835c935eadcae2ffaf623574e252bdafe388f"
+  },
+  "target": {
+    "locator": "[private-workspace]",
+    "original_sha256": "ca9783200e5913234b2d63ebca606171923ec31c8564b9a3b6496ef6a5ac5470",
+    "pixels_inspected": true,
+    "visual_changes": true
+  },
+  "controlled_comparison": "Baseline/candidate exact same private native fixtures, viewport, source imagery/materials, band/song/venue/history. Improve dialogue-turn clarity and reply affordances without changing prices, talent, days, eligibility, stats, meters or save guards. Keep exact listener approval separate from audio source/decoder proof.",
+  "hypothesis": "Existing saved promises/show/song context can make distinct people respond to actual player intentions; a reusable readable speaker/player exchange and bounded first-person response controls will improve all three conversations. Inspect actual writing/audition native pixels before fixing contrast/selection/clipping. Newer approved Suno stems can provide better short guitar/drum candidates than rejected sampler/breakdown excerpts.",
+  "stop_condition": "No new APK/signature until this owner review addressed. No repeated old sampler, falsely matched Suno-to-score claims, changed original saves/economy/IDs/key, paid tool/runtime dependency/new cast portrait, public owner audio or push of rejected private metadata history. Log failures before correction, change method after two ineffective attempts.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/conversation_*.gd",
+    "experiments/playable_flightcase/promoter_encounter.gd",
+    "experiments/playable_flightcase/gig_booking_desk.gd",
+    "experiments/playable_flightcase/musician_chat.gd",
+    "experiments/playable_flightcase/musician_chat_desk.gd",
+    "experiments/playable_flightcase/radio_visit_desk.gd",
+    "experiments/playable_flightcase/mixing_desk.gd",
+    "experiments/playable_flightcase/audition_desk.gd",
+    "experiments/playable_flightcase/character_audio.gd",
+    "tools/engage52*.py",
+    "tests/engage52*.gd",
+    "docs/audio/**",
+    "docs/continuous_improvement/**",
+    "docs/handover/START_HERE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "experiments/playable_flightcase/audio/character_indie29/manifest.json",
+    "experiments/playable_flightcase/career_desk.gd"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/ENGAGE52.json",
+    "Fresh native baseline phone/short writing/audition state inspection; source manifests/actual UI APIs before patches",
+    "Existing pure band-stories/booking/radio state safety tests plus new real input/reply/selection/save-failure/reload paths",
+    "Four native profiles390x844,720x1280,1280x720,1600x900; open original PNGs for each affected flow, no new APK"
+  ],
+  "queue_task_ids": [
+    "UX11",
+    "UX12",
+    "AU02",
+    "UX02"
+  ],
+  "reviewer": "Root source/controls reviewer; five explicitly SIMULATED lenses, no independent human or additional agent claim",
+  "player_journey": "Meet musician/promoter/presenter -> understand immediate concern -> choose own response -> see distinct reaction and preserved actual agreement/answer -> use next real action. Writing/audition buttons readable before and after choice.",
+  "resource_plan": {
+    "evidence_root": "[private-workspace]",
+    "workers": 1,
+    "new_dependencies": false,
+    "new_APK": false,
+    "audio": "Owner-requested revision of previously approved owner Suno masters. Arjun two9.6s D-G-A-D passages, Casey first7.06s existing dark05passage; originals retained. Source candidate integration authorised for review; owner excerpt listening remains false. Explicitly independent of written four-bar response, no new rendering method/SFZ."
+  },
+  "writer": {
+    "owner": "root",
+    "status": "released"
+  },
+  "started_at": "2026-11-11T08:53:21.055581+00:00",
+  "publication": "LOCAL_ONLY: inherited private-history publication rejection remains binding",
+  "closed_at": "2026-11-11T09:28:47.551817+00:00",
+  "closeout": {
+    "tested_sha": "81f6129d0f166ff0b854b0ae849bc419ccdcd60c",
+    "evidence": "docs/continuous_improvement/ENGAGE52_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Owner reviews the three replacement audio excerpts and revised writing/audition/musician/promoter/radio screens before final combined source freeze and a fresh audited original-key signing request.",
+    "new_issue_review": "Failed fixtures, early visual HOLD, corrected audio category/binding and model-helper parse failure retained. Final960checks pass.20final originals opened. No human/listening/Android/art approval; public privacy hold retained."
+  },
+  "public_recovery": {
+    "original_commit": "eef373a3fe62e8a083ca0fe0d440b8c177a63671",
+    "original_record_sha256": "7cce38eb5de7bffda47c00cc47ff30a0da197c183de9ba615dafdd942b62afb7",
+    "scope": "Public source/progress record. Private transfer identifiers, links and evidence paths omitted; full original retained privately. Historical original SHA references require RECOVER54 mapping; not new test executions."
+  }
+}

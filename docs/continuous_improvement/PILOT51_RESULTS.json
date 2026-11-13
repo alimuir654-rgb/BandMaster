@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "session": "PILOT51",
+  "completed_at": "2026-11-11T08:35:12.180383+00:00",
+  "status": "audited_smaller_unsigned_candidate_ready_Arjun_listening_pending",
+  "owner_approved": false,
+  "tested_sha": "143791aee5377adee144c093c050be1e104a42d5",
+  "publication": "LOCAL_ONLY; FLAC49/50 private metadata export rejection remains in force; no push attempted.",
+  "APK": {
+    "path": "[private-workspace]",
+    "apk_sha256": "06f9c9e536e6214f554158e9becbca06b203884afe7ade680cfe99ebf1018adb",
+    "apk_size": 372360325,
+    "version_code": 25,
+    "integrated_source_commit": "143791aee5377adee144c093c050be1e104a42d5",
+    "game_source_commit": "143791aee5377adee144c093c050be1e104a42d5",
+    "branch": "feature/playtest-polish-v20",
+    "signed": false,
+    "installable": false,
+    "prior_V24_bytes": 461783381,
+    "saving_bytes": 89423056,
+    "saving_percent": 19.36,
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "save_directory": "BandMasterOwnerPlaytestS40",
+    "fresh_signing_request_issued": false,
+    "why_request_held": "New Arjun recordings awaiting required owner listening decision before final combined source freeze; no premature original-key request."
+  },
+  "audio": {
+    "indie_independent_candidates": 18,
+    "total_candidates": 18,
+    "new_Nina_materials": [
+      "quiet verse",
+      "harmony"
+    ],
+    "Nina_owner_assignment": "Use Last Bus Gone for Nina",
+    "packed_recordings": 185,
+    "lossless": true,
+    "original_PCM_bytes": 311456600,
+    "packed_container_bytes": 182661578,
+    "source_WAV_and_FLAC_unchanged": true,
+    "actual_APK_audio_bytes": 225805590,
+    "other_genres": "Matching audition banks remain unavailable; no Indie relabelling.",
+    "Arjun": {
+      "status": "two matching performances rendered, pending owner listening acceptance",
+      "review_files": [
+        "[private-workspace]",
+        "[private-workspace]"
+      ],
+      "seconds_each": 12,
+      "notes": [
+        8,
+        10
+      ],
+      "samples": "80 exact Git blobs across8pitches/96SFZregions, pinned existing Karoryfer source",
+      "licence": "Publisher pinned README permits royalty-free commercial/non-commercial use; CC0 subtype not freshly verified.",
+      "runtime_integration": false
+    }
+  },
+  "verification": {
+    "tested_sha": "143791aee5377adee144c093c050be1e104a42d5",
+    "unsigned_apk_sha256": "06f9c9e536e6214f554158e9becbca06b203884afe7ade680cfe99ebf1018adb",
+    "compiled_apk_model": {
+      "checks": 504,
+      "compiled_payload": true,
+      "failures": [],
+      "listening": false,
+      "physical_device": false
+    },
+    "compiled_native": {
+      "phone": {
+        "actual_cues": [
+          "entrance",
+          "courtesy",
+          "boo"
+        ],
+        "checks": 104,
+        "compiled_payload": true,
+        "failures": [],
+        "listening": false,
+        "physical_device": false,
+        "version5_main_app": true,
+        "viewport": "(390, 844)"
+      },
+      "short": {
+        "actual_cues": [
+          "entrance",
+          "courtesy",
+          "boo"
+        ],
+        "checks": 104,
+        "compiled_payload": true,
+        "failures": [],
+        "listening": false,
+        "physical_device": false,
+        "version5_main_app": true,
+        "viewport": "(1280, 720)"
+      },
+      "tall": {
+        "actual_cues": [
+          "entrance",
+          "courtesy",
+          "boo"
+        ],
+        "checks": 104,
+        "compiled_payload": true,
+        "failures": [],
+        "listening": false,
+        "physical_device": false,
+        "version5_main_app": true,
+        "viewport": "(720, 1280)"
+      },
+      "wide": {
+        "actual_cues": [
+          "entrance",
+          "courtesy",
+          "boo"
+        ],
+        "checks": 104,
+        "compiled_payload": true,
+        "failures": [],
+        "listening": false,
+        "physical_device": false,
+        "version5_main_app": true,
+        "viewport": "(1600, 900)"
+      }
+    },
+    "nina_native": {
+      "phone": {
+        "assistant_listening": false,
+        "checks": 25,
+        "failures": [],
+        "physical_Android": false,
+        "viewport": "(390, 844)"
+      },
+      "short": {
+        "assistant_listening": false,
+        "checks": 25,
+        "failures": [],
+        "physical_Android": false,
+        "viewport": "(1280, 720)"
+      },
+      "tall": {
+        "assistant_listening": false,
+        "checks": 25,
+        "failures": [],
+        "physical_Android": false,
+        "viewport": "(720, 1280)"
+      },
+      "wide": {
+        "assistant_listening": false,
+        "checks": 25,
+        "failures": [],
+        "physical_Android": false,
+        "viewport": "(1600, 900)"
+      }
+    },
+    "exact_PCM": {
+      "checks": 378,
+      "exact_original_PCM": true,
+      "failures": [],
+      "files": 185,
+      "max_ms": 172.631,
+      "median_ms": 108.068,
+      "physical_Android": false
+    },
+    "character_lifecycle": {
+      "Arjun_adjusted": "written-only",
+      "Nina": "owner-approved Last Bus Gone",
+      "checks": 169,
+      "covered": [
+        "cast_jack",
+        "cast_maya",
+        "cast_ellis",
+        "cast_zoe",
+        "cast_dan",
+        "cast_ryan",
+        "cast_lily",
+        "cast_marcus",
+        "cast_ben",
+        "cast_freya",
+        "cast_arjun",
+        "cast_nina",
+        "cast_tom",
+        "cast_casey",
+        "cast_hannah",
+        "cast_oscar",
+        "cast_bex",
+        "cast_sam"
+      ],
+      "failures": [],
+      "listening_verified": false,
+      "physical_Android": false
+    },
+    "V24_upgrade": {
+      "checks": 13,
+      "failures": [],
+      "fixture_sha256": "8e78f9ec2e2f139c7fe27f8b0c7813b291cfdeee2fbcbd2459d64113b0953c96",
+      "physical_Android": false
+    },
+    "physical_Android": false,
+    "listening_verified": false
+  },
+  "native_originals_opened": [
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]"
+  ],
+  "preserved_evidence": [
+    "Failed source-container negative checks, corrected by binding both container and PCM identity",
+    "Old version4-only source harness fails3already-existing version5 hooks; current compiled model504passes",
+    "First compiled host correctly refused source filesystem fallback; explicit empty host corrected",
+    "Initial display died outside parent; bounded same-process display ownership corrected",
+    "First Singer fixture entered microphone-choice workspace; real separate-singer route corrected",
+    "Old native V24 identity assertion held V25; V25-specific harness keeps all other104checks",
+    "First Arjun takes numerically quiet; retained, fresh v2 uses common gain12with no clipping and full tail",
+    "First unguarded import completed before intended termination, no keystore observed; explicit signing-tool/public-fixture guards used for export"
+  ],
+  "source_binding": "[private-workspace]",
+  "asset_review": "docs/audio/PILOT51_ASSET_REVIEW.json",
+  "simulated_lenses": [
+    {
+      "role": "SIMULATED audio engineer",
+      "finding": "185original PCM/frame/stereo hashes restored exactly; new sampler source/notes/tails verified; no audible-quality claim. Desktop median108ms/max173ms per packed stem; phone latency remains untested."
+    },
+    {
+      "role": "SIMULATED mobile tester",
+      "finding": "Four real native sizes plus104compiled gig checks per size and25Nina input checks per size; physical Android update/touch/suspend/audio still requires owner phone."
+    },
+    {
+      "role": "SIMULATED game designer",
+      "finding": "All18Indie musicians now have independent ideas; Arjun responses remain honestly written-only until new listening acceptance. Other genre banks missing."
+    },
+    {
+      "role": "SIMULATED release engineer",
+      "finding": "V25unsigned372MB, original app/save identity and V24fixture preserved, no key generated/loaded. Fresh request and original environment signature still needed after final audio source freeze."
+    },
+    {
+      "role": "SIMULATED privacy reviewer",
+      "finding": "Audio/masters/APK/SFZ samples/private receipts retained privately. No new sharing, source publication or rejected-history push. Summer assets only inspected as public sources."
+    }
+  ],
+  "remaining": [
+    "Arjun owner listening decision and subsequent integration/final combined rebuild if accepted",
+    "Fresh audited version>24 request signed with original key in original environment",
+    "Physical Android V24 update/Continue and fresh-install/audio/latency testing",
+    "Other genres remain outside complete audition audio coverage",
+    "PUNCH48 owner visual acceptance and friends/family pilot feedback pending"
+  ],
+  "next_action": "Owner reviews the two prepared Arjun responses; integrate only accepted takes, then freeze final combined source and prepare fresh detached request.",
+  "final_native_originals": 68,
+  "held_first_compiled_phone_originals": 15,
+  "public_recovery": {
+    "original_commit": "eef373a3fe62e8a083ca0fe0d440b8c177a63671",
+    "original_record_sha256": "d6b79a4a3e1651b63b7fd46ebb9f0e6369b1059611bbfdfb6081f85770e38183",
+    "scope": "Public source/progress record. Private transfer identifiers, links and evidence paths omitted; full original retained privately. Historical original SHA references require RECOVER54 mapping; not new test executions."
+  }
+}

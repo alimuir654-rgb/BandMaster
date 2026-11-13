@@ -1,0 +1,28 @@
+{
+  "checked_at": "2026-11-11T08:35:12.180383+00:00",
+  "source": "https://www.summerengine.com/asset-store",
+  "scope": "Limited initial source search for venues/poster materials/incidental sounds; no engine migration/account creation/upload/generation.",
+  "candidates": [
+    {
+      "url": "https://www.summerengine.com/asset-store/sfx-old-wooden-pub-door-creaking-o-ffc91f04",
+      "creator": "D-cyfer",
+      "licence_label": "Free",
+      "licence_mapping": "Summer official licensing docs map Free to CC0",
+      "licence_source": "https://docs.summerengine.com/art-system/licensing",
+      "format": "Asset page says WAV; search excerpt says MP3. Actual downloadable file not inspected.",
+      "disposition": "Shortlist only; not downloaded/listened/adopted"
+    }
+  ],
+  "excluded_directions": [
+    "Horror backstage imagery",
+    "Cartoon/isometric pub illustration"
+  ],
+  "venue_background_adopted": false,
+  "asset_files_added": 0,
+  "private_material_uploaded": false,
+  "public_recovery": {
+    "original_commit": "eef373a3fe62e8a083ca0fe0d440b8c177a63671",
+    "original_record_sha256": "335660f02ed6d521845945bd2275c8b09e51f5bd6644254a8d3a33a19820275b",
+    "scope": "Public source/progress record. Private transfer identifiers, links and evidence paths omitted; full original retained privately. Historical original SHA references require RECOVER54 mapping; not new test executions."
+  }
+}

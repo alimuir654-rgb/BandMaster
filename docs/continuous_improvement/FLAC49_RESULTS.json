@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "session": "FLAC49",
+  "status": "ALL51_FLAC_CONVERSIONS_VERIFIED_FOLDER_CREATED_29_REMOTE_FILES_VERIFIED_22_STORAGE_HELD",
+  "owner_approved": false,
+  "closed_at": "2026-11-11T00:28:47.931598+00:00",
+  "baseline_sha": "89ef136e232709742150e025b8d0eba9b3ada27f",
+  "preflight_sha": "9e5cf1d29acb66f3f764d99eb559f5b5df649df3",
+  "tested_authoring_source_sha": "33bca50d16dce34128d6c2f0f2fcab645dea222b",
+  "output_root": "[private-workspace]",
+  "private_evidence_root": "[private-workspace]",
+  "converted_lossless_sources": 51,
+  "source_bytes": 1356297816,
+  "FLAC_bytes": 467591336,
+  "saved_bytes": 888706480,
+  "saved_percent": 65.52,
+  "verification": "Complete source/FLAC decoded PCM SHA matches for every file; sample rate/channels/16bit depth preserved. All sources original hashes retained; 51source Dropbox block hashes verified. Post-resume output SHA rechecked before delivery. No trim/normalise/resample/pitch changes.",
+  "retained_compressed_references": {
+    "MP3": 4,
+    "Opus_with_m4a_filename": 1,
+    "action": "Retained unchanged; no lossless-quality restoration or smaller-size claim from transcoding compressed references."
+  },
+  "local_manifest": {
+    "path": "[private-workspace]",
+    "sha256": "387ff05261f60bc2cb0e6f9ebf05358eb3a019c0a2b5a35cd3051891a19f5b13",
+    "bytes": 47315
+  },
+  "Dropbox": {
+    "folder": "[private-audio-folder]",
+    "folder_id": "[private-file-id]",
+    "manifest_uploaded": true,
+    "manifest_file_id": "[private-file-id]",
+    "uploaded_audio_files": 29,
+    "uploaded_audio_bytes": 291652197,
+    "remote_hash_and_size_verified_files": 30,
+    "remaining_files": 22,
+    "remaining_audio_bytes": 175939139,
+    "status": "PARTIAL_STORAGE_HELD",
+    "failure": "RESOURCE_EXHAUSTED / Insufficient space (reason: INSUFFICIENT_SPACE)",
+    "all56_original_files_same_id_size_modified_time": true,
+    "sharing_changed": false,
+    "new_links_created": false,
+    "resume_plan": "[private-workspace]"
+  },
+  "failed_attempt_history": [
+    "Initial default sandbox source acquisition EPERM before HTTP; bounded approved outer acquisition then succeeded. All 51originals verified, only10new WAVdownloads required.",
+    "Previous turn completed all conversions and1037tracked protected hashes, then workspace exec transport disconnected and45s recovery timed out. No prior Dropbox write.",
+    "Resumed first workspace read succeeded; subsequent command creation briefly failed. Connected Dropbox created authorised folder and manifest; command access recovered without reconversion.",
+    "Two-file bounded upload batches stopped on first explicit insufficient-space error after29audio+manifest completed. No retry, source deletion or alternate name. Exact remote size/hash readback confirms partial success; remaining22kept locally."
+  ],
+  "protected": {
+    "baseline": "89ef136e232709742150e025b8d0eba9b3ada27f",
+    "unchanged_tracked_paths": 1037,
+    "changed": []
+  },
+  "new_Godot_runs": 0,
+  "new_native_captures": 0,
+  "new_APK": false,
+  "audio_bank_or_gameplay_changes": false,
+  "public_owner_media": false,
+  "owner_source_assignments_and_listening_approvals": "Unchanged. Conversion does not clear Nina fit, Arjun response-source recovery or non-Indie audition gaps.",
+  "simulated_review_lenses": [
+    {
+      "lens": "SIMULATED audio integrity engineer",
+      "finding": "Full decoded samples/rate/channels/depth preserved for51; mathematical format verification, not new listening acceptance."
+    },
+    {
+      "lens": "SIMULATED source archivist",
+      "finding": "Source-container hashes and originals retained; verification manifests identify exact derivatives. MP3/Opus reference copies retained."
+    },
+    {
+      "lens": "SIMULATED delivery operator",
+      "finding": "29remoteFLACs+manifest exact hashes/sizes;22ready but external insufficient-space block. Partial is not complete."
+    },
+    {
+      "lens": "SIMULATED privacy/continuity reviewer",
+      "finding": "No public audio, no sharing changes, all56remote original file identities/times/sizes unchanged,1037tracked game/signing paths unchanged."
+    },
+    {
+      "lens": "SIMULATED owner workflow reviewer",
+      "finding": "Approved new [private-audio-folder] folder now exists; resume22pending after200MBfree, skip29completed and manifest. No cleanup/deletion authorised."
+    }
+  ],
+  "visual_verdict": "partial",
+  "visual_scope": "Nonvisual conversion/delivery only. Existing PUNCH48 reviewed UI retained unchanged, no new artistic judgement.",
+  "next_action": "Owner frees at least200MB in Dropbox; resume only the22pending FLAC uploads into the existing authorised folder after listing/hash checks. Do not overwrite verified29files or manifest.",
+  "writer_released": true,
+  "publication": {
+    "status": "LOCAL_ONLY_AUTO_REVIEW_REJECTED",
+    "action": "git push of FLAC49 history rejected before execution",
+    "reason": "Private Dropbox identifiers/local paths/delivery metadata lack explicit public export authorisation; GitHub destination not verified by review",
+    "alternative": "Keep records locally; no retry/indirect publication",
+    "local_closeout_commit": "6532ea4"
+  },
+  "public_recovery": {
+    "original_commit": "eef373a3fe62e8a083ca0fe0d440b8c177a63671",
+    "original_record_sha256": "7bbdfa0232280fb4fd0babf2636816e7c74613462830f7c943ce528f4e91da08",
+    "scope": "Public source/progress record. Private transfer identifiers, links and evidence paths omitted; full original retained privately. Historical original SHA references require RECOVER54 mapping; not new test executions."
+  }
+}

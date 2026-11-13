@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "SONG53",
+  "status": "closed",
+  "owner_approved": false,
+  "baseline_sha": "b93f44809fab04c43c0f91fe90b0f6af468e48d5",
+  "owner_request": "Owner says latest three replacement audio clips and screen revisions all look good, then requests coherent links between writing, performing, recording and promoting and easy song-strength metrics. Source audit finds existing quality chain but band-wide rehearsal, inherited recording quality and aggregate promo outcomes. Early retrieval guessed Scripts/Game.gd and setlist glob, which do not exist; corrected by actual inventory; bounded subsequent reads.",
+  "dominant_issue": "BM-38",
+  "lesson_ids": [
+    "BM-21",
+    "BM-30",
+    "BM-33",
+    "BM-35",
+    "BM-36",
+    "BM-38",
+    "BM-40",
+    "BM-41"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2237360,
+    "sha256": "8b616bbd7dae1cbfcb84e0390603926ea308fc5a2576d6a2c55e35b74c40305d"
+  },
+  "target": {
+    "locator": "[private-workspace]",
+    "original_sha256": "f2022e3f2c0095cfb151a46a1d09ddaa6f6d25d0b236881ce0b72fe5a00c15b5",
+    "pixels_inspected": true,
+    "visual_changes": false
+  },
+  "controlled_comparison": "Read-only causal audit at exact baseline. Record accepted ENGAGE52 output; propose one song view using actual identity/receipt facts, mark missing systems as future. No UI/model/save edits. Private audio metadata changes exactly three owner_listening_accepted flags.",
+  "hypothesis": "Four clear song metrics plus contextual audience-response evidence let players distinguish composition, execution, recorded version and exposure; staged causal receipts connect choices without a universal best recipe or success forecast.",
+  "stop_condition": "No invented current per-song readiness/listener totals or retrospective quality history; no runtime/save/economy/signing/APK/publication change. Four native captures unnecessary for documentation-only scope; unchanged ENGAGE52 proof is retained evidence, not a new run.",
+  "allowed_paths": [
+    "docs/continuous_improvement/**",
+    "docs/audio/AUDITION47_STATUS.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/handover/START_HERE.md",
+    "experiments/playable_flightcase/audio/character_indie29/manifest.json"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/SONG53.json",
+    "Source mapping: verify exact function locations and SHA; docs links and actual vs proposed semantics; three private acceptance flags only",
+    "git diff --check; final exact --before committed preflight --require-prior-record; no changed .gd/scene/project/signing/audio bytes"
+  ],
+  "writer": {
+    "owner": "root",
+    "status": "released"
+  },
+  "started_at": "2026-11-11T10:10:44.556042+00:00",
+  "publication": "LOCAL_ONLY; inherited private-history public-export rejection binding",
+  "resource_plan": {
+    "workers": 1,
+    "new_APK": false,
+    "new_dependencies": false,
+    "evidence_root": "[private-workspace]"
+  },
+  "queue_task_ids": [
+    "UX02",
+    "UX11",
+    "UX12",
+    "AU02"
+  ],
+  "reviewer": "Root; five explicitly SIMULATED review lenses, no additional agent or independent human claim",
+  "closed_at": "2026-11-11T10:15:22.559001+00:00",
+  "closeout": {
+    "tested_sha": "81f6129d0f166ff0b854b0ae849bc419ccdcd60c",
+    "evidence": "docs/continuous_improvement/SONG53_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Implement the read-only shared song-summary slice using existing IDs, strength and recording/history facts under a fresh scoped source/UI preflight; label unsupported per-song preparation/reach honestly, then connect later model slices.",
+    "new_issue_review": "Source-grounded design complete;15function/path/hash bindings verified, runtime/signing unchanged, exactly three private listening flags accepted. Guessed early read paths retained as BM33/38 finding; no new gameplay/visual/native/listening claim. Five SIMULATED lenses. Strict source-map check also caught guessed after_perform; corrected to observed complete before final audit; first hold retained."
+  },
+  "public_recovery": {
+    "original_commit": "eef373a3fe62e8a083ca0fe0d440b8c177a63671",
+    "original_record_sha256": "09518828c94a6ca005971607d81de1e757eb6291c29ca3d8df37f3dfeae7c9e6",
+    "scope": "Public source/progress record. Private transfer identifiers, links and evidence paths omitted; full original retained privately. Historical original SHA references require RECOVER54 mapping; not new test executions."
+  }
+}

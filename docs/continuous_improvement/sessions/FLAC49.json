@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "id": "FLAC49",
+  "status": "closed",
+  "owner_approved": false,
+  "baseline_sha": "89ef136e232709742150e025b8d0eba9b3ada27f",
+  "owner_request": "Owner explicitly requests conversion of all existing audio to FLAC after verified62percent sample. Existing Dropbox [private-audio-folder] source catalogue and local original intakes must be reconciled; workspace includes many duplicate QA/game derivatives.",
+  "dominant_issue": "BM-40",
+  "lesson_ids": [
+    "BM-30",
+    "BM-31",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38",
+    "BM-40",
+    "BM-41"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2210412,
+    "sha256": "a19b10f4919b730ff4d9d796622a810cad8b92ad2de5a066bce59669cb6508a0"
+  },
+  "target": {
+    "locator": "Nonvisual lossless source conversion, exact PUNCH48 FLAC receipt reused. Unchanged PUNCH48 native UI original viewed previously and retained for protected-context evidence only: [private-workspace]",
+    "original_sha256": "955773c7946fe5221529f038ae1dc47b53c5dba11e11cd8cb09fff0b6d3b4dbb",
+    "pixels_inspected": true,
+    "visual_changes": false
+  },
+  "controlled_comparison": "For each source, exact pre/post decoded PCM SHA256, sample rate/channels/bit depth/frame count, original file SHA unchanged, expected filename mapping and complete catalogue accounting. Deduplicate QA/source replicas; preserve original formats. No native/art/APK reruns for nonvisual archive task.",
+  "hypothesis": "The verified existing helper can losslessly compress all integer PCM source WAVs with smaller private FLAC copies while exact sample hashes prove unchanged sound/timing. Missing retained sources can be downloaded from owner existing Dropbox, hash checked. Already compressed sources stay intact and listed.",
+  "stop_condition": "Hold any PCM/rate/channel/depth mismatch, changed source or conflicting destination. No overwrite/deletion/sharing changes, public owner media, app/runtime/audio-bank/save/signing/APK changes, paid/new dependencies or false improved quality/listening claims. Review concrete delivery before any required upload confirmation.",
+  "allowed_paths": [
+    "tools/flac49*",
+    "tests/flac49*",
+    "docs/audio/**",
+    "docs/continuous_improvement/**",
+    "docs/handover/START_HERE.md",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "Actual improvement_gate from committed preflight, current source catalogue and private intakes verified",
+    "Complete catalogue coverage/unique source hashing, decode/probe FLAC every source; full PCM/rate/channels/bit-depth preservation and source before/after hashes",
+    "Existing helper reused where sufficient; unsupported float lossless conversion held explicitly rather than quantisation",
+    "Private file/folder manifest and actual sizes/total savings; original files unchanged, runtime source tree/signing policies unchanged; no native/APK activity",
+    "Source-only nonforce publication if helper/docs change; audio never public. Final delivery path/confirmation per applicable Dropbox workflow only after concrete verified output."
+  ],
+  "resource_plan": {
+    "evidence_root": "[private-workspace]",
+    "output": "[private-workspace]",
+    "read_only_source_catalogue": "Dropbox [private-audio-folder] plus retained private originals",
+    "aggregate_output_cap_bytes": 3000000000,
+    "free_floor_bytes": 629145600,
+    "workers": 1,
+    "new_dependencies": false,
+    "new_APK": false
+  },
+  "writer": {
+    "owner": "root",
+    "status": "released"
+  },
+  "started_at": "2026-11-10T23:41:36.786747+00:00",
+  "delivery_authorisation": {
+    "time": "2026-11-11T00:20:48.943885+00:00",
+    "user_reply": "Make a new folder in the Dropbox audio folder.",
+    "accepted_proposal": "[private-audio-folder] basenames.flac plus FLAC49-verification.json",
+    "folder_created": true,
+    "manifest_uploaded": true
+  },
+  "closed_at": "2026-11-11T00:28:47.931598+00:00",
+  "closeout": {
+    "tested_sha": "33bca50d16dce34128d6c2f0f2fcab645dea222b",
+    "evidence": "docs/continuous_improvement/FLAC49_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Owner frees at least200MB in Dropbox; resume only the22pending FLAC uploads into the existing authorised folder after listing/hash checks. Do not overwrite verified29files or manifest.",
+    "new_issue_review": "All conversion/source/transport/Dropbox space findings reviewed. Full local conversion complete; exact partial delivery and storage hold retained. No new runtime/UI proof or owner-art acceptance."
+  },
+  "publication": "LOCAL_ONLY: automatic approval review rejected exporting private delivery metadata; no git push executed or bypass attempted",
+  "public_recovery": {
+    "original_commit": "eef373a3fe62e8a083ca0fe0d440b8c177a63671",
+    "original_record_sha256": "52a7dec04ec6a0bad8f25aee744c8b1aa0718050cc31229143bf13cbc0b71fd2",
+    "scope": "Public source/progress record. Private transfer identifiers, links and evidence paths omitted; full original retained privately. Historical original SHA references require RECOVER54 mapping; not new test executions."
+  }
+}

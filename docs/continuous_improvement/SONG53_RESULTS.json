@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "session": "SONG53",
+  "completed_at": "2026-11-11T10:15:22.559001+00:00",
+  "status": "design_complete_not_implemented",
+  "owner_approved": false,
+  "audited_baseline_sha": "b93f44809fab04c43c0f91fe90b0f6af468e48d5",
+  "tested_sha": "81f6129d0f166ff0b854b0ae849bc419ccdcd60c",
+  "runtime_test_reuse": "ENGAGE52 historical960checks, unchanged runtime; not rerun or claimed as SONG53 execution",
+  "owner_acceptance": {
+    "quote": "Ok, these all look good.",
+    "accepted": "ArjunA/B and Caseyfirst replacement clips; presented songwriting/promoter/radio screen revisions",
+    "global_game_or_pilot_approval": false,
+    "new_song_design_approved": false
+  },
+  "deliverable": "docs/continuous_improvement/SONG53_LINKED_SONG_SUCCESS.md",
+  "metrics": [
+    "Song strength",
+    "Live readiness",
+    "Recording quality",
+    "Reach"
+  ],
+  "scope": "Source-grounded causal/design audit and scoped acceptance metadata only; no gameplay implementation",
+  "verification": {
+    "source_references": {
+      "Scripts/career_actions.gd": {
+        "sha256": "e2394ffec255ae7c978c77758ccbf643cd31cc8e0e1eb1393ce3707ae343662b",
+        "functions": [
+          "_write_original"
+        ]
+      },
+      "Scripts/song_workshop.gd": {
+        "sha256": "a615225e36acc4edcf626599df4d93560f010a2426dfa57674d7d5b94a421d3b",
+        "functions": [
+          "develop",
+          "finish"
+        ]
+      },
+      "Scripts/song_chemistry.gd": {
+        "sha256": "8db92cff3c74347632e69b62c77762a99583fdda58a9f1abadd54f0ac75d4080",
+        "functions": [
+          "calculate"
+        ]
+      },
+      "experiments/playable_flightcase/song_workbench.gd": {
+        "sha256": "364c6680a901088ee5d5a99d9d72b123c12b34eb0fb82b4e5025c783e1f1f02e",
+        "functions": [
+          "seal_paid"
+        ]
+      },
+      "experiments/playable_flightcase/mixing_recipe.gd": {
+        "sha256": "518f60f7484567584aa6ca8559dd85f2f23638514a3a956733839edde35d507a",
+        "functions": [
+          "craft"
+        ]
+      },
+      "experiments/playable_flightcase/producer_recipe.gd": {
+        "sha256": "ac003559a89a29e7e7e37048dc358783af3b792b9c9aa7c7190e913650d6b926",
+        "functions": [
+          "craft"
+        ]
+      },
+      "Scripts/practice_room.gd": {
+        "sha256": "1f2b92099de77e01d1f10fbb5a0b63e135dc7cee272456b6d9147b0f78e4c7f1",
+        "functions": [
+          "resolve"
+        ]
+      },
+      "experiments/playable_flightcase/gig_performance_policy.gd": {
+        "sha256": "cb317f59bfb4d18b0977c4aa333b81e9dde508d0e1412bb4e8d98b2180729b52",
+        "functions": [
+          "song_step",
+          "feedback",
+          "apply"
+        ]
+      },
+      "experiments/playable_flightcase/gig_journey.gd": {
+        "sha256": "0e3c8037f5fc82b8e97cdb463c6a5fa906be5b48f09dc4e1cd1b0b4bf04821d6",
+        "functions": [
+          "complete"
+        ]
+      },
+      "Scripts/recording_career.gd": {
+        "sha256": "cfd980e445579abd4ab0e8bd36b78073bc5b01a891b362eaa4f52310f1804a22",
+        "functions": [
+          "record",
+          "release"
+        ]
+      },
+      "experiments/playable_flightcase/recording_rules.gd": {
+        "sha256": "d4eb16e54c4a4b4f15cb36d8bc2776d58d9c59bc50a000953309ee8c8bc9a71a",
+        "functions": [
+          "record",
+          "release"
+        ]
+      },
+      "Scripts/release_campaigns.gd": {
+        "sha256": "f610b849125f2280089edb252bf6a8b6843458d41b48bfea0365bbcae3f21392",
+        "functions": [
+          "launch"
+        ]
+      },
+      "experiments/playable_flightcase/promotion_rules.gd": {
+        "sha256": "f6230624e19261fd7697e8af8a0722998fbe9be4e0af833af516f5ca8302c10d",
+        "functions": [
+          "launch"
+        ]
+      },
+      "Scripts/songbook_presentation.gd": {
+        "sha256": "15d6ca4666d12580a6d6846e90db94c587d98289ff97976d457e28540d53b574",
+        "functions": [
+          "entries"
+        ]
+      },
+      "experiments/playable_flightcase/recording_desk.gd": {
+        "sha256": "ce031a3eff461e32ec27a90b03bf5d2ec196b7a0999908d9358638653170ee5c",
+        "functions": [
+          "_song_facts"
+        ]
+      }
+    },
+    "runtime_unchanged_from": "b93f44809fab04c43c0f91fe90b0f6af468e48d5",
+    "original_runtime_sha": "81f6129d0f166ff0b854b0ae849bc419ccdcd60c",
+    "private_registry_delta": "Exactly three owner_listening_accepted false->true, no other fields differ",
+    "accepted_private_materials": [
+      "cast_arjun_engage52_1",
+      "cast_arjun_engage52_2",
+      "cast_casey_engage52_1"
+    ],
+    "frozen_signing": {
+      "docs/signing/BandMaster-V23-APK-v2-signing-request.json": "7ebd68fbbc5baaac8aa50afcb3fc884733a686394de36f96df04ccab95be6741",
+      "docs/signing/v23-policy.json": "c04043e8cff82cbf7f6a7f7b4a9950c60650fc7fdbdc5cb5fc4e5476e0c73389",
+      "docs/signing/BandMaster-V24-APK-v2-signing-request.json": "8072969d2d165075f5cf7df30aa118ed95232b8c7b71d10c2c3b732b02cc191b",
+      "docs/signing/v24-policy.json": "5e8741dc195c5e09b8df21d5d2efd3d3bad9d21296f8c627d7335af9458d58ac"
+    },
+    "design_sha256": "1f59325bea98b510a63a41f27a649510eb65b5df38cd921868686a19673ff4e3",
+    "no_new_native_run_or_APK": true
+  },
+  "originals_opened": [
+    "[private-workspace]"
+  ],
+  "new_UI_or_native_capture": false,
+  "visual_verdict": "partial",
+  "simulated_lenses": [
+    {
+      "lens": "SIMULATED new player",
+      "finding": "Four headline metrics distinguish song, performance, take and exposure; one contextual response line tells why the last result happened."
+    },
+    {
+      "lens": "SIMULATED musician",
+      "finding": "No universally superior form, complexity or production budget; strong song can have poor delivery, and live feedback can motivate revision."
+    },
+    {
+      "lens": "SIMULATED returning player",
+      "finding": "Legacy unknowns retained, composition revisions and immutable recorded takes specified; actual new history only."
+    },
+    {
+      "lens": "SIMULATED controls/accessibility",
+      "finding": "Same song summary reused in context, plain labels plus numbers, no colour-only meaning or fake detailed stats. New UI remains unrendered/unimplemented."
+    },
+    {
+      "lens": "SIMULATED safety/release",
+      "finding": "No changed runtime, tests, original assets, save schema or signing files; only three explicit private listening flags changed. No new builds/publication."
+    }
+  ],
+  "remaining": [
+    "Shared metric UI not implemented",
+    "Per-song rehearsal/readiness, independent recorded-take quality, attributed listens and audience fit require prospective model/UI/save work",
+    "Unknown legacy data cannot be backfilled from global stats",
+    "No new pilot/APK/signature request; physical Android testing still pending",
+    "Global art/game acceptance false; latest scoped acceptance preserved"
+  ],
+  "publication": "LOCAL_ONLY; inherited private-history public-export rejection binding",
+  "next_action": "Implement the read-only shared song-summary slice using existing IDs, strength and recording/history facts under a fresh scoped source/UI preflight; label unsupported per-song preparation/reach honestly, then connect later model slices.",
+  "preserved_failed_audit": {
+    "receipt": "[private-workspace]",
+    "issue": "SONG53-source-map-function-verification",
+    "finding": "Strict audit rejected guessed after_perform name; actual gig_journey.complete inspected and documented. Final15source references passed; runtime unchanged."
+  },
+  "public_recovery": {
+    "original_commit": "eef373a3fe62e8a083ca0fe0d440b8c177a63671",
+    "original_record_sha256": "9342166450e06d9078b1d00c8cc5eeca009ed1be373350b73bf3d1852c4f5bc9",
+    "scope": "Public source/progress record. Private transfer identifiers, links and evidence paths omitted; full original retained privately. Historical original SHA references require RECOVER54 mapping; not new test executions."
+  }
+}

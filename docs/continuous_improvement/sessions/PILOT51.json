@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "id": "PILOT51",
+  "status": "closed",
+  "owner_approved": false,
+  "baseline_sha": "d7388e7a715e76729c859b13446bda7e50256733",
+  "owner_request": "Owner approves proposed free-asset exploration, completion of audition gaps, smaller packaged audio and next Android pilot preparation. Explicit reply approves Last Bus Gone for Nina. Existing private audio, original app/save/key and frozen V23/V24 preserved. No public export of FLAC49/50 history.",
+  "dominant_issue": "BM-33",
+  "lesson_ids": [
+    "BM-08",
+    "BM-14",
+    "BM-26",
+    "BM-30",
+    "BM-31",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38",
+    "BM-40",
+    "BM-41"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2225061,
+    "sha256": "c1ee73e742dc95b3fca29153484ddef47d2d811ac1454bece2618bd3babce71b"
+  },
+  "target": {
+    "locator": "[private-workspace]",
+    "original_sha256": "955773c7946fe5221529f038ae1dc47b53c5dba11e11cd8cb09fff0b6d3b4dbb",
+    "pixels_inspected": true,
+    "visual_changes": "No new UI redesign; retain verified PUNCH48 native layout. Audition bank and audio transport only."
+  },
+  "controlled_comparison": "Retain all source WAV/FLAC bytes and recorded source PCM identities. Measure actual unsigned APK against V24; lossless packing must decode to byte-identical PCM, preserve 48kHz stereo frames and return original AudioStreamWAV interface. Nina snippets use exact approved source hashes and frame offsets. All save/economy outcomes unchanged.",
+  "hypothesis": "A lossless private packed-PCM transport plus removal of proven unused archival resources can shrink the pilot without audio quality loss or save changes; approved Nina excerpts complete independent Indie ideas. Recover pinned existing CC0 SFZ for Arjun before rendering real matching scores.",
+  "stop_condition": "Hold on changed PCM/hash/timing, source rights uncertainty, parse/engine ERROR, changed app/save/certificate, unapproved dependency or source/listening fit. No engine migration, paid tools, private-key transfer/generation or publication of blocked history. Missing original signer means unsigned handoff only.",
+  "allowed_paths": [
+    "tools/pilot51*.py",
+    "tools/build_recorded_owner.py",
+    "tests/pilot51*.gd",
+    "experiments/playable_flightcase/packed_pcm.gd",
+    "experiments/playable_flightcase/recorded_steady.gd",
+    "experiments/playable_flightcase/recorded_vocal_keys.gd",
+    "experiments/playable_flightcase/audio/character_indie29/manifest.json",
+    "docs/audio/**",
+    "docs/signing/v25-policy.json",
+    "docs/signing/BandMaster-V25-APK-v2-signing-request.json",
+    "docs/continuous_improvement/**",
+    "docs/handover/START_HERE.md",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "experiments/playable_flightcase/character_audio.gd",
+    "experiments/playable_flightcase/audio/recorded_indie39/characters.json",
+    "tools/pilot51*.gd",
+    "tests/feedback47_audio.gd",
+    "experiments/playable_flightcase/audio/arjun_clips.json",
+    "experiments/playable_flightcase/audition_desk.gd",
+    "tests/character_consequence_visual.gd"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/PILOT51.json",
+    "Source/PCM/hash/frame/bank completeness and malformed packed-data refusal through actual Godot",
+    "Exact-source isolated recorded_steady, audio lifecycle, vocal/crowd model checks and four native profile journey captures",
+    "Fresh unsigned V25 package/source/compiled-payload/alignment/app/save/certificate audit before new detached signing request"
+  ],
+  "resource_plan": {
+    "evidence_root": "[private-workspace]",
+    "workers": 1,
+    "dependencies": "Reuse existing engine/FFmpeg/SDK; optional previously approved pinned SFZ authoring environment only, no game runtime dependency",
+    "storage_free_GB": 45,
+    "authoring_source": "Previously approved pinned Karoryfer BlackAndGreen CC0 partial Git source, isolated pysfizz0.1.3/pedalboard0.9.26 only if existing authoring proof requires them. No runtime dependencies."
+  },
+  "writer": {
+    "owner": "root",
+    "status": "released"
+  },
+  "started_at": "2026-11-11T08:07:24.486463+00:00",
+  "publication": "LOCAL_ONLY: inherited automatic rejection of private metadata export; do not push FLAC49/50 history",
+  "closed_at": "2026-11-11T08:36:41.225484+00:00",
+  "closeout": {
+    "tested_sha": "143791aee5377adee144c093c050be1e104a42d5",
+    "evidence": "docs/continuous_improvement/PILOT51_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Review the two prepared Arjun guitar responses; integrate accepted takes before final combined source freeze and fresh original-key signing request.",
+    "new_issue_review": "All failures preserved and corrected or correctly bounded as stale harness/host/display fixtures. Final1580checks pass;68native originals,8actually opened. Newly rendered Arjun performances remain awaiting owner listening; no new request/key/signing/publication."
+  },
+  "public_recovery": {
+    "original_commit": "eef373a3fe62e8a083ca0fe0d440b8c177a63671",
+    "original_record_sha256": "7caec59320bddd8c65e44e36b243b0e62f26e8ea6de6562c1386e01991ad07b3",
+    "scope": "Public source/progress record. Private transfer identifiers, links and evidence paths omitted; full original retained privately. Historical original SHA references require RECOVER54 mapping; not new test executions."
+  }
+}

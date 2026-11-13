@@ -509,3 +509,12 @@ CROWD33 2026-11-09T23:49:43.987570+00:00 — Owner requests crowd/audio before f
 ## HANDOFF35 — durable chat and detached signing continuity
 
 2026-11-10T00:50:55.943964+00:00 — Exact implementation `7adec5d281f0927b030272893ddf4175beb6e095` adds START_HERE and original-environment-only signer; byte-exact frozen V23 public request/policy inGit, actualV22 public signature fixtures.12public/Java-refusal +14actualV23/V16 official-tool tests pass; no keygen/export/privatekeyoperation/APK/game/audio/UIchanges. Existingreviewerread-onlyclear; fiveSIMULATEDlenses/nohumans. OnebadpreflightSHA gate refusal logged thenresolvedfromactualgitrevparse. Ownerauthorizes nonforce existingfeaturebranch publication; verify livehead/docs/main before finalclaim. Originalkey access remains originalenvironment, genuinecrowdrecordings missing, V23older/unchanged; futurecrowdbuild needsversion>23/newrequest. Evidence HANDOFF35_RESULTS.json. Root/reviewer released. Next: New chat reads docs/handover/START_HERE.md, rechecks applied crowd-host access, and finishes genuine crowd audio before a cohesive version>23 build with a new audited detached request; original key stays in original environment.
+
+
+## RECOVER54 source reconciliation — 13 November 2026
+
+SONG53-R0 recovery located original ENGAGE52, PILOT51 dependencies, later corrected tests and SONG53 acceptance records. Source-only replacement runtime commit: `31267fa` (full mapping in RECOVER54 reconciliation record). Fresh integration/privacy/remote verification is required before marking R0 complete. The original21local-only commits remain private; no merge of that history.
+
+Owner's prior “Ok, these all look good” accepted ENGAGE52's three replacement clips and presented screens. Nina Last Bus Gone remains assigned; no repeat listening request for accepted clips. The source contains contextual musician/promoter/radio exchanges, writing/audition controls, packed PCM loading and accepted Nina/Arjun/Casey routes. Private media/registries stay separate from public Git. Audition response exercises remain written-only where recorded matching responses were never accepted.
+
+All SONG53-R1–R7 rows and the published roadmap remain proposed/not implemented/not scheduled. True per-song preparation, independent recorded-take quality and song-attributed reach are still new model work. Recovery is not an instruction to implement those stages or create an APK.

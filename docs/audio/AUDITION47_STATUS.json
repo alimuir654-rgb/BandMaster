@@ -103,17 +103,20 @@
       "name": "Arjun",
       "role": "Guitarist",
       "materials": [
-        "cast_arjun_indie29_1",
-        "cast_arjun_indie29_2"
+        "cast_arjun_engage52_1",
+        "cast_arjun_engage52_2"
       ],
-      "status": "independent_recorded_ideas"
+      "status": "owner_approved_recorded_ideas"
     },
     {
       "id": "cast_nina",
       "name": "Nina",
       "role": "Singer",
-      "materials": [],
-      "status": "Last Bus Gone candidate only; listening fit held"
+      "materials": [
+        "cast_nina_pilot51_verse",
+        "cast_nina_pilot51_harmony"
+      ],
+      "status": "owner_approved_recorded_ideas"
     },
     {
       "id": "cast_tom",
@@ -130,10 +133,10 @@
       "name": "Casey",
       "role": "Drummer",
       "materials": [
-        "cast_casey_indie29_1",
+        "cast_casey_engage52_1",
         "cast_casey_indie29_2"
       ],
-      "status": "independent_recorded_ideas"
+      "status": "owner_approved_recorded_ideas"
     },
     {
       "id": "cast_hannah",
@@ -174,14 +177,14 @@
       "status": "independent_recorded_ideas"
     }
   ],
-  "available_candidates": 17,
+  "available_candidates": 18,
   "total_candidates": 18,
-  "decoded_materials": 28,
+  "decoded_materials": 30,
   "private_audio": true,
   "listening_verified": false,
   "Nina_assessment": {
     "canonical_profile": "Nina,22,Newcastle. Dependable first-band/open-mic singer: warmth, patience and harmony; quiet stage presence, lyrics still developing.",
-    "editorial_recommendation": "Nina is the first candidate to test for this song. Prefer a quiet lead phrase and a separate harmony example if the actual performance fits. Assignment is provisional; no audible timbre, lyric or style verdict is claimed.",
+    "editorial_recommendation": "Owner explicitly approved Last Bus Gone for Nina on11Nov2026. Quiet verse and harmony integrated as independent ideas.",
     "source": "Owner-restored Last Bus Gone lead and backing-vocal stems;177.16s,48kHz,stereo PCM16",
     "source_sha256": [
       "1892ece982dcc23b33abccfaf5acf9b734d041ff851a6883675734d845931ea6",
@@ -213,12 +216,14 @@
         "sha256": "56f8d4b41e661e42b1b25f036f9ebc22aa7d89cfcb27ee804b32c5ac480aef18"
       }
     ],
-    "game_integration": false,
-    "why_held": "Current tools can inspect/prepare/decode stems but cannot provide a truthful listening judgement of Nina fit. Owner source assignment was uncertain; no existing Maya/Lily/Sam bank or approval is reused for Nina.",
-    "future_reuse": "Keep exact original vocal take across harmonically verified arrangements; use short verse/harmony passages without pitch/voice identity substitution. No claim that arbitrary backing is compatible."
+    "game_integration": true,
+    "why_held": "Resolved by explicit owner assignment; no assistant listening claim. Source stems remain private and unchanged.",
+    "future_reuse": "Keep exact original vocal take across harmonically verified arrangements; use short verse/harmony passages without pitch/voice identity substitution. No claim that arbitrary backing is compatible.",
+    "owner_listening_accepted": true,
+    "owner_assignment": "Use Last Bus Gone for Nina"
   },
   "Tom": {
-    "status": "Two distinct unused G\u2013D\u2013Em\u2013C guitar phrases prepared and available through unchanged private character manifest",
+    "status": "Two distinct unused G–D–Em–C guitar phrases prepared and available through unchanged private character manifest",
     "source_hooks": [
       "indie29_guitar90_05",
       "indie29_guitar90_06"
@@ -232,16 +237,36 @@
     "original20_character_clips_unchanged": true
   },
   "Arjun": {
-    "original_and_independent_ideas": "available",
-    "adjusted_responses": "written-only",
-    "remaining": "Render real matching D/G/A/D response scores for space-for-voice and own-idea; do not substitute a Suno phrase or gated original",
-    "source_recovery": "Original pinned CC0 SFZ multisample source absent locally. api.github.com source-tree request returned CONNECT403; no source/dependency acquired or network bypass."
+    "original_and_independent_ideas": "Two new current-source D–G–A–D Suno guitar passages integrated; initial audition player routes first new recorded idea. Old sampled playback no longer bound.",
+    "adjusted_responses": "Written-only; independent recorded ideas explicitly labelled separate from the scored four-bar exercise.",
+    "rejected_PILOT51_reviews": "Owner rejected both old-generation sampled reviews on11Nov; retained as history, no longer pending approval. Do not repeat sampler method.",
+    "review_files": [
+      "[private-workspace]",
+      "[private-workspace]"
+    ],
+    "owner_listening_accepted": true
   },
   "remaining_audio_work": [
-    "Listen to the prepared Last Bus Gone candidates and establish Nina suitability before assignment",
-    "Recover the original CC0 instrument and render/listen to the two score-matching Arjun responses",
-    "Other-genre audition banks require matching approved sources; Indie clips remain gated to Indie rock"
+    "Arjun genuinely performed four-bar adjusted responses remain missing; written exercise remains honest",
+    "Other-genre banks require matching approved sources; Indie clips remain gated to Indie rock"
   ],
-  "new_APK": false,
-  "source_audio_publication": false
+  "new_APK": "None for ENGAGE52; old unsigned PILOT51 V25 excludes this pass, not current pilot clearance",
+  "source_audio_publication": false,
+  "Casey": {
+    "first_idea": "Different active passage from approved Rehearsal D Minor drums; replaces basic breakdown cut for review.",
+    "second_idea": "Unchanged",
+    "review_files": [
+      "[private-workspace]"
+    ],
+    "owner_listening_accepted": true
+  },
+  "ENGAGE52_owner_acceptance": {
+    "quote": "Ok, these all look good.",
+    "scope": "Three replacement excerpts and the presented ENGAGE52 screen revisions",
+    "global_game_or_pilot_approval": false
+  },
+  "public_recovery": {
+    "original_record_sha256": "f4a2644ed9d86aa0fd6355b8b2ac19c5004a6383fc8dab03c2417ca4d92426f0",
+    "private_audio": "Kept outside Git; approved current clips remain in private asset workspace."
+  }
 }

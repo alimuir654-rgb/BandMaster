@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "session": "FLAC50",
+  "status": "ALL51_FLACs_AND_VERIFICATION_MANIFEST_PRIVATELY_DELIVERED_HASH_VERIFIED",
+  "owner_approved": false,
+  "closed_at": "2026-11-11T07:39:10.977411+00:00",
+  "baseline_sha": "6bf8084ac86d83c45fc9e2e2177fdfb11ae8d334",
+  "tested_delivery_record_sha": "5219615347329919bf4f4dc3f6d4d40985dabd1c",
+  "conversion_proof": "docs/continuous_improvement/FLAC49_RESULTS.json",
+  "complete_receipt": "[private-workspace]",
+  "destination": "[private-audio-folder]",
+  "uploaded_this_run": 22,
+  "previous_verified_FLACs": 29,
+  "final_FLACs": 51,
+  "audio_bytes": 467591336,
+  "manifest_bytes": 47315,
+  "verified_remote_files": 52,
+  "original_WAV_bytes": 1356297816,
+  "saved_percent": 65.52,
+  "pending": 0,
+  "complete_decoded_PCM_rate_channels_16bit_depth_proof": "Retained exact FLAC49 proof; no reconversion",
+  "all56_Dropbox_originals_unchanged": true,
+  "game_runtime_changed": false,
+  "new_engine_runs": 0,
+  "new_native_captures": 0,
+  "new_APK": false,
+  "sharing_changed": false,
+  "private_media_publication": false,
+  "GitHub_publication": "NONE; inherited automatic review rejection of sensitive delivery metadata remains binding. Keep FLAC49/FLAC50 records/history local.",
+  "new_transfer_errors": [],
+  "historical_hold": "FLAC49 insufficient-space error after29copies is retained as history; owner freed space before successful22file resume.",
+  "simulated_review_lenses": [
+    {
+      "lens": "SIMULATED transfer operator",
+      "finding": "Skipped30existing objects, transferred only22missing files; no duplicates or unrequested deletion."
+    },
+    {
+      "lens": "SIMULATED data integrity reviewer",
+      "finding": "Final52remote sizes/blockhashes match local expected plan,51FLACs/467591336audio bytes; complete original PCM/depth proof retained."
+    },
+    {
+      "lens": "SIMULATED source archivist",
+      "finding": "56original parent fileIDs/sizes/modifiedtimes unchanged; original source hashes and conversion receipts retained."
+    },
+    {
+      "lens": "SIMULATED privacy/continuity reviewer",
+      "finding": "Same approved private destination/filenames, no sharing/public export, game/signing/runtime unchanged."
+    },
+    {
+      "lens": "SIMULATED owner workflow reviewer",
+      "finding": "Complete compact archive available in the requested folder; no new consent or redundant reconversion. Existing audition/UI acceptance gates remain separate."
+    }
+  ],
+  "visual_verdict": "partial",
+  "visual_scope": "Nonvisual delivery only; no new artistic acceptance",
+  "next_action": "Continue existing audition audio/source review before a new combined test build.",
+  "writer_released": true,
+  "public_recovery": {
+    "original_commit": "eef373a3fe62e8a083ca0fe0d440b8c177a63671",
+    "original_record_sha256": "8482e85b8b36577b17ef6fde8a11ad14c17643313720d5e1acbd5f1b918697b7",
+    "scope": "Public source/progress record. Private transfer identifiers, links and evidence paths omitted; full original retained privately. Historical original SHA references require RECOVER54 mapping; not new test executions."
+  }
+}

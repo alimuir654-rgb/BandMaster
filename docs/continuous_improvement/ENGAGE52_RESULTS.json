@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "session": "ENGAGE52",
+  "completed_at": "2026-11-11T09:28:47.551817+00:00",
+  "status": "source_verified_owner_review_pending",
+  "owner_approved": false,
+  "tested_sha": "81f6129d0f166ff0b854b0ae849bc419ccdcd60c",
+  "publication": "LOCAL_ONLY; inherited private-history public-export rejection remains binding",
+  "new_APK": false,
+  "source_binding": {
+    "tested_runtime_sha": "81f6129d0f166ff0b854b0ae849bc419ccdcd60c",
+    "tracked_runtime_inputs": {
+      "experiments/playable_flightcase/audition_desk.gd": "1e30b3299541139ed4799f7cbdff04186d77b56b6f1966f93bf0fb488b459fea",
+      "experiments/playable_flightcase/career_desk.gd": "8482bb6cba9f6353cd146a864b37957af3f867cbdf3b32ea55d5cd7b3027f208",
+      "experiments/playable_flightcase/character_audio.gd": "3021e006c8d00fc15584f90ad53471b8e22662e4aa7fc3b435b52a2df6e9f805",
+      "experiments/playable_flightcase/conversation_musicians.gd": "9555f812607f6a63cfbe7021b92e3e2f555ac9cd67443ec4803ec0c3c5e57c2b",
+      "experiments/playable_flightcase/conversation_panel.gd": "44ac0a60781e1b0d37bedfb0e69230258a16aad521ce278d646534779aa3a142",
+      "experiments/playable_flightcase/conversation_radio.gd": "2f3bbb257c55a8bde48a4c89d14491761b6531b479920ba60ecd2487b15f895b",
+      "experiments/playable_flightcase/gig_booking_desk.gd": "c5a46f1bb4cd4c7e49c659210530e971add18653afe8755770941b07d4c4d439",
+      "experiments/playable_flightcase/mixing_desk.gd": "707954dad8e9b1d2fe96c492850be27bcddb020f9dfeb14fd50d8ad20fad9aef",
+      "experiments/playable_flightcase/musician_chat.gd": "890dce6b3cf485e83c2e94bf2accd7a9844faa7940582a7486fee03b9375de01",
+      "experiments/playable_flightcase/musician_chat_desk.gd": "71825ef0d0a7fa54b52d0a1503f9f7ed5c7953b1e0619ec59054eca8323af253",
+      "experiments/playable_flightcase/promoter_encounter.gd": "499a5e1cad62b7b112d2b29e561cbe5703f5a402d39f21579c5eef8068c589fc",
+      "experiments/playable_flightcase/radio_visit_desk.gd": "826107ded9084f44aaa3e11ee0a8da1717a9b710ca840bedbccb45f170bd90b6"
+    },
+    "harness_inputs": {
+      "tools/engage52_audio.py": "db676dc599fe307a5c4e636f021481f339da94b789874480b7877a70355c2aa4",
+      "tools/engage52_native.py": "1f2b9223237290d42abc4c8f266ced92fcccbb9cefb028b326d525da91076f62",
+      "tests/engage52_model.gd": "bd469e5b5d0cc14364c6099864e4d45fc0957312a514d264d82acc7980592f7d",
+      "tests/engage52_native.gd": "40f59cd80c7088eb31bf6a4e8dba5191fa63d8c51d355de67459ea6bc9403e34"
+    },
+    "registry_changes": {
+      "characters": [
+        "cast_arjun",
+        "cast_casey"
+      ],
+      "materials": []
+    },
+    "new_materials": [
+      "cast_arjun_engage52_1",
+      "cast_arjun_engage52_2",
+      "cast_casey_engage52_1"
+    ],
+    "baseline_comparison_files": 2004,
+    "differences": [
+      "experiments/playable_flightcase/promoter_encounter.gd",
+      "experiments/playable_flightcase/musician_chat_desk.gd",
+      "experiments/playable_flightcase/musician_chat.gd",
+      "experiments/playable_flightcase/career_desk.gd",
+      "experiments/playable_flightcase/radio_visit_desk.gd",
+      "experiments/playable_flightcase/character_audio.gd",
+      "experiments/playable_flightcase/mixing_desk.gd",
+      "experiments/playable_flightcase/audition_desk.gd",
+      "experiments/playable_flightcase/gig_booking_desk.gd",
+      "experiments/playable_flightcase/audio/character_indie29/manifest.json"
+    ],
+    "all185packed_PCM_identical": true,
+    "previous_media_identical": 686,
+    "frozen_signing": {
+      "BandMaster-V24-APK-v2-signing-request.json": "8072969d2d165075f5cf7df30aa118ed95232b8c7b71d10c2c3b732b02cc191b",
+      "v24-policy.json": "5e8741dc195c5e09b8df21d5d2efd3d3bad9d21296f8c627d7335af9458d58ac",
+      "BandMaster-V23-APK-v2-signing-request.json": "7ebd68fbbc5baaac8aa50afcb3fc884733a686394de36f96df04ccab95be6741",
+      "v23-policy.json": "c04043e8cff82cbf7f6a7f7b4a9950c60650fc7fdbdc5cb5fc4e5476e0c73389",
+      "signed_V24_APK": "a46446c507ba165fc79dc70dbadb73fe4861f04d71b3710e073afbee2f4bca66"
+    },
+    "native_PNGs": 68
+  },
+  "verification": {
+    "total_checks": 960,
+    "focused_model": 329,
+    "existing_band_stories": 74,
+    "all18_audio_lifecycle": 169,
+    "four_native_profiles": {
+      "390x844": 97,
+      "1280x720": 97,
+      "720x1280": 97,
+      "1600x900": 97
+    },
+    "final_native_originals": 68,
+    "final_originals_actually_opened": 20,
+    "native_logs": [
+      "[private-workspace]",
+      "[private-workspace]",
+      "[private-workspace]",
+      "[private-workspace]"
+    ],
+    "other_logs": [
+      "[private-workspace]",
+      "[private-workspace]",
+      "[private-workspace]"
+    ],
+    "physical_Android": false,
+    "listening_verified": false,
+    "radio_scope": "Actual phases through wrap presentation and saved-answer FS failure/retry; final paid wrap settlement not newly performed; original once-only model unchanged."
+  },
+  "native_originals_opened": [
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]"
+  ],
+  "earlier_originals_opened": [
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]",
+    "[private-workspace]"
+  ],
+  "visual_verdict": "partial",
+  "scoped_internal_visual": "Clear revised controls and exchange/reply visibility; existing full scene art and overall engagement remain owner review",
+  "research": "docs/continuous_improvement/ENGAGE52_INTERACTION_REVIEW.md",
+  "preserved_failed_history": [
+    "baseline: landing not writing; fixture corrected to actual writing owner state",
+    "baseline2: absent skip button/stale recording phase assumption; changed method to observed phase guards and actual visit mode",
+    "early: technical pass held after opened paper reply controls lacked contrast and actual saved musician answer remained below fold; corrected ink surface and saved-reply focus",
+    "revised: category hydration still said ORIGINAL PART and old scored sample bound internally; final hydration corrected and old audio binding removed",
+    "model.log: new helper declared void while used as bool; test-only bool return correction; model-fixed.log passes329",
+    "closeout audit: dictionary incorrectly indexed as list; inspected actual materials key, reran strict byte audit successfully",
+    "oversized historical pointer retrieval/wrong asset_base path corrected with bounded targeted actual docs/asset_base reads"
+  ],
+  "simulated_lenses": [
+    {
+      "lens": "SIMULATED first-time player",
+      "finding": "Distinct player/NPC turns and first-person reply choices expose intent without revealing hidden rewards; meaningful next action follows saved agreement."
+    },
+    {
+      "lens": "SIMULATED phone controls/accessibility",
+      "finding": "Opened actual20final originals cover allfive flows at four sizes. Dark writing choices/gold checked selection, surfaced Stop control and actual reply focus are clear. Scroll bodies intentionally show partial next rows; full targets reached by native input."
+    },
+    {
+      "lens": "SIMULATED returning player/save safety",
+      "finding": "Actual filesystem save rejection/retry and typed reload preserved musician promises and radio answers. Existing financial proposals and atomic models retained."
+    },
+    {
+      "lens": "SIMULATED musician/audio",
+      "finding": "Two current-source Arjun guitar cuts and new Casey first passage integrated privately for review. All18have independent Indie ideas. No audition-score performance match, musical listening or other-genre coverage claim."
+    },
+    {
+      "lens": "SIMULATED release/privacy",
+      "finding": "No APK/key/signature/request/push/upload. Frozen requests/policies and signed V24 hash unchanged; original app/save identity retained; all new media ignored/private. Unsigned PILOT51 excludes ENGAGE52."
+    }
+  ],
+  "remaining": [
+    "Owner listening on allthree new excerpts; rejected PILOT51 sampler candidates must not be reoffered as pending",
+    "Arjun adjusted four-bar responses remain written-only; independent recorded ideas are labelled honestly",
+    "Interaction writing/presentation improved, no animation/voiced-dialogue/new branching engine claim; human engagement unverified",
+    "Other genres still lack matched approved banks; Indie remains gated",
+    "Physical Android touch/sound/latency/update/save-retention unverified",
+    "Unsigned PILOT51 V25 is stale for this pass; no new request; public private-history hold remains",
+    "Overall artwork acceptance remains false"
+  ],
+  "next_action": "Owner reviews the three replacement audio excerpts and revised writing/audition/musician/promoter/radio screens before final combined source freeze and a fresh audited original-key signing request.",
+  "public_recovery": {
+    "original_commit": "eef373a3fe62e8a083ca0fe0d440b8c177a63671",
+    "original_record_sha256": "2c6fe4b134d25246d5ec2a9a7595f754cbc7e1a81df5e4e323404664519c4921",
+    "scope": "Public source/progress record. Private transfer identifiers, links and evidence paths omitted; full original retained privately. Historical original SHA references require RECOVER54 mapping; not new test executions."
+  }
+}

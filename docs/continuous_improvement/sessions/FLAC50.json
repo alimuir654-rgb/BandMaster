@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "id": "FLAC50",
+  "status": "closed",
+  "owner_approved": false,
+  "baseline_sha": "6bf8084ac86d83c45fc9e2e2177fdfb11ae8d334",
+  "owner_request": "Owner reports space freed and authorises continuation of existing private FLAC delivery. Fresh destination listing30files and parent56originals; all51local FLACs/manifest retained. Previous delivery29FLACs+manifest verified,22storage-held.",
+  "dominant_issue": "BM-40",
+  "lesson_ids": [
+    "BM-30",
+    "BM-31",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-38",
+    "BM-40",
+    "BM-41"
+  ],
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "2cf807d95109e83cff84b0a96ea614f7f85566c4c66a9bccb35565a3278f9cdb"
+  },
+  "issue_log_review": {
+    "bytes": 2213254,
+    "sha256": "8528fde430d8ef3d42d5aa6e7ed36933a1cf46cf69fa125e46ab65205ec1e663"
+  },
+  "target": {
+    "locator": "Nonvisual lossless source conversion, exact PUNCH48 FLAC receipt reused. Unchanged PUNCH48 native UI original viewed previously and retained for protected-context evidence only: [private-workspace]",
+    "original_sha256": "955773c7946fe5221529f038ae1dc47b53c5dba11e11cd8cb09fff0b6d3b4dbb",
+    "pixels_inspected": true,
+    "visual_changes": false
+  },
+  "controlled_comparison": "Compare complete expected52file name/size/Dropbox-content-hash plan with fresh remote metadata. Rehash each missing local FLAC; no new PCM conversion or runtime/native tests.",
+  "hypothesis": "After owner frees space, the22already-converted missing FLACs can be privately uploaded without touching29verified copies or56originals.",
+  "stop_condition": "Hold mismatched/conflicting remote file, failed local hash or new storage/transfer failure. No overwrites, deletion/cleanup, sharing or public GitHub export. Previous automatic publication rejection remains binding.",
+  "allowed_paths": [
+    "docs/audio/**",
+    "docs/continuous_improvement/**",
+    "docs/handover/START_HERE.md",
+    "docs/asset_base/LEDGER.md"
+  ],
+  "validation_commands": [
+    "Actual improvement_gate from committed active FLAC50 preflight",
+    "Remote30baseline exact size/hash validation and local missing-file SHA recheck; upload only absent names",
+    "Final full52file exact sizes/Dropbox hashes, all51FLAC totals and unchanged original parent fileIDs/sizes/times",
+    "Local-only results/handover/gate; no runtime/art/audio-bank/engine/APK change or public export"
+  ],
+  "resource_plan": {
+    "evidence_root": "[private-workspace]",
+    "source_root": "[private-workspace]",
+    "destination": "[private-audio-folder]",
+    "workers": 1,
+    "upload_concurrency": 2,
+    "new_APK": false,
+    "new_dependencies": false
+  },
+  "writer": {
+    "owner": "root",
+    "status": "released"
+  },
+  "started_at": "2026-11-11T07:34:37.403109+00:00",
+  "publication": "LOCAL_ONLY: inherited automatic approval rejection; do not publish private Dropbox delivery metadata/history",
+  "closed_at": "2026-11-11T07:39:10.977411+00:00",
+  "closeout": {
+    "tested_sha": "5219615347329919bf4f4dc3f6d4d40985dabd1c",
+    "evidence": "docs/continuous_improvement/FLAC50_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Continue existing audition audio/source review before a new combined test build.",
+    "new_issue_review": "Previous space hold resolved after actual owner intervention; all52remote hashes/sizes and56originals verified. No runtime/art/music approval or public-export change."
+  },
+  "public_recovery": {
+    "original_commit": "eef373a3fe62e8a083ca0fe0d440b8c177a63671",
+    "original_record_sha256": "665e73a1d203225c1f564227180ca1e659d93cc950086c65ac24f94d28a13d19",
+    "scope": "Public source/progress record. Private transfer identifiers, links and evidence paths omitted; full original retained privately. Historical original SHA references require RECOVER54 mapping; not new test executions."
+  }
+}
