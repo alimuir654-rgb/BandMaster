@@ -32,8 +32,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 2265350,
-    "sha256": "34a72aa3b6e98268dd3b45618c4387154e04f69b0a6d63a1f765796b32510ce1"
+    "bytes": 2268973,
+    "sha256": "f501c5db546582ff051ee244a8f8a733513ddc035c92dc9d0213a4d7bdd6cc04"
   },
   "target": {
     "locator": "Existing native print source: experiments/playable_flightcase/art/poster/print_materials_v1.png; actual source pixels opened. Preserve this material and existing typography. Fresh baseline/candidate captures will compare the same current-source songbook, rehearsal, setlist and recording states.",
@@ -185,13 +185,25 @@
     "same_authorised_source_publication_target": "feature/playtest-polish-v20",
     "automatic_local_escalation_rejection_retained": true
   },
-  "local_model_checkpoint": {
-    "work": "song55-models-02",
-    "summary_checks": 1735,
-    "recording_checks": 337,
-    "import": "pass",
-    "native_script_parse": "pass",
-    "native_execution": "not run; local socket blocked",
-    "original_recording_assertions_preserved": true
-  }
+  "local_model_checkpoints": [
+    {
+      "work": "song55-models-02",
+      "summary_checks": 1735,
+      "recording_checks": 337,
+      "import": "pass",
+      "native_script_parse": "pass",
+      "native_execution": "not run; local socket blocked",
+      "original_recording_assertions_preserved": true
+    },
+    {
+      "work": "song55-models-03",
+      "summary_checks": 1735,
+      "recording_checks": 337,
+      "fixture_checks": 196,
+      "import": "pass",
+      "native_script_parse": "pass",
+      "native_execution": "pending corrected CI run",
+      "fixture_settlement": "original Situation/Live/Finance pipeline; no direct clock changes"
+    }
+  ]
 }

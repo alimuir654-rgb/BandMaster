@@ -10,12 +10,15 @@ const Flow = preload("res://experiments/playable_flightcase/show_flow.gd")
 const Journey = preload("res://experiments/playable_flightcase/gig_journey.gd")
 const Calendar = preload("res://Scripts/gig_calendar.gd")
 const Situation = preload("res://experiments/playable_flightcase/situation_core.gd")
+const Finance = preload("res://experiments/playable_flightcase/finance_policy.gd")
 const LONG_TITLE := "THE LAST TRAIN — ÉCHO APRÈS LA PLUIE"
 var owner
 var scene
 var output := ""
 var work_root := ""
 var baseline := false
+var fixture_only := false
+var baseline_defects: Array[String]=[]
 var checks := 0
 var failures: Array[String] = []
 var images: Array = []
@@ -28,6 +31,7 @@ func _init() -> void:
   if arg.begins_with("--out="):output=arg.trim_prefix("--out=")
   if arg.begins_with("--work-root="):work_root=arg.trim_prefix("--work-root=")
   if arg=="--baseline":baseline=true
+  if arg=="--fixture-only":fixture_only=true
  call_deferred("run")
 
 func check(ok: bool, message: String) -> bool:
@@ -192,7 +196,41 @@ func scroll_proof(name: String, text_target: String="") -> bool:
  scroll.gui_input.disconnect(observer)
  trace.append({"scroll":name,"start_text":text_target,"emulate_touch_from_mouse":Input.emulate_touch_from_mouse,"received":received,"available":available,"before":initial,"after":bar.value})
  Input.emulate_touch_from_mouse=prior_emulation
+ if baseline and name=="PracticeScroll" and absf(bar.value-initial)<=0.1:
+  baseline_defects.append("Inherited rehearsal panel intercepts touch drag; reproduced in original run43514484130. Candidate must pass this check.")
+  return unchanged(before,"baseline known blocked practice scroll")
  return check(absf(bar.value-initial)>0.1,"genuine touch drag moves available content "+name) and unchanged(before,"native touch scroll")
+
+func settle_fixture_practice(before: Dictionary, kind: String) -> bool:
+ # The same protected settlement chain used by ui.gd after its original model.
+ var tracked: Dictionary=Situation.after_action(before,owner.game.career)
+ if not step(tracked,"original situation post-chain"):return false
+ var after: Dictionary=Live.after_practice(before,tracked.state)
+ var accounted: Dictionary=Finance.apply(before,after,"practice:"+kind)
+ if not step(accounted,"original practice finance settlement"):return false
+ owner.game.career=accounted.state
+ return true
+
+func fixture_jam() -> bool:
+ var attendance: Dictionary=Situation.inspect_rehearsal(owner.game.career)
+ if not step(attendance,"inspect actual available attendees"):return false
+ var before: Dictionary=owner.game.career.duplicate(true)
+ if not step(owner.game.informal_practice(attendance.attendee_indices),"original informal practice"):return false
+ if not check(int(owner.game.career.tour_day)==int(before.tour_day)+1,"fixture day action advances exactly once"):return false
+ return settle_fixture_practice(before,"jam")
+
+func fixture_live(verb: String, choice: String="") -> bool:
+ var before: Dictionary=owner.game.career.duplicate(true)
+ var result: Dictionary=Live.resolve(before,verb,choice,false)
+ if not step(result,"original live "+verb):return false
+ var accounted: Dictionary=Finance.apply(before,result.state,"live:"+verb)
+ if not step(accounted,"original live finance settlement "+verb):return false
+ owner.game.career=accounted.state
+ return true
+
+func finance_matches() -> bool:
+ var ledger: Dictionary=Finance.view(owner.game.career)
+ return check(int(ledger.accounted_day)==int(owner.game.career.tour_day) and int(ledger.closing_balance)==int(owner.game.career.cash),"fixture retains actual finance day and balance")
 
 func prepare_writing() -> bool:
  var initial: Dictionary=Situation.inspect_writing(owner.game.career)
@@ -208,9 +246,7 @@ func prepare_writing() -> bool:
    return true
   var day: int=int(owner.game.career.tour_day)
   if not check(day<last_day,"advertised full-band evening must be available"):return false
-  var attendance: Dictionary=Situation.inspect_rehearsal(owner.game.career)
-  if not step(attendance,"inspect actual available attendees"):return false
-  if not step(owner.game.informal_practice(attendance.attendee_indices),"original informal practice before writing"):return false
+  if not fixture_jam():return false
   if not check(int(owner.game.career.tour_day)==day+1,"original informal practice advances exactly one day"):return false
  return check(false,"bounded writing availability preparation exhausted")
 
@@ -225,7 +261,9 @@ func fixture() -> bool:
  for song_number in range(4):
   for _session in range(3):
    if not prepare_writing():return false
+   var before: Dictionary=owner.game.career.duplicate(true)
    if not step(owner.game.write_session("Riff","Verse / Chorus","QA ORIGINAL %d" % [song_number+1],0),"original-model writing session"):return false
+   if not settle_fixture_practice(before,"create"):return false
   if song_number==1:
    owner.game.career["song_catalogue"][0]["quality"]=72
    owner.game.career["song_catalogue"][0]["title"]="CAPTURED LAST TRAIN"
@@ -239,6 +277,10 @@ func fixture() -> bool:
  owner.game.career["qa_song55_unknown"]={"nested":[17,{"retain":"exact"}]}
  if not step(owner.save_draft(),"persist complete explicit QA fixture"):return false
  if not check(Recordings.validate(owner.game.career).get("ok",false),"fixture is accepted by current recording validator"):return false
+ if not finance_matches():return false
+ var preview_before: Dictionary=owner.game.career.duplicate(true)
+ if not step(Recordings.preview(owner.game.career,["original:1","original:2"]),"current demo preview accepts settled fixture"):return false
+ if not check(owner.game.career==preview_before,"fixture preview retains its source"):return false
  fixture_hash=JSON.stringify(owner.snapshot()).sha256_text()
  trace.append({"fixture":"12 original-model writing calls with original availability/informal-practice preparation; one original linked recording; explicit current title/quality contrast", "saved_hash":fixture_hash,"not_native_writing":true,"not_a_revision_feature":true})
  return true
@@ -296,20 +338,21 @@ func actual_reload() -> bool:
 
 func soundcheck_fixture() -> bool:
  if is_instance_valid(scene):scene.free();scene=null;await settle()
- var booked: Dictionary=Live.resolve(owner.game.career,"book_flow","standard",false)
- if not step(booked,"existing managed local booking"):return false
- var state: Dictionary=booked["state"].duplicate(true)
- # Explicit isolated QA clock setup, following show_flow_test. No gameplay claim.
- state["tour_day"]=int(Calendar.pending(state)["day"])
- var departed: Dictionary=Flow.depart(state)
- if not step(departed,"existing departure model"):return false
- var arrived: Dictionary=Live.resolve(departed["state"],"advance")
- if not step(arrived,"existing arrival model"):return false
- var visit: Dictionary=Journey.begin(arrived["state"],"",false)
+ if not fixture_live("book_flow","standard"):return false
+ var due: int=int(Calendar.pending(owner.game.career)["day"])
+ if not check(due>=int(owner.game.career.tour_day) and due<=int(owner.game.career.tour_day)+14,"bounded actual booking date"):return false
+ while int(owner.game.career.tour_day)<due:
+  if not fixture_jam():return false
+ if not check(int(owner.game.career.tour_day)==due,"genuine model days reach the booked date"):return false
+ if not fixture_live("depart") or not fixture_live("advance"):return false
+ var visit: Dictionary=Journey.begin(owner.game.career,"",false)
  if not step(visit,"existing compatible soundcheck journey"):return false
  owner.game.career=visit["state"]
  if not step(owner.save_draft(),"persist soundcheck QA setup"):return false
- trace.append({"fixture":"original local-booking/depart/arrival/Journey.begin APIs; explicit QA day jump; no incident injection", "phase":Journey.active(owner.game.career).get("phase")})
+ if not finance_matches():return false
+ if not step(Flow.validate(owner.game.career),"valid current show flow") or not step(Journey.validate(owner.game.career),"valid pinned current journey"):return false
+ if not check(Flow.phase(owner.game.career)=="soundcheck" and int(owner.game.career.tour_day)==int(Calendar.pending(owner.game.career).day),"current soundcheck on actual booking day"):return false
+ trace.append({"fixture":"original local-booking/daily informal-practice/depart/arrival APIs with original settlement before Journey.begin; no clock jump or incident injection", "phase":Journey.active(owner.game.career).get("phase")})
  return check(Journey.active(owner.game.career).get("phase")=="soundcheck","real saved soundcheck phase")
 
 func setlist() -> bool:
@@ -339,9 +382,15 @@ func run() -> void:
  if not check(DirAccess.dir_exists_absolute(output),"runner owns fresh output directory"):finish();return
  for value in file_state().values():
   if not check(not value["exists"] and not value["directory"],"no pre-existing owner/protected saves"):finish();return
- Input.emulate_mouse_from_touch=true;Input.emulate_touch_from_mouse=true
- if not check(DisplayServer.is_touchscreen_available(),"effective native touch emulation; not a physical-phone test"):finish();return
+ if not fixture_only:
+  Input.emulate_mouse_from_touch=true;Input.emulate_touch_from_mouse=true
+  if not check(DisplayServer.is_touchscreen_available(),"effective native touch emulation; not a physical-phone test"):finish();return
  if not fixture():finish();return
+ if fixture_only:
+  if not await soundcheck_fixture():finish();return
+  var fresh=Owner.new()
+  check(fresh.load_draft() and fresh.snapshot()==owner.snapshot(),"headless fixture exact isolated reload")
+  finish();return
  if not await songbook_recording_practice():finish();return
  if not await actual_reload():finish();return
  if not await setlist():finish();return
@@ -352,11 +401,13 @@ func finish() -> void:
  var result: Dictionary={"pass":failures.is_empty(),"checks":checks,"errors":failures,"baseline":baseline,
   "viewport":[size.x,size.y],"engine":Engine.get_version_info(),"user_directory":ProjectSettings.globalize_path("user://"),
   "fixture_hash":fixture_hash,"images":images,"trace":trace,"physical_Android":false,"audio_listening":false,
-  "method":"Explicit original-model QA fixtures; real retained opening UI; pointer/Enter/touch; exact owner and save-byte guards; actual Menu/Continue plus fresh owner reload. No paid UI commitment or new gameplay-model claim."}
+  "mode":"headless fixture only" if fixture_only else "native comparison",
+  "known_baseline_defects":baseline_defects,"candidate_acceptance_eligible":not baseline and not fixture_only,
+  "method":"Original-model fixture setup and reload only; no native UI, pixel or input claim." if fixture_only else "Explicit original-model QA fixtures; real retained opening UI; pointer/Enter/touch; exact owner and save-byte guards; actual Menu/Continue plus fresh owner reload. Baseline known defects remain observations, not candidate passes. No paid UI commitment or new gameplay-model claim."}
  if not output.is_empty() and output.is_absolute_path() and not work_root.is_empty() and output.begins_with(work_root+"/"):
   var receipt:=FileAccess.open(output+"/result.json",FileAccess.WRITE)
   if receipt!=null:receipt.store_string(JSON.stringify(result,"  "));receipt.close()
- print("SONG55_NATIVE "+JSON.stringify(result))
+ print(("SONG55_FIXTURE " if fixture_only else "SONG55_NATIVE ")+JSON.stringify(result))
  if is_instance_valid(scene):scene.free();scene=null
  owner=null
  await process_frame

@@ -879,6 +879,7 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  content.add_child(holder)
  var paper := PanelContainer.new()
  paper.name = "PracticeFrame"
+ paper.mouse_filter=Control.MOUSE_FILTER_PASS
  paper.custom_minimum_size.x = minf(780.0,maxf(270.0,viewport_width-(56.0 if mobile else 480.0)))
  paper.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  paper.add_theme_stylebox_override("panel",Paper.sheet(phone))
@@ -891,7 +892,6 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
   _writing_workspace(body)
   # Ordinary vertical gestures on the writing paper/choices belong to its
   # native body scroll. Text entry retains its own caret/selection handling.
-  paper.mouse_filter=Control.MOUSE_FILTER_PASS
   for choice in paper.find_children("*","Button",true,false):
    (choice as Button).mouse_filter=Control.MOUSE_FILTER_PASS
  else:
@@ -899,7 +899,9 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
   else:_rehearsal_workspace(body,practice_activity)
  var info := _box()
  info.custom_minimum_size.x = 0 if stacked else 300
- content.add_child(_panel(info))
+ var info_panel: PanelContainer=_panel(info)
+ info_panel.mouse_filter=Control.MOUSE_FILTER_PASS
+ content.add_child(info_panel)
  if practice_activity=="create":
   _writing_notes(info)
  info.add_child(_label("THE BAND",19))

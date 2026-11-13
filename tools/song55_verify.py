@@ -310,7 +310,7 @@ def main() -> None:
             manifest['runs'][tag] = run(work, tag, [str(engine), '--headless', '--editor', '--path', str(project), '--import'], environment(work, tag), 240)
             write_json(work / 'RUN.json', manifest)
     if models:
-        for label, script in [('native-parse', NATIVE), ('summary', PURE), ('recording', RECORDING)]:
+        for label, script in [('native-parse', NATIVE), ('native-fixture', NATIVE), ('summary', PURE), ('recording', RECORDING)]:
             tag = 'model-' + label
             if tag in manifest['runs']:
                 continue
@@ -321,6 +321,8 @@ def main() -> None:
             if label == 'native-parse':
                 command.append('--check-only')
             command += ['--', '--out=' + str(out), '--work-root=' + str(work)]
+            if label == 'native-fixture':
+                command.append('--fixture-only')
             manifest['runs'][tag] = run(work, tag, command, environment(work, tag))
             write_json(work / 'RUN.json', manifest)
     if a.models_only:
