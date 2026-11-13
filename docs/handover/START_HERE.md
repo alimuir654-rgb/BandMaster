@@ -7,6 +7,16 @@ Read `AGENTS.md`, the improvement check/lessons, and
 `docs/continuous_improvement/CURRENT.json` before changes. Use one writer and a fresh scoped preflight.
 Historical overnight deadlines and older branch/build instructions do not supersede this handover.
 
+## Latest completed source — SONG55 / SONG53-R1
+
+The read-only roadmap chat reached its conversation length limit; the owner explicitly continued here. The retained clean preflight was recovered, the shared honest song summary was implemented, and exact source `bdb550b436f7f96412d9f8f25b9ce294a6acf6fe` was published on `feature/playtest-polish-v20`. Continue from this source, not an older private APK/source alias.
+
+The summary is shared across songbook, rehearsal reference, live setlist and recording. Composition strength is distinct from untracked per-song preparation, recording execution and attributed listens. Captured tracks keep their saved values and title even when the current song differs. The existing rehearsal-panel touch interception was fixed.
+
+[Final results](../continuous_improvement/SONG55_RESULTS.json) record 1,735 pure summary checks, 337 original recording checks, 196 fixture checks and 559 candidate native checks at each of 390×844, 1280×720, 720×1280 and 1600×900. [Native run43517002398](https://github.com/alimuir654-rgb/BandMaster/actions/runs/43517002398) passed with 88 original PNGs, exact owner/save guards, real pointer/keyboard/touch and successful immediate/final no-key-material checks. Early failed attempts are retained, not promoted. Internal visual pass is separate from owner approval, which remains false.
+
+Protected models, saves, art and audio are unchanged. No new APK, signing request, main/PR199 change, merge or force update. The source writer is released; the sole S80 queue marks R1 implemented/verified and leaves R2–R7 proposed. **Next:** Review the completed SONG55 shared-summary presentation, then scope SONG53-R2 stable song/revision/participant identity and co-writing as the next roadmap slice.
+
 ## Latest recovery — RECOVER54 / original runtime reconciled and published
 
 The owner explicitly requested source recovery and publication, without new gameplay/APK work. Both missing original commits were found intact. Public runtime equivalent: `31267faafdea8556a085433f7e574745ea43a886` for original `81f6129d0f166ff0b854b0ae849bc419ccdcd60c`; corrected source/redacted-record equivalent: `d5e1662318b0a47899570a938a09a340700b3e4a` for original `b93f44809fab04c43c0f91fe90b0f6af468e48d5`. Later SONG53 records through `eef373a` are retained. Read [the full mapping and R0 inventory](../continuous_improvement/RECOVER54_SOURCE_RECONCILIATION.json). Original private ancestry was preserved locally and excluded from public Git.

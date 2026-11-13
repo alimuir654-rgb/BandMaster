@@ -6,6 +6,10 @@ Retained S123/S116 delivery history (superseded by current S126 source below): `
 
 Retained S115 partial baseline: actual menus to DAY5, no completed show; it proved missing public due-day calendar access. That gap is now repaired and the full loop verified by S116. Original held runs and closeout remain /workspace/work/s115-first-career-loop-20261104/closeout.json; no failed proof was promoted.
 
+## Completed continuation — SONG55 / shared song summary (13 November 2026)
+
+The owner authorised R1 with Continue after source recovery, then resumed it when the prior chat reached maximum length. Source `bdb550b436f7f96412d9f8f25b9ce294a6acf6fe` is published on `feature/playtest-polish-v20`. Songbook, rehearsal reference, setlist and demo views share honest saved-song facts; captured takes retain their original values. Final four-size CI passed with 2,236 candidate native checks and 88 baseline/candidate PNGs; pure summary, original recording and fixture checks also pass. The inherited practice-panel drag defect is corrected. Read [SONG55 results](SONG55_RESULTS.json). Internal visual pass; owner approval remains false. No new gameplay model, APK, merge or audio integration. Writer released. Next: Review the completed SONG55 shared-summary presentation, then scope SONG53-R2 stable song/revision/participant identity and co-writing as the next roadmap slice.
+
 ## Proposed roadmap — linked songs and band life (planned 12 November; documentation completed 13 November 2026)
 
 The owner requested a roadmap in Git, **not implementation or an automated schedule**.
@@ -19,7 +23,7 @@ This documentation entry does not refresh or override historical audio-coverage 
 | ID | Scope | Disposition |
 |---|---|---|
 | SONG53-R0 | Reconcile the actual latest source; classify existing/presentation/new-model work | COMPLETE — RECOVER54; published source d5e1662 verified directly on GitHub; full mapping/inventory in RECOVER54_SOURCE_RECONCILIATION.json |
-| SONG53-R1 | Reusable honest song summary with explicit legacy unknowns | PROPOSED / NOT SCHEDULED; after R0 |
+| SONG53-R1 | Reusable honest song summary with explicit legacy unknowns | IMPLEMENTED / VERIFIED — SONG55; source bdb550b, four native sizes; owner presentation review pending |
 | SONG53-R2 | Stable song/revision/participant identity; one meaningful co-writing contribution; skill fairness | PROPOSED / NOT SCHEDULED; after R0, reuse R1 |
 | SONG53-R3 | Song-specific purposeful rehearsal and proportionate preparation transfer | PROPOSED / NOT SCHEDULED; after R2 |
 | SONG53-R4 | Preparedness into live delivery, grounded feedback and character aftermath | PROPOSED / NOT SCHEDULED; after R3 |
@@ -31,9 +35,9 @@ This documentation entry does not refresh or override historical audio-coverage 
 | BL3 | More reactive existing local venues, promoters and peer bands | LATER CANDIDATE; deepen before expanding |
 | BL4 | Wider grounded co-writing choices and empirical balance testing | LATER CANDIDATE; hypotheses are not proven defects |
 
-The 13 November continuation completes the original documentation handoff. The 12 November remote commit contained only its preflight; this completion adds the roadmap and unchanged design. The proposed implementation dispositions above are unchanged.
+The 13 November continuation completes the original documentation handoff. The 12 November remote commit contained only its preflight; this completion adds the roadmap and unchanged design. At that original documentation handoff, implementation was still proposed; the later authorised SONG55 continuation updates R1 above.
 
-Owner request fulfilled by the documentation handoff only. A queue row grants no source
+That original owner request was fulfilled by the documentation handoff only. A queue row grants no source
 lease, production/merge/build authority, paid credit use or restart of an old finite worker.
 Historical delivery/owner-review entries remain intact below.
 
