@@ -39,8 +39,8 @@
     "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
   },
   "issue_log_review": {
-    "bytes": 2285624,
-    "sha256": "131654c867ce7f18b8f3d22a3a9f15a5db4ecf1f2312802a0bdd6d0172ae78e7"
+    "bytes": 2289751,
+    "sha256": "6686ba7ede53ac8417795b94d93e474c0729ba49bb3bc46c0c164808830ded43"
   },
   "target": {
     "locator": "Owner text-heavy feedback; existing print_materials_v1.png original inspected plus final SONG55 phone songbook-entry/details, recording-selection-entry and captured-strength originals. No new owner mockup supplied; reference is an explicit revision of these rejected layouts.",
@@ -68,14 +68,25 @@
     "docs/asset_base/CONTROL_SPRINT_LOCK.json",
     "docs/asset_base/STATE.json",
     "docs/asset_base/LEDGER.md",
-    "docs/handover/START_HERE.md"
+    "docs/handover/START_HERE.md",
+    "AGENTS.md",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md",
+    "docs/handover/archive/SONG56_5be37ae/*",
+    "docs/continuous_improvement/SONG56_CONTINUITY_REVIEW.json",
+    "docs/continuous_improvement/SONG56_VISUAL_REVIEW.json",
+    "tools/project_context.py",
+    "tests/test_project_context.py",
+    ".github/workflows/continuous-improvement.yml"
   ],
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/SONG56.json",
     "python3 tools/song55_verify.py --godot <verified4.7.2> --work <fresh> --baseline <exact-baseline-or-documented-local-equivalent> --only candidate --models-only",
     "Reused bounded isolated GitHub proof with SONG56 session and a0e0194 baseline, common baseline/candidate assertions, early phone/short then all four sizes.",
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/SONG56.json --before <full committed active preflight> --require-prior-record",
-    "Protected source/art/save diff, exact source tree and artifact hashes, real original pixel review, expected-head non-force publication/readback."
+    "Protected source/art/save diff, exact source tree and artifact hashes, real original pixel review, expected-head non-force publication/readback.",
+    "python3 tools/project_context.py check",
+    "python3 -m unittest discover -s tests -p test_project_context.py -v",
+    "python3 -m unittest discover -s tests -p test_improvement_gate.py -v"
   ],
   "queue_task_ids": [
     "SONG53-R1",
@@ -84,18 +95,19 @@
   "writer": {
     "owner": "root-SONG56",
     "status": "active",
-    "source_writers": 1
+    "source_writers": 1,
+    "resumed_at": "2026-11-13T23:44:58.357934+00:00"
   },
   "reviewers": [
     {
-      "agent": "bandmaster_access_check",
-      "role": "read-only visual/source review",
-      "status": "baseline/API pre-review complete; four concrete acceptance conditions supplied"
+      "agent": "song56_review",
+      "role": "read-only source/pixel review",
+      "status": "early phone/short17originals inspected; one concrete P2 thumbnail-caption defect"
     },
     {
-      "agent": "stalled_chat_guidance",
-      "role": "read-only QA/layout review",
-      "status": "baseline QA pre-review; current-source comparison and removal of obsolete baseline exemptions required"
+      "agent": "continuity_review",
+      "role": "read-only continuity/schema-consumer review",
+      "status": "active CURRENT consumers require session; historical state archived byte-exact, keep explicit writer fields and all session/history gates"
     }
   ],
   "player_task": {
@@ -193,6 +205,27 @@
       "baseline_phone_images": 16,
       "artifact": 14083607832,
       "sha256": "16d3da8b0226a26fe700118f8c52d31ff64285e4fa3ed0e661979da27ed6e308"
+    },
+    {
+      "run": 43524469210,
+      "source": "5be37ae719e836fc5189a8e34f972d8ab03b6ffa",
+      "status": "early phone/short native pass; visual review identified landscape sleeve-caption clipping",
+      "candidate_checks_per_profile": 619,
+      "artifact": 14084761866,
+      "sha256": "db995bae6bd7704d6a0b0dba310f335a08d11e29e2f3966285e89438b2d9e2a4"
     }
-  ]
+  ],
+  "continuation": {
+    "authorised_at": "2026-11-13T23:44:58.357934+00:00",
+    "owner_request": "This sounds like a good approach. Go ahead.",
+    "approved_scope": "Compact existing continuity records with preserved history; resume and complete SONG56 native/visual verification and closeout. Add a bounded resume reader and automated consistency check. No R2 implementation or APK.",
+    "starting_head": "5be37ae719e836fc5189a8e34f972d8ab03b6ffa",
+    "writer": "root-SONG56",
+    "prior_chat": "Reached conversation limit; retained session resumed after live head/evidence inspection.",
+    "early_native_run": 43524469210,
+    "early_native_artifact": 14084761866,
+    "early_native_sha256": "db995bae6bd7704d6a0b0dba310f335a08d11e29e2f3966285e89438b2d9e2a4",
+    "early_review": "Phone/short improve hierarchy and retain facts; landscape archive caption has visible clipping at180logical pixels. Root and read-only source/pixel reviewer inspected originals.",
+    "new_validation": "Real four-profile native proof after bounded archive-thumbnail repair; existing model evidence reused only for byte-identical protected model inputs."
+  }
 }
