@@ -4,17 +4,10 @@ on:
   push:
     branches:
       - feature/playtest-polish-v20
+    # Historical scoped proof: its job pins CURRENT and baseline to SONG56.
+    # Current passes use the mandatory current-session gate and their own proof.
     paths:
-      - experiments/playable_flightcase/song_summary.gd
-      - experiments/playable_flightcase/song_summary_view.gd
-      - experiments/playable_flightcase/career_desk.gd
-      - experiments/playable_flightcase/ui.gd
-      - experiments/playable_flightcase/show_desk.gd
-      - experiments/playable_flightcase/recording_desk.gd
-      - tests/song55_summary.gd
-      - tests/song55_native.gd
-      - tools/song55_verify.py
-      - .github/workflows/song55-native-proof.yml
+      - docs/continuous_improvement/sessions/SONG56.json
 
 permissions:
   contents: read
