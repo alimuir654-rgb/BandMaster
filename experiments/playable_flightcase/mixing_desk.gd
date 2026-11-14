@@ -278,6 +278,7 @@ func _toggle_shape() -> void:
  if _busy or is_instance_valid(_dialog):return
  _stop_audio();_cancel_controls();_shape_open=not _shape_open
  _refresh();_scroll.set_deferred("scroll_vertical",0)
+ call_deferred("_restore_visible_focus")
 
 func _shape_next(direction: int) -> void:
  if _busy or is_instance_valid(_dialog):return
@@ -286,6 +287,7 @@ func _shape_next(direction: int) -> void:
 func _change_answer() -> void:
  if _busy or is_instance_valid(_dialog) or Time.get_ticks_msec()<_review_ready_at:return
  _recipe=_offer_base();_invalidate_response();_refresh();_scroll.set_deferred("scroll_vertical",0)
+ call_deferred("_restore_visible_focus")
 
 func _unlock_review() -> void:
  if is_inside_tree():

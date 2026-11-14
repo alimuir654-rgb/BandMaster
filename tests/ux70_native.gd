@@ -44,6 +44,7 @@ func _mount_practice(activity: String) -> void:
  await settle(10)
 
 func _record_frame(label: String) -> void:
+ await _normal_words()
  var visible: Array=[]
  for node in scene.find_children("*","Button",true,false):
   if node.is_visible_in_tree() and clipped_rect(node).encloses(node.get_global_rect()):
@@ -110,6 +111,19 @@ func _free(before: Dictionary,disk: PackedByteArray,saves: int,label: String) ->
 func _ready_turn() -> void:
  await create_timer(0.38).timeout
  await settle(3)
+ await _normal_words()
+
+func _normal_words() -> void:
+ if not normal_motion:return
+ # Observe the real reveal without cancelling it or changing gameplay state.
+ var until: int=Time.get_ticks_msec()+4500
+ while Time.get_ticks_msec()<until:
+  var revealing: bool=false
+  for note in get_nodes_in_group("bandmaster_notes"):
+   if note.is_visible_in_tree() and note.is_revealing():revealing=true
+  if not revealing:return
+  await process_frame
+ check(false,"normal-motion words finish within original reveal bound")
 
 func _key(code: int) -> void:
  for down in [true,false]:
