@@ -69,13 +69,15 @@
     "docs/asset_base/STATE.json",
     "docs/asset_base/CONTROL_SPRINT_LOCK.json",
     "docs/asset_base/LEDGER.md",
-    "docs/handover/START_HERE.md"
+    "docs/handover/START_HERE.md",
+    "docs/continuous_improvement/evidence/SONG60/*"
   ],
   "validation_commands": [
     "project_context check and improvement_gate committed preflight",
     "Pinned Godot4.7.2 fresh private import/Dummy/privateXDG/signing guards/one nativeGLlock",
     "Actual baseline and early390phone/1280short native originals; exactfinal390x844/720x1280/1280x720/1600x900 whole-task nativepointer/key/emulatedtouch/scroll/FSfailure-retry/typedreload/legacyfallback",
-    "Existing deterministic/legacy/once-only CI, new exact-source model/native source protection, independent readonly source/visual reviews and nonforceexpected-head readback"
+    "Existing deterministic/legacy/once-only CI, new exact-source model/native source protection, independent readonly source/visual reviews and nonforceexpected-head readback",
+    "Publish exact native PNG originals/raw receipts under existing evidence convention, all hashes read back; images are QA evidence, not an app release."
   ],
   "writer": {
     "owner": "root-SONG60",
