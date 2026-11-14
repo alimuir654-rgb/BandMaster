@@ -157,6 +157,8 @@ static func _merge_target(old: Dictionary,current: Dictionary) -> Dictionary:
 
 static func _target_same(first: Dictionary,second: Dictionary) -> bool:
  if first.get("title")!=second.get("title"):return false
+ for key in ["collaborator_policy","collaborator_candidate_id"]:
+  if not _same(first.get(key),second.get(key)):return false
  for field in ["leader_ref","respondent_ref"]:
   var a: Dictionary=first.get(field,{})
   var b: Dictionary=second.get(field,{})
@@ -172,6 +174,12 @@ static func _ref_ok(value: Variant,allow_empty: bool=false) -> bool:
  for field in ["candidate_id","name","role","bio_sha256"]:
   if not value.get(field) is String:return false
  return value.has("member_id") and not _hash(value).is_empty()
+
+# Optional prospective selection. Legacy automatic targets remain unchanged.
+static func _target_contract_ok(target: Variant) -> bool:
+ if not target is Dictionary or not target.get("title") is String or not _ref_ok(target.get("leader_ref")) or not _ref_ok(target.get("respondent_ref"),true):return false
+ if not target.has("collaborator_policy") and not target.has("collaborator_candidate_id"):return true
+ return target.get("collaborator_policy")=="chosen_cowriter_v1" and target.get("collaborator_candidate_id") is String and not target.collaborator_candidate_id.is_empty() and target.respondent_ref.get("candidate_id")==target.collaborator_candidate_id and target.leader_ref.get("candidate_id")!=target.collaborator_candidate_id
 
 static func _trial_number(id: Variant,project_id: String) -> int:
  if not id is String or not str(id).begins_with(project_id+":trial:"):return -1
@@ -196,7 +204,7 @@ static func _trial_ok(value: Variant,project_id: String) -> bool:
  if not value is Dictionary:return false
  if value.is_empty():return true
  if _trial_number(value.get("id"),project_id)<1 or not _whole(value.get("stage"),0,2) or not _material_ok(value.get("fragment_snapshot")):return false
- if not value.get("target") is Dictionary or not value.target.get("title") is String or not _ref_ok(value.target.get("leader_ref")) or not _ref_ok(value.target.get("respondent_ref"),true):return false
+ if not _target_contract_ok(value.get("target")):return false
  if not value.get("immutable_context") is Dictionary or not _whole(value.immutable_context.get("day"),1) or not value.get("note") is Dictionary:return false
  if value.fragment_snapshot.has("producer_recipe"):
   if not _whole(value.get("producer_fragment_revision"),1) or value.get("producer_fragment_id")!="%s:f:%d" % [project_id,int(value.producer_fragment_revision)]:return false
@@ -211,6 +219,9 @@ static func _paid_ok(value: Variant) -> bool:
  for index in range(value.size()):
   var row: Variant=value[index]
   if not row is Dictionary or row.get("stage")!=index or not _whole(row.get("day_before"),1) or not _whole(row.get("day_after"),2) or int(row.day_after)!=int(row.day_before)+1:return false
+  var target: Variant=row.get("target")
+  var selected: bool=target is Dictionary and (target.has("collaborator_policy") or target.has("collaborator_candidate_id"))
+  if (selected or row.has("co_write_v1")) and not _cowriting_row_ok(row):return false
   if not _whole(row.get("cash_before")) or not _whole(row.get("cash_after")) or not _material_ok(row.get("fragment_snapshot")) or not row.get("trial_id") is String:return false
  return not _hash(value).is_empty()
 
@@ -223,7 +234,7 @@ static func _closed_project_ok(value: Variant,id: String,paid_count: int) -> boo
  if not _paid_ok(value.get("paid_receipts")) or value.paid_receipts.size()!=paid_count or not value.get("feedback_history") is Array or value.feedback_history.size()>3:return false
  for trial in value.feedback_history:
   if not _trial_ok(trial,id) or trial.is_empty():return false
- return value.target.get("title") is String and _ref_ok(value.target.get("leader_ref")) and _ref_ok(value.target.get("respondent_ref"),true) and not _hash(value).is_empty()
+ return _target_contract_ok(value.target) and not _hash(value).is_empty()
 
 static func _producer_final_trial_ok(project: Dictionary,fragment: Dictionary,paid: Array) -> bool:
  if paid.size()!=3 or not project.get("last_trial") is Dictionary:return false
@@ -260,7 +271,7 @@ static func validate(opening: Dictionary) -> Dictionary:
  if not _decision_ok(project):return fail
  var binding: Dictionary=project.binding
  if not _whole(binding.get("progress"),0,2) or not _whole(binding.get("original_song_sequence")) or not binding.get("canonical_draft") is Dictionary or binding.get("canonical_draft_fingerprint")!=_hash(binding.canonical_draft):return fail
- if not project.target.get("title") is String or not _ref_ok(project.target.get("leader_ref")) or not _ref_ok(project.target.get("respondent_ref"),true):return fail
+ if not _target_contract_ok(project.target):return fail
  if not _fragment_ok(project.get("fragment"),project.id) or not project.get("prior_fragment") is Dictionary or not _material_ok(project.get("authored_alternate")) or not _trial_ok(project.get("last_trial"),project.id) or not _paid_ok(project.get("paid_receipts")):return fail
  if not project.prior_fragment.is_empty() and not _fragment_ok(project.prior_fragment,project.id):return fail
  if not project.get("feedback_history") is Array or project.feedback_history.size()>3:return fail
@@ -290,13 +301,23 @@ static func _ref(state: Dictionary,index: int) -> Dictionary:
    if str(row.get("id",""))==candidate:source=row;break
  return {"slot":index,"member_id":person.get("id",null),"candidate_id":candidate,"name":str(person.get("name","Musician")),"role":str(person.get("role","")),"bio_sha256":_hash(source) if not source.is_empty() else ""}
 
-static func _target(state: Dictionary,title: String,index: int) -> Dictionary:
+static func _target(state: Dictionary,title: String,index: int,collaborator_id: String="") -> Dictionary:
  var preview: Dictionary=Workshop.develop(state,"Lyric","Verse / Chorus",title,index)
  if not preview.get("ok",false):return {"ok":false,"message":str(preview.get("message","Choose the current title and leader."))}
  var respondent: Dictionary={}
- for slot in range(state.members.size()):
-  if slot!=index and state.members[slot].get("life_status","active")=="active":respondent=_ref(state,slot);break
- return {"ok":true,"target":{"title":title.strip_edges().to_upper(),"leader_ref":_ref(state,index),"respondent_ref":respondent}}
+ if not collaborator_id.is_empty():
+  var matches: int=0
+  for slot in range(state.members.size()):
+   if state.members[slot].get("candidate_id")==collaborator_id:
+    matches+=1
+    if slot!=index and state.members[slot].get("life_status","active")=="active":respondent=_ref(state,slot)
+  if matches!=1 or respondent.is_empty() or str(respondent.get("bio_sha256","")).is_empty():return {"ok":false,"message":"Choose one current active bandmate other than the session lead."}
+ else:
+  for slot in range(state.members.size()):
+   if slot!=index and state.members[slot].get("life_status","active")=="active":respondent=_ref(state,slot);break
+ var target: Dictionary={"title":title.strip_edges().to_upper(),"leader_ref":_ref(state,index),"respondent_ref":respondent}
+ if not collaborator_id.is_empty():target.merge({"collaborator_policy":"chosen_cowriter_v1","collaborator_candidate_id":collaborator_id})
+ return {"ok":true,"target":target}
 
 static func _binding(state: Dictionary) -> Dictionary:
  return {"progress":int(state.song_draft_progress),"canonical_draft":state.current_song_draft.duplicate(true),"canonical_draft_fingerprint":_hash(state.current_song_draft),"original_song_sequence":int(state.songs)}
@@ -310,13 +331,14 @@ static func _binding_ok(state: Dictionary,project: Dictionary) -> bool:
  return true
 
 static func _participants_ok(state: Dictionary,target: Dictionary) -> bool:
+ if not _target_contract_ok(target):return false
  var leader: Dictionary=target.leader_ref
  var index: int=int(leader.slot)
  if index>=state.members.size() or state.members[index].get("life_status","active")!="active":return false
  var current: Dictionary=_ref(state,index)
  for field in ["slot","member_id","candidate_id","name","role","bio_sha256"]:
   if not _same(current.get(field),leader.get(field)):return false
- var live:=_target(state,str(target.title),index)
+ var live:=_target(state,str(target.title),index,str(target.get("collaborator_candidate_id","")))
  return live.get("ok",false) and _target_same(live.target,target)
 
 static func _priority(opening: Dictionary) -> String:
@@ -431,7 +453,12 @@ static func checkpoint(opening: Dictionary,action: String,token: Dictionary,payl
  var target: Dictionary=project.target.duplicate(true)
  var producer: bool=material.has("producer_recipe")
  if producer and action in ["save_sketch","try","use_alternate"]:return _mutation(opening,false,"Use the producer controls for this arrangement; the saved recipe is retained.")
- if action in ["producer_save","producer_try"]:
+ if action=="select_collaborator":
+  if not producer or not _keys(payload,["candidate_id"]) or not payload.get("candidate_id") is String or payload.candidate_id.is_empty():return _mutation(opening,false,"Choose a current bandmate for this arrangement.")
+  var chosen:=_target(state,str(target.title),int(target.leader_ref.slot),payload.candidate_id)
+  if not chosen.ok:return _mutation(opening,false,chosen.message)
+  target=_merge_target(target,chosen.target)
+ elif action in ["producer_save","producer_try"]:
   if not producer or not _keys(payload,["recipe","title","leader_index"]) or not Producer.valid(payload.get("recipe")) or not payload.get("title") is String or not _whole(payload.get("leader_index"),0,5):return _mutation(opening,false,"Choose a compatible arrangement, title and leader.")
   if payload.recipe.get("version")==5 and not Producer.Mixing.Recorded.VocalKeys.active_pair(state,payload.recipe):return _mutation(opening,false,"This phrase needs its named singer and keyboardist in the band.")
   if int(payload.recipe.stage)!=int(state.song_draft_progress) or not _same(payload.recipe.brief,Sound.read(state)):return _mutation(opening,false,"Develop the current writing stage with the confirmed band sound.")
@@ -440,7 +467,7 @@ static func checkpoint(opening: Dictionary,action: String,token: Dictionary,payl
    if recorded.version!=payload.recipe.version or recorded.hook!=payload.recipe.hook or recorded.get("voice","off")!=payload.recipe.get("voice","off") or recorded.get("keys","off")!=payload.recipe.get("keys","off"):return _mutation(opening,false,"This song's foundation is already recorded. Shape its arrangement, or finish it before starting another original.")
   if not _same(payload.recipe,project.fragment.producer_recipe):project.producer_decision={}
   material=_merge_material(material,Producer.material(payload.recipe))
-  var chosen:=_target(state,payload.title,int(payload.leader_index))
+  var chosen:=_target(state,payload.title,int(payload.leader_index),str(target.get("collaborator_candidate_id","")))
   if not chosen.ok:return _mutation(opening,false,chosen.message)
   target=_merge_target(target,chosen.target)
  elif action=="producer_offer":
@@ -456,12 +483,12 @@ static func checkpoint(opening: Dictionary,action: String,token: Dictionary,payl
   var parsed:=_payload_material(payload)
   if parsed.is_empty():return _mutation(opening,false,"Use two nonblank lines, up to 96 characters each, and choose the refrain, title and leader.")
   material=_merge_material(material,parsed)
-  var chosen:=_target(state,payload.title,int(payload.leader_index))
+  var chosen:=_target(state,payload.title,int(payload.leader_index),str(target.get("collaborator_candidate_id","")))
   if not chosen.ok:return _mutation(opening,false,chosen.message)
   target=_merge_target(target,chosen.target)
  elif action=="review_participants":
   if not _keys(payload,["title","leader_index"]) or not payload.get("title") is String or not _whole(payload.get("leader_index"),0,5):return _mutation(opening,false,"Review the actual title and leader.")
-  var chosen:=_target(state,payload.title,int(payload.leader_index))
+  var chosen:=_target(state,payload.title,int(payload.leader_index),str(target.get("collaborator_candidate_id","")))
   if not chosen.ok:return _mutation(opening,false,chosen.message)
   target=_merge_target(target,chosen.target)
  elif action=="use_alternate":
@@ -641,6 +668,52 @@ static func _identity_ok(song_id: String,extension: Dictionary) -> bool:
  var expected_identity: Dictionary=_composition_identity(song_id,extension)
  return not expected_identity.is_empty() and _same(extension.composition_identity_v1,expected_identity)
 
+static func _cowriting_row_ok(row: Dictionary) -> bool:
+ var event: Variant=row.get("co_write_v1")
+ if not event is Dictionary or not _keys(event,["policy","decision"]) or event.get("policy")!="paid_cowriting_v1":return false
+ if not _target_contract_ok(row.get("target")) or not row.target.has("collaborator_policy") or not _whole(row.get("stage"),0,2) or not _material_ok(row.get("fragment_snapshot")):return false
+ if not _decision_ok({"producer_decision":event.get("decision")}):return false
+ var decision: Variant=event.get("decision")
+ if not decision is Dictionary or decision.is_empty():return false
+ return decision.stage==row.stage and _same(decision.member,row.target.respondent_ref) and _same(decision.chosen_recipe,row.fragment_snapshot.get("producer_recipe"))
+
+static func _cowriting_snapshot(song_id: String,extension: Dictionary) -> Dictionary:
+ var identity: Dictionary=_composition_identity(song_id,extension)
+ if identity.is_empty():return {}
+ var retained: Dictionary={}
+ var tracked: bool=false
+ for row in extension.paid_receipts:
+  if not row.get("fragment_snapshot") is Dictionary:return {}
+  var recipe: Variant=row.fragment_snapshot.get("producer_recipe")
+  if not Producer.valid(recipe):return {}
+  # Any later PAID overwrite clears ownership. Matching an older value again
+  # cannot resurrect an earlier contribution. Free comparisons never enter here.
+  for field in retained.keys():
+   if recipe.get(field)!=retained[field].value:retained.erase(field)
+  if not row.has("co_write_v1"):continue
+  if not _cowriting_row_ok(row):return {}
+  tracked=true
+  var decision: Dictionary=row.co_write_v1.decision
+  if decision.choice!="try":continue
+  var offer: Dictionary=Producer.offer(decision.base_recipe,decision.member)
+  retained[offer.field]={"event_id":str(extension.project_id)+":stage:"+str(int(row.stage)),"stage":int(row.stage),"candidate_id":str(decision.member.candidate_id),"name":str(decision.member.name),"field":offer.field,"value":offer.value,"offer_id":offer.offer_id,"trial_id":str(row.trial_id),"material_sha256":_hash(row.fragment_snapshot)}
+ if not tracked:return {}
+ var events: Array=[]
+ var fields: Array=retained.keys();fields.sort()
+ for field in fields:events.append(retained[field])
+ return {"policy":"retained_cowriting_v1","song_id":song_id,"composition_id":identity.composition_id,"revision_id":identity.revision_id,"retained":events}
+
+static func _cowriting_extension_ok(extension: Dictionary) -> bool:
+ var tracked: bool=false
+ for row in extension.paid_receipts:
+  if row.has("co_write_v1"):tracked=true
+ if not extension.has("co_writing_v1"):return not tracked
+ var saved: Variant=extension.co_writing_v1
+ if not saved is Dictionary or not saved.get("song_id") is String:return false
+ if not extension.get("composition_identity_v1") is Dictionary or not _identity_ok(saved.song_id,extension):return false
+ var expected_snapshot: Dictionary=_cowriting_snapshot(saved.song_id,extension)
+ return not expected_snapshot.is_empty() and _same(saved,expected_snapshot)
+
 static func _extension_ok(value: Variant) -> bool:
  if not value is Dictionary or value.get("version")!=1 or not value.get("project_id") is String or not _fragment_ok(value.get("fragment"),str(value.project_id)) or not _paid_ok(value.get("paid_receipts")):return false
  if value.fragment.has("producer_recipe") and not value.get("project_snapshot") is Dictionary:return false
@@ -651,7 +724,7 @@ static func _extension_ok(value: Variant) -> bool:
   var project: Dictionary=value.project_snapshot
   var trial: Dictionary=project.get("last_trial",{}) if project.get("last_trial") is Dictionary else {}
   if not _same(trial.get("fragment_snapshot"),_material(value.fragment)) or trial.get("producer_fragment_id")!=value.fragment.fragment_id or value.paid_receipts.back().get("trial_id")!=trial.get("id"):return false
- return _producer_receipt_ok(value) and value.paid_receipts.size()==3 and _closed_project_ok(value.get("project_snapshot"),str(value.project_id),3) and value.get("content_version") is String and value.get("policy_version") is String and not _hash(value).is_empty()
+ return _cowriting_extension_ok(value) and _producer_receipt_ok(value) and value.paid_receipts.size()==3 and _closed_project_ok(value.get("project_snapshot"),str(value.project_id),3) and value.get("content_version") is String and value.get("policy_version") is String and not _hash(value).is_empty()
 
 static func _finished_ref(index: int,song: Dictionary) -> Dictionary:
  var extension: Dictionary=song[FRAGMENT_KEY]
@@ -688,6 +761,10 @@ static func seal_paid(before: Dictionary,after_accounting: Dictionary,prepared: 
  if not _exact(state.song_catalogue,completion.get("catalogue")) or not _binding_ok(state,{"binding":completion.get("binding",{})}) or not _exact(state.get(KEY),_career(before).get(KEY)):return fail
  var wrapper:=_wrapper(before);var project: Dictionary=wrapper.project
  var row: Dictionary={"stage":int(completion.stage),"day_before":int(_career(before).tour_day),"day_after":int(state.tour_day),"cash_before":int(_career(before).cash),"cash_after":int(state.cash),"fragment_snapshot":_material(project.fragment),"trial_id":str(project.last_trial.id),"target":project.target.duplicate(true),"original_outcome":state.get("last_rehearsal_outcome",{}).duplicate(true)}
+ if project.target.has("collaborator_policy"):
+  if not producer_reply_ok(project,int(completion.stage)):return fail
+  row.co_write_v1={"policy":"paid_cowriting_v1","decision":project.producer_decision.duplicate(true)}
+  if not _cowriting_row_ok(row):return fail
  project.paid_receipts.append(row)
  project.binding=completion.binding.duplicate(true)
  project.phase="between_sessions"
@@ -712,6 +789,9 @@ static func seal_paid(before: Dictionary,after_accounting: Dictionary,prepared: 
    next.game.career.song_catalogue[index].quality=final_quality
   extension.composition_identity_v1=_composition_identity(str(next.game.career.song_catalogue[index].id),extension)
   if extension.composition_identity_v1.is_empty():return fail
+  var cowriting: Dictionary=_cowriting_snapshot(str(next.game.career.song_catalogue[index].id),extension)
+  if not cowriting.is_empty():extension.co_writing_v1=cowriting
+  elif project.paid_receipts.any(func(receipt):return receipt.has("co_write_v1")):return fail
   next.game.career.song_catalogue[index][FRAGMENT_KEY]=Canon._freeze_candidate(extension)
   var reference:=_finished_ref(index,next.game.career.song_catalogue[index])
   wrapper.last_result={"id":project.id,"sequence":project.sequence,"result":"finished","fragment":project.fragment.duplicate(true),"paid_receipts":project.paid_receipts.duplicate(true),"finished_ref":reference,"project_snapshot":project.duplicate(true)}
