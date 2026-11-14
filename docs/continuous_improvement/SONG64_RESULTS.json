@@ -1,0 +1,257 @@
+{
+  "session": "SONG64",
+  "tested_sha": "bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
+  "unchanged_game_source": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
+  "baseline_sha": "a0cf5c7f3c8f82cdc31a2f1bf8ad2dab5b0a274d",
+  "preflight_sha": "c0ecc121e697ff0a83e1ed440218c147a300b40f",
+  "technical_verdict": "PASS_SCOPED_CI_REPAIR",
+  "visual_verdict": "internal_pass_unchanged_source_reuse",
+  "overall_verdict": "PARTIAL",
+  "owner_approved": false,
+  "release_verdict": "NO_NEW_APK",
+  "changed": "CIonly:88exactmodel/runner/test/workflow triggers; stdlibstaticdependencyguard bound toon.push; sevennegative/positive testmethods; original10modelCIsteps unchanged plus1guard. Production source/UI/art/audio/owners unchanged.",
+  "baseline_defect": {
+    "actual_six_harness_union": 76,
+    "missing_model_inputs": 65,
+    "scope": "Static source copied by existing isolated model runners, not65observedgameplayfailures."
+  },
+  "proof": {
+    "guard_test_methods_final": 7,
+    "earlier_test_methods": 6,
+    "held_diagnostics": 1,
+    "held": "Wrongeventpaths falsepositive retained before correction; finalancestrynegativesPASS. Earlier6methodsPASS didnotcover thisdefect.",
+    "source_CI": {
+      "tested_sha": "bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
+      "runs": [
+        {
+          "id": 43569650327,
+          "name": "Mandatory continuous-improvement gate",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 43569650371,
+          "name": "Validate BandMaster structure",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 43569650238,
+          "name": "Linked-song craft and legacy-save proof",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 43569650374,
+          "name": "Godot headless validation",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "model_artifacts": [
+        {
+          "id": 14102959577,
+          "name": "song57-models-bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6-1",
+          "size_in_bytes": 141956,
+          "digest": "sha256:8d287c9f34aa1ae4257b6d686fa54faed4f24cd2eef33678f1abb6f554d46af0",
+          "expired": false
+        }
+      ],
+      "artifact_inspection": "Metadata and job steps read back; artifact ZIP not downloaded/opened.",
+      "model_job_steps": [
+        {
+          "id": 132371030603,
+          "status": "completed",
+          "conclusion": "success",
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Check out the exact pushed source",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Check current scoped preflight and preserved history",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Check model dependency trigger coverage",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Download and verify the established Godot 4.7.2 toolchain",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Prove actual legacy compatibility and new craft fairness",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Prove canonical song identity against genuine previous completions",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Prove chosen collaborator and paid retained contribution evidence",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Prove atomic pending lead and collaborator payload compatibility",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Prove exact-revision rehearsal and whole-opening rollback",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Prove conservative section provenance and legacy rehearsal compatibility",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Retain source hashes, logs and isolated model fixtures",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Check out the exact pushed source",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ]
+        }
+      ]
+    },
+    "original_CI_steps_semantically_exact": 10,
+    "new_CI_steps": 1,
+    "trigger_paths": 88,
+    "static_model_inputs": 76,
+    "local_Python_inputs": 10,
+    "production_art_data_live_Gitblob_exact": 870,
+    "native_source_bindings_rehashed": 907,
+    "native_proof_reuse": {
+      "tested_source": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
+      "profiles": [
+        "390x844",
+        "720x1280",
+        "1280x720",
+        "1600x900"
+      ],
+      "checks_each": 303,
+      "pngs": 36,
+      "current_execution": false,
+      "binding": "All907native sourcefiles stillSHA256exact; all870production/art/data Gitblobs exactlivebase andpublishedcode. Prioractualnativeproof reused, not executedagain."
+    },
+    "local_Godot_executions": 0,
+    "new_native_images": 0,
+    "new_audio_APK_key_operations": 0
+  },
+  "evidence": [
+    {
+      "path": "docs/continuous_improvement/evidence/SONG64/coverage-v2.json",
+      "bytes": 13093,
+      "sha256": "9a16c5de2d2cdd17140a87ff684eba9dde1cf47197e9e7ffdb0a7da22673269c"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG64/held-guard-v1.py.txt",
+      "bytes": 5267,
+      "sha256": "db7c414669957018ba7c2d8121845d0022396d8f14b2b233f63cefea231baff7"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG64/held-tests-v1.py.txt",
+      "bytes": 3292,
+      "sha256": "df4d1be06bd4c2554733036a2837126a94bb530d5589a5fbcb3d714d7764d93a"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG64/held-trigger-parent.json",
+      "bytes": 290,
+      "sha256": "92a94301d24a09b15faa81f8998abeff23b411d330b24435cf8189fc5051a2e1"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG64/protected.json",
+      "bytes": 512,
+      "sha256": "3fd24ba99d6125a0a8981243092e1d2945caed62f3e6ee49b3f504919d2afa48"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG64/song57-model-proof.yml.txt",
+      "bytes": 11696,
+      "sha256": "b7c41428422912749c909aff54efef97f6498bdad1b271aa120b3d54d39563a0"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG64/song64_ci_dependencies.py.txt",
+      "bytes": 6031,
+      "sha256": "bfcd15133ab0269f4c4e645f5be3bee4a59ce9f04d0da436f32ada0433fa46cd"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG64/test_song64_ci_dependencies.py.txt",
+      "bytes": 3802,
+      "sha256": "4da17d6263cedba3e0ead78b60b6ae8f7d1906a688cdfd95975ffc1ebaf6e370"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG64/tests-v2.log",
+      "bytes": 1151,
+      "sha256": "50453c6b2db4cb37e9332a92ee14f84ef7c64f9de9c2a94b51d2801dca8740c3"
+    }
+  ],
+  "evidence_files": 9,
+  "evidence_bytes": 45134,
+  "review": "docs/continuous_improvement/SONG64_REVIEW.json",
+  "protection": {
+    "previous_source": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
+    "live_head": "a0cf5c7f3c8f82cdc31a2f1bf8ad2dab5b0a274d",
+    "native_source_inputs_rehashed": 907,
+    "production_art_data_files_live_git_blob_bound": 870,
+    "new_images": 0,
+    "APK_operations": 0,
+    "primary_free_before": 625471488,
+    "primary_free_after": 625471488,
+    "TMP_free_after": 1308114944,
+    "local_Godot_executions": 0,
+    "remote_CI": "New exact-source pipeline executes existing proof steps; separate from zero local engine runs."
+  },
+  "resource_plan": {
+    "at": "2026-11-14T07:01:01.364410+00:00",
+    "primary_new_bytes": 0,
+    "TMP_new_cap_bytes": 10485760,
+    "TMP_free_before": 1308438528,
+    "floor_bytes": 629145600,
+    "budget": "10MiB compact scripts/metadata/evidence/failedproof/GitData publication tail, no new runtime/cache/import/PNG/audio/APK. Existing source export only after live blob binding; closed producer caches remain immutable.",
+    "deadline": "07:48 Europe/London14Nov2026"
+  },
+  "new_issue_review": {
+    "events_thispass": [
+      "2a0888bc-22c0-43d0-a7e8-8279ad69eeec",
+      "cc1b89c5-c551-4af5-a80c-704be4e35357",
+      "f5577093-d4e8-45c6-889c-6709b24c674f"
+    ],
+    "disposition": "CIgap andnewguardP2resolved fordeclaredscope; no newgameplaydefect discovered."
+  },
+  "material_gaps": [
+    "R3 PARTIAL: source-material provenance only; no supported earned finished-song rewrite, player-facing changed-section transfer, readiness/ability score or preparation bonus. R4–R7 dependencies not passed.",
+    "Controlled future material projections are rule fixtures, not earned rewrites. Literal original uses three actual paid writing days then rehearsal. Producer-axis sweeps are individual alternatives, not a Cartesian recipe sweep.",
+    "Native careers use public formation/writing fixtures, not whole initial-menu journeys. Reload calls the real RootUI._load_original handler directly; no played Menu/Continue claim.",
+    "303 checks per profile include setup; nine writing-helper settlements are setup counts, not nine native rehearsals. Each native career has two selected and one general paid rehearsal plus one real selected FS failure/retry.",
+    "Reduced-motion desktop/Dummy proofs do not establish physical phone/touch, listening, normal-motion, install/save-retention, IME, OS interruption or uncoached acceptance.",
+    "Existing body scrolling, sparse wide presentation, static portraits and inherited ellipsised rehearsal excerpts remain.",
+    "Original signer accessible, but nine processed media dependencies remain missing. Raw Dropbox stems are not those dependencies; no new APK or public release.",
+    "CI guard covers current six fixed harnesses/static copied text resources and sibling/local Python imports, not future new model roots, relative/package/dynamic imports or runtime media coverage.",
+    "Current selected-rehearsal native proof uses reduced motion at allfourprofiles; normal-motion acknowledgement remains untested. No local native rerun thispass."
+  ],
+  "next_action": "At08:00 freeze the verified source candidate, confirm actual test access and deliver the08:50 handover with explicit Android/media and unfinished-roadmap holds; no new gameplay systems."
+}

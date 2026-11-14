@@ -1,0 +1,66 @@
+{
+  "session": "SONG64",
+  "tested_sha": "bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
+  "unchanged_game_source": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
+  "technical_verdict": "PASS_CI_TRIGGER_REPAIR",
+  "internal_visual_verdict": "REUSED_UNCHANGED_SOURCE_NOT_NEW_VISUAL_APPROVAL",
+  "overall_verdict": "PARTIAL",
+  "owner_approved": false,
+  "release_approved": false,
+  "root_actual_originals_opened": [
+    "docs/continuous_improvement/evidence/SONG63/native-v1/candidate/phone/selected-long-title.png"
+  ],
+  "root_opens": 1,
+  "independent_actual_image_opens": 0,
+  "reviewers": [
+    {
+      "agent": "/root/au01_source_review",
+      "status": "completed_released",
+      "finding": "No new gameplay integration defect; finalguard ancestry/sourceCLEAR, no execution/writes."
+    },
+    {
+      "agent": "/root/foundation_tests",
+      "status": "completed_released",
+      "finding": "FoundCI65missinginputs then guard ancestryP2; finalfixedguardCLEAR, raw7testmethodreceipt reviewed, no tests/engines/writes byreviewer."
+    }
+  ],
+  "five_simulated_lenses": [
+    {
+      "lens": "Reliability",
+      "explicitly_simulated": true,
+      "finding": "Real model dependencies trigger the existing owner/legacy/save proofs."
+    },
+    {
+      "lens": "Maintainer",
+      "explicitly_simulated": true,
+      "finding": "88exactpaths and staticclosureguard; boundedparser rejects unreviewed syntax and wrongevent ancestry."
+    },
+    {
+      "lens": "Player",
+      "explicitly_simulated": true,
+      "finding": "Product/UI/source907 unchanged; no new experience or comprehension acceptance inferred."
+    },
+    {
+      "lens": "History",
+      "explicitly_simulated": true,
+      "finding": "Heldv1parserfixture/source retained; two recurrences loggedbeforecorrection and finalresolution appended."
+    },
+    {
+      "lens": "Producer",
+      "explicitly_simulated": true,
+      "finding": "R3partial/laterdependenciesheld; processedmedia stillmissing/noAPK, no substitution of screenshots forplayablebuild."
+    }
+  ],
+  "material_gaps": [
+    "R3 PARTIAL: source-material provenance only; no supported earned finished-song rewrite, player-facing changed-section transfer, readiness/ability score or preparation bonus. R4–R7 dependencies not passed.",
+    "Controlled future material projections are rule fixtures, not earned rewrites. Literal original uses three actual paid writing days then rehearsal. Producer-axis sweeps are individual alternatives, not a Cartesian recipe sweep.",
+    "Native careers use public formation/writing fixtures, not whole initial-menu journeys. Reload calls the real RootUI._load_original handler directly; no played Menu/Continue claim.",
+    "303 checks per profile include setup; nine writing-helper settlements are setup counts, not nine native rehearsals. Each native career has two selected and one general paid rehearsal plus one real selected FS failure/retry.",
+    "Reduced-motion desktop/Dummy proofs do not establish physical phone/touch, listening, normal-motion, install/save-retention, IME, OS interruption or uncoached acceptance.",
+    "Existing body scrolling, sparse wide presentation, static portraits and inherited ellipsised rehearsal excerpts remain.",
+    "Original signer accessible, but nine processed media dependencies remain missing. Raw Dropbox stems are not those dependencies; no new APK or public release.",
+    "CI guard covers current six fixed harnesses/static copied text resources and sibling/local Python imports, not future new model roots, relative/package/dynamic imports or runtime media coverage.",
+    "Current selected-rehearsal native proof uses reduced motion at allfourprofiles; normal-motion acknowledgement remains untested. No local native rerun thispass."
+  ],
+  "next_action": "At08:00 freeze the verified source candidate, confirm actual test access and deliver the08:50 handover with explicit Android/media and unfinished-roadmap holds; no new gameplay systems."
+}

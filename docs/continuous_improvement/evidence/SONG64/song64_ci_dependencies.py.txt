@@ -1,0 +1,142 @@
+#!/usr/bin/env python3
+"""Guard literal push triggers for the linked-song isolated model input closure.
+
+Matches the existing model copier's res:// text-resource traversal. This does
+not establish dynamic runtime asset coverage or change the gameplay proofs.
+Standard library only; importing this module never invokes Godot or a runner.
+"""
+from __future__ import annotations
+import argparse
+import ast
+import json
+from pathlib import Path, PurePosixPath
+import re
+
+WORKFLOW = '.github/workflows/song57-model-proof.yml'
+MODEL_ROOTS = ('tests/song57_craft_fairness.gd', 'tests/song58_identity.gd',
+               'tests/song59_cowriting.gd', 'tests/song60_models.gd',
+               'tests/song61_preparation.gd', 'tests/song63_sections.gd')
+TEXT_SUFFIXES = {'.gd', '.json', '.tscn', '.tres'}
+RESOURCE = re.compile(r'res://([^\s"\'<>]+)')
+
+
+def safe_file(repo: Path, name: str) -> Path:
+    p = PurePosixPath(name)
+    if p.is_absolute() or '..' in p.parts or '\\' in name:
+        raise ValueError('Unsafe dependency: ' + name)
+    target = (repo / name).resolve()
+    if not target.is_relative_to(repo.resolve()) or not target.is_file():
+        raise ValueError('Missing/escaping dependency: ' + name)
+    return target
+
+
+def model_inputs(repo: Path, roots=MODEL_ROOTS) -> set[str]:
+    pending = list(roots)
+    seen = set()
+    while pending:
+        name = pending.pop()
+        if name in seen:
+            continue
+        source = safe_file(repo, name)
+        seen.add(name)
+        for ref in RESOURCE.findall(source.read_text()):
+            # Same file/suffix boundary as song59_verify.copy: generated audio,
+            # dynamic format strings and unavailable assets are not copied.
+            if Path(ref).suffix in TEXT_SUFFIXES and (repo / ref).is_file():
+                safe_file(repo, ref)
+                pending.append(ref)
+    return seen
+
+
+def push_paths(text: str) -> set[str]:
+    """Read the intentionally literal, one-entry-per-line workflow paths block.
+
+    Reject syntax outside this audited subset rather than guessing YAML meaning.
+    """
+    lines = text.splitlines()
+    events = [i for i, line in enumerate(lines) if line == 'on:']
+    pushes = [i for i, line in enumerate(lines) if line == '  push:']
+    if len(events) != 1 or len(pushes) != 1 or pushes[0] <= events[0]:
+        raise ValueError('Expected one on/push block')
+    event_end = next((i for i in range(events[0] + 1, len(lines))
+                      if lines[i].strip() and not lines[i].startswith(' ')), len(lines))
+    if pushes[0] >= event_end:
+        raise ValueError('Push must be under on')
+    push_end = next((i for i in range(pushes[0] + 1, event_end)
+                     if lines[i].strip() and not lines[i].startswith('    ')), event_end)
+    block = lines[pushes[0] + 1:push_end]
+    markers = [i for i in range(pushes[0] + 1, push_end) if lines[i] == '    paths:']
+    if len(markers) != 1 or any(line == '    paths-ignore:' for line in block):
+        raise ValueError('Expected one push paths block, without paths-ignore')
+    paths = set()
+    for line in lines[markers[0] + 1:push_end]:
+        if not line.strip():
+            continue
+        if not line.startswith('      - '):
+            break
+        value = line[8:].strip()
+        if value[:1] in {'"', "'"}:
+            if len(value) < 2 or value[-1] != value[0]:
+                raise ValueError('Unclosed literal trigger')
+            value = value[1:-1]
+        if not value or any(c in value for c in '*?![]{}#') or value in paths:
+            raise ValueError('Expected unique exact literal trigger: ' + value)
+        if PurePosixPath(value).is_absolute() or '..' in PurePosixPath(value).parts or '\\' in value:
+            raise ValueError('Unsafe trigger: ' + value)
+        paths.add(value)
+    if not paths:
+        raise ValueError('Empty paths block')
+    return paths
+
+
+def python_inputs(repo: Path, roots: set[str]) -> set[str]:
+    pending = list(roots)
+    seen = set()
+    while pending:
+        name = pending.pop()
+        if name in seen:
+            continue
+        source = safe_file(repo, name)
+        seen.add(name)
+        tree = ast.parse(source.read_text(), filename=name)
+        for node in ast.walk(tree):
+            modules = []
+            if isinstance(node, ast.Import):
+                modules = [x.name for x in node.names]
+            elif isinstance(node, ast.ImportFrom) and node.module and node.level == 0:
+                modules = [node.module]
+            for module in modules:
+                candidate = (Path(name).parent / (module.replace('.', '/') + '.py')).as_posix()
+                if (repo / candidate).is_file():
+                    pending.append(candidate)
+    return seen
+
+
+def audit(repo: Path, workflow_text: str | None = None) -> dict:
+    text = safe_file(repo, WORKFLOW).read_text() if workflow_text is None else workflow_text
+    patterns = push_paths(text)
+    models = model_inputs(repo)
+    runners = set(re.findall(r'\b(tools/[A-Za-z0-9_]+\.py)\b', text))
+    runners.add('tools/song64_ci_dependencies.py')
+    python = python_inputs(repo, runners)
+    required = models | python | {WORKFLOW, 'tests/test_song64_ci_dependencies.py'}
+    missing = sorted(required - patterns)
+    if missing:
+        raise ValueError('Untriggered model/runner dependencies: ' + ', '.join(missing))
+    return {'ok': True, 'model_inputs': sorted(models), 'python_inputs': sorted(python),
+            'required_paths': sorted(required), 'push_paths': sorted(patterns),
+            'scope': 'Static isolated model copier and local Python imports only; not dynamic runtime/media/native coverage.'}
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--repo', type=Path, default=Path.cwd())
+    args = parser.parse_args()
+    try:
+        print(json.dumps(audit(args.repo), indent=2))
+    except (ValueError, OSError, SyntaxError) as exc:
+        parser.exit(1, str(exc) + '\n')
+    return 0
+
+if __name__ == '__main__':
+    raise SystemExit(main())

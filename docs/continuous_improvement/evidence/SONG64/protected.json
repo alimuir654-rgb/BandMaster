@@ -1,0 +1,13 @@
+{
+  "previous_source": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
+  "live_head": "a0cf5c7f3c8f82cdc31a2f1bf8ad2dab5b0a274d",
+  "native_source_inputs_rehashed": 907,
+  "production_art_data_files_live_git_blob_bound": 870,
+  "new_images": 0,
+  "APK_operations": 0,
+  "primary_free_before": 625471488,
+  "primary_free_after": 625471488,
+  "TMP_free_after": 1308114944,
+  "local_Godot_executions": 0,
+  "remote_CI": "New exact-source pipeline executes existing proof steps; separate from zero local engine runs."
+}

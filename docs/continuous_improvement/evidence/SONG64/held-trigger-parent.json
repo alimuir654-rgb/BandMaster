@@ -1,0 +1,8 @@
+{
+  "input": "on:\n  push:\n    paths-ignore:\n      - critical.gd\n  pull_request:\n    paths:\n      - critical.gd\npermissions:\n  contents: read\n",
+  "actual": [
+    "critical.gd"
+  ],
+  "expected": "reject: sole paths block is not under push",
+  "disposition": "HELD_GUARD_FIXTURE"
+}

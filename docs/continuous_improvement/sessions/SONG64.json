@@ -7,8 +7,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
   },
   "issue_log_review": {
-    "bytes": 2340376,
-    "sha256": "ffd10c9780ff9ecc634697a0fdd3f28f77bdf51213aac923f327a33eba3b91c9"
+    "bytes": 2341876,
+    "sha256": "4d8f54b51cb231f75ebc94eac41e41ebdcc06e49b5dd486546ca582a7548972f"
   },
   "lesson_ids": [
     "BM-01",
@@ -31,7 +31,7 @@
   ],
   "dominant_issue": "BM-30",
   "target": {
-    "locator": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/phone/selected-long-title.png",
+    "locator": "docs/continuous_improvement/evidence/SONG63/native-v1/candidate/phone/selected-long-title.png",
     "original_sha256": "3c60ed1a13aa050efa44a4b548776c6e1c47ef063300982c8bbff11dbb7d5d5a",
     "pixels_inspected": true,
     "purpose": "Retained unchanged rehearsal native reference; CI plumbing only, no product/visual improvement claimed."
@@ -42,10 +42,10 @@
     "new_feature_stop": "2026-11-14T07:00:00+00:00",
     "mutation_stop": "2026-11-14T09:00:00+00:00",
     "user_unavailable": true,
-    "scope": "R2\u2013R7 in dependency order with bounded committed passes; no promise all stages finish."
+    "scope": "R2–R7 in dependency order with bounded committed passes; no promise all stages finish."
   },
   "id": "SONG64",
-  "status": "active",
+  "status": "closed",
   "baseline_sha": "a0cf5c7f3c8f82cdc31a2f1bf8ad2dab5b0a274d",
   "hypothesis": "Covering the actual model and local Python source closure makes leaf-only regressions run the existing linked-song proof, without triggering model engines on documentation/art-only changes.",
   "controlled_comparison": "Original workflow against actual six model harness closures; same existing model suites/owners retained. Pure trigger guard positive/negative mutations, no new gameplay or native rerun.",
@@ -75,12 +75,13 @@
   ],
   "writer": {
     "owner": "root-SONG64",
-    "status": "active",
-    "source_writers": 1,
+    "status": "released",
+    "source_writers": 0,
     "claimed_at": "2026-11-14T07:01:01.364410+00:00",
-    "expires_at": "2026-11-14T07:48:00+00:00"
+    "expires_at": "2026-11-14T07:48:00+00:00",
+    "released_at": "2026-11-14T07:12:51.086416+00:00"
   },
-  "next_action": "Repair and verify complete linked-song model CI dependency triggers; preserve source/native candidate and Android delivery holds.",
+  "next_action": "At08:00 freeze the verified source candidate, confirm actual test access and deliver the08:50 handover with explicit Android/media and unfinished-roadmap holds; no new gameplay systems.",
   "queue_task_ids": [
     "SONG53-R3"
   ],
@@ -116,5 +117,69 @@
     "reviewer": "/root/foundation_tests",
     "verdict": "CLEAR_CURRENT_STATIC_CLOSURE_METHOD",
     "finding": "Observed65missing modelinputs; exactsixharness static copier union76/localPython10/88exacttriggers appropriate; dynamicruntime/native/media coverage excluded."
+  },
+  "tested_sha": "bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
+  "closed_at": "2026-11-14T07:12:51.086416+00:00",
+  "results": "docs/continuous_improvement/SONG64_RESULTS.json",
+  "review": "docs/continuous_improvement/SONG64_REVIEW.json",
+  "closeout": {
+    "tested_sha": "bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
+    "evidence": [
+      {
+        "path": "docs/continuous_improvement/evidence/SONG64/coverage-v2.json",
+        "bytes": 13093,
+        "sha256": "9a16c5de2d2cdd17140a87ff684eba9dde1cf47197e9e7ffdb0a7da22673269c"
+      },
+      {
+        "path": "docs/continuous_improvement/evidence/SONG64/held-guard-v1.py.txt",
+        "bytes": 5267,
+        "sha256": "db7c414669957018ba7c2d8121845d0022396d8f14b2b233f63cefea231baff7"
+      },
+      {
+        "path": "docs/continuous_improvement/evidence/SONG64/held-tests-v1.py.txt",
+        "bytes": 3292,
+        "sha256": "df4d1be06bd4c2554733036a2837126a94bb530d5589a5fbcb3d714d7764d93a"
+      },
+      {
+        "path": "docs/continuous_improvement/evidence/SONG64/held-trigger-parent.json",
+        "bytes": 290,
+        "sha256": "92a94301d24a09b15faa81f8998abeff23b411d330b24435cf8189fc5051a2e1"
+      },
+      {
+        "path": "docs/continuous_improvement/evidence/SONG64/protected.json",
+        "bytes": 512,
+        "sha256": "3fd24ba99d6125a0a8981243092e1d2945caed62f3e6ee49b3f504919d2afa48"
+      },
+      {
+        "path": "docs/continuous_improvement/evidence/SONG64/song57-model-proof.yml.txt",
+        "bytes": 11696,
+        "sha256": "b7c41428422912749c909aff54efef97f6498bdad1b271aa120b3d54d39563a0"
+      },
+      {
+        "path": "docs/continuous_improvement/evidence/SONG64/song64_ci_dependencies.py.txt",
+        "bytes": 6031,
+        "sha256": "bfcd15133ab0269f4c4e645f5be3bee4a59ce9f04d0da436f32ada0433fa46cd"
+      },
+      {
+        "path": "docs/continuous_improvement/evidence/SONG64/test_song64_ci_dependencies.py.txt",
+        "bytes": 3802,
+        "sha256": "4da17d6263cedba3e0ead78b60b6ae8f7d1906a688cdfd95975ffc1ebaf6e370"
+      },
+      {
+        "path": "docs/continuous_improvement/evidence/SONG64/tests-v2.log",
+        "bytes": 1151,
+        "sha256": "50453c6b2db4cb37e9332a92ee14f84ef7c64f9de9c2a94b51d2801dca8740c3"
+      }
+    ],
+    "visual_verdict": "internal_pass",
+    "next_action": "At08:00 freeze the verified source candidate, confirm actual test access and deliver the08:50 handover with explicit Android/media and unfinished-roadmap holds; no new gameplay systems.",
+    "new_issue_review": {
+      "events_thispass": [
+        "2a0888bc-22c0-43d0-a7e8-8279ad69eeec",
+        "cc1b89c5-c551-4af5-a80c-704be4e35357",
+        "f5577093-d4e8-45c6-889c-6709b24c674f"
+      ],
+      "disposition": "CIgap andnewguardP2resolved fordeclaredscope; no newgameplaydefect discovered."
+    }
   }
 }

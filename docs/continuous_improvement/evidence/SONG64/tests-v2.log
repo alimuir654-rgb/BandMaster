@@ -1,0 +1,12 @@
+test_actual_model_closure_is_triggered (test_song64_ci_dependencies.TriggerCoverage.test_actual_model_closure_is_triggered) ... ok
+test_docs_art_and_workflow_scope_are_not_broad (test_song64_ci_dependencies.TriggerCoverage.test_docs_art_and_workflow_scope_are_not_broad) ... ok
+test_missing_root_and_escape_refuse (test_song64_ci_dependencies.TriggerCoverage.test_missing_root_and_escape_refuse) ... ok
+test_omitted_transitive_gameplay_and_runner_dependencies_refuse (test_song64_ci_dependencies.TriggerCoverage.test_omitted_transitive_gameplay_and_runner_dependencies_refuse) ... ok
+test_pull_request_paths_do_not_count_as_push_coverage (test_song64_ci_dependencies.TriggerCoverage.test_pull_request_paths_do_not_count_as_push_coverage) ... ok
+test_recursive_cycles_json_and_local_python_imports (test_song64_ci_dependencies.TriggerCoverage.test_recursive_cycles_json_and_local_python_imports) ... ok
+test_unsafe_or_unreviewed_trigger_syntax_refuses (test_song64_ci_dependencies.TriggerCoverage.test_unsafe_or_unreviewed_trigger_syntax_refuses) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.346s
+
+OK
