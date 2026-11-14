@@ -1,0 +1,49 @@
+{
+  "session": "ESCROW68",
+  "technical_verdict": "PASS_FUNCTIONAL_PRIVATE_ESCROW_AND_SAME_HOST_REMOTE_RECOVERY",
+  "security_verdict": "CURRENT_OWNER_ONLY_ACL_VERIFIED; PAST_TEMPORARY_CAPABILITY_ACCESS_UNKNOWN",
+  "overall_verdict": "FUNCTIONAL_READY_WITH_RECORDED_TRANSFER_DIAGNOSTIC",
+  "owner_approved": false,
+  "release_verdict": "SIGNATURE_UNCHANGED_APK_ASSEMBLY_STILL_REQUIRED",
+  "reviewer": {
+    "agent": "/root/foundation_tests",
+    "status": "completed_released",
+    "verdict": "CLEAR_FUNCTIONAL_READINESS",
+    "scope": "PublicACL/proof/runbookonly; no privatefiles/env/URLuse, privatecomparisonnotindependentlyrepeated"
+  },
+  "actual_originals_opened": [],
+  "five_simulated_lenses": [
+    {
+      "lens": "Owner on phone",
+      "explicitly_simulated": true,
+      "finding": "No fileimport/manualsecretcopy; ownerconnectionsretrievebothfiles."
+    },
+    {
+      "lens": "Security",
+      "explicitly_simulated": true,
+      "finding": "Separateprivateproviders/actualowner-onlyDriveACL; notvault; bothaccountcompromiseexposesbackup; transientURLhistoryretained."
+    },
+    {
+      "lens": "Recovery operator",
+      "explicitly_simulated": true,
+      "finding": "Samehostfreshstagefromtworemotes andpublichelpersreproducedexactV26response; nooriginalchatfilesrequired."
+    },
+    {
+      "lens": "Maintainer",
+      "explicitly_simulated": true,
+      "finding": "NonsecretIDs/commandsinrunbook; rawsecret/bearerURLmustnotbeprinted; bothconnectors/runtime required."
+    },
+    {
+      "lens": "Release engineer",
+      "explicitly_simulated": true,
+      "finding": "Originalkey/cert/app/save/request/responseunchanged; noAPKbuild/assembly/device/listeningclaims."
+    }
+  ],
+  "limits": [
+    "Managedvaultbindingnotconfigured; thisisordinaryprivatefileescrow.",
+    "A genuinelynewmachine/newchatrecoverywasnotexecuted; freshisolatedsamehoststageonly.",
+    "No proofwhetherloggedtemporaryURLwasaccessedorcopied; itsadvertisedexpiryhaspassed.",
+    "APKassembly/officialverification/physicalinstallremainseparate."
+  ],
+  "next_action": "Use the existing V26 public response for final APK assembly and official verification; future signing retrieves the two private cloud escrow files through owner connections."
+}

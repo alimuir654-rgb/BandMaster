@@ -7,8 +7,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
   },
   "issue_log_review": {
-    "bytes": 2353589,
-    "sha256": "2f2aa62d79405d73ed81a84fca399e913eadb78403beba86637381586b20aa62"
+    "bytes": 2354838,
+    "sha256": "9042a07fbce933011748167c73c33f3d6d77f0e813df4be8db33b059de8a758c"
   },
   "lesson_ids": [
     "BM-01",
@@ -38,7 +38,7 @@
     "purpose": "Actually opened unchanged SONG63 reference for presentation protection; this pass targets asset recovery, not visual change."
   },
   "id": "ESCROW68",
-  "status": "active",
+  "status": "closed",
   "baseline_sha": "ba235646bd09073104e3a2385339105068714b33",
   "hypothesis": "Separateowner-onlyDrivecustodyofthe32bytewrappingsecret andprivateDropboxciphertext permitsrecoveryusingauthenticatedconnectorswithoutphonecopy/import ororiginalchatfiles.",
   "controlled_comparison": "Originalprotectedwrappingfile vs streamedDriveprivatefile rawbytes; bothremoteinputs vs sourcepinnedexpectedcertificate/V26request+publicRSAresponse; nooriginalJKSorTMPwrappingfileaccessduringfreshrecovery.",
@@ -67,13 +67,14 @@
   ],
   "writer": {
     "owner": "root-ESCROW68",
-    "status": "active",
+    "status": "released",
     "claimed_at": "2026-11-14T13:42:28.223285+00:00",
-    "expires_at": null
+    "expires_at": null,
+    "released_at": "2026-11-14T13:57:55.636697+00:00"
   },
-  "next_action": "Verify private separate-provider escrow and remote-only recovery, then publish phone-friendly nonsecret signing instructions.",
+  "next_action": "Use the existing V26 public response for final APK assembly and official verification; future signing retrieves the two private cloud escrow files through owner connections.",
   "queue_task_ids": [
-    "RESTORE66-private-media"
+    "SIGN67"
   ],
   "resource_plan": {
     "primary_new_bytes": 0,
@@ -82,7 +83,8 @@
     "floor_bytes": 629145600,
     "private_file_destination": "OwnerMyDrive root/BandMaster-signing-recovery-v1.bin, defaultowneronly; no publiclink",
     "backup_location": "ExistingownerDropbox/BandMasterSigningPrivate/BandMaster-original-signing-v1.bmk",
-    "provider_tradeoff": "Privatefileescrow, notmanagedsecretvault; compromiseofbothaccounts compromisesbackup. No rawJKS/passworduploads."
+    "provider_tradeoff": "Privatefileescrow, notmanagedsecretvault; compromiseofbothaccounts compromisesbackup. No rawJKS/passworduploads.",
+    "provider_attachment_exception": "32Bkeyfile was temporarilymaterialized inworkspacebydownloadadapter, immediatelyprotected/movedprivateTMP; no primaryGit/sourcewrites or generalcleanup."
   },
   "scope": "Owner-only recovery-secret fileescrow on separateGoogleDrive + remote-onlyisolatedrecovery proof/runbook. No originalprivateRSA/keyplaintextinpublic, noAPK/game changes.",
   "player_task": {
@@ -94,10 +96,19 @@
   },
   "predesign": {
     "reviewer": "/root/foundation_tests",
-    "status": "readonlyreview_requested",
-    "acceptance": "OwneronlyACL verifiedbefore/after; no secretvalueslogged; freshisolatedremote-onlyproof, vault/newmachineclaims excluded."
+    "status": "completed_released",
+    "acceptance": "OwneronlyACL verifiedbefore/after; no secretvalueslogged; freshisolatedremote-onlyproof, vault/newmachineclaims excluded.",
+    "verdict": "CLEAR_FUNCTIONAL_READY_WITH_RESIDUAL_TRANSFER_RISK"
   },
   "tested_sha": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
   "results": "docs/continuous_improvement/RESTORE66_RESULTS.json",
-  "review": "docs/continuous_improvement/RESTORE66_REVIEW.json"
+  "review": "docs/continuous_improvement/RESTORE66_REVIEW.json",
+  "completed_at": "2026-11-14T13:57:55.636697+00:00",
+  "closeout": {
+    "tested_sha": "ba235646bd09073104e3a2385339105068714b33",
+    "evidence": "docs/continuous_improvement/ESCROW68_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Use the existing V26 public response for final APK assembly and official verification; future signing retrieves the two private cloud escrow files through owner connections.",
+    "new_issue_review": "Loggedtemporarytransfercapabilitydiagnostic remains explicit; no rawsecretvalueprinted; currentownerACL+functionalgatespass, noclaimpastconfidentialityproved. InitialpreflightdominantBM40selectionrefusalcorrectedbeforecommit, no gateweakening."
+  }
 }

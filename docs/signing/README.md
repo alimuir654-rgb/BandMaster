@@ -1,6 +1,6 @@
-# Current V26 signing / backup status
+# Current V26 signing / recovery status
 
-See [the short recovery runbook](RECOVERY.md) for the verified V26 response, encrypted owner Dropbox backup, exact commands and pending secure-file binding setup. The original key was verified and V26 signed from authenticated recovery. Chat-independent recovery is not complete until the owner publishes the recovery-secret binding; no new APK assembly is claimed here.
+[Phone-friendly recovery runbook](RECOVERY.md): encryptedbackup inownerDropbox plus separateowner-onlyGoogleDrive recoveryfile. Same-hostfreshstaging restoredfrombothremotes and reproducedtheverifiedV26response withoutoriginalchatkey/passwordfiles. No manualphonefileimport isneeded. Thisisprivatefileescrow, notmanagedvault; bothauthenticatedconnections andlistedruntimeare required. Actualnewmachine/newchattest andAPKassemblyremainoutstanding.
 
 The following records are retained historical handoffs. Their environment-availability statements do not override the current runbook.
 

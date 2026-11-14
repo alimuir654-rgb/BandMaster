@@ -1,0 +1,28 @@
+{
+  "id": "1WvAR59rHtvlZAB54Oh62suVL9fcyPTQv",
+  "title": "BandMaster-signing-recovery-v1.bin",
+  "mime_type": "application/octet-stream",
+  "size": "32",
+  "url": null,
+  "file_or_folder": "file",
+  "created_time": null,
+  "modified_time": null,
+  "parent_ids": [
+    "0AAaVL64Kv2tDUk9PVA"
+  ],
+  "drive_id": null,
+  "current_user_can_share": null,
+  "has_augmented_permissions": null,
+  "shared": false,
+  "permissions": [
+    {
+      "type": "user",
+      "role": "owner",
+      "emailAddress": "chair@lovewelluk.com",
+      "domain": null,
+      "displayName": null,
+      "allowFileDiscovery": null
+    }
+  ],
+  "source_visibility_status": "permission_metadata_available"
+}

@@ -1,0 +1,9 @@
+{
+  "diagnostic": "Oneinitialtoolresult includedatemporarilyvalidfile-serviceURL for32byteprivateDrive recoveryfile. Rawsecretbyteswerenotprinted; noDrivepublic/sharedgrantwasadded.",
+  "advertised_expiry": "2026-11-14T13:48:18Z",
+  "advertised_expiry_elapsed": true,
+  "whether_anyone_accessed_or_copied_during_window": "UNKNOWN; expiryalonecannotproveabsence",
+  "current_access": "ActualDrivefilefreshreadbackowneronly/sharedfalse",
+  "correction": "Subsequentoutputswhitelistnonsecretmetadata; neverreturnfile_uri/download_url; protectmaterializedfiles0600/parent0700 andmoveintoprivateTMP.",
+  "provider_attachment": "32Bwasbrieflymaterializedinworkspacebyfileadapter, immediatelyprotectedandmovedTMP; onlynewemptyattachmentfolderremoved. Primaryfree625471488B restoredexact; no original/cache/Gitcleanup."
+}

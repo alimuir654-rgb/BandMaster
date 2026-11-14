@@ -1,10 +1,10 @@
 # BandMaster — sole execution queue
 
-Latest session: **SIGN67 — CLOSED**. V26originalkeydetachedresponse verified fromauthenticatedDropboxbackuprecovery. Response andshortrecoveryrunbook committed;17public+10backupmethodsPASS. NoAPKassemblyhere. Durablewrappingsecretbindingstillrequiresownerimport/Publish; no fullchat-independenceclaim. RESTORE66recoveredassets/source unchanged. Writerreleased.
+Latest session: **ESCROW68 — CLOSED**. PrivateDriveowner-only32B recoverysecret plus encryptedownerDropboxbackup nowprovide remote-backedrecovery withoutphoneimport. Freshsame-hoststagefrombothremotes reproducedunchangedV26response; no originalchatkey/passwordfilesused. Notmanagedvault/newmachinetest. TemporarytransferURLdiagnostic retained; advertisedexpiryelapsed/accessunknown. Writerreleased.
 
-**Next action:** Assemble and officially verify the exact V26 APK using the committed public response; owner secure recovery-secret binding remains a separate required setup step.
+**Next action:** Use the existing V26 public response for final APK assembly and official verification; future signing retrieves the two private cloud escrow files through owner connections.
 
-[Signature](../signing/BandMaster-V26-signature-response.json) · [Runbook](../signing/RECOVERY.md) · [Results](SIGN67_RESULTS.json).
+[Phone-friendlyrunbook](../signing/RECOVERY.md) · [Results](ESCROW68_RESULTS.json) · [Signature](../signing/BandMaster-V26-signature-response.json).
 
 ## Linked songs and band life
 

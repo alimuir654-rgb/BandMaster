@@ -4,11 +4,11 @@
   "session": "docs/continuous_improvement/sessions/ESCROW68.json",
   "active_session": "ESCROW68",
   "branch": "feature/playtest-polish-v20",
-  "status": "active",
+  "status": "closed",
   "scope": "Owner-only recovery-secret fileescrow on separateGoogleDrive + remote-onlyisolatedrecovery proof/runbook. No originalprivateRSA/keyplaintextinpublic, noAPK/game changes.",
   "authority": "Owner authorised signing independence and durableownercontrolled encryptedbackup, saidGoahead, then reportsphonecannotimportsecretfile/accessTMP and asksfurtherhelp. Use existingconnectedowneraccounts; no secretvaluesinchat/Git/publicfiles; no signingkeygeneration/rotation.",
-  "updated_at": "2026-11-14T13:42:28.223285+00:00",
-  "writer": "root-ESCROW68",
+  "updated_at": "2026-11-14T13:57:55.636697+00:00",
+  "writer": null,
   "owner_approved": false,
   "source": {
     "implementation_sha": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
@@ -27,16 +27,19 @@
     "signing_helper_sha": "a38d6b8969b4f218a1b999a297febabff4b641e5",
     "signing_results": "docs/continuous_improvement/SIGN67_RESULTS.json",
     "signature_response": "docs/signing/BandMaster-V26-signature-response.json",
-    "signing_runbook": "docs/signing/RECOVERY.md"
+    "signing_runbook": "docs/signing/RECOVERY.md",
+    "recovery_escrow_results": "docs/continuous_improvement/ESCROW68_RESULTS.json",
+    "recovery_escrow_review": "docs/continuous_improvement/ESCROW68_REVIEW.json"
   },
   "roadmap": "docs/ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md",
   "queue": "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
-  "next_action": "Verify private separate-provider escrow and remote-only recovery, then publish phone-friendly nonsecret signing instructions.",
+  "next_action": "Use the existing V26 public response for final APK assembly and official verification; future signing retrieves the two private cloud escrow files through owner connections.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json",
   "limitations": [
-    "V26signatureverifiedusingrecoveredoriginalkey; noAPKassembledorofficiallyauditedhere.",
-    "EncryptedownerDropboxbackup exists; durable recoverysecret binding andfresh-environmenttestremainpending.",
-    "RESTORE66asset/game/physical/listeningacceptance status unchanged."
+    "Privatefileescrow verified; bothownercloudconnections/runtime required, notmanagedvault.",
+    "Freshsame-hostisolatedremote-backedrecoverytested; no actualnewmachine/newchat test.",
+    "TemporaryretrievalURLshownonce, advertisedexpiryelapsed; access/copiedduringwindowunknown.",
+    "V26signatureunchanged; APKassembly/officialverification/physicaltestsremainseparate."
   ],
   "overnight": {
     "automation_id": "6ae532c5fe9c819190f587a022c54052",

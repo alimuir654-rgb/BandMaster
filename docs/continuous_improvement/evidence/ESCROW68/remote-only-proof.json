@@ -1,0 +1,25 @@
+{
+  "public_helper_ref": "ba235646bd09073104e3a2385339105068714b33",
+  "public_files_sha256": {
+    "tools/detached_apk_v2.py": "74cc57c84c99c61ef5baa1e31147afe9dc61867e7d3bebf130ca5d68892f9d22",
+    "tools/detached_sign_request.py": "98bc9a1ca44886c82f6a2777d0e422d66fc09df821053612be71303bbb7c0665",
+    "tools/BandMasterDetachedSigner.java": "1c81f1cdb01392e406471014b6e0ef0729bd25412518dcd713648af36997f7e7",
+    "tools/signing_backup.py": "1bd1d4a09cba1eaf46de8d91f41e7c4c6e758e2fc0e9e78bf7ba3f4ff2fb75d6",
+    "docs/signing/fixtures/v22-request.json": "eb0ea54b0a0ccca0c47491a69398ab11b88b5d4de231dd07368edce2c98fb01d",
+    "docs/signing/fixtures/v22-response.json": "0a4dda9eea1c0ec77807c1c2772426a6e347d653de7e1fe526dd60f7467a8d27",
+    "docs/continuous_improvement/evidence/RESTORE66/BandMaster-V26-APK-v2-signing-request.json": "42fb4c51238778f681adb86fdff6cd6648b1062c56d4249fbe31faf62c9fcff0",
+    "docs/signing/BandMaster-V26-signature-response.json": "6e2d6f1f55fe8f62aab0b52ec0acedc28330882e01b10e0cf6ebc4b756c1b4dd"
+  },
+  "inputs": "fresh privateDrive rawstream recoverysecret + authenticatedDropbox encryptedbackup; originalchatJKS/key/passwordfiles notused",
+  "secure_setting_paths_tested": true,
+  "raw_secret_values_logged": false,
+  "signed_response_sha256": "6e2d6f1f55fe8f62aab0b52ec0acedc28330882e01b10e0cf6ebc4b756c1b4dd",
+  "original_public_response_byte_exact": true,
+  "request_sha256": "42fb4c51238778f681adb86fdff6cd6648b1062c56d4249fbe31faf62c9fcff0",
+  "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+  "fresh_isolated_stage": true,
+  "new_machine_or_new_chat": false,
+  "APK_transferred_or_assembled": false,
+  "new_signing_key": false,
+  "JVM_Java_selfverify_and_Python_publicverify": true
+}

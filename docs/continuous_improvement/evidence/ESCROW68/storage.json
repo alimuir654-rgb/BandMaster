@@ -1,0 +1,22 @@
+{
+  "ciphertext": {
+    "provider": "ownerDropbox",
+    "path": "/BandMasterSigningPrivate/BandMaster-original-signing-v1.bmk",
+    "file_id": "id:6rRaLzqs6O4AAAAAAAABOQ",
+    "bytes": 4380,
+    "sha256": "bf41dd9aeae318dce8d7216d48905f4810a0b14edc25af6f6080f066bb30e272"
+  },
+  "recovery_secret": {
+    "provider": "ownerMyDrive",
+    "file_id": "1WvAR59rHtvlZAB54Oh62suVL9fcyPTQv",
+    "name": "BandMaster-signing-recovery-v1.bin",
+    "bytes": 32,
+    "owner": "chair@lovewelluk.com",
+    "shared": false,
+    "permissions": "exactlyoneuserowner",
+    "plaintext_at_provider": true
+  },
+  "classification": "Privatefileescrow, notmanagedvault; bothconnectedaccountsrequired; chatwithbothauthorisedconnectionscanrecover. No rawsecretvalueinthisrecord.",
+  "new_signing_key_or_rotation": false,
+  "managed_secret_binding_created": false
+}

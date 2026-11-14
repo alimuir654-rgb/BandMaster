@@ -4,16 +4,17 @@
   "session_path": "docs/continuous_improvement/sessions/ESCROW68.json",
   "canonical_current": "docs/continuous_improvement/CURRENT.json",
   "branch": "feature/playtest-polish-v20",
-  "status": "active",
-  "writer": "root-ESCROW68",
+  "status": "closed",
+  "writer": null,
   "owner_approved": false,
-  "updated_at": "2026-11-14T13:42:28.223285+00:00",
-  "next_single_action": "Verify private separate-provider escrow and remote-only recovery, then publish phone-friendly nonsecret signing instructions.",
+  "updated_at": "2026-11-14T13:57:55.636697+00:00",
+  "next_single_action": "Use the existing V26 public response for final APK assembly and official verification; future signing retrieves the two private cloud escrow files through owner connections.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json",
   "base_head": "ba235646bd09073104e3a2385339105068714b33",
   "claimed_at": "2026-11-14T13:42:28.223285+00:00",
   "expires_at": null,
   "claim_basis": "Owner authorised signing independence and durableownercontrolled encryptedbackup, saidGoahead, then reportsphonecannotimportsecretfile/accessTMP and asksfurtherhelp. Use existingconnectedowneraccounts; no secretvaluesinchat/Git/publicfiles; no signingkeygeneration/rotation.",
   "tested_source": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
-  "game_source": "7ae8667071c4aa8f2aefd8de891f498ad9d09118"
+  "game_source": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
+  "released_at": "2026-11-14T13:57:55.636697+00:00"
 }

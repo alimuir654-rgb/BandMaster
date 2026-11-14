@@ -1,0 +1,124 @@
+{
+  "session": "ESCROW68",
+  "tested_helper_ref": "ba235646bd09073104e3a2385339105068714b33",
+  "original_V26_response_sha256": "6e2d6f1f55fe8f62aab0b52ec0acedc28330882e01b10e0cf6ebc4b756c1b4dd",
+  "technical_verdict": "PASS_FUNCTIONAL_PRIVATE_ESCROW_AND_SAME_HOST_REMOTE_RECOVERY",
+  "overall_verdict": "FUNCTIONAL_READY_WITH_RECORDED_TRANSFER_DIAGNOSTIC",
+  "owner_approved": false,
+  "scope": "Ownerprivatefileescrow+remote-backedrecovery/docs; no cryptohelper/game/source/audio/APK mutation.",
+  "storage": {
+    "ciphertext": {
+      "provider": "ownerDropbox",
+      "path": "/BandMasterSigningPrivate/BandMaster-original-signing-v1.bmk",
+      "file_id": "id:6rRaLzqs6O4AAAAAAAABOQ",
+      "bytes": 4380,
+      "sha256": "bf41dd9aeae318dce8d7216d48905f4810a0b14edc25af6f6080f066bb30e272"
+    },
+    "recovery_secret": {
+      "provider": "ownerMyDrive",
+      "file_id": "1WvAR59rHtvlZAB54Oh62suVL9fcyPTQv",
+      "name": "BandMaster-signing-recovery-v1.bin",
+      "bytes": 32,
+      "owner": "chair@lovewelluk.com",
+      "shared": false,
+      "permissions": "exactlyoneuserowner",
+      "plaintext_at_provider": true
+    },
+    "classification": "Privatefileescrow, notmanagedvault; bothconnectedaccountsrequired; chatwithbothauthorisedconnectionscanrecover. No rawsecretvalueinthisrecord.",
+    "new_signing_key_or_rotation": false,
+    "managed_secret_binding_created": false
+  },
+  "remote_recovery": {
+    "public_helper_ref": "ba235646bd09073104e3a2385339105068714b33",
+    "public_files_sha256": {
+      "tools/detached_apk_v2.py": "74cc57c84c99c61ef5baa1e31147afe9dc61867e7d3bebf130ca5d68892f9d22",
+      "tools/detached_sign_request.py": "98bc9a1ca44886c82f6a2777d0e422d66fc09df821053612be71303bbb7c0665",
+      "tools/BandMasterDetachedSigner.java": "1c81f1cdb01392e406471014b6e0ef0729bd25412518dcd713648af36997f7e7",
+      "tools/signing_backup.py": "1bd1d4a09cba1eaf46de8d91f41e7c4c6e758e2fc0e9e78bf7ba3f4ff2fb75d6",
+      "docs/signing/fixtures/v22-request.json": "eb0ea54b0a0ccca0c47491a69398ab11b88b5d4de231dd07368edce2c98fb01d",
+      "docs/signing/fixtures/v22-response.json": "0a4dda9eea1c0ec77807c1c2772426a6e347d653de7e1fe526dd60f7467a8d27",
+      "docs/continuous_improvement/evidence/RESTORE66/BandMaster-V26-APK-v2-signing-request.json": "42fb4c51238778f681adb86fdff6cd6648b1062c56d4249fbe31faf62c9fcff0",
+      "docs/signing/BandMaster-V26-signature-response.json": "6e2d6f1f55fe8f62aab0b52ec0acedc28330882e01b10e0cf6ebc4b756c1b4dd"
+    },
+    "inputs": "fresh privateDrive rawstream recoverysecret + authenticatedDropbox encryptedbackup; originalchatJKS/key/passwordfiles notused",
+    "secure_setting_paths_tested": true,
+    "raw_secret_values_logged": false,
+    "signed_response_sha256": "6e2d6f1f55fe8f62aab0b52ec0acedc28330882e01b10e0cf6ebc4b756c1b4dd",
+    "original_public_response_byte_exact": true,
+    "request_sha256": "42fb4c51238778f681adb86fdff6cd6648b1062c56d4249fbe31faf62c9fcff0",
+    "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "fresh_isolated_stage": true,
+    "new_machine_or_new_chat": false,
+    "APK_transferred_or_assembled": false,
+    "new_signing_key": false,
+    "JVM_Java_selfverify_and_Python_publicverify": true
+  },
+  "ACL_proof": {
+    "actual_owner_acl_pass": true,
+    "negative_fixtures_refused": [
+      "reader",
+      "domain",
+      "anyone",
+      "group",
+      "sharedDrive",
+      "shortcut",
+      "wrongOwner",
+      "wrongParent",
+      "shared",
+      "missingPermissions"
+    ],
+    "live_permissions_mutated": false,
+    "trash_flag": "notexposedbynormalizedconnector; freshcreatedobject/accessiblereadbackverified, no trash operation"
+  },
+  "transfer_diagnostic": {
+    "diagnostic": "Oneinitialtoolresult includedatemporarilyvalidfile-serviceURL for32byteprivateDrive recoveryfile. Rawsecretbyteswerenotprinted; noDrivepublic/sharedgrantwasadded.",
+    "advertised_expiry": "2026-11-14T13:48:18Z",
+    "advertised_expiry_elapsed": true,
+    "whether_anyone_accessed_or_copied_during_window": "UNKNOWN; expiryalonecannotproveabsence",
+    "current_access": "ActualDrivefilefreshreadbackowneronly/sharedfalse",
+    "correction": "Subsequentoutputswhitelistnonsecretmetadata; neverreturnfile_uri/download_url; protectmaterializedfiles0600/parent0700 andmoveintoprivateTMP.",
+    "provider_attachment": "32Bwasbrieflymaterializedinworkspacebyfileadapter, immediatelyprotectedandmovedTMP; onlynewemptyattachmentfolderremoved. Primaryfree625471488B restoredexact; no original/cache/Gitcleanup."
+  },
+  "evidence": [
+    {
+      "path": "docs/continuous_improvement/evidence/ESCROW68/acl-tests.json",
+      "bytes": 395,
+      "sha256": "d8978891555012be7d19fa4e400cb1381e1b8eb21a9d15c8e5b486943538854f"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/ESCROW68/drive-acl.json",
+      "bytes": 679,
+      "sha256": "57464ee78e8ae5c26bf68078ef10db395bd2c12fd8e8e1631524842b785f8319"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/ESCROW68/remote-only-proof.json",
+      "bytes": 1770,
+      "sha256": "df073d1fd988fc815fe9bd8f5c1fc10a7e983111fb63ee2d99a9c00d54e1e196"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/ESCROW68/storage.json",
+      "bytes": 840,
+      "sha256": "67791486581649aa532f1f89cb1346391c21ba6e06a963dfb36d8080839aa93d"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/ESCROW68/transfer-diagnostic.json",
+      "bytes": 814,
+      "sha256": "c355554443fa616c2e6cab17b0471d1e2d718cfeccb7b5d821195fe00cc9d32f"
+    }
+  ],
+  "review": "docs/continuous_improvement/ESCROW68_REVIEW.json",
+  "runbook": "docs/signing/RECOVERY.md",
+  "required_owner_action_now": "Noneforphoneimport; keepbothownerGoogleDrive/Dropboxconnectionsavailable. Optionalmanagedvaultupgrade remainspossible.",
+  "protection": {
+    "signing_key_rotated_or_generated": false,
+    "original_keystore_or_passwords_modified": false,
+    "V26request_or_response_modified": false,
+    "public_secret_values_uploaded": false,
+    "public_Drive_grants": false,
+    "new_APK_or_Godot": false,
+    "workspace_free_final": 625471488,
+    "TMP_free_final": 1302790144
+  },
+  "new_issue_review": "Loggedtemporarytransfercapabilitydiagnostic remains explicit; no rawsecretvalueprinted; currentownerACL+functionalgatespass, noclaimpastconfidentialityproved. InitialpreflightdominantBM40selectionrefusalcorrectedbeforecommit, no gateweakening.",
+  "next_action": "Use the existing V26 public response for final APK assembly and official verification; future signing retrieves the two private cloud escrow files through owner connections."
+}

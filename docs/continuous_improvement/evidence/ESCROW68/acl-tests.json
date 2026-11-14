@@ -1,0 +1,17 @@
+{
+  "actual_owner_acl_pass": true,
+  "negative_fixtures_refused": [
+    "reader",
+    "domain",
+    "anyone",
+    "group",
+    "sharedDrive",
+    "shortcut",
+    "wrongOwner",
+    "wrongParent",
+    "shared",
+    "missingPermissions"
+  ],
+  "live_permissions_mutated": false,
+  "trash_flag": "notexposedbynormalizedconnector; freshcreatedobject/accessiblereadbackverified, no trash operation"
+}
