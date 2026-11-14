@@ -1,0 +1,22 @@
+{
+  "tested_sha": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
+  "compiled_apk_model": {
+    "checks": 510,
+    "compiled_payload": true,
+    "failures": [],
+    "listening": false,
+    "physical_device": false
+  },
+  "exit_code": 0,
+  "errors": [],
+  "apk_sha256": "3ba53963494717c1cce448e6a630dc519125df4719fc49acf46f6a94d9e9b39c",
+  "compiled_payload_sha256": "81f2713634f8768ba6c650659c86c4d64578e45f9ba084d977514a9d34db660c",
+  "harness_sha256": "debc129c8caad83d6d8fd2e615c212b7869d3e26da9829379c5533d9c76520f8",
+  "log_sha256": "e9aab4b17f2c4a2e4c03e658074bb20292a4e4103213dc0ce55e47e477e2e510",
+  "cwd_is_empty_host": true,
+  "engine_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+  "physical_Android": false,
+  "listening_verified": false,
+  "signing_performed": false,
+  "installable_update": false
+}

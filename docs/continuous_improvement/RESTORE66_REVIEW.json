@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "session": "RESTORE66",
+  "reviewed_source": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
+  "asset_review": {
+    "reviewer": "r2_design_review",
+    "status": "pass",
+    "restored_OGGs": 28,
+    "canonical_characters": 18,
+    "bound_materials": 30,
+    "all_prior_acceptance_and_provenance_retained": true,
+    "private_detail_sha256": "8b54e4ea9d5922f594b6c67b92e5a05c3c2facc6d4017f1281d049599326fbe7"
+  },
+  "WAV_review": {
+    "reviewer": "test_readiness",
+    "status": "pass",
+    "exact_original_sources": 5,
+    "exact_processed_WAVs": 185,
+    "full_file_and_PCM_identity": true
+  },
+  "runtime_review": {
+    "reviewer": "test_readiness",
+    "status": "pass",
+    "suite_counts": {
+      "restore66-restore42": 724,
+      "restore66-indie39": 104,
+      "restore66-feedback47": 169,
+      "restore66-crowd37": 60
+    },
+    "checks": 1057,
+    "failures": [],
+    "Godot_invocations": 9,
+    "source_file_hashes_rechecked_against_published_integration": 1138,
+    "prepared_source_sha": "52ec916f4ff49b1895e1c2af52b4e92e540dcd05",
+    "prepared_private_overlay_and_public_title_match_published_source": true,
+    "private_QA_receipt_sha256": "ef74c168f1ae5125134effb6c683f8f09ae469a6c184f458b75bd949886344cb",
+    "assertions_or_fixtures_changed": false,
+    "signing_guards_pass": true,
+    "isolated_saves": true
+  },
+  "listening_verified": false,
+  "physical_Android": false,
+  "owner_approved": false,
+  "package_review": {
+    "reviewer": "roadmap_audit",
+    "status": "pass_unsigned_candidate_and_public_request",
+    "candidate_source_files": 1158,
+    "APK_to_payload_assets": 2022,
+    "compiled_checks": 510,
+    "failures": [],
+    "original_app_save_identity_verified": true,
+    "new_request_checked_against_actual_APK": true,
+    "signing_performed": false
+  },
+  "reviewed_at": "2026-11-14T09:22:51.040828+00:00",
+  "overall_verdict": "CLEAR_ASSET_RECOVERY_AND_UNSIGNED_PACKAGE; ORIGINAL_SIGNATURE_AND_DEVICE_TEST_HELD",
+  "five_review_lenses": {
+    "status": "explicitly simulated; not human review",
+    "game_critic": "Current roadmap functionality preserved; enjoyment and full connected slice not established.",
+    "musician": "Decoder and synchronized playback proof passed; listening quality remains unverified here.",
+    "save_engineer": "Original save identity and isolated rollback/reload proven; physical update/Continue held.",
+    "QA": "Fresh exact-source APK/payload/request hashes and checks align.",
+    "UX": "Original app identity and V26 metadata retained; no new device or artistic acceptance."
+  }
+}

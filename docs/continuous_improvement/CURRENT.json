@@ -4,32 +4,35 @@
   "session": "docs/continuous_improvement/sessions/RESTORE66.json",
   "active_session": "RESTORE66",
   "branch": "feature/playtest-polish-v20",
-  "status": "active",
+  "status": "closed",
   "scope": "Recover existing private audio/indexes from verified historical assets; validate current source compatibility and original-app build readiness. No musical generation or new gameplay.",
   "authority": "14November2026 08:31 follow-up: owner said Go ahead to locating/restoring existing processed assets and indexes and working through the build checks. This is fresh scoped recovery authority after the overnight readiness report; no new gameplay or recurring extension.",
-  "updated_at": "2026-11-14T08:55:37.868684+00:00",
-  "writer": "root-RESTORE66",
+  "updated_at": "2026-11-14T09:22:51.040828+00:00",
+  "writer": null,
   "owner_approved": false,
   "source": {
-    "implementation_sha": "bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
-    "verification": "909readinessbindings independentlyexact; sourceCI4PASS/basemetadataCI3PASS; unchanged native/modelproofreused; Android blocked9processeddependencies.",
-    "final_results": "docs/continuous_improvement/SONG65_RESULTS.json",
-    "review": "docs/continuous_improvement/SONG65_REVIEW.json",
+    "implementation_sha": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
+    "verification": "5exactoriginalWAVs,185exactprocessedWAVs,28OGGsame-engineequivalence;1057sourcechecks+510actualcompiledchecks pass;3sourceCIpass;V26unsigned only.",
+    "final_results": "docs/continuous_improvement/RESTORE66_RESULTS.json",
+    "review": "docs/continuous_improvement/RESTORE66_REVIEW.json",
     "native_evidence": "docs/continuous_improvement/evidence/SONG63/",
     "game_source_sha": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
-    "ci_evidence": "docs/continuous_improvement/evidence/SONG64/",
-    "frozen_candidate_sha": "bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
-    "test_handover": "docs/continuous_improvement/SONG65_TEST_HANDOVER.json",
-    "recovery_session": "docs/continuous_improvement/sessions/RESTORE66.json"
+    "ci_evidence": "docs/continuous_improvement/evidence/RESTORE66/SOURCE_CI.json",
+    "frozen_candidate_sha": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
+    "test_handover": "docs/continuous_improvement/RESTORE66_RESULTS.json",
+    "recovery_session": "docs/continuous_improvement/sessions/RESTORE66.json",
+    "overnight_frozen_candidate_sha": "bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
+    "unsigned_version_code": 26,
+    "signing_request": "docs/continuous_improvement/evidence/RESTORE66/BandMaster-V26-APK-v2-signing-request.json"
   },
   "roadmap": "docs/ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md",
   "queue": "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
-  "next_action": "Verify and materialize recovered private assets for the current frozen game source, then assess original-app packaging.",
+  "next_action": "Complete the prepared V26 request in the original signing environment, then verify the signed update before owner testing.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json",
   "limitations": [
-    "R2/R3 game status unchanged; previous source/native evidence retained without rerun.",
-    "Recovered original V24 package supplies old registries/imported audio; later current character bindings and raw export inputs require verification.",
-    "Original signer is not available on this attached computer; old APK is recovery input, not a current test build."
+    "Missing private audio recovered and current18character/30material bindings verified. Original source/gameplay roadmap status remains R2internallyverified/R3partial/R4\u2013R7held.",
+    "V26is unsigned. The original signing environment is unavailable here; no replacement key, installable update or physical phone test is claimed.",
+    "Current owner/listening/artistic acceptance remains unchanged; fresh test checks use isolated saves and Dummy audio."
   ],
   "overnight": {
     "automation_id": "6ae532c5fe9c819190f587a022c54052",
@@ -38,7 +41,9 @@
     "test_handover_ready_target": "08:50 Europe/London",
     "hard_stop": "09:00 Europe/London,14 November2026",
     "first_slot": "2026-11-14T01:00:00+00:00",
-    "separate_followup": "Owner authorised focused asset recovery at08:31;09:00 automated report stays read-only and cannot take over this active writer."
+    "separate_followup": "08:31owner-authorised recovery completed with private assets and unsignedV26; no extension of the finite hourly programme.",
+    "automation_enabled": false,
+    "programme_ended": true
   },
-  "owner_test_status": "BLOCKED_PENDING_CURRENT_ASSET_INTEGRATION_AND_ORIGINAL_SIGNED_BUILD"
+  "owner_test_status": "BLOCKED_ORIGINAL_SIGNATURE_AND_PHYSICAL_UPDATE_TEST"
 }

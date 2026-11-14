@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "request_type": "android-apk-v2-detached-rsa-sha256",
+  "unsigned_apk": {
+    "filename": "BandMaster-Playtest-v26-UNSIGNED.apk",
+    "sha256": "3ba53963494717c1cce448e6a630dc519125df4719fc49acf46f6a94d9e9b39c",
+    "size": 372861236,
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "version_code": 26,
+    "version_name": "0.166.0-playtest-restored",
+    "minimum_sdk": 24,
+    "target_sdk": 36
+  },
+  "source_identity": {
+    "repository": "alimuir654-rgb/BandMaster",
+    "branch": "feature/playtest-polish-v20",
+    "integrated_source_commit": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
+    "owner_base_commit": "19df671f2946a9a3c675bc879aa4c8a854544e57",
+    "packaged_game_source_commit": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
+    "entry_scene": "experiments/playable_flightcase/opening.tscn",
+    "save_directory": "BandMasterOwnerPlaytestS40",
+    "source_archive_sha256": null
+  },
+  "signing": {
+    "scheme": "APK Signature Scheme v2",
+    "signature_algorithm_id": "0x0103",
+    "java_signature_algorithm": "SHA256withRSA",
+    "padding": "RSASSA-PKCS1-v1_5",
+    "hash_algorithm": "SHA-256",
+    "signed_data_base64": "LAAAACgAAAADAQAAIAAAAFPwabAciWzN4vrKw8cRGytF0oaN5zcGsMWkbOIfn2ODOAMAADQDAAAwggMwMIICGKADAgECAgkA9b3kjRWXSjwwDQYJKoZIhvcNAQEMBQAwRjELMAkGA1UEBhMCR0IxEzARBgNVBAoTCkJhbmRNYXN0ZXIxIjAgBgNVBAMTGUJhbmRNYXN0ZXIgT3duZXIgUGxheXRlc3QwHhcNMjYxMDMxMDc0ODM2WhcNMzYxMDI4MDc0ODM2WjBGMQswCQYDVQQGEwJHQjETMBEGA1UEChMKQmFuZE1hc3RlcjEiMCAGA1UEAxMZQmFuZE1hc3RlciBPd25lciBQbGF5dGVzdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKXjsiXDS6+pN0cSv1pkKA6KFPmjPWMcDD6iJpNuqtNVBU81IfNEr/wSocbN+B+Glx0qaqopF7CD/UHxUzhzttrE7I0C7QS0BdIsFvUdUrDeadfVJDOefLPmhbH7dh8VTOqVX3l49QCO/fIFeyoSzViHJ/jygGTceiPWf9lHCkQkybv0XVFJHhGPXtS/GAiuXJviE8WFVgwDBt5hmy2lO9gAuWVbTpxOds/8PHl5XIHBfP9vavkgliaXABwYBDy9d3YEUtzZH05b33lp0zBfVH5GIlfTGEiWYudsTyKRE1qY9bnYEFGgDt3M7Do/jWp4TTX7eQhLIPkQe5ajSMe8RPMCAwEAAaMhMB8wHQYDVR0OBBYEFEXzsv5XSsMls3Lm+GXTyUoZgn0LMA0GCSqGSIb3DQEBDAUAA4IBAQCUpDitX6PPMODRiKupfIKMoOvgo+ZDejPxfm3fA19trnBexo6pApPOq2LAPCdcHJUdNvOUeGOxVTOXXcHFbq1IrCMhSKJRbMflxep07M8Ft6UzTqO0cxkwoC3W06dx6U/+u6MF1nHU0QYrTM9ERK9D9TcR33n9Bvbf3lMrvopwIOG9Hu4PrEPwm3Dp2spizkuRFvWJ6zQoN9BfUE05xnPe17KJ455M91A4ea2mfvLNMaamiZo2HAzvl6jTPxhZsfa+DJlhFJFEj0o5cCh3PL3YoOGjsBSyyFwDym4CRtqNmH1WhPHv+l5xMOqfJrwKD31KUPuqSOZYxazU+KTlbHdNAAAAAAAAAAA=",
+    "signed_data_sha256": "db0cc73e146d030f677fd40c9a90017f13b64fb389e2ba7149c2b61e097a5aee",
+    "signed_data_size": 884,
+    "public_certificate_der_base64": "MIIDMDCCAhigAwIBAgIJAPW95I0Vl0o8MA0GCSqGSIb3DQEBDAUAMEYxCzAJBgNVBAYTAkdCMRMwEQYDVQQKEwpCYW5kTWFzdGVyMSIwIAYDVQQDExlCYW5kTWFzdGVyIE93bmVyIFBsYXl0ZXN0MB4XDTI2MTAzMTA3NDgzNloXDTM2MTAyODA3NDgzNlowRjELMAkGA1UEBhMCR0IxEzARBgNVBAoTCkJhbmRNYXN0ZXIxIjAgBgNVBAMTGUJhbmRNYXN0ZXIgT3duZXIgUGxheXRlc3QwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCl47Ilw0uvqTdHEr9aZCgOihT5oz1jHAw+oiaTbqrTVQVPNSHzRK/8EqHGzfgfhpcdKmqqKRewg/1B8VM4c7baxOyNAu0EtAXSLBb1HVKw3mnX1SQznnyz5oWx+3YfFUzqlV95ePUAjv3yBXsqEs1Yhyf48oBk3Hoj1n/ZRwpEJMm79F1RSR4Rj17UvxgIrlyb4hPFhVYMAwbeYZstpTvYALllW06cTnbP/Dx5eVyBwXz/b2r5IJYmlwAcGAQ8vXd2BFLc2R9OW995adMwX1R+RiJX0xhIlmLnbE8ikRNamPW52BBRoA7dzOw6P41qeE01+3kISyD5EHuWo0jHvETzAgMBAAGjITAfMB0GA1UdDgQWBBRF87L+V0rDJbNy5vhl08lKGYJ9CzANBgkqhkiG9w0BAQwFAAOCAQEAlKQ4rV+jzzDg0YirqXyCjKDr4KPmQ3oz8X5t3wNfba5wXsaOqQKTzqtiwDwnXByVHTbzlHhjsVUzl13BxW6tSKwjIUiiUWzH5cXqdOzPBbelM06jtHMZMKAt1tOncelP/rujBdZx1NEGK0zPRESvQ/U3Ed95/Qb2395TK76KcCDhvR7uD6xD8Jtw6drKYs5LkRb1ies0KDfQX1BNOcZz3teyieOeTPdQOHmtpn7yzTGmpomaNhwM75eo0z8YWbH2vgyZYRSRRI9KOXAodzy92KDho7AUsshcA8puAkbajZh9VoTx7/pecTDqnya8Cg99SlD7qkjmWMWs1Pik5Wx3TQ==",
+    "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "public_key_spki_der_base64": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApeOyJcNLr6k3RxK/WmQoDooU+aM9YxwMPqImk26q01UFTzUh80Sv/BKhxs34H4aXHSpqqikXsIP9QfFTOHO22sTsjQLtBLQF0iwW9R1SsN5p19UkM558s+aFsft2HxVM6pVfeXj1AI798gV7KhLNWIcn+PKAZNx6I9Z/2UcKRCTJu/RdUUkeEY9e1L8YCK5cm+ITxYVWDAMG3mGbLaU72AC5ZVtOnE52z/w8eXlcgcF8/29q+SCWJpcAHBgEPL13dgRS3NkfTlvfeWnTMF9UfkYiV9MYSJZi52xPIpETWpj1udgQUaAO3czsOj+NanhNNft5CEsg+RB7lqNIx7xE8wIDAQAB",
+    "public_key_spki_sha256": "2420d32d076dcbdc11b4ca06f09009f18090ca08107755d827fe0506eeaabe5d",
+    "rsa_key_bits": 2048,
+    "content_digest_algorithm": "APK-v2 chunked SHA-256",
+    "content_digest_hex": "53f069b01c896ccde2facac3c7111b2b45d2868de73706b0c5a46ce21f9f6383",
+    "chunk_size_bytes": 1048576,
+    "additional_attributes_base64": "",
+    "sdk_fourth_empty_field_base64": "",
+    "minimum_android_signature_scheme": "v2; minSdk24; no v1/v3 block requested"
+  },
+  "zip_layout": {
+    "central_directory_offset": 372575526,
+    "central_directory_size": 285688,
+    "eocd_offset": 372861214,
+    "eocd_size": 22
+  },
+  "package_audit": {
+    "zip_crc_all_entries": true,
+    "zip32_single_disk": true,
+    "no_preexisting_signing_block": true,
+    "alignment_16kb": true,
+    "abis": [
+      "arm64-v8a"
+    ],
+    "permissions": [],
+    "forbidden_permissions_absent": true,
+    "test_harness_excluded": true,
+    "payload_entries": 2134,
+    "payload_manifest_sha256": "98b5d4b1f0f5f3728ba2ab6f1336faca109c3955056d5f3e26739fcd5cce2d05",
+    "content_digest_chunks": 358,
+    "physical_device_tested": false,
+    "previous_compiled_payload_tests": {
+      "checks": 510,
+      "failures": 0,
+      "reused_for_exact_unsigned_apk_sha256": "3ba53963494717c1cce448e6a630dc519125df4719fc49acf46f6a94d9e9b39c",
+      "verification_record_sha256": "dce87d4b6491f862b220fe7511caaa1b1abb3983fdd46df0d2f01aaed21b4cd0",
+      "package_audit_record_sha256": "7669b7cebc3f3aa59a24728809a5a33d17bfd0c1228e5a3a22117150786a497f"
+    }
+  },
+  "original_certificate_audit": {
+    "reference_mode": "pinned_v22_request_and_original_signature",
+    "original_certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "original_rsa_signature_verified": true,
+    "official_apksigner": false,
+    "historical_official_apksigner_verified": true,
+    "historical_certificate_audit_sha256": "5e657e55fb3cdd6ab137a1a06c6cf7b99a523891fadde08cb445fd0d493ddeb6",
+    "reference_request_sha256": "eb0ea54b0a0ccca0c47491a69398ab11b88b5d4de231dd07368edce2c98fb01d",
+    "reference_response_sha256": "0a4dda9eea1c0ec77807c1c2772426a6e347d653de7e1fe526dd60f7467a8d27",
+    "reference_request_id": "ac4bcac442b592af4cb42811443554c3e9c7b4f7c2d81758eac00fb1c71af6a8",
+    "reference_signed_data_sha256": "586714aabdb9feb31605f39c87f46a7cc351dfe8ad45c3e8d17058836f91e39a"
+  },
+  "signer_instructions": [
+    "Validate the APK/source/audit identity and certificate fingerprint before signing.",
+    "Base64-decode signing.signed_data_base64. Sign those exact bytes using SHA256withRSA / PKCS#1 v1.5 and the retained original private key.",
+    "Do not sign the JSON, a length prefix, the APK digest, or the hexadecimal signed-data hash. SHA256withRSA performs its one SHA-256 internally.",
+    "Do not export or send the private key. Return only the detached signature and request-binding fields.",
+    "The current environment will verify the RSA signature before constructing the APK block, then require official Android apksigner verification and unchanged payload checks."
+  ],
+  "response_template": {
+    "schema_version": 1,
+    "request_id": "<copy top-level request_id>",
+    "signed_data_sha256": "db0cc73e146d030f677fd40c9a90017f13b64fb389e2ba7149c2b61e097a5aee",
+    "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "signature_base64": "<base64 of the 256-byte RSA signature>"
+  },
+  "status": "awaiting_original_private_key_holder_signature; no APK assembled or signed here",
+  "request_id": "f68e8d992998a6c5b685ad48cb8ee16d34148ae0995174fc225348d1e8249f1b"
+}

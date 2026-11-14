@@ -1,15 +1,19 @@
-# BandMaster — private audio recovery
+# BandMaster — current handover
 <!-- session: RESTORE66 -->
-<!-- status: active -->
+<!-- status: closed -->
 
-The owner authorised focused asset restoration at08:31 on14November. Root-RESTORE66 is the sole writer; original overnight feature work remains frozen. The09:00 scheduled run must report read-only and not take this lease.
+RESTORE66 is closed. Current source: `e887c35147b39fc3d12ef11ce2f8d322553991e1` on `feature/playtest-polish-v20`.
 
-Current game source remains7ae8667; frozen tested candidatebd28cdd; source metadata base1c23d50. No current installable APK has been produced.
+**Missing audio is recovered.** Five original sources and185processedWAVs match original hashes. All28recoveredOGGs preserve exact packets, timing and same-engine decodedPCM. Current18characters/30activeclips and previous acceptance flags are verified.
 
-Recovered: all ten original V24 Dropbox archive parts, verified locally and extracted to the exact historical APK. It contains seven missing JSON indexes and imported forms of the two missing OGG cues. Five source FLACs for later/current character work plus FLAC49 verification metadata were restored. These are recovery inputs; current bindings and clean export resources still need verification.
+**V26 is built and verified, but unsigned.** Fresh source suites:1057checks. Actual exported compiled payload:510checks. Original app/save identity retained; original certificate is required. No installable update, physical test or new listening acceptance is claimed.
 
-Current root workspace is separate from the original signing environment. Preserve original certificate/app/save identity and approved source bindings. No new key, new music, main/merge or public media.
+**Next:** Complete the prepared V26 request in the original signing environment, then verify the signed update before owner testing.
 
-Next action: Verify and materialize recovered private assets for the current frozen game source, then assess original-app packaging.
+Request SHA256: `42fb4c51238778f681adb86fdff6cd6648b1062c56d4249fbe31faf62c9fcff0`. The request is public certificate/signable data only; keep the original private key in its original environment.
 
-Read CURRENT, sessions/RESTORE66.json and the sole S80 queue. Earlier SONG65 readiness/test route remains historical; do not repeat the source-only missing-assets conclusion without checking recovered assets.
+[Results](../continuous_improvement/RESTORE66_RESULTS.json) · [Review](../continuous_improvement/RESTORE66_REVIEW.json) · [Signing request](../continuous_improvement/evidence/RESTORE66/BandMaster-V26-APK-v2-signing-request.json) · [Current context](../continuous_improvement/CURRENT.json) · [Sole queue](../continuous_improvement/S80_EXECUTION_QUEUE.md)
+
+Private files retained: `BandMaster_RESTORE66_Audio_Recovery.zip` and `BandMaster_V26_Unsigned_Candidate.zip`.
+
+Roadmap: R2internallyverified; R3partial; R4–R7held. Owner acceptance remains false. All writers released; finite overnight automation disabled. Prior SONG65 missing-media statements are superseded by this recovery.

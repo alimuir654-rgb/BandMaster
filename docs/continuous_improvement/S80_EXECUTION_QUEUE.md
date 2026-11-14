@@ -1,12 +1,12 @@
 # BandMaster — sole execution queue
 
-Latest session: **RESTORE66 — ACTIVE / private audio recovery**. The08:31 owner follow-up authorises restoring existing assets and build checks. Root-RESTORE66 is sole writer. Ten V24 archive parts and five current-source FLACs plus verification metadata are restored; current-source/export compatibility remains under verification. The09:00 scheduled report must remain read-only.
+Latest session: **RESTORE66 — CLOSED / audio recovered, unsigned V26 verified**. The08:31 follow-up restored existing assets and completed fresh build checks. Writer and helpers are released. The finite hourly programme has ended and its automation is disabled.
 
-Previous frozen handover: SONG65. Verified candidate `bd28cdd`, game source `7ae8667`.909sourcebindings independently matched; source CI4PASS; no new gameplay/native/audio/APK. **Hands-on test blocked: nine processed dependencies missing; no installable update or owner launch target.** R3partial/R4–R7held. Writer/helpers/GL released.
+Current candidate source `e887c35147b39fc3d12ef11ce2f8d322553991e1`; game code remains `7ae8667`. Five original sources and185processedWAVs are exact;28reconstructedOGGs preserve packets/timing/decodedPCM. All18characters/30activeclips match current bindings. Source checks1057PASS and actual compiled package510PASS; sourceCI3PASS. Private recovery and unsigned-candidate bundles saved. **Installable update held only at original-key signing and subsequent device/update verification.** The earlier nine missing-sentinel hold is resolved.
 
-**Next action:** Verify and materialize recovered private assets for the current frozen game source, then assess original-app packaging.
+**Next action:** Complete the prepared V26 request in the original signing environment, then verify the signed update before owner testing.
 
-[Test handover](SONG65_TEST_HANDOVER.json) · [Readiness results](SONG65_RESULTS.json). Source and screenshots are review evidence, not a playable build.
+[Current results](RESTORE66_RESULTS.json) · [Independent review](RESTORE66_REVIEW.json) · [Prepared signing request](evidence/RESTORE66/BandMaster-V26-APK-v2-signing-request.json). V26 is unsigned; it is not yet an owner-installable update. The earlier SONG65 handover remains historical.
 
 ## Linked songs and band life
 
@@ -37,7 +37,7 @@ The 14 November owner request now authorises finite hourly progression through R
 
 ## Finite hourly programme — 14 November 2026
 
-Confirmed automation: `6ae532c5fe9c819190f587a022c54052`, enabled, Europe/London, 01:00–09:00, COUNT 9. This reuses the attached BandMaster worker with a fresh prompt; old November 5–6 instructions are superseded. No parallel queue. Times are priorities, not promises or permission to skip dependencies.
+Completed finite automation: `6ae532c5fe9c819190f587a022c54052`, now disabled with no next run; Europe/London, 01:00–09:00, COUNT9. This reuses the attached BandMaster worker with a fresh prompt; old November 5–6 instructions are superseded. No parallel queue. Times are priorities, not promises or permission to skip dependencies.
 
 | Window | Priority |
 |---|---|

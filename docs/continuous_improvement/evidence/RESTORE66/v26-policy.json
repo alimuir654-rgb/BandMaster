@@ -1,0 +1,8 @@
+{
+  "apk_sha256": "3ba53963494717c1cce448e6a630dc519125df4719fc49acf46f6a94d9e9b39c",
+  "apk_size": 372861236,
+  "version_code": 26,
+  "integrated_source_commit": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
+  "game_source_commit": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
+  "branch": "feature/playtest-polish-v20"
+}

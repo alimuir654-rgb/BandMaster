@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "session": "RESTORE66",
-  "status": "assets_restored_runtime_and_packaging_checks_pending",
-  "updated_at": "2026-11-14T09:13:57.016172+00:00",
+  "status": "recovery_and_unsigned_candidate_verified_original_signature_held",
+  "updated_at": "2026-11-14T09:22:51.040828+00:00",
   "authority": "Owner Go ahead at08:31 on14Nov2026; scoped recovery of existing assets and build checks",
   "source_baseline": "52ec916f4ff49b1895e1c2af52b4e92e540dcd05",
   "unchanged_game_code_commit": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
@@ -52,8 +52,60 @@
     "new_musical_generation": false,
     "new_listening_approval": false
   },
-  "runtime_tests": "pending fresh isolated run",
-  "new_APK": "not yet exported",
+  "runtime_tests": {
+    "checks": 1057,
+    "failures": 0,
+    "suites": {
+      "restore42": 724,
+      "indie39": 104,
+      "feedback47": 169,
+      "crowd37": 60
+    },
+    "engine": "Godot4.7.2",
+    "Dummy_audio": true,
+    "fresh_and_isolated": true,
+    "assertions_changed": false,
+    "source_hash_bridge": 1138,
+    "private_receipt_sha256": "ef74c168f1ae5125134effb6c683f8f09ae469a6c184f458b75bd949886344cb"
+  },
+  "new_APK": {
+    "sha256": "3ba53963494717c1cce448e6a630dc519125df4719fc49acf46f6a94d9e9b39c",
+    "bytes": 372861236,
+    "signed": false,
+    "installable_update": false,
+    "source_commit": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "version_code": 26,
+    "version_name": "0.166.0-playtest-restored",
+    "minimum_sdk": 24,
+    "target_sdk": 36,
+    "zip_crc_all_entries": true,
+    "zip32_single_disk": true,
+    "no_preexisting_signing_block": true,
+    "alignment_16kb": true,
+    "abis": [
+      "arm64-v8a"
+    ],
+    "permissions": [],
+    "forbidden_permissions_absent": true,
+    "test_harness_excluded": true,
+    "payload_entries": 2134,
+    "payload_manifest_sha256": "98b5d4b1f0f5f3728ba2ab6f1336faca109c3955056d5f3e26739fcd5cce2d05",
+    "content_digest_chunks": 358,
+    "physical_device_tested": false,
+    "filename": "BandMaster-Playtest-v26-UNSIGNED.apk",
+    "compiled_checks": 510,
+    "compiled_failures": 0,
+    "source_receipt_files_verified": 1158,
+    "actual_APK_assets_compared_to_compiled_payload": 2022,
+    "compiled_scripts": 142,
+    "source_scripts_or_tests_in_payload": 0,
+    "APK_source": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
+    "request_path": "docs/continuous_improvement/evidence/RESTORE66/BandMaster-V26-APK-v2-signing-request.json",
+    "request_sha256": "42fb4c51238778f681adb86fdff6cd6648b1062c56d4249fbe31faf62c9fcff0",
+    "request_id": "f68e8d992998a6c5b685ad48cb8ee16d34148ae0995174fc225348d1e8249f1b",
+    "public_request_and_actual_APK_independently_verified": true
+  },
   "signing": {
     "original_key_accessible_here": false,
     "original_certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
@@ -68,5 +120,47 @@
     "main_or_PR199_changed": false,
     "private_media_or_runtime_registries_published": false
   },
-  "next_action": "Run current audio lifecycle/save checks; prepare version26 unsigned candidate and fresh compiled-payload proof if gates pass. Signing remains with original key environment."
+  "next_action": "Complete the prepared V26 request in the original signing environment, then verify the signed update before owner testing.",
+  "tested_source": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
+  "private_delivery": {
+    "saved": true,
+    "files": [
+      {
+        "name": "BandMaster_RESTORE66_Audio_Recovery.zip",
+        "bytes": 334931807,
+        "sha256": "ac638b8a210ea3372acd2972afe9ed8be350c0b312f03d64b0d61303d2185368"
+      },
+      {
+        "name": "BandMaster_V26_Unsigned_Candidate.zip",
+        "bytes": 373207475,
+        "sha256": "f8f659307f46accb6d48d658de036fb33be5ba5e2ff7a90eea3b889bb580ccdd"
+      }
+    ],
+    "media_or_private_runtime_registries_published_to_Git": false
+  },
+  "remaining_blockers": [
+    "The retained original signing key is not accessible in this attached environment. A matching new signature response is required.",
+    "Signed assembly, official signature/update verification and physical update/Continue/listening have not been performed."
+  ],
+  "build_notes": {
+    "import_warnings": "Six existing metadata-CSV columns interpreted as empty translation locales; no import ERROR lines. Export and compiled model logs clean.",
+    "diagnostic_correction": "Scratch OGG equivalence harness now hashes the actual final short decoder read. Original and restored Bex decoded to identical311294 mixer frames; a ceil-duration full-buffer assumption expected311295. Audio and runtime assertions were unchanged.",
+    "resource_usage_GiB_rounded": 6.6,
+    "reproducible_download_archives_removed_only_after_verifying_retained_extraction": true,
+    "handover_marker_correction": "First context gate detected omitted HTML session/status markers; exact RESTORE66/closed markers restored without changing the gate."
+  },
+  "automation": {
+    "id": "6ae532c5fe9c819190f587a022c54052",
+    "finite_programme_ended": true,
+    "enabled": false,
+    "next_run_time": null,
+    "followup_scope_separate": true
+  },
+  "private_asset_overlay": {
+    "files": 232,
+    "processed_WAVs": 185,
+    "OGGs": 35,
+    "original_private_registry_JSONs_recovered": 10,
+    "public_title_receipt_and_crowd_credit_retained": true
+  }
 }

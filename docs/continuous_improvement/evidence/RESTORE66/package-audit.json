@@ -1,0 +1,26 @@
+{
+  "sha256": "3ba53963494717c1cce448e6a630dc519125df4719fc49acf46f6a94d9e9b39c",
+  "bytes": 372861236,
+  "signed": false,
+  "installable_update": false,
+  "source_commit": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
+  "application_id": "com.bandmaster.ownerplaytest.s40",
+  "version_code": 26,
+  "version_name": "0.166.0-playtest-restored",
+  "minimum_sdk": 24,
+  "target_sdk": 36,
+  "zip_crc_all_entries": true,
+  "zip32_single_disk": true,
+  "no_preexisting_signing_block": true,
+  "alignment_16kb": true,
+  "abis": [
+    "arm64-v8a"
+  ],
+  "permissions": [],
+  "forbidden_permissions_absent": true,
+  "test_harness_excluded": true,
+  "payload_entries": 2134,
+  "payload_manifest_sha256": "98b5d4b1f0f5f3728ba2ab6f1336faca109c3955056d5f3e26739fcd5cce2d05",
+  "content_digest_chunks": 358,
+  "physical_device_tested": false
+}
