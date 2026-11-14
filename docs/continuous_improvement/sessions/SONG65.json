@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "owner_approved": false,
+  "owner_request": "14 November 2026 owner: Pick up bandmaster roadmap work. Split into hourly chunks to target a 9am test for me. Automate through and make as much progress as possible until then. I won't be available for reviews or approvals until then.",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "2c13c9b0605a4f3b50b0ff2f99d0613cff2f67810be0d9e233af56695e047423",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
+  },
+  "issue_log_review": {
+    "bytes": 2343013,
+    "sha256": "527ee8d39ed644a7f9604487abb9781cb94ca9a2d36e258c98d3336eeb3bad22"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-29",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-39",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "dominant_issue": "BM-43",
+  "target": {
+    "locator": "docs/continuous_improvement/evidence/SONG63/native-v1/candidate/phone/selected-long-title.png",
+    "original_sha256": "3c60ed1a13aa050efa44a4b548776c6e1c47ef063300982c8bbff11dbb7d5d5a",
+    "pixels_inspected": true,
+    "purpose": "Retained unchanged rehearsal native reference; CI plumbing only, no product/visual improvement claimed."
+  },
+  "overnight": {
+    "automation_id": "6ae532c5fe9c819190f587a022c54052",
+    "schedule": "01:00 through09:00 Europe/London 2026-11-14;9 finite opportunities;09:00 read-only handover",
+    "new_feature_stop": "2026-11-14T07:00:00+00:00",
+    "mutation_stop": "2026-11-14T09:00:00+00:00",
+    "user_unavailable": true,
+    "scope": "R2\u2013R7 in dependency order with bounded committed passes; no promise all stages finish."
+  },
+  "id": "SONG65",
+  "status": "active",
+  "baseline_sha": "a8be4f33cf22dce41a56fc0d70baf8604a2328b0",
+  "hypothesis": "A frozen source/evidence binding and explicit installable-build hold gives the owner an accurate09:00 test handover without substituting screenshots or stale history for a playable update.",
+  "controlled_comparison": "Live remote candidate and current proof/artifact metadata versus local source byte identities and exact current handover/cursor; no fresh gameplay/native run.",
+  "stop_condition": "No new systems or producer restarts; HOLD any source/artifact/media drift. Release and publish by08:48; no mutations at/after09:00.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/SONG65.json",
+    "docs/continuous_improvement/SONG65_RESULTS.json",
+    "docs/continuous_improvement/SONG65_REVIEW.json",
+    "docs/continuous_improvement/SONG65_TEST_HANDOVER.json",
+    "docs/continuous_improvement/evidence/SONG65/*",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/handover/START_HERE.md"
+  ],
+  "validation_commands": [
+    "Livebranch/AGENTS/START/currentlease/processes; project_context start/newissues/relevantlessons/check; improvement_gate",
+    "Readonly source907/model73/localproduction870 against liveGitblob and existing proofsha; CI/run/artifact exactreadback; currentmissingmedia/signerappropriateaccessstat",
+    "Independent readonly release/readiness review; retainednativeoriginalonly, noengine/import/cache/PNG/APK foractivity",
+    "Final handover cursor consistency, source freeze and nonforce expectedhead publication/readback; releaseallwriters/helpers/GL before08:48"
+  ],
+  "writer": {
+    "owner": "root-SONG65",
+    "status": "active",
+    "source_writers": 1,
+    "claimed_at": "2026-11-14T08:01:14.179663+00:00",
+    "expires_at": "2026-11-14T08:48:00+00:00"
+  },
+  "next_action": "Freeze and publish accurate09:00 test handover; preserve Android/media and unfinished-stage holds.",
+  "queue_task_ids": [
+    "SONG53-R3"
+  ],
+  "resource_plan": {
+    "at": "2026-11-14T08:01:14.179663+00:00",
+    "primary_new_bytes": 0,
+    "TMP_new_cap_bytes": 10485760,
+    "TMP_free_before": 1307893760,
+    "workspace_free_before": 625471488,
+    "floor_bytes": 629145600,
+    "budget": "10MiB compacthandover/metadata/sourcehashes/failedproof/GitData closeout; no sourcearchive/runtime/cache/images/audio/APK allocation. Primarybelowfloorpreexisting: no primary allocations.",
+    "deadline": "08:48 Europe/London14Nov2026"
+  },
+  "scope": "08:00 candidate freeze/readiness/handover only; no product, QA, UI, asset, engine, audio or APK changes.",
+  "player_task": {
+    "start": "Current canonical finished original",
+    "goal": "Prospective rehearsal records exact source material for actual people; pure query distinguishes source-section evidence",
+    "commit": "Existing OpeningState.rehearse_song sole atomic paid owner unchanged",
+    "important_states": [
+      "oldv1unknowncrossversion",
+      "literal partialprojection",
+      "recipeglobalchange",
+      "absent/replaced person",
+      "future schema",
+      "FSfailure/retry/reload"
+    ],
+    "visible_acceptance": [
+      "No UI changes or new preparation/ability score",
+      "No aggregate prepared claim or silent legacy backfill",
+      "Controlled projections explicitly not earned rewrite experience"
+    ]
+  },
+  "predesign": {
+    "reviewers": [
+      "/root/au01_source_review",
+      "/root/foundation_tests"
+    ],
+    "status": "readonlyreadinessreview_in_progress",
+    "acceptance": "NoAPKwithoutdependencies; noowner/device/listeningclaims; no unsupported R3completion/R4\u2013R7; exactcurrentcursor/source and finite09:00 stop."
+  }
+}
