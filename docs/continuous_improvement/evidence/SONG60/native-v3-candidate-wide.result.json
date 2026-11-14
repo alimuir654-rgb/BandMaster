@@ -1,0 +1,8 @@
+{
+  "name": "candidate-wide",
+  "exit_code": 0,
+  "seconds": 17.23,
+  "log": "/tmp/bandmaster-song60-20261114/native-v3/logs/candidate-wide.log",
+  "errors": [],
+  "pass": true
+}

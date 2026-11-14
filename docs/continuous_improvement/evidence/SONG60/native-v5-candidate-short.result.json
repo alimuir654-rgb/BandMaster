@@ -1,0 +1,8 @@
+{
+  "name": "candidate-short",
+  "exit_code": 0,
+  "seconds": 15.94,
+  "log": "/tmp/bandmaster-song60-20261114/native-v5/logs/candidate-short.log",
+  "errors": [],
+  "pass": true
+}

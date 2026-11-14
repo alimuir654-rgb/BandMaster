@@ -1,0 +1,8 @@
+{
+  "name": "baseline-import",
+  "exit_code": 0,
+  "seconds": 20.27,
+  "log": "/tmp/bandmaster-song60-20261114/native-v2/logs/baseline-import.log",
+  "errors": [],
+  "pass": true
+}

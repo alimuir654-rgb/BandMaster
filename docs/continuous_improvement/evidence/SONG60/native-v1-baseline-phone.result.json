@@ -1,0 +1,11 @@
+{
+  "name": "baseline-phone",
+  "exit_code": 1,
+  "seconds": 1.32,
+  "log": "/tmp/bandmaster-song60-20261114/native-v1/logs/baseline-phone.log",
+  "errors": [
+    "SCRIPT ERROR: Parse Error: Static function \"attach_retained_ideas()\" not found in base \"res://experiments/playable_flightcase/song_audio.gd\".",
+    "ERROR: Failed to load script \"res://tests/song60_native.gd\" with error \"Parse error\"."
+  ],
+  "pass": false
+}

@@ -1,0 +1,8 @@
+{
+  "name": "candidate-import",
+  "exit_code": 0,
+  "seconds": 18.63,
+  "log": "/tmp/bandmaster-song60-20261114/native-v3/logs/candidate-import.log",
+  "errors": [],
+  "pass": true
+}

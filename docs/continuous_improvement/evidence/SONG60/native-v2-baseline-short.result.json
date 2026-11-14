@@ -1,0 +1,8 @@
+{
+  "name": "baseline-short",
+  "exit_code": 0,
+  "seconds": 3.32,
+  "log": "/tmp/bandmaster-song60-20261114/native-v2/logs/baseline-short.log",
+  "errors": [],
+  "pass": true
+}

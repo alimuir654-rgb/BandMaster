@@ -1,0 +1,6 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Could not set V-Sync mode, as changing V-Sync mode is not supported by the graphics driver.
+     at: set_use_vsync (platform/linuxbsd/x11/gl_manager_x11.cpp:372)
+OpenGL API 4.5 (Core Profile) Mesa 25.0.7-2+deb13u1 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 19.1.7, 256 bits)
+
+SONG60_NATIVE {"baseline":false,"checks":190,"failures":[],"images":[{"height":900,"path":"/tmp/bandmaster-song60-20261114/native-v5/candidate/wide/sound-off-pending-person.png","state":"sound-off-pending-person","width":1600},{"height":900,"path":"/tmp/bandmaster-song60-20261114/native-v5/candidate/wide/local-role-swap.png","state":"local-role-swap","width":1600},{"height":900,"path":"/tmp/bandmaster-song60-20261114/native-v5/candidate/wide/chosen-casey.png","state":"chosen-casey","width":1600},{"height":900,"path":"/tmp/bandmaster-song60-20261114/native-v5/candidate/wide/free-save-failure.png","state":"free-save-failure","width":1600},{"height":900,"path":"/tmp/bandmaster-song60-20261114/native-v5/candidate/wide/paid-save-failure.png","state":"paid-save-failure","width":1600},{"height":900,"path":"/tmp/bandmaster-song60-20261114/native-v5/candidate/wide/retained-idea-after-reload.png","state":"retained-idea-after-reload","width":1600}],"ok":true,"successful_paid_settlements":3,"trace":[]}

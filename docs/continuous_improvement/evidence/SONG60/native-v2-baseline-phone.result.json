@@ -1,0 +1,8 @@
+{
+  "name": "baseline-phone",
+  "exit_code": 0,
+  "seconds": 2.87,
+  "log": "/tmp/bandmaster-song60-20261114/native-v2/logs/baseline-phone.log",
+  "errors": [],
+  "pass": true
+}
