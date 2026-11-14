@@ -1,0 +1,15 @@
+{
+  "scope": "SONG61 R3 targeted rehearsal foundation",
+  "at": "2026-11-14T04:05:43.433045+00:00",
+  "primary_new_bytes": 0,
+  "tmp_cap_bytes": 1879048192,
+  "tmp_free_before": 5336227840,
+  "floor_bytes": 629145600,
+  "budget": {
+    "archive_export": 700000000,
+    "private_native_models_import": 450000000,
+    "failed_proof_tail": 450000000,
+    "PNG_closeout": 100000000
+  },
+  "critical_Git": "Durable GitHub Git Data only; all earlier producers/checkout preserved"
+}

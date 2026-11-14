@@ -1,0 +1,218 @@
+{
+  "session": "SONG61",
+  "tested_sha": "0b730048f4fa77fcd4a4a06093549aa5bc862b81",
+  "baseline_sha": "94878408b16e787284ee32a3ffcd323e74be674b",
+  "preflight_sha": "b2c607be57a2199185f2289c3c1bf166eb27655f",
+  "scope": "PARTIAL_R3_EXACT_REVISION_FACTUAL_LEDGER",
+  "technical_verdict": "PASS_SCOPED_LOCAL_AND_FOUR_CI",
+  "internal_verdict": "CLEAR_SCOPED_MODEL_OWNER",
+  "visual_verdict": "UNCHANGED_NOT_NEWLY_NATIVE_TESTED",
+  "owner_verdict": "NOT_ACCEPTED",
+  "release_verdict": "NO_NEW_APK",
+  "owner_approved": false,
+  "models": {
+    "final": "docs/continuous_improvement/evidence/SONG61/v5/RUN.json",
+    "baseline": {
+      "checks": 106,
+      "failure_count": 0,
+      "failures": [],
+      "legacy_receipts_checked": 0,
+      "monotonic_failures": 0,
+      "ok": true,
+      "owner_transactions": 6
+    },
+    "candidate": {
+      "checks": 334,
+      "failure_count": 0,
+      "failures": [],
+      "legacy_receipts_checked": 0,
+      "monotonic_failures": 0,
+      "ok": true,
+      "owner_transactions": 12
+    },
+    "input_files": {
+      "baseline": 71,
+      "candidate": 72
+    },
+    "execution_strict": 7,
+    "held": 2,
+    "held_runs": [
+      "v1 baseline actual Saturday everyone-unavailable refusal fixture",
+      "v3 candidate original duplicate-title rule refusal followed by dependent test access error"
+    ],
+    "all_history_retained": true,
+    "actual_local_Godot_executions": 9
+  },
+  "verified": [
+    "Original real writing fixtures and available-day advancement; no date/stat eligibility edits for rehearsals.",
+    "Two fixture careers each3successful linked rehearsals: Sunday/full, Monday/full, Tuesday/two actual attendees. Six saved linked rehearsals total, plus failed attempts and matched original comparisons; not six whole-menu journeys.",
+    "Matched whole original career exact after removing ONLY new ledger; \u00a315/day/action once and original Finance/Situation/Live effects unchanged.",
+    "Real filesystem failure rolls whole owner including unknown fractional wrapper back; old file unchanged; same token retry succeeds once; stale duplicate zero writes.",
+    "Transparent subclass delegates real private writer and counts instrumented onefailed/oneretry; public save/restore/rehearse reentry refused under original busy lock.",
+    "Actual distinct second originals earned through3more original paidwriting stages each; synthetic same-title collision cannot join their evidence.",
+    "Unsupported optional ledger remains intact and refuses before resolver; no invented legacy records."
+  ],
+  "unchanged": [
+    "All54originalScripts including3UID",
+    "All existing image/audio/font files;742protected files including54Scripts and retainedQAimages exact against live9487 archive",
+    "Existing UI/session/Situation/Live/Finance/rehearsal intent/scoring/2\u20133trackdemo rules",
+    "Original app identity/signing key untouched; no APK/export/private media acquired"
+  ],
+  "ci": [
+    {
+      "id": 43556109659,
+      "name": "Validate BandMaster structure",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "0b730048f4fa77fcd4a4a06093549aa5bc862b81"
+    },
+    {
+      "id": 43556109623,
+      "name": "Mandatory continuous-improvement gate",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "0b730048f4fa77fcd4a4a06093549aa5bc862b81"
+    },
+    {
+      "id": 43556109642,
+      "name": "Linked-song craft and legacy-save proof",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "0b730048f4fa77fcd4a4a06093549aa5bc862b81"
+    },
+    {
+      "id": 43556109635,
+      "name": "Godot headless validation",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "0b730048f4fa77fcd4a4a06093549aa5bc862b81"
+    }
+  ],
+  "artifact_index": [
+    {
+      "path": "docs/continuous_improvement/evidence/SONG61/closed-producers.json",
+      "bytes": 154393,
+      "sha256": "b60ea6fd19191380919da40efd445eedc63df5edc31790b6e5fc0ecb3b63763a"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG61/funding.json",
+      "bytes": 475,
+      "sha256": "5fc2ae7d7789b8c3b5b50d53900d4b1d3b7cea5ec1412e5741c02c1ff4110f28"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG61/source-protection.json",
+      "bytes": 508298,
+      "sha256": "2992dafdd19499e1192878ea775a1bb42bd56132e3732b6cc3546a5091e44419"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG61/v1/RUN.json",
+      "bytes": 9122,
+      "sha256": "ea20fbb054cb98ef17cbf165348e376b4362e3641f9e0bd2682a42d3b45bfdd5"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG61/v1/logs/baseline.log",
+      "bytes": 253,
+      "sha256": "75bcbda46d7af4bbebed45cb4ac1ae37a7712a2465b61a5a4db538d44b9a0ea5"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG61/v2/RUN.json",
+      "bytes": 18269,
+      "sha256": "d7b8b99c6d62d1c6dfb56533daf07606ac55d9675abc214388a67a9b409ee543"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG61/v2/logs/baseline.log",
+      "bytes": 218,
+      "sha256": "6b595db67144655fd9ccbfd7a2b6cd30c458fd2aed7a31e13893cdd27a3fd50c"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG61/v2/logs/candidate.log",
+      "bytes": 218,
+      "sha256": "306aa43247d5e007113f38f8737c68b962a1ee90d46e7b52c4c69aaab37213a1"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG61/v3/RUN.json",
+      "bytes": 18658,
+      "sha256": "d213f37351d126450a3658a873cfeba860962be29d2ad1aac8b75e0996457310"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG61/v3/logs/baseline.log",
+      "bytes": 218,
+      "sha256": "6b595db67144655fd9ccbfd7a2b6cd30c458fd2aed7a31e13893cdd27a3fd50c"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG61/v3/logs/candidate.log",
+      "bytes": 1046,
+      "sha256": "639790db07d9000e0a5ab4fe82493fe9e965f8d0dc2ab9f8e9373a842b6bafd1"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG61/v4/RUN.json",
+      "bytes": 18270,
+      "sha256": "dcd2a15a0fe6f7b3591f9cefdcea3966a5631c5733a22a05f839b0c668f93fdb"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG61/v4/logs/baseline.log",
+      "bytes": 218,
+      "sha256": "6b595db67144655fd9ccbfd7a2b6cd30c458fd2aed7a31e13893cdd27a3fd50c"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG61/v4/logs/candidate.log",
+      "bytes": 219,
+      "sha256": "6811717fa36cf0a3aae6b824b6a8af9b9dfa970274fc28cccef58f78bbdc3d1e"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG61/v5/RUN.json",
+      "bytes": 18270,
+      "sha256": "e0bfcff3f838703eb868a5c5e6927ed8c6491ff9ba2e0ebb15bc3eae2d34d2b7"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG61/v5/baseline-songs.json",
+      "bytes": 164659,
+      "sha256": "dca55e6b75432d3cc005fcdfe8c9eea6a5b76cfb6968b4ad0d61f9561374a662"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG61/v5/logs/baseline.log",
+      "bytes": 218,
+      "sha256": "6b595db67144655fd9ccbfd7a2b6cd30c458fd2aed7a31e13893cdd27a3fd50c"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG61/v5/logs/candidate.log",
+      "bytes": 219,
+      "sha256": "1dce73ff072868fc8daa5e668568fe8bc3550fa00713e4cf1cd40377b0ba5181"
+    }
+  ],
+  "review": "docs/continuous_improvement/SONG61_REVIEW.json",
+  "remaining": [
+    "No UI changes/new native captures/phone/listening/physical testing.",
+    "No changed-section transfer or preparation-to-gig scoring. R3 partial; R4-R7 not advanced.",
+    "Same-title collision is a synthetic rename guard after earning a distinct second original; original duplicate-title refusal preserved.",
+    "Changed revision/replacement negative identity cases are explicit synthetic guard fixtures, not earned rewrite/replacement gameplay.",
+    "Unknown/malformed ledger variation matrix validates the leaf; executed owner refusal covers scalar and future policy examples.",
+    "Instrumented IO counters cover first failure/retry/duplicate/refusal only; later plain restored owners are not counted."
+  ],
+  "delivery": {
+    "original_signer": "Previously verified available; not reprobed/modified thispass.",
+    "private_processed_dependencies": "Nine still not found; exact prior dependency inventory retained.",
+    "dropbox_current": "Read-only complete account listing now finds33rawWAVstems/1144924716B across6titles in/audio files; /BandMaster empty. Raw stems are not current processed banks; paid rights for these6titles not established. No binary retrieval/bypass/link/grant change.",
+    "apk": "No new APK; existing app/save identity and original signer required after media/native gates."
+  },
+  "resources": {
+    "workspace_free": 625475584,
+    "tmp_scope_cap": 1879048192,
+    "primary_new_allocations": 0,
+    "storage_floor": "629145600; existingprimarybelowfloorunchanged, no cleanup",
+    "critical_git": "DurableGitHubGitDataonly",
+    "producers": "All9localmodelproducers752filesclosedimmutable; oldproducersuntouched",
+    "tmp_free_final": 4722417664,
+    "owned_tmp_bytes": 606424865
+  },
+  "next_action": "Finish R3 player-facing song/version rehearsal selection and source-backed proportionate transfer, with early/final native gates; do not advance R4 yet.",
+  "ci_model_artifact": [
+    {
+      "id": 14098183257,
+      "name": "song57-models-0b730048f4fa77fcd4a4a06093549aa5bc862b81-1",
+      "size_in_bytes": 121834,
+      "digest": "sha256:af220195a7e21aa22997f39e7b276711d5b8e7b345de9ba36f67510cee815ca4"
+    }
+  ],
+  "source_blobs_readback_exact": true
+}

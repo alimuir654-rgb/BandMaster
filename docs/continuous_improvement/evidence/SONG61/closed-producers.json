@@ -1,0 +1,3767 @@
+{
+  "status": "CLOSED_IMMUTABLE",
+  "at": "2026-11-14T04:20:45.199031+00:00",
+  "rule": "Never resume, import, mutate or share cached producer bytes; future pass starts at live source.",
+  "files": [
+    {
+      "path": "models-v1/RUN.json",
+      "bytes": 9122,
+      "sha256": "ea20fbb054cb98ef17cbf165348e376b4362e3641f9e0bd2682a42d3b45bfdd5"
+    },
+    {
+      "path": "models-v1/baseline/project/Data/CharacterCast/approved_cast_2026-10-29.json",
+      "bytes": 23322,
+      "sha256": "24ca3c5b69870d920f058acb48ea710a845f4adba1c3c0240c6708f8fa6f6ff4"
+    },
+    {
+      "path": "models-v1/baseline/project/Scripts/career_actions.gd",
+      "bytes": 8491,
+      "sha256": "e2394ffec255ae7c978c77758ccbf643cd31cc8e0e1eb1393ce3707ae343662b"
+    },
+    {
+      "path": "models-v1/baseline/project/Scripts/career_story.gd",
+      "bytes": 3870,
+      "sha256": "b336f4ab88d4111ca550d7ab002fdf5400b49a62f1c00ae945ae1b8b9e20100c"
+    },
+    {
+      "path": "models-v1/baseline/project/Scripts/formation_catalogue.gd",
+      "bytes": 8007,
+      "sha256": "5755c29bd367fa5befecb473994055218b1280a915f6ad090fb1cf05b527968d"
+    },
+    {
+      "path": "models-v1/baseline/project/Scripts/gear_shop.gd",
+      "bytes": 8091,
+      "sha256": "d0c14338a728e7b14151146e454b31a9939e7ee083be4e118b424c722c0fdb9e"
+    },
+    {
+      "path": "models-v1/baseline/project/Scripts/gig_backstage_incident.gd",
+      "bytes": 2699,
+      "sha256": "ac215497377bbc43ee10b061ded8184752f208842fae735c4f8c3fdf4debda46"
+    },
+    {
+      "path": "models-v1/baseline/project/Scripts/gig_calendar.gd",
+      "bytes": 8903,
+      "sha256": "28d04b7213fa655da84f5071ef3f7f8a1e9ba6fb5eba68af954a6cc9f7c72c4c"
+    },
+    {
+      "path": "models-v1/baseline/project/Scripts/gig_night_flow.gd",
+      "bytes": 2683,
+      "sha256": "c773c331ec8157285a28a8ac07e176130f0b8c82ada03f5d9703a08adde6fae3"
+    },
+    {
+      "path": "models-v1/baseline/project/Scripts/member_life.gd",
+      "bytes": 7576,
+      "sha256": "3ac8b5d9938cf04c7ccddc094ff33056047238f1d6b6a03c6e0419b8a4a1933c"
+    },
+    {
+      "path": "models-v1/baseline/project/Scripts/practice_room.gd",
+      "bytes": 5649,
+      "sha256": "1f2b92099de77e01d1f10fbb5a0b63e135dc7cee272456b6d9147b0f78e4c7f1"
+    },
+    {
+      "path": "models-v1/baseline/project/Scripts/promoter_meetings.gd",
+      "bytes": 3287,
+      "sha256": "49cd022f25d6a53cdc29fc1e45804b54b8e6de3dba74ee1843ca9f95b4d713f6"
+    },
+    {
+      "path": "models-v1/baseline/project/Scripts/recording_career.gd",
+      "bytes": 4416,
+      "sha256": "cfd980e445579abd4ab0e8bd36b78073bc5b01a891b362eaa4f52310f1804a22"
+    },
+    {
+      "path": "models-v1/baseline/project/Scripts/release_campaigns.gd",
+      "bytes": 4274,
+      "sha256": "f610b849125f2280089edb252bf6a8b6843458d41b48bfea0365bbcae3f21392"
+    },
+    {
+      "path": "models-v1/baseline/project/Scripts/song_chemistry.gd",
+      "bytes": 1215,
+      "sha256": "8db92cff3c74347632e69b62c77762a99583fdda58a9f1abadd54f0ac75d4080"
+    },
+    {
+      "path": "models-v1/baseline/project/Scripts/song_workshop.gd",
+      "bytes": 3971,
+      "sha256": "a615225e36acc4edcf626599df4d93560f010a2426dfa57674d7d5b94a421d3b"
+    },
+    {
+      "path": "models-v1/baseline/project/Scripts/tour_itinerary.gd",
+      "bytes": 4186,
+      "sha256": "3a6644c201786318d4cdbb6b7ec6e25c5ad10638a5b9f4a4c4550bac604151a4"
+    },
+    {
+      "path": "models-v1/baseline/project/Scripts/uk_gig_circuit.gd",
+      "bytes": 6080,
+      "sha256": "ea05e79aa88ce9ddf045952ab483e3600dcc0d97415f6416c0865b268cfe71ee"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/character_cast/catalogue.gd",
+      "bytes": 1705,
+      "sha256": "bc1b580baebc75cc5b4c6277dc95ff35749e42515d74f29371053f18b8245c49"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/character_cast/vendor/recruitment_catalogue_v3.gd",
+      "bytes": 14296,
+      "sha256": "6d5f9af80fcad2d68695a0bc3bf549526b144c62ec8eb123edbb5172826f47a7"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/audio/arjun_clips.json",
+      "bytes": 847,
+      "sha256": "facba457cc54b23e33dfc67cc7c45ef408122e39a859cb01e259541fa8e0f913"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/audio/audition_clips.json",
+      "bytes": 1817,
+      "sha256": "94790379701467a856c799977420d8b5da8302f0741b745ab24687b83d465b89"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/audio/marcus_clips.json",
+      "bytes": 2319,
+      "sha256": "9ac023399c12a9404d1b65570016bd9dc277b326fa4e2d5255e2aa69fc2e95aa"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/audio/mixing_desk_v1.json",
+      "bytes": 149376,
+      "sha256": "e707d918853b6b3b76323387123e08a906bf07988ebbb3d110add07ef58ad4ef"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/audio/producer_raw_dark.json",
+      "bytes": 32587,
+      "sha256": "87a92dab2f55b5652af9535247191c249980b41eb89d6c34fdfd21c31b6b65de"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/audio/zoe_clips.json",
+      "bytes": 2318,
+      "sha256": "0e5a29f9ce352087612a1f3f775cb6d25b063d69ee51a8001e9c6691b8961a0f"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/audition_arjun_content.gd",
+      "bytes": 3290,
+      "sha256": "c103ab1454685322ab30ebf71ff54138a46474a546dd03e4c2ecec6bc33aee53"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/audition_content.gd",
+      "bytes": 2992,
+      "sha256": "dcbc820d82432fe4ccebeceabaf96fa00562507b09f64e1aa4e462c59b62642e"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/audition_encounter.gd",
+      "bytes": 23728,
+      "sha256": "f8ea07fb36d5502e058c0c83bda4f941f6a60325eb592cf18fdcb18c4213a32b"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/audition_marcus_content.gd",
+      "bytes": 3459,
+      "sha256": "2792a7d78ada0fb6f602e1510c2824576e2c78d39375254dd40a33787568ce83"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/audition_profiles.gd",
+      "bytes": 1158,
+      "sha256": "0a5fa74ccee19fb789619fe399ee7b09fded420e7dfd11f49c2bfe5d0a33adb5"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/audition_zoe_content.gd",
+      "bytes": 3528,
+      "sha256": "37912d349a818cdf3d6170e0f9dacdd01bf796985c706f26988e01a89121b765"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/band_sound.gd",
+      "bytes": 1239,
+      "sha256": "167c5ddc4dd04661cd6271a4adc9970f0e89059be63f6c9d24353d52616872ae"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/band_week.gd",
+      "bytes": 5134,
+      "sha256": "e9b907903d43528144cd6d44bd72c3ed6286e860087eadecab3c0d75253e33be"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/career_dates.gd",
+      "bytes": 4638,
+      "sha256": "1e4f0c94213e259126230e80675f938fd022410d2abc139d13df4fb3d2f4361c"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/character_connections.gd",
+      "bytes": 4878,
+      "sha256": "2489429ac9ddf0125cc1fbb7d7d99d316c3879eedb7d63a70d0a7f3fa6bddc05"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/conversation_musicians.gd",
+      "bytes": 4164,
+      "sha256": "9555f812607f6a63cfbe7021b92e3e2f555ac9cd67443ec4803ec0c3c5e57c2b"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/finance_policy.gd",
+      "bytes": 9457,
+      "sha256": "80f13ae58f6490cc0d5d2ae8d2ffafaaa9fd6238dc7ed0abdc85c4e3d919dd26"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/gig_booking_rules.gd",
+      "bytes": 32403,
+      "sha256": "8a611252632247281a917861147afd5761ddfb21c5420bff4b53e7e5014c44cf"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/gig_incident.gd",
+      "bytes": 7937,
+      "sha256": "e6a54e6221966fcd82f5fdaf16c89c545d336fe10a2ff7957d381f524164767e"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/gig_journey.gd",
+      "bytes": 23672,
+      "sha256": "0e3c8037f5fc82b8e97cdb463c6a5fa906be5b48f09dc4e1cd1b0b4bf04821d6"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/gig_performance_policy.gd",
+      "bytes": 7673,
+      "sha256": "cb317f59bfb4d18b0977c4aa333b81e9dde508d0e1412bb4e8d98b2180729b52"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/identity_style.gd",
+      "bytes": 7685,
+      "sha256": "08bc6d2a40d628561e25c8dab8bc00791902f1408a1197a5e68d0b19c7eb5b14"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/live_bridge.gd",
+      "bytes": 19184,
+      "sha256": "510bab10eb82b8a74b321b3a3460540736189dadad46e20421db9c0f26d6023e"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/member_commitments.gd",
+      "bytes": 3870,
+      "sha256": "466a5b9685772e8ccefef233769d2db5cf6b03e88ac890209213fa6aa250c7c0"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/mixing_recipe.gd",
+      "bytes": 15888,
+      "sha256": "5d82c1bc03338b05321ba22d482937e345067c0d80c66ab3c94a2d19ee07808f"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/musician_chat.gd",
+      "bytes": 20749,
+      "sha256": "890dce6b3cf485e83c2e94bf2accd7a9844faa7940582a7486fee03b9375de01"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/musician_situations.gd",
+      "bytes": 4400,
+      "sha256": "ba1709a481eac2c27921e4ac2cc6384efc47b8ab6744d60e01196b963adb8ddb"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/name_rules.gd",
+      "bytes": 3901,
+      "sha256": "273958995048a7f67289e6a075952903e308d571af338c05ab3a1dab62fa63e9"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/opening_state.gd",
+      "bytes": 43937,
+      "sha256": "4dc21e60c3912559a12d06ff08b8bd3d1303373ba586aa233d0d0836a47f859e"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/packed_pcm.gd",
+      "bytes": 2188,
+      "sha256": "9f1fb47a39cde9be674c234f4a0a163c1ee116e0ff39e878dc8764bea587bb5f"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/personal_context.gd",
+      "bytes": 3571,
+      "sha256": "9744b80f12cb9f835fc5a7d2935485550340bd9f966fd1bb922d78c4c50d1cfc"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/producer_recipe.gd",
+      "bytes": 10553,
+      "sha256": "0db4ed876c070e83e96d82e0baa3498891f932751d4abe4424025665a4119b6c"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/producer_social.gd",
+      "bytes": 3564,
+      "sha256": "0769e4421336e9055e1cb12f840ef1e8ec975c74113bf0ddc1c02656d0ff271b"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/promotion_rules.gd",
+      "bytes": 15868,
+      "sha256": "f6230624e19261fd7697e8af8a0722998fbe9be4e0af833af516f5ca8302c10d"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/radio_visit_rules.gd",
+      "bytes": 13783,
+      "sha256": "f20abb4d5f49d2f1de4f7037b92764a6af4be36ba77369c7e79876cc1ae43728"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/recorded_steady.gd",
+      "bytes": 9487,
+      "sha256": "e77c16df3c12b974b79c356d335a8d9cc48bbea08d60a97440e6c4678acd4205"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/recorded_vocal_keys.gd",
+      "bytes": 4030,
+      "sha256": "87a4ef9a52ddebfae86c963b333c2c63dd166f2f303ac32d0c8bac300b4be2d9"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/recording_rules.gd",
+      "bytes": 16104,
+      "sha256": "d4eb16e54c4a4b4f15cb36d8bc2776d58d9c59bc50a000953309ee8c8bc9a71a"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/recruitment_pricing.gd",
+      "bytes": 2110,
+      "sha256": "cbc9b84fdd6e6b6fe2cb340e472bd88603948b75e6321020c17844e853777e91"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/rehearsal_intent.gd",
+      "bytes": 7291,
+      "sha256": "42e2cbe26e743b2bbf97c417139fc1326371b039dc1f2b7bbd921c88779fb501"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/review_policy.gd",
+      "bytes": 10475,
+      "sha256": "94b362020ddc54283960abcf33139fcdf51a913e18f1038ae9531b508f86b5e9"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/scene_circuit.gd",
+      "bytes": 19142,
+      "sha256": "b84e39418fa771c7102322b4b3180d74bcb086c3281821c5a09f6afbd5b638b6"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/session.gd",
+      "bytes": 20799,
+      "sha256": "99e8a37ef9771f9c13864e5038f1bf060fc78877f850ec5409196918b12b0946"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/show_flow.gd",
+      "bytes": 38794,
+      "sha256": "45c906a55a53ca86034c9ec06ef9f677de8a6e1a992fe70f5071397931b4e6d2"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/situation_core.gd",
+      "bytes": 27320,
+      "sha256": "9eb8b1dff7bbcecf8087707fe80cf3b6783b18970aaa5521376f369e6c5a430f"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/situation_jam.gd",
+      "bytes": 3611,
+      "sha256": "d9f9b630a6267b8ecd0144f1f242cd722373e377897e38acc6b9b672cc8b1d3c"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/situation_practice.gd",
+      "bytes": 4538,
+      "sha256": "b70aabc1f19bd693557f4292c0051033557c866642e1798db321fd3fdf3b19b0"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/song_fragment_content.gd",
+      "bytes": 5007,
+      "sha256": "3e38db06da2dbf019a38e2636a00316806f54ff47f465a0e9995a339fb51f297"
+    },
+    {
+      "path": "models-v1/baseline/project/experiments/playable_flightcase/song_workbench.gd",
+      "bytes": 68934,
+      "sha256": "c4177664d13cd655a2e037f066f66db5a2b74282c2231f8e19ec338d569253e0"
+    },
+    {
+      "path": "models-v1/baseline/project/project.godot",
+      "bytes": 263,
+      "sha256": "e1d34eee6378d416aaec550e2b3aebbe6a04b3708823c665d9714a2a7d6f8b3c"
+    },
+    {
+      "path": "models-v1/baseline/project/tests/song57_craft_fairness.gd",
+      "bytes": 16338,
+      "sha256": "5d65b4ae62eefb1845b0b4b4ee57e968728ec36b61804c6add1522c8e1b8828f"
+    },
+    {
+      "path": "models-v1/baseline/project/tests/song61_preparation.gd",
+      "bytes": 8325,
+      "sha256": "edf2693c260537a31c79ebc20dcf69ab59fcb24d40c04eae92cecde509bdb044"
+    },
+    {
+      "path": "models-v1/baseline-songs.json",
+      "bytes": 164659,
+      "sha256": "dca55e6b75432d3cc005fcdfe8c9eea6a5b76cfb6968b4ad0d61f9561374a662"
+    },
+    {
+      "path": "models-v1/environment/baseline/NO_ANDROID_SIGNING.txt",
+      "bytes": 63,
+      "sha256": "408189a850af89f8caa648cceb08683049e1542cbd945168e110735d7380b011"
+    },
+    {
+      "path": "models-v1/environment/baseline/cache/fontconfig/3830d5c3ddfd5cd38a049b759396e72e-le64.cache-9",
+      "bytes": 352,
+      "sha256": "550fef73de0cdab50e452154beaf9e16bcc8916ed2d961b358a7553b0782937f"
+    },
+    {
+      "path": "models-v1/environment/baseline/cache/fontconfig/CACHEDIR.TAG",
+      "bytes": 200,
+      "sha256": "05e7633fb31bf1f6f8d89020c16b9f24587fdf7638e951c9745b192f5fc3b682"
+    },
+    {
+      "path": "models-v1/environment/baseline/config/godot/editor_settings-4.7.tres",
+      "bytes": 486,
+      "sha256": "a675a9f54ea435b9771af05cd9d443c58ac41382968637440b84725eea43733b"
+    },
+    {
+      "path": "models-v1/environment/baseline/data/BandMasterSONG59IsolatedQA/c27_opening_draft.json",
+      "bytes": 197326,
+      "sha256": "f2a101873adfa304b65a1cf75c7a9ab9fec1b0c1be69656db78929c6bd7c7eac"
+    },
+    {
+      "path": "models-v1/environment/baseline/data/BandMasterSONG59IsolatedQA/logs/godot.log",
+      "bytes": 253,
+      "sha256": "75bcbda46d7af4bbebed45cb4ac1ae37a7712a2465b61a5a4db538d44b9a0ea5"
+    },
+    {
+      "path": "models-v1/environment/baseline/guarded-jdk/bin/jarsigner",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v1/environment/baseline/guarded-jdk/bin/java",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v1/environment/baseline/guarded-jdk/bin/keytool",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v1/logs/baseline.log",
+      "bytes": 253,
+      "sha256": "75bcbda46d7af4bbebed45cb4ac1ae37a7712a2465b61a5a4db538d44b9a0ea5"
+    },
+    {
+      "path": "models-v2/RUN.json",
+      "bytes": 18269,
+      "sha256": "d7b8b99c6d62d1c6dfb56533daf07606ac55d9675abc214388a67a9b409ee543"
+    },
+    {
+      "path": "models-v2/baseline/project/Data/CharacterCast/approved_cast_2026-10-29.json",
+      "bytes": 23322,
+      "sha256": "24ca3c5b69870d920f058acb48ea710a845f4adba1c3c0240c6708f8fa6f6ff4"
+    },
+    {
+      "path": "models-v2/baseline/project/Scripts/career_actions.gd",
+      "bytes": 8491,
+      "sha256": "e2394ffec255ae7c978c77758ccbf643cd31cc8e0e1eb1393ce3707ae343662b"
+    },
+    {
+      "path": "models-v2/baseline/project/Scripts/career_story.gd",
+      "bytes": 3870,
+      "sha256": "b336f4ab88d4111ca550d7ab002fdf5400b49a62f1c00ae945ae1b8b9e20100c"
+    },
+    {
+      "path": "models-v2/baseline/project/Scripts/formation_catalogue.gd",
+      "bytes": 8007,
+      "sha256": "5755c29bd367fa5befecb473994055218b1280a915f6ad090fb1cf05b527968d"
+    },
+    {
+      "path": "models-v2/baseline/project/Scripts/gear_shop.gd",
+      "bytes": 8091,
+      "sha256": "d0c14338a728e7b14151146e454b31a9939e7ee083be4e118b424c722c0fdb9e"
+    },
+    {
+      "path": "models-v2/baseline/project/Scripts/gig_backstage_incident.gd",
+      "bytes": 2699,
+      "sha256": "ac215497377bbc43ee10b061ded8184752f208842fae735c4f8c3fdf4debda46"
+    },
+    {
+      "path": "models-v2/baseline/project/Scripts/gig_calendar.gd",
+      "bytes": 8903,
+      "sha256": "28d04b7213fa655da84f5071ef3f7f8a1e9ba6fb5eba68af954a6cc9f7c72c4c"
+    },
+    {
+      "path": "models-v2/baseline/project/Scripts/gig_night_flow.gd",
+      "bytes": 2683,
+      "sha256": "c773c331ec8157285a28a8ac07e176130f0b8c82ada03f5d9703a08adde6fae3"
+    },
+    {
+      "path": "models-v2/baseline/project/Scripts/member_life.gd",
+      "bytes": 7576,
+      "sha256": "3ac8b5d9938cf04c7ccddc094ff33056047238f1d6b6a03c6e0419b8a4a1933c"
+    },
+    {
+      "path": "models-v2/baseline/project/Scripts/practice_room.gd",
+      "bytes": 5649,
+      "sha256": "1f2b92099de77e01d1f10fbb5a0b63e135dc7cee272456b6d9147b0f78e4c7f1"
+    },
+    {
+      "path": "models-v2/baseline/project/Scripts/promoter_meetings.gd",
+      "bytes": 3287,
+      "sha256": "49cd022f25d6a53cdc29fc1e45804b54b8e6de3dba74ee1843ca9f95b4d713f6"
+    },
+    {
+      "path": "models-v2/baseline/project/Scripts/recording_career.gd",
+      "bytes": 4416,
+      "sha256": "cfd980e445579abd4ab0e8bd36b78073bc5b01a891b362eaa4f52310f1804a22"
+    },
+    {
+      "path": "models-v2/baseline/project/Scripts/release_campaigns.gd",
+      "bytes": 4274,
+      "sha256": "f610b849125f2280089edb252bf6a8b6843458d41b48bfea0365bbcae3f21392"
+    },
+    {
+      "path": "models-v2/baseline/project/Scripts/song_chemistry.gd",
+      "bytes": 1215,
+      "sha256": "8db92cff3c74347632e69b62c77762a99583fdda58a9f1abadd54f0ac75d4080"
+    },
+    {
+      "path": "models-v2/baseline/project/Scripts/song_workshop.gd",
+      "bytes": 3971,
+      "sha256": "a615225e36acc4edcf626599df4d93560f010a2426dfa57674d7d5b94a421d3b"
+    },
+    {
+      "path": "models-v2/baseline/project/Scripts/tour_itinerary.gd",
+      "bytes": 4186,
+      "sha256": "3a6644c201786318d4cdbb6b7ec6e25c5ad10638a5b9f4a4c4550bac604151a4"
+    },
+    {
+      "path": "models-v2/baseline/project/Scripts/uk_gig_circuit.gd",
+      "bytes": 6080,
+      "sha256": "ea05e79aa88ce9ddf045952ab483e3600dcc0d97415f6416c0865b268cfe71ee"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/character_cast/catalogue.gd",
+      "bytes": 1705,
+      "sha256": "bc1b580baebc75cc5b4c6277dc95ff35749e42515d74f29371053f18b8245c49"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/character_cast/vendor/recruitment_catalogue_v3.gd",
+      "bytes": 14296,
+      "sha256": "6d5f9af80fcad2d68695a0bc3bf549526b144c62ec8eb123edbb5172826f47a7"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/audio/arjun_clips.json",
+      "bytes": 847,
+      "sha256": "facba457cc54b23e33dfc67cc7c45ef408122e39a859cb01e259541fa8e0f913"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/audio/audition_clips.json",
+      "bytes": 1817,
+      "sha256": "94790379701467a856c799977420d8b5da8302f0741b745ab24687b83d465b89"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/audio/marcus_clips.json",
+      "bytes": 2319,
+      "sha256": "9ac023399c12a9404d1b65570016bd9dc277b326fa4e2d5255e2aa69fc2e95aa"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/audio/mixing_desk_v1.json",
+      "bytes": 149376,
+      "sha256": "e707d918853b6b3b76323387123e08a906bf07988ebbb3d110add07ef58ad4ef"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/audio/producer_raw_dark.json",
+      "bytes": 32587,
+      "sha256": "87a92dab2f55b5652af9535247191c249980b41eb89d6c34fdfd21c31b6b65de"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/audio/zoe_clips.json",
+      "bytes": 2318,
+      "sha256": "0e5a29f9ce352087612a1f3f775cb6d25b063d69ee51a8001e9c6691b8961a0f"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/audition_arjun_content.gd",
+      "bytes": 3290,
+      "sha256": "c103ab1454685322ab30ebf71ff54138a46474a546dd03e4c2ecec6bc33aee53"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/audition_content.gd",
+      "bytes": 2992,
+      "sha256": "dcbc820d82432fe4ccebeceabaf96fa00562507b09f64e1aa4e462c59b62642e"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/audition_encounter.gd",
+      "bytes": 23728,
+      "sha256": "f8ea07fb36d5502e058c0c83bda4f941f6a60325eb592cf18fdcb18c4213a32b"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/audition_marcus_content.gd",
+      "bytes": 3459,
+      "sha256": "2792a7d78ada0fb6f602e1510c2824576e2c78d39375254dd40a33787568ce83"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/audition_profiles.gd",
+      "bytes": 1158,
+      "sha256": "0a5fa74ccee19fb789619fe399ee7b09fded420e7dfd11f49c2bfe5d0a33adb5"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/audition_zoe_content.gd",
+      "bytes": 3528,
+      "sha256": "37912d349a818cdf3d6170e0f9dacdd01bf796985c706f26988e01a89121b765"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/band_sound.gd",
+      "bytes": 1239,
+      "sha256": "167c5ddc4dd04661cd6271a4adc9970f0e89059be63f6c9d24353d52616872ae"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/band_week.gd",
+      "bytes": 5134,
+      "sha256": "e9b907903d43528144cd6d44bd72c3ed6286e860087eadecab3c0d75253e33be"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/career_dates.gd",
+      "bytes": 4638,
+      "sha256": "1e4f0c94213e259126230e80675f938fd022410d2abc139d13df4fb3d2f4361c"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/character_connections.gd",
+      "bytes": 4878,
+      "sha256": "2489429ac9ddf0125cc1fbb7d7d99d316c3879eedb7d63a70d0a7f3fa6bddc05"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/conversation_musicians.gd",
+      "bytes": 4164,
+      "sha256": "9555f812607f6a63cfbe7021b92e3e2f555ac9cd67443ec4803ec0c3c5e57c2b"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/finance_policy.gd",
+      "bytes": 9457,
+      "sha256": "80f13ae58f6490cc0d5d2ae8d2ffafaaa9fd6238dc7ed0abdc85c4e3d919dd26"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/gig_booking_rules.gd",
+      "bytes": 32403,
+      "sha256": "8a611252632247281a917861147afd5761ddfb21c5420bff4b53e7e5014c44cf"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/gig_incident.gd",
+      "bytes": 7937,
+      "sha256": "e6a54e6221966fcd82f5fdaf16c89c545d336fe10a2ff7957d381f524164767e"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/gig_journey.gd",
+      "bytes": 23672,
+      "sha256": "0e3c8037f5fc82b8e97cdb463c6a5fa906be5b48f09dc4e1cd1b0b4bf04821d6"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/gig_performance_policy.gd",
+      "bytes": 7673,
+      "sha256": "cb317f59bfb4d18b0977c4aa333b81e9dde508d0e1412bb4e8d98b2180729b52"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/identity_style.gd",
+      "bytes": 7685,
+      "sha256": "08bc6d2a40d628561e25c8dab8bc00791902f1408a1197a5e68d0b19c7eb5b14"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/live_bridge.gd",
+      "bytes": 19184,
+      "sha256": "510bab10eb82b8a74b321b3a3460540736189dadad46e20421db9c0f26d6023e"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/member_commitments.gd",
+      "bytes": 3870,
+      "sha256": "466a5b9685772e8ccefef233769d2db5cf6b03e88ac890209213fa6aa250c7c0"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/mixing_recipe.gd",
+      "bytes": 15888,
+      "sha256": "5d82c1bc03338b05321ba22d482937e345067c0d80c66ab3c94a2d19ee07808f"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/musician_chat.gd",
+      "bytes": 20749,
+      "sha256": "890dce6b3cf485e83c2e94bf2accd7a9844faa7940582a7486fee03b9375de01"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/musician_situations.gd",
+      "bytes": 4400,
+      "sha256": "ba1709a481eac2c27921e4ac2cc6384efc47b8ab6744d60e01196b963adb8ddb"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/name_rules.gd",
+      "bytes": 3901,
+      "sha256": "273958995048a7f67289e6a075952903e308d571af338c05ab3a1dab62fa63e9"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/opening_state.gd",
+      "bytes": 43937,
+      "sha256": "4dc21e60c3912559a12d06ff08b8bd3d1303373ba586aa233d0d0836a47f859e"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/packed_pcm.gd",
+      "bytes": 2188,
+      "sha256": "9f1fb47a39cde9be674c234f4a0a163c1ee116e0ff39e878dc8764bea587bb5f"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/personal_context.gd",
+      "bytes": 3571,
+      "sha256": "9744b80f12cb9f835fc5a7d2935485550340bd9f966fd1bb922d78c4c50d1cfc"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/producer_recipe.gd",
+      "bytes": 10553,
+      "sha256": "0db4ed876c070e83e96d82e0baa3498891f932751d4abe4424025665a4119b6c"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/producer_social.gd",
+      "bytes": 3564,
+      "sha256": "0769e4421336e9055e1cb12f840ef1e8ec975c74113bf0ddc1c02656d0ff271b"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/promotion_rules.gd",
+      "bytes": 15868,
+      "sha256": "f6230624e19261fd7697e8af8a0722998fbe9be4e0af833af516f5ca8302c10d"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/radio_visit_rules.gd",
+      "bytes": 13783,
+      "sha256": "f20abb4d5f49d2f1de4f7037b92764a6af4be36ba77369c7e79876cc1ae43728"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/recorded_steady.gd",
+      "bytes": 9487,
+      "sha256": "e77c16df3c12b974b79c356d335a8d9cc48bbea08d60a97440e6c4678acd4205"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/recorded_vocal_keys.gd",
+      "bytes": 4030,
+      "sha256": "87a4ef9a52ddebfae86c963b333c2c63dd166f2f303ac32d0c8bac300b4be2d9"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/recording_rules.gd",
+      "bytes": 16104,
+      "sha256": "d4eb16e54c4a4b4f15cb36d8bc2776d58d9c59bc50a000953309ee8c8bc9a71a"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/recruitment_pricing.gd",
+      "bytes": 2110,
+      "sha256": "cbc9b84fdd6e6b6fe2cb340e472bd88603948b75e6321020c17844e853777e91"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/rehearsal_intent.gd",
+      "bytes": 7291,
+      "sha256": "42e2cbe26e743b2bbf97c417139fc1326371b039dc1f2b7bbd921c88779fb501"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/review_policy.gd",
+      "bytes": 10475,
+      "sha256": "94b362020ddc54283960abcf33139fcdf51a913e18f1038ae9531b508f86b5e9"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/scene_circuit.gd",
+      "bytes": 19142,
+      "sha256": "b84e39418fa771c7102322b4b3180d74bcb086c3281821c5a09f6afbd5b638b6"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/session.gd",
+      "bytes": 20799,
+      "sha256": "99e8a37ef9771f9c13864e5038f1bf060fc78877f850ec5409196918b12b0946"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/show_flow.gd",
+      "bytes": 38794,
+      "sha256": "45c906a55a53ca86034c9ec06ef9f677de8a6e1a992fe70f5071397931b4e6d2"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/situation_core.gd",
+      "bytes": 27320,
+      "sha256": "9eb8b1dff7bbcecf8087707fe80cf3b6783b18970aaa5521376f369e6c5a430f"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/situation_jam.gd",
+      "bytes": 3611,
+      "sha256": "d9f9b630a6267b8ecd0144f1f242cd722373e377897e38acc6b9b672cc8b1d3c"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/situation_practice.gd",
+      "bytes": 4538,
+      "sha256": "b70aabc1f19bd693557f4292c0051033557c866642e1798db321fd3fdf3b19b0"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/song_fragment_content.gd",
+      "bytes": 5007,
+      "sha256": "3e38db06da2dbf019a38e2636a00316806f54ff47f465a0e9995a339fb51f297"
+    },
+    {
+      "path": "models-v2/baseline/project/experiments/playable_flightcase/song_workbench.gd",
+      "bytes": 68934,
+      "sha256": "c4177664d13cd655a2e037f066f66db5a2b74282c2231f8e19ec338d569253e0"
+    },
+    {
+      "path": "models-v2/baseline/project/project.godot",
+      "bytes": 263,
+      "sha256": "e1d34eee6378d416aaec550e2b3aebbe6a04b3708823c665d9714a2a7d6f8b3c"
+    },
+    {
+      "path": "models-v2/baseline/project/tests/song57_craft_fairness.gd",
+      "bytes": 16338,
+      "sha256": "5d65b4ae62eefb1845b0b4b4ee57e968728ec36b61804c6add1522c8e1b8828f"
+    },
+    {
+      "path": "models-v2/baseline/project/tests/song61_preparation.gd",
+      "bytes": 8415,
+      "sha256": "3c2b5de62034f6a7d807bcbca80cb2c77726407989ba11130289f720edb9df15"
+    },
+    {
+      "path": "models-v2/baseline-songs.json",
+      "bytes": 164659,
+      "sha256": "dca55e6b75432d3cc005fcdfe8c9eea6a5b76cfb6968b4ad0d61f9561374a662"
+    },
+    {
+      "path": "models-v2/candidate/project/Data/CharacterCast/approved_cast_2026-10-29.json",
+      "bytes": 23322,
+      "sha256": "24ca3c5b69870d920f058acb48ea710a845f4adba1c3c0240c6708f8fa6f6ff4"
+    },
+    {
+      "path": "models-v2/candidate/project/Scripts/career_actions.gd",
+      "bytes": 8491,
+      "sha256": "e2394ffec255ae7c978c77758ccbf643cd31cc8e0e1eb1393ce3707ae343662b"
+    },
+    {
+      "path": "models-v2/candidate/project/Scripts/career_story.gd",
+      "bytes": 3870,
+      "sha256": "b336f4ab88d4111ca550d7ab002fdf5400b49a62f1c00ae945ae1b8b9e20100c"
+    },
+    {
+      "path": "models-v2/candidate/project/Scripts/formation_catalogue.gd",
+      "bytes": 8007,
+      "sha256": "5755c29bd367fa5befecb473994055218b1280a915f6ad090fb1cf05b527968d"
+    },
+    {
+      "path": "models-v2/candidate/project/Scripts/gear_shop.gd",
+      "bytes": 8091,
+      "sha256": "d0c14338a728e7b14151146e454b31a9939e7ee083be4e118b424c722c0fdb9e"
+    },
+    {
+      "path": "models-v2/candidate/project/Scripts/gig_backstage_incident.gd",
+      "bytes": 2699,
+      "sha256": "ac215497377bbc43ee10b061ded8184752f208842fae735c4f8c3fdf4debda46"
+    },
+    {
+      "path": "models-v2/candidate/project/Scripts/gig_calendar.gd",
+      "bytes": 8903,
+      "sha256": "28d04b7213fa655da84f5071ef3f7f8a1e9ba6fb5eba68af954a6cc9f7c72c4c"
+    },
+    {
+      "path": "models-v2/candidate/project/Scripts/gig_night_flow.gd",
+      "bytes": 2683,
+      "sha256": "c773c331ec8157285a28a8ac07e176130f0b8c82ada03f5d9703a08adde6fae3"
+    },
+    {
+      "path": "models-v2/candidate/project/Scripts/member_life.gd",
+      "bytes": 7576,
+      "sha256": "3ac8b5d9938cf04c7ccddc094ff33056047238f1d6b6a03c6e0419b8a4a1933c"
+    },
+    {
+      "path": "models-v2/candidate/project/Scripts/practice_room.gd",
+      "bytes": 5649,
+      "sha256": "1f2b92099de77e01d1f10fbb5a0b63e135dc7cee272456b6d9147b0f78e4c7f1"
+    },
+    {
+      "path": "models-v2/candidate/project/Scripts/promoter_meetings.gd",
+      "bytes": 3287,
+      "sha256": "49cd022f25d6a53cdc29fc1e45804b54b8e6de3dba74ee1843ca9f95b4d713f6"
+    },
+    {
+      "path": "models-v2/candidate/project/Scripts/recording_career.gd",
+      "bytes": 4416,
+      "sha256": "cfd980e445579abd4ab0e8bd36b78073bc5b01a891b362eaa4f52310f1804a22"
+    },
+    {
+      "path": "models-v2/candidate/project/Scripts/release_campaigns.gd",
+      "bytes": 4274,
+      "sha256": "f610b849125f2280089edb252bf6a8b6843458d41b48bfea0365bbcae3f21392"
+    },
+    {
+      "path": "models-v2/candidate/project/Scripts/song_chemistry.gd",
+      "bytes": 1215,
+      "sha256": "8db92cff3c74347632e69b62c77762a99583fdda58a9f1abadd54f0ac75d4080"
+    },
+    {
+      "path": "models-v2/candidate/project/Scripts/song_workshop.gd",
+      "bytes": 3971,
+      "sha256": "a615225e36acc4edcf626599df4d93560f010a2426dfa57674d7d5b94a421d3b"
+    },
+    {
+      "path": "models-v2/candidate/project/Scripts/tour_itinerary.gd",
+      "bytes": 4186,
+      "sha256": "3a6644c201786318d4cdbb6b7ec6e25c5ad10638a5b9f4a4c4550bac604151a4"
+    },
+    {
+      "path": "models-v2/candidate/project/Scripts/uk_gig_circuit.gd",
+      "bytes": 6080,
+      "sha256": "ea05e79aa88ce9ddf045952ab483e3600dcc0d97415f6416c0865b268cfe71ee"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/character_cast/catalogue.gd",
+      "bytes": 1705,
+      "sha256": "bc1b580baebc75cc5b4c6277dc95ff35749e42515d74f29371053f18b8245c49"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/character_cast/vendor/recruitment_catalogue_v3.gd",
+      "bytes": 14296,
+      "sha256": "6d5f9af80fcad2d68695a0bc3bf549526b144c62ec8eb123edbb5172826f47a7"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/audio/arjun_clips.json",
+      "bytes": 847,
+      "sha256": "facba457cc54b23e33dfc67cc7c45ef408122e39a859cb01e259541fa8e0f913"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/audio/audition_clips.json",
+      "bytes": 1817,
+      "sha256": "94790379701467a856c799977420d8b5da8302f0741b745ab24687b83d465b89"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/audio/marcus_clips.json",
+      "bytes": 2319,
+      "sha256": "9ac023399c12a9404d1b65570016bd9dc277b326fa4e2d5255e2aa69fc2e95aa"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/audio/mixing_desk_v1.json",
+      "bytes": 149376,
+      "sha256": "e707d918853b6b3b76323387123e08a906bf07988ebbb3d110add07ef58ad4ef"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/audio/producer_raw_dark.json",
+      "bytes": 32587,
+      "sha256": "87a92dab2f55b5652af9535247191c249980b41eb89d6c34fdfd21c31b6b65de"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/audio/zoe_clips.json",
+      "bytes": 2318,
+      "sha256": "0e5a29f9ce352087612a1f3f775cb6d25b063d69ee51a8001e9c6691b8961a0f"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/audition_arjun_content.gd",
+      "bytes": 3290,
+      "sha256": "c103ab1454685322ab30ebf71ff54138a46474a546dd03e4c2ecec6bc33aee53"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/audition_content.gd",
+      "bytes": 2992,
+      "sha256": "dcbc820d82432fe4ccebeceabaf96fa00562507b09f64e1aa4e462c59b62642e"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/audition_encounter.gd",
+      "bytes": 23728,
+      "sha256": "f8ea07fb36d5502e058c0c83bda4f941f6a60325eb592cf18fdcb18c4213a32b"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/audition_marcus_content.gd",
+      "bytes": 3459,
+      "sha256": "2792a7d78ada0fb6f602e1510c2824576e2c78d39375254dd40a33787568ce83"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/audition_profiles.gd",
+      "bytes": 1158,
+      "sha256": "0a5fa74ccee19fb789619fe399ee7b09fded420e7dfd11f49c2bfe5d0a33adb5"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/audition_zoe_content.gd",
+      "bytes": 3528,
+      "sha256": "37912d349a818cdf3d6170e0f9dacdd01bf796985c706f26988e01a89121b765"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/band_sound.gd",
+      "bytes": 1239,
+      "sha256": "167c5ddc4dd04661cd6271a4adc9970f0e89059be63f6c9d24353d52616872ae"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/band_week.gd",
+      "bytes": 5134,
+      "sha256": "e9b907903d43528144cd6d44bd72c3ed6286e860087eadecab3c0d75253e33be"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/career_dates.gd",
+      "bytes": 4638,
+      "sha256": "1e4f0c94213e259126230e80675f938fd022410d2abc139d13df4fb3d2f4361c"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/character_connections.gd",
+      "bytes": 4878,
+      "sha256": "2489429ac9ddf0125cc1fbb7d7d99d316c3879eedb7d63a70d0a7f3fa6bddc05"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/conversation_musicians.gd",
+      "bytes": 4164,
+      "sha256": "9555f812607f6a63cfbe7021b92e3e2f555ac9cd67443ec4803ec0c3c5e57c2b"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/finance_policy.gd",
+      "bytes": 9457,
+      "sha256": "80f13ae58f6490cc0d5d2ae8d2ffafaaa9fd6238dc7ed0abdc85c4e3d919dd26"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/gig_booking_rules.gd",
+      "bytes": 32403,
+      "sha256": "8a611252632247281a917861147afd5761ddfb21c5420bff4b53e7e5014c44cf"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/gig_incident.gd",
+      "bytes": 7937,
+      "sha256": "e6a54e6221966fcd82f5fdaf16c89c545d336fe10a2ff7957d381f524164767e"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/gig_journey.gd",
+      "bytes": 23672,
+      "sha256": "0e3c8037f5fc82b8e97cdb463c6a5fa906be5b48f09dc4e1cd1b0b4bf04821d6"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/gig_performance_policy.gd",
+      "bytes": 7673,
+      "sha256": "cb317f59bfb4d18b0977c4aa333b81e9dde508d0e1412bb4e8d98b2180729b52"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/identity_style.gd",
+      "bytes": 7685,
+      "sha256": "08bc6d2a40d628561e25c8dab8bc00791902f1408a1197a5e68d0b19c7eb5b14"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/live_bridge.gd",
+      "bytes": 19184,
+      "sha256": "510bab10eb82b8a74b321b3a3460540736189dadad46e20421db9c0f26d6023e"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/member_commitments.gd",
+      "bytes": 3870,
+      "sha256": "466a5b9685772e8ccefef233769d2db5cf6b03e88ac890209213fa6aa250c7c0"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/mixing_recipe.gd",
+      "bytes": 15888,
+      "sha256": "5d82c1bc03338b05321ba22d482937e345067c0d80c66ab3c94a2d19ee07808f"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/musician_chat.gd",
+      "bytes": 20749,
+      "sha256": "890dce6b3cf485e83c2e94bf2accd7a9844faa7940582a7486fee03b9375de01"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/musician_situations.gd",
+      "bytes": 4400,
+      "sha256": "ba1709a481eac2c27921e4ac2cc6384efc47b8ab6744d60e01196b963adb8ddb"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/name_rules.gd",
+      "bytes": 3901,
+      "sha256": "273958995048a7f67289e6a075952903e308d571af338c05ab3a1dab62fa63e9"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/opening_state.gd",
+      "bytes": 46155,
+      "sha256": "8c33948f9582f5d961ed9409327fd425e3a2c6abbc8dd0a2558867fe49de28fd"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/packed_pcm.gd",
+      "bytes": 2188,
+      "sha256": "9f1fb47a39cde9be674c234f4a0a163c1ee116e0ff39e878dc8764bea587bb5f"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/personal_context.gd",
+      "bytes": 3571,
+      "sha256": "9744b80f12cb9f835fc5a7d2935485550340bd9f966fd1bb922d78c4c50d1cfc"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/producer_recipe.gd",
+      "bytes": 10553,
+      "sha256": "0db4ed876c070e83e96d82e0baa3498891f932751d4abe4424025665a4119b6c"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/producer_social.gd",
+      "bytes": 3564,
+      "sha256": "0769e4421336e9055e1cb12f840ef1e8ec975c74113bf0ddc1c02656d0ff271b"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/promotion_rules.gd",
+      "bytes": 15868,
+      "sha256": "f6230624e19261fd7697e8af8a0722998fbe9be4e0af833af516f5ca8302c10d"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/radio_visit_rules.gd",
+      "bytes": 13783,
+      "sha256": "f20abb4d5f49d2f1de4f7037b92764a6af4be36ba77369c7e79876cc1ae43728"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/recorded_steady.gd",
+      "bytes": 9487,
+      "sha256": "e77c16df3c12b974b79c356d335a8d9cc48bbea08d60a97440e6c4678acd4205"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/recorded_vocal_keys.gd",
+      "bytes": 4030,
+      "sha256": "87a4ef9a52ddebfae86c963b333c2c63dd166f2f303ac32d0c8bac300b4be2d9"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/recording_rules.gd",
+      "bytes": 16104,
+      "sha256": "d4eb16e54c4a4b4f15cb36d8bc2776d58d9c59bc50a000953309ee8c8bc9a71a"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/recruitment_pricing.gd",
+      "bytes": 2110,
+      "sha256": "cbc9b84fdd6e6b6fe2cb340e472bd88603948b75e6321020c17844e853777e91"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/rehearsal_intent.gd",
+      "bytes": 7291,
+      "sha256": "42e2cbe26e743b2bbf97c417139fc1326371b039dc1f2b7bbd921c88779fb501"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/review_policy.gd",
+      "bytes": 10475,
+      "sha256": "94b362020ddc54283960abcf33139fcdf51a913e18f1038ae9531b508f86b5e9"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/scene_circuit.gd",
+      "bytes": 19142,
+      "sha256": "b84e39418fa771c7102322b4b3180d74bcb086c3281821c5a09f6afbd5b638b6"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/session.gd",
+      "bytes": 20799,
+      "sha256": "99e8a37ef9771f9c13864e5038f1bf060fc78877f850ec5409196918b12b0946"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/show_flow.gd",
+      "bytes": 38794,
+      "sha256": "45c906a55a53ca86034c9ec06ef9f677de8a6e1a992fe70f5071397931b4e6d2"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/situation_core.gd",
+      "bytes": 27320,
+      "sha256": "9eb8b1dff7bbcecf8087707fe80cf3b6783b18970aaa5521376f369e6c5a430f"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/situation_jam.gd",
+      "bytes": 3611,
+      "sha256": "d9f9b630a6267b8ecd0144f1f242cd722373e377897e38acc6b9b672cc8b1d3c"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/situation_practice.gd",
+      "bytes": 4538,
+      "sha256": "b70aabc1f19bd693557f4292c0051033557c866642e1798db321fd3fdf3b19b0"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/song_fragment_content.gd",
+      "bytes": 5007,
+      "sha256": "3e38db06da2dbf019a38e2636a00316806f54ff47f465a0e9995a339fb51f297"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/song_preparation.gd",
+      "bytes": 5297,
+      "sha256": "65e6cd3ee5c164a7e0ee42fefe81dd6d35b1c04b5100696bc2aef9efce540ad1"
+    },
+    {
+      "path": "models-v2/candidate/project/experiments/playable_flightcase/song_workbench.gd",
+      "bytes": 68934,
+      "sha256": "c4177664d13cd655a2e037f066f66db5a2b74282c2231f8e19ec338d569253e0"
+    },
+    {
+      "path": "models-v2/candidate/project/project.godot",
+      "bytes": 263,
+      "sha256": "e1d34eee6378d416aaec550e2b3aebbe6a04b3708823c665d9714a2a7d6f8b3c"
+    },
+    {
+      "path": "models-v2/candidate/project/tests/song57_craft_fairness.gd",
+      "bytes": 16338,
+      "sha256": "5d65b4ae62eefb1845b0b4b4ee57e968728ec36b61804c6add1522c8e1b8828f"
+    },
+    {
+      "path": "models-v2/candidate/project/tests/song61_preparation.gd",
+      "bytes": 8415,
+      "sha256": "3c2b5de62034f6a7d807bcbca80cb2c77726407989ba11130289f720edb9df15"
+    },
+    {
+      "path": "models-v2/environment/baseline/NO_ANDROID_SIGNING.txt",
+      "bytes": 63,
+      "sha256": "408189a850af89f8caa648cceb08683049e1542cbd945168e110735d7380b011"
+    },
+    {
+      "path": "models-v2/environment/baseline/cache/fontconfig/3830d5c3ddfd5cd38a049b759396e72e-le64.cache-9",
+      "bytes": 352,
+      "sha256": "550fef73de0cdab50e452154beaf9e16bcc8916ed2d961b358a7553b0782937f"
+    },
+    {
+      "path": "models-v2/environment/baseline/cache/fontconfig/CACHEDIR.TAG",
+      "bytes": 200,
+      "sha256": "05e7633fb31bf1f6f8d89020c16b9f24587fdf7638e951c9745b192f5fc3b682"
+    },
+    {
+      "path": "models-v2/environment/baseline/config/godot/editor_settings-4.7.tres",
+      "bytes": 486,
+      "sha256": "1f82b0fdf1b3860358a3088f9f415924021bd27397239f38d695ceee7315736c"
+    },
+    {
+      "path": "models-v2/environment/baseline/data/BandMasterSONG59IsolatedQA/c27_opening_draft.json",
+      "bytes": 194445,
+      "sha256": "49c03a725b4517dbb63d87c67f472cb751a902f52f7b65ff0b84ad6f7fbb37e0"
+    },
+    {
+      "path": "models-v2/environment/baseline/data/BandMasterSONG59IsolatedQA/logs/godot.log",
+      "bytes": 218,
+      "sha256": "6b595db67144655fd9ccbfd7a2b6cd30c458fd2aed7a31e13893cdd27a3fd50c"
+    },
+    {
+      "path": "models-v2/environment/baseline/guarded-jdk/bin/jarsigner",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v2/environment/baseline/guarded-jdk/bin/java",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v2/environment/baseline/guarded-jdk/bin/keytool",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v2/environment/candidate/NO_ANDROID_SIGNING.txt",
+      "bytes": 63,
+      "sha256": "408189a850af89f8caa648cceb08683049e1542cbd945168e110735d7380b011"
+    },
+    {
+      "path": "models-v2/environment/candidate/cache/fontconfig/3830d5c3ddfd5cd38a049b759396e72e-le64.cache-9",
+      "bytes": 352,
+      "sha256": "550fef73de0cdab50e452154beaf9e16bcc8916ed2d961b358a7553b0782937f"
+    },
+    {
+      "path": "models-v2/environment/candidate/cache/fontconfig/CACHEDIR.TAG",
+      "bytes": 200,
+      "sha256": "05e7633fb31bf1f6f8d89020c16b9f24587fdf7638e951c9745b192f5fc3b682"
+    },
+    {
+      "path": "models-v2/environment/candidate/config/godot/editor_settings-4.7.tres",
+      "bytes": 489,
+      "sha256": "8e662ed5baceb5adec4f28777a6561c26e3d7010bc1411da8de2bc0fba0669d6"
+    },
+    {
+      "path": "models-v2/environment/candidate/data/BandMasterSONG59IsolatedQA/c27_opening_draft.json",
+      "bytes": 202183,
+      "sha256": "def18a0dbf5f309a06bf8617cfb96a2c5b66283cab84490e371dc2b0e5e858ad"
+    },
+    {
+      "path": "models-v2/environment/candidate/data/BandMasterSONG59IsolatedQA/logs/godot.log",
+      "bytes": 218,
+      "sha256": "306aa43247d5e007113f38f8737c68b962a1ee90d46e7b52c4c69aaab37213a1"
+    },
+    {
+      "path": "models-v2/environment/candidate/guarded-jdk/bin/jarsigner",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v2/environment/candidate/guarded-jdk/bin/java",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v2/environment/candidate/guarded-jdk/bin/keytool",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v2/logs/baseline.log",
+      "bytes": 218,
+      "sha256": "6b595db67144655fd9ccbfd7a2b6cd30c458fd2aed7a31e13893cdd27a3fd50c"
+    },
+    {
+      "path": "models-v2/logs/candidate.log",
+      "bytes": 218,
+      "sha256": "306aa43247d5e007113f38f8737c68b962a1ee90d46e7b52c4c69aaab37213a1"
+    },
+    {
+      "path": "models-v3/RUN.json",
+      "bytes": 18658,
+      "sha256": "d213f37351d126450a3658a873cfeba860962be29d2ad1aac8b75e0996457310"
+    },
+    {
+      "path": "models-v3/baseline/project/Data/CharacterCast/approved_cast_2026-10-29.json",
+      "bytes": 23322,
+      "sha256": "24ca3c5b69870d920f058acb48ea710a845f4adba1c3c0240c6708f8fa6f6ff4"
+    },
+    {
+      "path": "models-v3/baseline/project/Scripts/career_actions.gd",
+      "bytes": 8491,
+      "sha256": "e2394ffec255ae7c978c77758ccbf643cd31cc8e0e1eb1393ce3707ae343662b"
+    },
+    {
+      "path": "models-v3/baseline/project/Scripts/career_story.gd",
+      "bytes": 3870,
+      "sha256": "b336f4ab88d4111ca550d7ab002fdf5400b49a62f1c00ae945ae1b8b9e20100c"
+    },
+    {
+      "path": "models-v3/baseline/project/Scripts/formation_catalogue.gd",
+      "bytes": 8007,
+      "sha256": "5755c29bd367fa5befecb473994055218b1280a915f6ad090fb1cf05b527968d"
+    },
+    {
+      "path": "models-v3/baseline/project/Scripts/gear_shop.gd",
+      "bytes": 8091,
+      "sha256": "d0c14338a728e7b14151146e454b31a9939e7ee083be4e118b424c722c0fdb9e"
+    },
+    {
+      "path": "models-v3/baseline/project/Scripts/gig_backstage_incident.gd",
+      "bytes": 2699,
+      "sha256": "ac215497377bbc43ee10b061ded8184752f208842fae735c4f8c3fdf4debda46"
+    },
+    {
+      "path": "models-v3/baseline/project/Scripts/gig_calendar.gd",
+      "bytes": 8903,
+      "sha256": "28d04b7213fa655da84f5071ef3f7f8a1e9ba6fb5eba68af954a6cc9f7c72c4c"
+    },
+    {
+      "path": "models-v3/baseline/project/Scripts/gig_night_flow.gd",
+      "bytes": 2683,
+      "sha256": "c773c331ec8157285a28a8ac07e176130f0b8c82ada03f5d9703a08adde6fae3"
+    },
+    {
+      "path": "models-v3/baseline/project/Scripts/member_life.gd",
+      "bytes": 7576,
+      "sha256": "3ac8b5d9938cf04c7ccddc094ff33056047238f1d6b6a03c6e0419b8a4a1933c"
+    },
+    {
+      "path": "models-v3/baseline/project/Scripts/practice_room.gd",
+      "bytes": 5649,
+      "sha256": "1f2b92099de77e01d1f10fbb5a0b63e135dc7cee272456b6d9147b0f78e4c7f1"
+    },
+    {
+      "path": "models-v3/baseline/project/Scripts/promoter_meetings.gd",
+      "bytes": 3287,
+      "sha256": "49cd022f25d6a53cdc29fc1e45804b54b8e6de3dba74ee1843ca9f95b4d713f6"
+    },
+    {
+      "path": "models-v3/baseline/project/Scripts/recording_career.gd",
+      "bytes": 4416,
+      "sha256": "cfd980e445579abd4ab0e8bd36b78073bc5b01a891b362eaa4f52310f1804a22"
+    },
+    {
+      "path": "models-v3/baseline/project/Scripts/release_campaigns.gd",
+      "bytes": 4274,
+      "sha256": "f610b849125f2280089edb252bf6a8b6843458d41b48bfea0365bbcae3f21392"
+    },
+    {
+      "path": "models-v3/baseline/project/Scripts/song_chemistry.gd",
+      "bytes": 1215,
+      "sha256": "8db92cff3c74347632e69b62c77762a99583fdda58a9f1abadd54f0ac75d4080"
+    },
+    {
+      "path": "models-v3/baseline/project/Scripts/song_workshop.gd",
+      "bytes": 3971,
+      "sha256": "a615225e36acc4edcf626599df4d93560f010a2426dfa57674d7d5b94a421d3b"
+    },
+    {
+      "path": "models-v3/baseline/project/Scripts/tour_itinerary.gd",
+      "bytes": 4186,
+      "sha256": "3a6644c201786318d4cdbb6b7ec6e25c5ad10638a5b9f4a4c4550bac604151a4"
+    },
+    {
+      "path": "models-v3/baseline/project/Scripts/uk_gig_circuit.gd",
+      "bytes": 6080,
+      "sha256": "ea05e79aa88ce9ddf045952ab483e3600dcc0d97415f6416c0865b268cfe71ee"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/character_cast/catalogue.gd",
+      "bytes": 1705,
+      "sha256": "bc1b580baebc75cc5b4c6277dc95ff35749e42515d74f29371053f18b8245c49"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/character_cast/vendor/recruitment_catalogue_v3.gd",
+      "bytes": 14296,
+      "sha256": "6d5f9af80fcad2d68695a0bc3bf549526b144c62ec8eb123edbb5172826f47a7"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/audio/arjun_clips.json",
+      "bytes": 847,
+      "sha256": "facba457cc54b23e33dfc67cc7c45ef408122e39a859cb01e259541fa8e0f913"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/audio/audition_clips.json",
+      "bytes": 1817,
+      "sha256": "94790379701467a856c799977420d8b5da8302f0741b745ab24687b83d465b89"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/audio/marcus_clips.json",
+      "bytes": 2319,
+      "sha256": "9ac023399c12a9404d1b65570016bd9dc277b326fa4e2d5255e2aa69fc2e95aa"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/audio/mixing_desk_v1.json",
+      "bytes": 149376,
+      "sha256": "e707d918853b6b3b76323387123e08a906bf07988ebbb3d110add07ef58ad4ef"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/audio/producer_raw_dark.json",
+      "bytes": 32587,
+      "sha256": "87a92dab2f55b5652af9535247191c249980b41eb89d6c34fdfd21c31b6b65de"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/audio/zoe_clips.json",
+      "bytes": 2318,
+      "sha256": "0e5a29f9ce352087612a1f3f775cb6d25b063d69ee51a8001e9c6691b8961a0f"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/audition_arjun_content.gd",
+      "bytes": 3290,
+      "sha256": "c103ab1454685322ab30ebf71ff54138a46474a546dd03e4c2ecec6bc33aee53"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/audition_content.gd",
+      "bytes": 2992,
+      "sha256": "dcbc820d82432fe4ccebeceabaf96fa00562507b09f64e1aa4e462c59b62642e"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/audition_encounter.gd",
+      "bytes": 23728,
+      "sha256": "f8ea07fb36d5502e058c0c83bda4f941f6a60325eb592cf18fdcb18c4213a32b"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/audition_marcus_content.gd",
+      "bytes": 3459,
+      "sha256": "2792a7d78ada0fb6f602e1510c2824576e2c78d39375254dd40a33787568ce83"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/audition_profiles.gd",
+      "bytes": 1158,
+      "sha256": "0a5fa74ccee19fb789619fe399ee7b09fded420e7dfd11f49c2bfe5d0a33adb5"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/audition_zoe_content.gd",
+      "bytes": 3528,
+      "sha256": "37912d349a818cdf3d6170e0f9dacdd01bf796985c706f26988e01a89121b765"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/band_sound.gd",
+      "bytes": 1239,
+      "sha256": "167c5ddc4dd04661cd6271a4adc9970f0e89059be63f6c9d24353d52616872ae"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/band_week.gd",
+      "bytes": 5134,
+      "sha256": "e9b907903d43528144cd6d44bd72c3ed6286e860087eadecab3c0d75253e33be"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/career_dates.gd",
+      "bytes": 4638,
+      "sha256": "1e4f0c94213e259126230e80675f938fd022410d2abc139d13df4fb3d2f4361c"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/character_connections.gd",
+      "bytes": 4878,
+      "sha256": "2489429ac9ddf0125cc1fbb7d7d99d316c3879eedb7d63a70d0a7f3fa6bddc05"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/conversation_musicians.gd",
+      "bytes": 4164,
+      "sha256": "9555f812607f6a63cfbe7021b92e3e2f555ac9cd67443ec4803ec0c3c5e57c2b"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/finance_policy.gd",
+      "bytes": 9457,
+      "sha256": "80f13ae58f6490cc0d5d2ae8d2ffafaaa9fd6238dc7ed0abdc85c4e3d919dd26"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/gig_booking_rules.gd",
+      "bytes": 32403,
+      "sha256": "8a611252632247281a917861147afd5761ddfb21c5420bff4b53e7e5014c44cf"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/gig_incident.gd",
+      "bytes": 7937,
+      "sha256": "e6a54e6221966fcd82f5fdaf16c89c545d336fe10a2ff7957d381f524164767e"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/gig_journey.gd",
+      "bytes": 23672,
+      "sha256": "0e3c8037f5fc82b8e97cdb463c6a5fa906be5b48f09dc4e1cd1b0b4bf04821d6"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/gig_performance_policy.gd",
+      "bytes": 7673,
+      "sha256": "cb317f59bfb4d18b0977c4aa333b81e9dde508d0e1412bb4e8d98b2180729b52"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/identity_style.gd",
+      "bytes": 7685,
+      "sha256": "08bc6d2a40d628561e25c8dab8bc00791902f1408a1197a5e68d0b19c7eb5b14"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/live_bridge.gd",
+      "bytes": 19184,
+      "sha256": "510bab10eb82b8a74b321b3a3460540736189dadad46e20421db9c0f26d6023e"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/member_commitments.gd",
+      "bytes": 3870,
+      "sha256": "466a5b9685772e8ccefef233769d2db5cf6b03e88ac890209213fa6aa250c7c0"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/mixing_recipe.gd",
+      "bytes": 15888,
+      "sha256": "5d82c1bc03338b05321ba22d482937e345067c0d80c66ab3c94a2d19ee07808f"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/musician_chat.gd",
+      "bytes": 20749,
+      "sha256": "890dce6b3cf485e83c2e94bf2accd7a9844faa7940582a7486fee03b9375de01"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/musician_situations.gd",
+      "bytes": 4400,
+      "sha256": "ba1709a481eac2c27921e4ac2cc6384efc47b8ab6744d60e01196b963adb8ddb"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/name_rules.gd",
+      "bytes": 3901,
+      "sha256": "273958995048a7f67289e6a075952903e308d571af338c05ab3a1dab62fa63e9"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/opening_state.gd",
+      "bytes": 43937,
+      "sha256": "4dc21e60c3912559a12d06ff08b8bd3d1303373ba586aa233d0d0836a47f859e"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/packed_pcm.gd",
+      "bytes": 2188,
+      "sha256": "9f1fb47a39cde9be674c234f4a0a163c1ee116e0ff39e878dc8764bea587bb5f"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/personal_context.gd",
+      "bytes": 3571,
+      "sha256": "9744b80f12cb9f835fc5a7d2935485550340bd9f966fd1bb922d78c4c50d1cfc"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/producer_recipe.gd",
+      "bytes": 10553,
+      "sha256": "0db4ed876c070e83e96d82e0baa3498891f932751d4abe4424025665a4119b6c"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/producer_social.gd",
+      "bytes": 3564,
+      "sha256": "0769e4421336e9055e1cb12f840ef1e8ec975c74113bf0ddc1c02656d0ff271b"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/promotion_rules.gd",
+      "bytes": 15868,
+      "sha256": "f6230624e19261fd7697e8af8a0722998fbe9be4e0af833af516f5ca8302c10d"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/radio_visit_rules.gd",
+      "bytes": 13783,
+      "sha256": "f20abb4d5f49d2f1de4f7037b92764a6af4be36ba77369c7e79876cc1ae43728"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/recorded_steady.gd",
+      "bytes": 9487,
+      "sha256": "e77c16df3c12b974b79c356d335a8d9cc48bbea08d60a97440e6c4678acd4205"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/recorded_vocal_keys.gd",
+      "bytes": 4030,
+      "sha256": "87a4ef9a52ddebfae86c963b333c2c63dd166f2f303ac32d0c8bac300b4be2d9"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/recording_rules.gd",
+      "bytes": 16104,
+      "sha256": "d4eb16e54c4a4b4f15cb36d8bc2776d58d9c59bc50a000953309ee8c8bc9a71a"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/recruitment_pricing.gd",
+      "bytes": 2110,
+      "sha256": "cbc9b84fdd6e6b6fe2cb340e472bd88603948b75e6321020c17844e853777e91"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/rehearsal_intent.gd",
+      "bytes": 7291,
+      "sha256": "42e2cbe26e743b2bbf97c417139fc1326371b039dc1f2b7bbd921c88779fb501"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/review_policy.gd",
+      "bytes": 10475,
+      "sha256": "94b362020ddc54283960abcf33139fcdf51a913e18f1038ae9531b508f86b5e9"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/scene_circuit.gd",
+      "bytes": 19142,
+      "sha256": "b84e39418fa771c7102322b4b3180d74bcb086c3281821c5a09f6afbd5b638b6"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/session.gd",
+      "bytes": 20799,
+      "sha256": "99e8a37ef9771f9c13864e5038f1bf060fc78877f850ec5409196918b12b0946"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/show_flow.gd",
+      "bytes": 38794,
+      "sha256": "45c906a55a53ca86034c9ec06ef9f677de8a6e1a992fe70f5071397931b4e6d2"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/situation_core.gd",
+      "bytes": 27320,
+      "sha256": "9eb8b1dff7bbcecf8087707fe80cf3b6783b18970aaa5521376f369e6c5a430f"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/situation_jam.gd",
+      "bytes": 3611,
+      "sha256": "d9f9b630a6267b8ecd0144f1f242cd722373e377897e38acc6b9b672cc8b1d3c"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/situation_practice.gd",
+      "bytes": 4538,
+      "sha256": "b70aabc1f19bd693557f4292c0051033557c866642e1798db321fd3fdf3b19b0"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/song_fragment_content.gd",
+      "bytes": 5007,
+      "sha256": "3e38db06da2dbf019a38e2636a00316806f54ff47f465a0e9995a339fb51f297"
+    },
+    {
+      "path": "models-v3/baseline/project/experiments/playable_flightcase/song_workbench.gd",
+      "bytes": 68934,
+      "sha256": "c4177664d13cd655a2e037f066f66db5a2b74282c2231f8e19ec338d569253e0"
+    },
+    {
+      "path": "models-v3/baseline/project/project.godot",
+      "bytes": 263,
+      "sha256": "e1d34eee6378d416aaec550e2b3aebbe6a04b3708823c665d9714a2a7d6f8b3c"
+    },
+    {
+      "path": "models-v3/baseline/project/tests/song57_craft_fairness.gd",
+      "bytes": 16338,
+      "sha256": "5d65b4ae62eefb1845b0b4b4ee57e968728ec36b61804c6add1522c8e1b8828f"
+    },
+    {
+      "path": "models-v3/baseline/project/tests/song61_preparation.gd",
+      "bytes": 12197,
+      "sha256": "8a6cb705958384eefa360455ffef0801c51bf24020ecb51e86b057b6901c9e08"
+    },
+    {
+      "path": "models-v3/baseline-songs.json",
+      "bytes": 164659,
+      "sha256": "dca55e6b75432d3cc005fcdfe8c9eea6a5b76cfb6968b4ad0d61f9561374a662"
+    },
+    {
+      "path": "models-v3/candidate/project/Data/CharacterCast/approved_cast_2026-10-29.json",
+      "bytes": 23322,
+      "sha256": "24ca3c5b69870d920f058acb48ea710a845f4adba1c3c0240c6708f8fa6f6ff4"
+    },
+    {
+      "path": "models-v3/candidate/project/Scripts/career_actions.gd",
+      "bytes": 8491,
+      "sha256": "e2394ffec255ae7c978c77758ccbf643cd31cc8e0e1eb1393ce3707ae343662b"
+    },
+    {
+      "path": "models-v3/candidate/project/Scripts/career_story.gd",
+      "bytes": 3870,
+      "sha256": "b336f4ab88d4111ca550d7ab002fdf5400b49a62f1c00ae945ae1b8b9e20100c"
+    },
+    {
+      "path": "models-v3/candidate/project/Scripts/formation_catalogue.gd",
+      "bytes": 8007,
+      "sha256": "5755c29bd367fa5befecb473994055218b1280a915f6ad090fb1cf05b527968d"
+    },
+    {
+      "path": "models-v3/candidate/project/Scripts/gear_shop.gd",
+      "bytes": 8091,
+      "sha256": "d0c14338a728e7b14151146e454b31a9939e7ee083be4e118b424c722c0fdb9e"
+    },
+    {
+      "path": "models-v3/candidate/project/Scripts/gig_backstage_incident.gd",
+      "bytes": 2699,
+      "sha256": "ac215497377bbc43ee10b061ded8184752f208842fae735c4f8c3fdf4debda46"
+    },
+    {
+      "path": "models-v3/candidate/project/Scripts/gig_calendar.gd",
+      "bytes": 8903,
+      "sha256": "28d04b7213fa655da84f5071ef3f7f8a1e9ba6fb5eba68af954a6cc9f7c72c4c"
+    },
+    {
+      "path": "models-v3/candidate/project/Scripts/gig_night_flow.gd",
+      "bytes": 2683,
+      "sha256": "c773c331ec8157285a28a8ac07e176130f0b8c82ada03f5d9703a08adde6fae3"
+    },
+    {
+      "path": "models-v3/candidate/project/Scripts/member_life.gd",
+      "bytes": 7576,
+      "sha256": "3ac8b5d9938cf04c7ccddc094ff33056047238f1d6b6a03c6e0419b8a4a1933c"
+    },
+    {
+      "path": "models-v3/candidate/project/Scripts/practice_room.gd",
+      "bytes": 5649,
+      "sha256": "1f2b92099de77e01d1f10fbb5a0b63e135dc7cee272456b6d9147b0f78e4c7f1"
+    },
+    {
+      "path": "models-v3/candidate/project/Scripts/promoter_meetings.gd",
+      "bytes": 3287,
+      "sha256": "49cd022f25d6a53cdc29fc1e45804b54b8e6de3dba74ee1843ca9f95b4d713f6"
+    },
+    {
+      "path": "models-v3/candidate/project/Scripts/recording_career.gd",
+      "bytes": 4416,
+      "sha256": "cfd980e445579abd4ab0e8bd36b78073bc5b01a891b362eaa4f52310f1804a22"
+    },
+    {
+      "path": "models-v3/candidate/project/Scripts/release_campaigns.gd",
+      "bytes": 4274,
+      "sha256": "f610b849125f2280089edb252bf6a8b6843458d41b48bfea0365bbcae3f21392"
+    },
+    {
+      "path": "models-v3/candidate/project/Scripts/song_chemistry.gd",
+      "bytes": 1215,
+      "sha256": "8db92cff3c74347632e69b62c77762a99583fdda58a9f1abadd54f0ac75d4080"
+    },
+    {
+      "path": "models-v3/candidate/project/Scripts/song_workshop.gd",
+      "bytes": 3971,
+      "sha256": "a615225e36acc4edcf626599df4d93560f010a2426dfa57674d7d5b94a421d3b"
+    },
+    {
+      "path": "models-v3/candidate/project/Scripts/tour_itinerary.gd",
+      "bytes": 4186,
+      "sha256": "3a6644c201786318d4cdbb6b7ec6e25c5ad10638a5b9f4a4c4550bac604151a4"
+    },
+    {
+      "path": "models-v3/candidate/project/Scripts/uk_gig_circuit.gd",
+      "bytes": 6080,
+      "sha256": "ea05e79aa88ce9ddf045952ab483e3600dcc0d97415f6416c0865b268cfe71ee"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/character_cast/catalogue.gd",
+      "bytes": 1705,
+      "sha256": "bc1b580baebc75cc5b4c6277dc95ff35749e42515d74f29371053f18b8245c49"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/character_cast/vendor/recruitment_catalogue_v3.gd",
+      "bytes": 14296,
+      "sha256": "6d5f9af80fcad2d68695a0bc3bf549526b144c62ec8eb123edbb5172826f47a7"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/audio/arjun_clips.json",
+      "bytes": 847,
+      "sha256": "facba457cc54b23e33dfc67cc7c45ef408122e39a859cb01e259541fa8e0f913"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/audio/audition_clips.json",
+      "bytes": 1817,
+      "sha256": "94790379701467a856c799977420d8b5da8302f0741b745ab24687b83d465b89"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/audio/marcus_clips.json",
+      "bytes": 2319,
+      "sha256": "9ac023399c12a9404d1b65570016bd9dc277b326fa4e2d5255e2aa69fc2e95aa"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/audio/mixing_desk_v1.json",
+      "bytes": 149376,
+      "sha256": "e707d918853b6b3b76323387123e08a906bf07988ebbb3d110add07ef58ad4ef"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/audio/producer_raw_dark.json",
+      "bytes": 32587,
+      "sha256": "87a92dab2f55b5652af9535247191c249980b41eb89d6c34fdfd21c31b6b65de"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/audio/zoe_clips.json",
+      "bytes": 2318,
+      "sha256": "0e5a29f9ce352087612a1f3f775cb6d25b063d69ee51a8001e9c6691b8961a0f"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/audition_arjun_content.gd",
+      "bytes": 3290,
+      "sha256": "c103ab1454685322ab30ebf71ff54138a46474a546dd03e4c2ecec6bc33aee53"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/audition_content.gd",
+      "bytes": 2992,
+      "sha256": "dcbc820d82432fe4ccebeceabaf96fa00562507b09f64e1aa4e462c59b62642e"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/audition_encounter.gd",
+      "bytes": 23728,
+      "sha256": "f8ea07fb36d5502e058c0c83bda4f941f6a60325eb592cf18fdcb18c4213a32b"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/audition_marcus_content.gd",
+      "bytes": 3459,
+      "sha256": "2792a7d78ada0fb6f602e1510c2824576e2c78d39375254dd40a33787568ce83"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/audition_profiles.gd",
+      "bytes": 1158,
+      "sha256": "0a5fa74ccee19fb789619fe399ee7b09fded420e7dfd11f49c2bfe5d0a33adb5"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/audition_zoe_content.gd",
+      "bytes": 3528,
+      "sha256": "37912d349a818cdf3d6170e0f9dacdd01bf796985c706f26988e01a89121b765"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/band_sound.gd",
+      "bytes": 1239,
+      "sha256": "167c5ddc4dd04661cd6271a4adc9970f0e89059be63f6c9d24353d52616872ae"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/band_week.gd",
+      "bytes": 5134,
+      "sha256": "e9b907903d43528144cd6d44bd72c3ed6286e860087eadecab3c0d75253e33be"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/career_dates.gd",
+      "bytes": 4638,
+      "sha256": "1e4f0c94213e259126230e80675f938fd022410d2abc139d13df4fb3d2f4361c"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/character_connections.gd",
+      "bytes": 4878,
+      "sha256": "2489429ac9ddf0125cc1fbb7d7d99d316c3879eedb7d63a70d0a7f3fa6bddc05"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/conversation_musicians.gd",
+      "bytes": 4164,
+      "sha256": "9555f812607f6a63cfbe7021b92e3e2f555ac9cd67443ec4803ec0c3c5e57c2b"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/finance_policy.gd",
+      "bytes": 9457,
+      "sha256": "80f13ae58f6490cc0d5d2ae8d2ffafaaa9fd6238dc7ed0abdc85c4e3d919dd26"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/gig_booking_rules.gd",
+      "bytes": 32403,
+      "sha256": "8a611252632247281a917861147afd5761ddfb21c5420bff4b53e7e5014c44cf"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/gig_incident.gd",
+      "bytes": 7937,
+      "sha256": "e6a54e6221966fcd82f5fdaf16c89c545d336fe10a2ff7957d381f524164767e"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/gig_journey.gd",
+      "bytes": 23672,
+      "sha256": "0e3c8037f5fc82b8e97cdb463c6a5fa906be5b48f09dc4e1cd1b0b4bf04821d6"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/gig_performance_policy.gd",
+      "bytes": 7673,
+      "sha256": "cb317f59bfb4d18b0977c4aa333b81e9dde508d0e1412bb4e8d98b2180729b52"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/identity_style.gd",
+      "bytes": 7685,
+      "sha256": "08bc6d2a40d628561e25c8dab8bc00791902f1408a1197a5e68d0b19c7eb5b14"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/live_bridge.gd",
+      "bytes": 19184,
+      "sha256": "510bab10eb82b8a74b321b3a3460540736189dadad46e20421db9c0f26d6023e"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/member_commitments.gd",
+      "bytes": 3870,
+      "sha256": "466a5b9685772e8ccefef233769d2db5cf6b03e88ac890209213fa6aa250c7c0"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/mixing_recipe.gd",
+      "bytes": 15888,
+      "sha256": "5d82c1bc03338b05321ba22d482937e345067c0d80c66ab3c94a2d19ee07808f"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/musician_chat.gd",
+      "bytes": 20749,
+      "sha256": "890dce6b3cf485e83c2e94bf2accd7a9844faa7940582a7486fee03b9375de01"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/musician_situations.gd",
+      "bytes": 4400,
+      "sha256": "ba1709a481eac2c27921e4ac2cc6384efc47b8ab6744d60e01196b963adb8ddb"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/name_rules.gd",
+      "bytes": 3901,
+      "sha256": "273958995048a7f67289e6a075952903e308d571af338c05ab3a1dab62fa63e9"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/opening_state.gd",
+      "bytes": 46155,
+      "sha256": "8c33948f9582f5d961ed9409327fd425e3a2c6abbc8dd0a2558867fe49de28fd"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/packed_pcm.gd",
+      "bytes": 2188,
+      "sha256": "9f1fb47a39cde9be674c234f4a0a163c1ee116e0ff39e878dc8764bea587bb5f"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/personal_context.gd",
+      "bytes": 3571,
+      "sha256": "9744b80f12cb9f835fc5a7d2935485550340bd9f966fd1bb922d78c4c50d1cfc"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/producer_recipe.gd",
+      "bytes": 10553,
+      "sha256": "0db4ed876c070e83e96d82e0baa3498891f932751d4abe4424025665a4119b6c"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/producer_social.gd",
+      "bytes": 3564,
+      "sha256": "0769e4421336e9055e1cb12f840ef1e8ec975c74113bf0ddc1c02656d0ff271b"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/promotion_rules.gd",
+      "bytes": 15868,
+      "sha256": "f6230624e19261fd7697e8af8a0722998fbe9be4e0af833af516f5ca8302c10d"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/radio_visit_rules.gd",
+      "bytes": 13783,
+      "sha256": "f20abb4d5f49d2f1de4f7037b92764a6af4be36ba77369c7e79876cc1ae43728"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/recorded_steady.gd",
+      "bytes": 9487,
+      "sha256": "e77c16df3c12b974b79c356d335a8d9cc48bbea08d60a97440e6c4678acd4205"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/recorded_vocal_keys.gd",
+      "bytes": 4030,
+      "sha256": "87a4ef9a52ddebfae86c963b333c2c63dd166f2f303ac32d0c8bac300b4be2d9"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/recording_rules.gd",
+      "bytes": 16104,
+      "sha256": "d4eb16e54c4a4b4f15cb36d8bc2776d58d9c59bc50a000953309ee8c8bc9a71a"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/recruitment_pricing.gd",
+      "bytes": 2110,
+      "sha256": "cbc9b84fdd6e6b6fe2cb340e472bd88603948b75e6321020c17844e853777e91"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/rehearsal_intent.gd",
+      "bytes": 7291,
+      "sha256": "42e2cbe26e743b2bbf97c417139fc1326371b039dc1f2b7bbd921c88779fb501"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/review_policy.gd",
+      "bytes": 10475,
+      "sha256": "94b362020ddc54283960abcf33139fcdf51a913e18f1038ae9531b508f86b5e9"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/scene_circuit.gd",
+      "bytes": 19142,
+      "sha256": "b84e39418fa771c7102322b4b3180d74bcb086c3281821c5a09f6afbd5b638b6"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/session.gd",
+      "bytes": 20799,
+      "sha256": "99e8a37ef9771f9c13864e5038f1bf060fc78877f850ec5409196918b12b0946"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/show_flow.gd",
+      "bytes": 38794,
+      "sha256": "45c906a55a53ca86034c9ec06ef9f677de8a6e1a992fe70f5071397931b4e6d2"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/situation_core.gd",
+      "bytes": 27320,
+      "sha256": "9eb8b1dff7bbcecf8087707fe80cf3b6783b18970aaa5521376f369e6c5a430f"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/situation_jam.gd",
+      "bytes": 3611,
+      "sha256": "d9f9b630a6267b8ecd0144f1f242cd722373e377897e38acc6b9b672cc8b1d3c"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/situation_practice.gd",
+      "bytes": 4538,
+      "sha256": "b70aabc1f19bd693557f4292c0051033557c866642e1798db321fd3fdf3b19b0"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/song_fragment_content.gd",
+      "bytes": 5007,
+      "sha256": "3e38db06da2dbf019a38e2636a00316806f54ff47f465a0e9995a339fb51f297"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/song_preparation.gd",
+      "bytes": 5973,
+      "sha256": "34de801316b2c2f9e6c474c889e0a81871913a4f4a13afd9f9292612570dca57"
+    },
+    {
+      "path": "models-v3/candidate/project/experiments/playable_flightcase/song_workbench.gd",
+      "bytes": 68934,
+      "sha256": "c4177664d13cd655a2e037f066f66db5a2b74282c2231f8e19ec338d569253e0"
+    },
+    {
+      "path": "models-v3/candidate/project/project.godot",
+      "bytes": 263,
+      "sha256": "e1d34eee6378d416aaec550e2b3aebbe6a04b3708823c665d9714a2a7d6f8b3c"
+    },
+    {
+      "path": "models-v3/candidate/project/tests/song57_craft_fairness.gd",
+      "bytes": 16338,
+      "sha256": "5d65b4ae62eefb1845b0b4b4ee57e968728ec36b61804c6add1522c8e1b8828f"
+    },
+    {
+      "path": "models-v3/candidate/project/tests/song61_preparation.gd",
+      "bytes": 12197,
+      "sha256": "8a6cb705958384eefa360455ffef0801c51bf24020ecb51e86b057b6901c9e08"
+    },
+    {
+      "path": "models-v3/environment/baseline/NO_ANDROID_SIGNING.txt",
+      "bytes": 63,
+      "sha256": "408189a850af89f8caa648cceb08683049e1542cbd945168e110735d7380b011"
+    },
+    {
+      "path": "models-v3/environment/baseline/cache/fontconfig/3830d5c3ddfd5cd38a049b759396e72e-le64.cache-9",
+      "bytes": 352,
+      "sha256": "550fef73de0cdab50e452154beaf9e16bcc8916ed2d961b358a7553b0782937f"
+    },
+    {
+      "path": "models-v3/environment/baseline/cache/fontconfig/CACHEDIR.TAG",
+      "bytes": 200,
+      "sha256": "05e7633fb31bf1f6f8d89020c16b9f24587fdf7638e951c9745b192f5fc3b682"
+    },
+    {
+      "path": "models-v3/environment/baseline/config/godot/editor_settings-4.7.tres",
+      "bytes": 486,
+      "sha256": "4a9530ffc227c09380e02a9b841a3fdf5b442bcd466d28063eee78f9635befb9"
+    },
+    {
+      "path": "models-v3/environment/baseline/data/BandMasterSONG59IsolatedQA/c27_opening_draft.json",
+      "bytes": 194445,
+      "sha256": "49c03a725b4517dbb63d87c67f472cb751a902f52f7b65ff0b84ad6f7fbb37e0"
+    },
+    {
+      "path": "models-v3/environment/baseline/data/BandMasterSONG59IsolatedQA/logs/godot.log",
+      "bytes": 218,
+      "sha256": "6b595db67144655fd9ccbfd7a2b6cd30c458fd2aed7a31e13893cdd27a3fd50c"
+    },
+    {
+      "path": "models-v3/environment/baseline/guarded-jdk/bin/jarsigner",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v3/environment/baseline/guarded-jdk/bin/java",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v3/environment/baseline/guarded-jdk/bin/keytool",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v3/environment/candidate/NO_ANDROID_SIGNING.txt",
+      "bytes": 63,
+      "sha256": "408189a850af89f8caa648cceb08683049e1542cbd945168e110735d7380b011"
+    },
+    {
+      "path": "models-v3/environment/candidate/cache/fontconfig/3830d5c3ddfd5cd38a049b759396e72e-le64.cache-9",
+      "bytes": 352,
+      "sha256": "550fef73de0cdab50e452154beaf9e16bcc8916ed2d961b358a7553b0782937f"
+    },
+    {
+      "path": "models-v3/environment/candidate/cache/fontconfig/CACHEDIR.TAG",
+      "bytes": 200,
+      "sha256": "05e7633fb31bf1f6f8d89020c16b9f24587fdf7638e951c9745b192f5fc3b682"
+    },
+    {
+      "path": "models-v3/environment/candidate/config/godot/editor_settings-4.7.tres",
+      "bytes": 489,
+      "sha256": "8bbb537487fed67e39ac66252b0b65027449b38723023504d14e5a991e569e0e"
+    },
+    {
+      "path": "models-v3/environment/candidate/data/BandMasterSONG59IsolatedQA/c27_opening_draft.json",
+      "bytes": 205138,
+      "sha256": "fb1b745e89a190a792ad241db93104710f5685e6646d91d149c9473c45a5f44c"
+    },
+    {
+      "path": "models-v3/environment/candidate/data/BandMasterSONG59IsolatedQA/logs/godot.log",
+      "bytes": 990,
+      "sha256": "12a9794c79f0b3ab6dfba2120c3b56809d921e06089a26c9d10bbbbce966c4c8"
+    },
+    {
+      "path": "models-v3/environment/candidate/guarded-jdk/bin/jarsigner",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v3/environment/candidate/guarded-jdk/bin/java",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v3/environment/candidate/guarded-jdk/bin/keytool",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v3/logs/baseline.log",
+      "bytes": 218,
+      "sha256": "6b595db67144655fd9ccbfd7a2b6cd30c458fd2aed7a31e13893cdd27a3fd50c"
+    },
+    {
+      "path": "models-v3/logs/candidate.log",
+      "bytes": 1046,
+      "sha256": "639790db07d9000e0a5ab4fe82493fe9e965f8d0dc2ab9f8e9373a842b6bafd1"
+    },
+    {
+      "path": "models-v4/RUN.json",
+      "bytes": 18270,
+      "sha256": "dcd2a15a0fe6f7b3591f9cefdcea3966a5631c5733a22a05f839b0c668f93fdb"
+    },
+    {
+      "path": "models-v4/baseline/project/Data/CharacterCast/approved_cast_2026-10-29.json",
+      "bytes": 23322,
+      "sha256": "24ca3c5b69870d920f058acb48ea710a845f4adba1c3c0240c6708f8fa6f6ff4"
+    },
+    {
+      "path": "models-v4/baseline/project/Scripts/career_actions.gd",
+      "bytes": 8491,
+      "sha256": "e2394ffec255ae7c978c77758ccbf643cd31cc8e0e1eb1393ce3707ae343662b"
+    },
+    {
+      "path": "models-v4/baseline/project/Scripts/career_story.gd",
+      "bytes": 3870,
+      "sha256": "b336f4ab88d4111ca550d7ab002fdf5400b49a62f1c00ae945ae1b8b9e20100c"
+    },
+    {
+      "path": "models-v4/baseline/project/Scripts/formation_catalogue.gd",
+      "bytes": 8007,
+      "sha256": "5755c29bd367fa5befecb473994055218b1280a915f6ad090fb1cf05b527968d"
+    },
+    {
+      "path": "models-v4/baseline/project/Scripts/gear_shop.gd",
+      "bytes": 8091,
+      "sha256": "d0c14338a728e7b14151146e454b31a9939e7ee083be4e118b424c722c0fdb9e"
+    },
+    {
+      "path": "models-v4/baseline/project/Scripts/gig_backstage_incident.gd",
+      "bytes": 2699,
+      "sha256": "ac215497377bbc43ee10b061ded8184752f208842fae735c4f8c3fdf4debda46"
+    },
+    {
+      "path": "models-v4/baseline/project/Scripts/gig_calendar.gd",
+      "bytes": 8903,
+      "sha256": "28d04b7213fa655da84f5071ef3f7f8a1e9ba6fb5eba68af954a6cc9f7c72c4c"
+    },
+    {
+      "path": "models-v4/baseline/project/Scripts/gig_night_flow.gd",
+      "bytes": 2683,
+      "sha256": "c773c331ec8157285a28a8ac07e176130f0b8c82ada03f5d9703a08adde6fae3"
+    },
+    {
+      "path": "models-v4/baseline/project/Scripts/member_life.gd",
+      "bytes": 7576,
+      "sha256": "3ac8b5d9938cf04c7ccddc094ff33056047238f1d6b6a03c6e0419b8a4a1933c"
+    },
+    {
+      "path": "models-v4/baseline/project/Scripts/practice_room.gd",
+      "bytes": 5649,
+      "sha256": "1f2b92099de77e01d1f10fbb5a0b63e135dc7cee272456b6d9147b0f78e4c7f1"
+    },
+    {
+      "path": "models-v4/baseline/project/Scripts/promoter_meetings.gd",
+      "bytes": 3287,
+      "sha256": "49cd022f25d6a53cdc29fc1e45804b54b8e6de3dba74ee1843ca9f95b4d713f6"
+    },
+    {
+      "path": "models-v4/baseline/project/Scripts/recording_career.gd",
+      "bytes": 4416,
+      "sha256": "cfd980e445579abd4ab0e8bd36b78073bc5b01a891b362eaa4f52310f1804a22"
+    },
+    {
+      "path": "models-v4/baseline/project/Scripts/release_campaigns.gd",
+      "bytes": 4274,
+      "sha256": "f610b849125f2280089edb252bf6a8b6843458d41b48bfea0365bbcae3f21392"
+    },
+    {
+      "path": "models-v4/baseline/project/Scripts/song_chemistry.gd",
+      "bytes": 1215,
+      "sha256": "8db92cff3c74347632e69b62c77762a99583fdda58a9f1abadd54f0ac75d4080"
+    },
+    {
+      "path": "models-v4/baseline/project/Scripts/song_workshop.gd",
+      "bytes": 3971,
+      "sha256": "a615225e36acc4edcf626599df4d93560f010a2426dfa57674d7d5b94a421d3b"
+    },
+    {
+      "path": "models-v4/baseline/project/Scripts/tour_itinerary.gd",
+      "bytes": 4186,
+      "sha256": "3a6644c201786318d4cdbb6b7ec6e25c5ad10638a5b9f4a4c4550bac604151a4"
+    },
+    {
+      "path": "models-v4/baseline/project/Scripts/uk_gig_circuit.gd",
+      "bytes": 6080,
+      "sha256": "ea05e79aa88ce9ddf045952ab483e3600dcc0d97415f6416c0865b268cfe71ee"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/character_cast/catalogue.gd",
+      "bytes": 1705,
+      "sha256": "bc1b580baebc75cc5b4c6277dc95ff35749e42515d74f29371053f18b8245c49"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/character_cast/vendor/recruitment_catalogue_v3.gd",
+      "bytes": 14296,
+      "sha256": "6d5f9af80fcad2d68695a0bc3bf549526b144c62ec8eb123edbb5172826f47a7"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/audio/arjun_clips.json",
+      "bytes": 847,
+      "sha256": "facba457cc54b23e33dfc67cc7c45ef408122e39a859cb01e259541fa8e0f913"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/audio/audition_clips.json",
+      "bytes": 1817,
+      "sha256": "94790379701467a856c799977420d8b5da8302f0741b745ab24687b83d465b89"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/audio/marcus_clips.json",
+      "bytes": 2319,
+      "sha256": "9ac023399c12a9404d1b65570016bd9dc277b326fa4e2d5255e2aa69fc2e95aa"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/audio/mixing_desk_v1.json",
+      "bytes": 149376,
+      "sha256": "e707d918853b6b3b76323387123e08a906bf07988ebbb3d110add07ef58ad4ef"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/audio/producer_raw_dark.json",
+      "bytes": 32587,
+      "sha256": "87a92dab2f55b5652af9535247191c249980b41eb89d6c34fdfd21c31b6b65de"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/audio/zoe_clips.json",
+      "bytes": 2318,
+      "sha256": "0e5a29f9ce352087612a1f3f775cb6d25b063d69ee51a8001e9c6691b8961a0f"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/audition_arjun_content.gd",
+      "bytes": 3290,
+      "sha256": "c103ab1454685322ab30ebf71ff54138a46474a546dd03e4c2ecec6bc33aee53"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/audition_content.gd",
+      "bytes": 2992,
+      "sha256": "dcbc820d82432fe4ccebeceabaf96fa00562507b09f64e1aa4e462c59b62642e"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/audition_encounter.gd",
+      "bytes": 23728,
+      "sha256": "f8ea07fb36d5502e058c0c83bda4f941f6a60325eb592cf18fdcb18c4213a32b"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/audition_marcus_content.gd",
+      "bytes": 3459,
+      "sha256": "2792a7d78ada0fb6f602e1510c2824576e2c78d39375254dd40a33787568ce83"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/audition_profiles.gd",
+      "bytes": 1158,
+      "sha256": "0a5fa74ccee19fb789619fe399ee7b09fded420e7dfd11f49c2bfe5d0a33adb5"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/audition_zoe_content.gd",
+      "bytes": 3528,
+      "sha256": "37912d349a818cdf3d6170e0f9dacdd01bf796985c706f26988e01a89121b765"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/band_sound.gd",
+      "bytes": 1239,
+      "sha256": "167c5ddc4dd04661cd6271a4adc9970f0e89059be63f6c9d24353d52616872ae"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/band_week.gd",
+      "bytes": 5134,
+      "sha256": "e9b907903d43528144cd6d44bd72c3ed6286e860087eadecab3c0d75253e33be"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/career_dates.gd",
+      "bytes": 4638,
+      "sha256": "1e4f0c94213e259126230e80675f938fd022410d2abc139d13df4fb3d2f4361c"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/character_connections.gd",
+      "bytes": 4878,
+      "sha256": "2489429ac9ddf0125cc1fbb7d7d99d316c3879eedb7d63a70d0a7f3fa6bddc05"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/conversation_musicians.gd",
+      "bytes": 4164,
+      "sha256": "9555f812607f6a63cfbe7021b92e3e2f555ac9cd67443ec4803ec0c3c5e57c2b"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/finance_policy.gd",
+      "bytes": 9457,
+      "sha256": "80f13ae58f6490cc0d5d2ae8d2ffafaaa9fd6238dc7ed0abdc85c4e3d919dd26"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/gig_booking_rules.gd",
+      "bytes": 32403,
+      "sha256": "8a611252632247281a917861147afd5761ddfb21c5420bff4b53e7e5014c44cf"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/gig_incident.gd",
+      "bytes": 7937,
+      "sha256": "e6a54e6221966fcd82f5fdaf16c89c545d336fe10a2ff7957d381f524164767e"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/gig_journey.gd",
+      "bytes": 23672,
+      "sha256": "0e3c8037f5fc82b8e97cdb463c6a5fa906be5b48f09dc4e1cd1b0b4bf04821d6"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/gig_performance_policy.gd",
+      "bytes": 7673,
+      "sha256": "cb317f59bfb4d18b0977c4aa333b81e9dde508d0e1412bb4e8d98b2180729b52"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/identity_style.gd",
+      "bytes": 7685,
+      "sha256": "08bc6d2a40d628561e25c8dab8bc00791902f1408a1197a5e68d0b19c7eb5b14"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/live_bridge.gd",
+      "bytes": 19184,
+      "sha256": "510bab10eb82b8a74b321b3a3460540736189dadad46e20421db9c0f26d6023e"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/member_commitments.gd",
+      "bytes": 3870,
+      "sha256": "466a5b9685772e8ccefef233769d2db5cf6b03e88ac890209213fa6aa250c7c0"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/mixing_recipe.gd",
+      "bytes": 15888,
+      "sha256": "5d82c1bc03338b05321ba22d482937e345067c0d80c66ab3c94a2d19ee07808f"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/musician_chat.gd",
+      "bytes": 20749,
+      "sha256": "890dce6b3cf485e83c2e94bf2accd7a9844faa7940582a7486fee03b9375de01"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/musician_situations.gd",
+      "bytes": 4400,
+      "sha256": "ba1709a481eac2c27921e4ac2cc6384efc47b8ab6744d60e01196b963adb8ddb"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/name_rules.gd",
+      "bytes": 3901,
+      "sha256": "273958995048a7f67289e6a075952903e308d571af338c05ab3a1dab62fa63e9"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/opening_state.gd",
+      "bytes": 43937,
+      "sha256": "4dc21e60c3912559a12d06ff08b8bd3d1303373ba586aa233d0d0836a47f859e"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/packed_pcm.gd",
+      "bytes": 2188,
+      "sha256": "9f1fb47a39cde9be674c234f4a0a163c1ee116e0ff39e878dc8764bea587bb5f"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/personal_context.gd",
+      "bytes": 3571,
+      "sha256": "9744b80f12cb9f835fc5a7d2935485550340bd9f966fd1bb922d78c4c50d1cfc"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/producer_recipe.gd",
+      "bytes": 10553,
+      "sha256": "0db4ed876c070e83e96d82e0baa3498891f932751d4abe4424025665a4119b6c"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/producer_social.gd",
+      "bytes": 3564,
+      "sha256": "0769e4421336e9055e1cb12f840ef1e8ec975c74113bf0ddc1c02656d0ff271b"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/promotion_rules.gd",
+      "bytes": 15868,
+      "sha256": "f6230624e19261fd7697e8af8a0722998fbe9be4e0af833af516f5ca8302c10d"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/radio_visit_rules.gd",
+      "bytes": 13783,
+      "sha256": "f20abb4d5f49d2f1de4f7037b92764a6af4be36ba77369c7e79876cc1ae43728"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/recorded_steady.gd",
+      "bytes": 9487,
+      "sha256": "e77c16df3c12b974b79c356d335a8d9cc48bbea08d60a97440e6c4678acd4205"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/recorded_vocal_keys.gd",
+      "bytes": 4030,
+      "sha256": "87a4ef9a52ddebfae86c963b333c2c63dd166f2f303ac32d0c8bac300b4be2d9"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/recording_rules.gd",
+      "bytes": 16104,
+      "sha256": "d4eb16e54c4a4b4f15cb36d8bc2776d58d9c59bc50a000953309ee8c8bc9a71a"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/recruitment_pricing.gd",
+      "bytes": 2110,
+      "sha256": "cbc9b84fdd6e6b6fe2cb340e472bd88603948b75e6321020c17844e853777e91"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/rehearsal_intent.gd",
+      "bytes": 7291,
+      "sha256": "42e2cbe26e743b2bbf97c417139fc1326371b039dc1f2b7bbd921c88779fb501"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/review_policy.gd",
+      "bytes": 10475,
+      "sha256": "94b362020ddc54283960abcf33139fcdf51a913e18f1038ae9531b508f86b5e9"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/scene_circuit.gd",
+      "bytes": 19142,
+      "sha256": "b84e39418fa771c7102322b4b3180d74bcb086c3281821c5a09f6afbd5b638b6"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/session.gd",
+      "bytes": 20799,
+      "sha256": "99e8a37ef9771f9c13864e5038f1bf060fc78877f850ec5409196918b12b0946"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/show_flow.gd",
+      "bytes": 38794,
+      "sha256": "45c906a55a53ca86034c9ec06ef9f677de8a6e1a992fe70f5071397931b4e6d2"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/situation_core.gd",
+      "bytes": 27320,
+      "sha256": "9eb8b1dff7bbcecf8087707fe80cf3b6783b18970aaa5521376f369e6c5a430f"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/situation_jam.gd",
+      "bytes": 3611,
+      "sha256": "d9f9b630a6267b8ecd0144f1f242cd722373e377897e38acc6b9b672cc8b1d3c"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/situation_practice.gd",
+      "bytes": 4538,
+      "sha256": "b70aabc1f19bd693557f4292c0051033557c866642e1798db321fd3fdf3b19b0"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/song_fragment_content.gd",
+      "bytes": 5007,
+      "sha256": "3e38db06da2dbf019a38e2636a00316806f54ff47f465a0e9995a339fb51f297"
+    },
+    {
+      "path": "models-v4/baseline/project/experiments/playable_flightcase/song_workbench.gd",
+      "bytes": 68934,
+      "sha256": "c4177664d13cd655a2e037f066f66db5a2b74282c2231f8e19ec338d569253e0"
+    },
+    {
+      "path": "models-v4/baseline/project/project.godot",
+      "bytes": 263,
+      "sha256": "e1d34eee6378d416aaec550e2b3aebbe6a04b3708823c665d9714a2a7d6f8b3c"
+    },
+    {
+      "path": "models-v4/baseline/project/tests/song57_craft_fairness.gd",
+      "bytes": 16338,
+      "sha256": "5d65b4ae62eefb1845b0b4b4ee57e968728ec36b61804c6add1522c8e1b8828f"
+    },
+    {
+      "path": "models-v4/baseline/project/tests/song61_preparation.gd",
+      "bytes": 12711,
+      "sha256": "ff414b45b2b2072547407f1cc0b270625200447e5130eabeeaacd410daf88e12"
+    },
+    {
+      "path": "models-v4/baseline-songs.json",
+      "bytes": 164659,
+      "sha256": "dca55e6b75432d3cc005fcdfe8c9eea6a5b76cfb6968b4ad0d61f9561374a662"
+    },
+    {
+      "path": "models-v4/candidate/project/Data/CharacterCast/approved_cast_2026-10-29.json",
+      "bytes": 23322,
+      "sha256": "24ca3c5b69870d920f058acb48ea710a845f4adba1c3c0240c6708f8fa6f6ff4"
+    },
+    {
+      "path": "models-v4/candidate/project/Scripts/career_actions.gd",
+      "bytes": 8491,
+      "sha256": "e2394ffec255ae7c978c77758ccbf643cd31cc8e0e1eb1393ce3707ae343662b"
+    },
+    {
+      "path": "models-v4/candidate/project/Scripts/career_story.gd",
+      "bytes": 3870,
+      "sha256": "b336f4ab88d4111ca550d7ab002fdf5400b49a62f1c00ae945ae1b8b9e20100c"
+    },
+    {
+      "path": "models-v4/candidate/project/Scripts/formation_catalogue.gd",
+      "bytes": 8007,
+      "sha256": "5755c29bd367fa5befecb473994055218b1280a915f6ad090fb1cf05b527968d"
+    },
+    {
+      "path": "models-v4/candidate/project/Scripts/gear_shop.gd",
+      "bytes": 8091,
+      "sha256": "d0c14338a728e7b14151146e454b31a9939e7ee083be4e118b424c722c0fdb9e"
+    },
+    {
+      "path": "models-v4/candidate/project/Scripts/gig_backstage_incident.gd",
+      "bytes": 2699,
+      "sha256": "ac215497377bbc43ee10b061ded8184752f208842fae735c4f8c3fdf4debda46"
+    },
+    {
+      "path": "models-v4/candidate/project/Scripts/gig_calendar.gd",
+      "bytes": 8903,
+      "sha256": "28d04b7213fa655da84f5071ef3f7f8a1e9ba6fb5eba68af954a6cc9f7c72c4c"
+    },
+    {
+      "path": "models-v4/candidate/project/Scripts/gig_night_flow.gd",
+      "bytes": 2683,
+      "sha256": "c773c331ec8157285a28a8ac07e176130f0b8c82ada03f5d9703a08adde6fae3"
+    },
+    {
+      "path": "models-v4/candidate/project/Scripts/member_life.gd",
+      "bytes": 7576,
+      "sha256": "3ac8b5d9938cf04c7ccddc094ff33056047238f1d6b6a03c6e0419b8a4a1933c"
+    },
+    {
+      "path": "models-v4/candidate/project/Scripts/practice_room.gd",
+      "bytes": 5649,
+      "sha256": "1f2b92099de77e01d1f10fbb5a0b63e135dc7cee272456b6d9147b0f78e4c7f1"
+    },
+    {
+      "path": "models-v4/candidate/project/Scripts/promoter_meetings.gd",
+      "bytes": 3287,
+      "sha256": "49cd022f25d6a53cdc29fc1e45804b54b8e6de3dba74ee1843ca9f95b4d713f6"
+    },
+    {
+      "path": "models-v4/candidate/project/Scripts/recording_career.gd",
+      "bytes": 4416,
+      "sha256": "cfd980e445579abd4ab0e8bd36b78073bc5b01a891b362eaa4f52310f1804a22"
+    },
+    {
+      "path": "models-v4/candidate/project/Scripts/release_campaigns.gd",
+      "bytes": 4274,
+      "sha256": "f610b849125f2280089edb252bf6a8b6843458d41b48bfea0365bbcae3f21392"
+    },
+    {
+      "path": "models-v4/candidate/project/Scripts/song_chemistry.gd",
+      "bytes": 1215,
+      "sha256": "8db92cff3c74347632e69b62c77762a99583fdda58a9f1abadd54f0ac75d4080"
+    },
+    {
+      "path": "models-v4/candidate/project/Scripts/song_workshop.gd",
+      "bytes": 3971,
+      "sha256": "a615225e36acc4edcf626599df4d93560f010a2426dfa57674d7d5b94a421d3b"
+    },
+    {
+      "path": "models-v4/candidate/project/Scripts/tour_itinerary.gd",
+      "bytes": 4186,
+      "sha256": "3a6644c201786318d4cdbb6b7ec6e25c5ad10638a5b9f4a4c4550bac604151a4"
+    },
+    {
+      "path": "models-v4/candidate/project/Scripts/uk_gig_circuit.gd",
+      "bytes": 6080,
+      "sha256": "ea05e79aa88ce9ddf045952ab483e3600dcc0d97415f6416c0865b268cfe71ee"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/character_cast/catalogue.gd",
+      "bytes": 1705,
+      "sha256": "bc1b580baebc75cc5b4c6277dc95ff35749e42515d74f29371053f18b8245c49"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/character_cast/vendor/recruitment_catalogue_v3.gd",
+      "bytes": 14296,
+      "sha256": "6d5f9af80fcad2d68695a0bc3bf549526b144c62ec8eb123edbb5172826f47a7"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/audio/arjun_clips.json",
+      "bytes": 847,
+      "sha256": "facba457cc54b23e33dfc67cc7c45ef408122e39a859cb01e259541fa8e0f913"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/audio/audition_clips.json",
+      "bytes": 1817,
+      "sha256": "94790379701467a856c799977420d8b5da8302f0741b745ab24687b83d465b89"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/audio/marcus_clips.json",
+      "bytes": 2319,
+      "sha256": "9ac023399c12a9404d1b65570016bd9dc277b326fa4e2d5255e2aa69fc2e95aa"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/audio/mixing_desk_v1.json",
+      "bytes": 149376,
+      "sha256": "e707d918853b6b3b76323387123e08a906bf07988ebbb3d110add07ef58ad4ef"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/audio/producer_raw_dark.json",
+      "bytes": 32587,
+      "sha256": "87a92dab2f55b5652af9535247191c249980b41eb89d6c34fdfd21c31b6b65de"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/audio/zoe_clips.json",
+      "bytes": 2318,
+      "sha256": "0e5a29f9ce352087612a1f3f775cb6d25b063d69ee51a8001e9c6691b8961a0f"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/audition_arjun_content.gd",
+      "bytes": 3290,
+      "sha256": "c103ab1454685322ab30ebf71ff54138a46474a546dd03e4c2ecec6bc33aee53"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/audition_content.gd",
+      "bytes": 2992,
+      "sha256": "dcbc820d82432fe4ccebeceabaf96fa00562507b09f64e1aa4e462c59b62642e"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/audition_encounter.gd",
+      "bytes": 23728,
+      "sha256": "f8ea07fb36d5502e058c0c83bda4f941f6a60325eb592cf18fdcb18c4213a32b"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/audition_marcus_content.gd",
+      "bytes": 3459,
+      "sha256": "2792a7d78ada0fb6f602e1510c2824576e2c78d39375254dd40a33787568ce83"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/audition_profiles.gd",
+      "bytes": 1158,
+      "sha256": "0a5fa74ccee19fb789619fe399ee7b09fded420e7dfd11f49c2bfe5d0a33adb5"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/audition_zoe_content.gd",
+      "bytes": 3528,
+      "sha256": "37912d349a818cdf3d6170e0f9dacdd01bf796985c706f26988e01a89121b765"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/band_sound.gd",
+      "bytes": 1239,
+      "sha256": "167c5ddc4dd04661cd6271a4adc9970f0e89059be63f6c9d24353d52616872ae"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/band_week.gd",
+      "bytes": 5134,
+      "sha256": "e9b907903d43528144cd6d44bd72c3ed6286e860087eadecab3c0d75253e33be"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/career_dates.gd",
+      "bytes": 4638,
+      "sha256": "1e4f0c94213e259126230e80675f938fd022410d2abc139d13df4fb3d2f4361c"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/character_connections.gd",
+      "bytes": 4878,
+      "sha256": "2489429ac9ddf0125cc1fbb7d7d99d316c3879eedb7d63a70d0a7f3fa6bddc05"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/conversation_musicians.gd",
+      "bytes": 4164,
+      "sha256": "9555f812607f6a63cfbe7021b92e3e2f555ac9cd67443ec4803ec0c3c5e57c2b"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/finance_policy.gd",
+      "bytes": 9457,
+      "sha256": "80f13ae58f6490cc0d5d2ae8d2ffafaaa9fd6238dc7ed0abdc85c4e3d919dd26"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/gig_booking_rules.gd",
+      "bytes": 32403,
+      "sha256": "8a611252632247281a917861147afd5761ddfb21c5420bff4b53e7e5014c44cf"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/gig_incident.gd",
+      "bytes": 7937,
+      "sha256": "e6a54e6221966fcd82f5fdaf16c89c545d336fe10a2ff7957d381f524164767e"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/gig_journey.gd",
+      "bytes": 23672,
+      "sha256": "0e3c8037f5fc82b8e97cdb463c6a5fa906be5b48f09dc4e1cd1b0b4bf04821d6"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/gig_performance_policy.gd",
+      "bytes": 7673,
+      "sha256": "cb317f59bfb4d18b0977c4aa333b81e9dde508d0e1412bb4e8d98b2180729b52"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/identity_style.gd",
+      "bytes": 7685,
+      "sha256": "08bc6d2a40d628561e25c8dab8bc00791902f1408a1197a5e68d0b19c7eb5b14"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/live_bridge.gd",
+      "bytes": 19184,
+      "sha256": "510bab10eb82b8a74b321b3a3460540736189dadad46e20421db9c0f26d6023e"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/member_commitments.gd",
+      "bytes": 3870,
+      "sha256": "466a5b9685772e8ccefef233769d2db5cf6b03e88ac890209213fa6aa250c7c0"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/mixing_recipe.gd",
+      "bytes": 15888,
+      "sha256": "5d82c1bc03338b05321ba22d482937e345067c0d80c66ab3c94a2d19ee07808f"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/musician_chat.gd",
+      "bytes": 20749,
+      "sha256": "890dce6b3cf485e83c2e94bf2accd7a9844faa7940582a7486fee03b9375de01"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/musician_situations.gd",
+      "bytes": 4400,
+      "sha256": "ba1709a481eac2c27921e4ac2cc6384efc47b8ab6744d60e01196b963adb8ddb"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/name_rules.gd",
+      "bytes": 3901,
+      "sha256": "273958995048a7f67289e6a075952903e308d571af338c05ab3a1dab62fa63e9"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/opening_state.gd",
+      "bytes": 46155,
+      "sha256": "8c33948f9582f5d961ed9409327fd425e3a2c6abbc8dd0a2558867fe49de28fd"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/packed_pcm.gd",
+      "bytes": 2188,
+      "sha256": "9f1fb47a39cde9be674c234f4a0a163c1ee116e0ff39e878dc8764bea587bb5f"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/personal_context.gd",
+      "bytes": 3571,
+      "sha256": "9744b80f12cb9f835fc5a7d2935485550340bd9f966fd1bb922d78c4c50d1cfc"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/producer_recipe.gd",
+      "bytes": 10553,
+      "sha256": "0db4ed876c070e83e96d82e0baa3498891f932751d4abe4424025665a4119b6c"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/producer_social.gd",
+      "bytes": 3564,
+      "sha256": "0769e4421336e9055e1cb12f840ef1e8ec975c74113bf0ddc1c02656d0ff271b"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/promotion_rules.gd",
+      "bytes": 15868,
+      "sha256": "f6230624e19261fd7697e8af8a0722998fbe9be4e0af833af516f5ca8302c10d"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/radio_visit_rules.gd",
+      "bytes": 13783,
+      "sha256": "f20abb4d5f49d2f1de4f7037b92764a6af4be36ba77369c7e79876cc1ae43728"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/recorded_steady.gd",
+      "bytes": 9487,
+      "sha256": "e77c16df3c12b974b79c356d335a8d9cc48bbea08d60a97440e6c4678acd4205"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/recorded_vocal_keys.gd",
+      "bytes": 4030,
+      "sha256": "87a4ef9a52ddebfae86c963b333c2c63dd166f2f303ac32d0c8bac300b4be2d9"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/recording_rules.gd",
+      "bytes": 16104,
+      "sha256": "d4eb16e54c4a4b4f15cb36d8bc2776d58d9c59bc50a000953309ee8c8bc9a71a"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/recruitment_pricing.gd",
+      "bytes": 2110,
+      "sha256": "cbc9b84fdd6e6b6fe2cb340e472bd88603948b75e6321020c17844e853777e91"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/rehearsal_intent.gd",
+      "bytes": 7291,
+      "sha256": "42e2cbe26e743b2bbf97c417139fc1326371b039dc1f2b7bbd921c88779fb501"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/review_policy.gd",
+      "bytes": 10475,
+      "sha256": "94b362020ddc54283960abcf33139fcdf51a913e18f1038ae9531b508f86b5e9"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/scene_circuit.gd",
+      "bytes": 19142,
+      "sha256": "b84e39418fa771c7102322b4b3180d74bcb086c3281821c5a09f6afbd5b638b6"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/session.gd",
+      "bytes": 20799,
+      "sha256": "99e8a37ef9771f9c13864e5038f1bf060fc78877f850ec5409196918b12b0946"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/show_flow.gd",
+      "bytes": 38794,
+      "sha256": "45c906a55a53ca86034c9ec06ef9f677de8a6e1a992fe70f5071397931b4e6d2"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/situation_core.gd",
+      "bytes": 27320,
+      "sha256": "9eb8b1dff7bbcecf8087707fe80cf3b6783b18970aaa5521376f369e6c5a430f"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/situation_jam.gd",
+      "bytes": 3611,
+      "sha256": "d9f9b630a6267b8ecd0144f1f242cd722373e377897e38acc6b9b672cc8b1d3c"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/situation_practice.gd",
+      "bytes": 4538,
+      "sha256": "b70aabc1f19bd693557f4292c0051033557c866642e1798db321fd3fdf3b19b0"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/song_fragment_content.gd",
+      "bytes": 5007,
+      "sha256": "3e38db06da2dbf019a38e2636a00316806f54ff47f465a0e9995a339fb51f297"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/song_preparation.gd",
+      "bytes": 5973,
+      "sha256": "34de801316b2c2f9e6c474c889e0a81871913a4f4a13afd9f9292612570dca57"
+    },
+    {
+      "path": "models-v4/candidate/project/experiments/playable_flightcase/song_workbench.gd",
+      "bytes": 68934,
+      "sha256": "c4177664d13cd655a2e037f066f66db5a2b74282c2231f8e19ec338d569253e0"
+    },
+    {
+      "path": "models-v4/candidate/project/project.godot",
+      "bytes": 263,
+      "sha256": "e1d34eee6378d416aaec550e2b3aebbe6a04b3708823c665d9714a2a7d6f8b3c"
+    },
+    {
+      "path": "models-v4/candidate/project/tests/song57_craft_fairness.gd",
+      "bytes": 16338,
+      "sha256": "5d65b4ae62eefb1845b0b4b4ee57e968728ec36b61804c6add1522c8e1b8828f"
+    },
+    {
+      "path": "models-v4/candidate/project/tests/song61_preparation.gd",
+      "bytes": 12711,
+      "sha256": "ff414b45b2b2072547407f1cc0b270625200447e5130eabeeaacd410daf88e12"
+    },
+    {
+      "path": "models-v4/environment/baseline/NO_ANDROID_SIGNING.txt",
+      "bytes": 63,
+      "sha256": "408189a850af89f8caa648cceb08683049e1542cbd945168e110735d7380b011"
+    },
+    {
+      "path": "models-v4/environment/baseline/cache/fontconfig/3830d5c3ddfd5cd38a049b759396e72e-le64.cache-9",
+      "bytes": 352,
+      "sha256": "550fef73de0cdab50e452154beaf9e16bcc8916ed2d961b358a7553b0782937f"
+    },
+    {
+      "path": "models-v4/environment/baseline/cache/fontconfig/CACHEDIR.TAG",
+      "bytes": 200,
+      "sha256": "05e7633fb31bf1f6f8d89020c16b9f24587fdf7638e951c9745b192f5fc3b682"
+    },
+    {
+      "path": "models-v4/environment/baseline/config/godot/editor_settings-4.7.tres",
+      "bytes": 486,
+      "sha256": "e87d2a3c9755f0710a9599c9e2ad415df011cf682eb9c252b10c6ef64002f91f"
+    },
+    {
+      "path": "models-v4/environment/baseline/data/BandMasterSONG59IsolatedQA/c27_opening_draft.json",
+      "bytes": 194445,
+      "sha256": "49c03a725b4517dbb63d87c67f472cb751a902f52f7b65ff0b84ad6f7fbb37e0"
+    },
+    {
+      "path": "models-v4/environment/baseline/data/BandMasterSONG59IsolatedQA/logs/godot.log",
+      "bytes": 218,
+      "sha256": "6b595db67144655fd9ccbfd7a2b6cd30c458fd2aed7a31e13893cdd27a3fd50c"
+    },
+    {
+      "path": "models-v4/environment/baseline/guarded-jdk/bin/jarsigner",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v4/environment/baseline/guarded-jdk/bin/java",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v4/environment/baseline/guarded-jdk/bin/keytool",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v4/environment/candidate/NO_ANDROID_SIGNING.txt",
+      "bytes": 63,
+      "sha256": "408189a850af89f8caa648cceb08683049e1542cbd945168e110735d7380b011"
+    },
+    {
+      "path": "models-v4/environment/candidate/cache/fontconfig/3830d5c3ddfd5cd38a049b759396e72e-le64.cache-9",
+      "bytes": 352,
+      "sha256": "550fef73de0cdab50e452154beaf9e16bcc8916ed2d961b358a7553b0782937f"
+    },
+    {
+      "path": "models-v4/environment/candidate/cache/fontconfig/CACHEDIR.TAG",
+      "bytes": 200,
+      "sha256": "05e7633fb31bf1f6f8d89020c16b9f24587fdf7638e951c9745b192f5fc3b682"
+    },
+    {
+      "path": "models-v4/environment/candidate/config/godot/editor_settings-4.7.tres",
+      "bytes": 489,
+      "sha256": "960d5f361d5e800c3cb3a313d0fc4a17451dfb9a11b05c6c0b6c1f2787e50dbc"
+    },
+    {
+      "path": "models-v4/environment/candidate/data/BandMasterSONG59IsolatedQA/c27_opening_draft.json",
+      "bytes": 304449,
+      "sha256": "2d940f5362edb1de4040025d7bbfd11c18170716acb37e906ed149d984d8673b"
+    },
+    {
+      "path": "models-v4/environment/candidate/data/BandMasterSONG59IsolatedQA/logs/godot.log",
+      "bytes": 219,
+      "sha256": "6811717fa36cf0a3aae6b824b6a8af9b9dfa970274fc28cccef58f78bbdc3d1e"
+    },
+    {
+      "path": "models-v4/environment/candidate/guarded-jdk/bin/jarsigner",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v4/environment/candidate/guarded-jdk/bin/java",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v4/environment/candidate/guarded-jdk/bin/keytool",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v4/logs/baseline.log",
+      "bytes": 218,
+      "sha256": "6b595db67144655fd9ccbfd7a2b6cd30c458fd2aed7a31e13893cdd27a3fd50c"
+    },
+    {
+      "path": "models-v4/logs/candidate.log",
+      "bytes": 219,
+      "sha256": "6811717fa36cf0a3aae6b824b6a8af9b9dfa970274fc28cccef58f78bbdc3d1e"
+    },
+    {
+      "path": "models-v5/RUN.json",
+      "bytes": 18270,
+      "sha256": "e0bfcff3f838703eb868a5c5e6927ed8c6491ff9ba2e0ebb15bc3eae2d34d2b7"
+    },
+    {
+      "path": "models-v5/baseline/project/Data/CharacterCast/approved_cast_2026-10-29.json",
+      "bytes": 23322,
+      "sha256": "24ca3c5b69870d920f058acb48ea710a845f4adba1c3c0240c6708f8fa6f6ff4"
+    },
+    {
+      "path": "models-v5/baseline/project/Scripts/career_actions.gd",
+      "bytes": 8491,
+      "sha256": "e2394ffec255ae7c978c77758ccbf643cd31cc8e0e1eb1393ce3707ae343662b"
+    },
+    {
+      "path": "models-v5/baseline/project/Scripts/career_story.gd",
+      "bytes": 3870,
+      "sha256": "b336f4ab88d4111ca550d7ab002fdf5400b49a62f1c00ae945ae1b8b9e20100c"
+    },
+    {
+      "path": "models-v5/baseline/project/Scripts/formation_catalogue.gd",
+      "bytes": 8007,
+      "sha256": "5755c29bd367fa5befecb473994055218b1280a915f6ad090fb1cf05b527968d"
+    },
+    {
+      "path": "models-v5/baseline/project/Scripts/gear_shop.gd",
+      "bytes": 8091,
+      "sha256": "d0c14338a728e7b14151146e454b31a9939e7ee083be4e118b424c722c0fdb9e"
+    },
+    {
+      "path": "models-v5/baseline/project/Scripts/gig_backstage_incident.gd",
+      "bytes": 2699,
+      "sha256": "ac215497377bbc43ee10b061ded8184752f208842fae735c4f8c3fdf4debda46"
+    },
+    {
+      "path": "models-v5/baseline/project/Scripts/gig_calendar.gd",
+      "bytes": 8903,
+      "sha256": "28d04b7213fa655da84f5071ef3f7f8a1e9ba6fb5eba68af954a6cc9f7c72c4c"
+    },
+    {
+      "path": "models-v5/baseline/project/Scripts/gig_night_flow.gd",
+      "bytes": 2683,
+      "sha256": "c773c331ec8157285a28a8ac07e176130f0b8c82ada03f5d9703a08adde6fae3"
+    },
+    {
+      "path": "models-v5/baseline/project/Scripts/member_life.gd",
+      "bytes": 7576,
+      "sha256": "3ac8b5d9938cf04c7ccddc094ff33056047238f1d6b6a03c6e0419b8a4a1933c"
+    },
+    {
+      "path": "models-v5/baseline/project/Scripts/practice_room.gd",
+      "bytes": 5649,
+      "sha256": "1f2b92099de77e01d1f10fbb5a0b63e135dc7cee272456b6d9147b0f78e4c7f1"
+    },
+    {
+      "path": "models-v5/baseline/project/Scripts/promoter_meetings.gd",
+      "bytes": 3287,
+      "sha256": "49cd022f25d6a53cdc29fc1e45804b54b8e6de3dba74ee1843ca9f95b4d713f6"
+    },
+    {
+      "path": "models-v5/baseline/project/Scripts/recording_career.gd",
+      "bytes": 4416,
+      "sha256": "cfd980e445579abd4ab0e8bd36b78073bc5b01a891b362eaa4f52310f1804a22"
+    },
+    {
+      "path": "models-v5/baseline/project/Scripts/release_campaigns.gd",
+      "bytes": 4274,
+      "sha256": "f610b849125f2280089edb252bf6a8b6843458d41b48bfea0365bbcae3f21392"
+    },
+    {
+      "path": "models-v5/baseline/project/Scripts/song_chemistry.gd",
+      "bytes": 1215,
+      "sha256": "8db92cff3c74347632e69b62c77762a99583fdda58a9f1abadd54f0ac75d4080"
+    },
+    {
+      "path": "models-v5/baseline/project/Scripts/song_workshop.gd",
+      "bytes": 3971,
+      "sha256": "a615225e36acc4edcf626599df4d93560f010a2426dfa57674d7d5b94a421d3b"
+    },
+    {
+      "path": "models-v5/baseline/project/Scripts/tour_itinerary.gd",
+      "bytes": 4186,
+      "sha256": "3a6644c201786318d4cdbb6b7ec6e25c5ad10638a5b9f4a4c4550bac604151a4"
+    },
+    {
+      "path": "models-v5/baseline/project/Scripts/uk_gig_circuit.gd",
+      "bytes": 6080,
+      "sha256": "ea05e79aa88ce9ddf045952ab483e3600dcc0d97415f6416c0865b268cfe71ee"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/character_cast/catalogue.gd",
+      "bytes": 1705,
+      "sha256": "bc1b580baebc75cc5b4c6277dc95ff35749e42515d74f29371053f18b8245c49"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/character_cast/vendor/recruitment_catalogue_v3.gd",
+      "bytes": 14296,
+      "sha256": "6d5f9af80fcad2d68695a0bc3bf549526b144c62ec8eb123edbb5172826f47a7"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/audio/arjun_clips.json",
+      "bytes": 847,
+      "sha256": "facba457cc54b23e33dfc67cc7c45ef408122e39a859cb01e259541fa8e0f913"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/audio/audition_clips.json",
+      "bytes": 1817,
+      "sha256": "94790379701467a856c799977420d8b5da8302f0741b745ab24687b83d465b89"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/audio/marcus_clips.json",
+      "bytes": 2319,
+      "sha256": "9ac023399c12a9404d1b65570016bd9dc277b326fa4e2d5255e2aa69fc2e95aa"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/audio/mixing_desk_v1.json",
+      "bytes": 149376,
+      "sha256": "e707d918853b6b3b76323387123e08a906bf07988ebbb3d110add07ef58ad4ef"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/audio/producer_raw_dark.json",
+      "bytes": 32587,
+      "sha256": "87a92dab2f55b5652af9535247191c249980b41eb89d6c34fdfd21c31b6b65de"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/audio/zoe_clips.json",
+      "bytes": 2318,
+      "sha256": "0e5a29f9ce352087612a1f3f775cb6d25b063d69ee51a8001e9c6691b8961a0f"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/audition_arjun_content.gd",
+      "bytes": 3290,
+      "sha256": "c103ab1454685322ab30ebf71ff54138a46474a546dd03e4c2ecec6bc33aee53"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/audition_content.gd",
+      "bytes": 2992,
+      "sha256": "dcbc820d82432fe4ccebeceabaf96fa00562507b09f64e1aa4e462c59b62642e"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/audition_encounter.gd",
+      "bytes": 23728,
+      "sha256": "f8ea07fb36d5502e058c0c83bda4f941f6a60325eb592cf18fdcb18c4213a32b"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/audition_marcus_content.gd",
+      "bytes": 3459,
+      "sha256": "2792a7d78ada0fb6f602e1510c2824576e2c78d39375254dd40a33787568ce83"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/audition_profiles.gd",
+      "bytes": 1158,
+      "sha256": "0a5fa74ccee19fb789619fe399ee7b09fded420e7dfd11f49c2bfe5d0a33adb5"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/audition_zoe_content.gd",
+      "bytes": 3528,
+      "sha256": "37912d349a818cdf3d6170e0f9dacdd01bf796985c706f26988e01a89121b765"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/band_sound.gd",
+      "bytes": 1239,
+      "sha256": "167c5ddc4dd04661cd6271a4adc9970f0e89059be63f6c9d24353d52616872ae"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/band_week.gd",
+      "bytes": 5134,
+      "sha256": "e9b907903d43528144cd6d44bd72c3ed6286e860087eadecab3c0d75253e33be"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/career_dates.gd",
+      "bytes": 4638,
+      "sha256": "1e4f0c94213e259126230e80675f938fd022410d2abc139d13df4fb3d2f4361c"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/character_connections.gd",
+      "bytes": 4878,
+      "sha256": "2489429ac9ddf0125cc1fbb7d7d99d316c3879eedb7d63a70d0a7f3fa6bddc05"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/conversation_musicians.gd",
+      "bytes": 4164,
+      "sha256": "9555f812607f6a63cfbe7021b92e3e2f555ac9cd67443ec4803ec0c3c5e57c2b"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/finance_policy.gd",
+      "bytes": 9457,
+      "sha256": "80f13ae58f6490cc0d5d2ae8d2ffafaaa9fd6238dc7ed0abdc85c4e3d919dd26"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/gig_booking_rules.gd",
+      "bytes": 32403,
+      "sha256": "8a611252632247281a917861147afd5761ddfb21c5420bff4b53e7e5014c44cf"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/gig_incident.gd",
+      "bytes": 7937,
+      "sha256": "e6a54e6221966fcd82f5fdaf16c89c545d336fe10a2ff7957d381f524164767e"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/gig_journey.gd",
+      "bytes": 23672,
+      "sha256": "0e3c8037f5fc82b8e97cdb463c6a5fa906be5b48f09dc4e1cd1b0b4bf04821d6"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/gig_performance_policy.gd",
+      "bytes": 7673,
+      "sha256": "cb317f59bfb4d18b0977c4aa333b81e9dde508d0e1412bb4e8d98b2180729b52"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/identity_style.gd",
+      "bytes": 7685,
+      "sha256": "08bc6d2a40d628561e25c8dab8bc00791902f1408a1197a5e68d0b19c7eb5b14"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/live_bridge.gd",
+      "bytes": 19184,
+      "sha256": "510bab10eb82b8a74b321b3a3460540736189dadad46e20421db9c0f26d6023e"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/member_commitments.gd",
+      "bytes": 3870,
+      "sha256": "466a5b9685772e8ccefef233769d2db5cf6b03e88ac890209213fa6aa250c7c0"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/mixing_recipe.gd",
+      "bytes": 15888,
+      "sha256": "5d82c1bc03338b05321ba22d482937e345067c0d80c66ab3c94a2d19ee07808f"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/musician_chat.gd",
+      "bytes": 20749,
+      "sha256": "890dce6b3cf485e83c2e94bf2accd7a9844faa7940582a7486fee03b9375de01"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/musician_situations.gd",
+      "bytes": 4400,
+      "sha256": "ba1709a481eac2c27921e4ac2cc6384efc47b8ab6744d60e01196b963adb8ddb"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/name_rules.gd",
+      "bytes": 3901,
+      "sha256": "273958995048a7f67289e6a075952903e308d571af338c05ab3a1dab62fa63e9"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/opening_state.gd",
+      "bytes": 43937,
+      "sha256": "4dc21e60c3912559a12d06ff08b8bd3d1303373ba586aa233d0d0836a47f859e"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/packed_pcm.gd",
+      "bytes": 2188,
+      "sha256": "9f1fb47a39cde9be674c234f4a0a163c1ee116e0ff39e878dc8764bea587bb5f"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/personal_context.gd",
+      "bytes": 3571,
+      "sha256": "9744b80f12cb9f835fc5a7d2935485550340bd9f966fd1bb922d78c4c50d1cfc"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/producer_recipe.gd",
+      "bytes": 10553,
+      "sha256": "0db4ed876c070e83e96d82e0baa3498891f932751d4abe4424025665a4119b6c"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/producer_social.gd",
+      "bytes": 3564,
+      "sha256": "0769e4421336e9055e1cb12f840ef1e8ec975c74113bf0ddc1c02656d0ff271b"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/promotion_rules.gd",
+      "bytes": 15868,
+      "sha256": "f6230624e19261fd7697e8af8a0722998fbe9be4e0af833af516f5ca8302c10d"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/radio_visit_rules.gd",
+      "bytes": 13783,
+      "sha256": "f20abb4d5f49d2f1de4f7037b92764a6af4be36ba77369c7e79876cc1ae43728"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/recorded_steady.gd",
+      "bytes": 9487,
+      "sha256": "e77c16df3c12b974b79c356d335a8d9cc48bbea08d60a97440e6c4678acd4205"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/recorded_vocal_keys.gd",
+      "bytes": 4030,
+      "sha256": "87a4ef9a52ddebfae86c963b333c2c63dd166f2f303ac32d0c8bac300b4be2d9"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/recording_rules.gd",
+      "bytes": 16104,
+      "sha256": "d4eb16e54c4a4b4f15cb36d8bc2776d58d9c59bc50a000953309ee8c8bc9a71a"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/recruitment_pricing.gd",
+      "bytes": 2110,
+      "sha256": "cbc9b84fdd6e6b6fe2cb340e472bd88603948b75e6321020c17844e853777e91"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/rehearsal_intent.gd",
+      "bytes": 7291,
+      "sha256": "42e2cbe26e743b2bbf97c417139fc1326371b039dc1f2b7bbd921c88779fb501"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/review_policy.gd",
+      "bytes": 10475,
+      "sha256": "94b362020ddc54283960abcf33139fcdf51a913e18f1038ae9531b508f86b5e9"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/scene_circuit.gd",
+      "bytes": 19142,
+      "sha256": "b84e39418fa771c7102322b4b3180d74bcb086c3281821c5a09f6afbd5b638b6"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/session.gd",
+      "bytes": 20799,
+      "sha256": "99e8a37ef9771f9c13864e5038f1bf060fc78877f850ec5409196918b12b0946"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/show_flow.gd",
+      "bytes": 38794,
+      "sha256": "45c906a55a53ca86034c9ec06ef9f677de8a6e1a992fe70f5071397931b4e6d2"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/situation_core.gd",
+      "bytes": 27320,
+      "sha256": "9eb8b1dff7bbcecf8087707fe80cf3b6783b18970aaa5521376f369e6c5a430f"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/situation_jam.gd",
+      "bytes": 3611,
+      "sha256": "d9f9b630a6267b8ecd0144f1f242cd722373e377897e38acc6b9b672cc8b1d3c"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/situation_practice.gd",
+      "bytes": 4538,
+      "sha256": "b70aabc1f19bd693557f4292c0051033557c866642e1798db321fd3fdf3b19b0"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/song_fragment_content.gd",
+      "bytes": 5007,
+      "sha256": "3e38db06da2dbf019a38e2636a00316806f54ff47f465a0e9995a339fb51f297"
+    },
+    {
+      "path": "models-v5/baseline/project/experiments/playable_flightcase/song_workbench.gd",
+      "bytes": 68934,
+      "sha256": "c4177664d13cd655a2e037f066f66db5a2b74282c2231f8e19ec338d569253e0"
+    },
+    {
+      "path": "models-v5/baseline/project/project.godot",
+      "bytes": 263,
+      "sha256": "e1d34eee6378d416aaec550e2b3aebbe6a04b3708823c665d9714a2a7d6f8b3c"
+    },
+    {
+      "path": "models-v5/baseline/project/tests/song57_craft_fairness.gd",
+      "bytes": 16338,
+      "sha256": "5d65b4ae62eefb1845b0b4b4ee57e968728ec36b61804c6add1522c8e1b8828f"
+    },
+    {
+      "path": "models-v5/baseline/project/tests/song61_preparation.gd",
+      "bytes": 14375,
+      "sha256": "b1f1f595507dbc749cc01c5d0a11ec3ac5d0b94ab7a1cc6bffa9e6cd44012516"
+    },
+    {
+      "path": "models-v5/baseline-songs.json",
+      "bytes": 164659,
+      "sha256": "dca55e6b75432d3cc005fcdfe8c9eea6a5b76cfb6968b4ad0d61f9561374a662"
+    },
+    {
+      "path": "models-v5/candidate/project/Data/CharacterCast/approved_cast_2026-10-29.json",
+      "bytes": 23322,
+      "sha256": "24ca3c5b69870d920f058acb48ea710a845f4adba1c3c0240c6708f8fa6f6ff4"
+    },
+    {
+      "path": "models-v5/candidate/project/Scripts/career_actions.gd",
+      "bytes": 8491,
+      "sha256": "e2394ffec255ae7c978c77758ccbf643cd31cc8e0e1eb1393ce3707ae343662b"
+    },
+    {
+      "path": "models-v5/candidate/project/Scripts/career_story.gd",
+      "bytes": 3870,
+      "sha256": "b336f4ab88d4111ca550d7ab002fdf5400b49a62f1c00ae945ae1b8b9e20100c"
+    },
+    {
+      "path": "models-v5/candidate/project/Scripts/formation_catalogue.gd",
+      "bytes": 8007,
+      "sha256": "5755c29bd367fa5befecb473994055218b1280a915f6ad090fb1cf05b527968d"
+    },
+    {
+      "path": "models-v5/candidate/project/Scripts/gear_shop.gd",
+      "bytes": 8091,
+      "sha256": "d0c14338a728e7b14151146e454b31a9939e7ee083be4e118b424c722c0fdb9e"
+    },
+    {
+      "path": "models-v5/candidate/project/Scripts/gig_backstage_incident.gd",
+      "bytes": 2699,
+      "sha256": "ac215497377bbc43ee10b061ded8184752f208842fae735c4f8c3fdf4debda46"
+    },
+    {
+      "path": "models-v5/candidate/project/Scripts/gig_calendar.gd",
+      "bytes": 8903,
+      "sha256": "28d04b7213fa655da84f5071ef3f7f8a1e9ba6fb5eba68af954a6cc9f7c72c4c"
+    },
+    {
+      "path": "models-v5/candidate/project/Scripts/gig_night_flow.gd",
+      "bytes": 2683,
+      "sha256": "c773c331ec8157285a28a8ac07e176130f0b8c82ada03f5d9703a08adde6fae3"
+    },
+    {
+      "path": "models-v5/candidate/project/Scripts/member_life.gd",
+      "bytes": 7576,
+      "sha256": "3ac8b5d9938cf04c7ccddc094ff33056047238f1d6b6a03c6e0419b8a4a1933c"
+    },
+    {
+      "path": "models-v5/candidate/project/Scripts/practice_room.gd",
+      "bytes": 5649,
+      "sha256": "1f2b92099de77e01d1f10fbb5a0b63e135dc7cee272456b6d9147b0f78e4c7f1"
+    },
+    {
+      "path": "models-v5/candidate/project/Scripts/promoter_meetings.gd",
+      "bytes": 3287,
+      "sha256": "49cd022f25d6a53cdc29fc1e45804b54b8e6de3dba74ee1843ca9f95b4d713f6"
+    },
+    {
+      "path": "models-v5/candidate/project/Scripts/recording_career.gd",
+      "bytes": 4416,
+      "sha256": "cfd980e445579abd4ab0e8bd36b78073bc5b01a891b362eaa4f52310f1804a22"
+    },
+    {
+      "path": "models-v5/candidate/project/Scripts/release_campaigns.gd",
+      "bytes": 4274,
+      "sha256": "f610b849125f2280089edb252bf6a8b6843458d41b48bfea0365bbcae3f21392"
+    },
+    {
+      "path": "models-v5/candidate/project/Scripts/song_chemistry.gd",
+      "bytes": 1215,
+      "sha256": "8db92cff3c74347632e69b62c77762a99583fdda58a9f1abadd54f0ac75d4080"
+    },
+    {
+      "path": "models-v5/candidate/project/Scripts/song_workshop.gd",
+      "bytes": 3971,
+      "sha256": "a615225e36acc4edcf626599df4d93560f010a2426dfa57674d7d5b94a421d3b"
+    },
+    {
+      "path": "models-v5/candidate/project/Scripts/tour_itinerary.gd",
+      "bytes": 4186,
+      "sha256": "3a6644c201786318d4cdbb6b7ec6e25c5ad10638a5b9f4a4c4550bac604151a4"
+    },
+    {
+      "path": "models-v5/candidate/project/Scripts/uk_gig_circuit.gd",
+      "bytes": 6080,
+      "sha256": "ea05e79aa88ce9ddf045952ab483e3600dcc0d97415f6416c0865b268cfe71ee"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/character_cast/catalogue.gd",
+      "bytes": 1705,
+      "sha256": "bc1b580baebc75cc5b4c6277dc95ff35749e42515d74f29371053f18b8245c49"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/character_cast/vendor/recruitment_catalogue_v3.gd",
+      "bytes": 14296,
+      "sha256": "6d5f9af80fcad2d68695a0bc3bf549526b144c62ec8eb123edbb5172826f47a7"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/audio/arjun_clips.json",
+      "bytes": 847,
+      "sha256": "facba457cc54b23e33dfc67cc7c45ef408122e39a859cb01e259541fa8e0f913"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/audio/audition_clips.json",
+      "bytes": 1817,
+      "sha256": "94790379701467a856c799977420d8b5da8302f0741b745ab24687b83d465b89"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/audio/marcus_clips.json",
+      "bytes": 2319,
+      "sha256": "9ac023399c12a9404d1b65570016bd9dc277b326fa4e2d5255e2aa69fc2e95aa"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/audio/mixing_desk_v1.json",
+      "bytes": 149376,
+      "sha256": "e707d918853b6b3b76323387123e08a906bf07988ebbb3d110add07ef58ad4ef"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/audio/producer_raw_dark.json",
+      "bytes": 32587,
+      "sha256": "87a92dab2f55b5652af9535247191c249980b41eb89d6c34fdfd21c31b6b65de"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/audio/zoe_clips.json",
+      "bytes": 2318,
+      "sha256": "0e5a29f9ce352087612a1f3f775cb6d25b063d69ee51a8001e9c6691b8961a0f"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/audition_arjun_content.gd",
+      "bytes": 3290,
+      "sha256": "c103ab1454685322ab30ebf71ff54138a46474a546dd03e4c2ecec6bc33aee53"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/audition_content.gd",
+      "bytes": 2992,
+      "sha256": "dcbc820d82432fe4ccebeceabaf96fa00562507b09f64e1aa4e462c59b62642e"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/audition_encounter.gd",
+      "bytes": 23728,
+      "sha256": "f8ea07fb36d5502e058c0c83bda4f941f6a60325eb592cf18fdcb18c4213a32b"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/audition_marcus_content.gd",
+      "bytes": 3459,
+      "sha256": "2792a7d78ada0fb6f602e1510c2824576e2c78d39375254dd40a33787568ce83"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/audition_profiles.gd",
+      "bytes": 1158,
+      "sha256": "0a5fa74ccee19fb789619fe399ee7b09fded420e7dfd11f49c2bfe5d0a33adb5"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/audition_zoe_content.gd",
+      "bytes": 3528,
+      "sha256": "37912d349a818cdf3d6170e0f9dacdd01bf796985c706f26988e01a89121b765"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/band_sound.gd",
+      "bytes": 1239,
+      "sha256": "167c5ddc4dd04661cd6271a4adc9970f0e89059be63f6c9d24353d52616872ae"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/band_week.gd",
+      "bytes": 5134,
+      "sha256": "e9b907903d43528144cd6d44bd72c3ed6286e860087eadecab3c0d75253e33be"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/career_dates.gd",
+      "bytes": 4638,
+      "sha256": "1e4f0c94213e259126230e80675f938fd022410d2abc139d13df4fb3d2f4361c"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/character_connections.gd",
+      "bytes": 4878,
+      "sha256": "2489429ac9ddf0125cc1fbb7d7d99d316c3879eedb7d63a70d0a7f3fa6bddc05"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/conversation_musicians.gd",
+      "bytes": 4164,
+      "sha256": "9555f812607f6a63cfbe7021b92e3e2f555ac9cd67443ec4803ec0c3c5e57c2b"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/finance_policy.gd",
+      "bytes": 9457,
+      "sha256": "80f13ae58f6490cc0d5d2ae8d2ffafaaa9fd6238dc7ed0abdc85c4e3d919dd26"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/gig_booking_rules.gd",
+      "bytes": 32403,
+      "sha256": "8a611252632247281a917861147afd5761ddfb21c5420bff4b53e7e5014c44cf"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/gig_incident.gd",
+      "bytes": 7937,
+      "sha256": "e6a54e6221966fcd82f5fdaf16c89c545d336fe10a2ff7957d381f524164767e"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/gig_journey.gd",
+      "bytes": 23672,
+      "sha256": "0e3c8037f5fc82b8e97cdb463c6a5fa906be5b48f09dc4e1cd1b0b4bf04821d6"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/gig_performance_policy.gd",
+      "bytes": 7673,
+      "sha256": "cb317f59bfb4d18b0977c4aa333b81e9dde508d0e1412bb4e8d98b2180729b52"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/identity_style.gd",
+      "bytes": 7685,
+      "sha256": "08bc6d2a40d628561e25c8dab8bc00791902f1408a1197a5e68d0b19c7eb5b14"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/live_bridge.gd",
+      "bytes": 19184,
+      "sha256": "510bab10eb82b8a74b321b3a3460540736189dadad46e20421db9c0f26d6023e"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/member_commitments.gd",
+      "bytes": 3870,
+      "sha256": "466a5b9685772e8ccefef233769d2db5cf6b03e88ac890209213fa6aa250c7c0"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/mixing_recipe.gd",
+      "bytes": 15888,
+      "sha256": "5d82c1bc03338b05321ba22d482937e345067c0d80c66ab3c94a2d19ee07808f"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/musician_chat.gd",
+      "bytes": 20749,
+      "sha256": "890dce6b3cf485e83c2e94bf2accd7a9844faa7940582a7486fee03b9375de01"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/musician_situations.gd",
+      "bytes": 4400,
+      "sha256": "ba1709a481eac2c27921e4ac2cc6384efc47b8ab6744d60e01196b963adb8ddb"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/name_rules.gd",
+      "bytes": 3901,
+      "sha256": "273958995048a7f67289e6a075952903e308d571af338c05ab3a1dab62fa63e9"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/opening_state.gd",
+      "bytes": 46258,
+      "sha256": "bbb95cc5a240661511dbba461c60e485b56b15288edc7d2f3777c9540d0c72a1"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/packed_pcm.gd",
+      "bytes": 2188,
+      "sha256": "9f1fb47a39cde9be674c234f4a0a163c1ee116e0ff39e878dc8764bea587bb5f"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/personal_context.gd",
+      "bytes": 3571,
+      "sha256": "9744b80f12cb9f835fc5a7d2935485550340bd9f966fd1bb922d78c4c50d1cfc"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/producer_recipe.gd",
+      "bytes": 10553,
+      "sha256": "0db4ed876c070e83e96d82e0baa3498891f932751d4abe4424025665a4119b6c"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/producer_social.gd",
+      "bytes": 3564,
+      "sha256": "0769e4421336e9055e1cb12f840ef1e8ec975c74113bf0ddc1c02656d0ff271b"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/promotion_rules.gd",
+      "bytes": 15868,
+      "sha256": "f6230624e19261fd7697e8af8a0722998fbe9be4e0af833af516f5ca8302c10d"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/radio_visit_rules.gd",
+      "bytes": 13783,
+      "sha256": "f20abb4d5f49d2f1de4f7037b92764a6af4be36ba77369c7e79876cc1ae43728"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/recorded_steady.gd",
+      "bytes": 9487,
+      "sha256": "e77c16df3c12b974b79c356d335a8d9cc48bbea08d60a97440e6c4678acd4205"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/recorded_vocal_keys.gd",
+      "bytes": 4030,
+      "sha256": "87a4ef9a52ddebfae86c963b333c2c63dd166f2f303ac32d0c8bac300b4be2d9"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/recording_rules.gd",
+      "bytes": 16104,
+      "sha256": "d4eb16e54c4a4b4f15cb36d8bc2776d58d9c59bc50a000953309ee8c8bc9a71a"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/recruitment_pricing.gd",
+      "bytes": 2110,
+      "sha256": "cbc9b84fdd6e6b6fe2cb340e472bd88603948b75e6321020c17844e853777e91"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/rehearsal_intent.gd",
+      "bytes": 7291,
+      "sha256": "42e2cbe26e743b2bbf97c417139fc1326371b039dc1f2b7bbd921c88779fb501"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/review_policy.gd",
+      "bytes": 10475,
+      "sha256": "94b362020ddc54283960abcf33139fcdf51a913e18f1038ae9531b508f86b5e9"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/scene_circuit.gd",
+      "bytes": 19142,
+      "sha256": "b84e39418fa771c7102322b4b3180d74bcb086c3281821c5a09f6afbd5b638b6"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/session.gd",
+      "bytes": 20799,
+      "sha256": "99e8a37ef9771f9c13864e5038f1bf060fc78877f850ec5409196918b12b0946"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/show_flow.gd",
+      "bytes": 38794,
+      "sha256": "45c906a55a53ca86034c9ec06ef9f677de8a6e1a992fe70f5071397931b4e6d2"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/situation_core.gd",
+      "bytes": 27320,
+      "sha256": "9eb8b1dff7bbcecf8087707fe80cf3b6783b18970aaa5521376f369e6c5a430f"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/situation_jam.gd",
+      "bytes": 3611,
+      "sha256": "d9f9b630a6267b8ecd0144f1f242cd722373e377897e38acc6b9b672cc8b1d3c"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/situation_practice.gd",
+      "bytes": 4538,
+      "sha256": "b70aabc1f19bd693557f4292c0051033557c866642e1798db321fd3fdf3b19b0"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/song_fragment_content.gd",
+      "bytes": 5007,
+      "sha256": "3e38db06da2dbf019a38e2636a00316806f54ff47f465a0e9995a339fb51f297"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/song_preparation.gd",
+      "bytes": 6198,
+      "sha256": "6c5dc5f64b8e1390e41c869eb2ea80148abe0a5c01a0b5f5b5a37d489945a22b"
+    },
+    {
+      "path": "models-v5/candidate/project/experiments/playable_flightcase/song_workbench.gd",
+      "bytes": 68934,
+      "sha256": "c4177664d13cd655a2e037f066f66db5a2b74282c2231f8e19ec338d569253e0"
+    },
+    {
+      "path": "models-v5/candidate/project/project.godot",
+      "bytes": 263,
+      "sha256": "e1d34eee6378d416aaec550e2b3aebbe6a04b3708823c665d9714a2a7d6f8b3c"
+    },
+    {
+      "path": "models-v5/candidate/project/tests/song57_craft_fairness.gd",
+      "bytes": 16338,
+      "sha256": "5d65b4ae62eefb1845b0b4b4ee57e968728ec36b61804c6add1522c8e1b8828f"
+    },
+    {
+      "path": "models-v5/candidate/project/tests/song61_preparation.gd",
+      "bytes": 14375,
+      "sha256": "b1f1f595507dbc749cc01c5d0a11ec3ac5d0b94ab7a1cc6bffa9e6cd44012516"
+    },
+    {
+      "path": "models-v5/environment/baseline/NO_ANDROID_SIGNING.txt",
+      "bytes": 63,
+      "sha256": "408189a850af89f8caa648cceb08683049e1542cbd945168e110735d7380b011"
+    },
+    {
+      "path": "models-v5/environment/baseline/cache/fontconfig/3830d5c3ddfd5cd38a049b759396e72e-le64.cache-9",
+      "bytes": 352,
+      "sha256": "550fef73de0cdab50e452154beaf9e16bcc8916ed2d961b358a7553b0782937f"
+    },
+    {
+      "path": "models-v5/environment/baseline/cache/fontconfig/CACHEDIR.TAG",
+      "bytes": 200,
+      "sha256": "05e7633fb31bf1f6f8d89020c16b9f24587fdf7638e951c9745b192f5fc3b682"
+    },
+    {
+      "path": "models-v5/environment/baseline/config/godot/editor_settings-4.7.tres",
+      "bytes": 486,
+      "sha256": "0ada649caf48da45eba09c7d376e3c3000f0b1825152aafa1b4cadac98ce8b59"
+    },
+    {
+      "path": "models-v5/environment/baseline/data/BandMasterSONG59IsolatedQA/c27_opening_draft.json",
+      "bytes": 194445,
+      "sha256": "49c03a725b4517dbb63d87c67f472cb751a902f52f7b65ff0b84ad6f7fbb37e0"
+    },
+    {
+      "path": "models-v5/environment/baseline/data/BandMasterSONG59IsolatedQA/logs/godot.log",
+      "bytes": 218,
+      "sha256": "6b595db67144655fd9ccbfd7a2b6cd30c458fd2aed7a31e13893cdd27a3fd50c"
+    },
+    {
+      "path": "models-v5/environment/baseline/guarded-jdk/bin/jarsigner",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v5/environment/baseline/guarded-jdk/bin/java",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v5/environment/baseline/guarded-jdk/bin/keytool",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v5/environment/candidate/NO_ANDROID_SIGNING.txt",
+      "bytes": 63,
+      "sha256": "408189a850af89f8caa648cceb08683049e1542cbd945168e110735d7380b011"
+    },
+    {
+      "path": "models-v5/environment/candidate/cache/fontconfig/3830d5c3ddfd5cd38a049b759396e72e-le64.cache-9",
+      "bytes": 352,
+      "sha256": "550fef73de0cdab50e452154beaf9e16bcc8916ed2d961b358a7553b0782937f"
+    },
+    {
+      "path": "models-v5/environment/candidate/cache/fontconfig/CACHEDIR.TAG",
+      "bytes": 200,
+      "sha256": "05e7633fb31bf1f6f8d89020c16b9f24587fdf7638e951c9745b192f5fc3b682"
+    },
+    {
+      "path": "models-v5/environment/candidate/config/godot/editor_settings-4.7.tres",
+      "bytes": 489,
+      "sha256": "dba5b833ecb385ab4da99da022ce705162b41bc5375118529d0a2d578c2ed653"
+    },
+    {
+      "path": "models-v5/environment/candidate/data/BandMasterSONG59IsolatedQA/c27_opening_draft.json",
+      "bytes": 304449,
+      "sha256": "2d940f5362edb1de4040025d7bbfd11c18170716acb37e906ed149d984d8673b"
+    },
+    {
+      "path": "models-v5/environment/candidate/data/BandMasterSONG59IsolatedQA/logs/godot.log",
+      "bytes": 219,
+      "sha256": "1dce73ff072868fc8daa5e668568fe8bc3550fa00713e4cf1cd40377b0ba5181"
+    },
+    {
+      "path": "models-v5/environment/candidate/guarded-jdk/bin/jarsigner",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v5/environment/candidate/guarded-jdk/bin/java",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v5/environment/candidate/guarded-jdk/bin/keytool",
+      "bytes": 102,
+      "sha256": "8af2b7bab299376beb50b7d4e78d91e5fdf8388a08292a2aa58d31f169a5d96a"
+    },
+    {
+      "path": "models-v5/logs/baseline.log",
+      "bytes": 218,
+      "sha256": "6b595db67144655fd9ccbfd7a2b6cd30c458fd2aed7a31e13893cdd27a3fd50c"
+    },
+    {
+      "path": "models-v5/logs/candidate.log",
+      "bytes": 219,
+      "sha256": "1dce73ff072868fc8daa5e668568fe8bc3550fa00713e4cf1cd40377b0ba5181"
+    }
+  ]
+}

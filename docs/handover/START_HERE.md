@@ -1,35 +1,31 @@
 # BandMaster current handover
 <!-- session: SONG61 -->
-<!-- status: active -->
+<!-- status: closed -->
 
-SONG61 root owns bounded R3 owner/model foundation until04:50. No UI/scoring/audio/art changes.
+Use ONLY `feature/playtest-polish-v20` live remote head; no reset to cached source/main/original dirty checkout. **SONG61 closed; writer released.** Tested product `0b730048f4fa77fcd4a4a06093549aa5bc862b81`; later metadata/evidence commits may be newer.
 
-Complete R3 exact-revision rehearsal owner/model foundation; then integrate selector and proportionate transfer before advancing R4.
+## Ready and remaining
 
+R2/SONG57–60 remains internally verified. SONG61 adds PARTIAL R3: optional factual exact song/composition/revision/actual-candidate rehearsal ledger and shared OpeningState.rehearse_song owner. Original rehearsal/Situation→Live→Finance→private save runs once; sharedbusy, wholeopening rollback/retry and stale token duplicate guards. No extra reward/readiness formula, invented legacy preparation, UI or music change. Ordinary existing rehearsal callers unchanged. Bounded256records refuse further linked writes rather than erase history.
 
+106baseline/334candidate assertions pass in finalv5 on71/72literalinputs. Real completed songs and original available-day actions; two fixture careers each3successful linked rehearsals including actual Tuesday2-person session. Not whole-menu/native gameplay. Twelve owner_transactions counts successful original WRITING helper settlements, not rehearsal IO. RealFSfailure/retry/typedreload/fullwrapper exact; transparent original-save counter proves instrumented1failed/1retry/0duplicate, reentrant operations refused. Original wholecareer compared exact after erasingONLYnewledger. Separate genuine distinctly named second originals; same-title collision/revision/replacement cases explicitly synthetic identity guards. Original duplicate-title admission rule retained.
 
-**SONG60 closed; writer released.** Product tested at `c88d49ee14ee708d1cab55e43d727057799658a4`. Candidate `8f506b52a84ccd10dca9f5fbdda038966b6c4200` has identical game/test inputs plus durable evidence and a historical CI-trigger correction; final handover metadata may be newer.
+Nine actual localGodot=7strict+2held (v1 Saturday-unavailable fixture;v3 duplicate-title fixture/continued dependent access). All source/logs/receipts retained. Independent source/workflow and proof/input-hash reviewsCLEAR for narrowmodel scope. One retained SONG56 songbook reference opened byroot,0newnativeimages. UI/native/listening/device/owner/release acceptance NOT claimed. All54Scripts and existingart/audio/fonts exact. [Results](../continuous_improvement/SONG61_RESULTS.json),[review](../continuous_improvement/SONG61_REVIEW.json),[rawproof](../continuous_improvement/evidence/SONG61/).
 
-Writing now exposes NEXT IDEA PARTNER beside the actual person's name/role. Pending leader and collaborator resolve together inside original Save/Commit; changing person invalidates the response without discarding other edits. Existing four-field payload remains valid. Finished Originals shows a validated retained person/field/session callback after reload; known empty and untracked legacy evidence stay distinct. Original credits/scoring/art/fonts/54Scripts and2–3track demo rules unchanged.
+Allfour exactsourceCI pass:43556109623gate/43556109659structure/43556109635headless/43556109642linkedmodels; artifact14098183257(121834B,digestaf220195a7e21aa22997f39e7b276711d5b8e7b345de9ba36f67510cee815ca4). Modelartifactmetadata verified, not downloaded/opened. Publishedgame/test/workflowblobIDs match localbytes.
 
-Models100/380 pass. Final native-v5:190checks per390×844,720×1280,1280×720,1600×900; each completes3actual paid stages, free/paid realFSfailure/retry, duplicate refusal, typedreload, pointer/key/emulatedtouch/wheel, pending swaps and actual mute/preference restore. Native writing mounts real MixingDesk with QA handler executing the actual originalowner/Situation/Live/Finance chain; production RootUI._commit_session is source-reviewed, not directly executed. Callback is mounted in actual ui.gd Finished Originals. These are public formation fixtures, not whole-menu journeys;3counts paid settlements, not all IO/saves. Each native log has1VSync driver warning, noERROR. No listening/device/human acceptance.
+## ONE next action
 
-Four current exact-source CI workflows pass atc88; model43551880246/artifact14096458079. Historical SONG56 visual run43551880195 failed its pinned CURRENT=SONG56 check BEFORE engines. It remains failed; its obsolete broad source trigger now arms only on explicit SONG56 session work. All historical job assertions/native steps unchanged. Current generic gates and scoped native evidence remain required; do not rerun completed R1.
+Finish R3 player-facing song/version rehearsal selection and source-backed proportionate transfer, with early/final native gates; do not advance R4 yet.
 
-Two independent reviews CLEAR.94durable evidence files include27exactPNG originals (24final,2baseline,1held bare callback) and raw receipts/source manifests; intermediate originals remain immutable in TMP. [Results](../continuous_improvement/SONG60_RESULTS.json), [review](../continuous_improvement/SONG60_REVIEW.json), [evidence](../continuous_improvement/evidence/SONG60/), [session](../continuous_improvement/sessions/SONG60.json). Technical/internal scoped PASS; ownerfalse/no APK/release. Body scrolling, concise callback and sparse archive remain.
+Do not treat exact-version evidence as full R3: player-facing selection, proportionate changed-section transfer and earlyphone/short+four-view whole-task/native save gates remain. Existing code has no supported finished-song rewrite/equivalence contract; do not invent musical similarity from hashes. R4–R7 dependencies not passed. R0/R1/SONG57–60closed; no repeats.
 
-## Next bounded pass
+## Android/media/resources
 
-Start bounded R3 song/version/actual-participant rehearsal from the live branch, reusing the verified R2 identity and co-writing owners.
+Original signer previously verified available with unchanged certificate83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2; untouched thispass. No new APK/export/sign. Sameapp com.bandmaster.ownerplaytest.s40/savefolder and existing original signing process required.
 
-R2 is internally verified within this scope; full-app/uncoached experience remains R7. R0/R1 and SONG57–60 are closed—do not redo fairness or co-writing. [S80](../continuous_improvement/S80_EXECUTION_QUEUE.md) is the sole queue; [roadmap](../ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md) supplies dependencies. R3 must reuse original rehearsal owner/cost/attendance and canonical song/revision/person IDs; no duplicate scheduler, economy or transaction. Absent members gain no invented practice; legacy preparation stays unknown; no blanket transfer/reset.
+Current readonlyDropbox investigation14Nov04:08: connected AlistairMuir namespace13916460209; /BandMaster empty BUT /audio files contains33rawWAVstems/1144924716B for6titles uploaded13Nov. These are NOT the9missing current processed dependencies, and rights for6titles are not established by old LastBusGone acceptance. Exactprocessed manifest/bank/archive/APK searches foundnone. Old sourceZIP metadata INVALID_ARGUMENT does not prove deletion/revocation. No binary/networkbypass/link/grant change. Audio APK still blocked on existing approved processed media; do not globally call Dropbox empty or claim signing key missing.
 
-## Delivery/resources
+Primaryfree625475584B unchanged/pre-existing below629145600floor. No primarysource/Git/cacheallocation. Preserve originalcheckout19df671/durable dirty metadata. SONG61 TMPcap1.75GiB; actualowned~606MB beforefinalmetadata, completebudgets in evidence. All9modelproducers752files now CLOSED/IMMUTABLE; all older producers remain closed. Future work startslivehead/fresh regular privatecopies; no resume/import/cachewrites/cleanup/gc/repack/prune/reset. CriticalGit durableGitHubGitData; localGitmutations ifany disable gc.auto andmaintenance.auto.
 
-Original signer was verified available in SONG58 with certificate83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2 and unchanged file hash/mtime. No signing/export/key generation or transfer this pass. Existing app/save identity remains required.
-
-Nine current private audio/JSON dependencies remain missing (SONG58_RESULTS lists them); original Dropbox/BandMaster listing empty and restricted network lacks custom allowed hosts. No repeated unchanged probes. Restore only existing approved private media before claiming a complete audio APK; continue independent source work meanwhile.
-
-Primary free observed625475584B versus625479680B baseline:4KiB global delta, cause unproved; no source/Git/cache allocation on primary. Preserve original checkout19df671/durable dirty metadata. Prospective SONG60 TMPcap3GiB; large native/evidence files TMP, all critical Git durable on GitHub. All SONG60 and older producers/caches permanently closed; never resume/write them. Fund each next complete source/cache/PNG/failed-tail/Git/closeout scope before allocation; no cleanup/gc/reset. Local Git mutations disable gc.auto/maintenance.auto.
-
-Run context start, relevant lessons/newissues, improvement_gate/context checks. Same finite schedule: no new systems07:00; readiness08:00; candidate/handover08:50; stop mutations09:00 Europe/London14November. No extra queue/extension/continuous-compute claim. [Historical manifest](archive/SONG56_5be37ae/MANIFEST.json) preserves exact past bytes; archived leases/approvals inactive.
+Run contextstart/relevantlessons/newissues, committed scopedpreflight and improvement_gate/contextchecks. S80solequeue; roadmapdependencies authoritative. Same finiteprogramme: no newsystems07:00, readiness08:00, handover08:50, mutationsSTOP09:00London14Nov. No extraqueue/controller/extension/continuouscompute claim. Historicalmanifest archives unchanged.

@@ -4,10 +4,10 @@
   "session_path": "docs/continuous_improvement/sessions/SONG61.json",
   "canonical_current": "docs/continuous_improvement/CURRENT.json",
   "branch": "feature/playtest-polish-v20",
-  "status": "active",
-  "writer": "root-SONG61",
+  "status": "closed",
+  "writer": null,
   "owner_approved": false,
-  "updated_at": "2026-11-14T04:11:58.545052+00:00",
-  "next_single_action": "Complete R3 exact-revision rehearsal owner/model foundation; then integrate selector and proportionate transfer before advancing R4.",
+  "updated_at": "2026-11-14T04:24:03.858075+00:00",
+  "next_single_action": "Finish R3 player-facing song/version rehearsal selection and source-backed proportionate transfer, with early/final native gates; do not advance R4 yet.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json"
 }

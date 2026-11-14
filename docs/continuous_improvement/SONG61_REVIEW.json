@@ -1,0 +1,55 @@
+{
+  "session": "SONG61",
+  "tested_sha": "0b730048f4fa77fcd4a4a06093549aa5bc862b81",
+  "verdict": "CLEAR_FOR_PARTIAL_R3_OWNER_MODEL_ONLY",
+  "owner_approved": false,
+  "source_review": {
+    "agent": "/root/au01_source_review",
+    "status": "completed_released",
+    "finding": "Original outcome attendance, canonical bounded song/composition/revision/candidate IDs, max6, typed malformed refusal, sharedbusy, wholeowner rollback and original single save chain reviewed. Earlier HOLDs retained and corrected."
+  },
+  "proof_review": {
+    "agent": "/root/foundation_tests",
+    "status": "completed_released",
+    "finding": "Independently rehashed71baseline/72candidate inputs and logs;106/334 clean. Counter proof scoped to instrumented attempts;12 owner_transactions means successful WRITING helper settlements, not rehearsal or save IO."
+  },
+  "actual_originals_opened": [
+    "docs/continuous_improvement/evidence/SONG56/songbook-phone.png"
+  ],
+  "native_opens_this_pass": 0,
+  "simulated_lenses": [
+    {
+      "lens": "Bandmate continuity",
+      "explicitly_simulated": true,
+      "finding": "Absent musicians retain past records but gain no new session; no human listening or attendance inferred."
+    },
+    {
+      "lens": "Songwriter identity",
+      "explicitly_simulated": true,
+      "finding": "Exact composition/revision/person records survive cosmetic rename; another song or untracked revision gets no invented history."
+    },
+    {
+      "lens": "Player clarity",
+      "explicitly_simulated": true,
+      "finding": "No player-visible improvement claimed yet; selector and simple explanation remain required."
+    },
+    {
+      "lens": "Save reliability",
+      "explicitly_simulated": true,
+      "finding": "Real failed write/retry, stale duplicate and busy-time reentrancy preserve old state and file."
+    },
+    {
+      "lens": "Maintainer",
+      "explicitly_simulated": true,
+      "finding": "Original rehearsal, Situation, Live, Finance and private write reused once; bounded optional evidence has no readiness math."
+    }
+  ],
+  "limits": [
+    "No UI changes/new native captures/phone/listening/physical testing.",
+    "No changed-section transfer or preparation-to-gig scoring. R3 partial; R4-R7 not advanced.",
+    "Same-title collision is a synthetic rename guard after earning a distinct second original; original duplicate-title refusal preserved.",
+    "Changed revision/replacement negative identity cases are explicit synthetic guard fixtures, not earned rewrite/replacement gameplay.",
+    "Unknown/malformed ledger variation matrix validates the leaf; executed owner refusal covers scalar and future policy examples.",
+    "Instrumented IO counters cover first failure/retry/duplicate/refusal only; later plain restored owners are not counted."
+  ]
+}
