@@ -68,7 +68,9 @@ func _song(scenario: String) -> void:
   if scenario=="switch" and stage==1:
    _check(owner.workbench_action("select_collaborator",owner.workbench_expected(),{"candidate_id":"cast_zoe"}).ok,"later paid session can explicitly choose another collaborator")
   recipe=owner.workbench_view().project.fragment.producer_recipe.duplicate(true);recipe.stage=stage
-  if scenario=="overwrite" and stage>0:recipe.energy="open" if stage==1 else "full"
+  if scenario=="overwrite" and stage>0:
+   var adopted: String=owner.workbench_view().project.paid_receipts[0].fragment_snapshot.producer_recipe.energy
+   recipe.energy=("full" if adopted=="open" else "open") if stage==1 else adopted
   _check(owner.workbench_action("producer_try",owner.workbench_expected(),{"recipe":recipe,"title":"A retained idea","leader_index":0}).ok,"fresh selected collaborator trial")
   var project: Dictionary=owner.workbench_view().project
   _check(project.target.respondent_ref.candidate_id==("cast_zoe" if scenario=="switch" and stage>=1 else "cast_casey"),"actual selected person retained across free/paid stages")
@@ -92,6 +94,9 @@ func _song(scenario: String) -> void:
  var extension: Dictionary=song[Workbench.FRAGMENT_KEY]
  _check(Workbench.finished(owner.snapshot()).items.size()==1,"finished full new extension valid")
  _check(extension.co_writing_v1.retained.size()==(2 if scenario=="switch" else (1 if scenario=="try" else 0)),"only actual retained adoption credited; no declined/resurrected credit "+scenario)
+ if scenario=="overwrite":
+  var rows: Array=extension.paid_receipts
+  _check(rows[0].fragment_snapshot.producer_recipe.energy!=rows[1].fragment_snapshot.producer_recipe.energy and rows[0].fragment_snapshot.producer_recipe.energy==rows[2].fragment_snapshot.producer_recipe.energy,"actual paid adoptedA/ownB/ownA does not resurrect credit")
  if scenario=="switch":
   var actual: Dictionary={}
   for item in extension.co_writing_v1.retained:actual[item.field]=item.candidate_id
