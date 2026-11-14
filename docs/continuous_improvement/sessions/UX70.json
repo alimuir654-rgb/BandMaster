@@ -11,8 +11,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
   },
   "issue_log_review": {
-    "bytes": 2358958,
-    "sha256": "5df6d6b5c57a1e7f3cc87b4fc0cd6d9e671cfeed53c8b1194b999ad305afbc3a"
+    "bytes": 2359989,
+    "sha256": "5a5990cf3ba4ffa96d50528166967c9a0cea39ec29f76e9bd6a30723364e0e09"
   },
   "lesson_ids": [
     "BM-05",
@@ -81,7 +81,8 @@
     "status": "active",
     "claimed_at": "2026-11-14T18:48:03.772323+00:00",
     "expires_at": null,
-    "source_writers": 1
+    "source_writers": 1,
+    "resumed_at": "2026-11-14T20:56:49.379354+00:00"
   },
   "next_action": "Implement and verify UX70 character-first conversations, progressive choices and fixed navigation against the pinned baseline.",
   "queue_task_ids": [
@@ -137,5 +138,17 @@
     "All authored content and fingerprints, canonical cast/bios and source art/fonts/passive meters",
     "All gameplay/resolver/economy and owner save files remain byte-identical",
     "Original app ID, production save directory, unsigned/signed V26 and original key remain untouched"
-  ]
+  ],
+  "continuation": {
+    "owner_request": "Continue with the correct roadmap.",
+    "source_head": "a84271c244a416a257770b984029c7ba9baa324f",
+    "authority": "Direct current owner continuation; resume existing UX70 without creating another queue or restarting automation.",
+    "writer_check": "Current branch head and UX70/current/state/lock agree; no local implementation or native process active. Existing root-UX70 role retained as the sole writer.",
+    "read_only_reviewer": "/root/ux70_review",
+    "reference_originals_opened": [
+      "docs/continuous_improvement/evidence/SONG63/native-v1/candidate/phone/selected-long-title.png",
+      "docs/continuous_improvement/evidence/SONG60/final-phone-chosen-casey.png"
+    ],
+    "scope": "Verify committed UX70, fix only evidenced in-scope defects, and close with source-bound evidence before progressing to R3."
+  }
 }

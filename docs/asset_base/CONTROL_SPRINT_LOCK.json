@@ -7,7 +7,7 @@
   "status": "active",
   "writer": "root-UX70",
   "owner_approved": false,
-  "updated_at": "2026-11-14T18:48:03.772323+00:00",
+  "updated_at": "2026-11-14T20:56:49.379354+00:00",
   "next_single_action": "Implement and verify UX70 character-first conversations, progressive choices and fixed navigation against the pinned baseline.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json",
   "base_head": "3c85758dadf9d17fece8a4ab6e693f41660c047c",

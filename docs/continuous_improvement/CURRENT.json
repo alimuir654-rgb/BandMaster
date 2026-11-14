@@ -7,7 +7,7 @@
   "status": "active",
   "scope": "Presentation-only first cleanup: shared top navigation in career/practice/audition/writing; grouped destination choices; character-first audition, musician and promoter conversations; staged existing songwriting/rehearsal decisions. Existing models, authored content, art/audio, save schema and settlement remain protected.",
   "authority": "Review and tidy BandMaster UI/UX across the game: fixed navigation position, less text and fewer simultaneous options, particularly auditions and songwriting. Put each interacting character front and centre, one speech/question with about three player replies, then reveal the next exchange in the same scene; use similar pacing for rehearsal.",
-  "updated_at": "2026-11-14T18:48:03.772323+00:00",
+  "updated_at": "2026-11-14T20:56:49.379354+00:00",
   "writer": "root-UX70",
   "owner_approved": false,
   "source": {

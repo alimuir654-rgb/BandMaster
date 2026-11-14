@@ -1,0 +1,10 @@
+{
+  "kind": "source_checkout_setup_failure",
+  "source_sha": "a84271c244a416a257770b984029c7ba9baa324f",
+  "command": "tools/ux70_verify.py --profiles phone short",
+  "observed": "Source curation stopped before engine execution: Required source absent: experiments/art_material/portrait_preview/nia_griffiths_512x690.webp",
+  "cause": "Tracked source exists at pinned HEAD; initial sparse checkout omitted experiments/art_material.",
+  "correction": "Expanded scratch checkout to the existing experiments tree, preserving tracked bytes.",
+  "engine_executed": false,
+  "product_defect_claimed": false
+}
