@@ -1,0 +1,24 @@
+{
+  "request_file_sha256": "42fb4c51238778f681adb86fdff6cd6648b1062c56d4249fbe31faf62c9fcff0",
+  "request_id": "f68e8d992998a6c5b685ad48cb8ee16d34148ae0995174fc225348d1e8249f1b",
+  "response_sha256": "6e2d6f1f55fe8f62aab0b52ec0acedc28330882e01b10e0cf6ebc4b756c1b4dd",
+  "response_fields": [
+    "certificate_sha256",
+    "request_id",
+    "schema_version",
+    "signature_base64",
+    "signed_data_sha256"
+  ],
+  "signature_bytes": 256,
+  "signed_data_bytes": 884,
+  "signed_data_sha256": "db0cc73e146d030f677fd40c9a90017f13b64fb389e2ba7149c2b61e097a5aee",
+  "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+  "original_alias": "androiddebugkey",
+  "application_id": "com.bandmaster.ownerplaytest.s40",
+  "signing_algorithm": "SHA256withRSA / RSASSA-PKCS1-v1_5; hash performed once onexactdecodedmessage",
+  "actual_recovered_original_key_signature_verified": true,
+  "independent_public_RSA_verification": true,
+  "APK_assembly_official_apksigner_here": false,
+  "durable_recovery_secret_binding": "NOT_CONFIGURED",
+  "fresh_other_environment_recovery_tested": false
+}

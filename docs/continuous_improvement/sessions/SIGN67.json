@@ -7,8 +7,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
   },
   "issue_log_review": {
-    "bytes": 2351172,
-    "sha256": "5785dce46e6d8d1a10a881efd025d60cfe5fbe2bb854a324b9054fea9a9ba380"
+    "bytes": 2353589,
+    "sha256": "2f2aa62d79405d73ed81a84fca399e913eadb78403beba86637381586b20aa62"
   },
   "lesson_ids": [
     "BM-01",
@@ -37,7 +37,7 @@
     "purpose": "Actually opened unchanged SONG63 reference for presentation protection; this pass targets asset recovery, not visual change."
   },
   "id": "SIGN67",
-  "status": "active",
+  "status": "closed",
   "baseline_sha": "831b01e639b67824c3a732fe7f084490398f6ac6",
   "hypothesis": "Encrypted authenticated ownerbackup plus separately bound recoverysecret can recover exactoriginalJKS/passwords and use existing pinnedJava signer for smallpublicrequests without APK/keytransfer.",
   "controlled_comparison": "Exact originalJKS bytes/cert vs authenticated backup recovery in newprivate tempdir; exactV26message884B/hash and independentlyverified256BRSAsignature; negativetamper/wrongsecret/policyrefusal tests.",
@@ -71,11 +71,12 @@
   ],
   "writer": {
     "owner": "root-SIGN67",
-    "status": "active",
+    "status": "released",
     "claimed_at": "2026-11-14T11:09:37.866941+00:00",
-    "expires_at": null
+    "expires_at": null,
+    "released_at": "2026-11-14T11:27:28.309499+00:00"
   },
-  "next_action": "Return verifiedV26detachedsignature and truthful encryptedbackup/recovery runbook; identify owner-only securebinding setup if unavailable.",
+  "next_action": "Assemble and officially verify the exact V26 APK using the committed public response; owner secure recovery-secret binding remains a separate required setup step.",
   "queue_task_ids": [
     "RESTORE66-private-media"
   ],
@@ -104,5 +105,13 @@
   },
   "tested_sha": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
   "results": "docs/continuous_improvement/RESTORE66_RESULTS.json",
-  "review": "docs/continuous_improvement/RESTORE66_REVIEW.json"
+  "review": "docs/continuous_improvement/RESTORE66_REVIEW.json",
+  "completed_at": "2026-11-14T11:27:28.309499+00:00",
+  "closeout": {
+    "tested_sha": "a38d6b8969b4f218a1b999a297febabff4b641e5",
+    "evidence": "docs/continuous_improvement/SIGN67_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Assemble and officially verify the exact V26 APK using the committed public response; owner secure recovery-secret binding remains a separate required setup step.",
+    "new_issue_review": "RetainedDropboxrawtextSHAHOLD andQAoversizewriterfailure; bothrecordedbeforecorrection/methodchange, resolvedwithindependentchecks."
+  }
 }

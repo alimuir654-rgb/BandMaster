@@ -1,0 +1,13 @@
+{
+  "uploaded_raw_bytes": 4380,
+  "extracted_text_bytes": 4381,
+  "rawbytecomparison": "HELD_DIFFERENT_JSON_WHITESPACE",
+  "provider_Dropbox_content_hash": "2293937585dfdab0627082e790a05cfeff10fb067fbd583eb024a952eda54dd6",
+  "provider_hash_matches": true,
+  "decoded_envelope_exact": true,
+  "AES_GCM_authentication": true,
+  "recovered_original_keystore_byte_exact": true,
+  "recovered_certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+  "method": "Dropboxauthenticatedtextfetch, providercontenthash, AEADpayload recovery; no rawHTTPdownload claim",
+  "wrapping_secret_durability": "PENDING ownersecurefilebinding"
+}

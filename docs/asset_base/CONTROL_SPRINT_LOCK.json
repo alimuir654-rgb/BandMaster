@@ -4,16 +4,17 @@
   "session_path": "docs/continuous_improvement/sessions/SIGN67.json",
   "canonical_current": "docs/continuous_improvement/CURRENT.json",
   "branch": "feature/playtest-polish-v20",
-  "status": "active",
-  "writer": "root-SIGN67",
+  "status": "closed",
+  "writer": null,
   "owner_approved": false,
-  "updated_at": "2026-11-14T11:09:37.866941+00:00",
-  "next_single_action": "Return verifiedV26detachedsignature and truthful encryptedbackup/recovery runbook; identify owner-only securebinding setup if unavailable.",
+  "updated_at": "2026-11-14T11:27:28.309499+00:00",
+  "next_single_action": "Assemble and officially verify the exact V26 APK using the committed public response; owner secure recovery-secret binding remains a separate required setup step.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json",
   "base_head": "831b01e639b67824c3a732fe7f084490398f6ac6",
   "claimed_at": "2026-11-14T11:09:37.866941+00:00",
   "expires_at": null,
   "claim_basis": "14November2026 08:31 follow-up: owner said Go ahead to locating/restoring existing processed assets and indexes and working through the build checks. This is fresh scoped recovery authority after the overnight readiness report; no new gameplay or recurring extension.",
   "tested_source": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
-  "game_source": "7ae8667071c4aa8f2aefd8de891f498ad9d09118"
+  "game_source": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
+  "released_at": "2026-11-14T11:27:28.309499+00:00"
 }

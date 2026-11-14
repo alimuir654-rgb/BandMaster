@@ -1,0 +1,7 @@
+{
+  "fixture": "QAbytes/mockedcertificate; nooriginalkey",
+  "produced_envelope_bytes": 93852,
+  "recover_cap_bytes": 65536,
+  "recovery_refused": true,
+  "disposition": "HELD_WRITER_CAP_GAP"
+}

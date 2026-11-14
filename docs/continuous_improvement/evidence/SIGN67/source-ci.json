@@ -1,0 +1,23 @@
+{
+  "source_commit": "a38d6b8969b4f218a1b999a297febabff4b641e5",
+  "runs": [
+    {
+      "id": 43589779841,
+      "name": "Validate BandMaster structure",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 43589779909,
+      "name": "Mandatory continuous-improvement gate",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 43589779888,
+      "name": "Godot headless validation",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+test_actual_original_v22_signature_known_answer (__main__.SignRequestTests.test_actual_original_v22_signature_known_answer) ... ok
+test_certificate_pin_cannot_be_replaced (__main__.SignRequestTests.test_certificate_pin_cannot_be_replaced) ... ok
+test_changed_app_rejected (__main__.SignRequestTests.test_changed_app_rejected) ... ok
+test_changed_digest_cannot_reuse_signed_data (__main__.SignRequestTests.test_changed_digest_cannot_reuse_signed_data) ... ok
+test_changed_pinned_request_file_rejected (__main__.SignRequestTests.test_changed_pinned_request_file_rejected) ... ok
+test_duplicate_json_fields_rejected (__main__.SignRequestTests.test_duplicate_json_fields_rejected) ... ok
+test_held_audit_cannot_sign (__main__.SignRequestTests.test_held_audit_cannot_sign) ... ok
+test_java_compiles_and_missing_original_refuses_without_output (__main__.SignRequestTests.test_java_compiles_and_missing_original_refuses_without_output) ... ok
+test_new_reference_mode_preserves_exact_public_proof (__main__.SignRequestTests.test_new_reference_mode_preserves_exact_public_proof) ... ok
+test_no_key_fails_without_creating_response (__main__.SignRequestTests.test_no_key_fails_without_creating_response) ... ok
+test_old_signature_cannot_sign_v23 (__main__.SignRequestTests.test_old_signature_cannot_sign_v23) ... ok
+test_original_signature_still_cannot_sign_new_reference_request (__main__.SignRequestTests.test_original_signature_still_cannot_sign_new_reference_request) ... ok
+test_pinned_public_reference_verifies_actual_signature (__main__.SignRequestTests.test_pinned_public_reference_verifies_actual_signature) ... ok
+test_pss_is_not_pkcs1_v15 (__main__.SignRequestTests.test_pss_is_not_pkcs1_v15) ... ok
+test_public_reference_request_tamper_refused (__main__.SignRequestTests.test_public_reference_request_tamper_refused) ... ok
+test_public_reference_signature_tamper_refused (__main__.SignRequestTests.test_public_reference_signature_tamper_refused) ... ok
+test_v23_exact_frozen_public_request (__main__.SignRequestTests.test_v23_exact_frozen_public_request) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.836s
+
+OK

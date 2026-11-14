@@ -1,0 +1,15 @@
+test_backup_never_overwrites_original_or_outputs (__main__.RecoveryTests.test_backup_never_overwrites_original_or_outputs) ... ok
+test_oversize_envelope_refuses_before_decryption (__main__.RecoveryTests.test_oversize_envelope_refuses_before_decryption) ... ok
+test_recovered_identity_refuses (__main__.RecoveryTests.test_recovered_identity_refuses) ... ok
+test_recovery_is_private_and_removed_even_on_failure (__main__.RecoveryTests.test_recovery_is_private_and_removed_even_on_failure) ... ok
+test_roundtrip_exact_bytes_and_passwords (__main__.RecoveryTests.test_roundtrip_exact_bytes_and_passwords) ... ok
+test_secret_permissions_size_and_symlink_refuse (__main__.RecoveryTests.test_secret_permissions_size_and_symlink_refuse) ... ok
+test_tampered_ciphertext_refuses (__main__.RecoveryTests.test_tampered_ciphertext_refuses) ... ok
+test_unknown_recovered_fields_refuse (__main__.RecoveryTests.test_unknown_recovered_fields_refuse) ... ok
+test_writer_refuses_unrecoverable_oversize_envelope (__main__.RecoveryTests.test_writer_refuses_unrecoverable_oversize_envelope) ... ok
+test_wrong_secret_refuses (__main__.RecoveryTests.test_wrong_secret_refuses) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.006s
+
+OK

@@ -1,0 +1,152 @@
+{
+  "session": "SIGN67",
+  "tested_sha": "a38d6b8969b4f218a1b999a297febabff4b641e5",
+  "packaged_V26_source": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
+  "request": "docs/continuous_improvement/evidence/RESTORE66/BandMaster-V26-APK-v2-signing-request.json",
+  "signature_response": "docs/signing/BandMaster-V26-signature-response.json",
+  "runbook": "docs/signing/RECOVERY.md",
+  "technical_verdict": "PASS_ORIGINAL_KEY_DETACHED_SIGNATURE_AND_LOCAL_BACKUP_RECOVERY",
+  "overall_verdict": "PARTIAL_DURABLE_SECRET_BINDING_REQUIRED",
+  "owner_approved": false,
+  "release_verdict": "PUBLIC_RESPONSE_READY_APK_ASSEMBLY_AND_OFFICIAL_VERIFY_PENDING",
+  "signing_proof": {
+    "request_file_sha256": "42fb4c51238778f681adb86fdff6cd6648b1062c56d4249fbe31faf62c9fcff0",
+    "request_id": "f68e8d992998a6c5b685ad48cb8ee16d34148ae0995174fc225348d1e8249f1b",
+    "response_sha256": "6e2d6f1f55fe8f62aab0b52ec0acedc28330882e01b10e0cf6ebc4b756c1b4dd",
+    "response_fields": [
+      "certificate_sha256",
+      "request_id",
+      "schema_version",
+      "signature_base64",
+      "signed_data_sha256"
+    ],
+    "signature_bytes": 256,
+    "signed_data_bytes": 884,
+    "signed_data_sha256": "db0cc73e146d030f677fd40c9a90017f13b64fb389e2ba7149c2b61e097a5aee",
+    "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "original_alias": "androiddebugkey",
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "signing_algorithm": "SHA256withRSA / RSASSA-PKCS1-v1_5; hash performed once onexactdecodedmessage",
+    "actual_recovered_original_key_signature_verified": true,
+    "independent_public_RSA_verification": true,
+    "APK_assembly_official_apksigner_here": false,
+    "durable_recovery_secret_binding": "NOT_CONFIGURED",
+    "fresh_other_environment_recovery_tested": false
+  },
+  "backed_up": {
+    "encrypted_Dropbox_file": "/BandMasterSigningPrivate/BandMaster-original-signing-v1.bmk",
+    "file_id": "id:6rRaLzqs6O4AAAAAAAABOQ",
+    "bytes": 4380,
+    "encryption": "AES-256-GCM/fresh96bitnonce; versionAAD; originalJKS+bothpasswords+alias/cert/app identity encrypted",
+    "original_signing_key_generated_or_rotated": false,
+    "original_keystore_unchanged": true,
+    "new_backup_encryption_secret": "Separate32byteCSPRNGsecret, only0600privateTMPcustody; notanAndroidkey",
+    "shared_links": "Nonecreated; newfolderdirectlinklistingcomplete/empty",
+    "current_secret_bindings": "Environmentstatussecrets[]; no tooltoimport/publishsecrets",
+    "durability": "EncryptedblobdurableinownerDropbox; fullrecoverabilityPENDINGownerwrappingsecretvaultimport."
+  },
+  "recovery_actually_tested": {
+    "local_backup_exactJKS_and_password_equality": true,
+    "Dropbox_fetched_envelope_AEAD_and_original_JKS_cert_equality": true,
+    "actual_V26_signing_with_recovered_key": true,
+    "independent_public_signature_verification": true,
+    "cross_environment_using_durable_binding": false,
+    "raw_download_byte_equality": false,
+    "raw_text_whitespace_comparison": "HELD,notpromoted; providercontenthash+AEADverified separately"
+  },
+  "tests": {
+    "public_signer_methods": 17,
+    "backup_methods": 10,
+    "mock_QA_backup_tests_are_not_original_key_proof": true,
+    "missing_bindings_refused_without_response": true
+  },
+  "evidence": [
+    {
+      "path": "docs/continuous_improvement/evidence/SIGN67/backup-local-audit.json",
+      "bytes": 515,
+      "sha256": "af6f85701e73d9989420884549b87a4246a2a5b3dbf9f837cc967b1a1dad188f"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SIGN67/backup-readback.json",
+      "bytes": 658,
+      "sha256": "271d58800859d9f2aa19c80bcdbb515126e24deafff23319bf79ce5a688345a2"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SIGN67/backup-tests-final.log",
+      "bytes": 1259,
+      "sha256": "b9c7626bd93f5f63b20e7ac6be5c1ba6692afe2811f852bb4fcab1c1ff58278c"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SIGN67/guard-size-held.json",
+      "bytes": 194,
+      "sha256": "cf65ac489c75bfea7ae0ff0b61e0e64b3a9dd4c8e1d705274e59553b27a444c4"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SIGN67/missing-bindings.log",
+      "bytes": 100,
+      "sha256": "4252c397ac4922b690258acbf8ca04afb761498fdc3cd1328f54d5495440f042"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SIGN67/public-tests-final.log",
+      "bytes": 2162,
+      "sha256": "28d3341d20b3ed4d38789c000ddf86ccd6ad4a4fe22ac27c17fe2055dff03dc3"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SIGN67/signing-proof.json",
+      "bytes": 1111,
+      "sha256": "58d24676e027fd2b6b99704e507e321d07c5092222c7573f7298eb1c3bdd9111"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SIGN67/source-ci.json",
+      "bytes": 518,
+      "sha256": "219b4e81e7cf53f5548ce0207819e748b0fdd583e2ba174133111191e792b9e6"
+    }
+  ],
+  "source_CI": {
+    "source_commit": "a38d6b8969b4f218a1b999a297febabff4b641e5",
+    "runs": [
+      {
+        "id": 43589779841,
+        "name": "Validate BandMaster structure",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 43589779909,
+        "name": "Mandatory continuous-improvement gate",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 43589779888,
+        "name": "Godot headless validation",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "review": "docs/continuous_improvement/SIGN67_REVIEW.json",
+  "owner_one_action": "Importprotected /tmp/bandmaster-sign26-private/recovery-key.bin into reusableBandMaster securefilebinding BM_SIGNING_RECOVERY_KEY_FILE andPublish; keepvalueoutofchat/Git. Testfreshenvironmentafterimport.",
+  "remaining_dependencies": [
+    "No platformsecurefile/secretbinding configured or configurable byavailabletools.",
+    "Recoverysecret remains onlyprotectedtemporaryfile; ownermustimport/publish beforethisenvironment islost.",
+    "No fresh-other-environment recovery test.",
+    "No APKassembly/officialapksigner/physicalinstall/save-retention/listening testedhere.",
+    "Python/envimmutable strings arenot guaranteedzeroised."
+  ],
+  "setup_diagnostics": "Initialpublicstagingcontext checks refusedmissingcurrent/archivefiles andemptyoversizedGitHubfilecontent; changedtofullpinnedrawhistory/hashandmanifest-verifiedarchivecopies beforecommittedpreflight. Nogatesweakened.",
+  "new_issue_review": "RetainedDropboxrawtextSHAHOLD andQAoversizewriterfailure; bothrecordedbeforecorrection/methodchange, resolvedwithindependentchecks.",
+  "resource_plan": {
+    "primary_new_bytes": 0,
+    "TMP_new_cap_bytes": 16777216,
+    "TMP_free_before": 1303232512,
+    "workspace_free_before": 625471488,
+    "floor_bytes": 629145600,
+    "private_stage": "/tmp/bandmaster-sign26-private mode0700; backup/recoverysecret0600, no secretinpublicexport; originalJKSunchanged",
+    "owner_backup": "/BandMasterSigningPrivate/BandMaster-original-signing-v1.bmk (authenticatedencryptedonly)",
+    "secret_storage": "No platformsecret/filebindings configured; toolcannotcreatebindings. Ownerpublishsecurebindingremains explicitdependency."
+  },
+  "workspace_free_final": 625471488,
+  "TMP_free_final": 1303035904,
+  "next_action": "Assemble and officially verify the exact V26 APK using the committed public response; owner secure recovery-secret binding remains a separate required setup step."
+}

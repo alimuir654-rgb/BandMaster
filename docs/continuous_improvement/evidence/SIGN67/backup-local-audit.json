@@ -1,0 +1,11 @@
+{
+  "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+  "alias": "androiddebugkey",
+  "backup_sha256": "bf41dd9aeae318dce8d7216d48905f4810a0b14edc25af6f6080f066bb30e272",
+  "local_recovery_byte_and_password_equality": true,
+  "original_unchanged": true,
+  "wrapping_secret_durability": "PENDING owner secure-file binding; local0600 custody only",
+  "raw_RSA_private_key_exported": false,
+  "plaintext_key_or_password_uploaded": false,
+  "encrypted_keystore_uploaded": true
+}

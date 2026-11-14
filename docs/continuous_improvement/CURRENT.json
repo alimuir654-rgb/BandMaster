@@ -4,11 +4,11 @@
   "session": "docs/continuous_improvement/sessions/SIGN67.json",
   "active_session": "SIGN67",
   "branch": "feature/playtest-polish-v20",
-  "status": "active",
+  "status": "closed",
   "scope": "Originalkey V26detachedsignature + encryptedbackup/recovery/portablehelper; no APKtransfer/build/assembly or game/audio changes.",
   "authority": "Owner: sign exact V26 request42fb4c51238778f681adb86fdff6cd6648b1062c56d4249fbe31faf62c9fcff0 with original key, verify certificate, encrypt/preserve originalkeystore/passwords, testbackuprecovery, configure portable detachedsigning and commit nonsecret recoveryrunbook. No key rotation/newapp/secrets inchat/Git/publicfiles.",
-  "updated_at": "2026-11-14T11:09:37.866941+00:00",
-  "writer": "root-SIGN67",
+  "updated_at": "2026-11-14T11:27:28.309499+00:00",
+  "writer": null,
   "owner_approved": false,
   "source": {
     "implementation_sha": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
@@ -23,16 +23,20 @@
     "recovery_session": "docs/continuous_improvement/sessions/RESTORE66.json",
     "overnight_frozen_candidate_sha": "bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
     "unsigned_version_code": 26,
-    "signing_request": "docs/continuous_improvement/evidence/RESTORE66/BandMaster-V26-APK-v2-signing-request.json"
+    "signing_request": "docs/continuous_improvement/evidence/RESTORE66/BandMaster-V26-APK-v2-signing-request.json",
+    "signing_helper_sha": "a38d6b8969b4f218a1b999a297febabff4b641e5",
+    "signing_results": "docs/continuous_improvement/SIGN67_RESULTS.json",
+    "signature_response": "docs/signing/BandMaster-V26-signature-response.json",
+    "signing_runbook": "docs/signing/RECOVERY.md"
   },
   "roadmap": "docs/ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md",
   "queue": "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
-  "next_action": "Return verifiedV26detachedsignature and truthful encryptedbackup/recovery runbook; identify owner-only securebinding setup if unavailable.",
+  "next_action": "Assemble and officially verify the exact V26 APK using the committed public response; owner secure recovery-secret binding remains a separate required setup step.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json",
   "limitations": [
-    "Missing private audio recovered and current18character/30material bindings verified. Original source/gameplay roadmap status remains R2internallyverified/R3partial/R4\u2013R7held.",
-    "V26is unsigned. The original signing environment is unavailable here; no replacement key, installable update or physical phone test is claimed.",
-    "Current owner/listening/artistic acceptance remains unchanged; fresh test checks use isolated saves and Dummy audio."
+    "V26signatureverifiedusingrecoveredoriginalkey; noAPKassembledorofficiallyauditedhere.",
+    "EncryptedownerDropboxbackup exists; durable recoverysecret binding andfresh-environmenttestremainpending.",
+    "RESTORE66asset/game/physical/listeningacceptance status unchanged."
   ],
   "overnight": {
     "automation_id": "6ae532c5fe9c819190f587a022c54052",
@@ -45,5 +49,5 @@
     "automation_enabled": false,
     "programme_ended": true
   },
-  "owner_test_status": "BLOCKED_ORIGINAL_SIGNATURE_AND_PHYSICAL_UPDATE_TEST"
+  "owner_test_status": "V26_SIGNATURE_READY_APK_ASSEMBLY_OFFICIAL_VERIFY_PENDING"
 }

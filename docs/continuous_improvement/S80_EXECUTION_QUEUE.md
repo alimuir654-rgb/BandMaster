@@ -1,12 +1,10 @@
 # BandMaster — sole execution queue
 
-Latest session: **RESTORE66 — CLOSED / audio recovered, unsigned V26 verified**. The08:31 follow-up restored existing assets and completed fresh build checks. Writer and helpers are released. The finite hourly programme has ended and its automation is disabled.
+Latest session: **SIGN67 — CLOSED**. V26originalkeydetachedresponse verified fromauthenticatedDropboxbackuprecovery. Response andshortrecoveryrunbook committed;17public+10backupmethodsPASS. NoAPKassemblyhere. Durablewrappingsecretbindingstillrequiresownerimport/Publish; no fullchat-independenceclaim. RESTORE66recoveredassets/source unchanged. Writerreleased.
 
-Current candidate source `e887c35147b39fc3d12ef11ce2f8d322553991e1`; game code remains `7ae8667`. Five original sources and185processedWAVs are exact;28reconstructedOGGs preserve packets/timing/decodedPCM. All18characters/30activeclips match current bindings. Source checks1057PASS and actual compiled package510PASS; sourceCI3PASS. Private recovery and unsigned-candidate bundles saved. **Installable update held only at original-key signing and subsequent device/update verification.** The earlier nine missing-sentinel hold is resolved.
+**Next action:** Assemble and officially verify the exact V26 APK using the committed public response; owner secure recovery-secret binding remains a separate required setup step.
 
-**Next action:** Complete the prepared V26 request in the original signing environment, then verify the signed update before owner testing.
-
-[Current results](RESTORE66_RESULTS.json) · [Independent review](RESTORE66_REVIEW.json) · [Prepared signing request](evidence/RESTORE66/BandMaster-V26-APK-v2-signing-request.json). V26 is unsigned; it is not yet an owner-installable update. The earlier SONG65 handover remains historical.
+[Signature](../signing/BandMaster-V26-signature-response.json) · [Runbook](../signing/RECOVERY.md) · [Results](SIGN67_RESULTS.json).
 
 ## Linked songs and band life
 
