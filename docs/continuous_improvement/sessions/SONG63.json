@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "owner_approved": false,
+  "owner_request": "14 November 2026 owner: Pick up bandmaster roadmap work. Split into hourly chunks to target a 9am test for me. Automate through and make as much progress as possible until then. I won't be available for reviews or approvals until then.",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "2c13c9b0605a4f3b50b0ff2f99d0613cff2f67810be0d9e233af56695e047423",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
+  },
+  "issue_log_review": {
+    "bytes": 2338169,
+    "sha256": "6d5f7b4e2650720bd1be921a3b8e6f1e8149f4adf5bf67ff918c149d5681eb43"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-29",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-39",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "dominant_issue": "BM-33",
+  "target": {
+    "locator": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/phone/selected-long-title.png",
+    "original_sha256": "3c60ed1a13aa050efa44a4b548776c6e1c47ef063300982c8bbff11dbb7d5d5a",
+    "pixels_inspected": true,
+    "purpose": "Actual retained final native original opened. UI/assets unchanged; no new native execution or artistic acceptance claimed by this model-only pass."
+  },
+  "overnight": {
+    "automation_id": "6ae532c5fe9c819190f587a022c54052",
+    "schedule": "01:00 through09:00 Europe/London 2026-11-14;9 finite opportunities;09:00 read-only handover",
+    "new_feature_stop": "2026-11-14T07:00:00+00:00",
+    "mutation_stop": "2026-11-14T09:00:00+00:00",
+    "user_unavailable": true,
+    "scope": "R2\u2013R7 in dependency order with bounded committed passes; no promise all stages finish."
+  },
+  "id": "SONG63",
+  "status": "active",
+  "baseline_sha": "0f2762740babb5586ec68e95ad6900a108b8c0f1",
+  "hypothesis": "Saving validated material with future paid rehearsal receipts permits conservative section provenance without changing original effects or rewriting legacy rows; global producer recipe differences never imply partial musical equivalence.",
+  "controlled_comparison": "Genuine previous source songs/legacy v1 receipts against new prospective owner receipts; exact original cost/day/action/Finance/save and typedFSfailure/retry. Controlled material projections are explicit rule fixtures, not earned rewrite gameplay.",
+  "stop_condition": "HOLD fabricated legacy material/ability, cross-song/person joins, recipe-only change retaining musical evidence, altered original effects, malformed-schema promotion, extra save or inability to close06:48. Two ineffective attempts change method/HOLD.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/song_preparation.gd",
+    "tests/song63_sections.gd",
+    "tools/song63_verify.py",
+    ".github/workflows/song57-model-proof.yml",
+    "docs/continuous_improvement/sessions/SONG63.json",
+    "docs/continuous_improvement/SONG63_RESULTS.json",
+    "docs/continuous_improvement/SONG63_REVIEW.json",
+    "docs/continuous_improvement/evidence/SONG63/*",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/handover/START_HERE.md"
+  ],
+  "validation_commands": [
+    "project_context start/newissues/relevantlessons/check; committed improvement_gate",
+    "Pinned4.7.2 fresh private model copies/Dummy/privateXDG; actual originalowner paidrehearsal/FSfailure/retry/reentrantcounter/typedreload and genuine oldv1receipt compatibility",
+    "Controlled per-section projection fixtures: literal line/refrain changes, fullrecipe changes, rename/order/person/composition guards, mixedhistory/malformeddigest/futurepolicy and purity",
+    "No changed UI; literal unchanged UI/visibleprojection/owner source hashes; retain prior907native graph as earlier proof only, changed Preparation leaf fresh models",
+    "Independent readonly source/receipt review, exactsourceCI/publication/readback; no unchanged engine suites/audio/APK foractivity"
+  ],
+  "writer": {
+    "owner": "root-SONG63",
+    "status": "active",
+    "source_writers": 1,
+    "claimed_at": "2026-11-14T06:02:20.229999+00:00",
+    "expires_at": "2026-11-14T06:48:00+00:00"
+  },
+  "next_action": "Verify and publish conservative section-source receipts and familiarity projection; keep unsupported earned rewriting/R3 completion and R4 explicitly held.",
+  "queue_task_ids": [
+    "SONG53-R3"
+  ],
+  "resource_plan": {
+    "scope": "SONG63 prospective section-source receipts and conservative section familiarity queries; model-only/no UI/rewrite/score/APK",
+    "at": "2026-11-14T06:00:48.142900+00:00",
+    "baseline_sha": "0f2762740babb5586ec68e95ad6900a108b8c0f1",
+    "primary_new_bytes": 0,
+    "tmp_cap_bytes": 1342177280,
+    "floor_bytes": 629145600,
+    "tmp_free_before": 2493292544,
+    "workspace_free_before": 625471488,
+    "budgets": {
+      "source_archive_export": 900000000,
+      "isolated_models": 100000000,
+      "failed_proof_tail": 100000000,
+      "evidence_closeout": 100000000
+    },
+    "critical_git": "DurableGitHubGitDataonly; originaldirtycheckout/closedproducersuntouched",
+    "deadline": "2026-11-14T06:48:00+00:00"
+  },
+  "scope": "R3 model-only prospective section-source receipt and exact/retained/untracked per-person familiarity projection; no UI/rewrite/readiness/scoring/audio/APK.",
+  "player_task": {
+    "start": "Current canonical finished original",
+    "goal": "Prospective rehearsal records exact source material for actual people; pure query distinguishes source-section evidence",
+    "commit": "Existing OpeningState.rehearse_song sole atomic paid owner unchanged",
+    "important_states": [
+      "oldv1unknowncrossversion",
+      "literal partialprojection",
+      "recipeglobalchange",
+      "absent/replaced person",
+      "future schema",
+      "FSfailure/retry/reload"
+    ],
+    "visible_acceptance": [
+      "No UI changes or new preparation/ability score",
+      "No aggregate prepared claim or silent legacy backfill",
+      "Controlled projections explicitly not earned rewrite experience"
+    ]
+  },
+  "predesign": {
+    "reviewer": "/root/au01_source_review",
+    "verdict": "CLEAR_PROVENANCE_FOUNDATION_ONLY",
+    "finding": "Capturevalidatedfullmaterial/hashboundrevision;selfidentifyingv2rows/legacyexactv1unchanged;persection provenanceonly;producerfullrecipebound;nofabricatedearnedrewrite/readiness."
+  }
+}
