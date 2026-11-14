@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "owner_approved": false,
+  "owner_request": "14 November 2026 owner: Pick up bandmaster roadmap work. Split into hourly chunks to target a 9am test for me. Automate through and make as much progress as possible until then. I won't be available for reviews or approvals until then.",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "2c13c9b0605a4f3b50b0ff2f99d0613cff2f67810be0d9e233af56695e047423",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
+  },
+  "issue_log_review": {
+    "bytes": 2339315,
+    "sha256": "777380b108b8a4d4d4c0ba9a6122f578a27b3cc7235d7fd8afa6fc271a51806d"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-29",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-39",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "dominant_issue": "BM-30",
+  "target": {
+    "locator": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/phone/selected-long-title.png",
+    "original_sha256": "3c60ed1a13aa050efa44a4b548776c6e1c47ef063300982c8bbff11dbb7d5d5a",
+    "pixels_inspected": true,
+    "purpose": "Retained unchanged rehearsal native reference; CI plumbing only, no product/visual improvement claimed."
+  },
+  "overnight": {
+    "automation_id": "6ae532c5fe9c819190f587a022c54052",
+    "schedule": "01:00 through09:00 Europe/London 2026-11-14;9 finite opportunities;09:00 read-only handover",
+    "new_feature_stop": "2026-11-14T07:00:00+00:00",
+    "mutation_stop": "2026-11-14T09:00:00+00:00",
+    "user_unavailable": true,
+    "scope": "R2\u2013R7 in dependency order with bounded committed passes; no promise all stages finish."
+  },
+  "id": "SONG64",
+  "status": "active",
+  "baseline_sha": "a0cf5c7f3c8f82cdc31a2f1bf8ad2dab5b0a274d",
+  "hypothesis": "Covering the actual model and local Python source closure makes leaf-only regressions run the existing linked-song proof, without triggering model engines on documentation/art-only changes.",
+  "controlled_comparison": "Original workflow against actual six model harness closures; same existing model suites/owners retained. Pure trigger guard positive/negative mutations, no new gameplay or native rerun.",
+  "stop_condition": "Stop/HOLD changed gameplay/UI/assertion semantics, unbounded triggers, new runtime dependencies or inability to close by07:48.",
+  "allowed_paths": [
+    ".github/workflows/song57-model-proof.yml",
+    "tools/song64_ci_dependencies.py",
+    "tests/test_song64_ci_dependencies.py",
+    "docs/continuous_improvement/sessions/SONG64.json",
+    "docs/continuous_improvement/SONG64_RESULTS.json",
+    "docs/continuous_improvement/SONG64_REVIEW.json",
+    "docs/continuous_improvement/evidence/SONG64/*",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/handover/START_HERE.md"
+  ],
+  "validation_commands": [
+    "project_context start/issues/relevant lessons/check; improvement_gate committed preflight",
+    "Pure stdlib actual dependency closure/trigger guard and negative unit fixtures",
+    "Independent read-only interface and CI dependency reviews; reuse exact-source native/model proofs with remote blob binding",
+    "Exact-source CI, expected-head non-force publication/readback; no engine/import/APK for activity"
+  ],
+  "writer": {
+    "owner": "root-SONG64",
+    "status": "active",
+    "source_writers": 1,
+    "claimed_at": "2026-11-14T07:01:01.364410+00:00",
+    "expires_at": "2026-11-14T07:48:00+00:00"
+  },
+  "next_action": "Repair and verify complete linked-song model CI dependency triggers; preserve source/native candidate and Android delivery holds.",
+  "queue_task_ids": [
+    "SONG53-R3"
+  ],
+  "resource_plan": {
+    "at": "2026-11-14T07:01:01.364410+00:00",
+    "primary_new_bytes": 0,
+    "TMP_new_cap_bytes": 10485760,
+    "TMP_free_before": 1308438528,
+    "floor_bytes": 629145600,
+    "budget": "10MiB compact scripts/metadata/evidence/failedproof/GitData publication tail, no new runtime/cache/import/PNG/audio/APK. Existing source export only after live blob binding; closed producer caches remain immutable.",
+    "deadline": "07:48 Europe/London14Nov2026"
+  },
+  "scope": "07:00 integration-only CI dependency trigger repair; no product/UI/audio/APK change.",
+  "player_task": {
+    "start": "Current canonical finished original",
+    "goal": "Prospective rehearsal records exact source material for actual people; pure query distinguishes source-section evidence",
+    "commit": "Existing OpeningState.rehearse_song sole atomic paid owner unchanged",
+    "important_states": [
+      "oldv1unknowncrossversion",
+      "literal partialprojection",
+      "recipeglobalchange",
+      "absent/replaced person",
+      "future schema",
+      "FSfailure/retry/reload"
+    ],
+    "visible_acceptance": [
+      "No UI changes or new preparation/ability score",
+      "No aggregate prepared claim or silent legacy backfill",
+      "Controlled projections explicitly not earned rewrite experience"
+    ]
+  },
+  "predesign": {
+    "reviewer": "/root/foundation_tests",
+    "status": "read_only_review_in_progress",
+    "scope": "Actual closure and CI guard method; no source writer"
+  }
+}
