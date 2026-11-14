@@ -1,0 +1,24 @@
+{
+  "name": "baseline-short",
+  "exit_code": 0,
+  "seconds": 13.11,
+  "log": "/tmp/bandmaster-song62-20261114/baseline-native/logs/baseline-short.log",
+  "errors": [],
+  "pass": true,
+  "result": {
+    "actual_writing_settlements": 9,
+    "baseline": true,
+    "checks": 131,
+    "failures": [],
+    "images": [
+      {
+        "height": 720,
+        "path": "/tmp/bandmaster-song62-20261114/baseline-native/baseline/short/baseline-rehearsal.png",
+        "state": "baseline-rehearsal",
+        "width": 1280
+      }
+    ],
+    "ok": true,
+    "trace": []
+  }
+}

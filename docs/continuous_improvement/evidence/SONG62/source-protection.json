@@ -1,0 +1,3724 @@
+{
+  "baseline_sha": "ff13f6c45875a7cb0f6ff5843a603e90714bd4be",
+  "changed_existing": [
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/STATE.json",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/handover/START_HERE.md",
+    "experiments/playable_flightcase/ui.gd"
+  ],
+  "protected": [
+    {
+      "path": "Art/References/ApprovedCast20261029/approved_cast_reference.png",
+      "sha256": "52968f3fd0d2cc9b1b477088421921b771a30e62445bd2ad88b87929f809327f",
+      "unchanged": true
+    },
+    {
+      "path": "Art/References/ApprovedCast20261029/previews/cast_arjun.png",
+      "sha256": "7b3b7ae2b40248eaa24963e631f756932fdefaf997085e11fe0f2c273f846939",
+      "unchanged": true
+    },
+    {
+      "path": "Art/References/ApprovedCast20261029/previews/cast_ben.png",
+      "sha256": "7f879211cf6dcad23edfb005f7393ad75c57ab7889ba6f6cc79c82fc5c06b089",
+      "unchanged": true
+    },
+    {
+      "path": "Art/References/ApprovedCast20261029/previews/cast_bex.png",
+      "sha256": "5c1922ef4157061e79809909aeccbd1692005cad0a188cff3cda82447a350464",
+      "unchanged": true
+    },
+    {
+      "path": "Art/References/ApprovedCast20261029/previews/cast_casey.png",
+      "sha256": "dcc2cbb3dcf11e3626f192f9f2af0533a6f5a70b6b4d31d886f855b2d4851e07",
+      "unchanged": true
+    },
+    {
+      "path": "Art/References/ApprovedCast20261029/previews/cast_dan.png",
+      "sha256": "c2bbc1f460786b43e2cf83500cd28a47e152e95b32a80dba3af355166cfee8d7",
+      "unchanged": true
+    },
+    {
+      "path": "Art/References/ApprovedCast20261029/previews/cast_ellis.png",
+      "sha256": "00de6890ff0588682fe264f3158c1a0333dca037da67ccb9f12e7be4e7b74a2c",
+      "unchanged": true
+    },
+    {
+      "path": "Art/References/ApprovedCast20261029/previews/cast_freya.png",
+      "sha256": "84b1d946f1796138f015519e0cd3f4befa05326a22100e683d48d039e5f82c14",
+      "unchanged": true
+    },
+    {
+      "path": "Art/References/ApprovedCast20261029/previews/cast_hannah.png",
+      "sha256": "908f8ab88d6071baf7822865c267e7de9530fe4136b706a327c9a2640847b795",
+      "unchanged": true
+    },
+    {
+      "path": "Art/References/ApprovedCast20261029/previews/cast_jack.png",
+      "sha256": "d6557ca2cab01e3ffd682a97f3b9b7392a5037fdba28979dd40f3c236dd1cc94",
+      "unchanged": true
+    },
+    {
+      "path": "Art/References/ApprovedCast20261029/previews/cast_lily.png",
+      "sha256": "a04c4f8d2fc8977c985939a035a8190b432045351f90c2a632df30eb579a9457",
+      "unchanged": true
+    },
+    {
+      "path": "Art/References/ApprovedCast20261029/previews/cast_marcus.png",
+      "sha256": "fd8837224b05e22a888e1795b2d2b7f294b02bbc6143115ac950fcfa6a230798",
+      "unchanged": true
+    },
+    {
+      "path": "Art/References/ApprovedCast20261029/previews/cast_maya.png",
+      "sha256": "099a85ed6594cce2a4af797e51ae5b4afb23eca063b28daca82450d53da7c626",
+      "unchanged": true
+    },
+    {
+      "path": "Art/References/ApprovedCast20261029/previews/cast_nina.png",
+      "sha256": "8f58b43a77ceb6d533ef10bce2ef33f79934a94d96a0b1af76926867bf69340e",
+      "unchanged": true
+    },
+    {
+      "path": "Art/References/ApprovedCast20261029/previews/cast_oscar.png",
+      "sha256": "cb27c4a0478618b281eacbc186409129bd6cc1f6fd6720d169e147f57ba25c12",
+      "unchanged": true
+    },
+    {
+      "path": "Art/References/ApprovedCast20261029/previews/cast_ryan.png",
+      "sha256": "0a2b6e7f6c1674f5280de46e1ca786f50c348ad4faa228edfd468eb7b0d87940",
+      "unchanged": true
+    },
+    {
+      "path": "Art/References/ApprovedCast20261029/previews/cast_sam.png",
+      "sha256": "c8f629d4786eed5e33fd5f6a680e15025df5768753304e56bca17585544ebdcf",
+      "unchanged": true
+    },
+    {
+      "path": "Art/References/ApprovedCast20261029/previews/cast_tom.png",
+      "sha256": "4bffc183ae5ed296f1ea76ffb467cda9b5e301162b4937f8f16bed698d1afe2b",
+      "unchanged": true
+    },
+    {
+      "path": "Art/References/ApprovedCast20261029/previews/cast_zoe.png",
+      "sha256": "0645525447b8160f08d8b33b333f95797a8ce0e77d446702699fb422a0853cdc",
+      "unchanged": true
+    },
+    {
+      "path": "Backstreet Gig Load-In at Dawn.png",
+      "sha256": "962e9cae39a97ba8aa1479750d85d15845c5469243d1b8209e4736c1cc87086e",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/band_builder.gd",
+      "sha256": "d0b783adb23080aa882337fa018748e52340766f680f2202abc7a0b1e32adaec",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/band_builder.gd.uid",
+      "sha256": "88cc5469e6f1d40439d855364cd7fcbc8dc65c311cb0dd8b2cb94171c443ba8b",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/band_chemistry_presentation.gd",
+      "sha256": "95acec2b1258a4a958cf4662c43c63ab4c6867116df559040414afba7fc6d93f",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/band_conversation_replies.gd",
+      "sha256": "83c658c2a0548a380c972ef161696d87689ef31c7ea86db5800f4870a8d0417f",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/band_drama.gd",
+      "sha256": "b5ac2823842a92554edf5e315eb27aa17853929b49a42bfbc604630739148f9e",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/band_life_experience.gd",
+      "sha256": "26236441193570f70a6521fd7d11974fdf912db8f07487f3ed563e54e41bcd20",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/band_pulse_presentation.gd",
+      "sha256": "cbcf5e5d79fb49a8249a178ea74c2aa185d3ffefe5cfc765c4dec5f653596c9d",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/band_roster_view.gd",
+      "sha256": "35edd170fbababe3bd786399ce45b19d04912da0f4fb9d7c97f076694cf1feb0",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/band_social.gd",
+      "sha256": "7fe090cc6b77e3c7082a60505e25caf506348cbfea75371f6966d8709cb7d455",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/career_actions.gd",
+      "sha256": "e2394ffec255ae7c978c77758ccbf643cd31cc8e0e1eb1393ce3707ae343662b",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/career_chapters.gd",
+      "sha256": "d3021d557aac990b30e39f8efce8599c35e3334f1a28d4342b8574f8e6bbff02",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/career_hub.gd",
+      "sha256": "9d8bdd5a49616d4e64dee0a42c2b3f8f480104355577a4191e794eab3aca24e4",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/career_layout.gd",
+      "sha256": "4bd379429ec8f7214f8d496ac24eeba2ece0c2beac5e92a5ddce287629c2b0e0",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/career_momentum_presentation.gd",
+      "sha256": "30497bb3e604332932e99482e0f0c366cc6e810ca5cca48a225b578fed911404",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/career_motion.gd",
+      "sha256": "d3fbf5d031b1701456e1761221a43328c9a21ad49dfa4916e33c1738c2bfd265",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/career_opportunities.gd",
+      "sha256": "90cee3976ba96e678f8042a374247160ea988f3e4d7084a8cf6f6e7a4b9723f7",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/career_presentation.gd",
+      "sha256": "ee6f509ba377e4a2bf0e923130130e7b72ea734f380f3ec817abab28fd82bb26",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/career_story.gd",
+      "sha256": "b336f4ab88d4111ca550d7ab002fdf5400b49a62f1c00ae945ae1b8b9e20100c",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/first_month_director.gd",
+      "sha256": "e56cd7565ef21cdf7989af145071435aa192e6e8015b6f265dac381ad906bee4",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/formation_catalogue.gd",
+      "sha256": "5755c29bd367fa5befecb473994055218b1280a915f6ad090fb1cf05b527968d",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/gear_shop.gd",
+      "sha256": "d0c14338a728e7b14151146e454b31a9939e7ee083be4e118b424c722c0fdb9e",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/genre_profiles.gd",
+      "sha256": "8baef3729906c8517e47ac7c31b1297d8d603a53221d270ca52ea72c3e3f7e1f",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/gig_backstage_incident.gd",
+      "sha256": "ac215497377bbc43ee10b061ded8184752f208842fae735c4f8c3fdf4debda46",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/gig_calendar.gd",
+      "sha256": "28d04b7213fa655da84f5071ef3f7f8a1e9ba6fb5eba68af954a6cc9f7c72c4c",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/gig_night_flow.gd",
+      "sha256": "c773c331ec8157285a28a8ac07e176130f0b8c82ada03f5d9703a08adde6fae3",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/live_night_briefing.gd",
+      "sha256": "c0c9019acde21beb834e6e9e3dd5ed0eac8a630b38910b08eb0bae33c58ba149",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/local_dialogue_adapter.gd",
+      "sha256": "e15cd3904364f37b49e457e7066c4669ea5e718c53a8c942472d3e5838fda39d",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/main_menu.gd",
+      "sha256": "d9e15199073cfc4f7f3ca71419f0c0ccfb46ff3034adf88d58ea6df13b552d75",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/main_menu.gd.uid",
+      "sha256": "b927ecfa57bb3590f5665c8cb6fa23b0871eee3ce94b6d5e515dd0a6601ea2f0",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/member_life.gd",
+      "sha256": "3ac8b5d9938cf04c7ccddc094ff33056047238f1d6b6a03c6e0419b8a4a1933c",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/member_management.gd",
+      "sha256": "528bc9d7ecd2844f3277a7348a5f7330f34fdea7f2071d46c477eddd761b2ea8",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/member_portrait.gd",
+      "sha256": "f371cfbd9e767dc7caa9d1a686943766546ef8c617c59aad8f330516323fbdbd",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/opening_handoff.gd",
+      "sha256": "cbd5c9014de25a0241450f48375f1fd45000f91aac56489e1449f6e4c8da1445",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/practice_room.gd",
+      "sha256": "1f2b92099de77e01d1f10fbb5a0b63e135dc7cee272456b6d9147b0f78e4c7f1",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/promoter_meetings.gd",
+      "sha256": "49cd022f25d6a53cdc29fc1e45804b54b8e6de3dba74ee1843ca9f95b4d713f6",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/recording_career.gd",
+      "sha256": "cfd980e445579abd4ab0e8bd36b78073bc5b01a891b362eaa4f52310f1804a22",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/release_campaigns.gd",
+      "sha256": "f610b849125f2280089edb252bf6a8b6843458d41b48bfea0365bbcae3f21392",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/scene_environment.gd",
+      "sha256": "41317d36cba6c06d26044d0b1ab285291f64e220cd490d87f7ebaa2b8584f705",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/scene_sheet.gd",
+      "sha256": "292b2167622fe390268ba4b0b44a0212066423c9bef60268feeea3facb8b5e5f",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/scrapbook_filter.gd",
+      "sha256": "c95232899dc8c24c9824ce7bc76c03155381776c7ca2c049ac5d9de204ebe02d",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/song_chemistry.gd",
+      "sha256": "8db92cff3c74347632e69b62c77762a99583fdda58a9f1abadd54f0ac75d4080",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/song_sleeve.gd",
+      "sha256": "589337fa637fe82f6b9103eaa6620e4b6355d7efa8b1dd3fa271706091657261",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/song_studio_presentation.gd",
+      "sha256": "943a7fc360e6ccf3477f4805e7ea36d3eff6f3c1036f813f721ad491ae59993c",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/song_workshop.gd",
+      "sha256": "a615225e36acc4edcf626599df4d93560f010a2426dfa57674d7d5b94a421d3b",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/songbook_presentation.gd",
+      "sha256": "15d6ca4666d12580a6d6846e90db94c587d98289ff97976d457e28540d53b574",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/songwriting_lab.gd",
+      "sha256": "9993217fc76b5ebe3ae745029205156f30c7e40c9669ec58812758b5a7d0bdd0",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/tour_intro.gd",
+      "sha256": "209cd494fd744824c6ced4308bb2082bc9d16b9a28a9a94669380efd50cf26bb",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/tour_intro.gd.uid",
+      "sha256": "a6d4f81d5be95144ba29b5326c36841c012c279f6cb394c1d18cc36310eaf6ae",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/tour_itinerary.gd",
+      "sha256": "3a6644c201786318d4cdbb6b7ec6e25c5ad10638a5b9f4a4c4550bac604151a4",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/ui_components.gd",
+      "sha256": "35f785dc91c81fbf6697daf2517cdd052e5e568caedffd346181d929719779fd",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/ui_theme.gd",
+      "sha256": "7132716891085b0b6304b230296c43f91bdc7e9ea78b5c3bdcea579c8cdd3345",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/uk_gig_circuit.gd",
+      "sha256": "ea05e79aa88ce9ddf045952ab483e3600dcc0d97415f6416c0865b268cfe71ee",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/venue_browser.gd",
+      "sha256": "8f3506bbb2333cc7e88b42e3dff3776239c208d0b173f476cc8b87160efb1877",
+      "unchanged": true
+    },
+    {
+      "path": "Scripts/woldui_showcase.gd",
+      "sha256": "bda427b9ba0b4a9310c06a9105fa8bf3c6bdb93697167765705e3f1a15479af9",
+      "unchanged": true
+    },
+    {
+      "path": "adhy-setya-4FN2TwPkbDA-unsplash.jpg",
+      "sha256": "513516593061f8c834ca18173094661547ae9710a28d389bca1bac85acbba98b",
+      "unchanged": true
+    },
+    {
+      "path": "claudio-schwarz-72_sgXLhZQc-unsplash.jpg",
+      "sha256": "1d75cd5c3644a43cf9b52df8de2b241d5855f97f60ac8f02cbd25269a5bd0c33",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/case_surface.png",
+      "sha256": "0c692e795584b677fa7a4f97f04caf7b407c2e20ae00c87696333818202eba34",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_action_flightcase_active.png",
+      "sha256": "158923c19e92fea76ffe21082717f57ddbcbfd3dfab6dc9e0237911dfb51827e",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_action_flightcase_disabled.png",
+      "sha256": "a410e187481be0569749fa4e876e4ecc99133ed8667e55593f22dc347c8fa727",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_action_flightcase_focus.png",
+      "sha256": "a3baced8e6bb20bcdfe3294d37b839397f9a1c0eaad091f0f1ac39915b222aac",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_action_flightcase_hover.png",
+      "sha256": "85e9aca6b08482a373848702d38cfb5ce675a4d54f5e845990318bd84a10dad6",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_action_flightcase_idle.png",
+      "sha256": "910a4c03244b22a50a9aa3a8fdffd8c91a06b6e3133b1ee4d9d0aebe076d7520",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_action_flightcase_pressed.png",
+      "sha256": "6cef9a70b9b24f09dee7c31569a99f5cc10860fc8406f4d229515da03e05cba3",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_action_notepaper_active.png",
+      "sha256": "35067707ccbd5a96f55411ee217532e22fe1e5fc7871b6a700673675ac1e7a0c",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_action_notepaper_disabled.png",
+      "sha256": "8ed8fdb326025d43f2b39cef8968c08a5f6f4eefd5a5c18f9f3f9f01ab79223b",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_action_notepaper_focus.png",
+      "sha256": "18b702dacffb776ac689d04c302f918b5746bab22739a86cab835bdc474f5133",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_action_notepaper_hover.png",
+      "sha256": "7e78650533bcd7a11706fc4c0bca202aa6e1f6903ce29e9a9ec14b1ff545fa13",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_action_notepaper_idle.png",
+      "sha256": "7002d7ee6734ba30428519ad10fd0a63908e0ac579774c9405386655b411e19b",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_action_notepaper_pressed.png",
+      "sha256": "051b597fa6659385e8dbf55a5755fba48533fb41262c5d420d20bd09a28cf37b",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_browse_flightcase_active.png",
+      "sha256": "c8ec6de58c17cf4eae511ecbbf6983e18897b1124fc2ed0881d0952f76e6fce0",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_browse_flightcase_disabled.png",
+      "sha256": "5b8586e00b194f4dbe24e522d6e545e7ad2d94db658d1f73379f96a5e6499d48",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_browse_flightcase_focus.png",
+      "sha256": "bcb4030648384fb208627ac6e2bf11abb79c8365d902700335a5bb37518a30ce",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_browse_flightcase_hover.png",
+      "sha256": "9711ebfa1a4e2a913871ae392739af665512fb25b3a714ae7bb05024728da312",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_browse_flightcase_idle.png",
+      "sha256": "b9ba3bbd4930a92ac67302510f8b47d3e4d4e1c07d5deef7289b1a4894a5146b",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_browse_flightcase_pressed.png",
+      "sha256": "b2a6f2f7f1becb1d7f988c493f82c1d0aef1acc90a12add066f39a38c66137fa",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_browse_notepaper_active.png",
+      "sha256": "29f0e10bdd2666d9c3498c7fd8d7b7c37e427112e393cdafb2d019effff3c4ab",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_browse_notepaper_disabled.png",
+      "sha256": "9f4726f39d92524ce4bfeb4be40d666124a79c8859c5d3a95c07a769c4c6bc37",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_browse_notepaper_focus.png",
+      "sha256": "ffc3cdde43206d1a5c77edddbdffa459cb4dfda8d4bf7279b99ed67a4e4eed5f",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_browse_notepaper_hover.png",
+      "sha256": "db3393c7b5024c41e905a2a0b133e1f4f8c13c36c7eecd622750be69e7aa148f",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_browse_notepaper_idle.png",
+      "sha256": "0664adaf90099d1ba8767c81cb638f3a653b72f92cff27f6c146cfaf7930bc78",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_browse_notepaper_pressed.png",
+      "sha256": "5479283f7b7ebac300d7244cf3814e531a34fe2ba53b933a9ee88a60fdce6fe8",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_tab_flightcase_active.png",
+      "sha256": "c1a5902f3a135e2b3c7bcf2f82184efb1f240fb8f3cbef756993f1a11836f061",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_tab_flightcase_disabled.png",
+      "sha256": "616b09b37d50d0baacd1b75c1d9e43757747afea7264971d2d8350d90b9a9b76",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_tab_flightcase_focus.png",
+      "sha256": "e9da36f68f917371e181c9c0ae81e67b648faa4893764619ed778afa2d4881a3",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_tab_flightcase_hover.png",
+      "sha256": "b59a3a0f70b6040a48de95f92ff11b5d0244ccfb9557f8b16d3276bfb9bbfbd4",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_tab_flightcase_idle.png",
+      "sha256": "9b05e573a9c0a0efb8fdb0e2344ddd3f8a0c2b127ae599f503ca22168aa47230",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_tab_flightcase_pressed.png",
+      "sha256": "9e28157699a76adc65893a063ea2c27603c53163e792e8b59de5205dc4fe856a",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_tab_notepaper_active.png",
+      "sha256": "e780407916834f83877d902e753720347c5e0c05c52ed74332fabbd1a6be6af7",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_tab_notepaper_disabled.png",
+      "sha256": "20e645dcc02b987707c84a7dbb94b28e3e9ea13de53a055670967c5d4dea735d",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_tab_notepaper_focus.png",
+      "sha256": "ce5e9159bd0c4aaac5517fb53827e931b77a3efd58180ff281ca260b65de44fe",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_tab_notepaper_hover.png",
+      "sha256": "75211785e6aa65b1159bc3d463e51b54bfc71ce7c51f22c3d94339284371ab86",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_tab_notepaper_idle.png",
+      "sha256": "2c3c80258c3e54785eb87034c44060f440f53681338a131e2ec8777e586a49a3",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/control_tab_notepaper_pressed.png",
+      "sha256": "cc90507ca8172a75cdd83f62e04477a6cceadbc1c0f62e574d6b7377ea7ce6a3",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/frame_flightcase_header_c21.png",
+      "sha256": "72e1b242e4927ad2efe7833cf409d1635e2197f9d28dec5e532af0bbeab3733f",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/frame_flightcase_inset.png",
+      "sha256": "413fff9396e08da6e9751451cc33c45f93f7c11dce7ef3edc347195d6bad8a6f",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/frame_flightcase_inset_c21.png",
+      "sha256": "2734a406bdaed180f27f5c4bf283f72406fcef69ab5c16dbb9775656089f6f50",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/frame_flightcase_modal_c21.png",
+      "sha256": "14c52097968184a9b69a77db300501aeb4717ef91aed72933af81969999238e6",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/frame_flightcase_panel.png",
+      "sha256": "8a4a7ffaf93835fb3fdfac5b8c869175c7d0f447a576fa61c7ba47ee16684dd7",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/frame_flightcase_panel_c21.png",
+      "sha256": "494fe243b789bad35521a7389a2cd475f0f18c4ddfb199b459da4285f8424cd7",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/frame_flightcase_portrait_c21.png",
+      "sha256": "12d6eef74173483cc97d671eb34f2ed049ff712b8049907c49e0c2c7f6bf0017",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/frame_flightcase_previous.png",
+      "sha256": "56739c929d78bc52c944095dd23b68176e2d3950e0619cde6aba0f4640f5f601",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/frame_flightcase_ticket_c21.png",
+      "sha256": "db506434a4054f06590bb842e57b9c3ef9d1ba5947ac1b17f26a96dcdc21f804",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/frame_notepaper_header_c21.png",
+      "sha256": "ed7ead86437f0033d8cc59b253a95d223616d6f666d90c29129535878e086ff9",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/frame_notepaper_inset.png",
+      "sha256": "5498b6bc455a75aee43d4b0f7f17eb49a733692f994e9e4ecca41f3fce26f587",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/frame_notepaper_inset_c21.png",
+      "sha256": "c468d1bd7f9bb1c9c9c047f774f41e26988b7fb5baf13202943ab9de370f90b3",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/frame_notepaper_modal_c21.png",
+      "sha256": "64b87d350f74ebc60e90cbea65a474b274ad827d45b6979bd0b1b80d9082deeb",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/frame_notepaper_panel.png",
+      "sha256": "66bf06eb7bcab45216e23dd47b988019e92092f3aa07bf7994e6ea5dc3f9d94c",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/frame_notepaper_panel_c21.png",
+      "sha256": "59f56bc17c4293842338a632d4efc99d473aa4f8ffd0aa18a623e414886a18f0",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/frame_notepaper_portrait_c21.png",
+      "sha256": "c3883bb1767af06abc1f948bbc726878fdc20cdb08f4513b1887932ec3f4f2c3",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/frame_notepaper_previous.png",
+      "sha256": "189e2c8634b8464bed268a48ac5a150ca29817c78849196796e8967f980327f0",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/frame_notepaper_ticket_c21.png",
+      "sha256": "005c18e406754fac4b40bb3103cba99761ac2c29ec3d8b52fc9a32bb7752bd7c",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/paper_surface.png",
+      "sha256": "b7408ce4c0e3c62af35f330aa6390cc5024ca2980e05ef6090974b64f8e79695",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/passive_meter_flightcase_00.png",
+      "sha256": "d6f65ba3beec7a872e476383714c830b69234f190af219c9ba330d12c7a509b3",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/passive_meter_flightcase_01.png",
+      "sha256": "5cee77d2f5c552b1e2a49916451b06c6e1974510cdc64b799cb34b4e68674770",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/passive_meter_flightcase_02.png",
+      "sha256": "d9fb9ee0bfada2f00c20f03f54f1f3f276c69de285f5c93c454b3f8b57310c34",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/passive_meter_flightcase_03.png",
+      "sha256": "f7c76def283b5ced820a6e7fb438d31e36b3b6d795df028204bd86f8294a33e1",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/passive_meter_flightcase_04.png",
+      "sha256": "7909c750f2873aede2a18167b8bec01a034b804dabfb6857e27592f94487dff8",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/passive_meter_flightcase_05.png",
+      "sha256": "798be62f2cabc0861d00a549bcb96fe6a913ff04559da200e0db104c239c8f28",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/passive_meter_flightcase_06.png",
+      "sha256": "e779694ac1097605130127250e810518f3e4d2d0ee0432b36630377a8cd34497",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/passive_meter_flightcase_07.png",
+      "sha256": "b1c2cf23627dbea16cd8aed671af2ccc5afe01c3162e0716b770a205b1459e04",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/passive_meter_flightcase_08.png",
+      "sha256": "f2377576fa2cada0de19217cd4c2168c6eb1d9d04751d84edde840b05a6a4aed",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/passive_meter_flightcase_09.png",
+      "sha256": "55af8861e00b8ff7a5dca6fed6c348529722241422b4a9b2ae4b8aeec5209688",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/passive_meter_flightcase_10.png",
+      "sha256": "fe655bc9b7b7221f6479e8f5764db38c8f14498fc5990691e2234094d2f1be04",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/passive_meter_notepaper_00.png",
+      "sha256": "f0cfe2ee375bc3b5336efe2c608d8424585daddfe4e21c07ce2f0c2744c430dc",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/passive_meter_notepaper_01.png",
+      "sha256": "94552a8fcbcdc680d2f31d7277d570c4fd1a84685342bb2282443713c0c4f374",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/passive_meter_notepaper_02.png",
+      "sha256": "134e146c1e1bb03a9865f0fa22fa2b7bfa0298926ecafed20a59db74707b1102",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/passive_meter_notepaper_03.png",
+      "sha256": "f7af3428ddd32961bfb995e498cc0a05d895e31c552cd8798eb81bf3e615af1c",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/passive_meter_notepaper_04.png",
+      "sha256": "6da9495d6299a55562c584c587b7e4ce40e22b7a5e9f3500005a8c6915c46dda",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/passive_meter_notepaper_05.png",
+      "sha256": "c5c29f9f60406407f343a1b11648b2ea59a96dacecf8baa8e2d20e605d0db0d6",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/passive_meter_notepaper_06.png",
+      "sha256": "6ab7468183c73ea20afa4ae61b7e1a62693b0480695f8dc7d84e9f675e672ff9",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/passive_meter_notepaper_07.png",
+      "sha256": "7e8cfda0402a3ec011400eac1bd124b9af96a34cc64a76c13ceeca0ffb7d9a06",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/passive_meter_notepaper_08.png",
+      "sha256": "bc245a4a4b0ca4522e61195ef679845952b6f5324ae215964a1b3eaab2ba2e87",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/passive_meter_notepaper_09.png",
+      "sha256": "ef5bb53f9effcf5ff566b9ea20cc4b8425e05d0227621158fc982fe60cbf2ccf",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/art/passive_meter_notepaper_10.png",
+      "sha256": "db3a5a8da24decd2b7d782bf2724b6206ecc844ded7405e76a1b212853baf54a",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/buzz_led_00.png",
+      "sha256": "a84a1b10d08c6584a976e7cf78850deed2f603d3cf2b076d173a130265c39742",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/buzz_led_01.png",
+      "sha256": "280d760991e8c27a9e34b44aed14c86ea8f2d3d70311692e3b0fb4ef20f8427f",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/buzz_led_02.png",
+      "sha256": "b69c1bf98f55552844985f4233c07602c63598a678f85d7f340f2bce9c89623f",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/buzz_led_03.png",
+      "sha256": "262eecd713b22723d6e489443aa8933293b873feba9bd57069dc357e4c6e692a",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/buzz_led_04.png",
+      "sha256": "63eeddb17b2435f4efe4e2d64bd6a5db96c746aee360bc60fdf6afe04319043b",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/buzz_led_05.png",
+      "sha256": "7c8cd351fd8112c5b46b6049c99a3f53b99d13c5ecc2ec01815e2de6f840c9ae",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/buzz_led_06.png",
+      "sha256": "ba82f6d6949573cf9cb504ea940d45c383f24f5570d45a314ed5aed6d3c0b737",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/buzz_led_07.png",
+      "sha256": "f5cebaafbcbd246fdb593cb71efe03bdaa53f091195c13e1bab9b149fb0b08e9",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/buzz_led_08.png",
+      "sha256": "166f22354e85eb06b1dc4204e2272468dbdb67bbab444bccb35d50af9a8b9271",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/buzz_led_09.png",
+      "sha256": "46028b8e80efdf3983176b2b5ec61185ddbd7314913a637109aedcdfcc154ac1",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/buzz_led_10.png",
+      "sha256": "ccf22cb547f051d18f9a88f797d4f9718197f8c62ccafb6fc24e9e375c331ac0",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/buzz_led_11.png",
+      "sha256": "7dbc24c0a85ae405fe2e58623acbbf7026be260a0f9f2fdf4f6b66d589e6c626",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/buzz_led_12.png",
+      "sha256": "f7369c5dea5f63289174feb51e12212100255366384ad5b761fcd6233cbcf1a1",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/buzz_led_13.png",
+      "sha256": "6717949bdad4545babe8250fd3e9a1d2d760a80fbee319799d89786f3ac9cab9",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/buzz_led_14.png",
+      "sha256": "65c91c8e6287a4a602aedfbbc8c279273a34cdd168f71326355e7ade9901fd2a",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/buzz_led_15.png",
+      "sha256": "feeb80ce6ca6a2fbf2eb2f04395eec3f68b6f586a03f2bb311ccd8ed2681b187",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/buzz_led_16.png",
+      "sha256": "a64befbe2bdae628f435b1ccc62a070f4d557b06027c9336c7241d847986a112",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/buzz_led_17.png",
+      "sha256": "58d86382462483dd2c8f7f3faffee83db55a8a4626eab9be2983e18b9a49d26c",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/buzz_led_18.png",
+      "sha256": "2d4949d7787fbfa056984688dcb85fe205b4d953d387ecb5e5171a0c24aaa0d3",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/buzz_led_19.png",
+      "sha256": "d8e852bf1fca0658545243c14fe2462df09104188dc137c3405ed4d7239ceab3",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/buzz_led_20.png",
+      "sha256": "54606448d817cf92c8431ae6e2b54b2036df4dd6b1d274a01b7fbfcc1eda7da3",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/buzz_led_21.png",
+      "sha256": "6147c53fd3751eec2891a15c689aaef1682ffb821008267b749ffc2804460c40",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/buzz_led_22.png",
+      "sha256": "8a4eec27b6af9b15f99cd0b3f9f89f7399b4515f62eeb668165f9d587370d377",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/buzz_ring_off.png",
+      "sha256": "bf1c7b4e7d10121e5a6a5ea4746e1cc91734700d7f940cf9321765a3f484741b",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_00.png",
+      "sha256": "45d2786dd410757bb432d0b8c2b5803e1f41d4a80c5914b9fb67f5a642c3586a",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_01.png",
+      "sha256": "01ce4ab33af2a0b9dc4bb17f492134e5feae53cc77d7957b5f4f39db467984aa",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_02.png",
+      "sha256": "d79c16f4d3ca92c308ae60b45cf03b6bddc6081a181042d0a76c6bba93b8f286",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_03.png",
+      "sha256": "b04482898e627b082bfcdc561709899d318085b5210ef0d66f0ba57de366cc18",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_04.png",
+      "sha256": "49dc223f8eef46a244a2d4dea10d40335efc3eee54b71d3a3b56ea66df81e2be",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_05.png",
+      "sha256": "cafeb758601e317de3b628b6b37d61f742545a56f3d43bcef8b41b5d1e6e2164",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_06.png",
+      "sha256": "33d80e066324004c7ca52581a1f4c51ab03ef4539db5de6d3e53207436e28b09",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_07.png",
+      "sha256": "688efbd2b3a60cd65e55de16d3ff3426c2fd42dc3b1938cb78cf1bf583ef9e0e",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_08.png",
+      "sha256": "1a45cd563b745dfa1bac08d18a3845bf33b570c716ee7bdd9bae9585138f198f",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_09.png",
+      "sha256": "f132e75d8e07cd8fec73fec950600328e56111ba78db318bafea8b136dd82070",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_10.png",
+      "sha256": "3fed34ee833350da28574494cd7412e0bebc8b0f1c44b26edf23b06f4b045448",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_11.png",
+      "sha256": "2498c30ff72e12a2cc7b069262ddb90f970dad764073c31356203410c7d8564f",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_12.png",
+      "sha256": "9bbd3e881892c63a8413af69380fb68e5b55e89f1268eff9406e98b9d3724269",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_13.png",
+      "sha256": "baa4dbee3b0b201588457d2477c47ec9a7587e800f2b874d2b5e061196934b97",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_14.png",
+      "sha256": "b5cdcc856dc4f763c9d953d72128723ec3bdc5dea0b5b10fe02c9cfae422a36a",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_15.png",
+      "sha256": "64c8d7c3583f6cc7358567a58fd747cb35737ba90162ebbe899c67cacf916d67",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_16.png",
+      "sha256": "4d808072d2c89fe58a30758785ececc60685eec771a2daafa005dabe061be36a",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_17.png",
+      "sha256": "f7133f9a56367a7ed31cd8b2f54aec59658d218e55799b77ce024ea5537d3ece",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_18.png",
+      "sha256": "49dbee5532656fab3905d2765b418e922241e840bc9304654730dad4f46fb53c",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_19.png",
+      "sha256": "208d1efae80e77e650749ffb711464654d9a305f2f43674c38cf8d581949d894",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_20.png",
+      "sha256": "8ce0458c35d7025c76480e328d0145144f499d9430ea3c659020e270f24502eb",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_21.png",
+      "sha256": "d3db175f73ab44984b61389489df20fa2dd6b456fbc05e25454b2f8d8f8ca564",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_22.png",
+      "sha256": "aa3af86ab2f675c5c9b21aebb705ebc9fdd2732db26c69a799b34f00be9af549",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_23.png",
+      "sha256": "fe3fe2c587e71cb3c09940126f29b0f15d948f6ac4c43bfae9ce40f0016dbe5d",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_24.png",
+      "sha256": "5558f4dfc05177c30db964b552c30b4268ccb2cfa6d04d544a318f256ecd76e8",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_25.png",
+      "sha256": "402451de23e323950f83da6b2b3aa7d142b959a567d134be3dc5c6b54c00ce53",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_led_26.png",
+      "sha256": "352afb765c6ea9bde9c996bd5c365e5d8a8473fea029d39c53967bef59b4182a",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/focus_ring_off.png",
+      "sha256": "eddac46220113c772711dd9d37006b2128c752d960c732cdace9ee4decbd284f",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/horizontal_base.png",
+      "sha256": "06a9f12df4cca5777cd29f359ae688259ba85010283c178591750c3c4bee8d96",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/horizontal_cap.png",
+      "sha256": "c1f243c1385061c134a2a3efa7db630583536886cb0816c7875fb265e279446f",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/meter_base.png",
+      "sha256": "76bbe984f21ec1446bb2b6cd71da059425cdc420065c22e94dd88a596e61dd2f",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/rotary_pointer.png",
+      "sha256": "6121184820d3d389b3150d7ef80a1b48663ad535ae63e9b0de92739e607dc274",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/vertical_base.png",
+      "sha256": "694b733f520df1582f6e6114876904304931fbc4ac5be7bfe507e2d564c09e45",
+      "unchanged": true
+    },
+    {
+      "path": "components/control_atlas/bandmaster_premium_dashboard_poc/assets/vertical_cap.png",
+      "sha256": "b6d1e489fdb4514424a7314f2151e993c582d28992030c1b4ba7f52931fd01ec",
+      "unchanged": true
+    },
+    {
+      "path": "coppa-cover-8CFQaFOT0wU-unsplash.jpg",
+      "sha256": "1418b1dbe3ad7b13f76539cf2b6bc60490caa0f335d5c3243a02091df6ccbfb1",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG56/demo-archive-short.png",
+      "sha256": "25aba42bdc2488e1e3ff3bff23cd29e28f931d651dc87d76c8be8b62e473b516",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG56/demo-selection-phone.png",
+      "sha256": "f9bcb30c4b42de5a277d081429e4551168cb12b73bb6a2b3b088604f2f42fe56",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG56/songbook-phone.png",
+      "sha256": "1cfc4b157356dcc98e5f6861593a4d4b62abbe8c02268f7282d527e30ca78c40",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/baseline-phone-baseline-writing-card.png",
+      "sha256": "9e38d9385aeb31f0da017fbd09b63f253ecf4e0b645af99eeb0b7ff1a21d917f",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/baseline-short-baseline-writing-card.png",
+      "sha256": "d62e7245b3def36e69cb3e9a0da4072c512bee8602e1c7f909e77da04307dbd2",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-phone-chosen-casey.png",
+      "sha256": "e988f810484832852fc5ca4f71a0ea13f8a60c741a2f5bb7bc8ed99232157daf",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-phone-free-save-failure.png",
+      "sha256": "f51a9b854487f2c1b0521830210050e8387b1d6eeb367b5eb55aa6c9eebf24da",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-phone-local-role-swap.png",
+      "sha256": "6bc4df3b593606decd396baac2d91438e7e3b8357ecb81777441691996fd1553",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-phone-paid-save-failure.png",
+      "sha256": "d35567b32a73528daf41198d535e90efca0dbe8b1eb293b4f0a08803758befa5",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-phone-retained-idea-after-reload.png",
+      "sha256": "89f3028f7645b9069889e9d7c0a9990b27555e9e3213d39c36ac48f4a3145092",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-phone-sound-off-pending-person.png",
+      "sha256": "3068d8096ebc18e8962117c181479a2b151d91a480a50967a5bf233c862076f7",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-short-chosen-casey.png",
+      "sha256": "5e798a50ae44208960102f3fc51d9afa853382b726c1eeb44ece0f18f1f62b50",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-short-free-save-failure.png",
+      "sha256": "0db1a7cd0079fe9514acc5de7e302d4c10b235aca1e2475078e79b0610e61ec8",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-short-local-role-swap.png",
+      "sha256": "69a6f53300b13566c75515523fe6ec7bfecdd7f80d242ed0c05b64af09a6b89e",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-short-paid-save-failure.png",
+      "sha256": "8a3fc97a77329455aedba059735b0a96c638b1c7c02c6725aacdc0e1cb993fc4",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-short-retained-idea-after-reload.png",
+      "sha256": "7ac30e799d0b57f9ffc4e4ddfd6e198643940e8894cac71f0bff57db7260d53b",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-short-sound-off-pending-person.png",
+      "sha256": "20709db8129728ec7d2246428a3ab0a0e4d67870bbe266663f061c8a0ea923ed",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-tall-chosen-casey.png",
+      "sha256": "c46c03d91fdcbf2ba9a7152d2e1b4fd3ad6477a33b9b782b01d21a1da81761f5",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-tall-free-save-failure.png",
+      "sha256": "83bc2db041ab7ebc15606c7636e9313fdba33f9086a63e6ee53a4cff7c20e6e7",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-tall-local-role-swap.png",
+      "sha256": "facbf41f7fefa7d5b255b46b5709edd6484036a22294d3ae0eb01acdeeba5b67",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-tall-paid-save-failure.png",
+      "sha256": "08d17d0b23ac2fa1188f5f8222b8dbc22ee8a9ae45f6343684c12c446682b368",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-tall-retained-idea-after-reload.png",
+      "sha256": "6410b76765a6189907d2f8b5f3d7f18940cc2e12960503a48d56f2bfe53b54d2",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-tall-sound-off-pending-person.png",
+      "sha256": "f99e7b25aed25583de9bc16a360c70026b6b6c86fa35e66f4d94210eefc266ba",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-wide-chosen-casey.png",
+      "sha256": "292c044396b6134d6f4ad79492359bd9172087529add4acc6a3a27f7801a17ba",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-wide-free-save-failure.png",
+      "sha256": "dcb71a22a3bc873bbbcde8be0de3a55ca7c8b915d2a8a76a7f5537ac7f0b00c5",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-wide-local-role-swap.png",
+      "sha256": "4eba9fff3a2bfe94817b69e994b6d276327a5a6d91666f657585d6e280cb6b0d",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-wide-paid-save-failure.png",
+      "sha256": "d01932005104e568a55e9af41be09ca8c88f1a373043762ff45dc05fe0034ccf",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-wide-retained-idea-after-reload.png",
+      "sha256": "80345772e664df0361a810896fde05af293c728b30894da82868277dcf80ef9b",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-wide-sound-off-pending-person.png",
+      "sha256": "472dc2bbfbce26fd371b86e29775a4f4c728ddd0c27cb77617fe39231d48ba1b",
+      "unchanged": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/held-bare-callback-phone.png",
+      "sha256": "bdece16a66aaf5d204359d95f49eca4329e460f40cce395d8f2c49c0962fc021",
+      "unchanged": true
+    },
+    {
+      "path": "egor-komarov-fuTJOtdmlrs-unsplash.jpg",
+      "sha256": "f2cded7e9abf0ca5b769977a3a4c022c01a241b75e7b3afb9ae14862d2560f50",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/a07_road_travel_v1.png",
+      "sha256": "1b12bb89a6ec154c73ed24e8f25fe88ecfe2070d8f95dc3494a993402e2d4bec",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/auditions_heading.png",
+      "sha256": "202c3bd3550293b9695621e11a8062eed0a10953fcd147fd9636954767795dd5",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/crowd34.png",
+      "sha256": "e9efabc9554f81367b061045dbeb3c2725e689aa465aa12ba7cf88a5427cb44b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/feedback47/fonts/BlackOpsOne-Regular.ttf",
+      "sha256": "282a825b5f294377387e3969f765408157dbea8da0f5d0aae68c6bc704b145b3",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/feedback47/fonts/RubikDirt-Regular.ttf",
+      "sha256": "9de3d928e434a47ec85d759012c8a0ebfeab0860076eea4e3989a47c5e213123",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/feedback47/fonts/RubikGlitch-Regular.ttf",
+      "sha256": "260245012483d56956269100ebece747aa95b4b67e5a9411a81a36e91f55e653",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/feedback47/promoters.png",
+      "sha256": "39836bd691f52b74f858c6ec2a650569fd005894ca5c8ff63b5f9db4e49415b0",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/gear_display.png",
+      "sha256": "c3e2cf9735536663dff2d791666e08387db187f8c8def118ece3a7fe246ef3bc",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/genre_britpop.png",
+      "sha256": "8f3f77899c1e687b7201f4a0a32929356638470ffcb8a095280b873fdd2b4a61",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/genre_country.png",
+      "sha256": "741106492670c9a013798a2e615cfcfed4ca76d356db76b4a2390dbf19a75f65",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/genre_experimental.png",
+      "sha256": "89f5151a7fe38e5ff3a41fd90c6bf6fa39e091cd0a092ddc27c80ae5fd97fcdc",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/genre_garage.png",
+      "sha256": "f4455f3e7cd160869413813ce2d09c4811a7a5bd63f4049f1bb868599f5fd22d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/genre_goth.png",
+      "sha256": "f98ffef02a6ee9ac2ff29c913eb07d51026c6c0fa4c39e6afc98f2dcd6feea67",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/genre_indie.png",
+      "sha256": "35bd3c162a27acc6da8108f46b2b4f8d421b344e92d9150d439953196a4caf50",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/genre_jazz.png",
+      "sha256": "67747d1c8f8f5b9b4746e4cf0228906616b69e83cf83ce6d1c5eb8e51b899d0e",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/genre_metal.png",
+      "sha256": "65fdbd11f76e9bdafff3e743f2076483e9972019878f1d63265caacb65333018",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/genre_post_punk.png",
+      "sha256": "f2bb85ca3bd95ce2a6affc53254949e9c790bcee393cd68c7cf67063737e659e",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/genre_prog.png",
+      "sha256": "d983fa5319d036c7a69d1753f075a06ab6861b74742c2fcb9408109d8296d05a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/genre_punk.png",
+      "sha256": "66ea7525c296bd2d374c5af7fe3e7be2387881f1a891fc723169a0f9b22bff4b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/genre_shoegaze.png",
+      "sha256": "338dcefe54d6409d948c14d101aa3b71b4d2ec6746a5a5389c7d1bbac280c67e",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/genre_soul.png",
+      "sha256": "cfddb2deb58cf862df3133fb45a18a13e6e3702c45eb72fcdec590541ff0571e",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/genre_synth.png",
+      "sha256": "feeb2fdc5c4963a312a8c95d7f2ba70f3ebbbb83e200b5edf99183fab781721b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/icons/career_stamps_v2.png",
+      "sha256": "8b5ecb88c2038f6b4022363f908d1f03d14841717547ef3e1865f671dfd25fae",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/icons/native48/heart-handshake.png",
+      "sha256": "c4214f5551c1a97a72b947f1e3804fd45e38afdbaae8f7cd5a942bfd5590aab2",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/icons/native48/notebook-pen.png",
+      "sha256": "e0afd318a35dab20d4fcfef5eaa0a935e1f5314cc2da8651b611890790cacbe9",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/icons/native48/sliders-horizontal.png",
+      "sha256": "e48e0ae0f14805f23b1d63390e088beb3f2a34f0c54055292225131348a2f741",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/icons/native48/ticket.png",
+      "sha256": "5aec28e6278fe512bfcae9ee441ee2b8db2bf7fa0a1b4971105f279fd855a9b3",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/icons/native48/users.png",
+      "sha256": "55b6b4ca98ba40e55321e3363f9bc73ea567cfb125b1552a0a867480d2c51cf1",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/identity/cast_01.png",
+      "sha256": "6f81c4325ba25544d15d2ec7015b24093e0890884270a6e5a26a992d047573fa",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/identity/cast_02.png",
+      "sha256": "fb35ffdf72d617991ef8efbe563db0f1e084c28bfc9ddf6e3dd5597546c27385",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/identity/cast_03.png",
+      "sha256": "dde667c7119a6590dda112ebc9efaa900c463b3d870c2928d2b7ba14248982ae",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/identity/formation_pose_cohort_v1.png",
+      "sha256": "9308b23b2fede9676145caab9cede0ae5256bb0343992a7a632e2a9d7a27993f",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/identity/next32_cast_01.png",
+      "sha256": "964cad7e462af51595343ba9059bf396c325965c230e96bdc4a94d320b74faa6",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/identity/next32_cast_02.png",
+      "sha256": "085facef831e4a2126e0b3a997d3cefff4ea0272e15f5d7277fca9818740c8d3",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/identity/next32_cast_03.png",
+      "sha256": "51b8ad0ee126db5744afc69c522d1dbe2f5293206b6db9084d1788386a55a8bb",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/identity/next32_cast_04.png",
+      "sha256": "b83cd4f8dfa30e21ae85e0d04053028f65deea5443fbd18b7021d6c0e8e76679",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/identity/next32_cast_05.png",
+      "sha256": "e685ec5d927385d5c099a7e7237d9d2154fd9c9ec6fd37cc2fe334bde5f2a03d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/identity/next32_cast_06.png",
+      "sha256": "61bb2250d0f25086295ee5b1130df2bd71f9191a64e30122cca15504051c5e92",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/identity/owner_lineup_v2.png",
+      "sha256": "9529cb99ee2a696950238540792546d098eabdc0c9a0d66ade74e3359b0292cc",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/mixing_desk/controls_atlas.png",
+      "sha256": "ebb835a7e42d5c0ccd3ba31538cded5c7fa6fab7cb77d8c4f17fb20eb8179338",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/mixing_desk/desk_surface.png",
+      "sha256": "be60ee495eefa38ccb741ab118c28d5a4cfbdc5b0d497336abf297cd660b2793",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/opening_stage.png",
+      "sha256": "4796b92e6dc6bed151cefb3d6c874cb471c541a603571e281daed4bf4c466a45",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/opening_wordmark.png",
+      "sha256": "3cbf6a548054aaf7922073b9c447542530a1e5c109c1eace7d3fe9fb780c9899",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/poster/print_materials_v1.png",
+      "sha256": "26e15e5ddf11506681244cf1a15090d865764d2a9fef76e24d4e9f4e1fc20702",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/radio_student_studio_v3.png",
+      "sha256": "f860a57c7fc7d3ba17a693fbabb844303b20b69443a6666e29d41889bbf28bda",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/s53_arrival.png",
+      "sha256": "d6c313c2602caa8140bd698b41677c49127bae7525882b236d1baa0bf12c50da",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/s53_stage.png",
+      "sha256": "8654f10d8143f2f841244b29d914f06a52cb2e13d13a26a81933d43d795a9c02",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/art/session_paper.png",
+      "sha256": "60dd291d745d62f820ae0b4ff25d694ee0f883e620a79a67896183078d98b16d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/arjun_original_v1.ogg",
+      "sha256": "0d4e6b8e41f5e326ad9ccc6b40be96c8d6dfe43dbe2bd68ed620aa207065636d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/indie_band_v1.ogg",
+      "sha256": "845c6b48db4c482d77f2dfb983fcc3cff9e1f8e95414b62c1757badfc7425b00",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/jack_backing_original_v1.ogg",
+      "sha256": "0c0ca5c9edf5936710c7834e44bc93d0844d4525c3ff952c655abe037710912c",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/jack_backing_own_v1.ogg",
+      "sha256": "cc26b603f8b45bc7797ee5dce3260871e1a5553ef583579836744390435d0a42",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/jack_backing_space_v1.ogg",
+      "sha256": "8e6ad6bdfcbb861c9ec73edb9e0c8b7313cd768dbeb0aac078e91a5301ca5a19",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/jack_original_v2.ogg",
+      "sha256": "25d988bd22ffdf41b78f3798857f23ef2e9830f625a57497d7a48a23b9ac2a51",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/jack_own_part_v2.ogg",
+      "sha256": "e977e6b2aec17de3f920d8032c07147cd6603bf6d7b2eaf40746de0985deea2a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/jack_space_for_voice_v2.ogg",
+      "sha256": "fbccd6cf003d15c5d29a2990b1ef01c75536b74908b892bcfb7ffb20d1c7eab9",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/marcus_original_v1.ogg",
+      "sha256": "babf148095e92a74769cb8497fc7e364362fd1d6c89e860a6513b0178b20e89d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/marcus_own_part_v1.ogg",
+      "sha256": "5a8990ea6318d445ce81b85321d0b37c3f2674482c4d0bb7edbc3edcc9b0a613",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/marcus_space_for_voice_v1.ogg",
+      "sha256": "99b0c9121f64667a6a5ac896623f965ce89b8a2c5a1521cecd358495b367e1ac",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/post_punk_band_v1.ogg",
+      "sha256": "16d6b3fdc0ee2ab1a7fd40f31ba09d6e07075d078dce3c3542fc794400752088",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_bass_current_v1_driving_loose_answer.ogg",
+      "sha256": "112035de047f95e36c005baaf6346bfada4ef2b5c234f043151b131f8bbf4639",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_bass_current_v1_driving_loose_bass.ogg",
+      "sha256": "a4c9a1d697404bfc3c928e077e825062124bcc490404e19b8f18100bdfd0ef9a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_bass_current_v1_driving_loose_kit.ogg",
+      "sha256": "cd93f83be46888a1dd77cbd68c1d1871b61a8809bc0ffa1786347077a3485d13",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_bass_current_v1_driving_loose_main.ogg",
+      "sha256": "cece9b79df996b9b247af9ea7f9ce3aeafa66a6a190219c93a0b8f5aa5e76fa2",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_bass_current_v1_driving_straight_answer.ogg",
+      "sha256": "10efaa5a58390119ff81fcbd4b3104719744ac60ccb5597402f0504792e4b2af",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_bass_current_v1_driving_straight_bass.ogg",
+      "sha256": "eb6e775cc4ead017ede26be8dce51034bc00d588c94a80e23ef2fc213991e5b7",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_bass_current_v1_driving_straight_kit.ogg",
+      "sha256": "4e483c2fe604a141ee15d6dc6a9e3890d0466881400302855fc6fc957ec80df9",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_bass_current_v1_driving_straight_main.ogg",
+      "sha256": "4376da375592305c25c551fbd522f98230ccbf29c857097ef577542c268aa7a0",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_bass_current_v1_slow_loose_answer.ogg",
+      "sha256": "6725c4f1b1469f488156f14d5c15e7bd66e1825b9f724a8fd94a936646f9975a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_bass_current_v1_slow_loose_bass.ogg",
+      "sha256": "8e8946b47bcf926a2a16530c79b9aa1e06d464bf3060830fb00cf852436a353c",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_bass_current_v1_slow_loose_kit.ogg",
+      "sha256": "268573c089705e202f81f51526926384d9a7ba2b5032ac9a8549a44634adfae5",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_bass_current_v1_slow_loose_main.ogg",
+      "sha256": "8429ba3999739ecb966774382568d30a7d28a0b1ce23d0cd5257199b521ad8d6",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_bass_current_v1_slow_straight_answer.ogg",
+      "sha256": "2529cf91f38e70376d8eb94d003bda2bea20d928d20efda2239e81246c9b51de",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_bass_current_v1_slow_straight_bass.ogg",
+      "sha256": "c4485f4b05d1baae1497c3ee328772e403564377c4da46fba1720e1705686f4d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_bass_current_v1_slow_straight_kit.ogg",
+      "sha256": "64b39146bf83fd40af74dbc202e18951373b4c87050ff5ca557c9951f698b996",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_bass_current_v1_slow_straight_main.ogg",
+      "sha256": "30871bd1c5a8c240d12d2672536f8e8b5f32fe71bf76440428a5ebbb7215b3c2",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_bass_current_v1_urgent_loose_answer.ogg",
+      "sha256": "657dd2924cd09f01893e78f0311fd2273aa42639603098a7d305508cc2f2c9a5",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_bass_current_v1_urgent_loose_bass.ogg",
+      "sha256": "881f56df64080bcc20d68f8a81186495dd470010b0c355a37b0d0e005292c92b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_bass_current_v1_urgent_loose_kit.ogg",
+      "sha256": "cd3a3932040e9832c76d8ccabc6303e2cb7ca8f0a05b004d89afb0775a254be8",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_bass_current_v1_urgent_loose_main.ogg",
+      "sha256": "7bcbc298b80269202d9d582353e3f4d21ff46b119e617df2ef44d76fdca4f229",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_bass_current_v1_urgent_straight_answer.ogg",
+      "sha256": "31e668a9cda54fdc3b944b7673ee290b8f88019f44fcdd437cafc7dd3e03f629",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_bass_current_v1_urgent_straight_bass.ogg",
+      "sha256": "e23a4341bb7783e43e5b65c6f4abb240b8e31a967781410ca17ecd3cf8bc47b9",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_bass_current_v1_urgent_straight_kit.ogg",
+      "sha256": "14d4b17af492bee2bd7f2e1b1230e8b8d48b733afa7f7af8d5012f09f2e0416a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_bass_current_v1_urgent_straight_main.ogg",
+      "sha256": "ced43fde86d8181d6c27bea6435a86ff3c2ec8a2f97ddd0b6ff9cb8c1c2805d0",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_picked_afterhours_v1_driving_loose_answer.ogg",
+      "sha256": "9ee9d4e0451485c033d5e47c69794672c116baeb8b74aceaeeec1058e786fcb3",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_picked_afterhours_v1_driving_loose_bass.ogg",
+      "sha256": "9270a77fc5306763780b4ad8472bc98303e7c982a7de5719d9a2a43725e0f326",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_picked_afterhours_v1_driving_loose_kit.ogg",
+      "sha256": "5461973b6ded21cde48b12670a698c35d24a2526f303f6d16a439fb2543fd3df",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_picked_afterhours_v1_driving_loose_main.ogg",
+      "sha256": "8981ecabd7df7c85df2bde5ef97c09ee5ce1661ac00ee9391026b1803af89ae4",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_picked_afterhours_v1_driving_straight_answer.ogg",
+      "sha256": "8c512c661ac42896b94bd77748d5e6a8579acea857c0226d0966b9a9de022c3b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_picked_afterhours_v1_driving_straight_bass.ogg",
+      "sha256": "7ef0d38343e4f07fb93c5aeceed4ccfe4cf11881fe47fd8a5c59ff8a4bd90af8",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_picked_afterhours_v1_driving_straight_kit.ogg",
+      "sha256": "55f1d9ba1254e6921482c7ffc7ba83503a9b30112938592bfd4a3e84343940f4",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_picked_afterhours_v1_driving_straight_main.ogg",
+      "sha256": "ccc95c2796000a20a9b82500bc41e08e36f19aaea841539cf3dd363585466b4a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_picked_afterhours_v1_slow_loose_answer.ogg",
+      "sha256": "4a564a70e7106c39c695d078d5d1952fd8124e37d4144614a8b1ad254381d3c9",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_picked_afterhours_v1_slow_loose_bass.ogg",
+      "sha256": "544dc5da3e3768971ef15027f999474ea8b1f5c3895b525270faad4aa512468b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_picked_afterhours_v1_slow_loose_kit.ogg",
+      "sha256": "28398cc9adebd353b28ee49c9609df93c184450d3ab1dd286fd45f202f14ba60",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_picked_afterhours_v1_slow_loose_main.ogg",
+      "sha256": "c5b939df11f990672a5fb9fb96ea4e3f559c0ef8f2a350c755cd5fe7f867ea7b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_picked_afterhours_v1_slow_straight_answer.ogg",
+      "sha256": "9b652f0eebe9ef8b99727fa3817c2bdd18267a187089c469b8587a97e5cdc68c",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_picked_afterhours_v1_slow_straight_bass.ogg",
+      "sha256": "64d1afb5b247ea3ddd7566a20f55546d68db2038b345f7160c8d98e67096ac44",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_picked_afterhours_v1_slow_straight_kit.ogg",
+      "sha256": "00572771f701a403a05dd8f9c1f406ce9822740c1e6e461a3290852affe5ae95",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_picked_afterhours_v1_slow_straight_main.ogg",
+      "sha256": "1c78985200677f50572a0331032284584bf160562cf1803ea3e7039556cfc91f",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_picked_afterhours_v1_urgent_loose_answer.ogg",
+      "sha256": "379ecf2bfa63aa878bd165e522e315c9821bead9a03434d2cccaf3c69baf9e66",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_picked_afterhours_v1_urgent_loose_bass.ogg",
+      "sha256": "f16e2e6a5c9cc2c089676a78a3dd8299c4d0b89446b9927ea24cb9e53fb9085f",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_picked_afterhours_v1_urgent_loose_kit.ogg",
+      "sha256": "69876c8d1b02dfa5ebc5fea4e2b734fef09cf095cb924031070fabcc12075cde",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_picked_afterhours_v1_urgent_loose_main.ogg",
+      "sha256": "56823f5910ed7cc3e65cb4dafff74660fc264249b262edfdd72244d596c67628",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_picked_afterhours_v1_urgent_straight_answer.ogg",
+      "sha256": "d1a0b3548b9b5a34bc7c38d9f26ea87df32da7f8940e9c6af0f5910e6b8a3402",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_picked_afterhours_v1_urgent_straight_bass.ogg",
+      "sha256": "35cde86c163f07fea45ab3de7f6fec884a89553944e69f2c750d30e9a1114c55",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_picked_afterhours_v1_urgent_straight_kit.ogg",
+      "sha256": "5351e77b798cf2b8e17eb307ad19d89248163773319141f746bf54e90a104a13",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/demo_foundations_v1/demo_picked_afterhours_v1_urgent_straight_main.ogg",
+      "sha256": "f4adcb3b1cb5c5efcef7c9359627d26c803b8723ea77c015b055ba1edeae5389",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_escape_loose_answer.ogg",
+      "sha256": "693f18ac8c23584e22bd6c47f68a501281a74be613697b2c9c7f0d66a4f7297e",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_escape_loose_bass.ogg",
+      "sha256": "d64e5ea7488b6c96bc8b15e6b0057ffd7b002635d2ab692e6849962d31c50458",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_escape_loose_kit.ogg",
+      "sha256": "d36b60ec3e1bb96530472ec3a6aaf6383fa91d80487eb2d8b3841a7e4624d49d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_escape_loose_main.ogg",
+      "sha256": "b8cd5e85798026327bc7052b943cd8347b4f8bb3ae75994428dbf450d92481d4",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_escape_straight_answer.ogg",
+      "sha256": "e24576a39975ee98c734db27b8558ba468592b67acfc4bbc087793187b114703",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_escape_straight_bass.ogg",
+      "sha256": "8d3b0ae4a4623de2f6f9e1ca51e27dba6b2fc627bd185a9299f21d37bbe7d35c",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_escape_straight_kit.ogg",
+      "sha256": "791b173d47d93a0ed42b505734eaf47080cbf05758392a64a8d878e1c5b0fedf",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_escape_straight_main.ogg",
+      "sha256": "e86aa8a2eea70332c28fedf916f5b9787f02cf0d42be813604bc7b1f845bd232",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_personal_loose_answer.ogg",
+      "sha256": "6cf70c47d689fa1778ea631bebbf57a3c6c3b4e42bf693cfb60ed2f93338ed34",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_personal_loose_bass.ogg",
+      "sha256": "ed3b5c9a0b3281ae452d2adc4c1d92e8a3cc6e71cb65c8238f4eea8055d2440d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_personal_loose_kit.ogg",
+      "sha256": "1765e0c3eb50f49a9fb870a6ba9c6474964aa4a64c1c67a2c2b37e279f1c98d3",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_personal_loose_main.ogg",
+      "sha256": "d84b308e4f338115614bd248d8b5441086ec9bbb936580891f45897ba92d1609",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_personal_straight_answer.ogg",
+      "sha256": "80fabb1d373397cdf6e39c46a4fc873da62774182b7e9df081da52407ee7d457",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_personal_straight_bass.ogg",
+      "sha256": "bf5127f765dafa9e14578a4dda32ec6b4f7fa688f71d48a50e616ef4f633323b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_personal_straight_kit.ogg",
+      "sha256": "1ccc221b6008b55299610fcfd6aad4c49a1b3060a15ae4fbcb9809613103a8ed",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_personal_straight_main.ogg",
+      "sha256": "b9798b6e5b75e3c3830420fb7bff28f93351f6353ccc79e4dcf365ff3267e281",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_streetlife_loose_answer.ogg",
+      "sha256": "d745148f554b7c58e4f7da881b6edba12e5f2c2ba3abdcdb44fb8baa85cb3af7",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_streetlife_loose_bass.ogg",
+      "sha256": "70dec0831ae03a26170d5cf6292574c6515f1976bbc0f725a77b6638ebee2b41",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_streetlife_loose_kit.ogg",
+      "sha256": "19591999da9e6ec5394a2e21a54c16475a5edf04b9e1fa906663a9e72c7a18d9",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_streetlife_loose_main.ogg",
+      "sha256": "2c1a982bd2ea7a65e76b34514792478a185661d29a2b92bb9c8198c45b689051",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_streetlife_straight_answer.ogg",
+      "sha256": "203d9d3d982be22db0e6a29a92d3ecec203541e2eaa3763176555a74948bcaa0",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_streetlife_straight_bass.ogg",
+      "sha256": "cc052e7e10faa6caf885f0dfbf9bfdfe865ca68e3be9ac756180cb21b2ab8076",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_streetlife_straight_kit.ogg",
+      "sha256": "2d2bfeaeeb3c0cc3abfca0c2ca2ea3ffd17553369af851407f8cc0228e979326",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_angular_streetlife_straight_main.ogg",
+      "sha256": "7618a4bbcbe2df8e851e312d74246d3280ac5c5a7290e5fdb5221e520a83baac",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_escape_loose_answer.ogg",
+      "sha256": "4b660038495308225a0b784bd65debf0d50bf64d1c4ac6786f88c9ba80b3f2fc",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_escape_loose_bass.ogg",
+      "sha256": "0646ca194094b0a14f96a5b27e3e024537b6e3ae2853eb3a8b6389a051f6fe75",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_escape_loose_kit.ogg",
+      "sha256": "62796fc59dcbd88d76f95a357fc21307071e42a20727b5820d39a91ffe6ff405",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_escape_loose_main.ogg",
+      "sha256": "6c812765b91785da02b072fef34d4c0c75dc6b65932429bf5e0ea0059ada4c26",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_escape_straight_answer.ogg",
+      "sha256": "0e6b271760e90e0d47a9ed4ef5947062957c76a139aac85fbde2000d1a092372",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_escape_straight_bass.ogg",
+      "sha256": "068dbda296d809512e252ab3892dae596f737769d74e4e379a31e5c3792492f8",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_escape_straight_kit.ogg",
+      "sha256": "ba07132aa45f794cdf05622b127ec0239dc4742013dd190e21c482b7ae1ba2ad",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_escape_straight_main.ogg",
+      "sha256": "f211844b2df2afdbed9e628ef7d73fa5bcb661def91d8055a95908e63133ff1a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_personal_loose_answer.ogg",
+      "sha256": "cb7340fcb039b6a5febaacfac5421e163a6f749fa78ad9278035f7c0bf31a71c",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_personal_loose_bass.ogg",
+      "sha256": "b1760584c74be9948e0b8cf04bdcba0019e7e1ed546c071391b5c7922cb6ac6d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_personal_loose_kit.ogg",
+      "sha256": "7e1c1811f1656140fd6771636d967892cc924dedcc8d09cbba7bbc4dcc8fd82a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_personal_loose_main.ogg",
+      "sha256": "db3eedf81b54912b965fb02bb19106f4fe9e86155d308414c6f3e13c97c0cb3b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_personal_straight_answer.ogg",
+      "sha256": "0c5aad2d0115a68188454f67dfecfc4d5b444abdf641eaecc709acbdadb633e5",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_personal_straight_bass.ogg",
+      "sha256": "3972eac8887ccde8e8b4ab5c6f3de1ef4dbab4ffd4a4c7352ce00408efeac304",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_personal_straight_kit.ogg",
+      "sha256": "3fd5ea729b5dccdf8985d895d8c2a9bf92a91ca99c4c41e9a956119a6ad162fd",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_personal_straight_main.ogg",
+      "sha256": "b918c3877934dc043a922f4bc8950958108e28fd0b5ebc5979d8f113c43e686b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_streetlife_loose_answer.ogg",
+      "sha256": "cf992e6c5b16e66ccefd6c445bc9eab3c8e19f83091c7f0c5f1011b23e6b3461",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_streetlife_loose_bass.ogg",
+      "sha256": "f8fde491fdefe90704f1fe5e15ca68a43d7cb0e1e0662672271fe7b49c9793fc",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_streetlife_loose_kit.ogg",
+      "sha256": "34644213291e03c2180f7f2f3f41b164392f5b0ac257102f3b739576a7095917",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_streetlife_loose_main.ogg",
+      "sha256": "2bcd69462394c8bf5fb5ef02fb62827f6ee1c9373d23e8b84811cecb31b608ac",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_streetlife_straight_answer.ogg",
+      "sha256": "3e315cd492bc45834318e37871894bd820220bbafc7f3323ec806ce0245d9096",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_streetlife_straight_bass.ogg",
+      "sha256": "acc9ba0fb0363bd5dff01e11240d2ed976b6ea19584750023e9800eaae590bd2",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_streetlife_straight_kit.ogg",
+      "sha256": "29ccfa729a027682ae781f585c7f9d1f0a798c5a0400a486a5d491793420c8f9",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_full_familiar_streetlife_straight_main.ogg",
+      "sha256": "2eed09913bdb212db16d22a1e33d51fa00c37e37cfcc72ccbd2b6ce54ac3da2b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_escape_loose_answer.ogg",
+      "sha256": "9e37b3c652b13e51276b10f2d0338dc9c4e01830727f46eaaa97aadac6a4c75f",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_escape_loose_bass.ogg",
+      "sha256": "7eaf7f6ef69a4c328c49a25c1b88fd9148dbf035b67a3fccf9b448e236b2673a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_escape_loose_kit.ogg",
+      "sha256": "dcc2fc00520bc54098fa43504fbaf9040cac4061bfbcb298ca18c3f008674bf9",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_escape_loose_main.ogg",
+      "sha256": "7fe6c082bff923c04b6d6426d638304ef28a9f44be5bc2b644754a197956631a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_escape_straight_answer.ogg",
+      "sha256": "564dd5e4ab7cb03687ca6f98680980fe837f99eda439124bbf38c603b67b54ea",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_escape_straight_bass.ogg",
+      "sha256": "3ca327c04109614dc0b1f3540c6288b8d74254ad20c0bca4770422664fa53aee",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_escape_straight_kit.ogg",
+      "sha256": "783e437494d10354c79ee1dd5d9b67b9aeabb2413c0e079b44b72546a0a5e164",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_escape_straight_main.ogg",
+      "sha256": "cb07e2191193968dd824f98301cf98db58476d6eaf3461afed61882646c525f0",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_personal_loose_answer.ogg",
+      "sha256": "8906031797e9a093d36a4ef9325d3ede17742a9dcfaa9c3aab5b5abe21b23b2a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_personal_loose_bass.ogg",
+      "sha256": "b57783d3baa05dc8b937101ee629025137cfc8f5d4fdc1977552a9bb0709a9ef",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_personal_loose_kit.ogg",
+      "sha256": "3e60af6aaa010ec310c76bd8e55a19c93f5c775f2bbbf20b8b701201511e943a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_personal_loose_main.ogg",
+      "sha256": "970172f35397e3730901ad333012283d8648c03c951c4e6313ac73fcc3b262ab",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_personal_straight_answer.ogg",
+      "sha256": "e6481d59ff5da926124b60ad9f0f4a0d2c7c3c852f0f2909356c4c0bdae2f17b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_personal_straight_bass.ogg",
+      "sha256": "6c1153698e9e38a9d0ca12cf539f213833b670d0926723ae35c166db1e1de168",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_personal_straight_kit.ogg",
+      "sha256": "66703d9b25be2bb0e3321a15de734e8b0caa80c23e65136d545e27ef380e4af2",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_personal_straight_main.ogg",
+      "sha256": "8b470b64f0d69425ae7ee3b70e8d818daa5f51499cea996b61dbeb27be47aa9d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_streetlife_loose_answer.ogg",
+      "sha256": "469f9c55e4b18f325f2aec35ba2b001d491d0bd9dfa50fa740590adcc0f77c41",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_streetlife_loose_bass.ogg",
+      "sha256": "67020fca94226d1a42d3edf415fe9bf23f67847edbd2b0d1279dc18141567f2a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_streetlife_loose_kit.ogg",
+      "sha256": "c3ac65a0612f038918432f30d2b98027f2d4bc93b3b4c67df6371813c110a5a6",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_streetlife_loose_main.ogg",
+      "sha256": "1cab7c33e8f2777a0e7154c646c6ed948dd98d35bbcbcfd06dc72fdfdd910866",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_streetlife_straight_answer.ogg",
+      "sha256": "ba92b41830562bfa191a90cc4de370c678e6734e3af127dc557eacf56bb63393",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_streetlife_straight_bass.ogg",
+      "sha256": "5d8f3b20e0793525b9d056434a30cef7eeba50f671610f2f1c0bbc1968d0e32e",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_streetlife_straight_kit.ogg",
+      "sha256": "7f331437f1ed9b0575f9fb70f76720cb4493093d559ccb770f204fe187a654bd",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_angular_streetlife_straight_main.ogg",
+      "sha256": "60bb848c37ab2c2f9b944a96b0e55b4ebdfa3fd523af899a7382b74672dee867",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_escape_loose_answer.ogg",
+      "sha256": "14d604dc508c6d67ca41e8ea0c98887778bbb35bf35d5fbac3f3cf8ff51ea6c0",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_escape_loose_bass.ogg",
+      "sha256": "42e209e88cb2e9dbc27fbd29f943693f2468a5178afbbd2156ac9a24995f9092",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_escape_loose_kit.ogg",
+      "sha256": "e02f4fedf5fb917cbde7e6fa8203f415484132ea4b2c11014fef17b9d477c774",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_escape_loose_main.ogg",
+      "sha256": "1fcf8bb3461eec15f455afcc4a0d1271cd2877904f17d8ca6f2f7c2facaf1ad2",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_escape_straight_answer.ogg",
+      "sha256": "e6c1990db8e253728dff7c74a36438b4e4ba85833b9fc573dcd8e0ed90f1427e",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_escape_straight_bass.ogg",
+      "sha256": "27812def38430fa463299bdf3e37648fb44d213ac03d73129725332503013dda",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_escape_straight_kit.ogg",
+      "sha256": "b052a8d52701e06f980356a868d37adb9538cf589df66e5fbc0bd8942f13cc21",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_escape_straight_main.ogg",
+      "sha256": "eddffbc13895aa7b3fb2c6ab8b5f3bf9d65f56d5d4a337df6f49d7e717d15c84",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_personal_loose_answer.ogg",
+      "sha256": "44c9dcfe8e9f022938dca0215c4bc04b995438275500472b2e52c8d3da5a3a65",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_personal_loose_bass.ogg",
+      "sha256": "dae971edef724dccbfe37cf189a508ed361b5992dc2296da60ca3ee18cbfd5cb",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_personal_loose_kit.ogg",
+      "sha256": "5d55605cfd6a9301e9178ea0509703a15917c04dd4492016c25294d804726373",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_personal_loose_main.ogg",
+      "sha256": "cfcf9328bbc2e663f22ba3474076ff7a1d3d22d6b2412aa044746a7cbd570979",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_personal_straight_answer.ogg",
+      "sha256": "1b571c741f01b0fe69c01bb53dda3fc84ca0534e9aaf0e128dfc0c7e9afd314d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_personal_straight_bass.ogg",
+      "sha256": "0ea39a9f9d4d3e53f9a9d4547b54e8ec8192e91b8ce6367076d6ec8cc341b1d0",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_personal_straight_kit.ogg",
+      "sha256": "cf9084b9c84149f6ff703a6c8d2d0c5238f60ce3f4fce3335a7ab8f5e7c69452",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_personal_straight_main.ogg",
+      "sha256": "a5ee2b1e6e4e878801b9e137b857e14af425465565be8c83ad97af42d7f82710",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_streetlife_loose_answer.ogg",
+      "sha256": "24716060b5de478f9664e29750dc79d52c6e161b3af19127a1317ac820f39896",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_streetlife_loose_bass.ogg",
+      "sha256": "0e1e6fd713bd11291396a15cd15e5c7024414d68f7c87c2ccff40261cd074599",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_streetlife_loose_kit.ogg",
+      "sha256": "7731183aa11ea2b4eb367dace29176b58b7179ee176606bedd7e31becb9984b1",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_streetlife_loose_main.ogg",
+      "sha256": "296358f545fe74b5bab747b456c7861106da8f47b6e2a19dcc917427f73a3ae5",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_streetlife_straight_answer.ogg",
+      "sha256": "7e070a8f39e1c8bf5b87204095e78ac6c52689285b69909d3e011b1908e81714",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_streetlife_straight_bass.ogg",
+      "sha256": "f2db0b2b577d18d6fa3e7259c12a3361c7338419589b1761817dd40cb3011ea2",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_streetlife_straight_kit.ogg",
+      "sha256": "8a809b68d164d2ef086a033392a4dafb957fdca125cb1e7d7d05e2bd4431c038",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_driving_open_familiar_streetlife_straight_main.ogg",
+      "sha256": "c1f4ac09d9cdca80dcb8fc7365fe02adc546988c5e5b1a5094db320d5873dc74",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_escape_loose_answer.ogg",
+      "sha256": "4f9e31d68f8f67bee1633d3b926b969c88bbe74a282ade4fdf684c4139c8f23d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_escape_loose_bass.ogg",
+      "sha256": "7b4cbfef2c174d256cd6dad469309e4b79d22b4a721e976bfeb9e18639f2baeb",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_escape_loose_kit.ogg",
+      "sha256": "d80804f740f398ada369969da0f127ca258b3a23b4262218936c8edd53fe3b10",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_escape_loose_main.ogg",
+      "sha256": "4dd47b3b5641ff8dce50870347926f9708a0d9b30b17ff341feb89019b7c3911",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_escape_straight_answer.ogg",
+      "sha256": "347ba17f0e6126ecb4004622da5cc5a95fd5a091c605975b17b6afc87e0ed6ac",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_escape_straight_bass.ogg",
+      "sha256": "75385604b95b99e26bd215b9a459cc5c60fe6e07be3f885ed5670bde216b74a2",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_escape_straight_kit.ogg",
+      "sha256": "8e63312a2fb9653f2c98a2485e0dcf89e03046e9d37b19707fdb1737932d92e0",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_escape_straight_main.ogg",
+      "sha256": "1a1c01ae1b0ef5719d0f7631fe83d654b2316f47754f18b307ac5d6fbbf55272",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_personal_loose_answer.ogg",
+      "sha256": "dbf9a0406f0c209106bbf548bbb9b5ccee2056d823a2aee20706b5d066831c81",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_personal_loose_bass.ogg",
+      "sha256": "28a66bb26da2f34495d622c3b2ad5a4c4317d4aae978bda249c4757996c41d42",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_personal_loose_kit.ogg",
+      "sha256": "3d0d86778a3f5eebcfc38571abbe0fa2ff0bd669ef75dbd6c39ce7d04ebfde49",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_personal_loose_main.ogg",
+      "sha256": "9f4aead7deae133bdf83ecb41ea66ee9406e0b72b599305bbd3953f99ffad7e2",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_personal_straight_answer.ogg",
+      "sha256": "e979052ebed0b944c77c61e17dbf0d46a5ee707f890058a6ee79076d24f39e8a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_personal_straight_bass.ogg",
+      "sha256": "016df92df93c8a282fa2c36f38f08959698877289947bfaf33de9402642f2979",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_personal_straight_kit.ogg",
+      "sha256": "51a67fbb5efb6788e6855b0c15b759e35aad7932d5be8544c096385b2cddba80",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_personal_straight_main.ogg",
+      "sha256": "74381065d18e92f280c98d099bf528e9d1210a69ca2cecf09e272dfa69d5c89f",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_streetlife_loose_answer.ogg",
+      "sha256": "44d25b68ee49af0ecb23e60269e92e25601086d3be0cc7014537875976439b79",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_streetlife_loose_bass.ogg",
+      "sha256": "65728d3888cf975842a0ea1ff694b1518f29df2202a30d2e464504926227f89c",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_streetlife_loose_kit.ogg",
+      "sha256": "e837736336534352ae2947c171b116291bb0de89a3833033b1cc0cc508a23729",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_streetlife_loose_main.ogg",
+      "sha256": "fbccdee780f81808de6f2dafc0761ceb941e491352fe3d6b333d22b2201fb221",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_streetlife_straight_answer.ogg",
+      "sha256": "bc294e5f07c8b62370f7a25d09892fdb1ecca64fd4ac4df2ca38f335249311bd",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_streetlife_straight_bass.ogg",
+      "sha256": "22b786f19839f087cd3625899126ee239272dd67789bcd7a65cde9a0eb80f884",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_streetlife_straight_kit.ogg",
+      "sha256": "883609ac6a669352953032688e29feb828956c524a7adc127703230b458d2363",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_angular_streetlife_straight_main.ogg",
+      "sha256": "7ecba78e05313f6c67df20fc865eee4b930f978d71ebbd8165c737189762a5d3",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_escape_loose_answer.ogg",
+      "sha256": "82714f0e4b525ad6e8f28b9825a04d6751c56be33830f2e2197a81f9a2418eac",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_escape_loose_bass.ogg",
+      "sha256": "bc3301b744a3bfb8319fa1bfd02d8220d06b29e5a6f2a4e8a8190a5a74c257b2",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_escape_loose_kit.ogg",
+      "sha256": "2a3bd3ed53e3bc9135a56b8b03eb71204c368e1c531350a880532fc0da6b088a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_escape_loose_main.ogg",
+      "sha256": "c2883572bea742559f5c1af87432172c0b6716ff7a1afb1493e0a82e329724b5",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_escape_straight_answer.ogg",
+      "sha256": "424005461d209edddbb2838527a8230f31356b4f5fc1d957bcc8d50c0dc5ee0f",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_escape_straight_bass.ogg",
+      "sha256": "d329e7b953eb22453eff2c8e3ee3f69be719c32898ecfc8121aa61f4d4ee5e34",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_escape_straight_kit.ogg",
+      "sha256": "e973a1af0b5564fc904d5b32befe7c56d9789e39837dd7e63caeb78936ef11af",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_escape_straight_main.ogg",
+      "sha256": "f5977b91d99f0db9137367c6100975b389183c70f8dd5258ecbbbf0e11515b81",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_personal_loose_answer.ogg",
+      "sha256": "f912c7d9c647aa41c35884cf2243b0b6df04d0e6c29b8a17431fb28f20c97e2c",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_personal_loose_bass.ogg",
+      "sha256": "34cdcf718400287909429bc1c96968f60b840bbc14c2ef3f86ffd2c4e0c98b49",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_personal_loose_kit.ogg",
+      "sha256": "0c84e021fdf8115447c9d51d784b7705a0e0d2a8d2a4a4e159c61778598bb457",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_personal_loose_main.ogg",
+      "sha256": "dc63c8e46e8c475ab53b45926882cde70eb6b247ad679f041f692cdf653fbfdc",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_personal_straight_answer.ogg",
+      "sha256": "0870ac375cbbcca996b71ddf6114f37f79592892068bfc6745e044b6e7496d70",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_personal_straight_bass.ogg",
+      "sha256": "f6321573d221b715278c6d01b5e1bf6e4e255625f4ae843b0faba55fa62f3e6d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_personal_straight_kit.ogg",
+      "sha256": "4b9f53f2d91144e1140044b49b59c977f5273fc6d33fff674eda0f5cf850051c",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_personal_straight_main.ogg",
+      "sha256": "3284530f31da524d4097ae223ad40f1ed1c66f915952d22bd80c964aba15abf6",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_streetlife_loose_answer.ogg",
+      "sha256": "6854b3696129f5ba3c11568e26621417be06c9f6eca1e2f3e36201645f90c6d5",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_streetlife_loose_bass.ogg",
+      "sha256": "a88e17e3a46a97a11dd89edaf5160e0032205a7ffdd5461f621f1577848e0b51",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_streetlife_loose_kit.ogg",
+      "sha256": "6c2fa7e0305facef672105befe417fac1c304d76c209c82a7d98d6dd5cac66d1",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_streetlife_loose_main.ogg",
+      "sha256": "508d8aff5dfa33ba0703d982291e933c8a9b5de5755d49cbda56075f381f2aae",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_streetlife_straight_answer.ogg",
+      "sha256": "40ae1b9b4ad9c31eef940f3327be38bba7319e7a378a599777f8b45e0e178503",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_streetlife_straight_bass.ogg",
+      "sha256": "2923b077aeeb82edd6139918a3eb8906f077d02c602402986075b2b51260cd25",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_streetlife_straight_kit.ogg",
+      "sha256": "2a2b64e2729a1f587abaaa219f2841125a451e57c1dde5575b371b03c6d44299",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_full_familiar_streetlife_straight_main.ogg",
+      "sha256": "089c473b781f4b8bfd543ced9af131fc953c5447dbaa6303b265cec8d6d07ee1",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_escape_loose_answer.ogg",
+      "sha256": "6e343e011db28b21454f8be767a6dbbf345a89a67d35ed9b3c34a60c0342f909",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_escape_loose_bass.ogg",
+      "sha256": "dd0f4c80a9b74a3bf51783e8d2d0059120de085806e76723b8e20745d16d8715",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_escape_loose_kit.ogg",
+      "sha256": "9985a56d6c890b19b5818adfec1a1b387b2c16ebffa8ac554925ae122001f47a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_escape_loose_main.ogg",
+      "sha256": "38aaa674185e8fad39a02f209a17026290842d3cff4afca0f0a6b57ca50dae3b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_escape_straight_answer.ogg",
+      "sha256": "84001cc236998c5711c366bd446bb2cd3271dd2100ef5a52fbfc38fc4633a664",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_escape_straight_bass.ogg",
+      "sha256": "0db43ec21ce7b24f9b0e2464f5f5b3b6604cd14cee303353222d66904fef1d48",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_escape_straight_kit.ogg",
+      "sha256": "167a4820bb0499d9a14830428379d97e64fb6c4d0b575f7de93da76fb2747eac",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_escape_straight_main.ogg",
+      "sha256": "4247fa640efc7467f57afdc0d9f05469cfc925cb3df75f7cfd6b44ea9b182f93",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_personal_loose_answer.ogg",
+      "sha256": "7f5f14eaacd5d9b91ea89ec6f7068db37389707ef21fbd4e1dc89ff174a8396f",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_personal_loose_bass.ogg",
+      "sha256": "9981249825c5e37d569767e2a4ff7a02801c7dcdb19af1adff358ff301ff9f06",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_personal_loose_kit.ogg",
+      "sha256": "8e36cb134358587484791d5c03db7914c44a5d47c4a05a5fd7dbf7ec807907e9",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_personal_loose_main.ogg",
+      "sha256": "42b10df02e7fa1aa87425fb64d9e22602d8fe9a40f3be1776bb39093bf5df1d0",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_personal_straight_answer.ogg",
+      "sha256": "8371ab8bea661075178c272e964e2f60a81e6b97a057f1436caee30e82485c88",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_personal_straight_bass.ogg",
+      "sha256": "c2a6b80171f33047735e1fa0a00b6084cff96d0233f5888890623426e38a791f",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_personal_straight_kit.ogg",
+      "sha256": "71745bfcdcd6a280091569ed12fa6c6c2aa2970cee0c7fb765bf5a896c3cf238",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_personal_straight_main.ogg",
+      "sha256": "39729aeb6f4b6018a86f71dbf711309770383be7107464be1b1be737618b400d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_streetlife_loose_answer.ogg",
+      "sha256": "2ff123b059db19bd3281d6192939391b26fd1f1ecbd100a40296df331e95e97c",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_streetlife_loose_bass.ogg",
+      "sha256": "8fccc823fb7ed4d4f9a3eb1e8a5016c717bdff7ccfa47e38bf668e595ea57d06",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_streetlife_loose_kit.ogg",
+      "sha256": "cd9d81d01ab16abc914f89d6fcd58a9c304f730747ae7820f620cfa375c69ee6",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_streetlife_loose_main.ogg",
+      "sha256": "0c1bac406332f52b43696cd12ea7053e28645e606294c41f30cf31df5ad177cd",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_streetlife_straight_answer.ogg",
+      "sha256": "e032166b98286be90b98e8ec999d701671887e7011968682bdfafc0fdcdeb2f9",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_streetlife_straight_bass.ogg",
+      "sha256": "6af2e0c1a640c2a04cf904970eb093f079d6edee126dcd9f6de1af7583d496f0",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_streetlife_straight_kit.ogg",
+      "sha256": "effd0b5de062afc117dc97835e85184f770f11bcc597fa19df3010fb15e739f2",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_angular_streetlife_straight_main.ogg",
+      "sha256": "619a7fd2171d2d07983468e3b95f8874f7e87da48e07af9d5b7961d426da8990",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_escape_loose_answer.ogg",
+      "sha256": "05022f022d47258eaeb82c93b35daf58b9c197485e765054868cc9a745665667",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_escape_loose_bass.ogg",
+      "sha256": "e36def1b48743f520ef542b24fd4f9026927d8517d6e254c5fac0e25ec640b50",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_escape_loose_kit.ogg",
+      "sha256": "dedbf8ad8019af60bbc0842bb4a8912c8557e0e7c070c5d87bcd80d7692a4f94",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_escape_loose_main.ogg",
+      "sha256": "fd1fb571b44daed48ae83a75a03400219f60259c50652fe0c1fef3209a601dda",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_escape_straight_answer.ogg",
+      "sha256": "49a9f439e3b296f5dd52041f678fd8ca789f3528a0eb01730283ed1687fcb94e",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_escape_straight_bass.ogg",
+      "sha256": "2603aabb69efbbfb38af673c50651e1442508256a8eeb1847fc3d62db034e3b5",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_escape_straight_kit.ogg",
+      "sha256": "347492986dddaa0917e72e0607d0d718b2adb677ec282c75ce1be7254a5e10f2",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_escape_straight_main.ogg",
+      "sha256": "4fbe4f84e957b4351510081c9292d0a58ced61212414d3471389daadaa21b841",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_personal_loose_answer.ogg",
+      "sha256": "76c1dfb9881adc83c681e85f84c4a1d5849debab98389bb3aa6d88255fae6eb6",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_personal_loose_bass.ogg",
+      "sha256": "d75357a542fbb67811aff6485d8ebb1c53414eb7afc4206628ee64a22730812e",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_personal_loose_kit.ogg",
+      "sha256": "c7882994d446bf9f688c3421e4bb8ed8cf1f7abfc3031b45af85b1415a12ec95",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_personal_loose_main.ogg",
+      "sha256": "1e550e921536d622280abeb53830665ab2092dfc5fce0fe65ad0c4fc484cb30c",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_personal_straight_answer.ogg",
+      "sha256": "fe1bd1eb2025cf3cf997b998272276ec48a72dfbffa65c17c1ed766618f08291",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_personal_straight_bass.ogg",
+      "sha256": "e446e439bf1189dbe2d2244bb6d267a3be1ffaf8542c39ded0eedc9a82cc8a4a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_personal_straight_kit.ogg",
+      "sha256": "77817595971e2efa5b77b535d9119ab1f3c604c9f2cd67e53c0da376d9713068",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_personal_straight_main.ogg",
+      "sha256": "96c72aac879b20af87cd2c0dc63b6f09b5621b20b998f0ef6a99df95fa4b956f",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_streetlife_loose_answer.ogg",
+      "sha256": "8c730fd297cb999dd1fcf351e668034ded0d36d2f2fbfbd203afd9db0e0d90ff",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_streetlife_loose_bass.ogg",
+      "sha256": "d99d68c3db9afdd78e2d33b58317ca914b7e1ff018a433a52d690cfb9bd15f4e",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_streetlife_loose_kit.ogg",
+      "sha256": "c0cb67d6411ebd8da3cc3beeed299fef65b00289e7e98f28ce9b6b04409b682b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_streetlife_loose_main.ogg",
+      "sha256": "6a1deefb07ecd206efd5668cf2c3aad6a745850072420f44f257a351792ad6a1",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_streetlife_straight_answer.ogg",
+      "sha256": "e6567f06113c6d8ca65bc79d9fcee1648acb94b3a3551ac5f48638dd8e9716e8",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_streetlife_straight_bass.ogg",
+      "sha256": "6c69b428eea806ac1bf45f0e56a26750f8366be8864905ac5b312247db6ffce4",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_streetlife_straight_kit.ogg",
+      "sha256": "5168d7dbc2161917adcfbafb6b6452be9921db6eb149736b10485ab4c7c56157",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_slow_open_familiar_streetlife_straight_main.ogg",
+      "sha256": "2c2cfdf0e20fc335e66c9840a15931e774c3c288523e014b30b1a9d5e2d1462a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_escape_loose_answer.ogg",
+      "sha256": "a8fd76f722eece8ab1b003ad9cf97bd879133e9e480b16ffb7a81ab4822f9a96",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_escape_loose_bass.ogg",
+      "sha256": "f76cc4ff2b6eb5aa0917ef046695d9ecf87085924c3d1230cbed8a9978cdcb5b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_escape_loose_kit.ogg",
+      "sha256": "1d367933a7e7211514bf4e7b6581ed1652f1d770e353a28ddf6a18cb533f2409",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_escape_loose_main.ogg",
+      "sha256": "9f578e98af4e2679085fd85716a32943ea6645ec339352deb93ebd5dd3820a39",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_escape_straight_answer.ogg",
+      "sha256": "21a9ebf144a979d60f745417c62d27c0e7b520988a02ade9b46d58af3544cb8d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_escape_straight_bass.ogg",
+      "sha256": "856c778249bff2a0f61cd2e65c34b52a60094284b666ec17dd8e9cb1e4f14c4b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_escape_straight_kit.ogg",
+      "sha256": "a49df1a7870cf8140524e9790168587598740487e0268aa490336a0bd49d25a0",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_escape_straight_main.ogg",
+      "sha256": "29b4c7a4bff4633699572c2bbc9ff9a3d9815c4aa422d834128cdd54ff43d06b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_personal_loose_answer.ogg",
+      "sha256": "74f084039bb86c95cea0f13f1bbba07c7f6a2b46d5fee26d4f71a6b26b87ca0d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_personal_loose_bass.ogg",
+      "sha256": "f66a8d12fa2bbe8961db6254d9af1d06ee9c017ce63be5d8a32eaf444c0b9950",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_personal_loose_kit.ogg",
+      "sha256": "c34c907e4c71ebbde7632f82621d5e5850b9f16483b6c26d246c485cac45b492",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_personal_loose_main.ogg",
+      "sha256": "d905ef73537f2bcdfd5433e624d90f563a5c8106dd4f7d0ec849b1c31651b45c",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_personal_straight_answer.ogg",
+      "sha256": "e42a7f19e4831c853827c5d2372c2745ab19c1b3f70f917566a35279bd18aada",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_personal_straight_bass.ogg",
+      "sha256": "da9883ef01e1b71a4972624760db4b7b4250862e5c6c1297645a71c57f55afe3",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_personal_straight_kit.ogg",
+      "sha256": "91ef216179355083f30e90327aec3791e02335a5812159f4759330258ffc03d5",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_personal_straight_main.ogg",
+      "sha256": "8b76772e3fda3e3ec3425978f92edde79dfbd2836fb37c4501fb2906e3b846f3",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_streetlife_loose_answer.ogg",
+      "sha256": "f2d2c28fdb6f54868660f7373aa760ced43516ce2e43c568212d579084954d86",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_streetlife_loose_bass.ogg",
+      "sha256": "f97bb496f97e510aea809916d47fa09f92889bbc179f0a399cf7b494e5310221",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_streetlife_loose_kit.ogg",
+      "sha256": "c0e22beea0720e4817818b0940201b67849b407ffd47a2ac5ed88a168b6e1510",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_streetlife_loose_main.ogg",
+      "sha256": "744b90c47685ce1dca17e0a78f39e72fece8b14d7dfbfc08e8442a0ebc4f4bfb",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_streetlife_straight_answer.ogg",
+      "sha256": "5cb37e2a511826ecd2452cfaa5e9d4e1e69a860b8e010add374fe56195faf038",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_streetlife_straight_bass.ogg",
+      "sha256": "9118b16c9b49fa8e2533003fcb32ffda3f779659d44efb8374d549d958b12f92",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_streetlife_straight_kit.ogg",
+      "sha256": "4c70ae4f33a98ec2cc85d8ec9101edb15d4099450252d085c8865e37136885ea",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_angular_streetlife_straight_main.ogg",
+      "sha256": "705623fae7e2c17f39838817828ded41b0e35bf1c507d943ce834e2d7e049bd8",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_escape_loose_answer.ogg",
+      "sha256": "e0ea3e78ec396c11d77b8e260159e034e04ba3bf0dfd0ec4a57301b2e2b5e857",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_escape_loose_bass.ogg",
+      "sha256": "f5cb2974846902fe61eac5bc43d3b32f2a111faa3e05a9762b2edb06c5290762",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_escape_loose_kit.ogg",
+      "sha256": "4fb6d3163058053883583794ca2fc563ec538a2cdf353d9bf9fc3cf2010d466e",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_escape_loose_main.ogg",
+      "sha256": "6c9f9ec1ef21b4e8318c3e6fe4b66287155220c051c96bbd81b6661a47a4dc52",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_escape_straight_answer.ogg",
+      "sha256": "358e37d580d424cd2f7610c956026b02556af42a95541d99a206a77c29ba47f6",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_escape_straight_bass.ogg",
+      "sha256": "ae8bf09b8063331295530c6ed650ab259b5d3422cbd86f05ed5a7131b794da40",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_escape_straight_kit.ogg",
+      "sha256": "c876579ab2953046a04c2c094644c2b98876838efa4867c5337af11dee4a8a7a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_escape_straight_main.ogg",
+      "sha256": "364f3785e0e5044b031cedc706c13ef63d34c57b63f4bed4353840e16d42c2d9",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_personal_loose_answer.ogg",
+      "sha256": "3626a4a3a13329e604867a0d0297ac006e7a528db4b8890f0b47b055150a8f5e",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_personal_loose_bass.ogg",
+      "sha256": "19a22fbdac5d4b8740a00925e0f690ecefa891fa7f5bbb07094b89c08902fd1e",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_personal_loose_kit.ogg",
+      "sha256": "b88cb0d410ae2110255a0254ca7ea84bf9c98d4baa48700b95195883bd279b84",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_personal_loose_main.ogg",
+      "sha256": "4472ed1723d25cfd4235c8cfcc47d1343f29ebc90acf431758a45675f43972b2",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_personal_straight_answer.ogg",
+      "sha256": "ae4dcbce1355f9ae53fe723ab83891a153b13028ccab01d695794c44fa40892a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_personal_straight_bass.ogg",
+      "sha256": "4d4c5646d3ef8ebd59a9cb922e5363a04aaeebfa8852a1ead675382d3977c3fa",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_personal_straight_kit.ogg",
+      "sha256": "3a1dda4ea456c676407ff2146c8a0ecba60af5e38c36c48eadc9f64e93f20ce1",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_personal_straight_main.ogg",
+      "sha256": "afeb07e72f44246c0c8a8a662fc1dfd69f7f4ec84602fec6e2d7ad8def3365d7",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_streetlife_loose_answer.ogg",
+      "sha256": "847b71e1600ef2570e612b1cccbb1697e09322304e7dcab0c907eda963cbd934",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_streetlife_loose_bass.ogg",
+      "sha256": "5f26d2c27904959579e532bfb4ccbaa705670d3aa4b7bb551045ad48215dd332",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_streetlife_loose_kit.ogg",
+      "sha256": "637512afecbf17ae998337043811315580cfb20c0cfd3a04f130f654e412b96e",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_streetlife_loose_main.ogg",
+      "sha256": "542aae33cf767ffea93eb178a85c4828a0f58d8677ca46abb509f3616550e3e2",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_streetlife_straight_answer.ogg",
+      "sha256": "fb972c475bba7086d11b87e443c22f1f3c611b16cd3c4f5d96c4c67a60f12cb3",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_streetlife_straight_bass.ogg",
+      "sha256": "f5901286970f0e4ff5c9ab01a1875f577ba4634091a61dd03d00775c16d89502",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_streetlife_straight_kit.ogg",
+      "sha256": "5b2d3304039cfc05b471ebcd9a16b3e684449148cfec1cdf8b189fc47e2b29c4",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_full_familiar_streetlife_straight_main.ogg",
+      "sha256": "eadfd1c754531ab5732d70dff06ccb034eacc0507bd22a30fadebc8d411824ae",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_escape_loose_answer.ogg",
+      "sha256": "f5873d4315b689154f4a177b25e984ebd6d5443631ccf71871dc610c0fc8d484",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_escape_loose_bass.ogg",
+      "sha256": "ededfbc0cfa7d0a081f92ac5a2bc7824cd6ede9cfe5b44918ec77e389cd9c250",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_escape_loose_kit.ogg",
+      "sha256": "b7a2dd57e15491195c61c76aeb0c4547aaeec6c460804c6e095fe330827e3669",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_escape_loose_main.ogg",
+      "sha256": "32e66eb198ad49ff17e000eb8147669d04f30aa4769498458d19a9411ce16f13",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_escape_straight_answer.ogg",
+      "sha256": "8f2c6dc652ff15e5af7ccb9516c4ffe6e4680270f4fbf6613d5590cc9adc3cbd",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_escape_straight_bass.ogg",
+      "sha256": "760afdf90db2d379c57c7bccfd99b1e26794d9d0a62c9c9c12ea6c36bf5a2093",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_escape_straight_kit.ogg",
+      "sha256": "562d20f639412078ea44c473d5a319b9fa4d85ef3606685a7d6d463a28e2878c",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_escape_straight_main.ogg",
+      "sha256": "632ecf434d9c7031b55255f118651dc19333c3392550c13970398a46de1baa80",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_personal_loose_answer.ogg",
+      "sha256": "97eff8d26e28add0c7689188aa6c78527596dfe477351bdd2b1d4b86952c1a73",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_personal_loose_bass.ogg",
+      "sha256": "ddc0e13e6afe395cd8dcc3920ef973be3caea89ff87dc598183b4ca5b09fdbe6",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_personal_loose_kit.ogg",
+      "sha256": "b848cd07b54ec0ca94ace310d12f39e21c77bf9b7fbb1c589bead43f43c32142",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_personal_loose_main.ogg",
+      "sha256": "f6956c0faf3962b7c8408d7a781175694394ba84ab8efe2094b1482141e859b5",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_personal_straight_answer.ogg",
+      "sha256": "b6f5660035912f8aced540fbdc2f4bdce8501ee57f0ead06b01acb5f4817f382",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_personal_straight_bass.ogg",
+      "sha256": "191db88bc65bdc306b1f363bfd10d93e1b6c4992c8b2d5dac09e6049d325aeac",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_personal_straight_kit.ogg",
+      "sha256": "aa4624a34766d3aaa32356fd0058e3485e0732b8b05510499f7bd7ea07c393e9",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_personal_straight_main.ogg",
+      "sha256": "5ffbe61205038ef505dc763ce02387ab74c57c213fea5f0b0c6f407c4dcb766f",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_streetlife_loose_answer.ogg",
+      "sha256": "5e6b05c84c87188afa6dd0f21c5062f86106f6c1fcc633a15dae3ce3f3054720",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_streetlife_loose_bass.ogg",
+      "sha256": "a701749debd77dbcfbc6ad7c15dcab62021a056f47d03034edf4e06d1cdace9f",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_streetlife_loose_kit.ogg",
+      "sha256": "368ddd90c3cc5ef1daae240ba646657ab67595cab4d88be98c835f16fc7e8a7e",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_streetlife_loose_main.ogg",
+      "sha256": "e4bfd352751a1339ef542eab33aa295ef58b5f14c48d44f7e64e0dc481459985",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_streetlife_straight_answer.ogg",
+      "sha256": "2406a5e107364b6c79ec22249704c27277f097ec12caec1d64f0dc877018bc08",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_streetlife_straight_bass.ogg",
+      "sha256": "df1f6f3ce798af9877cc69c558fd6059ad3c65598c83def24b526bf29e15ace3",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_streetlife_straight_kit.ogg",
+      "sha256": "d225c86f677845d816546022a11322ab0c5b3153b54f2067d7339aa2bd85d56e",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_angular_streetlife_straight_main.ogg",
+      "sha256": "ff88322a06337547615ee327a230cfd310e47dcf8d909c9be789e9ba9a358251",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_escape_loose_answer.ogg",
+      "sha256": "ecd7512afc7b14533dce4d6e65f02024df883cab71466382927877739c529ecf",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_escape_loose_bass.ogg",
+      "sha256": "568890df5e8c6994899280fde8960600c31bf205db141f9c1e7341bfbbd13354",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_escape_loose_kit.ogg",
+      "sha256": "9ee4b0e4f9db686de5e58fa2bc2f4c313d5da11c2d7fd942c4f942913a8e0ee4",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_escape_loose_main.ogg",
+      "sha256": "f7363f7ce17be5280d578cea488afe1e07a6fc0e0202193ac4303e4fbcec6675",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_escape_straight_answer.ogg",
+      "sha256": "60a36f8b475b2360767025b6c5d376bc1584f5813d6033625506db90fc5a8371",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_escape_straight_bass.ogg",
+      "sha256": "f0c03a0aa7f9f1f90eb52e41f6aefa02f78eb06e67467128be1a494f9ca97aad",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_escape_straight_kit.ogg",
+      "sha256": "b8109d24d0194ee4bd5a751d1d0a0dfd47507744b239afc43fde576d88468146",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_escape_straight_main.ogg",
+      "sha256": "66db1b200a06ad9a3f001aca47a35d4e02a69e4399008f0682c6305e649687c6",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_personal_loose_answer.ogg",
+      "sha256": "d94967c730be8391d0fbba1274fa316ae51ccb577530953a144817ad1f60fd03",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_personal_loose_bass.ogg",
+      "sha256": "f03f2285a2931f6e72cd35d39692afa5d947389966adb7ddaa70ca7dfff7c195",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_personal_loose_kit.ogg",
+      "sha256": "0ecea7ea4dd1c4263a38b994d5c951682fe6655972d9499f6b219617c6f029c4",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_personal_loose_main.ogg",
+      "sha256": "f6ac3d91d8eb2351aeb9dafc0c12b3c8d8d98506ce77d7f86b8e9ce048718797",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_personal_straight_answer.ogg",
+      "sha256": "cb7e6f1b6e37f950eff736290cd894fe76226da076715b312c6f851f294c418d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_personal_straight_bass.ogg",
+      "sha256": "5fcdb319165a70e2c8120d0746429654b51b1cf5e46bfdac531ed8a9e73da3ed",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_personal_straight_kit.ogg",
+      "sha256": "4463c885bbcfcac5f039ad1362b398b82ff04c4d8429dcd01528cc17837d3699",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_personal_straight_main.ogg",
+      "sha256": "250be12048b742eb9a045ae9f537fcc59ac46facb370a2a1f6ba711f19110468",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_streetlife_loose_answer.ogg",
+      "sha256": "c1044aa0e9cd9381bce3ce3c8ae4748f20f491b257274b9ab764b01a2d257fb6",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_streetlife_loose_bass.ogg",
+      "sha256": "106a1b6681633381c464fff0262a46f06219405b511d7036edebbc67996826ee",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_streetlife_loose_kit.ogg",
+      "sha256": "5e824d456f5f3dccf2fb5fa6cf058640bb2f4bbd7735bb968ef9b7755e3d8719",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_streetlife_loose_main.ogg",
+      "sha256": "6087dbb0088d1034f5424715691b8da595369a2477f5faf320207eaaff88f511",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_streetlife_straight_answer.ogg",
+      "sha256": "28d997b2bdd8d9c4fcf26a99165b9a5839d457737e7807cdee9998fdabdbc995",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_streetlife_straight_bass.ogg",
+      "sha256": "773d8fb5422d3980b03c235a3d9b1023f600d32c3a89fd3ecd8e19c54d594b77",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_streetlife_straight_kit.ogg",
+      "sha256": "5901d1f25023d6a7a7de10a4964794566068e2b246241417970b32d793d32240",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/mixing_desk_v1/mix_urgent_open_familiar_streetlife_straight_main.ogg",
+      "sha256": "bc7dcac3c2c1cc406ea20b638a793ef0f6bedc30e6878861805e058a8cde9559",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/punk_v2.ogg",
+      "sha256": "c77371d71f9f9891ae43c8dbf77f6536f1c7eedbe0f58c946000ecb8cd162b8d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s0_00.ogg",
+      "sha256": "6fb16479f33137768529b145ff0b80a0b03ada213c0ff95ba2dfb1b0c176bc03",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s0_01.ogg",
+      "sha256": "1fd53a053b0da2bc52332846d9550676d50cf183e3598f29fc69915c08136807",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s0_02.ogg",
+      "sha256": "2fe1255c980662c044547d50c465e0f89a76eb32c7a5528b6e264a1f96e0e6d3",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s0_03.ogg",
+      "sha256": "57ab3b34cc3b54b35d1f2cac6622c9d65520f7139af604411b8067fd0ca3c1e0",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s0_04.ogg",
+      "sha256": "1c5e43b72e55430573544b46b3e300d4f3c6b8f38988587f2a274c91ba4ef0c9",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s0_05.ogg",
+      "sha256": "0a40077d77b37e7b82ce9d1b5ba4b99d0467302750b02b1894fa841744dcefa1",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s0_06.ogg",
+      "sha256": "cfd5f392078f2b2c14c599effd284ee2dbe06b3e3efc251adbf696ae21105735",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s0_07.ogg",
+      "sha256": "36d2542d8a3a2cd8d48b2ddd160d81b2a21e0cee3297189b93da8b3759bc3e53",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s0_08.ogg",
+      "sha256": "f4e7e3534c69ee736c23ca9f9c7c94e387565988ab699fada63f1ea51322c6a8",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s0_09.ogg",
+      "sha256": "bf9922a03448e0c158e238806acf26b8e5691e53b065a2204455578b2eda9c0c",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s0_10.ogg",
+      "sha256": "2b4b55288b1701399263d3bddf7ab768dd298c70fbf6c20f35de636111745cbb",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s0_11.ogg",
+      "sha256": "464969476cdd8d5c21893b6aa578035ea8e49d8652feac5a410631e9c837003f",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s0_12.ogg",
+      "sha256": "a8a89f19d246b45752158f8998b188466eff2f336fd3d2bc077fefaf8d313526",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s0_13.ogg",
+      "sha256": "3fb6e5a117493e2859c2973577069197abea2128bbe52c185c3a2c746e3fcd2c",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s0_14.ogg",
+      "sha256": "de5da296d0f0dfc582329e629406cee5cd5a0de88dfb36506d645eca0ea16ab3",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s0_15.ogg",
+      "sha256": "a25bf22528fe51f8e1968592f7cddcd65cd877344bffda1674924669aeef5aff",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s1_00.ogg",
+      "sha256": "5396e5a6fedb2cad5df23dee63a0af1534e80853e4879ec247ce4830835bce17",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s1_01.ogg",
+      "sha256": "81bd1ded8c706c537bda665d2301fb6666eea87e23b90bb10c2f3498a15bcfb3",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s1_02.ogg",
+      "sha256": "8af8f86f8b15b5b9ef7e707d9430dade26cd54e209e2e6540a7eddbdbfaceb80",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s1_03.ogg",
+      "sha256": "d8497f0e7f7cba096486abd9f8b20d0b9c271ea624920789ea58990c90b4d040",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s1_04.ogg",
+      "sha256": "e06511884885f26e8aa9c69d5557b770eeea24c56afd849894ef7d893d258b7c",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s1_05.ogg",
+      "sha256": "42586ba72070dce8ed312d1a788040ea5076647c0e99b10a22042c89a284a4a1",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s1_06.ogg",
+      "sha256": "c5dd0a696d3f18896bd5b344621c6f337c373aa86a409293624d7e238eba15e2",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s1_07.ogg",
+      "sha256": "15c4edc8f1cd6822e36cd33ab24a7e4c8846ce08935b135bb01651691f1e8508",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s1_08.ogg",
+      "sha256": "b7f0ced013e1304544993e50bae3271153f1f8fc313aef7cded1f4c0aaa128db",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s1_09.ogg",
+      "sha256": "1d9047c6cd3bc498ec03d7237bbe9c7019bea7390bb2a7bb7541949c7b52adbc",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s1_10.ogg",
+      "sha256": "bf11d55b2afb7caa41a95cdd5dc46b0f6c592574c6901cab8ef0c49d5b4e895c",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s1_11.ogg",
+      "sha256": "719e586683acc34399d9619ebeead70ae61599878b7dc81859f13e8b66aefdd7",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s1_12.ogg",
+      "sha256": "8e99292d4cab931b84b55b8e7f60be69f1a009b20ec1a8f2e4efdcd6a5035ca3",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s1_13.ogg",
+      "sha256": "ac3287ecfcaa2c3522443bf3417f2d5b84aa01d581d971b9108077ba633c485b",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s1_14.ogg",
+      "sha256": "30701137f0088cc7a4e31d6501e01d3ef00666f651ca20744cdf5c4bc18425d7",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s1_15.ogg",
+      "sha256": "a3cea989145531894671d668c6a8d3f709279591bbc488d2c480f1521caf5482",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s2_00.ogg",
+      "sha256": "4c9b3f20d1479a70ea3d68ccfc30fea7e4bcf2238c1ed0dfe542a32f3bb601ce",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s2_01.ogg",
+      "sha256": "312bf24cf8b950f8bf7acccc2b2e68949709e39f92a9851729559f4d2c342f00",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s2_02.ogg",
+      "sha256": "22f4bf47ea9f4aaca4e079332d01d50d5b359cec698f4097bd450f10d904911e",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s2_03.ogg",
+      "sha256": "04c3040a3483cb1cafde505ad6bd3f06fbff333d227bf73988ceabf0c1c373a9",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s2_04.ogg",
+      "sha256": "2eee2de361474e8562d3a159173bc6234ac7f05386b36c8512910e78e628e8aa",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s2_05.ogg",
+      "sha256": "0dbc7c0acc35a83d4c32d05747511cfdb3d73799b766896ec1f457818fd468ee",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s2_06.ogg",
+      "sha256": "97dabf1e9ce532a0181ad6def2098cb8eef17c0ca6c3fbc398aad6264f6a6117",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s2_07.ogg",
+      "sha256": "bc3eeeaf3eaea5060b2e3403812f635176e0407e8361ca0fb3bca2ae4a76c751",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s2_08.ogg",
+      "sha256": "e94e88ea82e7a67b368a415156501826ca1984b9ec8ed5c552f228b01cfa4935",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s2_09.ogg",
+      "sha256": "00bef2483a84b41f8c3db7ee30100c1ecff7cfa2c00d2aee3f4c9db294e823aa",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s2_10.ogg",
+      "sha256": "c6e6c7685bc47b2b25739c6b664171443875662290d9418aedc3e802a004e8ba",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s2_11.ogg",
+      "sha256": "7503cfa4bf2cedf3d36b5e159d7619a439ab57d11419cac51bd75a18fb0823ac",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s2_12.ogg",
+      "sha256": "0d6b178dae6f167ccabb2205eeacf1545eb557dee251d30eaa0ec865c4e0f761",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s2_13.ogg",
+      "sha256": "0be0b1b76df160892ecfc46e5339fd39f6e1173572453d27892f61c339cb53e1",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s2_14.ogg",
+      "sha256": "c12adfe44ed5f715eda43ea08c45a58b02f4362e72f94d536f05bdb0e0f9da34",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/raw_dark_v1/raw_s2_15.ogg",
+      "sha256": "66774fb49aa7eed41fb8984979a898f20f5275d780476117399155760b7e4db8",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/recipe_00.ogg",
+      "sha256": "e9f414c9a3678ae1037fd1f361c727a980a872d18023b0d6f091f0ae5caf8214",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/recipe_01.ogg",
+      "sha256": "0cce3590695f7c480421d96ea123646134717063b9fb13cf5beab5b785dabdec",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/recipe_02.ogg",
+      "sha256": "b31f3633e84292c12592f49d52a7da9445982f6b74af6af0ed34088764508e17",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/recipe_03.ogg",
+      "sha256": "2b0e94564572e841afa9bc42a098e69e61a0dedee052ee884954c02ee9b1f28a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/recipe_04.ogg",
+      "sha256": "7ae6cb10a7e6e1a739de3cee1f9716b079005b87822ca62f666036dff51bfbc3",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/recipe_05.ogg",
+      "sha256": "aae33ba77501e1e5960ad8180c74babf81387f03cd2a3eda2a6c87940079cff5",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/recipe_06.ogg",
+      "sha256": "eda792004f3e7846399ade8d9df8d97ce526486bbb8d149ed6ee29861e58638d",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/recipe_07.ogg",
+      "sha256": "3624740fa7c382e40d04c3acc61d007dc123c205c8b7d17724a83ab93036e9ed",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/recipe_08.ogg",
+      "sha256": "c68a5c82b7a93a8bf66696113ca52e7ffa67fa59c44311962712095c0fcb76fb",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/recipe_09.ogg",
+      "sha256": "6c2740e99b64c85b8776fc406ffdab0558f11ffb990fccea847a2dd7926b9b20",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/recipe_10.ogg",
+      "sha256": "c27740915bba57fec582b43beddad90e38a75f77c4a84a57f8b2daf5373ed447",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/recipe_11.ogg",
+      "sha256": "eaf7286b68d6a7648d00649b154f4d9cdc0b2d3efbed31bea882a2bb5a46d452",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/recipe_12.ogg",
+      "sha256": "fb91761af22a3737a4a71d20f2534e6e633d1523a8582a8fac48031b8516e985",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/recipe_13.ogg",
+      "sha256": "6d6a46fba6945e70d17a8399d7a9a716a203299615a199088f0c50d9bca95e68",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/recipe_14.ogg",
+      "sha256": "2bb73247fb8585ac585fbb625faa030bbf25ce690aebcc87447c91d294021dad",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/producer/recipe_15.ogg",
+      "sha256": "378334298fd7a56f3b48998f5d088b5eb8288834f605d71287b3b8f09a961778",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/punk_band_v1.ogg",
+      "sha256": "37a1fcd9365d4c71086feb8313da19fbb62573dc1b5b075559c338034310efce",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/splash_cadence_v1.ogg",
+      "sha256": "e6dfc6097ec9821d1215eacf2caf99e9aac5b1a8e64bc4d1a74921acf7cd9186",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/zoe_original_v1.ogg",
+      "sha256": "c0504813160f078c4b9a79f1bbda2e98204a3cf4d6c2cd03beaa5dda0b763e8a",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/zoe_own_part_v1.ogg",
+      "sha256": "f3c41cfa5d6cf386d5d0c13e3e4f9966938ccdf27cdb4cf4912041fc8b129048",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/audio/zoe_space_for_voice_v1.ogg",
+      "sha256": "cfa5f3e14164c0f2981015b8dd5e4604d5bbcb54e1bef7836dbf032b26c1bfbc",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/fonts/Caveat.ttf",
+      "sha256": "0bdb6b660482d31531b3945849fba5916b3ef8695da7024a9e6b9ee3c4157988",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/fonts/DejaVuSansMono.ttf",
+      "sha256": "54bf827eb99404e8f430c330ad30f063334f637eba0109b6a18d4f566a8e9dd8",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/fonts/identity/Anton-Regular.ttf",
+      "sha256": "a4ba3a92350ebb031da0cb47630ac49eb265082ca1bc0450442f4a83ab947cab",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/fonts/identity/BarlowCondensed-SemiBold.ttf",
+      "sha256": "7b619d14bc2327509a9ef32b0890f709626f7ecc9ff61191c2a4314c5499d2d9",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/fonts/identity/IBMPlexMono-Regular.ttf",
+      "sha256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/fonts/identity/NotoSansSC.ttf",
+      "sha256": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
+      "unchanged": true
+    },
+    {
+      "path": "experiments/playable_flightcase/fonts/identity/PermanentMarker-Regular.ttf",
+      "sha256": "28f82c8a7943cb8e9d599f8554da1d4fc75dbcf69b9885ad6c0611d20c6946c5",
+      "unchanged": true
+    },
+    {
+      "path": "filip-andrejevic-QmX5lw8StoQ-unsplash.jpg",
+      "sha256": "c0cb0d4b0c6d67e05c71702943ee47248a5b6878ca28b301b36ea3cda3909ea3",
+      "unchanged": true
+    },
+    {
+      "path": "francesco-albertazzi-VlSYXeNmOTU-unsplash.jpg",
+      "sha256": "6a510b29724de6d446a8afc43fe5ca1997f85ce0049eec8015aa7e4097a17e3c",
+      "unchanged": true
+    },
+    {
+      "path": "francis-bouffard-HADKIO0EFXQ-unsplash.jpg",
+      "sha256": "aba9cf5eea380c9d5ad7584066e8f57292a792832791506baf0119c5595276f2",
+      "unchanged": true
+    },
+    {
+      "path": "freestocks-Fx5rrxSaUtI-unsplash.jpg",
+      "sha256": "d7393e237cb9c771649b1690fd6224846050ff9098476bfd64f3971177f91336",
+      "unchanged": true
+    },
+    {
+      "path": "headway-5QgIuuBxKwM-unsplash.jpg",
+      "sha256": "c5ad1d783c3014b8c848e0c8e4e76a4a84840e9a898445f62159d5d3e8ee178e",
+      "unchanged": true
+    },
+    {
+      "path": "ilias-gainutdinov-wwTlnXFvVSc-unsplash.jpg",
+      "sha256": "e233cd5956dd90ce2ad1efb63eff7d022a5e1880d0db2327bb8bde6b20945ac3",
+      "unchanged": true
+    },
+    {
+      "path": "jakob-rosen-KA1WM_yQGF8-unsplash.jpg",
+      "sha256": "228a122fda4883ae41483c3e2222f4f66fa0354d64ca5c8cd14ece7e8406418b",
+      "unchanged": true
+    },
+    {
+      "path": "jakub-zerdzicki-QI6NLgN5XnM-unsplash.jpg",
+      "sha256": "00e7a24ef46f06339094162f1ce1d242d211752570c5dd80c40b5dbd7b6cd564",
+      "unchanged": true
+    },
+    {
+      "path": "james-kovin-F2h_WbKnX4o-unsplash.jpg",
+      "sha256": "c2df9755fd3311e143f64121f3e4ee87d69c1e8e5caf74850546ec0cadb706fe",
+      "unchanged": true
+    },
+    {
+      "path": "kane-reinholdtsen-LETdkk7wHQk-unsplash.jpg",
+      "sha256": "9d758025b236a9f719c41f075de53485b574547f5067cce2aa095760dd724fa3",
+      "unchanged": true
+    },
+    {
+      "path": "lawless-capture-VcYwSDIIjTc-unsplash.jpg",
+      "sha256": "f560be5277c5a9bbafb7a8565e67726d6ae20bdc9870c722ff83a8abda24020e",
+      "unchanged": true
+    },
+    {
+      "path": "liz-berry-7bDztUSSIEA-unsplash.jpg",
+      "sha256": "b9c96af1ee52232774a36e51d0828ad449797cf8f9e782173d320fe936732bbf",
+      "unchanged": true
+    },
+    {
+      "path": "michael-effendy-5nDU9qSe2eY-unsplash.jpg",
+      "sha256": "fbae29156e0486b1a7c5c4bf7e86ff0d110042a1dd924f81a770f56a9aecab6b",
+      "unchanged": true
+    },
+    {
+      "path": "michael-weibel-GiwH8SU1S7c-unsplash.jpg",
+      "sha256": "49480f4f8d10b8d036fe55f39bf288179df09794543784c4a74b7251b1a196c6",
+      "unchanged": true
+    },
+    {
+      "path": "neza-dolmo-bBVvyLJ97jA-unsplash.jpg",
+      "sha256": "ac4fc74f3b59e70d4d48aade18a26df8805f07f8f1c70b5a98e1dc901a9e9f84",
+      "unchanged": true
+    },
+    {
+      "path": "priscilla-du-preez-XZ4HCxOne-Q-unsplash.jpg",
+      "sha256": "fa1c6a7c2ef005b2b483b1a8786aaa009c04e7de086fc3a6c2d582ab6ca71463",
+      "unchanged": true
+    },
+    {
+      "path": "rahul-viswanath-8x_Ki1pdn0A-unsplash.jpg",
+      "sha256": "95ad9a5aed332210871e2b1fd0069c5de0654c274f81e0b37e0395f9e50c0e3b",
+      "unchanged": true
+    },
+    {
+      "path": "samy-methnani-H1uyhgPlbxk-unsplash.jpg",
+      "sha256": "99c522bfb533db4e75a965ca6a7f1b4c38ed9f88fd851d0590d8627b32a989be",
+      "unchanged": true
+    },
+    {
+      "path": "simon-weisser-phS37wg8cQg-unsplash (1).jpg",
+      "sha256": "70710b78c1568448cb633cc860a1a8ac3148efbd7112d0ebf10cbff5f5456fa9",
+      "unchanged": true
+    },
+    {
+      "path": "susan-mohr-pMCP8c8_xi4-unsplash.jpg",
+      "sha256": "d30c94faf51ac7abccc3811f0bcddbbc57a7ec5136d4dc1fde1aeca9ba7a6aac",
+      "unchanged": true
+    },
+    {
+      "path": "thomas-litangen-SP9HcRASMPE-unsplash.jpg",
+      "sha256": "7ba07d9cf71f6a78eb772f617063d55bf63e6df37e2e274c580b74b7c60d484d",
+      "unchanged": true
+    },
+    {
+      "path": "tstudio_lv-11KDGL-cN5s-unsplash.jpg",
+      "sha256": "ad27fafbaa8908ada6e3a2e51d86ee25e59b53b915217638921fa70dcec4cd63",
+      "unchanged": true
+    },
+    {
+      "path": "vitalii-onyshchuk-7FdoFvG285E-unsplash.jpg",
+      "sha256": "21b385a240f2e5bf3d47e85e96b7f4498e25acfc9a3c5aaab1ea39c3bd6cc391",
+      "unchanged": true
+    },
+    {
+      "path": "wu-yi-nLRX1koA8Zo-unsplash.jpg",
+      "sha256": "8bc2d5376f785bc031fa72ab528e91d6e649403b59b87863ef53a4205de4d051",
+      "unchanged": true
+    },
+    {
+      "path": "xie-lipton-wSMZEkDDuJo-unsplash.jpg",
+      "sha256": "64859e5f23273324598ae29be138d8ce6a610703b532534ff9211a8b70a97867",
+      "unchanged": true
+    }
+  ],
+  "all_protected_exact": true
+}

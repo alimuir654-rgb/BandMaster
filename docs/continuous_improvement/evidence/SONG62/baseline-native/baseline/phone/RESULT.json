@@ -1,0 +1,24 @@
+{
+  "name": "baseline-phone",
+  "exit_code": 0,
+  "seconds": 12.1,
+  "log": "/tmp/bandmaster-song62-20261114/baseline-native/logs/baseline-phone.log",
+  "errors": [],
+  "pass": true,
+  "result": {
+    "actual_writing_settlements": 9,
+    "baseline": true,
+    "checks": 131,
+    "failures": [],
+    "images": [
+      {
+        "height": 844,
+        "path": "/tmp/bandmaster-song62-20261114/baseline-native/baseline/phone/baseline-rehearsal.png",
+        "state": "baseline-rehearsal",
+        "width": 390
+      }
+    ],
+    "ok": true,
+    "trace": []
+  }
+}

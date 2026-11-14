@@ -1,0 +1,21 @@
+{
+  "status": "HELD_PRE_EXECUTION_WRAPPER_REFUSAL",
+  "observed_at": "2026-11-14T05:14:45+00:00",
+  "tool_session": 16744,
+  "exception_type": "FileExistsError",
+  "errno": 17,
+  "observed_message": "File exists: /tmp/bandmaster-song62-20261114/native-v3/logs/candidate-Xorg-101.stdout",
+  "source_location": "tools/song62_verify.py:26, exclusive stdout open before Xorg Popen",
+  "new_Godot_executions": 0,
+  "execution_count_basis": "Exception occurs before Xorg/Godot launch in executed source; not an engine exit receipt.",
+  "raw_exception_location": "Retained conversation tool output; this JSON is a structured observation, not a new raw stdout capture.",
+  "earlier_accepted_profiles": [
+    "phone",
+    "short"
+  ],
+  "correction": "Choose free normal display whose prior stdout log does not exist; do not overwrite or rerun accepted profiles.",
+  "completed_missing_profiles": [
+    "tall",
+    "wide"
+  ]
+}

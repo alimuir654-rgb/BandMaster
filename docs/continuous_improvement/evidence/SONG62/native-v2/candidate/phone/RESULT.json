@@ -1,0 +1,150 @@
+{
+  "name": "candidate-phone",
+  "exit_code": 0,
+  "seconds": 38.69,
+  "log": "/tmp/bandmaster-song62-20261114/native-v2/logs/candidate-phone.log",
+  "errors": [],
+  "pass": true,
+  "result": {
+    "actual_writing_settlements": 9,
+    "baseline": false,
+    "checks": 303,
+    "failures": [],
+    "images": [
+      {
+        "height": 844,
+        "path": "/tmp/bandmaster-song62-20261114/native-v2/candidate/phone/general-rehearsal.png",
+        "state": "general-rehearsal",
+        "width": 390
+      },
+      {
+        "height": 844,
+        "path": "/tmp/bandmaster-song62-20261114/native-v2/candidate/phone/selected-long-title.png",
+        "state": "selected-long-title",
+        "width": 390
+      },
+      {
+        "height": 844,
+        "path": "/tmp/bandmaster-song62-20261114/native-v2/candidate/phone/stale-arrangement-held.png",
+        "state": "stale-arrangement-held",
+        "width": 390
+      },
+      {
+        "height": 844,
+        "path": "/tmp/bandmaster-song62-20261114/native-v2/candidate/phone/failed-save-selection-retained.png",
+        "state": "failed-save-selection-retained",
+        "width": 390
+      },
+      {
+        "height": 844,
+        "path": "/tmp/bandmaster-song62-20261114/native-v2/candidate/phone/saved-song-rehearsal.png",
+        "state": "saved-song-rehearsal",
+        "width": 390
+      },
+      {
+        "height": 844,
+        "path": "/tmp/bandmaster-song62-20261114/native-v2/candidate/phone/typed-reload-recap.png",
+        "state": "typed-reload-recap",
+        "width": 390
+      },
+      {
+        "height": 844,
+        "path": "/tmp/bandmaster-song62-20261114/native-v2/candidate/phone/partial-attendance-review.png",
+        "state": "partial-attendance-review",
+        "width": 390
+      },
+      {
+        "height": 844,
+        "path": "/tmp/bandmaster-song62-20261114/native-v2/candidate/phone/partial-saved-song-rehearsal.png",
+        "state": "partial-saved-song-rehearsal",
+        "width": 390
+      },
+      {
+        "height": 844,
+        "path": "/tmp/bandmaster-song62-20261114/native-v2/candidate/phone/ordinary-rehearsal-result.png",
+        "state": "ordinary-rehearsal-result",
+        "width": 390
+      }
+    ],
+    "ok": true,
+    "trace": [
+      {
+        "SONG56_minimum": 44,
+        "action": "RehearsalSongNext",
+        "baseline": false,
+        "physical_height": 52.0,
+        "physical_width": 48.0
+      },
+      {
+        "SONG56_minimum": 44,
+        "action": "RehearsalSongNext",
+        "baseline": false,
+        "physical_height": 52.0,
+        "physical_width": 48.0
+      },
+      {
+        "SONG56_minimum": 44,
+        "action": "RehearseAction",
+        "baseline": false,
+        "physical_height": 52.0,
+        "physical_width": 374.0
+      },
+      {
+        "SONG56_minimum": 44,
+        "action": "RehearsalSongNext",
+        "baseline": false,
+        "physical_height": 52.0,
+        "physical_width": 48.0
+      },
+      {
+        "SONG56_minimum": 44,
+        "action": "RehearsalSongNext",
+        "baseline": false,
+        "physical_height": 52.0,
+        "physical_width": 48.0
+      },
+      {
+        "SONG56_minimum": 44,
+        "action": "RehearseAction",
+        "baseline": false,
+        "physical_height": 52.0,
+        "physical_width": 374.0
+      },
+      {
+        "SONG56_minimum": 44,
+        "action": "RehearseAction",
+        "baseline": false,
+        "physical_height": 52.0,
+        "physical_width": 374.0
+      },
+      {
+        "SONG56_minimum": 44,
+        "action": "RehearsalSongNext",
+        "baseline": false,
+        "physical_height": 52.0,
+        "physical_width": 48.0
+      },
+      {
+        "SONG56_minimum": 44,
+        "action": "RehearseAction",
+        "baseline": false,
+        "physical_height": 52.0,
+        "physical_width": 374.0
+      },
+      {
+        "SONG56_minimum": 44,
+        "action": "RehearseAction",
+        "baseline": false,
+        "physical_height": 52.0,
+        "physical_width": 374.0
+      },
+      {
+        "SONG56_minimum": 44,
+        "action": "RehearseAction",
+        "baseline": false,
+        "physical_height": 52.0,
+        "physical_width": 374.0
+      }
+    ]
+  }
+}

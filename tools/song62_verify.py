@@ -21,7 +21,7 @@ def main():
    if digest(a.repo/name)!=h:raise RuntimeError('source changed; fresh variant required '+name)
  pins={'/usr/bin/Xorg':'bca1ceb412614f4e0cb13a68b5d78e86b32ac25f7f2f66b40de73517c8f239eb','/etc/X11/xorg.conf':'76b290e6680ec6bf706f2940347c56dbe8ac893be448e4af6e120d0d9bd7196a','/usr/lib/xorg/modules/drivers/dummy_drv.so':'608370525f3c6ecf96c1eab4908a2b22c5a676836c81dfd48a8377e268a384f8'}
  if any(digest(ROOT(n))!=h for n,h in pins.items()):raise RuntimeError('existing wrapper/config pins changed')
- number=next(n for n in range(101,130) if not ROOT(f'/tmp/.X{n}-lock').exists() and not ROOT(f'/tmp/.X11-unix/X{n}').exists())
+ number=next(n for n in range(101,130) if not ROOT(f'/tmp/.X{n}-lock').exists() and not ROOT(f'/tmp/.X11-unix/X{n}').exists() and not (a.work/'logs'/f'{a.variant}-Xorg-{n}.stdout').exists())
  env=common.environment(a.work,a.variant+'-display');env['DISPLAY']=f':{number}'
  log=(a.work/'logs'/f'{a.variant}-Xorg-{number}.stdout').open('x');proc=subprocess.Popen(['/usr/bin/Xorg',f':{number}','-noreset','-nolisten','tcp','-logfile',str(a.work/'logs'/f'{a.variant}-Xorg-{number}.log')],env=env,stdout=log,stderr=subprocess.STDOUT)
  try:

@@ -4,13 +4,15 @@
   "session_path": "docs/continuous_improvement/sessions/SONG62.json",
   "canonical_current": "docs/continuous_improvement/CURRENT.json",
   "branch": "feature/playtest-polish-v20",
-  "status": "active",
-  "writer": "root-SONG62",
+  "status": "closed",
+  "writer": null,
   "owner_approved": false,
-  "updated_at": "2026-11-14T05:01:14.953181+00:00",
-  "next_single_action": "Verify and publish R3 selected-song rehearsal UI through its original atomic owner; leave unsupported transfer and R4 explicitly held.",
+  "updated_at": "2026-11-14T05:30:29.194614+00:00",
+  "next_single_action": "Implement and verify source-backed changed-section preparation transfer in R3; preserve unknowns where equivalence is unproved and keep R4 gated.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json",
   "base_head": "ff13f6c45875a7cb0f6ff5843a603e90714bd4be",
   "claimed_at": "2026-11-14T05:01:14.953181+00:00",
-  "expires_at": "2026-11-14T05:48:00+00:00"
+  "expires_at": null,
+  "released_at": "2026-11-14T05:30:29.194614+00:00",
+  "tested_source": "1291b3357538a1330df14766a5f35906d0b1e442"
 }

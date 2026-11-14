@@ -1,0 +1,24 @@
+{
+  "name": "candidate-short",
+  "exit_code": 0,
+  "seconds": 13.25,
+  "log": "/tmp/bandmaster-song62-20261114/native-v1/logs/candidate-short.log",
+  "errors": [],
+  "pass": true,
+  "result": {
+    "actual_writing_settlements": 9,
+    "baseline": false,
+    "checks": 131,
+    "failures": [],
+    "images": [
+      {
+        "height": 720,
+        "path": "/tmp/bandmaster-song62-20261114/native-v1/candidate/short/candidate-rehearsal.png",
+        "state": "candidate-rehearsal",
+        "width": 1280
+      }
+    ],
+    "ok": true,
+    "trace": []
+  }
+}

@@ -1,0 +1,1537 @@
+{
+  "session": "SONG62",
+  "tested_sha": "1291b3357538a1330df14766a5f35906d0b1e442",
+  "baseline_sha": "ff13f6c45875a7cb0f6ff5843a603e90714bd4be",
+  "preflight_sha": "6a87a0629d6d2c1bbea8b05b4c471eb9bb6bfe84",
+  "technical_verdict": "PASS_SCOPED_NATIVE_SOURCE_CI",
+  "visual_verdict": "internal_pass",
+  "overall_verdict": "PARTIAL",
+  "owner_verdict": "NOT_ACCEPTED",
+  "release_verdict": "NO_NEW_APK",
+  "owner_approved": false,
+  "changed": "Only production ui.gd changes: local exact-version song choice, selected preview, original atomic owner delegation, saved exact-version/person recap, explicit bandreadiness and48physicaltargets. Original Game/Situation/Live/Finance/save/scoring/art/audio/54Scripts untouched.",
+  "native": {
+    "profiles": {
+      "phone": {
+        "name": "candidate-phone",
+        "exit_code": 0,
+        "seconds": 38.61,
+        "log": "/tmp/bandmaster-song62-20261114/native-v3/logs/candidate-phone.log",
+        "errors": [],
+        "pass": true,
+        "result": {
+          "actual_writing_settlements": 9,
+          "baseline": false,
+          "checks": 303,
+          "failures": [],
+          "images": [
+            {
+              "height": 844,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/phone/general-rehearsal.png",
+              "state": "general-rehearsal",
+              "width": 390
+            },
+            {
+              "height": 844,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/phone/selected-long-title.png",
+              "state": "selected-long-title",
+              "width": 390
+            },
+            {
+              "height": 844,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/phone/stale-arrangement-held.png",
+              "state": "stale-arrangement-held",
+              "width": 390
+            },
+            {
+              "height": 844,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/phone/failed-save-selection-retained.png",
+              "state": "failed-save-selection-retained",
+              "width": 390
+            },
+            {
+              "height": 844,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/phone/saved-song-rehearsal.png",
+              "state": "saved-song-rehearsal",
+              "width": 390
+            },
+            {
+              "height": 844,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/phone/typed-reload-recap.png",
+              "state": "typed-reload-recap",
+              "width": 390
+            },
+            {
+              "height": 844,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/phone/partial-attendance-review.png",
+              "state": "partial-attendance-review",
+              "width": 390
+            },
+            {
+              "height": 844,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/phone/partial-saved-song-rehearsal.png",
+              "state": "partial-saved-song-rehearsal",
+              "width": 390
+            },
+            {
+              "height": 844,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/phone/ordinary-rehearsal-result.png",
+              "state": "ordinary-rehearsal-result",
+              "width": 390
+            }
+          ],
+          "ok": true,
+          "trace": [
+            {
+              "action": "RehearsalSongNext",
+              "baseline": false,
+              "physical_height": 52.0,
+              "physical_width": 48.0,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearsalSongNext",
+              "baseline": false,
+              "physical_height": 52.0,
+              "physical_width": 48.0,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearseAction",
+              "baseline": false,
+              "physical_height": 52.0,
+              "physical_width": 374.0,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearsalSongNext",
+              "baseline": false,
+              "physical_height": 52.0,
+              "physical_width": 48.0,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearsalSongNext",
+              "baseline": false,
+              "physical_height": 52.0,
+              "physical_width": 48.0,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearseAction",
+              "baseline": false,
+              "physical_height": 52.0,
+              "physical_width": 374.0,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearseAction",
+              "baseline": false,
+              "physical_height": 52.0,
+              "physical_width": 374.0,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearsalSongNext",
+              "baseline": false,
+              "physical_height": 52.0,
+              "physical_width": 48.0,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearseAction",
+              "baseline": false,
+              "physical_height": 52.0,
+              "physical_width": 374.0,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearseAction",
+              "baseline": false,
+              "physical_height": 52.0,
+              "physical_width": 374.0,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearseAction",
+              "baseline": false,
+              "physical_height": 52.0,
+              "physical_width": 374.0,
+              "required_minimum": 48
+            }
+          ]
+        }
+      },
+      "tall": {
+        "name": "candidate-tall",
+        "exit_code": 0,
+        "seconds": 44.71,
+        "log": "/tmp/bandmaster-song62-20261114/native-v3/logs/candidate-tall.log",
+        "errors": [],
+        "pass": true,
+        "result": {
+          "actual_writing_settlements": 9,
+          "baseline": false,
+          "checks": 303,
+          "failures": [],
+          "images": [
+            {
+              "height": 1280,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/tall/general-rehearsal.png",
+              "state": "general-rehearsal",
+              "width": 720
+            },
+            {
+              "height": 1280,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/tall/selected-long-title.png",
+              "state": "selected-long-title",
+              "width": 720
+            },
+            {
+              "height": 1280,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/tall/stale-arrangement-held.png",
+              "state": "stale-arrangement-held",
+              "width": 720
+            },
+            {
+              "height": 1280,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/tall/failed-save-selection-retained.png",
+              "state": "failed-save-selection-retained",
+              "width": 720
+            },
+            {
+              "height": 1280,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/tall/saved-song-rehearsal.png",
+              "state": "saved-song-rehearsal",
+              "width": 720
+            },
+            {
+              "height": 1280,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/tall/typed-reload-recap.png",
+              "state": "typed-reload-recap",
+              "width": 720
+            },
+            {
+              "height": 1280,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/tall/partial-attendance-review.png",
+              "state": "partial-attendance-review",
+              "width": 720
+            },
+            {
+              "height": 1280,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/tall/partial-saved-song-rehearsal.png",
+              "state": "partial-saved-song-rehearsal",
+              "width": 720
+            },
+            {
+              "height": 1280,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/tall/ordinary-rehearsal-result.png",
+              "state": "ordinary-rehearsal-result",
+              "width": 720
+            }
+          ],
+          "ok": true,
+          "trace": [
+            {
+              "action": "RehearsalSongNext",
+              "baseline": false,
+              "physical_height": 78.8625793457031,
+              "physical_width": 53.16455078125,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearsalSongNext",
+              "baseline": false,
+              "physical_height": 78.862548828125,
+              "physical_width": 53.16455078125,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearseAction",
+              "baseline": false,
+              "physical_height": 78.862548828125,
+              "physical_width": 695.696166992188,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearsalSongNext",
+              "baseline": false,
+              "physical_height": 78.8625793457031,
+              "physical_width": 53.16455078125,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearsalSongNext",
+              "baseline": false,
+              "physical_height": 78.862548828125,
+              "physical_width": 53.16455078125,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearseAction",
+              "baseline": false,
+              "physical_height": 78.862548828125,
+              "physical_width": 695.696166992188,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearseAction",
+              "baseline": false,
+              "physical_height": 78.862548828125,
+              "physical_width": 695.696166992188,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearsalSongNext",
+              "baseline": false,
+              "physical_height": 78.8625793457031,
+              "physical_width": 53.16455078125,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearseAction",
+              "baseline": false,
+              "physical_height": 78.862548828125,
+              "physical_width": 695.696166992188,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearseAction",
+              "baseline": false,
+              "physical_height": 78.862548828125,
+              "physical_width": 695.696166992188,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearseAction",
+              "baseline": false,
+              "physical_height": 78.862548828125,
+              "physical_width": 695.696166992188,
+              "required_minimum": 48
+            }
+          ]
+        }
+      },
+      "short": {
+        "name": "candidate-short",
+        "exit_code": 0,
+        "seconds": 44.01,
+        "log": "/tmp/bandmaster-song62-20261114/native-v3/logs/candidate-short.log",
+        "errors": [],
+        "pass": true,
+        "result": {
+          "actual_writing_settlements": 9,
+          "baseline": false,
+          "checks": 303,
+          "failures": [],
+          "images": [
+            {
+              "height": 720,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/short/general-rehearsal.png",
+              "state": "general-rehearsal",
+              "width": 1280
+            },
+            {
+              "height": 720,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/short/selected-long-title.png",
+              "state": "selected-long-title",
+              "width": 1280
+            },
+            {
+              "height": 720,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/short/stale-arrangement-held.png",
+              "state": "stale-arrangement-held",
+              "width": 1280
+            },
+            {
+              "height": 720,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/short/failed-save-selection-retained.png",
+              "state": "failed-save-selection-retained",
+              "width": 1280
+            },
+            {
+              "height": 720,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/short/saved-song-rehearsal.png",
+              "state": "saved-song-rehearsal",
+              "width": 1280
+            },
+            {
+              "height": 720,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/short/typed-reload-recap.png",
+              "state": "typed-reload-recap",
+              "width": 1280
+            },
+            {
+              "height": 720,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/short/partial-attendance-review.png",
+              "state": "partial-attendance-review",
+              "width": 1280
+            },
+            {
+              "height": 720,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/short/partial-saved-song-rehearsal.png",
+              "state": "partial-saved-song-rehearsal",
+              "width": 1280
+            },
+            {
+              "height": 720,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/short/ordinary-rehearsal-result.png",
+              "state": "ordinary-rehearsal-result",
+              "width": 1280
+            }
+          ],
+          "ok": true,
+          "trace": [
+            {
+              "action": "RehearsalSongNext",
+              "baseline": false,
+              "physical_height": 48.6255798339844,
+              "physical_width": 48.6400146484375,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearsalSongNext",
+              "baseline": false,
+              "physical_height": 48.6255950927734,
+              "physical_width": 48.6400146484375,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearseAction",
+              "baseline": false,
+              "physical_height": 48.6256103515625,
+              "physical_width": 768.0,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearsalSongNext",
+              "baseline": false,
+              "physical_height": 48.6255798339844,
+              "physical_width": 48.6400146484375,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearsalSongNext",
+              "baseline": false,
+              "physical_height": 48.6255950927734,
+              "physical_width": 48.6400146484375,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearseAction",
+              "baseline": false,
+              "physical_height": 48.6256103515625,
+              "physical_width": 768.0,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearseAction",
+              "baseline": false,
+              "physical_height": 48.6256103515625,
+              "physical_width": 768.0,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearsalSongNext",
+              "baseline": false,
+              "physical_height": 48.6255798339844,
+              "physical_width": 48.6400146484375,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearseAction",
+              "baseline": false,
+              "physical_height": 48.6256103515625,
+              "physical_width": 768.0,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearseAction",
+              "baseline": false,
+              "physical_height": 48.6256103515625,
+              "physical_width": 768.0,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearseAction",
+              "baseline": false,
+              "physical_height": 48.6256103515625,
+              "physical_width": 768.0,
+              "required_minimum": 48
+            }
+          ]
+        }
+      },
+      "wide": {
+        "name": "candidate-wide",
+        "exit_code": 0,
+        "seconds": 45.65,
+        "log": "/tmp/bandmaster-song62-20261114/native-v3/logs/candidate-wide.log",
+        "errors": [],
+        "pass": true,
+        "result": {
+          "actual_writing_settlements": 9,
+          "baseline": false,
+          "checks": 303,
+          "failures": [],
+          "images": [
+            {
+              "height": 900,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/wide/general-rehearsal.png",
+              "state": "general-rehearsal",
+              "width": 1600
+            },
+            {
+              "height": 900,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/wide/selected-long-title.png",
+              "state": "selected-long-title",
+              "width": 1600
+            },
+            {
+              "height": 900,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/wide/stale-arrangement-held.png",
+              "state": "stale-arrangement-held",
+              "width": 1600
+            },
+            {
+              "height": 900,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/wide/failed-save-selection-retained.png",
+              "state": "failed-save-selection-retained",
+              "width": 1600
+            },
+            {
+              "height": 900,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/wide/saved-song-rehearsal.png",
+              "state": "saved-song-rehearsal",
+              "width": 1600
+            },
+            {
+              "height": 900,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/wide/typed-reload-recap.png",
+              "state": "typed-reload-recap",
+              "width": 1600
+            },
+            {
+              "height": 900,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/wide/partial-attendance-review.png",
+              "state": "partial-attendance-review",
+              "width": 1600
+            },
+            {
+              "height": 900,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/wide/partial-saved-song-rehearsal.png",
+              "state": "partial-saved-song-rehearsal",
+              "width": 1600
+            },
+            {
+              "height": 900,
+              "path": "/tmp/bandmaster-song62-20261114/native-v3/candidate/wide/ordinary-rehearsal-result.png",
+              "state": "ordinary-rehearsal-result",
+              "width": 1600
+            }
+          ],
+          "ok": true,
+          "trace": [
+            {
+              "action": "RehearsalSongNext",
+              "baseline": false,
+              "physical_height": 55.4502258300781,
+              "physical_width": 48.0,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearsalSongNext",
+              "baseline": false,
+              "physical_height": 55.4502410888672,
+              "physical_width": 48.0,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearseAction",
+              "baseline": false,
+              "physical_height": 55.4502563476562,
+              "physical_width": 960.000122070312,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearsalSongNext",
+              "baseline": false,
+              "physical_height": 55.4502258300781,
+              "physical_width": 48.0,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearsalSongNext",
+              "baseline": false,
+              "physical_height": 55.4502410888672,
+              "physical_width": 48.0,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearseAction",
+              "baseline": false,
+              "physical_height": 55.4502563476562,
+              "physical_width": 960.000122070312,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearseAction",
+              "baseline": false,
+              "physical_height": 55.4502563476562,
+              "physical_width": 960.000122070312,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearsalSongNext",
+              "baseline": false,
+              "physical_height": 55.4502258300781,
+              "physical_width": 48.0,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearseAction",
+              "baseline": false,
+              "physical_height": 55.4502563476562,
+              "physical_width": 960.000122070312,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearseAction",
+              "baseline": false,
+              "physical_height": 55.4502563476562,
+              "physical_width": 960.000122070312,
+              "required_minimum": 48
+            },
+            {
+              "action": "RehearseAction",
+              "baseline": false,
+              "physical_height": 55.4502563476562,
+              "physical_width": 960.000122070312,
+              "required_minimum": 48
+            }
+          ]
+        }
+      }
+    },
+    "actual_local_Godot_executions": 14,
+    "execution_strict": 13,
+    "held": 1,
+    "held_engine": "v2short physical48logical arrow measured40.96physical; assertions retained/strengthened to48physical and corrected with actual canvas transform.",
+    "visual_history": "v1initial phone selector compression held despite execution-strict131; v2phone303 is earlier source, not final.",
+    "pre_execution_wrapper_refusal": "Existing retained Xorg101stdout path caused FileExistsError before any Xorg/Godot launch; missing-profile continuation chose unused log/display slot. Phone/short source/test/runtime907 unchanged, only missing tall/wide executed.",
+    "native_PNGs": 50,
+    "final_current_PNGs": 36,
+    "earlier_PNGs": 14,
+    "successful_paid_UI_rehearsals_per_profile": 3,
+    "selected_song_rehearsals_per_profile": 2,
+    "ordinary_general_rehearsals_per_profile": 1,
+    "selected_failed_save_retry_per_profile": 1,
+    "fixture_setup_writing_settlements_per_profile": 9,
+    "source_runtime_bindings": 907,
+    "input": "Actual mouse, Enter+Space without retab, emulatedScreenTouch, positive wheel down/up, fully clipped-target/48physical assertions; not physicaltouch.",
+    "save": "Delegating counted original private writer: zero free/cancel, one failed selected attempt+one retry, one original partial-dialog selected save, one original general save; typed full owner/disk comparisons."
+  },
+  "model_reuse": {
+    "tested_source": "0b730048f4fa77fcd4a4a06093549aa5bc862b81",
+    "run": 43556109642,
+    "artifact": 14098183257,
+    "literal_inputs_exact": 72,
+    "reruns": 0,
+    "scope": "Pure original rehearsal/factualledger owner closure only; changedUI proved separately."
+  },
+  "ci": [
+    {
+      "id": 43560575334,
+      "name": "Mandatory continuous-improvement gate",
+      "conclusion": "success",
+      "head_sha": "1291b3357538a1330df14766a5f35906d0b1e442"
+    },
+    {
+      "id": 43560575338,
+      "name": "Validate BandMaster structure",
+      "conclusion": "success",
+      "head_sha": "1291b3357538a1330df14766a5f35906d0b1e442"
+    },
+    {
+      "id": 43560575337,
+      "name": "Godot headless validation",
+      "conclusion": "success",
+      "head_sha": "1291b3357538a1330df14766a5f35906d0b1e442"
+    }
+  ],
+  "qa_wrapper": {
+    "current_sha256": "287afc20d1273014a6d670b85f6d1d9fa8ac5d976dd1929ad29b5065626d8ac4",
+    "post_source_change": "Only unused stdout/display-slot guard for missing-profile continuation; no UI/test/runtime/source changes. Published with closeout; pre-fix source wrapper retained exactly.",
+    "refusal_receipt": "docs/continuous_improvement/evidence/SONG62/wrapper-continuation-refusal.json"
+  },
+  "source_protection": {
+    "all742_prior_scripts_image_audio_font_files_exact": true,
+    "original_scripts_including3UID": 54,
+    "sole_changed_existing_production_path": "experiments/playable_flightcase/ui.gd",
+    "passive_meters_canonical_cast_audio_art_fonts_hardware": "unchanged"
+  },
+  "evidence_index": [
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/baseline-native/baseline/phone/RESULT.json",
+      "bytes": 560,
+      "sha256": "03d8a53fc97f06d7706b56cc2391b3774b54cc176bb4d6669c52afc25e7925ad",
+      "git_blob_sha": "20a29431ff6f6473b7fc847082808e0b0f27ca24",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/baseline-native/baseline/phone/baseline-rehearsal.png",
+      "bytes": 494991,
+      "sha256": "b80e5bd267744953c6c951e341e77657999e831b014623043ad250f77bfbdb2f",
+      "git_blob_sha": "00c69d6dbf396f98d0fed7e05dd451b159f5ef74",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/baseline-native/baseline/short/RESULT.json",
+      "bytes": 562,
+      "sha256": "ff95757b6f4349e7cc29b989f777e36daf9679bd805c20f5183270aa9b2aee80",
+      "git_blob_sha": "aaf5ee8183471ff27da24e6513db9edd88af14f6",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/baseline-native/baseline/short/baseline-rehearsal.png",
+      "bytes": 1240139,
+      "sha256": "2101c4980a6e5843e497e4aad4603017e9808c04482a2f177ac12dc0ae094411",
+      "git_blob_sha": "201f95ab8fc976a631dc5dc8975cf99c4780cd3f",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/baseline-native/baseline-SOURCE.json",
+      "bytes": 276249,
+      "sha256": "f8d965d678395b33104397a0a47d4f9a7aef581a9c1d7b42d9018a6b87b713b9",
+      "git_blob_sha": "dfab986bc26acdf04d97d4c025951ed50f71d5a7",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/baseline-native/logs/baseline-Xorg-101.log",
+      "bytes": 53324,
+      "sha256": "47353516ca514e96c3bd0dc9e9969f94fc659e104c49592c7afa0d2c2276a11c",
+      "git_blob_sha": "7c0686043537eb576c42c043e5e1c1f57410a915",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/baseline-native/logs/baseline-Xorg-101.stdout",
+      "bytes": 1941,
+      "sha256": "983da449acb45b6dc78af7ced8c30ab6d89a7f30999406fa3966f9e5abe98143",
+      "git_blob_sha": "366dc6c83b95d63c09e0ef28a9cb861fc11ee1c7",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/baseline-native/logs/baseline-final-signing-guard.result.json",
+      "bytes": 68,
+      "sha256": "c8ba6b9fb9d27e1b75cf093a1480f5f8e3c0f023ca8ff92d6b50fbfa8e9665c8",
+      "git_blob_sha": "b37662f3bf717b3acf58d5769522a274c2a3e317",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/baseline-native/logs/baseline-import.log",
+      "bytes": 185909,
+      "sha256": "99e99516cda86002ba8bf6e1b8808b67de3ac73d61224010faa97076123874d5",
+      "git_blob_sha": "f3c07eeaa27a09457917366bb8789f49f83d751e",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/baseline-native/logs/baseline-import.result.json",
+      "bytes": 187,
+      "sha256": "bfc809a7554ca3779645b36d4d2b541113fa24717d083f80ca41917857ed7020",
+      "git_blob_sha": "1f179aa8e13cfb1f6cf0c77560a642e5c3fddd87",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/baseline-native/logs/baseline-phone.log",
+      "bytes": 641,
+      "sha256": "be72fd7d7825bd8d77acd4ec47d1183c226cd1caea3d072d72719d4170dc26ab",
+      "git_blob_sha": "7595c83ceb8456bc53b393b94b8c2340681048dd",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/baseline-native/logs/baseline-phone.result.json",
+      "bytes": 184,
+      "sha256": "4bff99e309d76c1acc0d3eab28130e6ca13c955cdf84a03e90c210f1cbf9b645",
+      "git_blob_sha": "e2c6d0a562b3e6d7793ec4cee4212a43de5f8949",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/baseline-native/logs/baseline-short.log",
+      "bytes": 642,
+      "sha256": "c338c44b13b25f7ae7f96805f5b4c4e683f17160fd77cd30bbe37b9fd8a093a2",
+      "git_blob_sha": "c4b7ef291831fbddb0cd0a3fb7ad25c8c53a1bbe",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/baseline-native/logs/baseline-short.result.json",
+      "bytes": 185,
+      "sha256": "1d73b7f04396f83803e84e27088e0f7ab01177837729f63120b119a23ccdca57",
+      "git_blob_sha": "15bb9bbaa8f39c2ca54df1357c17c8d1e073e1c9",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/baseline-native/song62_native.gd.txt",
+      "bytes": 7538,
+      "sha256": "c5f672e545bdd8e66559f81616e19a0250d8590439242229a212dea78507f1d0",
+      "git_blob_sha": "e09bf4b020ce032710eae6da17ed865f8a6ea62d",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/baseline-native/ui.gd.txt",
+      "bytes": 90317,
+      "sha256": "10bad3442b652ae062a22647b714723059227a9ba5efeba53be72a22d6331f4d",
+      "git_blob_sha": "27741e85d37f509fcf93ced9a3ab92105086730e",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/closed-producers.json",
+      "bytes": 3669201,
+      "sha256": "eb866dc2758502331e38b87afa40ee686686bac87540cf20a61c2ec2090e6251",
+      "git_blob_sha": "3d6a123c948b9dd8b1e9069ac4918640b569aee4",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/funding.json",
+      "bytes": 733,
+      "sha256": "96e906d97c2b17c4a25daafd63536509caba04bb5221190381938df0f19de17e",
+      "git_blob_sha": "2ecd448ce65ada4d0732776ec9733c2b53a45f49",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/model-reuse.json",
+      "bytes": 8942,
+      "sha256": "bac1948718661b7bb2909fba45612a3fd60d753f448ac9d1474e5cc3550afbc5",
+      "git_blob_sha": "f2b18131cc454280969fe2c187c55f098f0a9e81",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v1/candidate/phone/RESULT.json",
+      "bytes": 555,
+      "sha256": "e9b7878091ee2817319c15c59cae1645c0175530e0d6c0c31eede65fb45e2573",
+      "git_blob_sha": "5ad7a66ac56af4c73f2d935d3ec74937788ef2be",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v1/candidate/phone/candidate-rehearsal.png",
+      "bytes": 484198,
+      "sha256": "5798b78857f34d3470d86f5e3151f1a4a2e68f96affed52b7d81e5bf3b774e59",
+      "git_blob_sha": "9da819c1ed841d6d06049a68371acd71f49ed2ab",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v1/candidate/short/RESULT.json",
+      "bytes": 556,
+      "sha256": "3e07d0375121c7059e5d6dc6f4a65c4c5fd78d6ac65b3b8b6ded114462f6b54e",
+      "git_blob_sha": "24b130e965af71f5fff28812d860fcfbf97136c4",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v1/candidate/short/candidate-rehearsal.png",
+      "bytes": 1230892,
+      "sha256": "d85bd2ded944690e07ad66dfbd1b0b6973917e2a0b890145c26d353951cd6cb6",
+      "git_blob_sha": "d62023ce8cdce0cb9f90aa5421ad0b6773c05ff6",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v1/candidate-SOURCE.json",
+      "bytes": 276249,
+      "sha256": "c90a12a2264e636108f6747749d5f36f38c4f4199000adf0056c38748dd524bd",
+      "git_blob_sha": "d41f67148f1995f4f9b5777fb07b2d23bb50da3a",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v1/logs/candidate-Xorg-101.log",
+      "bytes": 53319,
+      "sha256": "fdf8cf7e7a986d53b8a9578a0228c206d80002121beb9348709b31346dd9cd98",
+      "git_blob_sha": "23f635c93fe9aba36d4f8a3b2decd2a811ecefb0",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v1/logs/candidate-Xorg-101.stdout",
+      "bytes": 1936,
+      "sha256": "6d4681c92420aa8e289727305559b3193f81a934bea3f50d9249c04734c3504d",
+      "git_blob_sha": "dbefbb8c85c8a7a7680caa6bd6078bd7ff6bf2a9",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v1/logs/candidate-final-signing-guard.result.json",
+      "bytes": 68,
+      "sha256": "c8ba6b9fb9d27e1b75cf093a1480f5f8e3c0f023ca8ff92d6b50fbfa8e9665c8",
+      "git_blob_sha": "b37662f3bf717b3acf58d5769522a274c2a3e317",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v1/logs/candidate-import.log",
+      "bytes": 185909,
+      "sha256": "99e99516cda86002ba8bf6e1b8808b67de3ac73d61224010faa97076123874d5",
+      "git_blob_sha": "f3c07eeaa27a09457917366bb8789f49f83d751e",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v1/logs/candidate-import.result.json",
+      "bytes": 183,
+      "sha256": "42a4d5531a1dc6e51d45f684279a5156c4fde334bada9f88c56a27e6b5465da4",
+      "git_blob_sha": "06022c5879950b945d8291caf5def3e74dd99fbd",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v1/logs/candidate-phone.log",
+      "bytes": 639,
+      "sha256": "ad0a2193dbedefcdcabff47b0ba00441fc52a40350155247a1f889e3fccb494b",
+      "git_blob_sha": "816900e71aa95a00a436d9d1f23e0ab17bb5aca5",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v1/logs/candidate-phone.result.json",
+      "bytes": 181,
+      "sha256": "43dda0666784178caf949de92afefd35a452f876fe0f73ab6cb7cead14ba2d3a",
+      "git_blob_sha": "8cc3b3f592ef67c1e2b26ffca941db7a0e4bc5e1",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v1/logs/candidate-short.log",
+      "bytes": 640,
+      "sha256": "7e163c320ce5577b8774a2cc834fa5a7adc2f677fa76f302ca1548f20afcfcd3",
+      "git_blob_sha": "48808526d63e5f20f7c1a9987cfa1e9ab8922d52",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v1/logs/candidate-short.result.json",
+      "bytes": 181,
+      "sha256": "8c863b9f68626c29e7460f477cca014b1bc3f0aaec785048421ee2be7f815656",
+      "git_blob_sha": "3a849c5fc8c45d31953c27e197941e5b4aad8c28",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v1/song62_native.gd.txt",
+      "bytes": 7538,
+      "sha256": "c5f672e545bdd8e66559f81616e19a0250d8590439242229a212dea78507f1d0",
+      "git_blob_sha": "e09bf4b020ce032710eae6da17ed865f8a6ea62d",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v1/ui.gd.txt",
+      "bytes": 94899,
+      "sha256": "10c1cf3222131a78b41e14532b6029b1e3f18f62ba5df4ff5a7b942d76008474",
+      "git_blob_sha": "6298429038022d7b46a585ea768016eb3cb9fce4",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v2/candidate/phone/RESULT.json",
+      "bytes": 4176,
+      "sha256": "7dfee54048897f29bf82cf9c37c0c61b0bafe55503c0cb272dae839c678cf005",
+      "git_blob_sha": "27afb578c26a20cfecb3e44cd580e54cdd916319",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v2/candidate/phone/failed-save-selection-retained.png",
+      "bytes": 475057,
+      "sha256": "37aec9a75fc1051ba0f7cba1e36fe09b4326272798d4482cd3af91293c480b83",
+      "git_blob_sha": "56a45c53c607bdf55f31b78219526c4537b79522",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v2/candidate/phone/general-rehearsal.png",
+      "bytes": 478743,
+      "sha256": "2c14bbee132a600d75bde48ae61521f9d1a8410050498e6d833a4be66ef9812e",
+      "git_blob_sha": "33098f701c1ffb9b7994806c7dd270fed7e7d362",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v2/candidate/phone/ordinary-rehearsal-result.png",
+      "bytes": 488585,
+      "sha256": "aa1003dd9cbc2e9264e296636472046216634185116ae6bfadb0deb09b806278",
+      "git_blob_sha": "de766db8493da97face531517a9d40a0ed87472d",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v2/candidate/phone/partial-attendance-review.png",
+      "bytes": 443385,
+      "sha256": "38d543c83d199c6d4db6d0fafd52687115a347e79642e9721e0e262997954c16",
+      "git_blob_sha": "4021dea64556cd462f367005496087f386e174dd",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v2/candidate/phone/partial-saved-song-rehearsal.png",
+      "bytes": 476712,
+      "sha256": "82baa2f58706485fb16cf47e15356f407f14eef00ebdf9f6837c6b8935f8c0e2",
+      "git_blob_sha": "46432ee0c59d952f32bae1a4672d176016a9739d",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v2/candidate/phone/saved-song-rehearsal.png",
+      "bytes": 492183,
+      "sha256": "b99b8313f95fb10713dd4ee5bb8e1167f40c35abf2212d5f32e6b401e67d415c",
+      "git_blob_sha": "32c48fcdf91fa368fe26b9dd484fda30bdf40185",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v2/candidate/phone/selected-long-title.png",
+      "bytes": 481800,
+      "sha256": "3c60ed1a13aa050efa44a4b548776c6e1c47ef063300982c8bbff11dbb7d5d5a",
+      "git_blob_sha": "8266309510fc82ca41209ca8e9f20ea3354c2f04",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v2/candidate/phone/stale-arrangement-held.png",
+      "bytes": 492638,
+      "sha256": "cc089d6c154d48fc9323741eb3ab69a09bc049cb7f8da5e4a20e176dce969d59",
+      "git_blob_sha": "16763ee8aed639bd4050ee27c9675b4e8f1fddf4",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v2/candidate/phone/typed-reload-recap.png",
+      "bytes": 491244,
+      "sha256": "3c26a4f649a6d087e94a978f1ddccd060fa199df207122d4d64eab606f638395",
+      "git_blob_sha": "f720db4ce15d3f06f6e26da6b83a190a330fdc96",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v2/candidate/short/general-rehearsal.png",
+      "bytes": 1222345,
+      "sha256": "bd09d8a18de28f5e3f91895438790e95488a736dd7ebed54ef6a0d69fc288e2c",
+      "git_blob_sha": "1bcd63eae0e6c35168ccac4e2969eafd2b59d453",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v2/candidate-SOURCE.json",
+      "bytes": 276249,
+      "sha256": "6c079a930d3d98cdb1766a33c290cc4e42aac29244b3ce4677fee6f8fe7e0b14",
+      "git_blob_sha": "2e883935d1b0918bc5f1b50d071304df4dd0d115",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v2/logs/candidate-Xorg-101.log",
+      "bytes": 53877,
+      "sha256": "cddce6f721ad6ec398f13b05fd7c7d322fa905138ca9f04eb25e2946c7ca95d6",
+      "git_blob_sha": "011d5c78d381071f8eb0a1b4169b79494fa88346",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v2/logs/candidate-Xorg-101.stdout",
+      "bytes": 1936,
+      "sha256": "5e7be15c806c8d46f082ded98ceb79128ad8e19fd78fbe865251ecb64250c4a6",
+      "git_blob_sha": "f8abacc63ed181bc8ce593110a084691483e2888",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v2/logs/candidate-final-signing-guard.result.json",
+      "bytes": 68,
+      "sha256": "c8ba6b9fb9d27e1b75cf093a1480f5f8e3c0f023ca8ff92d6b50fbfa8e9665c8",
+      "git_blob_sha": "b37662f3bf717b3acf58d5769522a274c2a3e317",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v2/logs/candidate-import.log",
+      "bytes": 185909,
+      "sha256": "99e99516cda86002ba8bf6e1b8808b67de3ac73d61224010faa97076123874d5",
+      "git_blob_sha": "f3c07eeaa27a09457917366bb8789f49f83d751e",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v2/logs/candidate-import.result.json",
+      "bytes": 183,
+      "sha256": "d08e0b52a1706a608439f98ff3d01b493e2ad75abe3ec6c6d8e01797882b667f",
+      "git_blob_sha": "07c626c396c07c07af6ccaa2ef12127bbce6d554",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v2/logs/candidate-phone.log",
+      "bytes": 3119,
+      "sha256": "ca1e35ceded308df9d8fa992f0861c24d1d1e3885b2e3c58d56a13d0ea5da813",
+      "git_blob_sha": "b90d589475b6bacaabe6574d84214d52b16f68da",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v2/logs/candidate-phone.result.json",
+      "bytes": 181,
+      "sha256": "531eaa8eb1cab10dd9a52dd9b679064e264685aafa4a62eaa4a43f6ba4289838",
+      "git_blob_sha": "78262c1bbdba3516afa1d16e56a6a085c9f8e294",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v2/logs/candidate-short.log",
+      "bytes": 836,
+      "sha256": "e50f249147437c68922858586f0ea7258eb284789ee42bc33d99c02a30f0c8d8",
+      "git_blob_sha": "8077134ba9f13f7fb555afe05b42650689669514",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v2/logs/candidate-short.result.json",
+      "bytes": 181,
+      "sha256": "7944dc0d4e53661948775ba064176c258477085853a693351fc43ec516e30494",
+      "git_blob_sha": "283f547068122a111a23a1be4ab26dc5fbcac794",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v2/song62_native.gd.txt",
+      "bytes": 18076,
+      "sha256": "c41f3333490c2c409381846d026230c64e8c987565f93cf230cec5046eabb9b0",
+      "git_blob_sha": "aa8b78c22ea1d9eb0565c5676e90cf8ecbd7aa38",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v2/ui.gd.txt",
+      "bytes": 95407,
+      "sha256": "2141017c3914c266f43020717066a55cd890c379da4d41167e8a53f82d1ec44e",
+      "git_blob_sha": "b53bc860aed45b144e1d4b3024ad0f6f859504af",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/phone/RESULT.json",
+      "bytes": 4198,
+      "sha256": "afd8a90234fcf70f00790c71bdaefb26f3c52c33d3c0a6dbdc736265e6a321ab",
+      "git_blob_sha": "423d7edb4500b7de6e44c3070e59fc1470e5f25e",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/phone/failed-save-selection-retained.png",
+      "bytes": 475057,
+      "sha256": "37aec9a75fc1051ba0f7cba1e36fe09b4326272798d4482cd3af91293c480b83",
+      "git_blob_sha": "56a45c53c607bdf55f31b78219526c4537b79522",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/phone/general-rehearsal.png",
+      "bytes": 478743,
+      "sha256": "2c14bbee132a600d75bde48ae61521f9d1a8410050498e6d833a4be66ef9812e",
+      "git_blob_sha": "33098f701c1ffb9b7994806c7dd270fed7e7d362",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/phone/ordinary-rehearsal-result.png",
+      "bytes": 488585,
+      "sha256": "aa1003dd9cbc2e9264e296636472046216634185116ae6bfadb0deb09b806278",
+      "git_blob_sha": "de766db8493da97face531517a9d40a0ed87472d",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/phone/partial-attendance-review.png",
+      "bytes": 443385,
+      "sha256": "38d543c83d199c6d4db6d0fafd52687115a347e79642e9721e0e262997954c16",
+      "git_blob_sha": "4021dea64556cd462f367005496087f386e174dd",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/phone/partial-saved-song-rehearsal.png",
+      "bytes": 476712,
+      "sha256": "82baa2f58706485fb16cf47e15356f407f14eef00ebdf9f6837c6b8935f8c0e2",
+      "git_blob_sha": "46432ee0c59d952f32bae1a4672d176016a9739d",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/phone/saved-song-rehearsal.png",
+      "bytes": 492183,
+      "sha256": "b99b8313f95fb10713dd4ee5bb8e1167f40c35abf2212d5f32e6b401e67d415c",
+      "git_blob_sha": "32c48fcdf91fa368fe26b9dd484fda30bdf40185",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/phone/selected-long-title.png",
+      "bytes": 481800,
+      "sha256": "3c60ed1a13aa050efa44a4b548776c6e1c47ef063300982c8bbff11dbb7d5d5a",
+      "git_blob_sha": "8266309510fc82ca41209ca8e9f20ea3354c2f04",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/phone/stale-arrangement-held.png",
+      "bytes": 492638,
+      "sha256": "cc089d6c154d48fc9323741eb3ab69a09bc049cb7f8da5e4a20e176dce969d59",
+      "git_blob_sha": "16763ee8aed639bd4050ee27c9675b4e8f1fddf4",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/phone/typed-reload-recap.png",
+      "bytes": 491244,
+      "sha256": "3c26a4f649a6d087e94a978f1ddccd060fa199df207122d4d64eab606f638395",
+      "git_blob_sha": "f720db4ce15d3f06f6e26da6b83a190a330fdc96",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/short/RESULT.json",
+      "bytes": 4399,
+      "sha256": "d6d8ba673c36db5512fae929e3df8a511c70ba622b835f909508d08fac9d7b1e",
+      "git_blob_sha": "7baaf7cfa5a8cca07022405e1f800b4652155652",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/short/failed-save-selection-retained.png",
+      "bytes": 1222747,
+      "sha256": "4111c7cdd596631105fd26c1a743c9a2a15c0e6f533cfed8e044db3ca081bf51",
+      "git_blob_sha": "96229053189f8f4c29b865ea947dc912f2cd3c8f",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/short/general-rehearsal.png",
+      "bytes": 1213153,
+      "sha256": "ce48bd8dc94b1934fc97e06c98c1307d99816691cf257cd008fb8695421c1c28",
+      "git_blob_sha": "e46dfb8bc83b06ae0383c447013ea14c5c0813f8",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/short/ordinary-rehearsal-result.png",
+      "bytes": 997592,
+      "sha256": "ae90067157c4c7f29877a345263da47bfe943dfb37d2ead19600f23ea8d9eb11",
+      "git_blob_sha": "11deb53a3b3be16a0638c98e88824c8171e36a32",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/short/partial-attendance-review.png",
+      "bytes": 803304,
+      "sha256": "5ee0d50cecf120f29f61b7911ae7f3cb76ceebb0a2f065123028e6cb87d786a0",
+      "git_blob_sha": "efe13faf4610f6c875b7faa78736256009a7e205",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/short/partial-saved-song-rehearsal.png",
+      "bytes": 972712,
+      "sha256": "42fcf609e204a0f82ee16866ae53353758ed610ac6fc4fd2aae1f1405918f7a6",
+      "git_blob_sha": "c801cc5b0ac1c7b6ff3cc11127e1492ea1afe69e",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/short/saved-song-rehearsal.png",
+      "bytes": 985932,
+      "sha256": "089fd306870466f980119e02bcce447b455b48164a88ea9de6c3c757d66ff39e",
+      "git_blob_sha": "679d2cb7cb0b1e0c98f984d2caafa55db6fef3c8",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/short/selected-long-title.png",
+      "bytes": 1253863,
+      "sha256": "04573b7b8f760cb5ce8f8913960c3cc168c6e6f1e23d8738b66e94b363527d52",
+      "git_blob_sha": "d038ca9fe0d1ba77c5192580e4901474e8ac031f",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/short/stale-arrangement-held.png",
+      "bytes": 1228581,
+      "sha256": "49be03354ca3e621e4284dbb79858cd220467cd3fc9b2a25200fea6261010b05",
+      "git_blob_sha": "3fad307e3c43b9410d72d90fab92b32df6131485",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/short/typed-reload-recap.png",
+      "bytes": 984689,
+      "sha256": "24d96fc27b6349f87f03fef833cef8eb4c08dd714b89e67221276db8ee70e6ad",
+      "git_blob_sha": "cb13a2503e5a9c845796bbfdd7651d61417c6f93",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/tall/RESULT.json",
+      "bytes": 4436,
+      "sha256": "a31be7ddc06f1fc9042ed5934006e9acec5375c21345852318cf5ef0e9450fa7",
+      "git_blob_sha": "88449423dc752170e66f7f2fa0b27ed43b9725a8",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/tall/failed-save-selection-retained.png",
+      "bytes": 1185118,
+      "sha256": "7218d9c7c13814ff85e23a5188d0672b6310afd50c5a1c3f32a8f14723fc3233",
+      "git_blob_sha": "cd7ca43ae7c2ce3932b58619f4308046aca74e2d",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/tall/general-rehearsal.png",
+      "bytes": 1177814,
+      "sha256": "80742ab11fb823f3b2f453c6305ea4b811a2ecc289cd43cafb8a8dc18077d22a",
+      "git_blob_sha": "0095b560e95c76f92d2f99be6ba110279175d435",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/tall/ordinary-rehearsal-result.png",
+      "bytes": 1160199,
+      "sha256": "17bca9d54e23e5e6a70147608f19c549841838e40a8918fed466d38d18201a8f",
+      "git_blob_sha": "d6f842bd32578965ad03368fc8dc3da7c83c839d",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/tall/partial-attendance-review.png",
+      "bytes": 1010998,
+      "sha256": "27741fc99899e087b0cabc865461cae868cb00f1fec47346734d13a8520fac87",
+      "git_blob_sha": "dffd706e05e53fd3d6dc278adef90c44e08073e7",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/tall/partial-saved-song-rehearsal.png",
+      "bytes": 1137270,
+      "sha256": "549223ea34d4f57f491b3972769f7317870ca016c86a44e7b73a6c68084a5468",
+      "git_blob_sha": "50b4b0af2bdf3cefe76250fcd94ec8905a69f6a3",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/tall/saved-song-rehearsal.png",
+      "bytes": 1175257,
+      "sha256": "cd6671bdba0fba03afb3455766b7c9b1912623008bc3a684205bb633a38bb6ac",
+      "git_blob_sha": "812357e4b73865cef22cbb673654a705fee49921",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/tall/selected-long-title.png",
+      "bytes": 1218221,
+      "sha256": "5dec3afabd5586d3b597bd4e1eb2e2df93e44d440f95138531861253dfa27b01",
+      "git_blob_sha": "b5c1181bb8b63b6d255fdd99c8d043fc246d5c25",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/tall/stale-arrangement-held.png",
+      "bytes": 1210520,
+      "sha256": "08396018d6f82e5ffde1b3bd18d8602120651f5513e00ed9b42d290ab4b716e3",
+      "git_blob_sha": "fdde53c978d75e3df96aabd3eb2c2949656fcd0e",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/tall/typed-reload-recap.png",
+      "bytes": 1173526,
+      "sha256": "c73180da14bcdda3493e4a0fc9853752d8bf13de211e74690b7d696916845de8",
+      "git_blob_sha": "498365dffa385346a5b4da5764ad90e2bd42adb9",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/wide/RESULT.json",
+      "bytes": 4394,
+      "sha256": "6e2fede17501ca3944c14edb918c9c35a3c497b0c95d094ee0a45e52f22b38d7",
+      "git_blob_sha": "6edebbeb87c9556058357b7ae70fdb880f74f837",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/wide/failed-save-selection-retained.png",
+      "bytes": 1769320,
+      "sha256": "f2bea19008ef375a933e71f6234542ed887ea1e0acb65dbeaec2f7004b88f9e5",
+      "git_blob_sha": "ab4f903383442dc11a28694744723be896be7bb0",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/wide/general-rehearsal.png",
+      "bytes": 1764078,
+      "sha256": "c3c44eb4eafe69e776d1d2d4e7b0bb0038c80afb506a476fdb3f2e1b7e43e853",
+      "git_blob_sha": "cff12fea6ece6452a6633e993e9c3685c68933fe",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/wide/ordinary-rehearsal-result.png",
+      "bytes": 1411910,
+      "sha256": "8b4a2f831920d542a752d46c1479e15530b6634dd0ccbaf48292b3c7a279a9d1",
+      "git_blob_sha": "0b210ab8d9052ca4b696f80f99fed057bb44c2a1",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/wide/partial-attendance-review.png",
+      "bytes": 1144843,
+      "sha256": "ee15e072a8c4bc13463ebb186b0fece8209d897204455ecf10de9968dd0e8efa",
+      "git_blob_sha": "fd62240a639c33922165644d6b95923e8a5af707",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/wide/partial-saved-song-rehearsal.png",
+      "bytes": 1376774,
+      "sha256": "ff90c6b42acd37940147e6e5b749dbeddd5591562fd04781dbbc6fd0ce08fa28",
+      "git_blob_sha": "621e35733b9493c57d833c604a5ab08dfec16eb7",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/wide/saved-song-rehearsal.png",
+      "bytes": 1397373,
+      "sha256": "e8dedcc6cc3f1aa2edb9b7bc55cbd93192df96fea8cef7d26223db85ad9eb400",
+      "git_blob_sha": "6f4ad54970072b3f448bdde4d494f63c65254efb",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/wide/selected-long-title.png",
+      "bytes": 1816339,
+      "sha256": "c780615de9620709720e45bac2f1b62a1a45b304d89d722fce6040cd3cfc7f7f",
+      "git_blob_sha": "f142e625ae757528d38c62aeb7c0145ab9bae485",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/wide/stale-arrangement-held.png",
+      "bytes": 1785490,
+      "sha256": "13499dc4bf3575191a359c7e1196c258ade2cf3ca5abe8739d2378906501d60c",
+      "git_blob_sha": "36b16ebb1e4049618ba6ff19f146ff30bee2bad5",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/wide/typed-reload-recap.png",
+      "bytes": 1395531,
+      "sha256": "674a8a957576581e2837f07c232debd8d57ef40d044e4093e8aec65c0dc85fbd",
+      "git_blob_sha": "d258eec9400425fcaf9f3fe38a7a3e8523b48bd5",
+      "binary": true
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate-SOURCE.json",
+      "bytes": 276249,
+      "sha256": "83c3342dc3552711b8a6565dfabdb3f402cdefba6f72ae881355beffd938c9c8",
+      "git_blob_sha": "41e306e7c07d3487395f8580b528291dd877480d",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/logs/candidate-Xorg-101.log",
+      "bytes": 54435,
+      "sha256": "9b020491527dcc88d0b0df31077bf88f388b1e5ea42f5e30811ee72006214a20",
+      "git_blob_sha": "e6f67374397b440a92d520e2fcfffd60c329cf46",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/logs/candidate-Xorg-101.stdout",
+      "bytes": 1936,
+      "sha256": "2fe8dcd79040b6c01acdbd0a472e293bb807df34bfaae6170df890e9eb67ad7e",
+      "git_blob_sha": "af10b741605d08cd06f2b0961b49f30040cf71a1",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/logs/candidate-Xorg-102.log",
+      "bytes": 54621,
+      "sha256": "128aae2ebc2c1fc02f67bc4b06c3c7a25f5349e811e6a28ae364268ab111ec1c",
+      "git_blob_sha": "dff1cd06d754dab2f225042c9bec60b00abe6d98",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/logs/candidate-Xorg-102.stdout",
+      "bytes": 1936,
+      "sha256": "5340db2a04590bfdfcc3728f1a3270fa60e0af6ccdf539c91ab539ea6809673f",
+      "git_blob_sha": "bf7b7a9c437ea60c4d855c6640e0b5457afee049",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/logs/candidate-final-signing-guard.result.json",
+      "bytes": 68,
+      "sha256": "c8ba6b9fb9d27e1b75cf093a1480f5f8e3c0f023ca8ff92d6b50fbfa8e9665c8",
+      "git_blob_sha": "b37662f3bf717b3acf58d5769522a274c2a3e317",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/logs/candidate-import.log",
+      "bytes": 185909,
+      "sha256": "99e99516cda86002ba8bf6e1b8808b67de3ac73d61224010faa97076123874d5",
+      "git_blob_sha": "f3c07eeaa27a09457917366bb8789f49f83d751e",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/logs/candidate-import.result.json",
+      "bytes": 183,
+      "sha256": "c2821c01236503dd08b9555c1377b24340fe501a1faa45dd77ee2b05e79ba0d4",
+      "git_blob_sha": "8903eaebd1d252d6642075e7a6b6f0344b89a129",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/logs/candidate-phone.log",
+      "bytes": 3141,
+      "sha256": "54ea9a638930e6b4028807f006efcb46cdf4830fa8a306b1565510d8c3037a73",
+      "git_blob_sha": "ac4b2f16a32a6e61338774835e82286397c651d4",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/logs/candidate-phone.result.json",
+      "bytes": 181,
+      "sha256": "4129dbfe1c853b604ddbe258c7feec5c6a1ccae0f281ed4d20ec6638e4283295",
+      "git_blob_sha": "d96d18be8f52a0e88edb1b6f4cfcaaa47b011368",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/logs/candidate-short.log",
+      "bytes": 3342,
+      "sha256": "257cc2e21a9723e3c46992f62c90fac21fff48dee83888d01a92c71b352ba6f1",
+      "git_blob_sha": "7331456ff8f5487b4d6a16134a08abddd09edacf",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/logs/candidate-short.result.json",
+      "bytes": 181,
+      "sha256": "69cc4400a92f6339b1eb6412999524a755e07bcfa870d743159ec2cb51e3961c",
+      "git_blob_sha": "9c6e2075e706dfcccd7516892f1c5e462c57430d",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/logs/candidate-tall.log",
+      "bytes": 3381,
+      "sha256": "0f96d0ad62fdd5acc2db0fe2a36647bd3bd9734132eaaef6cd49f0c61fa1345a",
+      "git_blob_sha": "df2515fe8f0df3818f7e24142e1e0fdeaaa8585b",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/logs/candidate-tall.result.json",
+      "bytes": 179,
+      "sha256": "1f20e9977f6f7f54d453cfad5a79650f7fbb4594b03b40e9f8d5df41efea777d",
+      "git_blob_sha": "a021745367eb2e2b3f565a553cf1266e9d0b561a",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/logs/candidate-wide.log",
+      "bytes": 3339,
+      "sha256": "e10cb6c818339105ffb88f62eaec0f8750e572dae5290094bfbca725dddd484e",
+      "git_blob_sha": "a6a16e1b6f14352e3101b1a6d1af3fa1124a1a12",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/logs/candidate-wide.result.json",
+      "bytes": 179,
+      "sha256": "663810f977723a03f8664fbde760a7ccf10ab205d85a8150273bafbcd38499ab",
+      "git_blob_sha": "29fa8240966fb1e92842e9b1f7efbeab6932ac10",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/song62_native.gd.txt",
+      "bytes": 18189,
+      "sha256": "26c73819f9428ebe2c8c564d95fff55011fde69819a7dbc36d0d5e1d9591227b",
+      "git_blob_sha": "c12b8ffa3ef88775c91c03d68ee2d137476afe8b",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/native-v3/ui.gd.txt",
+      "bytes": 95762,
+      "sha256": "116a606017fce68cd378a4615a719490f302408e2d89b79e973b8bedc70b5989",
+      "git_blob_sha": "d67381d10b8c3192995dc8175fd8b19948f9e474",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/source-protection.json",
+      "bytes": 165075,
+      "sha256": "c0cd3affc8630cef1f28a0e66525528d8f7a8f8ea9c2c14b383bb4c969255c71",
+      "git_blob_sha": "2c02299702bd56131851bc8703b8134f7402831b",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/wrapper-before-log-slot-fix.py.txt",
+      "bytes": 3871,
+      "sha256": "e52695698502f88c553e0a5e370934c4130cb136cfbc2ef15ec6a817ca3d1f52",
+      "git_blob_sha": "0ca76462b1381d24f517a7338dfb9306b5b0e3fe",
+      "binary": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG62/wrapper-continuation-refusal.json",
+      "bytes": 919,
+      "sha256": "c3f91767e763c4277f340732635548e0a0fb4f46c8c22b8af5563d811c34ab7b",
+      "git_blob_sha": "f999b09f79caa311c5c85b6638cfaa5582cfc144",
+      "binary": false
+    }
+  ],
+  "evidence_bytes": 53737150,
+  "evidence_files": 119,
+  "raw_byte_publication": "Every119 evidence Git blob SHA1 matches independently computed local raw Git identity; tree/ref readback follows.",
+  "review": "docs/continuous_improvement/SONG62_REVIEW.json",
+  "remaining": [
+    "R3 remains PARTIAL: no changed-section transfer or supported finished-song rewrite/equivalence contract; no invented similarity from titles/hashes. R4-R7 dependencies not passed.",
+    "Controlled public formation/actual writing fixtures create the two-song career. This is the production RootUI rehearsal pane, not a whole initial-menu-to-career journey.",
+    "Reload invokes the real RootUI._load_original handler directly; no played Menu/Continue claim.",
+    "303 mixed assertions per profile include fixture setup, not303individual native gameplay actions. Nine writing-helper settlements are setup counts, not rehearsal/save counts.",
+    "Native runs use reduced motion; no new normal-motion/physicalphone/listening/install/retention/IME/OSinterrupt/uncoached acceptance.",
+    "Existing body scrolling, sparse wide presentation, static portraits and generic/ellipsised inherited rehearsal excerpts remain.",
+    "Current approved processed media still missing; no new APK. Raw Dropbox stems are not interchangeable with those dependencies."
+  ],
+  "resources": {
+    "prospective_tmp_cap": 2952790016,
+    "owned_tmp_bytes_before_close": 2175935872,
+    "workspace_free_before": 625475584,
+    "workspace_free_final_observed": 625471488,
+    "workspace_global_delta": 4096,
+    "cause": "Unproved global4KiB delta; no explicitprimarysource/Git/cacheallocation. Existingprimarybelow629145600floor remains disclosed.",
+    "tmp_free_before_close": 2493390848,
+    "critical_git": "DurableGitHubGitData; original19df671dirtycheckout+missingS87TMPalternatewarning preserved",
+    "closed_current_producers": 4,
+    "closed_source_cache_files": 14388,
+    "all_helpers_released": true,
+    "engines_Xorg_GL": "Stopped/socketgone/normal3pins preserved/flockfree; no closed producer restart allowed."
+  },
+  "android": "Original signer previously verified available/unchanged, no reprobe/export/signing. Existing app/save identity retained. Nineprocessed dependencies remain missing;33rawDropboxstems/old Last Bus Gone acceptance do not establish requiredprocessedbanks or rights for6newtitles. No new APK.",
+  "next_action": "Implement and verify source-backed changed-section preparation transfer in R3; preserve unknowns where equivalence is unproved and keep R4 gated."
+}

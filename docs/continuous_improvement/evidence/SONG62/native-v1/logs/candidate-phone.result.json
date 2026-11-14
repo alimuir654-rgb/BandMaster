@@ -1,0 +1,8 @@
+{
+  "name": "candidate-phone",
+  "exit_code": 0,
+  "seconds": 13.31,
+  "log": "/tmp/bandmaster-song62-20261114/native-v1/logs/candidate-phone.log",
+  "errors": [],
+  "pass": true
+}

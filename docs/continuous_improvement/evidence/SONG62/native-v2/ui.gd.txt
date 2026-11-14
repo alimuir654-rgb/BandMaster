@@ -1,0 +1,1880 @@
+extends Control
+const IdentityStyle = preload("res://experiments/playable_flightcase/identity_style.gd")
+const BandMark = preload("res://experiments/playable_flightcase/band_mark.gd")
+const Finance = preload("res://experiments/playable_flightcase/finance_policy.gd")
+const RadioVisit = preload("res://experiments/playable_flightcase/radio_visit_rules.gd")
+const Audition = preload("res://experiments/playable_flightcase/audition_encounter.gd")
+const Profiles = preload("res://experiments/playable_flightcase/audition_profiles.gd")
+const PersonalContext = preload("res://experiments/playable_flightcase/personal_context.gd")
+const AudioPart = preload("res://experiments/playable_flightcase/audition_audio.gd")
+const AuditionDesk = preload("res://experiments/playable_flightcase/audition_desk.gd")
+const Workbench = preload("res://experiments/playable_flightcase/song_workbench.gd")
+const WorkbenchDesk = preload("res://experiments/playable_flightcase/song_workbench_desk.gd")
+const MixingDesk = preload("res://experiments/playable_flightcase/mixing_desk.gd")
+const MixingRecipe = preload("res://experiments/playable_flightcase/mixing_recipe.gd")
+const Situation = preload("res://experiments/playable_flightcase/situation_core.gd")
+const DayNavigation=preload("res://experiments/playable_flightcase/day_navigation.gd")
+const BandWeek = preload("res://experiments/playable_flightcase/band_week.gd")
+const SongSummary = preload("res://experiments/playable_flightcase/song_summary.gd")
+const SongSummaryView = preload("res://experiments/playable_flightcase/song_summary_view.gd")
+const WorkConflict = preload("res://experiments/playable_flightcase/work_conflict_view.gd")
+signal lineup_confirmed
+signal back_requested
+signal career_requested
+signal home_requested
+signal planning_requested
+signal menu_requested
+signal sound_requested
+## C26 player-facing isolated scene. Existing photographic flightcase controls,
+## original inert meters and genuine career rules; no flattened clickable mockup.
+const Game = preload("res://experiments/playable_flightcase/session.gd")
+const Base = preload("res://experiments/character_cast/vendor/recruitment_catalogue_v3.gd")
+const Kit = preload("res://components/control_atlas/kit.gd")
+const Recap = preload("res://experiments/playable_flightcase/rehearsal_recap.gd")
+const RehearsalPress = preload("res://experiments/playable_flightcase/rehearsal_press.gd")
+const SessionTransition = preload("res://experiments/playable_flightcase/session_transition.gd")
+const InkNote = preload("res://experiments/playable_flightcase/ink_note.gd")
+const Shared = preload("res://experiments/playable_flightcase/career_components.gd")
+const Live = preload("res://experiments/playable_flightcase/live_bridge.gd")
+const Calendar = preload("res://Scripts/gig_calendar.gd")
+const AUDITION_ROLES := ["Guitarist","Bassist","Drummer","Singer"]
+const AUDITION_TITLES := ["GUITARISTS","BASSISTS","DRUMMERS","LEAD VOCALS"]
+static var audition_heading_texture: ImageTexture
+const Paper = preload("res://experiments/playable_flightcase/session_paper.gd")
+const Practice = preload("res://Scripts/practice_room.gd")
+const Workshop = preload("res://Scripts/song_workshop.gd")
+var game = Game.new()
+var onboarding_state = null
+var opening_owner = null
+var role: String = "Guitarist"
+var selected_index := 0
+var auditioned: Dictionary = {}
+var audition_note_id := ""
+var _audition_fresh := false
+var vocals_panel := false
+var lineup_review := false
+var _new_session_notes := false
+var idea_index := 0
+var form_index := 0
+var leader_index := 0
+var song_title := "THE LAST BUS HOME"
+var last_message := "Build a band. Talent points are separate from your cash."
+var recap_expanded := true
+var recap_details_expanded := false
+var look := "flightcase"
+var reduced_motion := false
+var session_busy := false
+var _session_overlay: Control
+var _work_dialog: Control
+var _work_expected: Dictionary = {}
+var _work_epoch := 0
+var practice_activity := "create"
+var rehearsal_direction: Dictionary={"focus":"precision","effort":"steady"}
+var rehearsal_reference: Dictionary={} # Free local exact-version selection; empty explicitly means general live set.
+var _workbench_desk
+var _workbench_finished := false
+var _workbench_finished_ref: Dictionary={}
+var _workbench_failure_message := ""
+var _writing_view: Dictionary={}
+
+
+# Phone-only layout wrapper around the same native Kit buttons and selection
+# contract. Keep the shared horizontal ChoiceStrip unchanged in other views.
+class PracticePhoneChoices extends VBoxContainer:
+ signal selection_changed(index: int)
+ var selected := 0
+ var buttons: Array[Button] = []
+ var group := ButtonGroup.new()
+ func _init(style: String, labels: PackedStringArray, initial: int) -> void:
+  add_theme_constant_override("separation",4)
+  size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  group.allow_unpress = false
+  for index in range(labels.size()):
+   var option: Button = preload("res://experiments/playable_flightcase/career_components.gd").button(labels[index],style,"tab",true)
+   option.button_group = group
+   buttons.append(option)
+   add_child(option)
+   option.pressed.connect(select.bind(index))
+  if not buttons.is_empty():
+   selected = clampi(initial,0,buttons.size()-1)
+   buttons[selected].set_pressed_no_signal(true)
+ func select(index: int, emit: bool = true) -> void:
+  if index<0 or index>=buttons.size() or buttons[index].disabled:
+   return
+  for current in range(buttons.size()):
+   buttons[current].set_pressed_no_signal(current==index)
+  if selected==index:
+   return
+  selected = index
+  if emit:
+   selection_changed.emit(index)
+
+func _ready() -> void:
+ set_anchors_and_offsets_preset(PRESET_FULL_RECT)
+ _hydrate_song_draft()
+ resized.connect(_rebuild)
+ visibility_changed.connect(_on_visibility_changed)
+ _rebuild()
+
+func _clear() -> void:
+ # Keep this exact native editor/caret/local buffer during responsive reflow.
+ if is_instance_valid(_workbench_desk) and _workbench_desk.get_parent()!=self:
+  _workbench_desk.get_parent().remove_child(_workbench_desk)
+  add_child(_workbench_desk)
+  _workbench_desk.hide()
+ for child in get_children():
+  if is_instance_valid(_workbench_desk) and child==_workbench_desk:continue
+  if is_instance_valid(_session_overlay) and child==_session_overlay:
+   continue
+  if is_instance_valid(_work_dialog) and child==_work_dialog:
+   continue
+  remove_child(child)
+  child.queue_free()
+
+func _label(content: String, points: int = 16) -> Label:
+ return Shared.label(content,points,look)
+
+func _box() -> VBoxContainer:
+ var box := VBoxContainer.new()
+ box.add_theme_constant_override("separation",8)
+ box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ return box
+
+func _panel(body: Control, kind := "panel") -> PanelContainer:
+ var panel: PanelContainer = Kit.frame(look,kind)
+ panel.add_theme_stylebox_override("panel",preload("res://experiments/playable_flightcase/poster_components.gd").stock(preload("res://experiments/playable_flightcase/poster_components.gd").INK,16))
+ panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ panel.add_child(body)
+ return panel
+
+func _button(title: String, action: Callable, family: String = "action") -> Button:
+ var button: Button = Shared.button(title,look,family)
+ button.pressed.connect(action)
+ return button
+
+func _rebuild() -> void:
+ if not is_inside_tree():
+  return
+ var previous_focus: Control = get_viewport().gui_get_focus_owner()
+ var focus_name := ""
+ var caret := -1
+ if not session_busy and is_instance_valid(previous_focus) and is_ancestor_of(previous_focus):
+  focus_name = previous_focus.name
+  if previous_focus is LineEdit:
+   caret = (previous_focus as LineEdit).caret_column
+ _clear()
+ # One authoritative view per synchronous rebuild, shared by chrome and desk.
+ _writing_view=opening_owner.workbench_view() if opening_owner!=null and game.phase=="play" and practice_activity=="create" else {}
+ var size_now: Vector2 = size
+ var mobile: bool = size_now.x < 840 or size_now.x < size_now.y
+ add_child(Shared.background())
+ var outer := MarginContainer.new()
+ outer.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
+ for side in ["left","top","right","bottom"]:
+  outer.add_theme_constant_override("margin_"+side,12 if mobile else 20)
+ add_child(outer)
+ var root_box := _box()
+ root_box.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ outer.add_child(root_box)
+ var header := HBoxContainer.new()
+ header.add_theme_constant_override("separation",12)
+ var encounter_chrome: bool=game.phase=="recruit" and onboarding_state!=null and bool(onboarding_state.audition_view().get("active",false))
+ if game.phase=="recruit":
+  if not encounter_chrome:
+   var title := _label("AUDITIONS",26 if not mobile else 21)
+   title.name = "AuditionsHeading"
+   title.custom_minimum_size.y = 44
+   _decorate_audition_heading(title)
+   title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+   header.add_child(title)
+ else:
+  # Reserve the displayed artwork's actual width, keeping the established
+  # header height. The previous wider empty slot crowded short band names.
+  var old_brand_height: float=52.0 if mobile else 36.0
+  var brand: Control = Shared.brand(26.0 if mobile else 24.0)
+  var brand_slot:=Control.new()
+  brand_slot.custom_minimum_size=Vector2(brand.custom_minimum_size.x,old_brand_height)
+  brand_slot.mouse_filter=Control.MOUSE_FILTER_IGNORE
+  header.add_child(brand_slot)
+  brand.name = "PracticeBrand"
+  brand_slot.add_child(brand)
+  brand.position.y=(old_brand_height-brand.custom_minimum_size.y)*0.5
+  var name_layout: Label=_label(str(game.career.get("band_name","LIVIN' THE DREAM")),18)
+  name_layout.name="PracticeBandNameLayout"
+  name_layout.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
+  name_layout.max_lines_visible=2
+  header.add_child(name_layout)
+  var band_name := BandMark.new()
+  band_name.configure(str(game.career.get("band_name","LIVIN' THE DREAM")),str(game.career.get("logo","Wordmark")),IdentityStyle.effective(game.career.get(IdentityStyle.KEY,{}),str(game.career.get("palette",""))),28 if mobile else 23,true,true,true)
+  band_name.name = "PracticeBandName"
+  band_name.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+  band_name.max_lines_visible = 1
+  name_layout.add_child(band_name)
+  band_name.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+  name_layout.self_modulate.a=0.0
+ var visible_remaining: int = int(onboarding_state.remaining()) if onboarding_state != null else game.remaining()
+ var budget := _label("TALENT %d / %d" % [visible_remaining,Base.MAX_TALENT] if game.phase=="recruit" else "DAY %d   £%d" % [int(game.career.get("tour_day",1)),int(game.career.get("cash",0))],16)
+ budget.name = "BudgetLabel"
+ if encounter_chrome:budget.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ budget.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+ header.add_child(budget)
+ if _mixing_active():header.free()
+ else:root_box.add_child(header)
+ var display_message := last_message
+ if game.phase=="play" and display_message=="Build a band. Talent points are separate from your cash.":
+  var saved_report: Dictionary = game.career.get("last_rehearsal_outcome",{})
+  if not saved_report.is_empty():
+   display_message = "LAST SESSION  •  " + str(saved_report.get("verdict","Session completed")) + "  •  Notes below."
+  else:
+   display_message = "Your band is ready. Choose a session."
+ if game.phase=="recruit" and display_message=="Build a band. Talent points are separate from your cash.":
+  display_message = "Meet the musicians. Auditions cost no time or talent."
+ if game.phase=="recruit" and onboarding_state!=null and bool(onboarding_state.audition_view().get("active",false)):
+  display_message=str(onboarding_state.audition_view()["person"]["name"]).to_upper()+" · A REHEARSAL SKETCH"
+ if game.phase=="play" and opening_owner!=null and int(game.career.get("cash",0))==0:
+  var account: Dictionary = Finance.view(game.career)
+  display_message = "NO CASH  •  %d / 14 completed days  •  Check Finances in the Career Desk" % int(account.get("broke_days",0))
+ var status := _label(display_message,14)
+ status.name = "StatusMessage"
+ status.custom_minimum_size.y = 32
+ status.add_theme_color_override("font_color",Color("f0c78b"))
+ var workbench_chrome: bool=game.phase=="play" and opening_owner!=null and practice_activity=="create" and not recap_expanded and bool(_writing_view.get("active",false))
+ if encounter_chrome or workbench_chrome:status.free()
+ else:root_box.add_child(status)
+ if game.phase == "recruit":
+  _recruit_page(root_box,mobile)
+ else:
+  _practice_page(root_box,mobile)
+ if is_instance_valid(_session_overlay):
+  move_child(_session_overlay,get_child_count()-1)
+ elif not focus_name.is_empty():
+  call_deferred("_restore_practice_focus",focus_name,caret)
+
+func _restore_practice_focus(control_name: String, caret: int = -1) -> void:
+ if session_busy or not is_visible_in_tree():
+  return
+ var control: Control = find_child(control_name,true,false) as Control
+ if control!=null and control.is_visible_in_tree():
+  control.grab_focus()
+  if control is LineEdit and caret>=0:
+   (control as LineEdit).caret_column = mini(caret,(control as LineEdit).text.length())
+
+func _mixing_active() -> bool:
+ return game.phase=="play" and opening_owner!=null and practice_activity=="create" and not recap_expanded and MixingRecipe.valid(_writing_view.get("project",{}).get("fragment",{}).get("producer_recipe"))
+
+func _mixing_entry() -> bool:
+ return opening_owner!=null and practice_activity=="create" and int(game.career.get("song_draft_progress",0))==0 and (game.career.get("current_song_draft",{}) as Dictionary).is_empty() and SoundBriefReady()
+
+func _hydrate_song_draft() -> void:
+ if game.phase!="play":
+  return
+ var draft: Dictionary = game.career.get("current_song_draft",{})
+ if draft.is_empty():
+  if not (game.career.get("song_catalogue",[]) as Array).is_empty():
+   song_title = ""
+  return
+ song_title = str(draft.get("title",song_title))
+ idea_index = maxi(0,Workshop.IDEAS.find(str(draft.get("idea",Workshop.IDEAS[0]))))
+ form_index = maxi(0,Workshop.FORMS.find(str(draft.get("form",Workshop.FORMS[0]))))
+ var members: Array = game.career.get("members",[])
+ leader_index = 0
+ for index in range(members.size()):
+  if str(members[index].get("name",""))==str(draft.get("leader","")):
+   leader_index = index
+   break
+ leader_index = clampi(leader_index,0,maxi(0,members.size()-1))
+
+func _decorate_audition_heading(label: Label) -> void:
+ var path := "res://experiments/playable_flightcase/art/auditions_heading.png"
+ if not ResourceLoader.exists(path):
+  return
+ var art := TextureRect.new()
+ art.name = "AuditionsHeadingInk"
+ if audition_heading_texture==null:
+  var source: Texture2D = load(path)
+  audition_heading_texture = ImageTexture.create_from_image(source.get_image().get_region(Rect2i(27,136,2024,544)))
+ art.texture = audition_heading_texture
+ art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+ art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+ art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ art.focus_mode = Control.FOCUS_NONE
+ label.add_child(art)
+ art.set_anchors_and_offsets_preset(PRESET_FULL_RECT)
+ label.self_modulate.a = 0.0
+
+func first_audition_candidate_index(for_role: String) -> int:
+ var choices: Array = game.choices(for_role)
+ for index in range(choices.size()):
+  var path: String = str(choices[index].get("portrait_preview",""))
+  if not path.is_empty() and ResourceLoader.exists(path):
+   return index
+ return 0
+
+func first_missing_audition_role() -> String:
+ var covered: Array = Base.coverage(game.roster)
+ for required in ["Guitarist","Bassist","Drummer"]:
+  if not covered.has(required):
+   return required
+ return "Singer"
+
+func _audition_progress(root_box: VBoxContainer) -> void:
+ var progress := HBoxContainer.new()
+ progress.name = "AuditionProgress"
+ progress.add_theme_constant_override("separation",4)
+ var covered: Array = Base.coverage(game.roster)
+ for index in range(4):
+  var done: bool = covered.has(AUDITION_ROLES[index]) if index<3 else (onboarding_state!=null and not str(onboarding_state.lead_vocal_id).is_empty())
+  var caption: Button=_button(("✓ " if done else "")+str(["GUITAR","BASS","DRUMS","VOICE"][index]),_change_role.bind(str(AUDITION_ROLES[index])),"tab")
+  caption.name = "AuditionProgress_"+str(AUDITION_ROLES[index])
+  caption.toggle_mode=true
+  preload("res://experiments/playable_flightcase/poster_components.gd").choice_style(caption)
+  caption.set_pressed_no_signal(role==str(AUDITION_ROLES[index]) and not lineup_review)
+  progress.add_child(caption)
+ root_box.add_child(progress)
+
+func _inline_lineup(body: VBoxContainer) -> void:
+ if onboarding_state==null:return
+ var poster=preload("res://experiments/playable_flightcase/poster_components.gd")
+ var summary:=HBoxContainer.new();summary.name="RecruitLineupSummary"
+ summary.mouse_filter=Control.MOUSE_FILTER_PASS
+ summary.add_theme_constant_override("separation",8);body.add_child(summary)
+ var count: Label=poster.label("BAND · %d / 6" % game.roster.size(),16,poster.GOLD)
+ count.autowrap_mode=TextServer.AUTOWRAP_OFF
+ count.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN;summary.add_child(count)
+ if game.roster.is_empty():
+  summary.add_child(poster.label("Find your first musician.",16,poster.PAPER));return
+ var voices:=OptionButton.new();voices.name="RecruitLeadVoice";voices.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ voices.fit_to_longest_item=false;voices.clip_text=true
+ poster.choice_style(voices);voices.add_item("CHOOSE LEAD VOICE");voices.set_item_disabled(0,true)
+ var popup: PopupMenu=voices.get_popup()
+ popup.add_theme_stylebox_override("panel",poster.control_stock(poster.INK,12))
+ popup.add_theme_font_override("font",poster.FONT);popup.add_theme_font_size_override("font_size",18)
+ popup.add_theme_color_override("font_color",poster.PAPER);popup.add_theme_color_override("font_hover_color",poster.GOLD)
+ for member in game.roster:
+  if onboarding_state.vocal_scores(member).size()!=6:continue
+  var extra: int=0 if (member.roles as Array).has("Singer") else 5
+  var position: int=voices.item_count
+  voices.add_item("LEAD · "+str(member.name)+(" · +5" if extra else ""))
+  voices.set_item_metadata(position,str(member.id))
+  voices.set_item_disabled(position,game.remaining()<extra)
+  if onboarding_state.lead_vocal_id==str(member.id):voices.select(position)
+ voices.disabled=voices.item_count==1
+ voices.item_selected.connect(func(index: int):
+  var id: Variant=voices.get_item_metadata(index)
+  if id is String:_choose_vocal(id))
+ summary.add_child(voices)
+
+func _audition_sheet(root_box: VBoxContainer, mobile: bool) -> VBoxContainer:
+ var scroll := ScrollContainer.new()
+ scroll.name = "RecruitProfileScroll"
+ scroll.scroll_deadzone=12
+ scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+ scroll.follow_focus = true
+ scroll.get_v_scroll_bar().focus_mode = Control.FOCUS_ALL
+ root_box.add_child(scroll)
+ var margin := MarginContainer.new()
+ margin.mouse_filter=Control.MOUSE_FILTER_PASS
+ margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ for side in ["left","right","top","bottom"]:
+  margin.add_theme_constant_override("margin_"+side,16)
+ scroll.add_child(margin)
+ var center := CenterContainer.new()
+ center.mouse_filter=Control.MOUSE_FILTER_PASS
+ center.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ center.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+ margin.add_child(center)
+ var paper := PanelContainer.new()
+ paper.name = "AuditionPaper"
+ paper.mouse_filter=Control.MOUSE_FILTER_PASS
+ paper.custom_minimum_size.x = minf(1000.0,maxf(270.0,size.x-(72.0 if mobile else 120.0)))
+ paper.add_theme_stylebox_override("panel",Paper.sheet(size.x<600))
+ center.add_child(paper)
+ var body := _box()
+ body.mouse_filter=Control.MOUSE_FILTER_PASS
+ body.add_theme_constant_override("separation",10)
+ paper.add_child(body)
+ return body
+
+func _audition_navigation(root_box: VBoxContainer) -> void:
+ var navigation := HBoxContainer.new()
+ navigation.name = "AuditionNavigation"
+ navigation.add_theme_constant_override("separation",8)
+ root_box.add_child(navigation)
+ var previous: Button = _button("‹ CHANGE GENRE",func():back_requested.emit(),"tab")
+ previous.name = "AuditionPreviousStepAction"
+ navigation.add_child(previous)
+ var following: Button=_button("REVIEW BAND ›",_review_lineup)
+ following.name="ReviewLineupAction"
+ following.disabled=game.roster.is_empty()
+ navigation.add_child(following)
+
+func _recruit_page(root_box: VBoxContainer, mobile: bool) -> void:
+ if onboarding_state!=null:
+  var encounter: Dictionary=onboarding_state.audition_view()
+  if encounter.get("active",false) or encounter.get("held",false):
+   var desk:=AuditionDesk.new()
+   desk.owner_state=onboarding_state
+   desk.available_width=size.x
+   desk.reduced_motion=reduced_motion
+   desk.fresh=_audition_fresh
+   _audition_fresh=false
+   desk.changed.connect(_audition_changed)
+   desk.menu_requested.connect(func():menu_requested.emit())
+   root_box.add_child(desk)
+   return
+ _audition_progress(root_box)
+ if lineup_review:
+  _lineup_review_page(root_box,mobile)
+  return
+ if vocals_panel and onboarding_state!=null:
+  _vocal_audition_page(root_box,mobile)
+  return
+ var index: int = AUDITION_ROLES.find(role)
+ var chapter := _label("FIND YOUR PEOPLE · "+str(AUDITION_TITLES[index] if index>=0 else "KEYBOARDS"),20)
+ chapter.name = "AuditionStepTitle"
+ root_box.add_child(chapter)
+ var choices: Array = game.choices(role)
+ if choices.is_empty():
+  root_box.add_child(_label("No candidates for this role."))
+  _audition_navigation(root_box)
+  return
+ selected_index = clampi(selected_index,0,choices.size()-1)
+ var person: Dictionary = choices[selected_index]
+ var id: String = str(person.id)
+ var recruited: bool = Base.contains(game.roster,id)
+ var heard: bool = bool(auditioned.get(id,false)) or recruited
+ if Profiles.supports(id) and onboarding_state!=null:
+  heard=bool(onboarding_state.audition_view(id).get("heard",false)) or recruited
+ _inline_lineup(root_box)
+ var body: VBoxContainer = _audition_sheet(root_box,mobile)
+ var browse := HBoxContainer.new()
+ browse.add_theme_constant_override("separation",6)
+ body.add_child(browse)
+ var previous: Button = _button("‹",_move_candidate.bind(-1),"browse")
+ previous.name = "RecruitPreviousAction"
+ previous.custom_minimum_size.x = 48
+ previous.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+ browse.add_child(previous)
+ var candidate_name: Label = _ink("%s  •  %s" % [str(person.name).to_upper(),role.to_upper()],19)
+ candidate_name.name = "RecruitCandidateName"
+ candidate_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ browse.add_child(candidate_name)
+ var following: Button = _button("›",_move_candidate.bind(1),"browse")
+ following.name = "RecruitNextAction"
+ following.custom_minimum_size.x = 48
+ following.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+ browse.add_child(following)
+ var introduction: BoxContainer = VBoxContainer.new() if mobile else HBoxContainer.new()
+ introduction.mouse_filter=Control.MOUSE_FILTER_PASS
+ introduction.add_theme_constant_override("separation",12)
+ body.add_child(introduction)
+ var image_path := str(person.get("portrait_preview",""))
+ if not image_path.is_empty() and ResourceLoader.exists(image_path):
+  var image := TextureRect.new()
+  image.name = "RecruitPortrait"
+  image.texture = load(image_path)
+  image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+  image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+  image.custom_minimum_size = Vector2(176,176) if mobile else Vector2(190,194)
+  image.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+  image.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+  image.mouse_filter = Control.MOUSE_FILTER_IGNORE
+  image.focus_mode = Control.FOCUS_NONE
+  introduction.add_child(image)
+ else:
+  var archive: Label = _ink("ARCHIVE AUDITION\nNo approved portrait",13,true)
+  archive.name = "RecruitArchivePortrait"
+  archive.custom_minimum_size = Vector2(112,116) if mobile else Vector2(190,194)
+  introduction.add_child(archive)
+ var bio := _box()
+ bio.mouse_filter=Control.MOUSE_FILTER_PASS
+ if not mobile:
+  bio.add_theme_constant_override("separation",6)
+ introduction.add_child(bio)
+ bio.add_child(_ink(str(person.get("town","UK")),16))
+ bio.add_child(_ink(str(person.get("personality","Musician")),16,true))
+ bio.add_child(_ink(str(person.get("story","An aspiring musician looking for a band.")),14))
+ var background: Dictionary=PersonalContext.for_candidate(id)
+ var practical:=_box()
+ practical.mouse_filter=Control.MOUSE_FILTER_PASS
+ practical.name="RecruitPracticalContext"
+ practical.add_child(_ink("WORK · "+background["work"],16))
+ practical.add_child(_ink("OUTSIDE THE BAND · "+background["outside_commitment"],16))
+ practical.add_child(_ink(background["availability"],16))
+ practical.add_child(_ink(background["starting_availability"],16))
+ practical.visible=false
+ var details: Button=_button("WORK & AVAILABILITY",func():practical.visible=not practical.visible,"tab")
+ details.name="RecruitPracticalToggle"
+ body.add_child(details);body.add_child(practical)
+ if Profiles.supports(id) and onboarding_state!=null and bool(onboarding_state.audition_view(id).get("heard",false)):
+  var content: Script=Profiles.content(id)
+  var replay:=AudioPart.new()
+  replay.manifest_path=Profiles.audio_manifest(id)
+  replay.play_caption="PLAY ORIGINAL"
+  replay.configure(_completed_audio_context.bind(id))
+  body.add_child(replay)
+  replay.set_clip(content.FIRST_ID)
+ preload("res://experiments/playable_flightcase/character_audio.gd").attach(body,id,role,func():return is_visible_in_tree() and game.genre=="Indie rock" and not session_busy and game.phase=="recruit" and str(game.choices(role)[selected_index].id)==id,true)
+ var strength: Label = _candidate_note("STRENGTH  •  "+str(person.get("strength","Still developing")),"RecruitStrength",heard and audition_note_id==id)
+ var friction: Label = _candidate_note("FRICTION  •  "+str(person.get("friction","Unknown")),"RecruitFriction",heard and audition_note_id==id)
+ strength.visible = heard
+ friction.visible = heard
+ var note_host: VBoxContainer = body if mobile else bio
+ note_host.add_child(strength)
+ note_host.add_child(friction)
+ if heard:
+  note_host.add_child(_ink("Audition notes • tap a note to reveal it in full.",12,true))
+ else:
+  note_host.add_child(_ink("Meet the musician, then audition to read what they bring to the room.",16,true))
+ if role=="Singer" and onboarding_state!=null and recruited:
+  var chosen: bool = str(onboarding_state.lead_vocal_id)==id
+  var appoint: Button = _button("✓ LEAD VOCALS" if chosen else "CHOOSE "+str(person.name).to_upper()+" FOR LEAD VOCALS",_choose_vocal.bind(id))
+  appoint.name = "VocalAssign_"+id
+  appoint.disabled = chosen
+  body.add_child(appoint)
+ var context := _box()
+ context.name = "RecruitDecisionContext"
+ context.add_theme_constant_override("separation",5)
+ context.size_flags_horizontal = Control.SIZE_EXPAND_FILL if mobile else Control.SIZE_SHRINK_CENTER
+ if not mobile:
+  context.custom_minimum_size.x = 760
+ root_box.add_child(context)
+ var available: int = int(onboarding_state.remaining()) if onboarding_state!=null else game.remaining()
+ var cost: int = game.incremental_cost(person)
+ var budget_text: String
+ if recruited:
+  budget_text = "IN YOUR BAND  •  %d TALENT AVAILABLE" % available
+ elif game.roster.size()>=6:
+  budget_text = "BAND FULL  •  6/6 MEMBERS  •  %d TALENT AVAILABLE" % available
+ elif available<cost:
+  budget_text = "NEED %d MORE TALENT  •  %d AVAILABLE" % [cost-available,available]
+ else:
+  budget_text = "%d TALENT  •  %d AVAILABLE  •  %d AFTER RECRUIT" % [cost,available,available-cost]
+ var affordability: Label = _label(budget_text,16)
+ affordability.name = "RecruitAffordability"
+ affordability.add_theme_color_override("font_color",Color("f0c78b"))
+ context.add_child(affordability)
+ var dock := HBoxContainer.new()
+ dock.name = "RecruitDecisionDock"
+ dock.add_theme_constant_override("separation",8)
+ context.add_child(dock)
+ var audition: Button = _button("READ NOTES" if heard else "AUDITION",_audition_candidate)
+ audition.name = "AuditionAction"
+ dock.add_child(audition)
+ var action: Button = _button("REMOVE" if recruited else "INVITE TO BAND",_remove.bind(id) if recruited else _recruit.bind(id))
+ action.name = "RemoveAction" if recruited else "RecruitAction"
+ var allowed: bool = bool(onboarding_state.can_recruit(id)) if onboarding_state!=null else game.can_add(person)
+ action.disabled = false if recruited else (not heard or not allowed)
+ if not recruited and game.roster.size()>=6:
+  action.text = "BAND FULL"
+ dock.add_child(action)
+ audition_note_id = ""
+ _audition_navigation(root_box)
+
+func _candidate_note(value: String, node_name: String, animate: bool) -> Label:
+ var note: Label = InkNote.new()
+ note.name = node_name
+ note.text = value
+ note.add_theme_font_size_override("font_size",16)
+ note.add_theme_color_override("font_color",Color("29241f"))
+ note.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+ if animate:
+  note.call_deferred("begin",reduced_motion)
+ return note
+
+func _audition_candidate() -> void:
+ var items: Array = game.choices(role)
+ if items.is_empty():
+  return
+ var id: String = str(items[selected_index].id)
+ if Profiles.supports(id) and onboarding_state!=null and not bool(onboarding_state.audition_view(id).get("heard",false)):
+  var result: Dictionary=onboarding_state.begin_audition(id,role,true)
+  last_message=str(result.get("message",""))
+  _audition_fresh=bool(result.get("ok",false))
+  _rebuild()
+  return
+ auditioned[id] = true
+ audition_note_id = id
+ _rebuild()
+ call_deferred("_reveal_audition_note")
+
+func _audition_changed(result: Dictionary) -> void:
+ last_message=str(result.get("message",""))
+ _audition_fresh=str(onboarding_state.audition_view().get("phase","")) in ["arrival","tryout","response"]
+ if not bool(onboarding_state.audition_view().get("active",false)):
+  var id: String=str(result.get("candidate_id",onboarding_state.audition_view().get("candidate_id","")))
+  auditioned[id]=bool(onboarding_state.audition_view(id).get("heard",false))
+  audition_note_id=id if auditioned[id] else ""
+  var content: Script=Profiles.content(id)
+  if content!=null:
+   role=content.ROLE
+   var choices: Array=game.choices(role)
+   for index in range(choices.size()):
+    if str(choices[index].id)==id:
+     selected_index=index
+     break
+ _rebuild()
+
+func _reveal_audition_note() -> void:
+ # Full note text is shaped before revealing. Wait for the native containers
+ # to settle before requesting the existing scroll control to reveal it.
+ await get_tree().process_frame
+ if not is_inside_tree():
+  return
+ await get_tree().process_frame
+ if not is_inside_tree():
+  return
+ var scroll: ScrollContainer = find_child("RecruitProfileScroll",true,false) as ScrollContainer
+ var note: Control = find_child("RecruitStrength",true,false) as Control
+ if scroll!=null and note!=null:
+  scroll.ensure_control_visible(note)
+
+func _next_audition() -> void:
+ var index: int = AUDITION_ROLES.find(role)
+ if index<0 or index>=3 or not Base.coverage(game.roster).has(role):
+  return
+ _change_role(str(AUDITION_ROLES[index+1]))
+
+func _previous_audition() -> void:
+ if role=="Keyboardist":
+  _review_lineup()
+ elif role=="Singer" and not vocals_panel:
+  _show_vocal_choices()
+ else:
+  var index: int = AUDITION_ROLES.find(role)
+  if index<=0:
+   back_requested.emit()
+  else:
+   _change_role(str(AUDITION_ROLES[index-1]))
+
+func _vocal_audition_page(root_box: VBoxContainer, mobile: bool) -> void:
+ root_box.add_child(_label("04 / 04  •  WHO TAKES THE MIC?",20))
+ var body: VBoxContainer = _audition_sheet(root_box,mobile)
+ body.add_child(_ink("YOUR BAND'S VOICES",24))
+ body.add_child(_ink("Choose a bandmate to sing, or audition a separate singer. Instrumentalists add 5 talent; a singer's vocals are included.",16,true))
+ for member in game.roster:
+  var scores: Array = onboarding_state.vocal_scores(member)
+  if scores.size()!=6:
+   continue
+  var chosen: bool = str(onboarding_state.lead_vocal_id)==str(member.id)
+  var extra: int = 0 if (member.roles as Array).has("Singer") else 5
+  body.add_child(_ink(str(member.name).to_upper()+"  /  "+str(member.get("primary_role","Musician")).to_upper(),20))
+  body.add_child(_ink(str(member.get("strength","A bandmate ready to try the vocal part.")),16,true))
+  var assign: Button = _button(("✓ " if chosen else "")+str(member.name)+("  +5 TALENT" if extra else "  VOCALS INCLUDED"),_choose_vocal.bind(str(member.id)))
+  assign.name = "VocalAssign_"+str(member.id)
+  assign.disabled = chosen or game.remaining()<extra
+  body.add_child(assign)
+ var separate: Button = _button("AUDITION A SEPARATE SINGER  ›",_show_singer_auditions)
+ separate.name = "AuditionSeparateSingerAction"
+ body.add_child(separate)
+ body.add_child(_ink("A separate singer is optional. Your chosen voice is saved only when you select a person.",14,true))
+ _audition_navigation(root_box)
+
+func _show_singer_auditions() -> void:
+ role = "Singer"
+ selected_index = first_audition_candidate_index(role)
+ vocals_panel = false
+ lineup_review = false
+ audition_note_id = ""
+ _rebuild()
+
+func _show_vocal_choices() -> void:
+ role = "Singer"
+ vocals_panel = true
+ lineup_review = false
+ audition_note_id = ""
+ _rebuild()
+
+func _review_lineup() -> void:
+ lineup_review = true
+ audition_note_id = ""
+ _rebuild()
+
+func _lineup_review_page(root_box: VBoxContainer, mobile: bool) -> void:
+ root_box.add_child(_label("LINEUP REVIEW",20))
+ var body: VBoxContainer = _audition_sheet(root_box,mobile)
+ body.add_child(_ink("THIS IS YOUR BAND",24))
+ var roster := GridContainer.new()
+ roster.columns = 1 if mobile else mini(3,maxi(1,game.roster.size()))
+ roster.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ roster.add_theme_constant_override("h_separation",20)
+ roster.add_theme_constant_override("v_separation",10)
+ body.add_child(roster)
+ for member in game.roster:
+  var row: BoxContainer = HBoxContainer.new() if mobile else VBoxContainer.new()
+  row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+  row.name = "LineupReviewMember_"+str(member.id)
+  row.add_theme_constant_override("separation",8)
+  roster.add_child(row)
+  var path: String = str(member.get("portrait_preview",""))
+  if not path.is_empty() and ResourceLoader.exists(path):
+   var portrait := TextureRect.new()
+   portrait.name = "LineupReviewPortrait_"+str(member.id)
+   portrait.texture = load(path)
+   portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+   portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+   portrait.custom_minimum_size = Vector2(70,73) if mobile else Vector2(96,100)
+   portrait.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+   if not mobile:
+    portrait.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+   portrait.mouse_filter = Control.MOUSE_FILTER_IGNORE
+   portrait.focus_mode = Control.FOCUS_NONE
+   row.add_child(portrait)
+  var identity := _box()
+  identity.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+  identity.add_theme_constant_override("separation",2)
+  row.add_child(identity)
+  var member_name: Label = _ink(str(member.name),18)
+  var member_role: Label = _ink(str(member.get("primary_role","Musician")),14,true)
+  if not mobile:
+   member_name.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+   member_role.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+  identity.add_child(member_name)
+  identity.add_child(member_role)
+  if onboarding_state!=null and str(onboarding_state.lead_vocal_id)==str(member.id):
+   var lead := _ink("LEAD VOCALS",13)
+   if not mobile:
+    lead.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+   lead.add_theme_color_override("font_color",Color("376c58"))
+   identity.add_child(lead)
+  var edit: Button = _button("EDIT",_edit_audition_member.bind(str(member.id)),"tab")
+  edit.name = "AuditionEdit_"+str(member.id)
+  edit.custom_minimum_size.x = 64
+  edit.size_flags_horizontal = Control.SIZE_SHRINK_END if mobile else Control.SIZE_SHRINK_CENTER
+  edit.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+  row.add_child(edit)
+ var voice: Button = _button("REVISIT LEAD VOCALS",_show_vocal_choices,"tab")
+ voice.name = "AuditionEdit_Singer"
+ body.add_child(voice)
+ var keys: Button = _button("OPTIONAL KEYBOARD AUDITIONS  ›",_change_role.bind("Keyboardist"),"tab")
+ keys.name = "AuditionKeysAction"
+ body.add_child(keys)
+ body.add_child(_ink("Nothing is final until you confirm. Edit any player or change the lead voice; unused talent remains talent.",14,true))
+ var context := _box()
+ context.name = "RecruitDecisionContext"
+ root_box.add_child(context)
+ var remaining: int = int(onboarding_state.remaining()) if onboarding_state!=null else game.remaining()
+ var budget: Label = _label("%d TALENT AVAILABLE  •  %d/6 MEMBERS" % [remaining,game.roster.size()],16)
+ budget.name = "RecruitAffordability"
+ context.add_child(budget)
+ var dock := HBoxContainer.new()
+ dock.name = "RecruitDecisionDock"
+ dock.add_theme_constant_override("separation",8)
+ context.add_child(dock)
+ var back: Button = _button("‹  VOCALS",_show_vocal_choices,"tab")
+ back.name = "AuditionPreviousStepAction"
+ dock.add_child(back)
+ var confirm: Button = _button("CONFIRM · NAME THE BAND ›",_launch)
+ confirm.name = "StartAction"
+ confirm.disabled = not (bool(onboarding_state.ready()) if onboarding_state!=null else game.can_start())
+ dock.add_child(confirm)
+
+
+
+func _edit_audition_member(id: String) -> void:
+ var member: Dictionary = game.person_by_id(id)
+ if member.is_empty():
+  return
+ role = str(member.get("primary_role",(member.get("roles",["Guitarist"]) as Array)[0]))
+ vocals_panel = false
+ lineup_review = false
+ audition_note_id = ""
+ selected_index = 0
+ var choices: Array = game.choices(role)
+ for index in range(choices.size()):
+  if str(choices[index].id)==id:
+   selected_index = index
+   break
+ _rebuild()
+
+func _ink(content: String, points: int = 16, muted: bool = false) -> Label:
+ var label: Label = Shared.paper_label(content,points,muted)
+ label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ return label
+
+func _select_practice_activity(kind: String) -> void:
+ if session_busy or kind not in ["create","tighten","connect","jam"]:
+  return
+ if is_instance_valid(_workbench_desk) and _workbench_desk.is_visible_in_tree():
+  _workbench_desk.request_exit("practice:"+kind)
+  return
+ _workbench_finished=false
+ _workbench_finished_ref={}
+ practice_activity = kind
+ _rebuild()
+ call_deferred("_restore_practice_focus","PracticeMode_"+kind)
+
+func _practice_back() -> void:
+ if session_busy:return
+ if is_instance_valid(_workbench_desk) and _workbench_desk.is_visible_in_tree():_workbench_desk.request_exit("home")
+ else:home_requested.emit()
+
+func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
+ var viewport_width: float = size.x
+ var phone: bool = viewport_width<600
+ var stacked: bool = mobile or viewport_width<1000
+ var saved_report: Dictionary = game.career.get("last_rehearsal_outcome",{})
+ if not saved_report.is_empty() and recap_expanded:
+  _rehearsal_result_page(root_box,mobile,saved_report)
+  return
+ var mode_index: int = ["create","tighten","connect","jam"].find(practice_activity)
+ var modes := Kit.ChoiceStrip.new(look,PackedStringArray(["WRITE","REHEARSE","CLEAR AIR","JAM"]),maxi(0,mode_index))
+ for button in modes.buttons:preload("res://experiments/playable_flightcase/poster_components.gd").choice_style(button)
+ modes.name = "PracticeActivityChoices"
+ for index in range(4):
+  modes.buttons[index].name = "PracticeMode_"+str(["create","tighten","connect","jam"][index])
+  modes.buttons[index].tooltip_text = "Preview this session. Time and money are spent only when you start."
+ modes.selection_changed.connect(func(index: int): _select_practice_activity(str(["create","tighten","connect","jam"][index])))
+ root_box.add_child(modes)
+ modes.visible=not _mixing_active()
+ if _workbench_finished:
+  _finished_workbench_page(root_box)
+  return
+ if opening_owner!=null and practice_activity=="create":
+  var notebook: Dictionary=_writing_view
+  if notebook.get("active",false) or (notebook.get("exists",false) and notebook.get("held",false)):
+   var mixing: bool=MixingRecipe.valid(notebook.get("project",{}).get("fragment",{}).get("producer_recipe"))
+   if is_instance_valid(_workbench_desk) and bool(_workbench_desk.get_meta("mixing_desk",false))!=mixing:
+    _workbench_desk.free();_workbench_desk=null
+   if not is_instance_valid(_workbench_desk):
+    _workbench_desk=MixingDesk.new() if mixing else WorkbenchDesk.new()
+    if mixing:_workbench_desk.configure(opening_owner,reduced_motion,notebook)
+    else:_workbench_desk.configure(opening_owner,reduced_motion)
+    if mixing:
+     _workbench_desk.write_requested.connect(_write_mixing)
+     _workbench_desk.sound_requested.connect(func():sound_requested.emit())
+    else:_workbench_desk.write_requested.connect(_write_workbench)
+    _workbench_desk.exit_ready.connect(_workbench_exit)
+    _workbench_desk.closed.connect(func():recap_expanded=false;_rebuild())
+   elif _workbench_desk.get_parent()!=null:_workbench_desk.get_parent().remove_child(_workbench_desk)
+   root_box.add_child(_workbench_desk)
+   _workbench_desk.show()
+   _workbench_desk.refresh_saved(_workbench_desk.has_local_edits())
+   if not _workbench_failure_message.is_empty():
+    _workbench_desk.show_commit_error(_workbench_failure_message)
+    _workbench_failure_message=""
+   return
+ # The ordinary status displays failures when no active notebook remains.
+ _workbench_failure_message=""
+ var scroll := ScrollContainer.new()
+ scroll.name = "PracticeScroll"
+ scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+ scroll.follow_focus = true
+ scroll.get_v_scroll_bar().focus_mode = Control.FOCUS_ALL
+ root_box.add_child(scroll)
+ var outside := MarginContainer.new()
+ outside.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ for side in ["left","right","top","bottom"]:
+  outside.add_theme_constant_override("margin_"+side,16)
+ scroll.add_child(outside)
+ var content: BoxContainer = _box() if stacked else HBoxContainer.new()
+ content.add_theme_constant_override("separation",18)
+ content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ outside.add_child(content)
+ var holder := CenterContainer.new()
+ holder.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ holder.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+ content.add_child(holder)
+ var paper := PanelContainer.new()
+ paper.name = "PracticeFrame"
+ paper.mouse_filter=Control.MOUSE_FILTER_PASS
+ paper.custom_minimum_size.x = minf(780.0,maxf(270.0,viewport_width-(56.0 if mobile else 480.0)))
+ paper.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ paper.add_theme_stylebox_override("panel",Paper.sheet(phone))
+ holder.add_child(paper)
+ var body := VBoxContainer.new()
+ body.add_theme_constant_override("separation",4)
+ body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ paper.add_child(body)
+ if practice_activity=="create":
+  _writing_workspace(body)
+  # Ordinary vertical gestures on the writing paper/choices belong to its
+  # native body scroll. Text entry retains its own caret/selection handling.
+  for choice in paper.find_children("*","Button",true,false):
+   (choice as Button).mouse_filter=Control.MOUSE_FILTER_PASS
+ else:
+  if practice_activity=="jam":_jam_workspace(body)
+  else:_rehearsal_workspace(body,practice_activity)
+ var info := _box()
+ info.custom_minimum_size.x = 0 if stacked else 300
+ var info_panel: PanelContainer=_panel(info)
+ info_panel.mouse_filter=Control.MOUSE_FILTER_PASS
+ content.add_child(info_panel)
+ if practice_activity=="create":
+  _writing_notes(info)
+ info.add_child(_label("THE BAND",19))
+ for person in game.career.get("members",[]):
+  info.add_child(_label("%s  •  %s   morale %d" % [str(person.get("name","")),str(person.get("role","")),int(person.get("morale",0))],16))
+ if opening_owner!=null and not Workbench.finished(opening_owner.snapshot()).items.is_empty():
+  var sketches: Button=_button("FINISHED ORIGINALS",_open_finished_workbench,"tab")
+  sketches.name="WorkbenchFinishedAction"
+  info.add_child(sketches)
+ info.add_child(_label("YOUR ORIGINALS · FOR REFERENCE",18))
+ var originals: Variant=game.career.get("song_catalogue",[])
+ if not originals is Array:
+  info.add_child(_label("The saved song catalogue needs review.",16))
+ elif originals.is_empty():
+  info.add_child(_label("No finished originals yet. Three writing sessions will complete your first song.",16))
+ else:
+  for index in range(originals.size()):
+   if not originals[index] is Dictionary:continue
+   var summary: Dictionary=SongSummary.current(game.career,originals[index])
+   info.add_child(_label(str(summary["title"])+"\n"+str(summary["credits"]),16))
+   info.add_child(_label(str(summary["arrangement"]),16))
+   SongSummaryView.strength(info,summary,"practice_"+str(index),true)
+   SongSummaryView.details(info,summary,"practice_"+str(index),true)
+ if not saved_report.is_empty():
+  var reopen: Button = _button("VIEW LAST SESSION  ›",_toggle_recap,"tab")
+  reopen.name = "ReopenSessionAction"
+  info.add_child(reopen)
+ var booking: Dictionary = Calendar.pending(game.career)
+ info.add_child(_label("NEXT GOAL: finish an original and prepare the live set. Find the hometown promoter at the career desk." if booking.is_empty() else ("NEXT SHOW: %s  •  DAY %d" % [str(booking.get("venue","The venue")),int(booking.get("day",0))]),14))
+ if opening_owner==null:
+  info.add_child(_button("SAVE PROGRESS",_save,"tab"))
+  info.add_child(_button("LOAD SAVED PROGRESS",_load,"tab"))
+ var dock := VBoxContainer.new()
+ dock.name = "PracticeDecisionDock"
+ dock.add_theme_constant_override("separation",5)
+ dock.size_flags_horizontal = Control.SIZE_EXPAND_FILL if mobile else Control.SIZE_SHRINK_CENTER
+ dock.custom_minimum_size.x = minf(900.0,maxf(280.0,viewport_width-(24.0 if mobile else 40.0)))
+ root_box.add_child(dock)
+ var summary: Label = _label("",16)
+ summary.name = "PracticeCommitment"
+ dock.add_child(summary)
+ var cost: Label = _label("",16)
+ cost.name = "PracticeTimeCost"
+ cost.add_theme_color_override("font_color",Color("f0c78b"))
+ dock.add_child(cost)
+ var action: Button
+ var evening: Dictionary=DayNavigation.inspect(game.career)
+ var alternate: bool=evening.get("ok",false) and ((practice_activity=="tighten" and (not evening.rehearsal_available or int(game.career.get("cash",0))<15)) or (practice_activity=="connect" and int(evening.count)<2))
+ if alternate:
+  action=_button(str(evening.preview_label),_select_practice_activity.bind("jam"))
+  action.name="PracticeAlternativeAction"
+ elif practice_activity=="create":
+  action = _button("OPEN THE WRITING ROOM · FREE",_open_producer) if _mixing_entry() else _button("WRITE SESSION",_write)
+  action.name = "WritingOpenProducer" if _mixing_entry() else "WriteAction"
+ elif practice_activity=="tighten":
+  action = _button("START REHEARSAL  •  £15",_rehearse)
+  action.name = "RehearseAction"
+ elif practice_activity=="jam":
+  var available: Dictionary=Situation.inspect_rehearsal(game.career)
+  var count: int=available.get("attendee_indices",[]).size()
+  action=_button("JAM TOGETHER · £0" if count>=2 else ("SOLO PRACTICE · £0" if count==1 else "TAKE A QUIET EVENING · £0"),_commit_session.bind("jam"))
+  action.name="InformalPracticeAction"
+ else:
+  action = _button("CLEAR THE AIR",_connect)
+  action.name = "ClearAirAction"
+ dock.add_child(action)
+ if opening_owner!=null:
+  var navigation := HBoxContainer.new()
+  navigation.add_theme_constant_override("separation",8)
+  dock.add_child(navigation)
+  var home: Button=_button("HOME",_practice_back,"tab")
+  home.name="CareerDeskAction"
+  navigation.add_child(home)
+  if alternate:
+   var planning: Button=_button("PLAN OUR WEEK",func():planning_requested.emit(),"tab")
+   planning.name="PracticePlanningAction"
+   navigation.add_child(planning)
+ _refresh_practice_commitment()
+
+func _open_career() -> void:
+ if session_busy:return
+ if is_instance_valid(_workbench_desk) and _workbench_desk.is_visible_in_tree():_workbench_desk.request_exit("career")
+ else:career_requested.emit()
+
+func _writing_notes(info: VBoxContainer) -> void:
+ var progress: int = clampi(int(game.career.get("song_draft_progress",0)),0,2)
+ var guidance: Label = _label(str([
+  "IDEA: Find the hook and choose the musician to lead it.",
+  "DEVELOP: Shape the arrangement. Review the saved session below.",
+  "FINISH: Check title, leader and arrangement before completing the original."
+ ][progress]),16)
+ guidance.name = "WritingStageGuidance"
+ info.add_child(guidance)
+ info.add_child(_label("SAVED WRITING NOTES",18))
+ var draft: Dictionary = game.career.get("current_song_draft",{})
+ var sessions: Array = draft.get("sessions",[])
+ var lines := PackedStringArray()
+ if sessions.is_empty():
+  lines.append("No writing sessions recorded yet. Three sessions complete one original.")
+ else:
+  lines.append("Saved draft: "+str(draft.get("title","UNTITLED")))
+  for session in sessions:
+   lines.append("DAY %d  •  %s  •  %s  •  %s" % [int(session.get("day",1)),str(session.get("idea","")),str(session.get("form","")),str(session.get("leader",""))])
+ var history: Label = _label("\n".join(lines),16)
+ history.name = "WritingSavedHistoryLabel"
+ info.add_child(history)
+ info.add_child(_label("Notes describe saved sessions. The choices above apply when you commit.",14))
+
+func _writing_title(fields: GridContainer) -> void:
+ var title_field: VBoxContainer = _writing_field(fields,"SONG TITLE")
+ var entry := LineEdit.new()
+ entry.name = "SongTitle"
+ entry.text = song_title
+ entry.placeholder_text = "Name your original"
+ entry.max_length = 48
+ entry.custom_minimum_size.y = 48
+ entry.add_theme_font_size_override("font_size",17)
+ entry.add_theme_stylebox_override("normal",Paper.scorecard())
+ var focus_style: StyleBoxTexture = Kit.skin("notepaper","tab","focus")
+ focus_style.draw_center = false
+ entry.add_theme_stylebox_override("focus",focus_style)
+ entry.add_theme_color_override("font_color",Color("29241f"))
+ entry.add_theme_color_override("font_placeholder_color",Color("524536"))
+ entry.add_theme_color_override("caret_color",Color("29241f"))
+ entry.text_changed.connect(func(value: String):
+  song_title = value
+  _refresh_practice_commitment())
+ title_field.add_child(entry)
+ var validation: Label = _ink("",16)
+ validation.name = "WritingValidation"
+ validation.add_theme_color_override("font_color",Color("954a42"))
+ validation.visible = false
+ title_field.add_child(validation)
+
+func _writing_workspace(body: VBoxContainer) -> void:
+ var progress: int = clampi(int(game.career.get("song_draft_progress",0)),0,2)
+ if opening_owner!=null and progress==0 and (game.career.get("current_song_draft",{}) as Dictionary).is_empty() and SoundBriefReady():
+  body.add_child(_ink("THE WRITING ROOM",24))
+  body.add_child(_ink("Find the feel, build the song, then make the take. Shape and hear the idea free; each committed session uses one day.",18))
+  var fields:=GridContainer.new();fields.columns=1;body.add_child(fields)
+  _writing_title(fields)
+  return
+ if opening_owner!=null and progress==0 and (game.career.get("current_song_draft",{}) as Dictionary).is_empty():
+  if game.genre=="Indie rock" and preload("res://experiments/playable_flightcase/band_sound.gd").supported(preload("res://experiments/playable_flightcase/band_sound.gd").read(game.career)):
+   var producer: Button=Shared.button("SHAPE AN ORIGINAL · FREE","notepaper","action")
+   producer.name="WritingOpenProducer"
+   producer.custom_minimum_size.y=48
+   producer.pressed.connect(_open_producer)
+   body.add_child(producer)
+  var sketch: Button=Shared.button("OPEN A LYRIC SKETCH · FREE","notepaper","action")
+  sketch.name="WritingOpenLyricSketch"
+  sketch.custom_minimum_size.y=48
+  sketch.pressed.connect(_open_lyric_sketch)
+  body.add_child(sketch)
+ else:
+  body.add_child(_ink("WRITE AN ORIGINAL",22))
+ var stage: Label = _ink("SESSION %d OF 3  •  %s" % [progress+1,str(["IDEA","DEVELOP","FINISH"][progress])],16,true)
+ stage.name = "WritingStageLabel"
+ body.add_child(stage)
+ var fields := GridContainer.new()
+ fields.columns = 2 if size.x>=1000 else 1
+ fields.add_theme_constant_override("h_separation",12)
+ fields.add_theme_constant_override("v_separation",6)
+ body.add_child(fields)
+ _writing_title(fields)
+ var leader_field: VBoxContainer = _writing_field(fields,"SESSION LEADER")
+ var leader_names := PackedStringArray()
+ for person in game.career.get("members",[]):
+  leader_names.append(str(person.get("name","Musician")))
+ leader_index = clampi(leader_index,0,maxi(0,leader_names.size()-1))
+ var lead := Kit.BrowseSelector.new("notepaper",leader_names)
+ lead.name = "PracticeLeaderSelector"
+ lead.previous.name = "PracticeLeaderPrevious"
+ lead.next.name = "PracticeLeaderNext"
+ lead.display.clip_text = false
+ lead.selected = leader_index
+ lead.call("_refresh")
+ lead.selection_changed.connect(func(index: int,_item: String):
+  leader_index = index
+  _refresh_practice_commitment())
+ leader_field.add_child(lead)
+ var idea_field: VBoxContainer = _writing_field(fields,"IDEA")
+ var ideas := Kit.ChoiceStrip.new("notepaper",PackedStringArray(Workshop.IDEAS),idea_index)
+ for button in ideas.buttons:preload("res://experiments/playable_flightcase/poster_components.gd").choice_style(button)
+ ideas.name = "PracticeIdeaChoices"
+ ideas.selection_changed.connect(func(index: int):
+  idea_index = index
+  _refresh_practice_commitment())
+ idea_field.add_child(ideas)
+ var arrangement_field: VBoxContainer = _writing_field(fields,"ARRANGEMENT")
+ var forms := Kit.BrowseSelector.new("notepaper",PackedStringArray(Workshop.FORMS))
+ forms.name = "PracticeArrangementChoices"
+ forms.previous.name = "PracticeArrangementPrevious"
+ forms.next.name = "PracticeArrangementNext"
+ forms.display.clip_text = false
+ forms.selected = form_index
+ forms.call("_refresh")
+ forms.selection_changed.connect(func(index: int,_item: String):
+  form_index = index
+  _refresh_practice_commitment())
+ arrangement_field.add_child(forms)
+
+func _writing_field(fields: GridContainer, title: String) -> VBoxContainer:
+ var field := VBoxContainer.new()
+ field.add_theme_constant_override("separation",4)
+ field.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ fields.add_child(field)
+ field.add_child(_ink(title,14,true))
+ return field
+
+func _rehearsal_workspace(body: VBoxContainer, kind: String) -> void:
+ var evening: Dictionary=DayNavigation.inspect(game.career)
+ var blocked: bool=evening.get("ok",false) and ((kind=="tighten" and (not evening.rehearsal_available or int(game.career.get("cash",0))<15)) or (kind=="connect" and int(evening.count)<2))
+ if blocked:
+  body.add_child(_ink("REHEARSAL CAN'T START TONIGHT" if kind=="tighten" else "THE BAND CAN'T MEET TONIGHT",22))
+  body.add_child(_ink(str(evening.rehearsal_reason) if kind=="tighten" else str(evening.summary),18))
+  if evening.attendance.plan_status=="future":
+   var agreed_date: Label=_ink("AGREED REHEARSAL · DAY %d" % int(evening.attendance.plan.day),18)
+   agreed_date.name="SituationPracticePlan";body.add_child(agreed_date)
+  for person in evening.attendance.absent:body.add_child(_ink(str(person.name)+" · "+str(person.reason),16))
+  body.add_child(_ink("Review a quiet evening, solo practice or a free jam with whoever is here. Planning your week stays free and uses no day.",16))
+  return
+ body.add_child(_ink("TONIGHT AT REHEARSAL" if kind=="tighten" else "CLEAR THE AIR",22))
+ body.add_child(_ink("Pick a song, then work on how you play it together." if kind=="tighten" else "Make time to hear where everyone stands and talk through the tension in the room.",16,true))
+ body.add_child(_ink("£15 ROOM HIRE  •  USES 1 DAY" if kind=="tighten" else "NO ROOM FEE  •  USES 1 DAY",16))
+ if kind=="tighten":
+  _rehearsal_song_choice(body)
+  var poster=preload("res://experiments/playable_flightcase/poster_components.gd")
+  for axis in ["focus","effort"]:
+   body.add_child(_ink("WORK ON" if axis=="focus" else "HOW WE PLAY IT",17))
+   var choices:=HBoxContainer.new();choices.add_theme_constant_override("separation",5);body.add_child(choices)
+   var values: Array=["precision","listening"] if axis=="focus" else ["steady","push"]
+   var labels: Array=["STARTS & STOPS","LISTEN & RESPOND"] if axis=="focus" else ["STEADY PACE","ONE MORE TAKE"]
+   for index in range(2):
+    var button: Button=poster.button(labels[index]);poster.choice_style(button);button.toggle_mode=true
+    button.name="RehearsalIntent_"+axis+"_"+str(values[index]);button.set_pressed_no_signal(rehearsal_direction[axis]==values[index]);button.disabled=session_busy
+    button.pressed.connect(_choose_rehearsal_intent.bind(axis,str(values[index])));choices.add_child(button)
+  var memories: Array=preload("res://experiments/playable_flightcase/character_connections.gd").memories(game.career)
+  for memory in memories:body.add_child(_ink(str(memory.name)+": "+str(memory.text),16,true))
+ var situation: Dictionary=Situation.inspect_rehearsal(game.career)
+ if situation.ok and not situation.plan.is_empty():
+  var planned: Label=_ink("AGREED REHEARSAL • DAY %d EVENING • %s" % [int(situation.plan.day),str(situation.plan_status).to_upper()],16)
+  planned.name="SituationPracticePlan"
+  body.add_child(planned)
+ if kind=="tighten" and situation.ok and situation.conflict:
+  var names: Array=[]
+  for person in situation.absent:names.append(str(person.name))
+  var shift: Label=_ink("UNAVAILABLE THIS EVENING • "+", ".join(names)+". Review attendance before booking the room.",16,true)
+  shift.name="SituationPracticeClash"
+  body.add_child(shift)
+ var gap := Control.new()
+ gap.custom_minimum_size.y = 8
+ body.add_child(gap)
+ for row in [["readiness","BAND READINESS"],["morale","MORALE"],["tension","TENSION"]]:
+  var line: Label = _ink("%s  %d%s" % [str(row[1]),int(game.career.get(str(row[0]),0))," / 100" if str(row[0])=="readiness" else ""],18)
+  line.name = "PracticeCurrent_"+str(row[0])
+  body.add_child(line)
+ body.add_child(_ink("Results depend on the band's actual preparation, traits and relationships.",16,true))
+ if kind=="tighten":
+  var song_audio=preload("res://experiments/playable_flightcase/song_audio.gd")
+  var saved: Dictionary=_rehearsal_audio_song()
+  if not saved.is_empty():
+   var pin: String=Workbench._hash(saved)
+   var id: String=str(saved.get("id",""))
+   song_audio.attach(body,saved,func():
+    return practice_activity=="tighten" and not session_busy and _rehearsal_audio_song().get("id")==id and Workbench._hash(_rehearsal_audio_song())==pin)
+
+func _rehearsal_songs() -> Array:
+ if opening_owner==null:return []
+ var choices: Array=[]
+ var Preparation=preload("res://experiments/playable_flightcase/song_preparation.gd")
+ var opening: Dictionary=opening_owner.snapshot()
+ for item in Workbench.finished(opening).items:
+  if Preparation.target(opening,item.reference).ok:choices.append(item)
+ return choices
+
+func _rehearsal_song_choice(body: VBoxContainer) -> void:
+ if opening_owner==null:return
+ body.add_child(_ink("WHAT WE'RE PLAYING",17))
+ var row:=HBoxContainer.new();row.add_theme_constant_override("separation",6);body.add_child(row)
+ var label: Label=_ink("THE LIVE SET\nGeneral rehearsal",18)
+ label.name="RehearsalSongTitle";label.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ var valid: bool=rehearsal_reference.is_empty()
+ var choices: Array=_rehearsal_songs()
+ for item in choices:
+  if Workbench._same(item.reference,rehearsal_reference):
+   label.text=str(item.title)+"\nSaved arrangement";valid=true
+ if not valid:label.text="ARRANGEMENT CHANGED\nChoose the song again"
+ for direction in [-1,1]:
+  var button: Button=_button("‹" if direction<0 else "›",_cycle_rehearsal_song.bind(direction),"tab")
+  button.name="RehearsalSongPrevious" if direction<0 else "RehearsalSongNext"
+  button.custom_minimum_size=Vector2(48,48);button.size_flags_horizontal=Control.SIZE_SHRINK_CENTER;button.disabled=session_busy or choices.is_empty()
+  button.tooltip_text="Choose a saved song arrangement, or the general live set. Choosing is free."
+  if direction<0:row.add_child(button);row.add_child(label)
+  else:row.add_child(button)
+ var context: String="General rehearsal keeps no song-specific record." if rehearsal_reference.is_empty() else ("Only the people here are recorded for this arrangement." if valid else "Choose the song again before starting.")
+ var note: Label=_ink(context,16,true)
+ note.name="RehearsalSongContext";body.add_child(note)
+
+func _cycle_rehearsal_song(step: int) -> void:
+ if session_busy or practice_activity!="tighten":return
+ var choices: Array=[{"reference":{}}];choices.append_array(_rehearsal_songs())
+ if choices.size()==1:return
+ var current: int=0
+ for index in range(choices.size()):
+  if Workbench._same(choices[index].reference,rehearsal_reference):current=index
+ rehearsal_reference=choices[posmod(current+step,choices.size())].reference.duplicate(true)
+ _rebuild()
+
+func _rehearsal_audio_song() -> Dictionary:
+ if not rehearsal_reference.is_empty():
+  if opening_owner==null or not Workbench.read_finished(opening_owner.snapshot(),rehearsal_reference).ok:return {}
+  return game.career.song_catalogue[int(rehearsal_reference.catalogue_index)].duplicate(true)
+ for song in game.career.get("song_catalogue",[]):
+  if song is Dictionary and not preload("res://experiments/playable_flightcase/song_audio.gd").recipe(song).is_empty():return song.duplicate(true)
+ return {}
+
+func _rehearsal_saved_context(report: Dictionary) -> String:
+ var Preparation=preload("res://experiments/playable_flightcase/song_preparation.gd")
+ if not game.career.has(Preparation.KEY) or not Preparation.valid(game.career[Preparation.KEY]):return ""
+ for receipt in game.career[Preparation.KEY].receipts:
+  if receipt.action_id!=report.get("action_id"):continue
+  var title: String="Previously saved arrangement"
+  var matches: Array=[]
+  if opening_owner!=null:
+   var opening: Dictionary=opening_owner.snapshot()
+   for item in Workbench.finished(opening).items:
+    var target: Dictionary=Preparation.target(opening,item.reference)
+    if target.ok and target.identity.song_id==receipt.song_id and target.identity.composition_id==receipt.composition_id and target.identity.revision_id==receipt.revision_id:matches.append(item)
+  if matches.size()==1:title=str(matches[0].title)
+  var names: PackedStringArray=[]
+  for id in receipt.participants:
+   for person in Workbench.Cast.combined_people():
+    if person.id==id:names.append(str(person.name));break
+  return "REHEARSED · "+title+"\nRecorded arrangement · "+", ".join(names)
+ return ""
+
+
+func _choose_rehearsal_intent(axis: String,value: String) -> void:
+ if session_busy or practice_activity!="tighten" or axis not in ["focus","effort"]:return
+ if (axis=="focus" and value not in ["precision","listening"]) or (axis=="effort" and value not in ["steady","push"]):return
+ rehearsal_direction[axis]=value
+ for button in find_children("RehearsalIntent_"+axis+"_*","Button",true,false):button.set_pressed_no_signal(str(button.name)=="RehearsalIntent_"+axis+"_"+value)
+
+func _refresh_practice_commitment() -> void:
+ if game.phase!="play":
+  return
+ var summary: Label = find_child("PracticeCommitment",true,false) as Label
+ var cost: Label = find_child("PracticeTimeCost",true,false) as Label
+ if summary==null or cost==null:
+  return
+ if opening_owner!=null and Finance.is_over(game.career):
+  summary.text = "THE BAND HAS FOLDED"
+  cost.text = "14 completed days without money  •  Final accounts are saved"
+  for control_name in ["WriteAction","WritingOpenProducer","RehearseAction","ClearAirAction","InformalPracticeAction"]:
+   var final_action: Button = find_child(control_name,true,false) as Button
+   if final_action!=null:
+    final_action.text = "VIEW FINAL ACCOUNTS  ›"
+    final_action.disabled = false
+  return
+ if opening_owner!=null and Live.show_day(game.career):
+  summary.text = "TONIGHT'S SHOW  •  THE VENUE IS EXPECTING YOU"
+  cost.text = "Open the live desk  •  No session will be started"
+  for control_name in ["WriteAction","WritingOpenProducer","RehearseAction","ClearAirAction","InformalPracticeAction"]:
+   var show_action: Button = find_child(control_name,true,false) as Button
+   if show_action!=null:
+    show_action.text = "GO TO TONIGHT'S SHOW  ›"
+    show_action.disabled = false
+  return
+ if practice_activity=="create":
+  if _mixing_entry():
+   summary.text="Find the feel, build the song, make the take."
+   cost.text="Open free · Each committed session uses 1 day"
+   var ready: Dictionary=Workshop.develop(game.career,"Lyric","Verse / Chorus",song_title,leader_index)
+   var open: Button=find_child("WritingOpenProducer",true,false) as Button
+   if open!=null:open.disabled=not ready.get("ok",false)
+   var validation: Label=find_child("WritingValidation",true,false) as Label
+   if validation!=null:
+    validation.visible=not ready.get("ok",false);validation.text=str(ready.get("message","Name your original."))
+   return
+  var members: Array = game.career.get("members",[])
+  var leader_name: String = str(members[leader_index].get("name","Musician")) if leader_index>=0 and leader_index<members.size() else "Choose a leader"
+  summary.text = "%s  •  %s  •  %s" % [str(Workshop.IDEAS[idea_index]),str(Workshop.FORMS[form_index]),leader_name]
+  var preview: Dictionary = Workshop.develop(game.career,str(Workshop.IDEAS[idea_index]),str(Workshop.FORMS[form_index]),song_title,leader_index)
+  cost.text = "Uses 1 day  •  No room fee"
+  var validation: Label = find_child("WritingValidation",true,false) as Label
+  if validation!=null:
+   var empty_title: bool = song_title.strip_edges().is_empty()
+   validation.visible = not bool(preview.get("ok",false))
+   validation.text = "3–48 characters" if empty_title else str(preview.get("message","Choose a title and session leader."))
+   validation.add_theme_color_override("font_color",Color("695c4b") if empty_title else Color("954a42"))
+  var write: Button = find_child("WriteAction",true,false) as Button
+  if write==null:write=find_child("WorkbenchBeginAction",true,false) as Button
+  if write!=null:
+   var start_pilot: bool=opening_owner!=null and idea_index==1 and form_index==0 and int(game.career.get("song_draft_progress",0))==0 and (game.career.get("current_song_draft",{}) as Dictionary).is_empty()
+   write.text = "OPEN LYRIC SKETCH · FREE" if start_pilot else "WRITE SESSION %d OF 3" % [clampi(int(game.career.get("song_draft_progress",0)),0,2)+1]
+   write.name="WorkbenchBeginAction" if start_pilot else "WriteAction"
+   write.disabled = not bool(preview.get("ok",false))
+ elif practice_activity=="tighten":
+  summary.text = "Band readiness %d/100  •  Morale %d  •  Tension %d" % [int(game.career.get("readiness",0)),int(game.career.get("morale",0)),int(game.career.get("tension",0))]
+  cost.text = "Uses 1 day  •  £15 room hire"
+  var rehearse: Button = find_child("RehearseAction",true,false) as Button
+  if rehearse!=null:
+   rehearse.disabled = int(game.career.get("cash",0))<15
+   if rehearse.disabled:
+    cost.text = "Uses 1 day  •  Needs £15  •  £%d available" % int(game.career.get("cash",0))
+ elif practice_activity=="jam":
+  var available: Dictionary=Situation.inspect_rehearsal(game.career)
+  summary.text="Practise with the musicians who are free tonight." if not available.get("attendee_indices",[]).is_empty() else "Nobody is free. Take a quiet evening and return tomorrow."
+  cost.text="Uses 1 day · £0 · No room hire"
+ else:
+  summary.text = "A band meeting to work on trust and tension."
+  cost.text = "Uses 1 day  •  No room fee"
+ var alternative: Button=find_child("PracticeAlternativeAction",true,false) as Button
+ if alternative!=null:
+  var evening: Dictionary=DayNavigation.inspect(game.career)
+  summary.text=str(evening.rehearsal_reason) if practice_activity=="tighten" else str(evening.summary)
+  if practice_activity=="tighten" and int(game.career.get("cash",0))<15:summary.text="The room costs £15. "+str(evening.summary)
+  cost.text="Free to review · 1 day when you start · No room hire"
+
+
+func _jam_workspace(body: VBoxContainer) -> void:
+ body.add_child(_ink("AN EVENING WITH THE MUSIC",22))
+ body.add_child(_ink("A low-volume jam or solo practice with whoever is free. No room is booked. This is time with the music, not a full rehearsal of the live set.",18))
+ body.add_child(_ink("£0 · USES 1 CAREER DAY",16))
+ var available: Dictionary=Situation.inspect_rehearsal(game.career)
+ if not available.get("ok",false):body.add_child(_ink(str(available.get("message","Review current availability.")),16));return
+ var names: Array[String]=[]
+ for index in available.attendee_indices:names.append(str(game.career.members[index].get("name","Bandmate")))
+ body.add_child(_ink("FREE TONIGHT · "+(", ".join(names) if not names.is_empty() else "Nobody"),18))
+ for person in available.absent:body.add_child(_ink(str(person.get("name","Bandmate"))+" · "+str(person.get("reason","Recorded commitment")),16))
+ body.add_child(_ink("Only the people here practise together. Keep a proper rehearsal date for the whole band; this does not fulfil a room booking or agreed rehearsal.",16,true))
+
+func _rehearsal_result_page(root_box: VBoxContainer, mobile: bool, report: Dictionary) -> void:
+ var viewport_size := size
+ var tall_tablet: bool = viewport_size.x>=600 and viewport_size.x<900 and viewport_size.y>viewport_size.x
+ var short_landscape: bool = viewport_size.x>=900 and viewport_size.y<800
+ var scroll := ScrollContainer.new()
+ scroll.name = "RehearsalResultScroll"
+ scroll.follow_focus = true
+ scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+ scroll.get_v_scroll_bar().focus_mode = Control.FOCUS_ALL
+ scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ root_box.add_child(scroll)
+ var center := CenterContainer.new()
+ center.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ if tall_tablet:
+  # Short reports sit naturally within the tablet; long expanded reports
+  # still grow the scroll content and remain readable from its top.
+  center.size_flags_vertical = Control.SIZE_EXPAND_FILL
+ scroll.add_child(center)
+ var report_body:=VBoxContainer.new();report_body.add_theme_constant_override("separation",8);center.add_child(report_body)
+ var saved_context: String=_rehearsal_saved_context(report)
+ if not saved_context.is_empty():
+  var linked: Label=_label(saved_context,18);linked.name="RehearsalSavedSong";linked.custom_minimum_size.x=minf(760.0,maxf(270.0,size.x-64.0));report_body.add_child(linked)
+ var press: Variant = RehearsalPress.new()
+ press.configure(report,game.career.get("members",[]),mobile,recap_details_expanded,tall_tablet,short_landscape,true,_new_session_notes and not reduced_motion)
+ press.details_toggled.connect(_toggle_recap_details)
+ press.custom_minimum_size.x = minf(850.0,maxf(270.0,size.x-(48.0 if mobile else 88.0)))
+ report_body.add_child(press)
+ var dock := VBoxContainer.new()
+ dock.name = "RecapDecisionDock"
+ dock.add_theme_constant_override("separation",6)
+ dock.size_flags_horizontal = Control.SIZE_EXPAND_FILL if mobile else Control.SIZE_SHRINK_CENTER
+ dock.custom_minimum_size.x = minf(760.0,maxf(280.0,viewport_size.x-(48.0 if mobile else 88.0)))
+ root_box.add_child(dock)
+ # Advice is the existing pure presenter's reading of this saved result.
+ # Returning to practice does not spend another day or resolve another action.
+ var view: Dictionary = Recap.present(report,game.career.get("members",[]))
+ var next_move: Label = _label(str(view.get("next_step","")),16)
+ next_move.name = "RecapNextMove"
+ next_move.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ next_move.focus_mode = Control.FOCUS_NONE
+ dock.add_child(next_move)
+ var actions := HBoxContainer.new()
+ actions.add_theme_constant_override("separation",8)
+ dock.add_child(actions)
+ var details: Button = _button("HIDE NOTES" if recap_details_expanded else "FULL NOTES",_toggle_recap_details,"tab")
+ details.name = "RecapDetailsToggleAction"
+ details.tooltip_text = "Read every bandmate’s complete note and the saved session breakdown."
+ details.icon = RehearsalPress.JournalIcon
+ # Reserve the longer expanded label so toggling disclosure cannot move the
+ # focused target or its neighbouring Continue action under a pointer.
+ var disclosure_font: Font=details.get_theme_font("font")
+ var disclosure_points: int=details.get_theme_font_size("font_size")
+ var disclosure_width: float=maxf(disclosure_font.get_string_size("FULL NOTES",HORIZONTAL_ALIGNMENT_LEFT,-1,disclosure_points).x,disclosure_font.get_string_size("HIDE NOTES",HORIZONTAL_ALIGNMENT_LEFT,-1,disclosure_points).x)
+ details.custom_minimum_size.x = ceilf(disclosure_width + details.get_theme_stylebox("normal").get_minimum_size().x + details.icon.get_width() + details.get_theme_constant("h_separation"))
+ actions.add_child(details)
+ var footer: Button = _button("CONTINUE TO DAY %d  ›" % int(game.career.get("tour_day",1)),_toggle_recap)
+ footer.name = "RecapToggleAction"
+ actions.add_child(footer)
+
+func _toggle_recap_details() -> void:
+ var detail: Control = find_child("RecapDetailedBreakdown",true,false) as Control
+ var action: Button = find_child("RecapDetailsToggleAction",true,false) as Button
+ if detail==null or action==null:
+  return
+ # Disclosure only: retain the focused native control, report and scroll.
+ # Rebuilding here destroys all three and can make keyboard users lose place.
+ recap_details_expanded = not recap_details_expanded
+ detail.visible = recap_details_expanded
+ action.text = "HIDE NOTES" if recap_details_expanded else "FULL NOTES"
+
+func _toggle_recap() -> void:
+ if session_busy:
+  return
+ _new_session_notes = false
+ var leaving_result: bool = recap_expanded
+ recap_expanded = not recap_expanded
+ recap_details_expanded = false
+ var report: Dictionary = game.career.get("last_rehearsal_outcome",{})
+ _begin_session_presentation("day" if leaving_result else "report",report)
+
+func _change_role(value: String) -> void:
+ if value not in Base.ROLE_TABS:
+  return
+ role = value
+ selected_index = first_audition_candidate_index(value)
+ lineup_review = false
+ vocals_panel = value=="Singer" and onboarding_state!=null
+ audition_note_id = ""
+ _rebuild()
+func _move_candidate(delta: int) -> void:
+ var items: Array = game.choices(role)
+ if items.is_empty():
+  return
+ audition_note_id = ""
+ selected_index = posmod(selected_index+delta,items.size())
+ _rebuild()
+func _recruit(id: String) -> void:
+ var heard: bool=bool(auditioned.get(id,false))
+ if Profiles.supports(id) and onboarding_state!=null:heard=bool(onboarding_state.audition_view(id).get("heard",false))
+ if not heard:
+  return
+ last_message = str(onboarding_state.recruit(id)["message"] if onboarding_state != null else game.recruit(id)["message"])
+ _rebuild()
+func _remove(id: String) -> void:
+ last_message = str(onboarding_state.remove_member(id)["message"] if onboarding_state != null else game.remove_member(id)["message"])
+ _rebuild()
+func _choose_vocal(id: String) -> void:
+ if onboarding_state == null:
+  return
+ last_message = str(onboarding_state.choose_vocal(id)["message"])
+ _rebuild()
+func _launch() -> void:
+ if onboarding_state != null:
+  var result: Dictionary = onboarding_state.confirm_lineup(true)
+  last_message = str(result.get("message",""))
+  if bool(result.get("ok",false)):
+   lineup_confirmed.emit()
+  else:
+   _rebuild()
+ else:
+  last_message = str(game.launch()["message"])
+  _rebuild()
+func _write() -> void:
+ if opening_owner!=null and idea_index==1 and form_index==0 and int(game.career.get("song_draft_progress",0))==0 and (game.career.get("current_song_draft",{}) as Dictionary).is_empty():
+  _begin_workbench()
+  return
+ _commit_session("create")
+
+func _open_producer() -> void:
+ if session_busy or opening_owner==null or int(game.career.get("song_draft_progress",0))!=0 or not (game.career.get("current_song_draft",{}) as Dictionary).is_empty():return
+ if RadioVisit.locked(game.career) or Finance.is_over(game.career) or Live.show_day(game.career):
+  career_requested.emit();return
+ var recipe: Dictionary=MixingRecipe.recipe(preload("res://experiments/playable_flightcase/band_sound.gd").read(game.career),0,game.career.get("song_catalogue",[]).size())
+ var result: Dictionary=opening_owner.begin_workbench(song_title,leader_index,opening_owner.workbench_expected(),recipe)
+ last_message=str(result.message)
+ if result.get("ok",false):recap_expanded=false
+ _rebuild()
+
+func _open_lyric_sketch() -> void:
+ if session_busy or opening_owner==null or int(game.career.get("song_draft_progress",0))!=0 or not (game.career.get("current_song_draft",{}) as Dictionary).is_empty():return
+ idea_index=1
+ form_index=0
+ _begin_workbench()
+
+func _begin_workbench() -> void:
+ if session_busy or opening_owner==null:return
+ var result: Dictionary=opening_owner.begin_workbench(song_title,leader_index,opening_owner.workbench_expected())
+ last_message=str(result.message)
+ if result.get("ok",false):recap_expanded=false
+ _rebuild()
+
+func _write_workbench(expected: Dictionary) -> void:
+ _commit_session("create",{},{"expected":expected})
+
+func _write_mixing(request: Dictionary) -> void:
+ _commit_session("create",{},request)
+
+func SoundBriefReady() -> bool:
+ return preload("res://experiments/playable_flightcase/band_sound.gd").valid(preload("res://experiments/playable_flightcase/band_sound.gd").read(game.career))
+
+func _workbench_exit(destination: String) -> void:
+ if session_busy:return
+ if destination=="menu":back_requested.emit()
+ elif destination=="career":career_requested.emit()
+ elif destination=="home":home_requested.emit()
+ elif destination=="planning":planning_requested.emit()
+ elif destination=="load":_load_original()
+ elif destination=="finished":_workbench_finished=true;_workbench_finished_ref={};_rebuild()
+ elif destination.begins_with("practice:"):
+  var kind: String=destination.trim_prefix("practice:")
+  if kind in ["create","tighten","connect","jam"]:_workbench_finished=false;_workbench_finished_ref={};practice_activity=kind;_rebuild()
+
+func _open_finished_workbench() -> void:
+ if session_busy:return
+ if is_instance_valid(_workbench_desk) and _workbench_desk.is_visible_in_tree():_workbench_desk.request_exit("finished")
+ else:_workbench_finished=true;_workbench_finished_ref={};_rebuild()
+
+func _finished_workbench_page(root_box: VBoxContainer) -> void:
+ var scroll:=ScrollContainer.new()
+ scroll.name="WorkbenchFinishedList"
+ scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL
+ scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+ root_box.add_child(scroll)
+ var body:=_box()
+ body.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ scroll.add_child(body)
+ body.add_child(_label("SAVED ORIGINALS",22))
+ if not _workbench_finished_ref.is_empty():
+  var selected: Dictionary=Workbench.read_finished(opening_owner.snapshot(),_workbench_finished_ref)
+  if selected.ok:
+   var fragment: Dictionary=selected.fragment.fragment
+   if fragment.has("producer_recipe"):
+    var producer_rules=preload("res://experiments/playable_flightcase/producer_recipe.gd")
+    var arrangement: Label=_label(producer_rules.summary(fragment.producer_recipe),21)
+    arrangement.name="WorkbenchFinishedArrangement"
+    body.add_child(arrangement)
+    var title: String=""
+    for item in Workbench.finished(opening_owner.snapshot()).items:
+     if Workbench._same(item.reference,_workbench_finished_ref):title=str(item.title);break
+    body.add_child(_label(title,22))
+    body.add_child(_label("Your saved original. Its sound and lyrical direction are kept here.",16))
+    preload("res://experiments/playable_flightcase/song_audio.gd").attach_retained_ideas(body,opening_owner.game.career.song_catalogue[int(_workbench_finished_ref.catalogue_index)],false)
+    if MixingRecipe.valid(fragment.producer_recipe):
+     var saved_mix: Dictionary=fragment.producer_recipe.duplicate(true)
+     preload("res://experiments/playable_flightcase/mixing_audio.gd").attach_controls(body,saved_mix,func():
+      var live: Dictionary=Workbench.read_finished(opening_owner.snapshot(),_workbench_finished_ref)
+      return _workbench_finished and live.get("ok",false) and Workbench._same(live.get("fragment",{}).get("fragment",{}).get("producer_recipe"),saved_mix))
+    else:
+     var audio=preload("res://experiments/playable_flightcase/audition_audio.gd").new()
+     audio.manifest_path=producer_rules.MANIFEST
+     audio.play_caption="LISTEN TO SAVED TAKE"
+     audio.configure(func():
+      var live: Dictionary=Workbench.read_finished(opening_owner.snapshot(),_workbench_finished_ref)
+      var current: Dictionary=live.get("fragment",{}).get("fragment",{}).get("producer_recipe",{})
+      return {"allowed":_workbench_finished and live.get("ok",false) and producer_rules.valid(current),"material_id":producer_rules.audio_id(current),"content_version":producer_rules.VERSION})
+     audio.set_clip(producer_rules.audio_id(fragment.producer_recipe))
+     body.add_child(audio)
+   else:
+    var words: Label=_label("%s\n\n%s\n\nRefrain: line %s" % [fragment.lines[0].text,fragment.lines[1].text,str(fragment.refrain_line_id).trim_prefix("hook:")],21)
+    words.name="WorkbenchFinishedText"
+    body.add_child(words)
+    body.add_child(_label("The words saved with this finished original.",16))
+  else:body.add_child(_label(selected.message,16))
+ for item in Workbench.finished(opening_owner.snapshot()).items:
+  var reference: Dictionary=item.reference.duplicate(true)
+  var action: Button=_button(str(item.title),func():_workbench_finished_ref=reference;_rebuild(),"tab")
+  action.name="WorkbenchFinished_%d" % int(reference.catalogue_index)
+  body.add_child(action)
+ var back: Button=_button("BACK TO WRITING",func():_workbench_finished=false;_workbench_finished_ref={};_rebuild(),"tab")
+ back.name="WorkbenchFinishedBack"
+ root_box.add_child(back)
+func _outcome_line(result: Dictionary) -> String:
+ if not bool(result.get("ok",false)) or not result.has("outcome"):
+  return str(result.get("message",""))
+ var report: Dictionary = result["outcome"]
+ if report.get("focus")=="jam":return str(report.get("verdict","An evening with the music"))+". "+str(result.get("message",report.get("reason","")))
+ var metrics: Dictionary = report.get("metrics",{})
+ var key := "cohesion" if str(report.get("focus",""))=="connect" else "readiness"
+ var title := "cohesion" if key=="cohesion" else "set"
+ var value: int = int(metrics.get(key,{}).get("delta",0))
+ var tension: int = int(metrics.get("tension",{}).get("delta",0))
+ return ("%s. %s %s; tension %s." % [str(report.get("verdict","Session done")),title,("+" if value>0 else "")+str(value),("+" if tension>0 else "")+str(tension)])+("\n"+str(result.co_writing_message) if result.get("co_writing_message") is String else "")
+
+func _rehearse() -> void:
+ _commit_session("tighten")
+func _connect() -> void:
+ _commit_session("connect")
+
+func _session_failure_message(message: String,managed: bool) -> void:
+ last_message=message
+ if managed:_workbench_failure_message=message
+
+func _commit_session(kind: String, expected: Dictionary = {}, workbench_request: Dictionary = {}) -> void:
+ if session_busy:
+  return
+ var managed: bool=not workbench_request.is_empty()
+ if opening_owner!=null and RadioVisit.locked(game.career):
+  last_message="Resume or cancel the saved radio visit before another session."
+  career_requested.emit()
+  return
+ if opening_owner!=null and Finance.is_over(game.career):
+  last_message = "The band has folded. The final accounts are retained."
+  career_requested.emit()
+  return
+ if opening_owner!=null and Live.show_day(game.career):
+  last_message = "Tonight's show comes first. No session has been started."
+  career_requested.emit()
+  return
+ var situation: Dictionary=Situation.inspect_rehearsal(game.career)
+ if not situation.ok:
+  _session_failure_message(str(situation.message),managed)
+  _rebuild()
+  return
+ if not expected.is_empty() and game.snapshot()!=expected:
+  _session_failure_message("The band changed. Review the rehearsal again.",managed)
+  _rebuild()
+  return
+ if kind=="create":
+  var work: Dictionary=Situation.guard_writing(game.career)
+  if not work.get("ok",false):
+   _session_failure_message(str(work.get("message","Review the band's available evening.")),managed)
+   _rebuild()
+   return
+ if kind=="tighten":
+  if situation.plan_status=="future":
+   last_message="Your rehearsal is agreed for DAY %d EVENING. No day or room fee has been used." % int(situation.plan.day)
+   _rebuild()
+   return
+  if situation.conflict and expected.is_empty():
+   _open_work_conflict(situation)
+   return
+ if kind=="tighten" and not rehearsal_reference.is_empty():
+  if opening_owner==null:
+   last_message="This song needs its saved band context before rehearsal.";_rebuild();return
+  session_busy=true
+  var linked: Dictionary=opening_owner.rehearse_song(rehearsal_reference,rehearsal_direction.duplicate(true),opening_owner.song_rehearsal_expected())
+  if not linked.ok:
+   session_busy=false;last_message=str(linked.message);_rebuild();return
+  _present_committed_session(kind,linked.result)
+  return # Original atomic owner already resolved Situation/Live/Finance and saved once.
+ # Set before the synchronous resolver: rapid pointer/key events cannot queue
+ # another legitimate day while this committed result is being presented.
+ session_busy = true
+ var before_snapshot: Dictionary = game.snapshot().duplicate(true)
+ var workbench_ticket := ""
+ var prepared: Dictionary={}
+ if not workbench_request.is_empty():
+  var local_mixing: bool=Workbench._keys(workbench_request,["expected","mixing_payload"]) and workbench_request.get("mixing_payload") is Dictionary
+  if kind!="create" or opening_owner==null or (not Workbench._keys(workbench_request,["expected"]) and not local_mixing) or not workbench_request.get("expected") is Dictionary:
+   session_busy=false
+   _session_failure_message("Review the saved lyric session before writing.",true)
+   _rebuild()
+   return
+  var acquired: Dictionary=opening_owner.begin_workbench_commit(workbench_request.expected,workbench_request.mixing_payload if local_mixing else {})
+  if not acquired.ok:
+   session_busy=false
+   _session_failure_message(acquired.message,true)
+   _rebuild()
+   return
+  workbench_ticket=acquired.transaction_id
+  prepared=acquired.prepared
+  before_snapshot=acquired.before_game
+ var result: Dictionary
+ if not workbench_ticket.is_empty():
+  result=game.write_session_prepared(str(prepared.args.idea),str(prepared.args.form),str(prepared.args.title),int(prepared.args.leader_index),prepared)
+ elif kind=="create":
+  result = game.write_session(str(["Riff","Lyric","Groove"][idea_index]),str(["Verse / Chorus","Slow Build","Loose Jam"][form_index]),song_title,leader_index)
+ elif kind=="tighten":
+  result = game.rehearse_attending(situation.attendee_indices,rehearsal_direction.duplicate(true))
+ elif kind=="jam":
+  result = game.informal_practice(situation.attendee_indices)
+ else:
+  result = game.clear_air()
+ if not bool(result.get("ok",false)):
+  if not workbench_ticket.is_empty():opening_owner.abort_workbench_commit(workbench_ticket,str(result.get("message","The writing session could not start.")))
+  _session_failure_message(_outcome_line(result),managed)
+  session_busy = false
+  _rebuild()
+  return
+ if not workbench_ticket.is_empty():
+  var checked_original: Dictionary=opening_owner.complete_workbench_original(workbench_ticket,result)
+  if not checked_original.ok:
+   session_busy=false
+   _session_failure_message(checked_original.message,true)
+   _rebuild()
+   return
+ if kind!="tighten":
+  var tracked: Dictionary=Situation.after_action(before_snapshot.get("career",{}),game.career)
+  if not tracked.ok:
+   if not workbench_ticket.is_empty():opening_owner.abort_workbench_commit(workbench_ticket,str(tracked.message))
+   else:game.restore(before_snapshot)
+   session_busy=false
+   _session_failure_message(str(tracked.message),managed)
+   _rebuild()
+   return
+  game.career=tracked.state
+ if opening_owner!=null:
+  game.career = Live.after_practice(before_snapshot.get("career",{}),game.career)
+  var accounted: Dictionary = Finance.apply(before_snapshot.get("career",{}),game.career,"practice:"+kind)
+  if not bool(accounted.get("ok",false)):
+   if not workbench_ticket.is_empty():opening_owner.abort_workbench_commit(workbench_ticket,str(accounted.get("message","The accounts could not be reconciled.")))
+   else:game.restore(before_snapshot)
+   session_busy=false
+   _session_failure_message(str(accounted.get("message","The accounts could not be reconciled.")),managed)
+   _rebuild()
+   return
+  game.career=accounted["state"]
+  result["state"] = game.career.duplicate(true)
+  if game.career.get("last_rehearsal_outcome",{}) is Dictionary:
+   result["outcome"] = game.career.get("last_rehearsal_outcome",{}).duplicate(true)
+  if not workbench_ticket.is_empty():
+   var sealed: Dictionary=opening_owner.finish_workbench_commit(workbench_ticket)
+   if not sealed.ok:
+    session_busy=false
+    _session_failure_message(sealed.message,true)
+    _rebuild()
+    return
+   result=sealed.result
+   if is_instance_valid(_workbench_desk):_workbench_desk.show_commit_error("")
+  elif not bool(opening_owner.save_draft()):
+   game.restore(before_snapshot)
+   session_busy = false
+   last_message = "The session could not be saved. Your previous band state and pending choices are retained."
+   _rebuild()
+   return
+ if managed and workbench_request.has("mixing_payload") and is_instance_valid(_workbench_desk) and bool(_workbench_desk.get_meta("mixing_desk",false)):
+  # Only a successful original paid seal resolves these local decisions.
+  # Failed-save paths above return with the exact local direction retained.
+  _workbench_desk.refresh_saved(false)
+ _present_committed_session(kind,result)
+
+func _present_committed_session(kind: String,result: Dictionary) -> void:
+ last_message = _outcome_line(result)
+ recap_expanded = true
+ recap_details_expanded = false
+ _new_session_notes = true
+ if kind=="create" and int(game.career.get("song_draft_progress",0))==0:
+  _hydrate_song_draft()
+ _begin_session_presentation(kind,result.get("outcome",{}))
+
+func _open_work_conflict(view: Dictionary, notice: String = "") -> void:
+ if is_instance_valid(_work_dialog):return
+ _work_epoch+=1
+ _work_expected=game.snapshot().duplicate(true)
+ session_busy=true
+ var copy: Dictionary=view.duplicate(true)
+ copy["notice"]=notice
+ var dialog:=WorkConflict.new()
+ dialog.configure(game.career,copy)
+ _work_dialog=dialog
+ dialog.chosen.connect(_work_choice.bind(_work_epoch))
+ dialog.cancelled.connect(_work_back.bind(_work_epoch))
+ add_child(dialog)
+
+func _close_work_conflict() -> void:
+ var dialog: Control=_work_dialog
+ _work_dialog=null
+ _work_epoch+=1
+ session_busy=false
+ if is_instance_valid(dialog):dialog.queue_free()
+
+func _work_back(epoch: int) -> void:
+ if epoch!=_work_epoch:return
+ _close_work_conflict()
+ _work_expected={}
+ _rebuild()
+
+func _work_choice(intent: String, epoch: int) -> void:
+ if epoch!=_work_epoch or not is_instance_valid(_work_dialog) or not is_visible_in_tree():return
+ var before: Dictionary=_work_expected.duplicate(true)
+ if game.snapshot()!=before:
+  _close_work_conflict()
+  last_message="The band changed. Review the current rehearsal again."
+  _rebuild()
+  return
+ if opening_owner!=null and (RadioVisit.locked(game.career) or Finance.is_over(game.career) or Live.show_day(game.career)):
+  _close_work_conflict()
+  career_requested.emit()
+  return
+ if intent=="proceed":
+  _close_work_conflict()
+  _commit_session("tighten",before)
+  return
+ if intent!="reschedule":return
+ var result: Dictionary=Situation.reschedule(game.career,before.career)
+ if result.get("ok",false):
+  game.career=result.state.duplicate(true)
+  var saved: bool=bool(opening_owner.save_draft()) if opening_owner!=null else game.save_sandbox()
+  if not saved:
+   game.restore(before)
+   result={"ok":false,"message":"The rehearsal plan could not be saved. Your previous career and choices are retained."}
+ var message: String=str(result.get("message","The rehearsal could not be planned."))
+ _close_work_conflict()
+ if not result.get("ok",false):
+  var current: Dictionary=Situation.inspect_rehearsal(game.career)
+  if current.ok:_open_work_conflict(current,message)
+ else:
+  _work_expected={}
+  last_message=message
+  _rebuild()
+
+func _begin_session_presentation(kind: String, report: Dictionary) -> void:
+ # Navigation/reopening uses the same presentation layer, with no resolver or
+ # save call. Only _commit_session may perform those existing operations.
+ session_busy = true
+ var overlay := SessionTransition.new()
+ overlay.configure(kind,report,reduced_motion,look,int(game.career.get("tour_day",1)),int(game.career.get("cash",0)))
+ _session_overlay = overlay
+ overlay.covered.connect(_present_saved_session)
+ overlay.finished.connect(_finish_session_presentation)
+ add_child(overlay)
+
+func _present_saved_session() -> void:
+ # The only state here is presentation. Rebuild from the already saved result.
+ _rebuild()
+
+func _finish_session_presentation() -> void:
+ if not session_busy:
+  return
+ session_busy = false
+ var overlay: Control = _session_overlay
+ _session_overlay = null
+ if is_instance_valid(overlay):
+  remove_child(overlay)
+  overlay.queue_free()
+ if _new_session_notes:
+  _new_session_notes = false
+  for note in find_children("*","Label",true,false):
+   if note.has_meta("fresh_action_note") and note.has_method("begin"):
+    note.begin(reduced_motion)
+ var next_action: Button = find_child("RecapToggleAction" if recap_expanded else "PracticeMode_"+practice_activity,true,false) as Button
+ if opening_owner!=null and Finance.is_over(game.career):
+  career_requested.emit()
+  return
+ if next_action!=null and is_visible_in_tree():
+  next_action.grab_focus()
+
+func _on_visibility_changed() -> void:
+ if not is_visible_in_tree() and is_instance_valid(_work_dialog):
+  _close_work_conflict()
+  _work_expected={}
+ if not is_visible_in_tree() and is_instance_valid(_session_overlay):
+  _session_overlay.finish_now(false)
+
+func _exit_tree() -> void:
+ _work_epoch+=1
+ if is_instance_valid(_work_dialog):_work_dialog.queue_free()
+ _work_dialog=null
+ if is_instance_valid(_session_overlay):
+  _session_overlay.abort()
+ session_busy = false
+
+func _save() -> void:
+ if session_busy:
+  return
+ var okay: bool = bool(opening_owner.save_draft()) if opening_owner != null else game.save_sandbox()
+ last_message = "Sandbox saved." if okay else "Sandbox save failed."
+ _rebuild()
+func _load() -> void:
+ if session_busy:return
+ if is_instance_valid(_workbench_desk) and _workbench_desk.is_visible_in_tree():
+  _workbench_desk.request_exit("load")
+  return
+ _load_original()
+
+func _load_original() -> void:
+ var okay: bool = bool(opening_owner.load_draft()) if opening_owner != null else game.load_sandbox()
+ if okay and opening_owner != null:
+  game = opening_owner.game
+ if okay:
+  recap_expanded = true
+  _hydrate_song_draft()
+ last_message = "Sandbox restored." if okay else "No valid sandbox save."
+ _rebuild()
+
+func _completed_audio_context(candidate_id: String) -> Dictionary:
+ var items: Array=game.choices(role)
+ var selected: bool=selected_index>=0 and selected_index<items.size() and str(items[selected_index].id)==candidate_id
+ var content: Script=Profiles.content(candidate_id)
+ if content==null or onboarding_state==null:return {"allowed":false}
+ var view: Dictionary=onboarding_state.audition_view(candidate_id)
+ return {"allowed":is_visible_in_tree() and selected and game.phase=="recruit" and game.genre=="Indie rock" and view.get("ok",false) and not view.get("held",false) and not view.get("active",false) and view.get("heard",false),"material_id":content.FIRST_ID,"content_version":content.VERSION}

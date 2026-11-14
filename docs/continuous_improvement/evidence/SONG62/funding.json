@@ -1,0 +1,18 @@
+{
+  "scope": "SONG62 bounded R3 rehearsal selection and actual-owner native proof; transfer remains separately gated if no supported rewrite path",
+  "at": "2026-11-14T04:58:45.883890+00:00",
+  "baseline_sha": "ff13f6c45875a7cb0f6ff5843a603e90714bd4be",
+  "primary_new_bytes": 0,
+  "tmp_cap_bytes": 2952790016,
+  "tmp_free_before": 4722417664,
+  "workspace_free_before": 625475584,
+  "floor_bytes": 629145600,
+  "budgets": {
+    "source_archive_export": 700000000,
+    "baseline_early_final_native": 1350000000,
+    "one_failed_proof_tail": 450000000,
+    "PNG_models_closeout": 150000000
+  },
+  "critical_git": "Durable GitHub GitData only; original checkout/closed producers immutable",
+  "deadline": "2026-11-14T05:48:00+00:00"
+}

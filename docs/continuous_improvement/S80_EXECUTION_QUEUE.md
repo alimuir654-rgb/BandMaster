@@ -1,8 +1,8 @@
 # BandMaster — sole execution queue
 
-Latest session: **SONG61 — CLOSED**. Partial R3 factual song/revision/actual-person rehearsal ledger and original atomic owner internally verified at `0b73004`. No UI or transfer implementation; R3 remains open and R4 held by dependency. Writer released.
+Latest session: **SONG62 — CLOSED**. R3 selected-song rehearsal UI/original atomic owner internally verified at `1291b33` with4native303checks and36finaloriginals. Transfer remains unsupported; R3partial/R4dependency held. Writer released.
 
-**Next action:** Finish R3 player-facing song/version rehearsal selection and source-backed proportionate transfer, with early/final native gates; do not advance R4 yet.
+**Next action:** Implement and verify source-backed changed-section preparation transfer in R3; preserve unknowns where equivalence is unproved and keep R4 gated.
 
 ## Linked songs and band life
 
@@ -13,7 +13,7 @@ The [roadmap](../ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md) defines dependencies and
 | SONG53-R0 | Reconcile the actual latest source; classify existing/presentation/new-model work | COMPLETE — RECOVER54; published source d5e1662 verified directly on GitHub; full mapping/inventory in RECOVER54_SOURCE_RECONCILIATION.json |
 | SONG53-R1 | Reusable honest song summary with explicit legacy unknowns | FUNCTIONALLY VERIFIED — SONG55; SONG56 visual revision INTERNALLY VERIFIED on665cb95; owner visual acceptance pending |
 | SONG53-R2 | Stable song/revision/participant identity; one meaningful co-writing contribution; skill fairness | INTERNALLY VERIFIED — SONG57–60 fairness/identity/co-writing owner+selector+retained callback; scoped four-size native/real-owner proof complete; full-app/uncoached integration remains R7; owner acceptance pending |
-| SONG53-R3 | Song-specific purposeful rehearsal and proportionate preparation transfer | PARTIAL — SONG61 exact-revision factual ledger/atomic original owner verified; player-facing selector, proportionate transfer and native gates remain. R4 stays queued. |
+| SONG53-R3 | Song-specific purposeful rehearsal and proportionate preparation transfer | PARTIAL — SONG61ledger/atomicowner +SONG62selected-song UI/currentpreview/recap and4-size nativewhole-task gates verified; changed-section transfer unsupported, R4stillheld. |
 | SONG53-R4 | Preparedness into live delivery, grounded feedback and character aftermath | AUTHORISED / QUEUED — dependency gate; after R3 |
 | SONG53-R5 | Immutable take and genuine recording-execution quality | AUTHORISED / QUEUED — dependency gate; after R2–R4 |
 | SONG53-R6 | Attributed lead-track promotion and evidenced reach | AUTHORISED / QUEUED — dependency gate; after R5 |

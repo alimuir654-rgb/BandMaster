@@ -1,0 +1,79 @@
+{
+  "session": "SONG62",
+  "tested_sha": "1291b3357538a1330df14766a5f35906d0b1e442",
+  "source_ui_sha256": "116a606017fce68cd378a4615a719490f302408e2d89b79e973b8bedc70b5989",
+  "technical": "PASS_SCOPED_NATIVE_AND_CI",
+  "internal_visual": "CLEAR_SCOPED",
+  "overall": "PARTIAL",
+  "owner_approved": false,
+  "release_approved": false,
+  "root_unique_originals_opened": [
+    "docs/continuous_improvement/evidence/SONG56/songbook-phone.png",
+    "baseline-native/baseline/phone/baseline-rehearsal.png",
+    "baseline-native/baseline/short/baseline-rehearsal.png",
+    "native-v1/candidate/phone/candidate-rehearsal.png",
+    "native-v2/candidate/phone/selected-long-title.png",
+    "native-v2/candidate/phone/saved-song-rehearsal.png",
+    "native-v2/candidate/phone/partial-attendance-review.png",
+    "native-v3/candidate/short/selected-long-title.png",
+    "native-v3/candidate/short/partial-saved-song-rehearsal.png",
+    "native-v3/candidate/phone/typed-reload-recap.png",
+    "native-v3/candidate/phone/partial-saved-song-rehearsal.png",
+    "native-v3/candidate/tall/selected-long-title.png",
+    "native-v3/candidate/tall/typed-reload-recap.png",
+    "native-v3/candidate/wide/selected-long-title.png",
+    "native-v3/candidate/wide/typed-reload-recap.png"
+  ],
+  "root_actual_opens": 16,
+  "root_unique_count": 15,
+  "root_reopen_note": "Phonepartial-saved result reopened; suspected preview clipping ruled out, no source change.",
+  "independent_source_visual": {
+    "agent": "/root/au01_source_review",
+    "status": "completed_released",
+    "final_originals_opened": 36,
+    "prior_originals_opened": 4,
+    "finding": "All9states at all4sizes CLEAR; exact currentUI source hash matches. Earlier focused title/failure/attendance/reload phone+short review cleared before tall/wide."
+  },
+  "independent_receipts": {
+    "agent": "/root/foundation_tests",
+    "status": "completed_released",
+    "actual_image_opens": 0,
+    "finding": "All4receipts/logs/PNGdimensions/source907 and modelreuse72 independently rehashed; source delegation/once-only/counter semantics reviewed."
+  },
+  "five_simulated_lenses": [
+    {
+      "lens": "Player",
+      "explicitly_simulated": true,
+      "finding": "General versus selected rehearsal is clear; no full R3/transfer claim."
+    },
+    {
+      "lens": "Musician",
+      "explicitly_simulated": true,
+      "finding": "Purpose and actual participants are distinct from song strength and band readiness."
+    },
+    {
+      "lens": "Accessibility",
+      "explicitly_simulated": true,
+      "finding": "New selector/commit at least48physical pixels; pointer/key/emulatedtouch/wheel work, actual prices and attendance are readable."
+    },
+    {
+      "lens": "Reliability",
+      "explicitly_simulated": true,
+      "finding": "Production UI selected path returns before duplicate Finance/save; real failure/retry/cancel and typed handler reload verified."
+    },
+    {
+      "lens": "Maintainer",
+      "explicitly_simulated": true,
+      "finding": "Validated unique song/composition/revision/action recap matching; unsupported versions use neutral fallback."
+    }
+  ],
+  "material_gaps": [
+    "R3 remains PARTIAL: no changed-section transfer or supported finished-song rewrite/equivalence contract; no invented similarity from titles/hashes. R4-R7 dependencies not passed.",
+    "Controlled public formation/actual writing fixtures create the two-song career. This is the production RootUI rehearsal pane, not a whole initial-menu-to-career journey.",
+    "Reload invokes the real RootUI._load_original handler directly; no played Menu/Continue claim.",
+    "303 mixed assertions per profile include fixture setup, not303individual native gameplay actions. Nine writing-helper settlements are setup counts, not rehearsal/save counts.",
+    "Native runs use reduced motion; no new normal-motion/physicalphone/listening/install/retention/IME/OSinterrupt/uncoached acceptance.",
+    "Existing body scrolling, sparse wide presentation, static portraits and generic/ellipsised inherited rehearsal excerpts remain.",
+    "Current approved processed media still missing; no new APK. Raw Dropbox stems are not interchangeable with those dependencies."
+  ]
+}
