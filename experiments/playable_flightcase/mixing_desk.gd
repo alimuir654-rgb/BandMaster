@@ -25,6 +25,7 @@ var _recipe: Dictionary={}
 var _decision: Dictionary={}
 var _compare := false
 var _leader_index := 0
+var _collaborator_id := ""
 var _busy := false
 var _hydrating := false
 var _audio
@@ -170,6 +171,7 @@ func _build() -> void:
  var person:=HBoxContainer.new();person.add_theme_constant_override("separation",8);note_body.add_child(person)
  _portrait=TextureRect.new();_portrait.name="MixingMemberPortrait";_portrait.custom_minimum_size=Vector2(48,48);_portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;_portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;_portrait.mouse_filter=Control.MOUSE_FILTER_IGNORE;person.add_child(_portrait)
  _member_name=_label("",20,true);_member_name.name="MixingMemberName";person.add_child(_member_name)
+ note_body.add_child(_button("NEXT IDEA PARTNER ›","MixingCollaboratorNext",_change_collaborator))
  _member_note=_label("",18,true);_member_note.name="MixingMemberNote";note_body.add_child(_member_note)
  var responses:=VBoxContainer.new();responses.name="MixingMemberResponses";responses.add_theme_constant_override("separation",4);note_body.add_child(responses)
  for pair in [["TRY THEIR IDEA","try"],["KEEP MY DIRECTION","keep"],["LEAVE UNANSWERED","dismiss"]]:
@@ -205,9 +207,9 @@ func _project() -> Dictionary:
  return _view.get("project",{})
 
 func _target() -> Dictionary:
- var key: String=_title.text+":"+str(_leader_index)
+ var key: String=_title.text+":"+str(_leader_index)+":"+_collaborator_id
  if key==_target_key:return _target_cache
- var result: Dictionary=Rules._target(owner_state.game.career,_title.text,_leader_index)
+ var result: Dictionary=Rules._target(owner_state.game.career,_title.text,_leader_index,_collaborator_id)
  _target_key=key;_target_cache=result.get("target",{}) if result.get("ok",false) else {}
  return _target_cache
 
@@ -218,7 +220,7 @@ func _saved_recipe() -> Dictionary:
 
 func _saved_decision() -> Dictionary:
  var decision: Dictionary=_project().get("producer_decision",{})
- if not decision.is_empty() and decision.get("stage")==int(owner_state.game.career.get("song_draft_progress",0)) and Rules._same(decision.get("chosen_recipe"),_recipe):return {"choice":decision.choice,"base_recipe":decision.base_recipe.duplicate(true),"offer_id":decision.offer_id}
+ if not decision.is_empty() and decision.get("stage")==int(owner_state.game.career.get("song_draft_progress",0)) and Rules._same(decision.get("chosen_recipe"),_recipe) and Rules._same(decision.get("member"),_target().get("respondent_ref",{})):return {"choice":decision.choice,"base_recipe":decision.base_recipe.duplicate(true),"offer_id":decision.offer_id}
  return {}
 
 func refresh_saved(preserve_local: bool=false) -> void:
@@ -229,16 +231,20 @@ func refresh_saved(preserve_local: bool=false) -> void:
  if not preserve_local:
   _hydrating=true;_recipe=_saved_recipe();_decision={};_compare=false
   _title.text=str(_project().get("target",{}).get("title",""));_leader_index=int(_project().get("target",{}).get("leader_ref",{}).get("slot",0))
+  var partner: String=str(_project().get("target",{}).get("respondent_ref",{}).get("candidate_id",""))
+  _collaborator_id=partner if not partner.is_empty() and Rules._target(owner_state.game.career,_title.text,_leader_index,partner).get("ok",false) else ""
   _decision=_saved_decision();_hydrating=false
  _refresh()
 
 func _payload() -> Dictionary:
- return {"recipe":_recipe.duplicate(true),"title":_title.text,"leader_index":_leader_index,"decision":_decision.duplicate(true)}
+ var payload: Dictionary={"recipe":_recipe.duplicate(true),"title":_title.text,"leader_index":_leader_index,"decision":_decision.duplicate(true)}
+ if not _collaborator_id.is_empty():payload.collaborator_id=_collaborator_id
+ return payload
 
 func has_local_edits() -> bool:
  if not is_instance_valid(_title) or not Recipe.valid(_recipe):return false
  var target: Dictionary=_project().get("target",{})
- return not Rules._same(_recipe,_saved_recipe()) or _title.text.strip_edges().to_upper()!=str(target.get("title","")) or _leader_index!=int(target.get("leader_ref",{}).get("slot",0)) or not Rules._same(_decision,_saved_decision())
+ return not Rules._same(_recipe,_saved_recipe()) or _title.text.strip_edges().to_upper()!=str(target.get("title","")) or _leader_index!=int(target.get("leader_ref",{}).get("slot",0)) or _collaborator_id!=str(target.get("respondent_ref",{}).get("candidate_id","")) or not Rules._same(_decision,_saved_decision())
 
 func _invalidate_response() -> void:
  _decision={};_compare=false
@@ -276,6 +282,16 @@ func _change_leader(direction: int) -> void:
  for step in range(1,members.size()+1):
   var index: int=posmod(_leader_index+direction*step,members.size())
   if members[index].get("life_status","active")=="active":_leader_index=index;_invalidate_response();_refresh();return
+
+func _change_collaborator() -> void:
+ if _busy or is_instance_valid(_dialog):return
+ var choices: Array[String]=[]
+ for member in owner_state.game.career.get("members",[]):
+  var id: String=str(member.get("candidate_id",""))
+  if not id.is_empty() and Rules._target(owner_state.game.career,_title.text,_leader_index,id).get("ok",false):choices.append(id)
+ if choices.is_empty():_show_notice("No other active idea partner is available.");return
+ _collaborator_id=choices[posmod(choices.find(_collaborator_id)+1,choices.size())]
+ _stop_audio();_invalidate_response();_target_key="";_refresh()
 
 func _offer_base() -> Dictionary:
  return _decision.get("base_recipe",_recipe).duplicate(true)
@@ -365,8 +381,8 @@ func _refresh() -> void:
  var target: Dictionary=_target() if valid else {}
  var respondent: Dictionary=target.get("respondent_ref",{})
  var note: Dictionary=Recipe.note(respondent,_offer_base(),{"day":int(owner_state.game.career.get("tour_day",1))}) if valid else {}
- _member_name.text=str(respondent.get("name","YOUR DIRECTION")).to_upper()
- _member_note.text=str(note.get("note",{}).get("text","Review the saved band and direction."))
+ _member_name.text=str(respondent.get("name","CHOOSE AN IDEA PARTNER")).to_upper()+" · "+str(respondent.get("role",""))
+ _member_note.text="Choose an idea partner other than the session lead." if target.is_empty() and not _collaborator_id.is_empty() else str(note.get("note",{}).get("text","Review the saved band and direction."))
  _voice_preview.text=_member_name.text+": "+_member_note.text
  var portrait_path: String=""
  for source in Cast.combined_people():
@@ -415,6 +431,8 @@ func _refresh() -> void:
   _cost.text+="\n"+("A £0 practice day is still possible." if not free_people.is_empty() else "A quiet evening can move you to tomorrow. No room hire.")
  if available and valid and not Recipe.Recorded.available(owner_state.game.career,_recipe,str(_project().get("id",""))):
   _commit.disabled=true;_cost.text="PHRASE UNAVAILABLE · Choose another foundation"
+ if available and target.is_empty() and not _collaborator_id.is_empty():
+  _commit.disabled=true;_cost.text="Choose an idea partner other than the session lead."
  _refresh_audio()
 
 func _resized() -> void:

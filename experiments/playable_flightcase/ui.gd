@@ -1465,6 +1465,7 @@ func _finished_workbench_page(root_box: VBoxContainer) -> void:
      if Workbench._same(item.reference,_workbench_finished_ref):title=str(item.title);break
     body.add_child(_label(title,22))
     body.add_child(_label("Your saved original. Its sound and lyrical direction are kept here.",16))
+    preload("res://experiments/playable_flightcase/song_audio.gd").attach_retained_ideas(body,opening_owner.game.career.song_catalogue[int(_workbench_finished_ref.catalogue_index)],false)
     if MixingRecipe.valid(fragment.producer_recipe):
      var saved_mix: Dictionary=fragment.producer_recipe.duplicate(true)
      preload("res://experiments/playable_flightcase/mixing_audio.gd").attach_controls(body,saved_mix,func():

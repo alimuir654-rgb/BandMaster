@@ -720,10 +720,12 @@ func save_mixing_sketch(expected: Dictionary,payload: Dictionary) -> Dictionary:
  _audition_busy=true
  var before: Dictionary=snapshot()
  var result: Dictionary
- if Workbench._keys(payload,["recipe","title","leader_index","decision"]) and payload.get("decision") is Dictionary and payload.decision.is_empty():
+ if Workbench.mixing_payload_shape(payload) and payload.get("decision") is Dictionary and payload.decision.is_empty():
   if not preload("res://experiments/playable_flightcase/mixing_recipe.gd").valid(payload.get("recipe")):
    _audition_busy=false;return _workbench_result(false,false,"Review this direction before saving.")
-  result=Workbench.checkpoint(before,"producer_save",expected,{"recipe":payload.recipe,"title":payload.title,"leader_index":payload.leader_index})
+  var local: Dictionary={"recipe":payload.recipe,"title":payload.title,"leader_index":payload.leader_index}
+  if payload.has("collaborator_id"):local.collaborator_id=payload.collaborator_id
+  result=Workbench.checkpoint(before,"producer_save",expected,local)
  else:
   var staged: Dictionary=Workbench.prepare_mixing_local(before,expected,payload)
   result=Workbench._mutation(staged.get("state",before),bool(staged.get("ok",false)),"Direction and considered idea saved free." if staged.get("ok",false) else str(staged.get("message","Review this direction.")),bool(staged.get("ok",false)))

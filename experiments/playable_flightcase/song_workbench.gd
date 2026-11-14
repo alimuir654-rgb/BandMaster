@@ -459,7 +459,7 @@ static func checkpoint(opening: Dictionary,action: String,token: Dictionary,payl
   if not chosen.ok:return _mutation(opening,false,chosen.message)
   target=_merge_target(target,chosen.target)
  elif action in ["producer_save","producer_try"]:
-  if not producer or not _keys(payload,["recipe","title","leader_index"]) or not Producer.valid(payload.get("recipe")) or not payload.get("title") is String or not _whole(payload.get("leader_index"),0,5):return _mutation(opening,false,"Choose a compatible arrangement, title and leader.")
+  if not producer or not _producer_payload_shape(payload) or not Producer.valid(payload.get("recipe")) or not payload.get("title") is String or not _whole(payload.get("leader_index"),0,5):return _mutation(opening,false,"Choose a compatible arrangement, title and leader.")
   if payload.recipe.get("version")==5 and not Producer.Mixing.Recorded.VocalKeys.active_pair(state,payload.recipe):return _mutation(opening,false,"This phrase needs its named singer and keyboardist in the band.")
   if int(payload.recipe.stage)!=int(state.song_draft_progress) or not _same(payload.recipe.brief,Sound.read(state)):return _mutation(opening,false,"Develop the current writing stage with the confirmed band sound.")
   if int(state.song_draft_progress)>0:
@@ -467,7 +467,7 @@ static func checkpoint(opening: Dictionary,action: String,token: Dictionary,payl
    if recorded.version!=payload.recipe.version or recorded.hook!=payload.recipe.hook or recorded.get("voice","off")!=payload.recipe.get("voice","off") or recorded.get("keys","off")!=payload.recipe.get("keys","off"):return _mutation(opening,false,"This song's foundation is already recorded. Shape its arrangement, or finish it before starting another original.")
   if not _same(payload.recipe,project.fragment.producer_recipe):project.producer_decision={}
   material=_merge_material(material,Producer.material(payload.recipe))
-  var chosen:=_target(state,payload.title,int(payload.leader_index),str(target.get("collaborator_candidate_id","")))
+  var chosen:=_target(state,payload.title,int(payload.leader_index),str(payload.get("collaborator_id",target.get("collaborator_candidate_id",""))))
   if not chosen.ok:return _mutation(opening,false,chosen.message)
   target=_merge_target(target,chosen.target)
  elif action=="producer_offer":
@@ -531,17 +531,26 @@ static func checkpoint(opening: Dictionary,action: String,token: Dictionary,payl
  wrapper.project=project
  return _put(opening,wrapper,"The written take and note are saved; no day or room fee was used." if action in ["try","producer_try"] else "Sketch saved. Try this exact take before using the next session day.")
 
+# Exact optional collaborator field; old payloads retain their saved target.
+static func _producer_payload_shape(payload: Dictionary) -> bool:
+ return (_keys(payload,["recipe","title","leader_index"]) or (_keys(payload,["recipe","title","leader_index","collaborator_id"]) and payload.collaborator_id is String and not payload.collaborator_id.is_empty()))
+
+static func mixing_payload_shape(payload: Dictionary) -> bool:
+ return (_keys(payload,["recipe","title","leader_index","decision"]) or (_keys(payload,["recipe","title","leader_index","decision","collaborator_id"]) and payload.collaborator_id is String and not payload.collaborator_id.is_empty()))
+
 static func prepare_mixing_local(opening: Dictionary,token: Dictionary,payload: Dictionary) -> Dictionary:
  # Pure in-memory preparation. The original owner keeps its PRE-click rollback
  # snapshot and makes only its existing final paid save. HEAR never calls this.
  var fail: Dictionary={"ok":false,"message":"Review this exact direction and bandmate response before committing.","state":opening,"prepared":{}}
  var Mixing=preload("res://experiments/playable_flightcase/mixing_recipe.gd")
- if not _token(opening,token) or not _keys(payload,["recipe","title","leader_index","decision"]) or not Mixing.valid(payload.get("recipe")) or not payload.get("title") is String or not _whole(payload.get("leader_index"),0,5) or not payload.get("decision") is Dictionary:return fail
+ if not _token(opening,token) or not mixing_payload_shape(payload) or not Mixing.valid(payload.get("recipe")) or not payload.get("title") is String or not _whole(payload.get("leader_index"),0,5) or not payload.get("decision") is Dictionary:return fail
  var project: Dictionary=_wrapper(opening).get("project",{})
  if not Mixing.valid(project.get("fragment",{}).get("producer_recipe")):return fail
  var decision: Dictionary=payload.decision
  if not _keys(decision,["choice","base_recipe","offer_id"]) or not decision.get("choice") is String or decision.choice not in ["try","keep","dismiss","none"] or not Mixing.valid(decision.get("base_recipe")) or not decision.get("offer_id") is String:return fail
- var staged: Dictionary=checkpoint(opening,"producer_try",token,{"recipe":decision.base_recipe,"title":payload.title,"leader_index":payload.leader_index})
+ var local: Dictionary={"recipe":decision.base_recipe,"title":payload.title,"leader_index":payload.leader_index}
+ if payload.has("collaborator_id"):local.collaborator_id=payload.collaborator_id
+ var staged: Dictionary=checkpoint(opening,"producer_try",token,local)
  if not staged.get("ok",false):fail.message=staged.get("message",fail.message);return fail
  var next: Dictionary=staged.state
  var trial: Dictionary=_wrapper(next).project.last_trial

@@ -15,6 +15,24 @@ static func recipe(song: Dictionary) -> Dictionary:
  if receipt.get("song_id")!=song.get("id") or receipt.get("final_quality")!=song.get("quality"):return {}
  return value.duplicate(true)
 
+static func retained_idea_text(song: Dictionary) -> String:
+ if recipe(song).is_empty():return ""
+ var extension: Dictionary=song[Rules.FRAGMENT_KEY]
+ if not Rules._identity_ok(str(song.id),extension):return ""
+ if not extension.has("co_writing_v1"):return "Retained ideas were not tracked for this original."
+ var rows: Array=extension.co_writing_v1.retained
+ if rows.is_empty():return "No bandmate idea was retained in this version."
+ var lines: PackedStringArray=["KEPT IN THIS SONG"]
+ for row in rows:lines.append("%s’s %s idea · session %d" % [row.name,str(row.field),int(row.stage)+1])
+ return "\n".join(lines)
+
+static func attach_retained_ideas(parent: Node,song: Dictionary,paper: bool=true) -> void:
+ var text: String=retained_idea_text(song)
+ if text.is_empty():return
+ var label: Label=C.label(text,18,"notepaper" if paper else "flightcase")
+ label.name="SavedCoWriting";label.mouse_filter=Control.MOUSE_FILTER_IGNORE
+ parent.add_child(label)
+
 static func attach(parent: Node,song: Dictionary,context: Callable,paper: bool=true) -> void:
  var value: Dictionary=recipe(song)
  if value.is_empty():return
