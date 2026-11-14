@@ -7,8 +7,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
   },
   "issue_log_review": {
-    "bytes": 2318088,
-    "sha256": "b807c002ea3355a28ae6439b35ded8ea1fa4c37cbd4b7896eede6a7d332da7ad"
+    "bytes": 2320045,
+    "sha256": "57b19a993c6147820b2ea88b856568129be63a2bbe568f99ceb577978e26afdd"
   },
   "lesson_ids": [
     "BM-01",
@@ -92,15 +92,20 @@
     "scope": "SONG60 R2 UI selection and saved contribution callback",
     "at": "2026-11-14T02:59:57.172052+00:00",
     "primary_new_bytes": 0,
-    "tmp_cap_bytes": 2147483648,
+    "tmp_cap_bytes": 3221225472,
     "floor_bytes": 629145600,
     "budgets": {
-      "archive_export": 650000000,
-      "private_native_source_import_cache": 700000000,
-      "proof_PNG_failed_tail": 650000000,
-      "closeout": 20000000
+      "retained_source_and_early_producers": 1700000000,
+      "fresh_final_project": 450000000,
+      "one_failed_full_project_tail": 450000000,
+      "PNGs_models_closeout": 150000000
     },
-    "critical_git": "Durable GitHub Git Data only; original checkout and older closed producers untouched"
+    "critical_git": "Durable GitHub Git Data only; original checkout and older closed producers untouched",
+    "amended_at": "2026-11-14T03:14:22.307045+00:00",
+    "observed_owned_tmp_bytes": 1649790011,
+    "observed_global_tmp_free": 6625234944,
+    "amendment": "Prospective fresh final native project plus one complete failed-proof tail; no cleanup or primary allocation. Existing early/baseline producers retained.",
+    "observed_workspace_free": 625475584
   },
   "scope": "R2 collaborator UI/local payload and read-only retained-idea callback; no new music/scoring/art/key/APK.",
   "player_task": {
