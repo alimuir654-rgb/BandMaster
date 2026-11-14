@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "owner_approved": false,
+  "owner_request": "14November2026 08:31 follow-up: owner said Go ahead to locating/restoring existing processed assets and indexes and working through the build checks. This is fresh scoped recovery authority after the overnight readiness report; no new gameplay or recurring extension.",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "2c13c9b0605a4f3b50b0ff2f99d0613cff2f67810be0d9e233af56695e047423",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
+  },
+  "issue_log_review": {
+    "bytes": 2346145,
+    "sha256": "88c40c84e9b3409a3923887d6478ba6b69ab9e7b8e6ec82bf5b4807328b3fc21"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-29",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-39",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "dominant_issue": "BM-43",
+  "target": {
+    "locator": "docs/continuous_improvement/evidence/SONG63/native-v1/candidate/phone/selected-long-title.png",
+    "original_sha256": "3c60ed1a13aa050efa44a4b548776c6e1c47ef063300982c8bbff11dbb7d5d5a",
+    "pixels_inspected": true,
+    "purpose": "Actually opened unchanged SONG63 reference for presentation protection; this pass targets asset recovery, not visual change."
+  },
+  "id": "RESTORE66",
+  "status": "active",
+  "baseline_sha": "1c23d50b9d56e49f5dec9392dc622433f9db93c7",
+  "hypothesis": "Exact archived packages and lossless original sources can restore the unavailable private audio while retaining original identities, source provenance and current character bindings.",
+  "controlled_comparison": "Compare recovered bytes/PCM and each existing registry against historical hashes, then current source obligations. Old packaged resources are not automatically clean export inputs or current character acceptance.",
+  "stop_condition": "Hold on any unexplained hash/PCM/authority discrepancy or inaccessible original signer. Do not change app/save identity, generate keys or weaken gates. Checkpoint this separate recovery pass by09:45.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/RESTORE66.json",
+    "docs/continuous_improvement/RESTORE66_RESULTS.json",
+    "docs/continuous_improvement/RESTORE66_REVIEW.json",
+    "docs/continuous_improvement/evidence/RESTORE66/*",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/handover/START_HERE.md",
+    "tools/recover_private_audio66.py",
+    "experiments/playable_flightcase/audio/*"
+  ],
+  "validation_commands": [
+    "Exact restoredDropbox contenthash/size and localSHA256 against DELIVER46/FLAC49; verify originalAPK bytes",
+    "Decode/import resources only in a fresh isolated project and save root; compare manifests/PCM/source bindings and current18candidate/30material obligations",
+    "Relevant original audio/save guards and full curated resource/build validation before a new signed candidate; original certificate/app/saveidentity",
+    "Independent read-only review; project_context/improvement gates; scoped expected-head non-force publication/readback; never publish private media/keys"
+  ],
+  "writer": {
+    "owner": "root-RESTORE66",
+    "status": "active",
+    "source_writers": 1,
+    "claimed_at": "2026-11-14T08:55:37.868684+00:00",
+    "expires_at": "2026-11-14T09:45:00+00:00"
+  },
+  "next_action": "Verify and materialize recovered private assets for the current frozen game source, then assess original-app packaging.",
+  "queue_task_ids": [
+    "RESTORE66-private-media"
+  ],
+  "resource_plan": {
+    "scope": "New isolated local recovery workspace only; up to8GiB with40GiB observed free reserve. Original worker storage is not assumed available. No writes to original saves/key or closed producer caches."
+  },
+  "scope": "Recover existing private audio/indexes from verified historical assets; validate current source compatibility and original-app build readiness. No musical generation or new gameplay.",
+  "player_task": {
+    "goal": "Existing music, character ideas and cues are available to the current game with their original identity/provenance",
+    "visible_acceptance": [
+      "No lost audio features or new musical material",
+      "No claimed playable build until complete export/signature/delivery checks"
+    ]
+  },
+  "predesign": {
+    "reviewers": [
+      "/root/test_readiness",
+      "/root/roadmap_audit"
+    ],
+    "status": "read_only_audits_complete",
+    "acceptance": "Existing exact assets and current bindings; original-app identity; report source-only/import-only gaps; no new listening approval."
+  }
+}

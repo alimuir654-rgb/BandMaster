@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
   "context_schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/SONG65.json",
-  "active_session": "SONG65",
+  "session": "docs/continuous_improvement/sessions/RESTORE66.json",
+  "active_session": "RESTORE66",
   "branch": "feature/playtest-polish-v20",
-  "status": "closed",
-  "scope": "08:00 candidate freeze/readiness/handover only; no product, QA, UI, asset, engine, audio or APK changes.",
-  "authority": "14 November 2026 owner: Pick up bandmaster roadmap work. Split into hourly chunks to target a 9am test for me. Automate through and make as much progress as possible until then. I won't be available for reviews or approvals until then.",
-  "updated_at": "2026-11-14T08:08:42.794245+00:00",
-  "writer": null,
+  "status": "active",
+  "scope": "Recover existing private audio/indexes from verified historical assets; validate current source compatibility and original-app build readiness. No musical generation or new gameplay.",
+  "authority": "14November2026 08:31 follow-up: owner said Go ahead to locating/restoring existing processed assets and indexes and working through the build checks. This is fresh scoped recovery authority after the overnight readiness report; no new gameplay or recurring extension.",
+  "updated_at": "2026-11-14T08:55:37.868684+00:00",
+  "writer": "root-RESTORE66",
   "owner_approved": false,
   "source": {
     "implementation_sha": "bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
@@ -19,22 +19,17 @@
     "game_source_sha": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
     "ci_evidence": "docs/continuous_improvement/evidence/SONG64/",
     "frozen_candidate_sha": "bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
-    "test_handover": "docs/continuous_improvement/SONG65_TEST_HANDOVER.json"
+    "test_handover": "docs/continuous_improvement/SONG65_TEST_HANDOVER.json",
+    "recovery_session": "docs/continuous_improvement/sessions/RESTORE66.json"
   },
   "roadmap": "docs/ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md",
   "queue": "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
-  "next_action": "At09:00 deliver the read-only final report and stop mutations; do not extend the programme.",
+  "next_action": "Verify and materialize recovered private assets for the current frozen game source, then assess original-app packaging.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json",
   "limitations": [
-    "R3 PARTIAL: source-material provenance only; no supported earned finished-song rewrite, player-facing changed-section transfer, readiness/ability score or preparation bonus. R4–R7 dependencies not passed.",
-    "Controlled future material projections are rule fixtures, not earned rewrites. Literal original uses three actual paid writing days then rehearsal. Producer-axis sweeps are individual alternatives, not a Cartesian recipe sweep.",
-    "Native careers use public formation/writing fixtures, not whole initial-menu journeys. Reload calls the real RootUI._load_original handler directly; no played Menu/Continue claim.",
-    "303 checks per profile include setup; nine writing-helper settlements are setup counts, not nine native rehearsals. Each native career has two selected and one general paid rehearsal plus one real selected FS failure/retry.",
-    "Reduced-motion desktop/Dummy proofs do not establish physical phone/touch, listening, normal-motion, install/save-retention, IME, OS interruption or uncoached acceptance.",
-    "Existing body scrolling, sparse wide presentation, static portraits and inherited ellipsised rehearsal excerpts remain.",
-    "Original signer accessible, but nine processed media dependencies remain missing. Raw Dropbox stems are not those dependencies; no new APK or public release.",
-    "CI guard covers current six fixed harnesses/static copied text resources and sibling/local Python imports, not future new model roots, relative/package/dynamic imports or runtime media coverage.",
-    "Current selected-rehearsal native proof uses reduced motion at allfourprofiles; normal-motion acknowledgement remains untested. No local native rerun thispass."
+    "R2/R3 game status unchanged; previous source/native evidence retained without rerun.",
+    "Recovered original V24 package supplies old registries/imported audio; later current character bindings and raw export inputs require verification.",
+    "Original signer is not available on this attached computer; old APK is recovery input, not a current test build."
   ],
   "overnight": {
     "automation_id": "6ae532c5fe9c819190f587a022c54052",
@@ -42,7 +37,8 @@
     "new_feature_stop": "07:00 Europe/London",
     "test_handover_ready_target": "08:50 Europe/London",
     "hard_stop": "09:00 Europe/London,14 November2026",
-    "first_slot": "2026-11-14T01:00:00+00:00"
+    "first_slot": "2026-11-14T01:00:00+00:00",
+    "separate_followup": "Owner authorised focused asset recovery at08:31;09:00 automated report stays read-only and cannot take over this active writer."
   },
-  "owner_test_status": "BLOCKED_NO_INSTALLABLE_BUILD_OR_OWNER_LAUNCH_TARGET"
+  "owner_test_status": "BLOCKED_PENDING_CURRENT_ASSET_INTEGRATION_AND_ORIGINAL_SIGNED_BUILD"
 }

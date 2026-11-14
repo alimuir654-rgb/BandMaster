@@ -1,8 +1,10 @@
 # BandMaster — sole execution queue
 
-Latest session: **SONG65 — CLOSED / candidate frozen**. Verified candidate `bd28cdd`, game source `7ae8667`.909sourcebindings independently matched; source CI4PASS; no new gameplay/native/audio/APK. **Hands-on test blocked: nine processed dependencies missing; no installable update or owner launch target.** R3partial/R4–R7held. Writer/helpers/GL released.
+Latest session: **RESTORE66 — ACTIVE / private audio recovery**. The08:31 owner follow-up authorises restoring existing assets and build checks. Root-RESTORE66 is sole writer. Ten V24 archive parts and five current-source FLACs plus verification metadata are restored; current-source/export compatibility remains under verification. The09:00 scheduled report must remain read-only.
 
-**Next action:** At09:00 deliver the read-only final report and stop mutations; do not extend the programme.
+Previous frozen handover: SONG65. Verified candidate `bd28cdd`, game source `7ae8667`.909sourcebindings independently matched; source CI4PASS; no new gameplay/native/audio/APK. **Hands-on test blocked: nine processed dependencies missing; no installable update or owner launch target.** R3partial/R4–R7held. Writer/helpers/GL released.
+
+**Next action:** Verify and materialize recovered private assets for the current frozen game source, then assess original-app packaging.
 
 [Test handover](SONG65_TEST_HANDOVER.json) · [Readiness results](SONG65_RESULTS.json). Source and screenshots are review evidence, not a playable build.
 
