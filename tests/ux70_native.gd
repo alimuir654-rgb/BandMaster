@@ -3,6 +3,7 @@ extends "res://tests/song62_native.gd"
 const Career=preload("res://experiments/playable_flightcase/career_desk.gd")
 const RootUI=preload("res://experiments/playable_flightcase/ui.gd")
 var nav_rects: Array=[]
+var normal_motion: bool=OS.get_environment("UX70_NORMAL_MOTION")=="1"
 
 func _initialize() -> void:
  for arg in OS.get_cmdline_user_args():
@@ -18,7 +19,7 @@ func _finish_native() -> void:
   var anchor: Array=nav_rects[0].rect
   for frame in nav_rects:
    check(frame.rect==anchor,"fixed navigation inset and size "+str(frame.frame))
- var result: Dictionary={"pass":failure_count==0,"viewport":[root.size.x,root.size.y],"checks":checks,"failures":failures,"images":images,"trace":trace,"navigation":nav_rects,"baseline":baseline,"actual_entry":"experiments/playable_flightcase/opening.tscn","physical_device":false,"listening":false}
+ var result: Dictionary={"pass":failure_count==0,"viewport":[root.size.x,root.size.y],"checks":checks,"failures":failures,"images":images,"trace":trace,"navigation":nav_rects,"baseline":baseline,"reduced_motion":not normal_motion,"actual_entry":"experiments/playable_flightcase/opening.tscn","physical_device":false,"listening":false}
  var file:=FileAccess.open(output+"/result.json",FileAccess.WRITE)
  if file!=null:file.store_string(JSON.stringify(result,"  ")+"\n");file.close()
  print("UX70_NATIVE "+JSON.stringify(result))
@@ -32,13 +33,13 @@ func _release_scene() -> void:
 
 func _mount_career() -> void:
  await _release_scene()
- scene=Career.new();scene.game=owner.game;scene.opening_owner=owner;scene.reduced_motion=true
+ scene=Career.new();scene.game=owner.game;scene.opening_owner=owner;scene.reduced_motion=not normal_motion
  root.add_child(scene);scene.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  await settle(10)
 
 func _mount_practice(activity: String) -> void:
  await _release_scene()
- scene=RootUI.new();scene.game=owner.game;scene.opening_owner=owner;scene.practice_activity=activity;scene.recap_expanded=false;scene.reduced_motion=true
+ scene=RootUI.new();scene.game=owner.game;scene.opening_owner=owner;scene.practice_activity=activity;scene.recap_expanded=false;scene.reduced_motion=not normal_motion
  root.add_child(scene);scene.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
  await settle(10)
 
@@ -88,7 +89,7 @@ func _run_native() -> void:
  owner=CountedOwner.new()
  check(owner.begin_new() and owner.set_genre("Indie rock") and owner.to_recruit(),"canonical new audition fixture")
  check(owner.begin_audition("cast_jack","Guitarist",true).ok,"original direct audition entry")
- scene=load("res://experiments/playable_flightcase/opening.tscn").instantiate();scene.setup=owner;scene.showing_menu=false;scene.reduced_motion=true;root.add_child(scene)
+ scene=load("res://experiments/playable_flightcase/opening.tscn").instantiate();scene.setup=owner;scene.showing_menu=false;scene.reduced_motion=not normal_motion;root.add_child(scene)
  await settle(10);await _record_frame("audition-entry")
  if baseline:
   await activate("AuditionTalk_working_style_shared");await _record_frame("audition-second-question")
@@ -100,7 +101,7 @@ func _run_native() -> void:
 func _mount_opening(landing: bool=true) -> void:
  await _release_scene()
  scene=load("res://experiments/playable_flightcase/opening.tscn").instantiate()
- scene.setup=owner;scene.showing_menu=false;scene.reduced_motion=true;scene._career_landing=landing
+ scene.setup=owner;scene.showing_menu=false;scene.reduced_motion=not normal_motion;scene._career_landing=landing
  root.add_child(scene);await settle(10)
 
 func _free(before: Dictionary,disk: PackedByteArray,saves: int,label: String) -> void:
@@ -314,6 +315,13 @@ func _candidate_writing() -> void:
  check(desk._target().respondent_ref.candidate_id=="cast_casey","explicit intended Casey restored")
  await _key(KEY_ESCAPE)
  check(not desk._shape_open and not is_instance_valid(desk._dialog),"Escape matches local Shape Back")
+ _visible_focus("writing Shape Escape")
+ await _record_frame("writing-shape-escape")
+ if failure_count>0:return
+ if not await activate("MixingShapeAction",true):return
+ if not await activate("MixingShapeDone",true):return
+ _visible_focus("writing Shape Done")
+ if failure_count>0:return
  _free(before,disk,saves,"Shape and partner choices")
  await _rapid("MixingResponse_try",350)
  check(desk._decision.get("choice")=="try","rapid reply repeat cannot undo or commit")
@@ -321,6 +329,8 @@ func _candidate_writing() -> void:
  _free(before,disk,saves,"writing reply and review")
  await _record_frame("writing-reply")
  if not await activate("MixingChangeReply"):return
+ _visible_focus("writing Change Reply")
+ if failure_count>0:return
  if not await activate("MixingResponse_keep"):return
  await _ready_turn()
  check(desk._decision.get("choice")=="keep","original Keep reply")
@@ -489,7 +499,7 @@ func _held_workbench(seed: Dictionary) -> void:
  await _release_scene()
  if not check(owner.restore(held) and owner.save_draft() and owner.load_draft(),"real held fixture save and load"):return
  var before: Dictionary=owner.snapshot();var disk: PackedByteArray=FileAccess.get_file_as_bytes(Owner.SAVE_PATH);var saves: int=owner.saves
- scene=load("res://experiments/playable_flightcase/opening.tscn").instantiate();scene.setup=owner;scene.showing_menu=true;scene.reduced_motion=true;root.add_child(scene);await settle(8)
+ scene=load("res://experiments/playable_flightcase/opening.tscn").instantiate();scene.setup=owner;scene.showing_menu=true;scene.reduced_motion=not normal_motion;root.add_child(scene);await settle(8)
  if not await activate("ContinueAction"):return
  var desk=scene._practice_view._workbench_desk
  check(desk._view.held and not desk.has_local_edits(),"actual Continue opens clean held modern view")

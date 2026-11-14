@@ -1,0 +1,15 @@
+{
+  "source_head": "5f5043b",
+  "product_source_sha": "a84271c244a416a257770b984029c7ba9baa324f",
+  "pass": false,
+  "checks": 873,
+  "failures": [
+    "Arjun primary recorded player works with Details closed"
+  ],
+  "images": 22,
+  "baseline_phone_checks": 192,
+  "baseline_short_checks": 192,
+  "cause": "The public checkout lacks the deliberately ignored character_indie29 registry/media; character_audio.attach cannot create the Arjun player. Restore exact delivered V26 dependencies before treating this as a product defect.",
+  "listening": false,
+  "source_changes": "none in product"
+}
