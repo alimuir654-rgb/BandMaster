@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "session": "RESTORE66",
+  "status": "assets_restored_runtime_and_packaging_checks_pending",
+  "updated_at": "2026-11-14T09:13:57.016172+00:00",
+  "authority": "Owner Go ahead at08:31 on14Nov2026; scoped recovery of existing assets and build checks",
+  "source_baseline": "52ec916f4ff49b1895e1c2af52b4e92e540dcd05",
+  "unchanged_game_code_commit": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
+  "restored_Dropbox_files": {
+    "V24_archive_parts": 10,
+    "later_source_FLACs": 5,
+    "original_verification_manifest": 1,
+    "individual_deleted_revisions_restored": true
+  },
+  "original_V24_APK": {
+    "bytes": 461783381,
+    "sha256": "a46446c507ba165fc79dc70dbadb73fe4861f04d71b3710e073afbee2f4bca66",
+    "role": "Verified recovery input; not a new candidate"
+  },
+  "WAV_recovery": {
+    "exact_original_source_recordings": 5,
+    "exact_source_bytes": 147410780,
+    "exact_processed_WAVs": 185,
+    "exact_processed_bytes": 311464740,
+    "full_file_and_PCM_hashes_match": true,
+    "independently_verified": true
+  },
+  "OGG_recovery": {
+    "schema_version": 1,
+    "pinned_engine_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+    "verified_private_containers": 28,
+    "all_compressed_packets_identical": true,
+    "all_page_granules_identical": true,
+    "all_same_engine_decoded_PCM_identical": true,
+    "private_per_file_receipt_sha256": "8b54e4ea9d5922f594b6c67b92e5a05c3c2facc6d4017f1281d049599326fbe7",
+    "listening_verified": false,
+    "harness_note": "Compare actual bounded decoded frames, including the decoder final short read. No ceil-duration full-buffer assumption.",
+    "original_container_bytes_identical": false,
+    "method": "Preserve original Vorbis packets and page granules; reconstruct Ogg container with deterministic serial and CRC",
+    "original_container_hashes_preserved_in_private_receipts": true,
+    "runtime_hash_checks_unchanged": true,
+    "tracked_original_container_controls": 418
+  },
+  "current_characters": {
+    "canonical_assignments_match": 18,
+    "bound_materials": 30,
+    "retained_total_material_rows": 33,
+    "later_existing_recipes_reapplied": 7,
+    "Nina_owner_acceptance_retained": true,
+    "ENGAGE52_three_owner_acceptance_flags_retained": true,
+    "Tom_listening_acceptance": false,
+    "new_musical_generation": false,
+    "new_listening_approval": false
+  },
+  "runtime_tests": "pending fresh isolated run",
+  "new_APK": "not yet exported",
+  "signing": {
+    "original_key_accessible_here": false,
+    "original_certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "replacement_key_generated": false,
+    "installable_update": false
+  },
+  "scope_protection": {
+    "R2_owner_acceptance": false,
+    "R3_complete": false,
+    "R4_to_R7_held": true,
+    "producer_core_changed": false,
+    "main_or_PR199_changed": false,
+    "private_media_or_runtime_registries_published": false
+  },
+  "next_action": "Run current audio lifecycle/save checks; prepare version26 unsigned candidate and fresh compiled-payload proof if gates pass. Signing remains with original key environment."
+}

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "path": "res://experiments/playable_flightcase/audio/title_indie29.ogg",
-  "sha256": "e65d316987b93f8f7a5cae50503c1afaa5224f93cc72348b94b3045ff61730e4",
+  "sha256": "17bd343c377962567092c1209a331453e9c61807b4e834957cad927d78a2add7",
   "owner_listening_accepted": false,
   "integration_review_accepted": true,
   "integration_authority": "owner_request_20261109",
@@ -9,5 +9,15 @@
   "listening_verified": false,
   "source_start_frame": 877920,
   "seconds": 6,
-  "once_per_process": true
+  "once_per_process": true,
+  "recovery": {
+    "method": "Lossless Vorbis packet rewrap; original page granules retained; deterministic replacement container serial",
+    "source_APK_sha256": "a46446c507ba165fc79dc70dbadb73fe4861f04d71b3710e073afbee2f4bca66",
+    "original_container_sha256": "e65d316987b93f8f7a5cae50503c1afaa5224f93cc72348b94b3045ff61730e4",
+    "imported_resource_sha256": "bbbcce8dde5684bb9fa94f24f0bb58a05564fd8efd5cf2b7f8f179d066ec5b58",
+    "packet_sequence_sha256": "146d0ade91f53d9660fda4385822e423bc1dc38a3f45c7a3e01180d484a45c42",
+    "audio_packets_unchanged": true,
+    "container_bytes_identical": false,
+    "new_listening_claim": false
+  }
 }

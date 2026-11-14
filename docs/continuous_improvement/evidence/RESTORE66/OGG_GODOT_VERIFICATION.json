@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "pinned_engine_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+  "verified_private_containers": 28,
+  "all_compressed_packets_identical": true,
+  "all_page_granules_identical": true,
+  "all_same_engine_decoded_PCM_identical": true,
+  "private_per_file_receipt_sha256": "8b54e4ea9d5922f594b6c67b92e5a05c3c2facc6d4017f1281d049599326fbe7",
+  "listening_verified": false,
+  "harness_note": "Compare actual bounded decoded frames, including the decoder final short read. No ceil-duration full-buffer assumption."
+}
