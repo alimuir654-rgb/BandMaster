@@ -1,0 +1,38 @@
+
+7-Zip 25.01 (x64) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
+ 64-bit locale=C.UTF-8 Threads:9 OPEN_MAX:16384, ASM
+
+Scanning the drive for archives:
+1 file, 50331648 bytes (48 MiB)
+
+Listing archive: /workspace/scratch/2396c7b6b919/audio-restore-20261114/v26-transport/parts/BandMaster-V26.7z.001
+
+--
+Path = /workspace/scratch/2396c7b6b919/audio-restore-20261114/v26-transport/parts/BandMaster-V26.7z.001
+Type = Split
+Physical Size = 50331648
+Volumes = 8
+Total Physical Size = 372862916
+----
+Path = BandMaster-V26.7z
+Size = 372862916
+--
+Path = BandMaster-V26.7z
+Type = 7z
+Physical Size = 372862916
+Headers Size = 170
+Method = Copy
+Solid = -
+Blocks = 1
+
+----------
+Path = BandMaster-Playtest-v26-arm64.apk
+Size = 372862746
+Packed Size = 372862746
+Modified = 2026-11-14 14:15:17.4419267
+Attributes = A -rw-r--r--
+CRC = 651775A9
+Encrypted = -
+Method = Copy
+Block = 0
+

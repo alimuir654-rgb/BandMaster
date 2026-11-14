@@ -1,0 +1,12 @@
+{
+  "at": "2026-11-14T14:22:31.118789+00:00",
+  "action": "Upload complete signed APK through Dropbox file-parameter adapter",
+  "source_bytes": 372862746,
+  "result": "FAILED_BEFORE_DROPBOX",
+  "failure": "OpenAI file blob upload failed after 300000 ms; route-aware request timed out.",
+  "dropbox_operation_id_returned": false,
+  "remote_file_creation_confirmed": false,
+  "signed_artifact_unchanged": true,
+  "retry_strategy": "Use the previously established standard archive-volume private Dropbox transport, verify local reassembly and every remote part. No APK rebuild or content change.",
+  "final_destination_check_after_terminal_error": "NOT_FOUND"
+}

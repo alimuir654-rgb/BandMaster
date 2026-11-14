@@ -1,0 +1,19 @@
+BandMaster V26 - Android phone installation
+
+1. Download ALL EIGHT files named BandMaster-V26.7z.001 through .008 from Dropbox.
+   Save every part in the SAME local phone folder, keeping the names unchanged.
+   These are transport archive parts; do not try to install individual parts.
+2. Open ZArchiver on your phone. Find that folder, tap BandMaster-V26.7z.001,
+   and choose Extract here. It reads the remaining parts automatically.
+   Use your existing Android app that supports standard multipart 7-Zip archives.
+3. Tap the extracted BandMaster-Playtest-v26-arm64.apk and install as an UPDATE.
+   Do not uninstall BandMaster or clear its storage: keep your existing saves.
+
+Allow roughly 1.5 GB of free phone storage for the parts and extracted APK.
+If extraction reports a missing volume, check that all eight parts finished
+downloading to the same local folder. Dropbox offline-only copies may need
+exporting/saving to the phone first. Keep the .001 to .008 file extensions.
+
+This is the same signed V26 APK, not a new build or split app installation.
+Original certificate, app ID and saved-game location are preserved.
+Once installed successfully, the downloaded archive parts can be removed.

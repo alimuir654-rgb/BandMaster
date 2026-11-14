@@ -1,0 +1,18 @@
+{
+  "reviewer": "/root/r2_design_review",
+  "read_only": true,
+  "observed_at": "2026-11-14T14:20:51.077356+00:00",
+  "personal_account": true,
+  "home_namespace_id": "13916460209",
+  "root_namespace_id": "13916460209",
+  "destination": "ns:13916460209//BandMaster/BandMaster-Playtest-v26-arm64.apk",
+  "parent_folder_is_ordinary_personal_folder": true,
+  "shared_folder_id_present": false,
+  "team_folder_marker_present": false,
+  "account_owned_shared_links_pagination_complete": true,
+  "destination_or_ancestor_shared_link_found": false,
+  "provider_folder_url": "https://www.dropbox.com/home/BandMaster",
+  "new_sharing_grants": false,
+  "public_link_created": false,
+  "limitation": "No folder-member enumeration capability is exposed; result binds account, namespace, folder metadata and complete owned-link listing."
+}

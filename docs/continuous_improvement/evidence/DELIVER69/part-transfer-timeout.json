@@ -1,0 +1,14 @@
+{
+  "at": "2026-11-14T14:31:31.891837+00:00",
+  "failed_file": "BandMaster-V26.7z.003",
+  "bytes": 50331648,
+  "failure": "OpenAI file-parameter blob upload timed out after 300001 ms before Dropbox; error sending request.",
+  "other_in_flight_file": "BandMaster-V26.7z.002",
+  "other_file_status": "awaiting terminal result",
+  "verified_remote_parts": [
+    "BandMaster-V26.7z.001",
+    "BandMaster-V26.7z.008"
+  ],
+  "signed_APK_unchanged": true,
+  "method_change": "Save verified complete APK through the supported prepared Library workspace-transfer route, then forward the Library-backed file to Dropbox. No repeated large local-blob transfer unless prepared identity provides a different route."
+}

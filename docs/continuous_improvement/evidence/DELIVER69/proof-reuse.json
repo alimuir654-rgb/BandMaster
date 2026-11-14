@@ -1,0 +1,18 @@
+{
+  "source_commit": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
+  "game_source_commit": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
+  "retained_unsigned_apk_sha256": "3ba53963494717c1cce448e6a630dc519125df4719fc49acf46f6a94d9e9b39c",
+  "signed_apk_sha256": "dfe7e644a73b8ead1f80485ccf4cd5741bace466d1c73fc3eaf121b97f52dd9f",
+  "all_2134_zip_entries_and_metadata_unchanged": true,
+  "assembly_adds_only_signature_block_and_eocd_cd_offset": true,
+  "compiled_payload_checks_reused": 510,
+  "fresh_gameplay_tests_run": 0,
+  "source_checks_previously_passed": 1057,
+  "retained_proof_files_rehashed": {
+    "compiled-payload.zip": "81f2713634f8768ba6c650659c86c4d64578e45f9ba084d977514a9d34db660c",
+    "compiled-model.log": "e9aab4b17f2c4a2e4c03e658074bb20292a4e4103213dc0ce55e47e477e2e510"
+  },
+  "proof_record": "docs/continuous_improvement/evidence/RESTORE66/verification.json",
+  "listening_verified": false,
+  "physical_device_tested": false
+}

@@ -1,10 +1,10 @@
 # BandMaster — sole execution queue
 
-Latest session: **DELIVER69 — ACTIVE**. Assemble the retained V26 with the original-key public response; official signature, update identity, alignment and unchanged-payload checks before private Dropbox delivery. No rebuild or key operation.
+Latest session: **DELIVER69 — ACTIVE**. V26 signed/officially verified with exact payload, original app/certificate/save identity and no rebuild. Complete APK is privately available to the owner; Dropbox transfer completion remains active after bridge timeouts.
 
-**Next action:** Assemble the exact retained V26 APK with the committed public response, verify signature/update/alignment and unchanged payload, then deliver privately to Dropbox.
+**Next action:** Complete and verify the private Dropbox transfer of the signed V26 APK, then test the in-place update and Continue.
 
-[Session](sessions/DELIVER69.json) · [Signature](../signing/BandMaster-V26-signature-response.json) · [Recovery runbook](../signing/RECOVERY.md).
+[Results](DELIVER69_RESULTS.json) · [Review](DELIVER69_REVIEW.json) · [Recovery](../signing/RECOVERY.md).
 
 ## Linked songs and band life
 

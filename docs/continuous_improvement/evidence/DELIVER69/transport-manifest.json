@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "APK_name": "BandMaster-Playtest-v26-arm64.apk",
+  "APK_bytes": 372862746,
+  "APK_sha256": "dfe7e644a73b8ead1f80485ccf4cd5741bace466d1c73fc3eaf121b97f52dd9f",
+  "volume_bytes_max": 50331648,
+  "volume_count": 8,
+  "standard_7z_all_volumes_test": true,
+  "native_clean_extraction_exact_APK": true,
+  "archive_files": 1,
+  "only_archived_file": "BandMaster-Playtest-v26-arm64.apk",
+  "original_APK_unchanged": true,
+  "new_APK_build": false,
+  "Android_physical_test": false,
+  "files": [
+    {
+      "name": "BandMaster-V26.7z.001",
+      "bytes": 50331648,
+      "sha256": "2214271c6cda9d354093db875a196028dfac30c88aed3fa65c7b118ed570608e",
+      "Dropbox_content_hash": "bb0f2ad182570e43e18194903d050981d89c89e92d0ccf0d54ef9e71ebfe8cc2"
+    },
+    {
+      "name": "BandMaster-V26.7z.002",
+      "bytes": 50331648,
+      "sha256": "59e37bb46fbc6a6d2c3c544b13597bc00521bc4ff0f538d8aa57ec83e756f5af",
+      "Dropbox_content_hash": "f544296727b29b16b39d66c82dd362e12c041d77a04387d2aed2fa9fc1d49bf5"
+    },
+    {
+      "name": "BandMaster-V26.7z.003",
+      "bytes": 50331648,
+      "sha256": "e844f88b07c468e117ca6855769313352d5bc6ae1759e45320604a4c4f65cf8d",
+      "Dropbox_content_hash": "353c3dcc9f15119b148426e5336486db9ecf6a009c38f939782a8e9f47b565bb"
+    },
+    {
+      "name": "BandMaster-V26.7z.004",
+      "bytes": 50331648,
+      "sha256": "893cbb9276396c4e74540356f1fa18dc3465654b1f55650c0da311ec4f3bfcb6",
+      "Dropbox_content_hash": "c5d0d7fec56314b067a6804c74f3a400cb3cfb764a939c53807dde236b1faf11"
+    },
+    {
+      "name": "BandMaster-V26.7z.005",
+      "bytes": 50331648,
+      "sha256": "79e7bc1403e1a9695abb59c9d3e8181b91981441b2da41b25579ebaa290d782c",
+      "Dropbox_content_hash": "8cb527ab45456052f4245f226139ba701dacd440544980c7717a4ccef488b132"
+    },
+    {
+      "name": "BandMaster-V26.7z.006",
+      "bytes": 50331648,
+      "sha256": "694fb4e9a56ae47aba6a275a387969d289ad643a1fbc2ac501e5a335f8987fff",
+      "Dropbox_content_hash": "bbb8a40ad6febdef6beb7e142f6079c70007e57e97c5f04f5249d479f4019c2f"
+    },
+    {
+      "name": "BandMaster-V26.7z.007",
+      "bytes": 50331648,
+      "sha256": "f48b5b6e694d7f3d7ab673e3ae986c13fb0b0a161809890180af5a798558b7e5",
+      "Dropbox_content_hash": "bbf525b3464a486c8246e8861125c37fbf24c364602e71886ca9f6b360340970"
+    },
+    {
+      "name": "BandMaster-V26.7z.008",
+      "bytes": 20541380,
+      "sha256": "07079f292776c7c8d52b18fa5ab6d66349d4c812ffa67fa584cfbd64e3025acb",
+      "Dropbox_content_hash": "27a69122451afcc94c8812337d077acf738b6291cd95d79033930e10367fb266"
+    },
+    {
+      "name": "V26-ANDROID-INSTALL.txt",
+      "bytes": 1201,
+      "sha256": "0175fa52f3e64fa0b5602dfb6449d056ef87af603afaf47f60bcef568ddf7a51",
+      "Dropbox_content_hash": "29f04379813ce2eb7435aa48fb40a7d5a30831b460cae814568fd13612b65d81"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "filename": "BandMaster-Playtest-v26-arm64.apk",
+  "bytes": 372862746,
+  "sha256": "dfe7e644a73b8ead1f80485ccf4cd5741bace466d1c73fc3eaf121b97f52dd9f",
+  "dropbox_content_hash": "0fcbfdaeb99b4f5c64e9659d81cd9e6976f815186f1ac20ae715360fbf00de76",
+  "application_id": "com.bandmaster.ownerplaytest.s40",
+  "version_code": 26,
+  "version_name": "0.166.0-playtest-restored",
+  "original_certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+  "private_key_used_here": false,
+  "rebuild": false,
+  "unsigned_sha256": "3ba53963494717c1cce448e6a630dc519125df4719fc49acf46f6a94d9e9b39c",
+  "request_sha256": "42fb4c51238778f681adb86fdff6cd6648b1062c56d4249fbe31faf62c9fcff0",
+  "response_sha256": "6e2d6f1f55fe8f62aab0b52ec0acedc28330882e01b10e0cf6ebc4b756c1b4dd",
+  "created_at": "2026-11-14T14:16:24.988065+00:00"
+}

@@ -11,8 +11,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
   },
   "issue_log_review": {
-    "bytes": 2354838,
-    "sha256": "9042a07fbce933011748167c73c33f3d6d77f0e813df4be8db33b059de8a758c"
+    "bytes": 2357336,
+    "sha256": "0d97f9aee902c48621389c8c03999ba0244113a080841b911856fcfa17b82f5a"
   },
   "lesson_ids": [
     "BM-17",
@@ -59,7 +59,7 @@
     "claimed_at": "2026-11-14T14:14:30.930197+00:00",
     "expires_at": null
   },
-  "next_action": "Assemble the exact retained V26 APK with the committed public response, verify signature/update/alignment and unchanged payload, then deliver privately to Dropbox.",
+  "next_action": "Complete and verify the private Dropbox transfer of the signed V26 APK, then test the in-place update and Continue.",
   "queue_task_ids": [
     "SIGN67"
   ],
@@ -67,7 +67,8 @@
     "new_artifact_cap_bytes": 1200000000,
     "minimum_free_bytes": 1073741824,
     "destination": "/BandMaster/BandMaster-Playtest-v26-arm64.apk",
-    "retained_inputs": "Original unsigned APK, V24 reference, compiled proof, private media and all signing/recovery material remain unchanged."
+    "retained_inputs": "Original unsigned APK, V24 reference, compiled proof, private media and all signing/recovery material remain unchanged.",
+    "transport_fallback": "Existing standard 7z archive volumes, <=48MiB each, containing only the exact signed APK; no app split/rebuild."
   },
   "predesign": {
     "reviewer": "/root/test_readiness",

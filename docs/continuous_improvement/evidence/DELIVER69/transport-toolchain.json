@@ -1,0 +1,12 @@
+{
+  "tool": "7zip",
+  "version": "25.01+dfsg-1~deb13u2",
+  "package_url": "https://deb.debian.org/debian/pool/main/7/7zip/7zip_25.01+dfsg-1~deb13u2_amd64.deb",
+  "package_bytes": 1573700,
+  "package_sha256": "b2cb210bee3be6a10230b38b8645d71846d19364b157f44fd08e1a54cae1652f",
+  "matches_prior_DELIVER46_pin": true,
+  "private_extraction_only": true,
+  "system_install": false,
+  "runtime_dependency_change": false,
+  "executable": "toolchain/7zip-deliver69/usr/lib/7zip/7z"
+}

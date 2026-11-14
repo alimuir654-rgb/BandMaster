@@ -1,0 +1,16 @@
+
+7-Zip 25.01 (x64) : Copyright (c) 1999-2025 Igor Pavlov : 2025-08-03
+ 64-bit locale=C.UTF-8 Threads:9 OPEN_MAX:16384, ASM
+
+Scanning the drive:
+1 file, 372862746 bytes (356 MiB)
+
+Creating archive: /workspace/scratch/2396c7b6b919/audio-restore-20261114/v26-transport/parts/BandMaster-V26.7z
+
+Add new data to archive: 1 file, 372862746 bytes (356 MiB)
+
+
+Files read from disk: 1
+Archive size: 372862916 bytes (356 MiB)
+Volumes: 8
+Everything is Ok

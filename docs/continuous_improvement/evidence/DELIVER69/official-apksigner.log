@@ -1,0 +1,17 @@
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): false
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+Signer #1 certificate DN: CN=BandMaster Owner Playtest, O=BandMaster, C=GB
+Signer #1 certificate SHA-256 digest: 83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2
+Signer #1 certificate SHA-1 digest: 7c4b5c94522ebeba8360dba8053c84fd2d775130
+Signer #1 certificate MD5 digest: e85fd2e8d4c9cb5deccb8956eb1e29b1
+Signer #1 key algorithm: RSA
+Signer #1 key size (bits): 2048
+Signer #1 public key SHA-256 digest: 2420d32d076dcbdc11b4ca06f09009f18090ca08107755d827fe0506eeaabe5d
+Signer #1 public key SHA-1 digest: 0cc463deab85bd1fa1e083d1576267d12ed27fc7
+Signer #1 public key MD5 digest: ffcb0b436b1d0992bbec1f87e176ade2

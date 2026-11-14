@@ -1,0 +1,79 @@
+{
+  "reviewer": "/root/test_readiness",
+  "read_only": true,
+  "completed_at": "2026-11-14T14:20:51.077356+00:00",
+  "verdict": "PASS_PACKAGE_UPDATE_IDENTITY",
+  "candidate_sha256": "dfe7e644a73b8ead1f80485ccf4cd5741bace466d1c73fc3eaf121b97f52dd9f",
+  "candidate_bytes": 372862746,
+  "commands": [
+    {
+      "command": "apksigner verify --verbose --print-certs --min-sdk-version 24 --max-sdk-version 36 signed-v26/BandMaster-Playtest-v26-arm64.apk",
+      "exit_code": 0
+    },
+    {
+      "command": "zipalign -c -P 16 4 signed-v26/BandMaster-Playtest-v26-arm64.apk",
+      "exit_code": 0
+    },
+    {
+      "command": "aapt dump xmltree <each V24 and V26 APK> AndroidManifest.xml; parse and compare complete trees",
+      "exit_code": 0
+    }
+  ],
+  "signature": {
+    "scheme_v2": true,
+    "signers": 1,
+    "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "public_key_sha256": "2420d32d076dcbdc11b4ca06f09009f18090ca08107755d827fe0506eeaabe5d",
+    "android_api_range": [
+      24,
+      36
+    ]
+  },
+  "manifest_comparison": {
+    "reference_version": 24,
+    "candidate_version": 26,
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "complete_tree_equal_except": [
+      "versionCode",
+      "versionName"
+    ],
+    "normalized_tree_sha256": "07f8b531749acfc509318f67491d39aa051abc086e3ac4542ac8eea3e4bc0e1e",
+    "minimum_sdk": 24,
+    "target_sdk": 36,
+    "abis": [
+      "arm64-v8a"
+    ],
+    "permissions": [],
+    "allowBackup": false,
+    "launcher_alias": "com.godot.game.GodotAppLauncher",
+    "target_activity": "com.godot.game.GodotApp",
+    "launcher_exported": true,
+    "launcher_and_target_enabled": true,
+    "same_filter_main_and_launcher": true,
+    "home_category": false,
+    "sharedUserId": false
+  },
+  "compiled_project": {
+    "all_17_records_parsed_exact_eof": true,
+    "same_keys_as_v24": true,
+    "changed_encoded_values_only": [
+      "application/config/version",
+      "application/config/build_number"
+    ],
+    "application/config/use_custom_user_dir": true,
+    "application/config/custom_user_dir_name": "BandMasterOwnerPlaytestS40",
+    "application/run/main_scene": "res://experiments/playable_flightcase/opening.tscn",
+    "project_binary_sha256": "51799288b81780e2f0b35b0058f2824148fbf3e614262c6de0b5e52381eae79c"
+  },
+  "unchanged_android_executables_vs_v24": {
+    "classes.dex": "6d3e2153f6aced466ed6b97db92432f11cdc823f03d96e8403db3ac5feac4b20",
+    "lib/arm64-v8a/libc++_shared.so": "c4c2fe5cbcb1fba0003a31fc7ab29a9bb12df6cc187ec45a806462540e83d93b",
+    "lib/arm64-v8a/libgodot_android.so": "6b1cbfa830c7f6addec89bb5a4a444be53b3527472668fede03ca8637e040198"
+  },
+  "physical_device_tested": false,
+  "production_save_accessed": false,
+  "private_key_accessed": false,
+  "limitations": [
+    "Static update identity and save directory verified; physical in-place update and Continue are pending."
+  ]
+}

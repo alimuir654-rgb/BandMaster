@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "/workspace/scratch/2396c7b6b919/audio-restore-20261114/android-sdk/build-tools/35.0.0/aapt",
+    "dump",
+    "xmltree",
+    "/workspace/scratch/2396c7b6b919/audio-restore-20261114/signed-v26/BandMaster-Playtest-v26-arm64.apk",
+    "AndroidManifest.xml"
+  ],
+  "exit_code": 0
+}

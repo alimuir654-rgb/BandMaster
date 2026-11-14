@@ -7,12 +7,12 @@
   "status": "active",
   "scope": "V26 detached-signature assembly, official Android verification, immutable payload/update identity checks and private Dropbox delivery; no rebuild, key operation or game change.",
   "authority": "Finish V26 using docs/signing/BandMaster-V26-signature-response.json on feature/playtest-polish-v20. Assemble the retained unsigned APK, run official signature/update/alignment checks, and deliver the signed update privately to Dropbox. Preserve the original key and app ID; do not rebuild or generate a key.",
-  "updated_at": "2026-11-14T14:14:30.930197+00:00",
+  "updated_at": "2026-11-14T14:36:58.624128+00:00",
   "writer": "root-DELIVER69",
   "owner_approved": false,
   "source": {
     "implementation_sha": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
-    "verification": "5exactoriginalWAVs,185exactprocessedWAVs,28OGGsame-engineequivalence;1057sourcechecks+510actualcompiledchecks pass;3sourceCIpass;V26unsigned only.",
+    "verification": "V26 signed with the original certificate; official API24-36 signature, 16KiB alignment and static update identity pass. All2134payload entries unchanged; exact prior510compiled and1057source checks reused.",
     "final_results": "docs/continuous_improvement/RESTORE66_RESULTS.json",
     "review": "docs/continuous_improvement/RESTORE66_REVIEW.json",
     "native_evidence": "docs/continuous_improvement/evidence/SONG63/",
@@ -29,17 +29,19 @@
     "signature_response": "docs/signing/BandMaster-V26-signature-response.json",
     "signing_runbook": "docs/signing/RECOVERY.md",
     "recovery_escrow_results": "docs/continuous_improvement/ESCROW68_RESULTS.json",
-    "recovery_escrow_review": "docs/continuous_improvement/ESCROW68_REVIEW.json"
+    "recovery_escrow_review": "docs/continuous_improvement/ESCROW68_REVIEW.json",
+    "assembly_results": "docs/continuous_improvement/DELIVER69_RESULTS.json",
+    "assembly_review": "docs/continuous_improvement/DELIVER69_REVIEW.json",
+    "signed_apk_sha256": "dfe7e644a73b8ead1f80485ccf4cd5741bace466d1c73fc3eaf121b97f52dd9f"
   },
   "roadmap": "docs/ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md",
   "queue": "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
-  "next_action": "Assemble the exact retained V26 APK with the committed public response, verify signature/update/alignment and unchanged payload, then deliver privately to Dropbox.",
+  "next_action": "Complete and verify the private Dropbox transfer of the signed V26 APK, then test the in-place update and Continue.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json",
   "limitations": [
-    "Privatefileescrow verified; bothownercloudconnections/runtime required, notmanagedvault.",
-    "Freshsame-hostisolatedremote-backedrecoverytested; no actualnewmachine/newchat test.",
-    "TemporaryretrievalURLshownonce, advertisedexpiryelapsed; access/copiedduringwindowunknown.",
-    "V26signatureunchanged; APKassembly/officialverification/physicaltestsremainseparate."
+    "V26 physical in-place update, Continue and listening remain untested.",
+    "Dropbox delivery is partial while transfers run; the complete signed APK is separately available privately to the owner.",
+    "Existing recovery escrow is unchanged; see ESCROW68 for its independent limitations."
   ],
   "overnight": {
     "automation_id": "6ae532c5fe9c819190f587a022c54052",
@@ -52,5 +54,5 @@
     "automation_enabled": false,
     "programme_ended": true
   },
-  "owner_test_status": "V26_ASSEMBLY_AND_PRIVATE_DELIVERY_IN_PROGRESS"
+  "owner_test_status": "V26_SIGNED_VERIFIED_PRIVATE_DOWNLOAD_READY_DROPBOX_PARTIAL"
 }

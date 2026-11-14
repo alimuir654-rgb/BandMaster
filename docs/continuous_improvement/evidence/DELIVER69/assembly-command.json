@@ -1,0 +1,24 @@
+{
+  "command": [
+    "python3",
+    "tools/detached_apk_v2.py",
+    "assemble",
+    "--apk",
+    "/workspace/scratch/2396c7b6b919/audio-restore-20261114/unsigned-build/BandMaster-Playtest-v26-UNSIGNED.apk",
+    "--public-reference",
+    "--sdk",
+    "/workspace/scratch/2396c7b6b919/audio-restore-20261114/android-sdk/build-tools/35.0.0",
+    "--output",
+    "/workspace/scratch/2396c7b6b919/audio-restore-20261114/signed-v26/BandMaster-Playtest-v26-arm64.apk",
+    "--policy",
+    "docs/continuous_improvement/evidence/RESTORE66/v26-policy.json",
+    "--request",
+    "docs/continuous_improvement/evidence/RESTORE66/BandMaster-V26-APK-v2-signing-request.json",
+    "--response",
+    "docs/signing/BandMaster-V26-signature-response.json"
+  ],
+  "source_sha": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
+  "metadata_head": "3e48c0ff630321c449ef12e32a1ab008266f4565",
+  "private_key_needed": false,
+  "rebuild": false
+}
