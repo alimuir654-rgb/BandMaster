@@ -1,18 +1,17 @@
 {
   "schema_version": 1,
-  "session": "SONG56",
-  "session_path": "docs/continuous_improvement/sessions/SONG56.json",
+  "session": "SONG57",
+  "session_path": "docs/continuous_improvement/sessions/SONG57.json",
   "canonical_current": "docs/continuous_improvement/CURRENT.json",
   "branch": "feature/playtest-polish-v20",
-  "status": "closed",
-  "writer": null,
+  "status": "active",
+  "writer": "root-SONG57",
   "owner_approved": false,
-  "updated_at": "2026-11-14T00:05:17.245128+00:00",
-  "next_single_action": "Scope SONG53-R2 stable song/revision/participant identity and co-writing as a separate pass from the verified SONG56 source; owner visual acceptance remains pending.",
+  "updated_at": "2026-11-14T00:19:24.463259+00:00",
+  "next_single_action": "Implement and verify versioned craft fairness for new songs while preserving historical receipts, then hand off the remaining R2 identity and selected-contributor work.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json",
-  "base_head": "7de57531d4e87033708504384f33bbceffe2f1fd",
-  "claimed_at": "2026-11-13T23:49:23.598597+00:00",
-  "expires_at": null,
-  "claim_basis": "Owner-authorised finite continuation; one root writer and read-only reviewers. No revived historical overnight lease.",
-  "released_at": "2026-11-14T00:05:17.245128+00:00"
+  "base_head": "dd5bf4a9ab968d9c3e730300fd65d0d46f2cda71",
+  "claimed_at": "2026-11-14T00:19:24.463259+00:00",
+  "expires_at": "2026-11-14T01:00:00+00:00",
+  "claim_basis": "14 November 2026 owner: Pick up bandmaster roadmap work. Split into hourly chunks to target a 9am test for me. Automate through and make as much progress as possible until then. I won't be available for reviews or approvals until then."
 }

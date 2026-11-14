@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "session": "SONG56",
-  "session_path": "docs/continuous_improvement/sessions/SONG56.json",
+  "session": "SONG57",
+  "session_path": "docs/continuous_improvement/sessions/SONG57.json",
   "canonical_current": "docs/continuous_improvement/CURRENT.json",
   "branch": "feature/playtest-polish-v20",
-  "status": "closed",
-  "writer": null,
+  "status": "active",
+  "writer": "root-SONG57",
   "owner_approved": false,
-  "updated_at": "2026-11-14T00:05:17.245128+00:00",
-  "next_single_action": "Scope SONG53-R2 stable song/revision/participant identity and co-writing as a separate pass from the verified SONG56 source; owner visual acceptance remains pending.",
+  "updated_at": "2026-11-14T00:19:24.463259+00:00",
+  "next_single_action": "Implement and verify versioned craft fairness for new songs while preserving historical receipts, then hand off the remaining R2 identity and selected-contributor work.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json"
 }

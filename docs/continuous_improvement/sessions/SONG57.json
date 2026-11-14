@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "id": "SONG57",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "14 November 2026 owner: Pick up bandmaster roadmap work. Split into hourly chunks to target a 9am test for me. Automate through and make as much progress as possible until then. I won't be available for reviews or approvals until then.",
+  "baseline_sha": "dd5bf4a9ab968d9c3e730300fd65d0d46f2cda71",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "2c13c9b0605a4f3b50b0ff2f99d0613cff2f67810be0d9e233af56695e047423",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
+  },
+  "issue_log_review": {
+    "bytes": 2295395,
+    "sha256": "1757046a18895a6bef045e8f64047201849167de24117e81082d1a839ca06056"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-29",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-39",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "dominant_issue": "BM-33",
+  "target": {
+    "locator": "docs/continuous_improvement/evidence/SONG56/songbook-phone.png",
+    "original_sha256": "1cfc4b157356dcc98e5f6861593a4d4b62abbe8c02268f7282d527e30ca78c40",
+    "pixels_inspected": true,
+    "purpose": "Preserved current verified Songbook presentation; this pass changes only new-song craft scoring and legacy receipt validation, not UI."
+  },
+  "controlled_comparison": "Same fixed recipe, membership and other inputs with skill varied. Independently captured old model receipts must retain original score/reason and survive JSON roundtrip; new models must be monotonic in skill. Existing native UI source/assets remain byte-identical to SONG56. No new native visual pass is claimed for unchanged views.",
+  "hypothesis": "Penalising only demand above capability fixes the unfair loss for skilled players choosing a simple part. New model IDs and dispatch of historical receipt validation preserve all prior saved results.",
+  "stop_condition": "Hold on legacy receipt rejection, altered old scores, nondeterminism, state mutation, save/recording regression or any unrelated UI/art change. No new dependencies, signing, APK export, private media, main/PR199 or merge. After two ineffective attempts change method.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/producer_recipe.gd",
+    "experiments/playable_flightcase/mixing_recipe.gd",
+    "experiments/playable_flightcase/song_workbench.gd",
+    "tests/song57_craft_fairness.gd",
+    "tools/song57_verify.py",
+    ".github/workflows/song57-model-proof.yml",
+    "docs/continuous_improvement/sessions/SONG57.json",
+    "docs/continuous_improvement/SONG57_RESULTS.json",
+    "docs/continuous_improvement/SONG57_REVIEW.json",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/handover/START_HERE.md"
+  ],
+  "validation_commands": [
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/SONG57.json",
+    "python3 tools/project_context.py check",
+    "Pinned Godot 4.7.2 isolated fairness regression: old-source negative control, candidate exhaustive monotonic/legacy/forgery/state tests.",
+    "Reuse isolated SONG55 fixture/summary/recording model route with exact current code and original unchanged QA availability preparation.",
+    "Exact-source independent review; improvement gate with committed preflight; non-force expected-head publication/readback."
+  ],
+  "queue_task_ids": [
+    "SONG53-R2"
+  ],
+  "writer": {
+    "owner": "root-SONG57",
+    "status": "active",
+    "source_writers": 1,
+    "claimed_at": "2026-11-14T00:19:24.463259+00:00"
+  },
+  "reviewers": [
+    {
+      "agent": "r2_design_review",
+      "role": "read-only model/legacy compatibility",
+      "status": "Pre-implementation review completed; receipt/offer compatibility risks identified."
+    },
+    {
+      "agent": "roadmap_audit",
+      "role": "read-only continuity/dependencies",
+      "status": "Baseline and next queue verified."
+    },
+    {
+      "agent": "test_readiness",
+      "role": "read-only test delivery",
+      "status": "Original signer/private media unavailable here; attached build environment to be probed first scheduled run."
+    }
+  ],
+  "next_action": "Implement and verify versioned craft fairness for new songs while preserving historical receipts, then hand off the remaining R2 identity and selected-contributor work.",
+  "started_at": "2026-11-14T00:19:24.463259+00:00",
+  "resource_plan": {
+    "engine": "Godot 4.7.2 stable ed1daf0bf",
+    "engine_archive_sha256": "cadd3204e728a35d3f13adb7fd0d7902636b79f6b95c40c265eb73b6c35329e4",
+    "engine_executable_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+    "native_ui_changed": false,
+    "new_APK": false,
+    "original_signing_key_use": false,
+    "production_save_writes": false
+  },
+  "overnight": {
+    "automation_id": "6ae532c5fe9c819190f587a022c54052",
+    "schedule": "01:00 through09:00 Europe/London 2026-11-14;9 finite opportunities;09:00 read-only handover",
+    "new_feature_stop": "2026-11-14T07:00:00+00:00",
+    "mutation_stop": "2026-11-14T09:00:00+00:00",
+    "user_unavailable": true,
+    "scope": "R2–R7 in dependency order with bounded committed passes; no promise all stages finish."
+  },
+  "r2_remaining_contract": [
+    "Existing original:<count> song IDs stay canonical; never join by title.",
+    "Version any new recipe/offer/credit policy; old saved trial/offer hashes must remain valid.",
+    "Selected collaborator must survive target validation and every free/paid checkpoint; never use slot as durable identity.",
+    "Retain accepted contributions at the existing paid receipt; free feedback is trimmed and cannot own credit history.",
+    "Original-key/private-media build readiness is checked at the first scheduled opportunity, not delayed to08:00."
+  ]
+}

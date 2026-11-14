@@ -1,27 +1,23 @@
 # BandMaster — resume here
-<!-- session: SONG56 -->
-<!-- status: closed -->
+<!-- session: SONG57 -->
+<!-- status: active -->
 
 Repository: `alimuir654-rgb/BandMaster` · Branch: `feature/playtest-polish-v20`.
 
-## Verified checkpoint
+## Current pass
 
-**SONG56 is complete internally.** The visual Songbook/Demo revision and approved continuity cleanup are published on the feature branch. The writer is released. Owner visual acceptance remains pending.
+**SONG57 is active**, one writer `root-SONG57`. Baseline `dd5bf4a9ab968d9c3e730300fd65d0d46f2cda71`; R0 and R1/SONG56 are internally complete. This bounded R2 foundation fixes skill fairness with versioned receipts and legacy validation. It does not claim full R2 completion. Owner visual acceptance remains pending.
 
-Tested runtime: `665cb9584c358cff07042c7ae8b7a6a7eebd91ee`. Four native sizes passed in [run 43530378163](https://github.com/alimuir654-rgb/BandMaster/actions/runs/43530378163): 622 candidate checks per size; all 128 screenshot hashes verified; 18 final originals independently inspected. The landscape sleeve-caption defect is resolved. [Results](../continuous_improvement/SONG56_RESULTS.json) · [Visual review](../continuous_improvement/SONG56_VISUAL_REVIEW.json). No new APK or physical-device acceptance is claimed.
+**Next action:** Implement and verify versioned craft fairness for new songs while preserving historical receipts, then hand off the remaining R2 identity and selected-contributor work.
 
-**Next action:** Scope SONG53-R2 stable song/revision/participant identity and co-writing as a separate pass from the verified SONG56 source; owner visual acceptance remains pending.
+## Overnight authority
 
-## Resume without reloading history
+Owner requests autonomous hourly roadmap progress until **09:00 Europe/London,14 November2026** and is unavailable for reviews. Existing automation `6ae532c5fe9c819190f587a022c54052` has nine finite opportunities01:00–09:00;09:00 is a read-only handover. Read the [sole queue](../continuous_improvement/S80_EXECUTION_QUEUE.md) for priorities. Stop new gameplay systems07:00; use07:00–09:00 for fixes, verification and test preparation. Inspect live writer before taking over; never overwrite active work.
 
-1. Run `python3 tools/project_context.py start` for current state, evidence and reviewed issue cursor.
-2. Read applicable [check-before-work rules](../continuous_improvement/CHECK_BEFORE_WORK.md), selected lessons (`python3 tools/project_context.py lessons --ids BM-43 --full`; add task-relevant IDs), and new events (`python3 tools/project_context.py issues`). Reading does not advance the reviewed cursor.
-3. Follow `AGENTS.md`, inspect live branch/head and writer fields, and commit a fresh scoped active preflight before implementation. Keep one writer and read-only reviewers.
+The original APK key and private media are not in this checkout. Check the attached BandMaster build environment at the first scheduled opportunity. Never generate a key, change app/save identity, or call an unsigned output installable. No main/PR199, merge, paid assets/tools, Suno access or new runtime dependencies.
 
-[Roadmap](../ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md) · [Sole execution queue](../continuous_improvement/S80_EXECUTION_QUEUE.md) · [Current state](../continuous_improvement/CURRENT.json) · [Closed session](../continuous_improvement/sessions/SONG56.json).
+## Resume and close
 
-## Close every bounded pass
+Run `python3 tools/project_context.py start`; read relevant lessons and new issue events. Scope and commit a fresh preflight before code. Preserve the last verified candidate, existing saves and historical receipts. After each pass record exact source/evidence, independent reviews and one next action, run both context/improvement gates, release the writer, publish non-force against the expected head and verify readback. Keep reports to changed / checked / remaining / next.
 
-Run the existing improvement gate and `python3 tools/project_context.py check`, plus relevant native/visual checks. Record tested source, evidence, actual originals inspected, useful lessons/issues, separate verdicts and one next action. Release the writer, publish with expected-head non-force verification, and report **changed / checked / remaining / next**. Checkpoint meaningful progress before a chat ends.
-
-Full prior records remain in [the history archive](archive/SONG56_5be37ae/README.md); its manifest verifies exact original bytes. Open historical material only for a specific unresolved question. The issue log is append-only.
+[Roadmap](../ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md) · [Current session](../continuous_improvement/sessions/SONG57.json) · [Prior verified SONG56](../continuous_improvement/SONG56_RESULTS.json) · [Preserved history](archive/SONG56_5be37ae/README.md).
