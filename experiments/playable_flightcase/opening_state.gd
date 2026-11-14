@@ -859,3 +859,40 @@ func finish_workbench_commit(transaction_id: String) -> Dictionary:
  result["result"]=original
  result["finished_ref"]=reference
  return result
+
+# Linked rehearsal is opt-in; existing callers and their effects remain unchanged.
+func song_rehearsal_expected() -> String:
+ return Workbench._hash(snapshot())
+
+func rehearse_song(reference: Dictionary,direction: Dictionary,expected: String) -> Dictionary:
+ var fail: Dictionary={"ok":false,"changed":false,"message":"Review the current song, people and rehearsal direction before trying again."}
+ if _audition_busy or Audition.locked(snapshot()) or Workbench.preplay_held(snapshot()) or expected.is_empty() or expected!=song_rehearsal_expected():return fail
+ var Preparation=preload("res://experiments/playable_flightcase/song_preparation.gd")
+ var Intent=preload("res://experiments/playable_flightcase/rehearsal_intent.gd")
+ var Live=preload("res://experiments/playable_flightcase/live_bridge.gd")
+ var Finance=preload("res://experiments/playable_flightcase/finance_policy.gd")
+ if not Intent.valid(direction) or not Preparation.valid(game.career.get(Preparation.KEY,{"policy":Preparation.POLICY,"receipts":[]})):return fail
+ var before: Dictionary=snapshot()
+ var target: Dictionary=Preparation.target(before,reference)
+ if not target.ok:return fail
+ var attendance: Dictionary=WorkAvailability.inspect_rehearsal(game.career)
+ if not attendance.get("ok",false):return fail
+ _audition_busy=true
+ var result: Dictionary=game.rehearse_attending(attendance.attendee_indices,direction)
+ if result.get("ok",false):
+  game.career=Live.after_practice(before.game.career,game.career)
+  var accounted: Dictionary=Finance.apply(before.game.career,game.career,"practice:tighten")
+  if accounted.get("ok",false):
+   game.career=accounted.state
+   result["attendee_indices"]=attendance.attendee_indices.duplicate(true)
+   var linked: Dictionary=Preparation.record(before.game.career,game.career,target.identity,direction,result)
+   if linked.ok:
+    game.career=linked.state
+    if _save_draft_owned():
+     result["state"]=game.career.duplicate(true)
+     result["song_preparation_receipt"]=linked.receipt
+     _audition_busy=false
+     return {"ok":true,"changed":true,"message":str(result.get("message","")),"result":result}
+ _rollback_identity(before)
+ _audition_busy=false
+ return {"ok":false,"changed":false,"message":"The rehearsal was not saved. Your whole previous band and song remain unchanged; review and try again."}

@@ -14,6 +14,10 @@ on:
       - tests/song58_identity.gd
       - tools/song59_verify.py
       - tests/song59_cowriting.gd
+      - experiments/playable_flightcase/song_preparation.gd
+      - experiments/playable_flightcase/opening_state.gd
+      - tests/song61_preparation.gd
+      - tools/song61_verify.py
       - tests/song60_models.gd
       - tools/song60_verify.py
       - tools/song55_verify.py
@@ -121,6 +125,19 @@ jobs:
             --godot "$BM57_TOOLCHAIN/Godot_v4.7.2-stable_linux.x86_64" \
             --work "$BM57_WORK/song60-proof"
 
+      - name: Prove exact-revision rehearsal and whole-opening rollback
+        shell: bash
+        run: |
+          set -euo pipefail
+          baseline_source="$BM57_WORK/song61-baseline-source"
+          mkdir "$baseline_source"
+          git archive 94878408b16e787284ee32a3ffcd323e74be674b | tar -x -C "$baseline_source"
+          python3 tools/song61_verify.py \
+            --repo "$GITHUB_WORKSPACE" \
+            --baseline-source "$baseline_source" \
+            --godot "$BM57_TOOLCHAIN/Godot_v4.7.2-stable_linux.x86_64" \
+            --work "$BM57_WORK/song61-proof"
+
       - name: Retain source hashes, logs and isolated model fixtures
         if: always()
         uses: actions/upload-artifact@v4
@@ -143,3 +160,6 @@ jobs:
             ${{ env.BM57_WORK }}/song60-proof/RUN.json
             ${{ env.BM57_WORK }}/song60-proof/logs/*.log
             ${{ env.BM57_WORK }}/song60-proof/baseline-songs.json
+            ${{ env.BM57_WORK }}/song61-proof/RUN.json
+            ${{ env.BM57_WORK }}/song61-proof/logs/*.log
+            ${{ env.BM57_WORK }}/song61-proof/baseline-songs.json
