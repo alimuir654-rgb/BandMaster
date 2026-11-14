@@ -1,0 +1,10 @@
+{
+  "source_sha": "c298b507baa53cdb866a0f68baab4e6c8e3ab643",
+  "checks": 690,
+  "failures": [
+    "real enabled target MixingCommit"
+  ],
+  "images": 17,
+  "original_result": "/workspace/work/ux70-final-proof/results/candidate-tall/result.json",
+  "cause_status": "inferred early SceneTreeTimer callback versus monotonic guard; targeted counterexample pending"
+}

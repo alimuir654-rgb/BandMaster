@@ -1,0 +1,23 @@
+{
+  "source_sha": "c298b507baa53cdb866a0f68baab4e6c8e3ab643",
+  "fixture": "isolated deterministic early presentation callback; not a native user-input claim",
+  "checks": 130,
+  "failures": [
+    "early callback eventually releases valid commit"
+  ],
+  "trace": [
+    {
+      "busy": false,
+      "cost": "Uses 1 day \u00b7 No studio hire \u00b7 Session 1 of 3",
+      "disabled": true,
+      "explicit_presentation_fixture": "early monotonic cooldown callback, not a gameplay event",
+      "first": {
+        "disabled": true,
+        "remaining_ms": 55
+      },
+      "held": false,
+      "remaining_ms": -166
+    }
+  ],
+  "owner_and_disk_preserved": true
+}
