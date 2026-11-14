@@ -1,0 +1,91 @@
+name: Linked-song craft and legacy-save proof
+
+on:
+  push:
+    branches:
+      - feature/playtest-polish-v20
+    paths:
+      - experiments/playable_flightcase/producer_recipe.gd
+      - experiments/playable_flightcase/mixing_recipe.gd
+      - experiments/playable_flightcase/song_workbench.gd
+      - tests/song57_craft_fairness.gd
+      - tools/song57_verify.py
+      - tools/song55_verify.py
+      - .github/workflows/song57-model-proof.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: linked-song-models-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  models:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/feature/playtest-polish-v20'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      BM57_BASELINE: f077696bc0fa36b5db2874061290eb3d9cd94860
+      BM57_TOOLCHAIN: /tmp/song57-toolchain-${{ github.run_id }}-${{ github.run_attempt }}
+      BM57_WORK: /tmp/song57-proof-${{ github.run_id }}-${{ github.run_attempt }}
+    steps:
+      - name: Check out the exact pushed source
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+          submodules: false
+
+      - name: Check current scoped preflight and preserved history
+        env:
+          BM57_BEFORE: ${{ github.event.before }}
+        run: |
+          python3 tools/project_context.py check
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          import sys
+          sys.path.insert(0, 'tools')
+          from improvement_gate import check
+          current = json.loads(Path('docs/continuous_improvement/CURRENT.json').read_text())
+          print(json.dumps(check(Path.cwd(), current['session'], os.environ['BM57_BEFORE'], True)))
+          PY
+
+      - name: Download and verify the established Godot 4.7.2 toolchain
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir "$BM57_TOOLCHAIN"
+          archive="$BM57_TOOLCHAIN/Godot_v4.7.2-stable_linux.x86_64.zip"
+          engine="$BM57_TOOLCHAIN/Godot_v4.7.2-stable_linux.x86_64"
+          curl --fail --location --retry 2 --connect-timeout 20 --max-time 180 \
+            --output "$archive" \
+            https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip
+          printf '%s  %s\n' cadd3204e728a35d3f13adb7fd0d7902636b79f6b95c40c265eb73b6c35329e4 "$archive" | sha256sum --check --strict -
+          unzip -q "$archive" -d "$BM57_TOOLCHAIN"
+          printf '%s  %s\n' 8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e "$engine" | sha256sum --check --strict -
+          chmod u+x "$engine"
+
+      - name: Prove actual legacy compatibility and new craft fairness
+        run: |
+          python3 tools/song57_verify.py \
+            --repo "$GITHUB_WORKSPACE" \
+            --godot "$BM57_TOOLCHAIN/Godot_v4.7.2-stable_linux.x86_64" \
+            --baseline "$BM57_BASELINE" \
+            --work "$BM57_WORK"
+
+      - name: Retain source hashes, logs and isolated model fixtures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: song57-models-${{ github.sha }}-${{ github.run_attempt }}
+          retention-days: 14
+          if-no-files-found: warn
+          # Fixtures contain only the harness-created QA band, never owner saves.
+          path: |
+            ${{ env.BM57_WORK }}/RUN.json
+            ${{ env.BM57_WORK }}/logs/*.log
+            ${{ env.BM57_WORK }}/logs/*.json
+            ${{ env.BM57_WORK }}/results/*.json

@@ -598,7 +598,7 @@ static func _producer_receipt_ok(extension: Dictionary) -> bool:
  if not r.get("model") is String or not r.get("recipe_sha256") is String:return false
  if r.recipe_sha256!=_hash(extension.fragment.producer_recipe) or not r.song_id is String or not r.reason is String:return false
  if extension.fragment.producer_recipe.get("version") in [3,4,5]:return preload("res://experiments/playable_flightcase/mixing_recipe.gd").receipt_ok(r,extension.fragment.producer_recipe)
- if r.model!="producer_raw_craft_v2":return false
+ if r.model not in ["producer_raw_craft_v2","producer_raw_craft_v3"]:return false
  if not _whole(r.base_quality,0,100) or not _whole(r.final_quality,1,100) or not (r.delta is int or r.delta is float) or not is_finite(float(r.delta)) or float(r.delta)!=floor(float(r.delta)) or int(r.delta)<-3 or int(r.delta)>3:return false
  var c=r.context
  if not c is Dictionary or not _keys(c,["active_skill_sum","active_count","capacity","demand"]) or not _whole(c.active_count,1,6) or not _whole(c.active_skill_sum,0,int(c.active_count)*100) or not _whole(c.capacity,1,4) or not _whole(c.demand,1,4):return false
@@ -607,7 +607,8 @@ static func _producer_receipt_ok(extension: Dictionary) -> bool:
  var recipe: Dictionary=extension.fragment.producer_recipe
  var id:=Producer.index(recipe)
  var demand: int=1+Producer.VALUES[0].find(recipe.pace)+Producer.VALUES[1].find(recipe.energy)+Producer.VALUES[2].find(recipe.originality)
- return int(c.capacity)==capacity and int(c.demand)==demand and int(r.delta)==clampi(int(Producer.CRAFT[id])-absi(capacity-demand),-3,3) and int(r.final_quality)==clampi(int(r.base_quality)+int(r.delta),1,100) and r.reason==Producer.REASONS[id]
+ var overreach: int=absi(capacity-demand) if r.model=="producer_raw_craft_v2" else maxi(0,demand-capacity)
+ return int(c.capacity)==capacity and int(c.demand)==demand and int(r.delta)==clampi(int(Producer.CRAFT[id])-overreach,-3,3) and int(r.final_quality)==clampi(int(r.base_quality)+int(r.delta),1,100) and r.reason==Producer.REASONS[id]
 
 static func _extension_ok(value: Variant) -> bool:
  if not value is Dictionary or value.get("version")!=1 or not value.get("project_id") is String or not _fragment_ok(value.get("fragment"),str(value.project_id)) or not _paid_ok(value.get("paid_receipts")):return false

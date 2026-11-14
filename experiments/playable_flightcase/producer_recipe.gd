@@ -108,7 +108,9 @@ static func craft(state: Dictionary,value: Dictionary) -> Dictionary:
  var capacity: int=1+int(mean>=35)+int(mean>=55)+int(mean>=75)
  var demand: int=1+VALUES[0].find(value.pace)+VALUES[1].find(value.energy)+VALUES[2].find(value.originality)
  var id:=index(value)
- return {"ok":true,"model":"producer_raw_craft_v2","delta":clampi(int(CRAFT[id])-absi(capacity-demand),-3,3),"capacity":capacity,"demand":demand,"active_skill_sum":sum,"active_count":count,"reason":REASONS[id]}
+ # Spare ability is not a penalty for choosing a restrained part. Historical
+ # v2 receipts retain their original arithmetic in the workbench validator.
+ return {"ok":true,"model":"producer_raw_craft_v3","delta":clampi(int(CRAFT[id])-maxi(0,demand-capacity),-3,3),"capacity":capacity,"demand":demand,"active_skill_sum":sum,"active_count":count,"reason":REASONS[id]}
 
 static func summary(value: Dictionary) -> String:
  if Mixing.valid(value):return Mixing.summary(value)

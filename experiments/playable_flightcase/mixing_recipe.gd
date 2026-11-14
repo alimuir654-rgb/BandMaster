@@ -148,7 +148,8 @@ static func note(respondent: Dictionary,value: Dictionary,context: Dictionary) -
   text=words[request.field][request.value]
  return {"ok":true,"message":"","note":{"text":text,"request":request,"source_kind":"authored","content_version":VERSION,"respondent_ref":respondent.duplicate(true),"day":int(context.day),"delivery":"written_note"}}
 
-static func _craft_from_context(value: Dictionary,sum: int,count: int) -> Dictionary:
+static func _craft_from_context(value: Dictionary,sum: int,count: int,model: String="mixing_craft_v2") -> Dictionary:
+ if model not in ["mixing_craft_v1","mixing_craft_v2"]:return {"ok":false}
  var mean: float=float(sum)/count
  var capacity: int=1+int(mean>=35)+int(mean>=55)+int(mean>=75)
  var demand: int=1+int(value.pace=="urgent")+int(value.energy=="full")+int(value.originality=="angular")
@@ -162,9 +163,11 @@ static func _craft_from_context(value: Dictionary,sum: int,count: int) -> Dictio
  if value.theme=="streetlife" and value.groove=="straight":coherence+=1
  elif value.theme=="escape" and value.shape=="build":coherence+=1
  elif value.theme=="personal" and value.tone=="warm":coherence+=1
- var delta: int=clampi(clampi(coherence,-2,2)-absi(capacity-demand),-3,3)
+ # v1 is replayed only for saved receipts; never reinterpret an old result.
+ var overreach: int=absi(capacity-demand) if model=="mixing_craft_v1" else maxi(0,demand-capacity)
+ var delta: int=clampi(clampi(coherence,-2,2)-overreach,-3,3)
  var reason: String="The parts and the song's shape hold together in the finished take." if delta>0 else ("The take keeps its direction; the band can keep tightening it." if delta==0 else "The band's finished take needs more room and tighter phrasing to carry this direction.")
- return {"ok":true,"model":"mixing_craft_v1","delta":delta,"capacity":capacity,"demand":demand,"active_skill_sum":sum,"active_count":count,"reason":reason}
+ return {"ok":true,"model":model,"delta":delta,"capacity":capacity,"demand":demand,"active_skill_sum":sum,"active_count":count,"reason":reason}
 
 static func craft(state: Dictionary,value: Dictionary) -> Dictionary:
  if not valid(value) or not state.get("members") is Array:return {"ok":false}
@@ -179,8 +182,8 @@ static func craft(state: Dictionary,value: Dictionary) -> Dictionary:
 
 static func receipt_ok(receipt: Dictionary,value: Dictionary) -> bool:
  var context: Variant=receipt.get("context")
- if not valid(value) or receipt.get("model")!="mixing_craft_v1" or not context is Dictionary or context.size()!=4:return false
+ if not valid(value) or receipt.get("model") not in ["mixing_craft_v1","mixing_craft_v2"] or not context is Dictionary or context.size()!=4:return false
  if not whole(context.get("active_count"),1,6) or not whole(context.get("active_skill_sum"),0,int(context.active_count)*100) or not whole(context.get("capacity"),1,4) or not whole(context.get("demand"),1,4):return false
  if not whole(receipt.get("base_quality"),0,100) or not whole(receipt.get("final_quality"),1,100) or not whole(receipt.get("delta"),-3,3):return false
- var expected: Dictionary=_craft_from_context(value,int(context.active_skill_sum),int(context.active_count))
+ var expected: Dictionary=_craft_from_context(value,int(context.active_skill_sum),int(context.active_count),str(receipt.model))
  return context.capacity==expected.capacity and context.demand==expected.demand and receipt.delta==expected.delta and receipt.reason==expected.reason and receipt.final_quality==clampi(int(receipt.base_quality)+int(receipt.delta),1,100)

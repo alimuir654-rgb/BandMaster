@@ -10,8 +10,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
   },
   "issue_log_review": {
-    "bytes": 2295395,
-    "sha256": "1757046a18895a6bef045e8f64047201849167de24117e81082d1a839ca06056"
+    "bytes": 2300795,
+    "sha256": "b7962d9375e79fec51e09e3462e73f0e77c05b65b3d6e728a29cc190ce85f6d2"
   },
   "lesson_ids": [
     "BM-01",
@@ -118,5 +118,46 @@
     "Selected collaborator must survive target validation and every free/paid checkpoint; never use slot as durable identity.",
     "Retain accepted contributions at the existing paid receipt; free feedback is trimmed and cannot own credit history.",
     "Original-key/private-media build readiness is checked at the first scheduled opportunity, not delayed to08:00."
-  ]
+  ],
+  "local_checkpoint": {
+    "at": "2026-11-14T00:32:45.489270+00:00",
+    "fairness_result": {
+      "checks": 179892,
+      "failure_count": 0,
+      "failures": [],
+      "legacy_receipts_checked": 3584,
+      "monotonic_failures": 0,
+      "ok": true,
+      "owner_transactions": 6
+    },
+    "negative_control_old_failures": 744,
+    "legacy_whole_snapshots": 2,
+    "legacy_fixture_sha256": "23565ac63b335488d23523e5d782dc5b3f5c14ec9a0351d1042af217ed573ce2",
+    "real_save_failure_rollback_retry": true,
+    "duplicate_settlement_guard": true,
+    "source_hashes": {
+      "experiments/playable_flightcase/producer_recipe.gd": "0db4ed876c070e83e96d82e0baa3498891f932751d4abe4424025665a4119b6c",
+      "experiments/playable_flightcase/mixing_recipe.gd": "5d82c1bc03338b05321ba22d482937e345067c0d80c66ab3c94a2d19ee07808f",
+      "experiments/playable_flightcase/song_workbench.gd": "bb65ec7b75f50cd0fe4aa43fdca034d619528b722efe58e07d09dcd25a734fbc",
+      "tests/song57_craft_fairness.gd": "5d65b4ae62eefb1845b0b4b4ee57e968728ec36b61804c6add1522c8e1b8828f",
+      "tools/song57_verify.py": "12c9a108839ecc1786fc2b6747c4d0871480481c7aaa98d1dbe4670a68c75142"
+    },
+    "regressions": {
+      "fixture_checks": 196,
+      "summary_checks": 1735,
+      "recording_checks": 337,
+      "import": "pass",
+      "native_script_parse": "pass"
+    },
+    "native_pixels": "Unchanged UI; prior SONG56 native evidence retained, not a new native run.",
+    "source_review": "Independent product review passes. Initial failed candidate was fixture normalization; production codec repair passes all cases.",
+    "publication": "Pending expected-head source publication and exact-SHA CI."
+  },
+  "proof_plan": {
+    "ci_workflow": ".github/workflows/song57-model-proof.yml",
+    "baseline_source": "f077696bc0fa36b5db2874061290eb3d9cd94860",
+    "local_fairness_work": "/workspace/scratch/2396c7b6b919/song57-candidate-02",
+    "local_regression_work": "/workspace/scratch/2396c7b6b919/song57-summary-recording",
+    "full_json_fixture_generation": "Real pre-change source and original owner transaction; QA data only."
+  }
 }
