@@ -610,6 +610,37 @@ static func _producer_receipt_ok(extension: Dictionary) -> bool:
  var overreach: int=absi(capacity-demand) if r.model=="producer_raw_craft_v2" else maxi(0,demand-capacity)
  return int(c.capacity)==capacity and int(c.demand)==demand and int(r.delta)==clampi(int(Producer.CRAFT[id])-overreach,-3,3) and int(r.final_quality)==clampi(int(r.base_quality)+int(r.delta),1,100) and r.reason==Producer.REASONS[id]
 
+# Canonical IDs are independent of displayed titles, catalogue positions and
+# mutable roster slots. This records writing roles, NOT performance or credit.
+# Old songs stay untracked; reading never synthesises historical identities.
+static func _canonical_number_id(value: String,prefix: String) -> bool:
+ if not value.begins_with(prefix):return false
+ var suffix: String=value.trim_prefix(prefix)
+ return suffix.is_valid_int() and int(suffix)>0 and int(suffix)<LIMIT and str(int(suffix))==suffix
+
+static func _writing_actor(ref: Dictionary) -> Dictionary:
+ if ref.is_empty():return {"none":true}
+ var candidate: String=ref.get("candidate_id","")
+ return {"candidate_id":candidate} if not candidate.is_empty() else {"untracked":true}
+
+static func _composition_identity(song_id: String,extension: Dictionary) -> Dictionary:
+ if not _canonical_number_id(song_id,"original:") or not extension.get("project_id") is String or not _canonical_number_id(extension.project_id,"workbench:"):return {}
+ if not extension.get("paid_receipts") is Array or extension.paid_receipts.size()!=3 or not extension.get("fragment") is Dictionary or not _material_ok(_material(extension.fragment)):return {}
+ var sessions: Array=[]
+ for row in extension.paid_receipts:
+  if not row is Dictionary or not _whole(row.get("stage"),0,2) or int(row.stage)!=sessions.size() or not row.get("target") is Dictionary:return {}
+  if not _ref_ok(row.target.get("leader_ref")) or not _ref_ok(row.target.get("respondent_ref"),true):return {}
+  sessions.append({"stage":int(row.stage),"leader":_writing_actor(row.target.leader_ref),"respondent":_writing_actor(row.target.respondent_ref)})
+ var material_hash: String=_hash(_material(extension.fragment))
+ var composition_id: String=str(extension.project_id)
+ return {"policy":"song_identity_v1","song_id":song_id,"composition_id":composition_id,"revision_id":composition_id+":material:"+material_hash,"material_sha256":material_hash,"writing_sessions":sessions}
+
+static func _identity_ok(song_id: String,extension: Dictionary) -> bool:
+ if not extension.has("composition_identity_v1"):return true
+ if not extension.composition_identity_v1 is Dictionary:return false
+ var expected_identity: Dictionary=_composition_identity(song_id,extension)
+ return not expected_identity.is_empty() and _same(extension.composition_identity_v1,expected_identity)
+
 static func _extension_ok(value: Variant) -> bool:
  if not value is Dictionary or value.get("version")!=1 or not value.get("project_id") is String or not _fragment_ok(value.get("fragment"),str(value.project_id)) or not _paid_ok(value.get("paid_receipts")):return false
  if value.fragment.has("producer_recipe") and not value.get("project_snapshot") is Dictionary:return false
@@ -679,6 +710,8 @@ static func seal_paid(before: Dictionary,after_accounting: Dictionary,prepared: 
    var final_quality: int=clampi(base_quality+int(craft.delta),1,100)
    extension.producer_quality_receipt={"model":craft.model,"recipe_sha256":_hash(project.fragment.producer_recipe),"song_id":song.id,"base_quality":base_quality,"delta":int(craft.delta),"final_quality":final_quality,"context":{"active_skill_sum":craft.active_skill_sum,"active_count":craft.active_count,"capacity":craft.capacity,"demand":craft.demand},"reason":craft.reason}
    next.game.career.song_catalogue[index].quality=final_quality
+  extension.composition_identity_v1=_composition_identity(str(next.game.career.song_catalogue[index].id),extension)
+  if extension.composition_identity_v1.is_empty():return fail
   next.game.career.song_catalogue[index][FRAGMENT_KEY]=Canon._freeze_candidate(extension)
   var reference:=_finished_ref(index,next.game.career.song_catalogue[index])
   wrapper.last_result={"id":project.id,"sequence":project.sequence,"result":"finished","fragment":project.fragment.duplicate(true),"paid_receipts":project.paid_receipts.duplicate(true),"finished_ref":reference,"project_snapshot":project.duplicate(true)}
@@ -697,7 +730,7 @@ static func finished(opening: Dictionary) -> Dictionary:
  if not state.get("song_catalogue") is Array:return {"ok":false,"message":"The song catalogue needs review.","items":[]}
  for index in range(state.song_catalogue.size()):
   var song: Variant=state.song_catalogue[index]
-  if song is Dictionary and _extension_ok(song.get(FRAGMENT_KEY)) and (not song[FRAGMENT_KEY].has("producer_quality_receipt") or (song.get("quality")==song[FRAGMENT_KEY].producer_quality_receipt.final_quality and song.get("id")==song[FRAGMENT_KEY].producer_quality_receipt.song_id)):items.append({"title":str(song.get("title","UNTITLED")),"reference":_finished_ref(index,song)})
+  if song is Dictionary and _extension_ok(song.get(FRAGMENT_KEY)) and _identity_ok(str(song.get("id","")),song[FRAGMENT_KEY]) and (not song[FRAGMENT_KEY].has("producer_quality_receipt") or (song.get("quality")==song[FRAGMENT_KEY].producer_quality_receipt.final_quality and song.get("id")==song[FRAGMENT_KEY].producer_quality_receipt.song_id)):items.append({"title":str(song.get("title","UNTITLED")),"reference":_finished_ref(index,song)})
  return {"ok":true,"message":"","items":items}
 
 static func read_finished(opening: Dictionary,reference: Dictionary) -> Dictionary:
@@ -706,5 +739,5 @@ static func read_finished(opening: Dictionary,reference: Dictionary) -> Dictiona
  var state:=_career(opening)
  if not state.get("song_catalogue") is Array or int(reference.catalogue_index)>=state.song_catalogue.size():return fail
  var song: Variant=state.song_catalogue[int(reference.catalogue_index)]
- if not song is Dictionary or not _extension_ok(song.get(FRAGMENT_KEY)) or (song[FRAGMENT_KEY].has("producer_quality_receipt") and (song.get("quality")!=song[FRAGMENT_KEY].producer_quality_receipt.final_quality or song.get("id")!=song[FRAGMENT_KEY].producer_quality_receipt.song_id)) or not _same(reference,_finished_ref(int(reference.catalogue_index),song)):return fail
+ if not song is Dictionary or not _extension_ok(song.get(FRAGMENT_KEY)) or not _identity_ok(str(song.get("id","")),song[FRAGMENT_KEY]) or (song[FRAGMENT_KEY].has("producer_quality_receipt") and (song.get("quality")!=song[FRAGMENT_KEY].producer_quality_receipt.final_quality or song.get("id")!=song[FRAGMENT_KEY].producer_quality_receipt.song_id)) or not _same(reference,_finished_ref(int(reference.catalogue_index),song)):return fail
  return {"ok":true,"found":true,"message":"","reference":reference.duplicate(true),"fragment":song[FRAGMENT_KEY].duplicate(true)}
