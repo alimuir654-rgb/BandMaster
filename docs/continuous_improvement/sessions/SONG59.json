@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "owner_approved": false,
+  "owner_request": "14 November 2026 owner: Pick up bandmaster roadmap work. Split into hourly chunks to target a 9am test for me. Automate through and make as much progress as possible until then. I won't be available for reviews or approvals until then.",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "2c13c9b0605a4f3b50b0ff2f99d0613cff2f67810be0d9e233af56695e047423",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
+  },
+  "issue_log_review": {
+    "bytes": 2313625,
+    "sha256": "4a25a7989d520d8318ccda046b7f3fcc7acb87e09693fccbf1a31c252799cac2"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-29",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-39",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "dominant_issue": "BM-33",
+  "target": {
+    "locator": "docs/continuous_improvement/evidence/SONG56/songbook-phone.png",
+    "original_sha256": "1cfc4b157356dcc98e5f6861593a4d4b62abbe8c02268f7282d527e30ca78c40",
+    "pixels_inspected": true,
+    "purpose": "Actual retained SONG56 Songbook original opened for unchanged visual context. SONG59 changes optional collaborator/contribution metadata only."
+  },
+  "overnight": {
+    "automation_id": "6ae532c5fe9c819190f587a022c54052",
+    "schedule": "01:00 through09:00 Europe/London 2026-11-14;9 finite opportunities;09:00 read-only handover",
+    "new_feature_stop": "2026-11-14T07:00:00+00:00",
+    "mutation_stop": "2026-11-14T09:00:00+00:00",
+    "user_unavailable": true,
+    "scope": "R2\u2013R7 in dependency order with bounded committed passes; no promise all stages finish."
+  },
+  "id": "SONG59",
+  "status": "active",
+  "baseline_sha": "91d966511ecad06b942e4a1a33da98c93845bb3f",
+  "hypothesis": "Choose a unique active collaborator by canonical candidate ID and retain only genuinely adopted paid contributions, without rewriting old offers/receipts/scores or creating new transaction owners.",
+  "controlled_comparison": "New owner-level selection+paid evidence tested against actual baseline songs and existing once-only/save rollback. UI/assets stay byte-identical; UI selection/callback/native work explicitly remains the next bounded slice.",
+  "stop_condition": "Hold malformed/forged contribution acceptance, changed legacy history, loss of chosen collaborator, stale offer reuse, any new economy/saveowner/UI change, or inability to close by02:50.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/song_workbench.gd",
+    "tests/song59_cowriting.gd",
+    "tools/song59_verify.py",
+    ".github/workflows/song57-model-proof.yml",
+    "docs/continuous_improvement/sessions/SONG59.json",
+    "docs/continuous_improvement/SONG59_RESULTS.json",
+    "docs/continuous_improvement/SONG59_REVIEW.json",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/handover/START_HERE.md"
+  ],
+  "validation_commands": [
+    "python3 tools/project_context.py check",
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/SONG59.json",
+    "Pinned Godot4.7.2 genuine owner three-paid-stage adoption, selected second bandmate, stale-offer rejection, keep/dismiss/supersession, failure/retry/duplicate/reload and real baseline legacy proof",
+    "Existing exact-source fairness/legacy CI plus new durable SONG59 owner proof; independent read-only source/continuity review; expected-head non-force publication/readback"
+  ],
+  "writer": {
+    "owner": "root-SONG59",
+    "status": "active",
+    "source_writers": 1,
+    "claimed_at": "2026-11-14T02:06:54.890876+00:00",
+    "expires_at": "2026-11-14T02:50:00+00:00"
+  },
+  "next_action": "Connect the verified SONG59 collaborator/contribution owner contract to the existing writing UI and prove its four-size native flow before starting R3.",
+  "queue_task_ids": [
+    "SONG53-R2"
+  ],
+  "resource_plan": {
+    "scope": "SONG59 R2 chosen collaborator and retained paid contribution",
+    "at": "2026-11-14T02:02:55.018964+00:00",
+    "primary_new_bytes": 0,
+    "tmp_cap_bytes": 2147483648,
+    "tmp_free_before": 8875900928,
+    "floor_bytes": 629145600,
+    "budgets": {
+      "source_archive_export": 650000000,
+      "private_models_and_native_cache": 550000000,
+      "native_PNGs_failed_tail": 650000000,
+      "closeout": 20000000
+    },
+    "critical_Git": "Durable GitHub Git Data only; preserve original checkout/closed SONG58 projects"
+  },
+  "scope": "Owner/API and receipt layer only; no UI/native/art/audio/signing/APK. R2 stays partial until selectable UI/callback is proven."
+}

@@ -1,6 +1,6 @@
 # BandMaster current handover
-<!-- session: SONG58 -->
-<!-- status: closed -->
+<!-- session: SONG59 -->
+<!-- status: active -->
 
 Use only `feature/playtest-polish-v20` and its live remote head. Never reset to a candidate below or the original environment's older checkout.
 
@@ -31,3 +31,6 @@ Primary free625479680B remains unchanged; no primary allocation. Preserve origin
 Run `python3 tools/project_context.py start`, relevant lessons/new issues, gate/context checks. Same finite hourly programme: no new systems07:00; readiness08:00; candidate/handover08:50; stop all mutations09:00 Europe/London14November. No new queue/extension/continuous-compute claim.
 
 Historical exact bytes remain in [the preserved manifest](archive/SONG56_5be37ae/MANIFEST.json); archived leases/approvals are inactive.
+
+SONG59 owner-contract pass active, deadline02:50. UI/native link remains explicitly deferred.
+Connect the verified SONG59 collaborator/contribution owner contract to the existing writing UI and prove its four-size native flow before starting R3.
