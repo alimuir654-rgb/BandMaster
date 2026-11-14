@@ -7,8 +7,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
   },
   "issue_log_review": {
-    "bytes": 2339315,
-    "sha256": "777380b108b8a4d4d4c0ba9a6122f578a27b3cc7235d7fd8afa6fc271a51806d"
+    "bytes": 2340376,
+    "sha256": "ffd10c9780ff9ecc634697a0fdd3f28f77bdf51213aac923f327a33eba3b91c9"
   },
   "lesson_ids": [
     "BM-01",
@@ -70,7 +70,8 @@
     "project_context start/issues/relevant lessons/check; improvement_gate committed preflight",
     "Pure stdlib actual dependency closure/trigger guard and negative unit fixtures",
     "Independent read-only interface and CI dependency reviews; reuse exact-source native/model proofs with remote blob binding",
-    "Exact-source CI, expected-head non-force publication/readback; no engine/import/APK for activity"
+    "Exact-source CI, expected-head non-force publication/readback; no engine/import/APK for activity",
+    "Retained v1 ancestry falsepositive diagnostic, loggedbeforefix; fixedon.pushbinding plus7stdlibtestmethodsPASS; original10CIstep dictionaries unchanged,1newguard."
   ],
   "writer": {
     "owner": "root-SONG64",
@@ -113,7 +114,7 @@
   },
   "predesign": {
     "reviewer": "/root/foundation_tests",
-    "status": "read_only_review_in_progress",
-    "scope": "Actual closure and CI guard method; no source writer"
+    "verdict": "CLEAR_CURRENT_STATIC_CLOSURE_METHOD",
+    "finding": "Observed65missing modelinputs; exactsixharness static copier union76/localPython10/88exacttriggers appropriate; dynamicruntime/native/media coverage excluded."
   }
 }

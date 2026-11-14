@@ -5,25 +5,94 @@ on:
     branches:
       - feature/playtest-polish-v20
     paths:
-      - experiments/playable_flightcase/producer_recipe.gd
+      - .github/workflows/song57-model-proof.yml
+      - Data/CharacterCast/approved_cast_2026-10-29.json
+      - Scripts/career_actions.gd
+      - Scripts/career_story.gd
+      - Scripts/formation_catalogue.gd
+      - Scripts/gear_shop.gd
+      - Scripts/gig_backstage_incident.gd
+      - Scripts/gig_calendar.gd
+      - Scripts/gig_night_flow.gd
+      - Scripts/member_life.gd
+      - Scripts/practice_room.gd
+      - Scripts/promoter_meetings.gd
+      - Scripts/recording_career.gd
+      - Scripts/release_campaigns.gd
+      - Scripts/song_chemistry.gd
+      - Scripts/song_workshop.gd
+      - Scripts/tour_itinerary.gd
+      - Scripts/uk_gig_circuit.gd
+      - experiments/character_cast/catalogue.gd
+      - experiments/character_cast/vendor/recruitment_catalogue_v3.gd
+      - experiments/playable_flightcase/audio/arjun_clips.json
+      - experiments/playable_flightcase/audio/audition_clips.json
+      - experiments/playable_flightcase/audio/marcus_clips.json
+      - experiments/playable_flightcase/audio/mixing_desk_v1.json
+      - experiments/playable_flightcase/audio/producer_raw_dark.json
+      - experiments/playable_flightcase/audio/zoe_clips.json
+      - experiments/playable_flightcase/audition_arjun_content.gd
+      - experiments/playable_flightcase/audition_content.gd
+      - experiments/playable_flightcase/audition_encounter.gd
+      - experiments/playable_flightcase/audition_marcus_content.gd
+      - experiments/playable_flightcase/audition_profiles.gd
+      - experiments/playable_flightcase/audition_zoe_content.gd
+      - experiments/playable_flightcase/band_sound.gd
+      - experiments/playable_flightcase/band_week.gd
+      - experiments/playable_flightcase/career_dates.gd
+      - experiments/playable_flightcase/character_connections.gd
+      - experiments/playable_flightcase/conversation_musicians.gd
+      - experiments/playable_flightcase/finance_policy.gd
+      - experiments/playable_flightcase/gig_booking_rules.gd
+      - experiments/playable_flightcase/gig_incident.gd
+      - experiments/playable_flightcase/gig_journey.gd
+      - experiments/playable_flightcase/gig_performance_policy.gd
+      - experiments/playable_flightcase/identity_style.gd
+      - experiments/playable_flightcase/live_bridge.gd
+      - experiments/playable_flightcase/member_commitments.gd
       - experiments/playable_flightcase/mixing_recipe.gd
+      - experiments/playable_flightcase/musician_chat.gd
+      - experiments/playable_flightcase/musician_situations.gd
+      - experiments/playable_flightcase/name_rules.gd
+      - experiments/playable_flightcase/opening_state.gd
+      - experiments/playable_flightcase/packed_pcm.gd
+      - experiments/playable_flightcase/personal_context.gd
+      - experiments/playable_flightcase/producer_recipe.gd
+      - experiments/playable_flightcase/producer_social.gd
+      - experiments/playable_flightcase/promotion_rules.gd
+      - experiments/playable_flightcase/radio_visit_rules.gd
+      - experiments/playable_flightcase/recorded_steady.gd
+      - experiments/playable_flightcase/recorded_vocal_keys.gd
+      - experiments/playable_flightcase/recording_rules.gd
+      - experiments/playable_flightcase/recruitment_pricing.gd
+      - experiments/playable_flightcase/rehearsal_intent.gd
+      - experiments/playable_flightcase/review_policy.gd
+      - experiments/playable_flightcase/scene_circuit.gd
+      - experiments/playable_flightcase/session.gd
+      - experiments/playable_flightcase/show_flow.gd
+      - experiments/playable_flightcase/situation_core.gd
+      - experiments/playable_flightcase/situation_jam.gd
+      - experiments/playable_flightcase/situation_practice.gd
+      - experiments/playable_flightcase/song_fragment_content.gd
+      - experiments/playable_flightcase/song_preparation.gd
       - experiments/playable_flightcase/song_workbench.gd
       - tests/song57_craft_fairness.gd
+      - tests/song58_identity.gd
+      - tests/song59_cowriting.gd
+      - tests/song60_models.gd
+      - tests/song61_preparation.gd
+      - tests/song63_sections.gd
+      - tests/test_song64_ci_dependencies.py
+      - tools/improvement_gate.py
+      - tools/project_context.py
+      - tools/song55_verify.py
       - tools/song57_verify.py
       - tools/song58_verify.py
-      - tests/song58_identity.gd
       - tools/song59_verify.py
-      - tests/song59_cowriting.gd
-      - experiments/playable_flightcase/song_preparation.gd
-      - experiments/playable_flightcase/opening_state.gd
-      - tests/song63_sections.gd
-      - tools/song63_verify.py
-      - tests/song61_preparation.gd
-      - tools/song61_verify.py
-      - tests/song60_models.gd
       - tools/song60_verify.py
-      - tools/song55_verify.py
-      - .github/workflows/song57-model-proof.yml
+      - tools/song61_verify.py
+      - tools/song63_verify.py
+      - tools/song64_ci_dependencies.py
 
 permissions:
   contents: read
@@ -64,6 +133,11 @@ jobs:
           current = json.loads(Path('docs/continuous_improvement/CURRENT.json').read_text())
           print(json.dumps(check(Path.cwd(), current['session'], os.environ['BM57_BEFORE'], True)))
           PY
+
+      - name: Check model dependency trigger coverage
+        run: |
+          python3 tools/song64_ci_dependencies.py
+          python3 -m unittest discover -s tests -p test_song64_ci_dependencies.py -v
 
       - name: Download and verify the established Godot 4.7.2 toolchain
         shell: bash
