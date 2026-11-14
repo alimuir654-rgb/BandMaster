@@ -31,11 +31,21 @@ func _initialize() -> void:
    var broken: Dictionary=extension.duplicate(true)
    broken.paid_receipts[0].target=malformed
    _check(Callable(Workbench,"_composition_identity").call(str(song.id),broken).is_empty(),"malformed source target safely rejected")
+   var damaged: Dictionary=snapshot.duplicate(true)
+   damaged.game.career.song_catalogue[-1][Workbench.FRAGMENT_KEY].paid_receipts[0].target=malformed
+   damaged.game.career.song_catalogue[-1][Workbench.FRAGMENT_KEY].project_snapshot.paid_receipts[0].target=malformed
+   _check(Workbench.finished(damaged).items.is_empty(),"public finished safely holds malformed target")
+   var damaged_song: Dictionary=damaged.game.career.song_catalogue[-1]
+   _check(not Workbench.read_finished(damaged,Workbench._finished_ref(0,damaged_song)).ok,"public read safely holds malformed target")
   for invalid_id in ["", "other:1", "original:0", "original:-1", "original:01", "original:1.0", "original:1000000000", "original:"+"9".repeat(1000)]:
    _check(Callable(Workbench,"_composition_identity").call(invalid_id,extension).is_empty(),"noncanonical song ID rejected "+invalid_id)
   for invalid_id in ["", "original:1", "workbench:0", "workbench:01", "workbench:1000000000"]:
    var broken: Dictionary=extension.duplicate(true);broken.project_id=invalid_id
    _check(Callable(Workbench,"_composition_identity").call(str(song.id),broken).is_empty(),"noncanonical project ID rejected "+invalid_id)
+  for invalid_identity in [{}, {"policy":"unknown_future"}, null, true]:
+   var damaged: Dictionary=snapshot.duplicate(true)
+   damaged.game.career.song_catalogue[-1][Workbench.FRAGMENT_KEY].composition_identity_v1=invalid_identity
+   _check(Workbench.finished(damaged).items.is_empty(),"empty/future/invalid known identity safely held")
   var no_person: Dictionary=extension.duplicate(true)
   no_person.paid_receipts[0].target.respondent_ref={}
   _check(Callable(Workbench,"_composition_identity").call(str(song.id),no_person).writing_sessions[0].respondent=={"none":true},"no respondent remains explicitly none")
