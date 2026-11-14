@@ -616,7 +616,7 @@ static func _producer_receipt_ok(extension: Dictionary) -> bool:
 static func _canonical_number_id(value: String,prefix: String) -> bool:
  if not value.begins_with(prefix):return false
  var suffix: String=value.trim_prefix(prefix)
- return suffix.is_valid_int() and int(suffix)>0 and int(suffix)<LIMIT and str(int(suffix))==suffix
+ return suffix.length()<=9 and suffix.is_valid_int() and int(suffix)>0 and int(suffix)<LIMIT and str(int(suffix))==suffix
 
 static func _writing_actor(ref: Dictionary) -> Dictionary:
  if ref.is_empty():return {"none":true}

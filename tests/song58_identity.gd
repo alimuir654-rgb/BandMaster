@@ -31,7 +31,7 @@ func _initialize() -> void:
    var broken: Dictionary=extension.duplicate(true)
    broken.paid_receipts[0].target=malformed
    _check(Callable(Workbench,"_composition_identity").call(str(song.id),broken).is_empty(),"malformed source target safely rejected")
-  for invalid_id in ["", "other:1", "original:0", "original:-1", "original:01", "original:1.0", "original:1000000000"]:
+  for invalid_id in ["", "other:1", "original:0", "original:-1", "original:01", "original:1.0", "original:1000000000", "original:"+"9".repeat(1000)]:
    _check(Callable(Workbench,"_composition_identity").call(invalid_id,extension).is_empty(),"noncanonical song ID rejected "+invalid_id)
   for invalid_id in ["", "original:1", "workbench:0", "workbench:01", "workbench:1000000000"]:
    var broken: Dictionary=extension.duplicate(true);broken.project_id=invalid_id
