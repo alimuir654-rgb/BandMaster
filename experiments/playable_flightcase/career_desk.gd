@@ -42,6 +42,7 @@ const Poster = preload("res://experiments/playable_flightcase/poster_components.
 const PosterHome = preload("res://experiments/playable_flightcase/poster_home.gd")
 var poster_activities_open := false
 var poster_details_open := false
+var launcher_group := ""
 const Launcher = preload("res://experiments/playable_flightcase/career_launcher.gd")
 const GearPress = preload("res://experiments/playable_flightcase/gear_press.gd")
 const Direction = preload("res://experiments/playable_flightcase/career_direction.gd")
@@ -60,6 +61,7 @@ var chat_topic := "direction"
 var chat_expected: Dictionary={}
 var chat_revising := false
 var chat_history_open := false
+var chat_topics_open := false
 var booking_pitch := ""
 var calendar_cursor: int=0
 var calendar_mode: String="week"
@@ -243,20 +245,6 @@ func _render() -> void:
   shell.add_child(C.label("Open a saved band to use the career desk.",20))
   return
  _header(shell)
- var nav := HBoxContainer.new()
- nav.name = "CareerNavigation"
- nav.add_theme_constant_override("separation",5)
- nav.visible = page not in ["home","recording"] and page!="band_moment" and not (page=="gigs" and ShowFlow.managed(game.career) and not receipt_open) and not (page=="recording" and RadioVisit.locked(game.career))
- shell.add_child(nav)
- for entry in [["home","HOME"],["gear","SHOP"],["band","BAND"],["songs","SONGS"]]:
-  var destination: String = str(entry[0])
-  var option: Button = Poster.button(str(entry[1])) if page=="recording" else C.button(str(entry[1]),"flightcase","tab",true)
-  if page=="recording":option.toggle_mode=true
-  option.name = "CareerNav_"+destination
-  option.set_pressed_no_signal((page==destination or (page=="recording" and destination=="songs") or (page=="calendar" and destination=="home")) and not receipt_open)
-  option.disabled = busy or Finance.is_over(game.career) or RadioVisit.locked(game.career)
-  option.pressed.connect(_navigate.bind(destination))
-  nav.add_child(option)
  var journey: bool=page=="gigs" and not receipt_open and JourneyDesk.active(self)
  var soundcheck: bool = page=="gigs" and not receipt_open and ShowFlow.managed(game.career) and ShowFlow.phase(game.career)=="soundcheck" and (not journey or str(Journey.active(game.career).get("phase",""))=="soundcheck")
  var content: BoxContainer = VBoxContainer.new() if compact else HBoxContainer.new()
@@ -313,6 +301,7 @@ func _render() -> void:
  else:
   _home_page(body,compact)
  _decision_dock(shell,compact)
+ _install_navigation(shell)
  if page=="gigs" and not receipt_open:
   LiveDesk.refresh_plans(self)
  elif page=="offstage" and not receipt_open:
@@ -327,9 +316,13 @@ func _render() -> void:
   else:call_deferred("_restore_focus",_pending_focus)
 
 func _header(parent: Node) -> void:
+ if page in ["musician_chat","band_moment"] or (page=="gigs" and BookingDesk.active(self) and not receipt_open):
+  var status: Label=C.label("DAY %d · £%d" % [int(game.career.get("tour_day",1)),int(game.career.get("cash",0))],16)
+  status.name="CareerDayCash";parent.add_child(status)
+  return
  if page in ["home","recording"] and not receipt_open:
   var top:=HBoxContainer.new();top.add_theme_constant_override("separation",12);top.custom_minimum_size.y=48;parent.add_child(top)
-  var date: Label=Poster.label("DAY %d  ·  £%d"%[int(game.career.get("tour_day",1)),int(game.career.get("cash",0))],22,Poster.PAPER);date.name="CareerDate";top.add_child(date);_poster_pause(top)
+  var date: Label=Poster.label("DAY %d  ·  £%d"%[int(game.career.get("tour_day",1)),int(game.career.get("cash",0))],22,Poster.PAPER);date.name="CareerDate";top.add_child(date)
   return
  var row := HBoxContainer.new()
  row.custom_minimum_size.y=70.0 if size.y<800 and size.x>size.y else 80.0
@@ -339,7 +332,6 @@ func _header(parent: Node) -> void:
  if page=="home" and not receipt_open:
   var date: Label=Poster.label("DAY %d  ·  £%d" % [int(game.career.get("tour_day",1)),int(game.career.get("cash",0))],22,Poster.PAPER)
   date.name="CareerDate";date.horizontal_alignment=HORIZONTAL_ALIGNMENT_RIGHT;row.add_child(date)
-  _poster_pause(row)
   return
  var words := _box(2)
  words.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -353,7 +345,44 @@ func _header(parent: Node) -> void:
  var funds: Label = C.label("DAY %d  •  £%d" % [int(game.career.get("tour_day",1)),int(game.career.get("cash",0))],16)
  funds.name = "CareerDayCash"
  words.add_child(funds)
- if page=="recording" and not receipt_open:_poster_pause(row)
+
+func _install_navigation(shell: VBoxContainer) -> void:
+ # Move each existing semantic return button, retaining its exact callback and
+ # generation/cookie/dirty guards. No generic handler replaces a special exit.
+ var back: Button
+ if page=="home" and not receipt_open:
+  back=_button("BACK","CareerNav_home",_launcher_back)
+  back.disabled=busy or not poster_activities_open
+ else:
+  for control_name in ["CareerReceiptContinueAction","GoalFocusBackAction","BandMomentBackAction","SituationBackAction","ChatBack","BookingBackAction","PromotionBackAction","RecordingBackSongsAction","CareerCalendarBackAction","CareerFinanceBackAction","GearCloseCatalogueAction"]:
+   var existing: Button=find_child(control_name,true,false) as Button
+   if existing!=null:
+    back=existing
+    existing.get_parent().remove_child(existing)
+    break
+  if back==null:back=_button("BACK","CareerNav_home",_navigate.bind("home"))
+  back.text="BACK"
+ var locked: bool=Finance.is_over(game.career) or RadioVisit.locked(game.career) or (page=="gigs" and (Journey.locked(game.career) or (Booking.modern(game.career) and LiveRules.show_day(game.career))))
+ back.disabled=back.disabled or busy or locked
+ if locked:back.tooltip_text="Finish this saved activity, or use Menu to pause."
+ var menu: Button=find_child("StudioPauseAction",true,false) as Button
+ if menu!=null:menu.get_parent().remove_child(menu);menu.name="CareerMenuAction";menu.text="MENU"
+ else:menu=_button("MENU","CareerMenuAction",_menu)
+ var titles: Dictionary={"home":"YOUR BAND","gear":"MUSIC SHOP","band":"THE BAND","songs":"SONGBOOK","gigs":"GIGS","recording":"RECORDINGS","musician_chat":"CONVERSATION","band_moment":"WITH THE BAND","situation":"BAND PLANS","calendar":"DIARY","finance":"FINANCES","offstage":"OFFSTAGE","goal_focus":"NEXT GOAL"}
+ var bar: HBoxContainer=preload("res://experiments/playable_flightcase/navigation_bar.gd").add(shell,"SAVED NOTES" if receipt_open else str(titles.get(page,"YOUR BAND")),back,menu)
+ shell.move_child(bar,0)
+
+func _choose_launcher_group(group: String) -> void:
+ if busy or is_instance_valid(_live_dialog):return
+ launcher_group=group;_scroll_position=0
+ if is_instance_valid(_scroll):_scroll.scroll_vertical=0
+ _pending_focus="CareerNav_home";_render()
+
+func _launcher_back() -> void:
+ if busy or is_instance_valid(_live_dialog):return
+ if launcher_group=="manage":_choose_launcher_group("people")
+ elif not launcher_group.is_empty():_choose_launcher_group("")
+ else:_toggle_poster_activities()
 
 func _poster_destination(destination: String) -> void:
  if busy or is_instance_valid(_live_dialog):return
@@ -398,21 +427,26 @@ func _navigate(destination: String) -> void:
  _scroll_position = 0
  if is_instance_valid(_scroll):
   _scroll.scroll_vertical = 0
- _pending_focus = RecordingDesk.focus_name(self) if destination=="recording" else ("LiveMainAction" if destination=="gigs" else ("OffstageMainAction" if destination=="offstage" else "CareerNav_"+destination))
+ _pending_focus = RecordingDesk.focus_name(self) if destination=="recording" else ("LiveMainAction" if destination=="gigs" else ("OffstageMainAction" if destination=="offstage" else "CareerNav_home"))
  if destination=="gigs" and JourneyDesk.active(self):
   _pending_focus="JourneyHeldNote"
  if destination=="home":
-  _pending_focus = "PosterWriteAction" if poster_activities_open else "PosterNextAction"
+  _pending_focus = "CareerLauncherGroup_music" if poster_activities_open else "PosterNextAction"
  if destination=="calendar":
   _pending_focus = "CareerCalendarBackAction"
  _render()
 
 func _restore_focus(control_name: String) -> void:
- if busy or not is_visible_in_tree():
+ if busy or is_instance_valid(_live_dialog) or not is_visible_in_tree():
   return
  var target: Control = find_child(control_name,true,false) as Control
- if target==null:
-  return
+ if target==null or not target.is_visible_in_tree() or target.focus_mode==Control.FOCUS_NONE or (target is Button and target.disabled):
+  var bar: Control=find_child("NavigationBar",true,false) as Control
+  if bar!=null:
+   for action in bar.get_children():
+    if action is Button and action.is_visible_in_tree() and not action.disabled:
+     target=action;control_name=str(action.name);break
+ if target==null or not target.is_visible_in_tree() or target.focus_mode==Control.FOCUS_NONE:return
  var generation: int = _render_generation
  if is_instance_valid(_scroll) and _scroll.is_ancestor_of(target):
   # Bound one-shot callbacks disconnect when this owner is freed. An awaited
@@ -432,12 +466,12 @@ func _restore_focus_wait(control_name: String, generation: int, remaining: int) 
  if not tree.process_frame.is_connected(callback):tree.process_frame.connect(callback,CONNECT_ONE_SHOT)
 
 func _apply_restored_focus(control_name: String, generation: int, respect_existing: bool) -> void:
- if not is_inside_tree() or generation!=_render_generation or busy or not is_visible_in_tree():return
+ if not is_inside_tree() or generation!=_render_generation or busy or is_instance_valid(_live_dialog) or not is_visible_in_tree():return
  var target: Control=find_child(control_name,true,false) as Control
  if target==null:return
  if respect_existing:
   var current_focus: Control = get_viewport().gui_get_focus_owner()
-  if current_focus!=null and current_focus!=target and is_ancestor_of(current_focus):
+  if current_focus!=null and current_focus!=target and is_ancestor_of(current_focus) and current_focus.is_visible_in_tree() and current_focus.focus_mode!=Control.FOCUS_NONE:
    _pending_focus = ""
    return
  if target!=null and target.is_visible_in_tree() and target.focus_mode!=Control.FOCUS_NONE:
@@ -454,7 +488,7 @@ func _open_poster_demo() -> void:
 func _toggle_poster_activities() -> void:
  if busy or is_instance_valid(_live_dialog):return
  poster_activities_open=not poster_activities_open
- _pending_focus="PosterWriteAction" if poster_activities_open else "PosterActivitiesAction"
+ _pending_focus="CareerLauncherGroup_music" if poster_activities_open else "PosterActivitiesAction"
  _scroll_position=0
  if is_instance_valid(_scroll):_scroll.scroll_vertical=0
  _render()
@@ -653,12 +687,18 @@ func _open_musician_chat(id: String) -> void:
  if busy or is_instance_valid(_live_dialog) or game==null or opening_owner==null:return
  if MusicianChat.member(game.career,id).is_empty():return
  chat_revising=false;chat_history_open=false
- chat_member_id=id;chat_topic="direction";chat_expected=opening_owner.snapshot().duplicate(true)
+ chat_member_id=id;chat_topic="direction";chat_topics_open=false;chat_expected=opening_owner.snapshot().duplicate(true)
  _navigate("musician_chat")
 
 func _chat_topic(topic: String) -> void:
  if busy or page!="musician_chat" or topic not in MusicianChat.TOPICS:return
- chat_topic=topic;_pending_focus="ChatTopic_"+topic;_render()
+ chat_topic=topic;chat_topics_open=false;_pending_focus="ChatBack";_scroll_position=0
+ if is_instance_valid(_scroll):_scroll.scroll_vertical=0
+ _render()
+
+func _chat_toggle_topics() -> void:
+ if busy or is_instance_valid(_live_dialog):return
+ chat_topics_open=not chat_topics_open;_pending_focus="ChatTopicsAction";_render()
 
 func _chat_disclose(history: bool) -> void:
  if busy or page!="musician_chat":return
@@ -857,7 +897,6 @@ func _songs_page(parent: Node, compact: bool) -> void:
 
 func _decision_dock(parent: Node, compact: bool) -> void:
  if page=="home" and not receipt_open:
-  _poster_navigation(parent)
   return
  var dock := _box(5)
  dock.name = "CareerDecisionDock"
@@ -924,20 +963,7 @@ func _decision_dock(parent: Node, compact: bool) -> void:
    elif owned and int(Gear.record(game.career,selected_item).get("condition",-1))>=100:
     dock.add_child(C.label("Already in excellent condition.",14))
  if page=="recording" and not receipt_open:
-  if not RadioVisit.locked(game.career):_poster_navigation(parent)
   return
- var navigation := HBoxContainer.new()
- navigation.visible=not (page=="recording" and RadioVisit.locked(game.career))
- navigation.add_theme_constant_override("separation",8)
- dock.add_child(navigation)
- var goal: Dictionary=_goal_direction() if (page=="home" and not receipt_open) or (receipt_open and receipt.get("show_receipt") is Dictionary and not receipt["show_receipt"].is_empty()) else {}
- var guided: bool=bool(goal.get("ok",false)) and not str(goal.get("route","")).is_empty()
- var practice_action: Button=_button(str(goal["route_label"]),"CareerGoalPreparationAction",_goal_preparation.bind(str(goal["route"]))) if guided else _button("‹ PRACTICE","CareerPracticeAction",_practice.bind(""))
- practice_action.disabled = busy or Finance.is_over(game.career) or RadioVisit.locked(game.career) or Journey.locked(game.career) or (Booking.modern(game.career) and LiveRules.show_day(game.career))
- navigation.add_child(practice_action)
- var pause: Button=_button("PAUSE","CareerMenuAction",_menu)
- preload("res://experiments/playable_flightcase/control_roles.gd").quiet(pause)
- navigation.add_child(pause)
 
 func _commit_gear(verb: String, member_index: int = -1) -> void:
  if busy or receipt_open or game==null or opening_owner==null:

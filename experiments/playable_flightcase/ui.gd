@@ -76,6 +76,9 @@ var _workbench_finished := false
 var _workbench_finished_ref: Dictionary={}
 var _workbench_failure_message := ""
 var _writing_view: Dictionary={}
+var rehearsal_step := 0
+var _rehearsal_ready_at := 0
+var _practice_details_open := false
 
 
 # Phone-only layout wrapper around the same native Kit buttons and selection
@@ -179,6 +182,15 @@ func _rebuild() -> void:
  var header := HBoxContainer.new()
  header.add_theme_constant_override("separation",12)
  var encounter_chrome: bool=game.phase=="recruit" and onboarding_state!=null and bool(onboarding_state.audition_view().get("active",false))
+ var notebook_chrome: bool=game.phase=="play" and opening_owner!=null and practice_activity=="create" and not recap_expanded and not _workbench_finished and (_writing_view.get("active",false) or (_writing_view.get("exists",false) and _writing_view.get("held",false)))
+ if not encounter_chrome and not notebook_chrome:
+  var back: Button=_button("BACK",_practice_back if game.phase=="play" else func():back_requested.emit(),"tab")
+  back.name="CareerDeskAction" if game.phase=="play" else "AuditionPreviousStepAction"
+  var menu: Button=_button("MENU",_practice_menu if game.phase=="play" else func():menu_requested.emit(),"tab")
+  menu.name="PracticeMenuAction" if game.phase=="play" else "RecruitMenuAction"
+  back.disabled=session_busy;menu.disabled=session_busy
+  var place: String="AUDITIONS" if game.phase=="recruit" else str({"create":"WRITING","tighten":"REHEARSAL","connect":"CLEAR THE AIR","jam":"PRACTICE"}.get(practice_activity,"PRACTICE"))
+  preload("res://experiments/playable_flightcase/navigation_bar.gd").add(root_box,place,back,menu)
  if game.phase=="recruit":
   if not encounter_chrome:
    var title := _label("AUDITIONS",26 if not mobile else 21)
@@ -218,7 +230,7 @@ func _rebuild() -> void:
  if encounter_chrome:budget.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  budget.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
  header.add_child(budget)
- if _mixing_active():header.free()
+ if encounter_chrome or notebook_chrome:header.free()
  else:root_box.add_child(header)
  var display_message := last_message
  if game.phase=="play" and display_message=="Build a band. Talent points are separate from your cash.":
@@ -238,8 +250,7 @@ func _rebuild() -> void:
  status.name = "StatusMessage"
  status.custom_minimum_size.y = 32
  status.add_theme_color_override("font_color",Color("f0c78b"))
- var workbench_chrome: bool=game.phase=="play" and opening_owner!=null and practice_activity=="create" and not recap_expanded and bool(_writing_view.get("active",false))
- if encounter_chrome or workbench_chrome:status.free()
+ if encounter_chrome or notebook_chrome:status.free()
  else:root_box.add_child(status)
  if game.phase == "recruit":
   _recruit_page(root_box,mobile)
@@ -401,9 +412,6 @@ func _audition_navigation(root_box: VBoxContainer) -> void:
  navigation.name = "AuditionNavigation"
  navigation.add_theme_constant_override("separation",8)
  root_box.add_child(navigation)
- var previous: Button = _button("‹ CHANGE GENRE",func():back_requested.emit(),"tab")
- previous.name = "AuditionPreviousStepAction"
- navigation.add_child(previous)
  var following: Button=_button("REVIEW BAND ›",_review_lineup)
  following.name="ReviewLineupAction"
  following.disabled=game.roster.is_empty()
@@ -803,13 +811,26 @@ func _select_practice_activity(kind: String) -> void:
  _workbench_finished=false
  _workbench_finished_ref={}
  practice_activity = kind
+ rehearsal_step=0
+ _practice_details_open=false
  _rebuild()
- call_deferred("_restore_practice_focus","PracticeMode_"+kind)
+ call_deferred("_restore_practice_focus","CareerDeskAction")
 
 func _practice_back() -> void:
  if session_busy:return
+ if practice_activity=="tighten" and not recap_expanded and rehearsal_step>0:
+  _rehearsal_go(rehearsal_step-1)
+  return
+ if _workbench_finished:
+  _workbench_finished=false;_workbench_finished_ref={};_rebuild()
+  return
  if is_instance_valid(_workbench_desk) and _workbench_desk.is_visible_in_tree():_workbench_desk.request_exit("home")
  else:home_requested.emit()
+
+func _practice_menu() -> void:
+ if session_busy:return
+ if is_instance_valid(_workbench_desk) and _workbench_desk.is_visible_in_tree():_workbench_desk.request_exit("menu")
+ else:back_requested.emit()
 
 func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  var viewport_width: float = size.x
@@ -827,14 +848,14 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
   modes.buttons[index].name = "PracticeMode_"+str(["create","tighten","connect","jam"][index])
   modes.buttons[index].tooltip_text = "Preview this session. Time and money are spent only when you start."
  modes.selection_changed.connect(func(index: int): _select_practice_activity(str(["create","tighten","connect","jam"][index])))
- root_box.add_child(modes)
- modes.visible=not _mixing_active()
  if _workbench_finished:
+  modes.free()
   _finished_workbench_page(root_box)
   return
  if opening_owner!=null and practice_activity=="create":
   var notebook: Dictionary=_writing_view
   if notebook.get("active",false) or (notebook.get("exists",false) and notebook.get("held",false)):
+   modes.free()
    var mixing: bool=MixingRecipe.valid(notebook.get("project",{}).get("fragment",{}).get("producer_recipe"))
    if is_instance_valid(_workbench_desk) and bool(_workbench_desk.get_meta("mixing_desk",false))!=mixing:
     _workbench_desk.free();_workbench_desk=null
@@ -870,7 +891,7 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  for side in ["left","right","top","bottom"]:
   outside.add_theme_constant_override("margin_"+side,16)
  scroll.add_child(outside)
- var content: BoxContainer = _box() if stacked else HBoxContainer.new()
+ var content: BoxContainer = _box()
  content.add_theme_constant_override("separation",18)
  content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
  outside.add_child(content)
@@ -902,7 +923,13 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  info.custom_minimum_size.x = 0 if stacked else 300
  var info_panel: PanelContainer=_panel(info)
  info_panel.mouse_filter=Control.MOUSE_FILTER_PASS
+ var more: Button=_button("HIDE NOTES & SESSION OPTIONS" if _practice_details_open else "NOTES & SESSION OPTIONS",func():_practice_details_open=not _practice_details_open;_rebuild(),"tab")
+ more.name="PracticeDetailsAction"
+ content.add_child(more)
+ _rehearsal_target_minimum(more)
  content.add_child(info_panel)
+ info_panel.visible=_practice_details_open
+ info.add_child(modes)
  if practice_activity=="create":
   _writing_notes(info)
  info.add_child(_label("THE BAND",19))
@@ -958,8 +985,9 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
   action = _button("OPEN THE WRITING ROOM · FREE",_open_producer) if _mixing_entry() else _button("WRITE SESSION",_write)
   action.name = "WritingOpenProducer" if _mixing_entry() else "WriteAction"
  elif practice_activity=="tighten":
-  action = _button("START REHEARSAL  •  £15",_rehearse)
-  action.name = "RehearseAction"
+  action = _button("USE THIS SONG",_rehearsal_go.bind(1)) if rehearsal_step==0 else _button("START REHEARSAL  •  £15",_rehearse)
+  action.name = "RehearsalNextAction" if rehearsal_step==0 else "RehearseAction"
+  action.visible=rehearsal_step in [0,3]
   _rehearsal_target_minimum(action)
  elif practice_activity=="jam":
   var available: Dictionary=Situation.inspect_rehearsal(game.career)
@@ -970,18 +998,12 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
   action = _button("CLEAR THE AIR",_connect)
   action.name = "ClearAirAction"
  dock.add_child(action)
- if opening_owner!=null:
-  var navigation := HBoxContainer.new()
-  navigation.add_theme_constant_override("separation",8)
-  dock.add_child(navigation)
-  var home: Button=_button("HOME",_practice_back,"tab")
-  home.name="CareerDeskAction"
-  navigation.add_child(home)
-  if alternate:
-   var planning: Button=_button("PLAN OUR WEEK",func():planning_requested.emit(),"tab")
-   planning.name="PracticePlanningAction"
-   navigation.add_child(planning)
+ if opening_owner!=null and alternate:
+  var planning: Button=_button("PLAN OUR WEEK",func():planning_requested.emit(),"tab")
+  planning.name="PracticePlanningAction"
+  dock.add_child(planning)
  _refresh_practice_commitment()
+ if practice_activity=="tighten" and not alternate:_arm_rehearsal_action(action)
 
 func _open_career() -> void:
  if session_busy:return
@@ -1126,43 +1148,48 @@ func _rehearsal_workspace(body: VBoxContainer, kind: String) -> void:
   for person in evening.attendance.absent:body.add_child(_ink(str(person.name)+" · "+str(person.reason),16))
   body.add_child(_ink("Review a quiet evening, solo practice or a free jam with whoever is here. Planning your week stays free and uses no day.",16))
   return
- body.add_child(_ink("TONIGHT AT REHEARSAL" if kind=="tighten" else "CLEAR THE AIR",22))
- body.add_child(_ink("Pick a song, then work on how you play it together." if kind=="tighten" else "Make time to hear where everyone stands and talk through the tension in the room.",16,true))
- body.add_child(_ink("£15 ROOM HIRE  •  USES 1 DAY" if kind=="tighten" else "NO ROOM FEE  •  USES 1 DAY",16))
  if kind=="tighten":
-  _rehearsal_song_choice(body)
-  var poster=preload("res://experiments/playable_flightcase/poster_components.gd")
-  for axis in ["focus","effort"]:
-   body.add_child(_ink("WORK ON" if axis=="focus" else "HOW WE PLAY IT",17))
-   var choices:=HBoxContainer.new();choices.add_theme_constant_override("separation",5);body.add_child(choices)
+  var prompts: Array=["WHAT SHALL WE REHEARSE?","WHAT SHALL WE WORK ON?","HOW SHALL WE PLAY IT?","READY TO PLAY?"]
+  body.add_child(_ink(str(prompts[clampi(rehearsal_step,0,3)]),22))
+  if rehearsal_step==0:
+   _rehearsal_song_choice(body)
+  else:
+   var selected: String="THE LIVE SET · GENERAL REHEARSAL" if rehearsal_reference.is_empty() else "ARRANGEMENT CHANGED · CHOOSE AGAIN"
+   for item in _rehearsal_songs():
+    if Workbench._same(item.reference,rehearsal_reference):selected=str(item.title);break
+   var song: Label=_ink(selected,20);song.name="RehearsalSongTitle";body.add_child(song)
+  if rehearsal_step in [1,2]:
+   var axis: String="focus" if rehearsal_step==1 else "effort"
    var values: Array=["precision","listening"] if axis=="focus" else ["steady","push"]
    var labels: Array=["STARTS & STOPS","LISTEN & RESPOND"] if axis=="focus" else ["STEADY PACE","ONE MORE TAKE"]
    for index in range(2):
-    var button: Button=poster.button(labels[index]);poster.choice_style(button);button.toggle_mode=true
-    button.name="RehearsalIntent_"+axis+"_"+str(values[index]);button.set_pressed_no_signal(rehearsal_direction[axis]==values[index]);button.disabled=session_busy
-    button.pressed.connect(_choose_rehearsal_intent.bind(axis,str(values[index])));choices.add_child(button)
-  var memories: Array=preload("res://experiments/playable_flightcase/character_connections.gd").memories(game.career)
-  for memory in memories:body.add_child(_ink(str(memory.name)+": "+str(memory.text),16,true))
+    var button: Button=_button(str(labels[index]),_choose_rehearsal_intent.bind(axis,str(values[index])))
+    button.name="RehearsalIntent_"+axis+"_"+str(values[index])
+    preload("res://experiments/playable_flightcase/conversation_panel.gd").reply(button,true)
+    button.disabled=session_busy;body.add_child(button);_rehearsal_target_minimum(button);_arm_rehearsal_action(button)
+  elif rehearsal_step==3:
+   body.add_child(_ink("STARTS & STOPS" if rehearsal_direction.focus=="precision" else "LISTEN & RESPOND",18))
+   body.add_child(_ink("STEADY PACE" if rehearsal_direction.effort=="steady" else "ONE MORE TAKE",18))
+   body.add_child(_ink("£15 ROOM HIRE · 1 DAY",18))
+ else:
+  body.add_child(_ink("CLEAR THE AIR",22))
+  body.add_child(_ink("Make time to hear where everyone stands and talk through the tension in the room.",18))
+  body.add_child(_ink("NO ROOM FEE · 1 DAY",16))
  var situation: Dictionary=Situation.inspect_rehearsal(game.career)
  if situation.ok and not situation.plan.is_empty():
-  var planned: Label=_ink("AGREED REHEARSAL • DAY %d EVENING • %s" % [int(situation.plan.day),str(situation.plan_status).to_upper()],16)
-  planned.name="SituationPracticePlan"
-  body.add_child(planned)
+  var planned: Label=_ink("AGREED REHEARSAL · DAY %d EVENING · %s" % [int(situation.plan.day),str(situation.plan_status).to_upper()],16)
+  planned.name="SituationPracticePlan";body.add_child(planned)
  if kind=="tighten" and situation.ok and situation.conflict:
   var names: Array=[]
   for person in situation.absent:names.append(str(person.name))
-  var shift: Label=_ink("UNAVAILABLE THIS EVENING • "+", ".join(names)+". Review attendance before booking the room.",16,true)
-  shift.name="SituationPracticeClash"
-  body.add_child(shift)
- var gap := Control.new()
- gap.custom_minimum_size.y = 8
- body.add_child(gap)
+  var shift: Label=_ink("UNAVAILABLE · "+", ".join(names)+". Review attendance before booking the room.",16,true)
+  shift.name="SituationPracticeClash";body.add_child(shift)
+ if not _practice_details_open:return
  for row in [["readiness","BAND READINESS"],["morale","MORALE"],["tension","TENSION"]]:
-  var line: Label = _ink("%s  %d%s" % [str(row[1]),int(game.career.get(str(row[0]),0))," / 100" if str(row[0])=="readiness" else ""],18)
-  line.name = "PracticeCurrent_"+str(row[0])
-  body.add_child(line)
- body.add_child(_ink("Results depend on the band's actual preparation, traits and relationships.",16,true))
+  var line: Label=_ink("%s  %d%s" % [str(row[1]),int(game.career.get(str(row[0]),0))," / 100" if str(row[0])=="readiness" else ""],18)
+  line.name="PracticeCurrent_"+str(row[0]);body.add_child(line)
  if kind=="tighten":
+  for memory in preload("res://experiments/playable_flightcase/character_connections.gd").memories(game.career):body.add_child(_ink(str(memory.name)+": "+str(memory.text),16,true))
   var song_audio=preload("res://experiments/playable_flightcase/song_audio.gd")
   var saved: Dictionary=_rehearsal_audio_song()
   if not saved.is_empty():
@@ -1170,6 +1197,33 @@ func _rehearsal_workspace(body: VBoxContainer, kind: String) -> void:
    var id: String=str(saved.get("id",""))
    song_audio.attach(body,saved,func():
     return practice_activity=="tighten" and not session_busy and _rehearsal_audio_song().get("id")==id and Workbench._hash(_rehearsal_audio_song())==pin)
+
+func _rehearsal_go(step: int) -> void:
+ if session_busy or practice_activity!="tighten" or Time.get_ticks_msec()<_rehearsal_ready_at:return
+ rehearsal_step=clampi(step,0,3)
+ _rehearsal_ready_at=Time.get_ticks_msec()+300
+ _rebuild()
+ get_tree().create_timer(0.31).timeout.connect(_focus_rehearsal_step.bind(rehearsal_step))
+
+func _focus_rehearsal_step(step: int) -> void:
+ if not is_inside_tree() or session_busy or step!=rehearsal_step:return
+ var current: Control=get_viewport().gui_get_focus_owner()
+ if current!=null and current.is_visible_in_tree() and is_ancestor_of(current):return
+ var wanted: String="RehearsalNextAction" if step==0 else ("RehearsalIntent_focus_*" if step==1 else ("RehearsalIntent_effort_*" if step==2 else "CareerDeskAction"))
+ for action in find_children(wanted,"Button",true,false):
+  if action.is_visible_in_tree() and not action.disabled:action.grab_focus();return
+
+func _arm_rehearsal_action(button: Button) -> void:
+ var remaining: int=_rehearsal_ready_at-Time.get_ticks_msec()
+ if remaining<=0 or button.disabled:return
+ button.disabled=true
+ button.set_meta("turn_ready_msec",_rehearsal_ready_at)
+ get_tree().create_timer(float(remaining)/1000.0).timeout.connect(_unlock_rehearsal_action.bind(button,rehearsal_step))
+
+func _unlock_rehearsal_action(button: Button,step: int) -> void:
+ if not is_inside_tree() or not is_instance_valid(button) or button.is_queued_for_deletion() or not button.is_visible_in_tree() or session_busy or step!=rehearsal_step:return
+ button.disabled=false
+ if button.name=="RehearseAction":_refresh_practice_commitment()
 
 func _rehearsal_target_minimum(button: Button) -> void:
  var physical_scale: Vector2=(get_viewport().get_final_transform()*get_global_transform_with_canvas()).get_scale().abs()
@@ -1247,10 +1301,11 @@ func _rehearsal_saved_context(report: Dictionary) -> String:
 
 
 func _choose_rehearsal_intent(axis: String,value: String) -> void:
- if session_busy or practice_activity!="tighten" or axis not in ["focus","effort"]:return
+ if session_busy or practice_activity!="tighten" or axis not in ["focus","effort"] or Time.get_ticks_msec()<_rehearsal_ready_at:return
+ if (axis=="focus" and rehearsal_step!=1) or (axis=="effort" and rehearsal_step!=2):return
  if (axis=="focus" and value not in ["precision","listening"]) or (axis=="effort" and value not in ["steady","push"]):return
  rehearsal_direction[axis]=value
- for button in find_children("RehearsalIntent_"+axis+"_*","Button",true,false):button.set_pressed_no_signal(str(button.name)=="RehearsalIntent_"+axis+"_"+value)
+ _rehearsal_go(2 if axis=="focus" else 3)
 
 func _refresh_practice_commitment() -> void:
  if game.phase!="play":
@@ -1307,7 +1362,8 @@ func _refresh_practice_commitment() -> void:
    write.name="WorkbenchBeginAction" if start_pilot else "WriteAction"
    write.disabled = not bool(preview.get("ok",false))
  elif practice_activity=="tighten":
-  summary.text = "Band readiness %d/100  •  Morale %d  •  Tension %d" % [int(game.career.get("readiness",0)),int(game.career.get("morale",0)),int(game.career.get("tension",0))]
+  summary.text="Choose freely. The session starts only when you confirm." if rehearsal_step<3 else "Your selected song, focus and pace."
+  summary.visible=rehearsal_step==3
   cost.text = "Uses 1 day  •  £15 room hire"
   var rehearse: Button = find_child("RehearseAction",true,false) as Button
   if rehearse!=null:
@@ -1585,6 +1641,7 @@ func _outcome_line(result: Dictionary) -> String:
  return ("%s. %s %s; tension %s." % [str(report.get("verdict","Session done")),title,("+" if value>0 else "")+str(value),("+" if tension>0 else "")+str(tension)])+("\n"+str(result.co_writing_message) if result.get("co_writing_message") is String else "")
 
 func _rehearse() -> void:
+ if rehearsal_step!=3 or Time.get_ticks_msec()<_rehearsal_ready_at:return
  _commit_session("tighten")
 func _connect() -> void:
  _commit_session("connect")

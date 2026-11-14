@@ -21,26 +21,17 @@ static func render(host,parent: Node,compact: bool) -> void:
  var id: String=str(person.candidate_id)
  var hero:=HBoxContainer.new();hero.add_theme_constant_override("separation",14);parent.add_child(hero)
  var photo:=TextureRect.new();photo.name="MusicianChatPortrait";photo.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;photo.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
- photo.custom_minimum_size=Vector2(110,120) if compact else Vector2(175,175);photo.mouse_filter=Control.MOUSE_FILTER_IGNORE
+ photo.custom_minimum_size=Vector2(144,144) if compact else Vector2(175,175);photo.mouse_filter=Control.MOUSE_FILTER_IGNORE
  var source: String=str(Cast.by_id(id).get("portrait_preview",""))
  if not source.is_empty() and ResourceLoader.exists(source):photo.texture=load(source)
  hero.add_child(photo)
  var intro:=VBoxContainer.new();intro.size_flags_horizontal=Control.SIZE_EXPAND_FILL;hero.add_child(intro)
  words(intro,str(person.get("name","Bandmate")).to_upper(),30)
  words(intro,str(person.get("role","Musician")),18,Poster.GOLD)
- words(intro,"A MOMENT TO TALK",16)
- words(parent,"£0 · No career day used. Any plans you make still need an actual evening together.",16)
+ words(intro,"£0 · No day used",16)
  if not str(host.notice).is_empty() and not str(host.notice).begins_with(str(person.get("name","Bandmate"))+":"):words(parent,str(host.notice),18,Poster.GOLD)
- var topics:=HFlowContainer.new();topics.add_theme_constant_override("h_separation",6);topics.add_theme_constant_override("v_separation",6);parent.add_child(topics)
- for pair in [["direction","OUR MUSIC"],["time","MAKING TIME"],["pressure","HOW WE'RE DOING"]]:
-  var action: Button=host._button(str(pair[1]),"ChatTopic_"+str(pair[0]),host._chat_topic.bind(str(pair[0])))
-  action.toggle_mode=true;action.set_pressed_no_signal(host.chat_topic==pair[0]);topics.add_child(action)
  var row: Dictionary=Chat.record(state,id)
  var plan: Dictionary=row.get("plan",{})
- if not plan.is_empty():
-  words(parent,"OUR AGREEMENT" if plan.status=="pending" else "WHAT HAPPENED",20,Poster.GOLD)
-  if plan.status=="pending":words(parent,"%s · THROUGH DAY %d" % [{"write":"WORK ON A SONG","rehearse":"AN EVENING TO REHEARSE","rest":"ROOM TO RECOVER"}[plan.kind],int(plan.due_day)],18)
-  else:words(parent,str(plan.note),20)
  var paper:=PanelContainer.new();paper.name="MusicianChatPaper";paper.mouse_filter=Control.MOUSE_FILTER_PASS
  paper.add_theme_stylebox_override("panel",Poster.control_stock(Poster.PAPER,20));parent.add_child(paper)
  var transcript:=VBoxContainer.new();transcript.add_theme_constant_override("separation",10);transcript.mouse_filter=Control.MOUSE_FILTER_PASS;paper.add_child(transcript)
@@ -50,7 +41,7 @@ static func render(host,parent: Node,compact: bool) -> void:
   words(transcript,str(view.opening),21,Poster.INK)
   for choice in view.choices:
    var action: Button=host._button(str(Chat.LABELS[choice]),"ChatReply_"+str(choice),host._chat_answer.bind(str(choice),host.chat_expected.duplicate(true),int(host._render_generation)))
-   Conversation.reply(action,true);transcript.add_child(action)
+   Conversation.reply(action,true);transcript.add_child(action);preload("res://experiments/playable_flightcase/navigation_bar.gd").minimum(action,host)
  else:
   var recent: Array=row.get("turns",[])
   # Show the actual saved exchange immediately. It used to disappear behind
@@ -70,18 +61,33 @@ static func render(host,parent: Node,compact: bool) -> void:
     words(transcript,"Agree a fresh four-day window together. You can revise this promise once. The previous agreement stays in your history. £0 · No career day used.",17,Poster.INK)
     for pair in [["write","MAKE TIME FOR A SONG"],["rehearse","AGREE A REHEARSAL"],["rest","LEAVE ROOM TO RECOVER"]]:
      transcript.add_child(host._button(str(pair[1]),"ChatRevise_"+str(pair[0]),host._chat_revise.bind(str(pair[0]),host.chat_expected.duplicate(true),int(host._render_generation))))
+ var topics_action: Button=host._button("HIDE TOPICS" if host.chat_topics_open else "OTHER TOPICS","ChatTopicsAction",host._chat_toggle_topics)
+ preload("res://experiments/playable_flightcase/control_roles.gd").quiet(topics_action)
+ parent.add_child(topics_action)
+ preload("res://experiments/playable_flightcase/navigation_bar.gd").minimum(topics_action,host)
+ if host.chat_topics_open:
+  var topics:=HFlowContainer.new();topics.add_theme_constant_override("h_separation",6);topics.add_theme_constant_override("v_separation",6);parent.add_child(topics)
+  for pair in [["direction","OUR MUSIC"],["time","MAKING TIME"],["pressure","HOW WE'RE DOING"]]:
+   var action: Button=host._button(str(pair[1]),"ChatTopic_"+str(pair[0]),host._chat_topic.bind(str(pair[0])))
+   action.toggle_mode=true;action.set_pressed_no_signal(host.chat_topic==pair[0]);topics.add_child(action)
+ var details: Button=host._button("HIDE DETAILS" if host.chat_history_open else "COMMITMENTS & HISTORY","ChatHistoryAction",host._chat_disclose.bind(true))
+ parent.add_child(details);preload("res://experiments/playable_flightcase/navigation_bar.gd").minimum(details,host)
  if not row.get("turns",[]).is_empty():
-  parent.add_child(host._button("HIDE OUR CONVERSATION" if host.chat_history_open else "OUR CONVERSATION +","ChatHistoryAction",host._chat_disclose.bind(true)))
   if host.chat_history_open:
    var last: Dictionary=row.turns.back()
    words(parent,"YOU: "+Chat.turn_label(last),18).name="ChatLastReply"
    words(parent,str(person.get("name","Bandmate"))+": "+str(last.reply),18)
    for entry in row.get("plan_history_v1",{}).get("records",[]):
     words(parent,"DAY %d · %s · %s" % [int(entry.plan.day),(str(entry.plan.status) if entry.closed_as=="completed" else str(entry.closed_as)).to_upper(),str(entry.plan.note)],16)
- var current: String="Outside-band circumstances not recorded."
- for context in Situation.members(state):
-  if context.id==id:current=Situation.context_text(context,int(state.get("tour_day",1)));break
- words(parent,"CURRENT COMMITMENTS · "+current,16)
+ if host.chat_history_open:
+  if not plan.is_empty():
+   words(parent,"OUR AGREEMENT" if plan.status=="pending" else "WHAT HAPPENED",20,Poster.GOLD)
+   if plan.status=="pending":words(parent,"%s · THROUGH DAY %d" % [{"write":"WORK ON A SONG","rehearse":"AN EVENING TO REHEARSE","rest":"ROOM TO RECOVER"}[plan.kind],int(plan.due_day)],18)
+   else:words(parent,str(plan.note),20)
+  var current: String="Outside-band circumstances not recorded."
+  for context in Situation.members(state):
+   if context.id==id:current=Situation.context_text(context,int(state.get("tour_day",1)));break
+  words(parent,"CURRENT COMMITMENTS · "+current,16)
 
 static func dock(host,parent: Node) -> void:
  var row: Dictionary=Chat.record(host.game.career,host.chat_member_id)

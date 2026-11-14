@@ -33,6 +33,7 @@ static func _button(host,parent: Node,text: String,name: String,callback: Callab
   Poster.choice_style(button);button.toggle_mode=true;button.set_pressed_no_signal(selected)
  elif selected:button.add_theme_color_override("font_color",Color("f1be62"))
  parent.add_child(button)
+ preload("res://experiments/playable_flightcase/navigation_bar.gd").minimum(button,host)
  return button
 
 static func _hero(parent: Node, compact: bool) -> void:
@@ -87,16 +88,20 @@ static func render(host,parent: Node,compact: bool) -> void:
    var action: Button=_button(host,card,"TALK ABOUT THIS ROOM  ›","BookingVenue_"+str(room["id"]),host._booking_select.bind("venue_id",str(room["id"]),expected.duplicate(true),generation))
    action.disabled=bool(host.busy) or not bool(room["available"])
  else:
-  _presence(parent,_room_name(options,draft),str(draft.get("venue_id","")),compact)
+  var presence: Node=parent
+  if not compact:
+   var spread:=HBoxContainer.new();spread.name="BookingConversationSpread";spread.add_theme_constant_override("separation",24);parent.add_child(spread)
+   var person:=VBoxContainer.new();person.custom_minimum_size.x=360;spread.add_child(person);presence=person
+   var exchange:=VBoxContainer.new();exchange.name="BookingCurrentExchange";exchange.add_theme_constant_override("separation",10);exchange.size_flags_horizontal=Control.SIZE_EXPAND_FILL;spread.add_child(exchange);parent=exchange
+  var biography: VBoxContainer=_presence(presence,_room_name(options,draft),str(draft.get("venue_id","")),compact)
   if step=="pitch":
-   _copy(parent,Encounter.beat(str(draft.venue_id)),"BookingActionBeat",16)
    _dialogue(parent,Encounter.opening(host.game.career,str(draft.venue_id)),str(Promoters.for_venue(str(draft.venue_id)).get("name","Promoter")))
    for pitch in Circuit.PITCHES:
     _button(host,parent,str(Encounter.PITCH_WORDS[pitch]),"BookingPitch_"+str(pitch),host._booking_pitch_select.bind(str(pitch),expected.duplicate(true),generation),host.booking_pitch==pitch)
    var aside:=VBoxContainer.new();aside.visible=false
-   var question: Button=_button(host,parent,"What matters to you on a shared bill?","BookingPromoterQuestion",func():pass)
+   var question: Button=_button(host,biography,"What matters to you on a shared bill?","BookingPromoterQuestion",func():pass)
    question.toggle_mode=true;question.toggled.connect(aside.set_visible)
-   parent.add_child(aside)
+   biography.add_child(aside)
    Conversation.turn(aside,str(Promoters.for_venue(str(draft.venue_id)).get("name","Promoter")),Encounter.aside(str(draft.venue_id)),"BookingPromoterAside")
   elif step=="terms":
    Conversation.turn(parent,"YOU",str(Encounter.PITCH_WORDS.get(host.booking_pitch,"")),"BookingYourPitch",false)
@@ -138,20 +143,25 @@ static func render(host,parent: Node,compact: bool) -> void:
      _copy(parent,"Transport £%d · room £%d · %d career day(s)" % [int(trip["transport"]),int(trip["accommodation"]),int(trip["duration"])])
    if host._booking_session_needed():_copy(parent,"SESSION DRUMMER · £25 AT THE SHOW","BookingSessionCover")
 
-static func _presence(parent: Node,room: String,venue: String,compact: bool) -> void:
+static func _presence(parent: Node,room: String,venue: String,compact: bool) -> VBoxContainer:
  var person: Dictionary=Promoters.for_venue(venue)
  var row:=HBoxContainer.new();row.name="BookingPromoterPresence";row.mouse_filter=Control.MOUSE_FILTER_PASS
  row.add_theme_constant_override("separation",14);parent.add_child(row)
  var photo:=TextureRect.new();photo.name="BookingPromoterPortrait";photo.texture=Promoters.portrait(venue)
  photo.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;photo.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
- photo.custom_minimum_size=Vector2(112,164) if compact else Vector2(150,210)
+ photo.custom_minimum_size=Vector2(132,154) if compact else Vector2(150,210)
  photo.mouse_filter=Control.MOUSE_FILTER_IGNORE;photo.set_meta("promoter_id",str(person.get("id","")));row.add_child(photo)
  var detail:=VBoxContainer.new();detail.size_flags_horizontal=Control.SIZE_EXPAND_FILL;detail.mouse_filter=Control.MOUSE_FILTER_PASS
  detail.add_theme_constant_override("separation",6);row.add_child(detail)
  _copy(detail,str(person.get("name","The promoter")).to_upper(),"BookingPromoterHeading",24)
  _copy(detail,str(person.get("role","Promoter")),"BookingPromoterRole",16)
  _copy(detail,room,"BookingReviewVenue",18)
- _copy(detail,str(person.get("detail","")),"BookingPromoterCharacter",16)
+ var biography:=VBoxContainer.new();biography.visible=false
+ var more: Button=Poster.quiet("ABOUT "+str(person.get("name","THE PROMOTER")).to_upper());more.name="BookingAboutPromoter";more.custom_minimum_size.y=48;more.pressed.connect(func():biography.visible=not biography.visible);detail.add_child(more)
+ preload("res://experiments/playable_flightcase/navigation_bar.gd").minimum(more,row)
+ detail.add_child(biography)
+ _copy(biography,str(person.get("detail","")),"BookingPromoterCharacter",16)
+ return biography
 
 static func _dialogue(parent: Node,text: String,speaker: String="PROMOTER") -> void:
  var label: Label=Conversation.turn(parent,speaker,text,"BookingPromoterReply")

@@ -133,6 +133,9 @@ func _edit_style() -> StyleBoxFlat:
  return style
 
 func _build() -> void:
+ var back: Button=_button("BACK","WorkbenchCareer",request_exit.bind("home"))
+ var menu: Button=_button("MENU","WorkbenchMenu",request_exit.bind("menu"))
+ preload("res://experiments/playable_flightcase/navigation_bar.gd").add(self,"WRITING",back,menu)
  var scroll:=ScrollContainer.new()
  scroll.name="WorkbenchBodyScroll"
  scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
@@ -282,11 +285,6 @@ func _build() -> void:
  add_child(cost)
  _write=_button("WRITE SESSION","WorkbenchWrite",_request_write)
  add_child(_write)
- var exits:=HBoxContainer.new()
- exits.add_theme_constant_override("separation",8)
- exits.add_child(_button("BACK TO MENU","WorkbenchMenu",request_exit.bind("menu")))
- exits.add_child(_button("CAREER DESK ›","WorkbenchCareer",_request_career))
- add_child(exits)
 
 func _on_resized() -> void:
  _stop_demo()

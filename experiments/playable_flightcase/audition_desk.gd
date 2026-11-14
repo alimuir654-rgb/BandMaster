@@ -38,6 +38,12 @@ var _show_prior := false
 var _busy := false
 var _audio
 var _buttons: Array[Button]=[]
+var _talking := false
+var _details_open := false
+var _turn_ready_at := 0
+var _music_actions: VBoxContainer
+var _music_paper: PanelContainer
+var _details_nodes: Array[Control]=[]
 
 func _ready() -> void:
  name="AuditionEncounter"
@@ -48,6 +54,7 @@ func _ready() -> void:
  _content=Profiles.content(str(_view.get("candidate_id","")))
  if _content==null:return
  _expected=owner_state.audition_expected()
+ _talking=_view.get("phase")=="tryout" and _view.get("conversation",{}).get("answers",{}).size()<2
  if _has_backing_choice():
   _backing_catalogue=_read_audio_catalogue(backing_manifest_path)
   _solo_catalogue=_read_audio_catalogue(Profiles.audio_manifest("cast_jack"))
@@ -66,6 +73,7 @@ func _button(words: String,node_name: String,callback: Callable) -> Button:
  button.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  button.mouse_filter=Control.MOUSE_FILTER_PASS
  button.pressed.connect(callback)
+ preload("res://experiments/playable_flightcase/navigation_bar.gd").minimum(button,self)
  _buttons.append(button)
  return button
 
@@ -105,7 +113,7 @@ func _identity() -> VBoxContainer:
  identity.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  identity.add_theme_constant_override("separation",4)
  var person: Dictionary=_view["person"]
- identity.add_child(_label(str(person["name"]).to_upper(),22))
+ var name_label: Label=_label(str(person["name"]).to_upper(),22);name_label.name="AuditionSpeaker";identity.add_child(name_label)
  identity.add_child(_label("%s · %d · %s" % [person["role"],int(person["age"]),person["town"]]))
  return identity
 
@@ -125,6 +133,10 @@ func _build() -> void:
  var wide: bool=available_width>=840.0
  var phase: String=str(_view.get("phase",""))
  var arrival: bool=phase=="arrival"
+ var end: Button=_button("END AUDITION","AuditionAbort",_act.bind("abort",""))
+ end.disabled=not (_view.get("ok",false) and _view.get("active",false));end.set_meta("permitted",not end.disabled)
+ var menu: Button=_button("MENU","AuditionMenu",_menu)
+ preload("res://experiments/playable_flightcase/navigation_bar.gd").add(self,"AUDITION",end,menu)
  var scroll:=ScrollContainer.new()
  scroll.name="AuditionBodyScroll"
  scroll.scroll_deadzone=12
@@ -154,14 +166,14 @@ func _build() -> void:
  place.size_flags_horizontal=Control.SIZE_EXPAND_FILL
  if wide:place.custom_minimum_size.x=280
  var portrait_row:=HBoxContainer.new();portrait_row.alignment=BoxContainer.ALIGNMENT_CENTER;place.add_child(portrait_row)
- var preview: Vector2=Vector2(240,226) if wide else Vector2(210,198)
+ var preview: Vector2=Vector2(260,245) if wide else Vector2(196,185)
  portrait_row.add_child(_picture(str(_view["portrait"]),"AuditionPortrait",preview))
  place.add_child(_identity())
  _add_voice(place)
  var tools:=HBoxContainer.new()
  tools.name="AuditionInspectionTools"
  tools.add_theme_constant_override("separation",12)
- tools.add_child(_quiet_button("ABOUT "+str(_view["person"]["name"]).to_upper(),"AuditionBiography",_toggle_bio))
+ tools.add_child(_quiet_button("DETAILS","AuditionBiography",_toggle_bio))
  var spacer:=Control.new()
  spacer.mouse_filter=Control.MOUSE_FILTER_IGNORE
  spacer.size_flags_horizontal=Control.SIZE_EXPAND_FILL
@@ -177,6 +189,7 @@ func _build() -> void:
   paper.mouse_filter=Control.MOUSE_FILTER_PASS
   paper.add_theme_stylebox_override("panel",Paper.scorecard())
   work.add_child(paper)
+  _music_paper=paper
   var notes:=VBoxContainer.new()
   notes.add_theme_constant_override("separation",6)
   paper.add_child(notes)
@@ -190,6 +203,7 @@ func _build() -> void:
    modes.name="AuditionListeningModes"
    modes.add_theme_constant_override("separation",8)
    notes.add_child(modes)
+   _details_nodes.append(modes)
    for key in ["solo","backing"]:
     var button: Button=_quiet_button("SOLO PART" if key=="solo" else "WITH BACKING","AuditionMode_"+key,_choose_audio_mode.bind(key=="backing"),true)
     button.custom_minimum_size.y=48.0
@@ -205,27 +219,31 @@ func _build() -> void:
    notes.add_child(_audio_slot)
    _refresh_listening_audio()
   else:
-   notes.add_child(C.paper_label("A recorded guitar idea. The four-bar request below is a separate written exercise." if str(_view.get("candidate_id",""))=="cast_arjun" else "Voice: a line in bars 1 and 3. "+_instrument()+": "+str(_view["person"]["name"])+"’s part."))
+   var explanation: Label=C.paper_label("A recorded guitar idea. The four-bar request below is a separate written exercise." if str(_view.get("candidate_id",""))=="cast_arjun" else "Voice: a line in bars 1 and 3. "+_instrument()+": "+str(_view["person"]["name"])+"’s part.")
+   notes.add_child(explanation);_details_nodes.append(explanation)
    _audio=AudioPart.new()
    _audio.controls_visible=false
    _audio.manifest_path=Profiles.audio_manifest(str(_view["candidate_id"]))
    _audio.configure(_audio_context)
    notes.add_child(_audio)
    if str(_view.get("candidate_id",""))!="cast_arjun":_audio.set_clip(_content.material_id(str(_view.get("request",""))))
-  var takes:=HBoxContainer.new();takes.add_theme_constant_override("separation",5);notes.add_child(takes)
+  var takes:=HBoxContainer.new();takes.name="AuditionTakes";takes.add_theme_constant_override("separation",5);notes.add_child(takes)
   var audio_supported: bool=owner_state.game.genre=="Indie rock"
-  var first_take: Button=_button("▶ FIRST TAKE" if audio_supported else "WRITTEN EXAMPLE","AuditionPlayFirst",_hear_version.bind(true))
+  var first_take: Button=_button("▶ FIRST" if audio_supported else "WRITTEN EXAMPLE","AuditionPlayFirst",_hear_version.bind(true))
   if str(_view.get("candidate_id",""))=="cast_arjun" and audio_supported:first_take.text="▶ HEAR RECORDED IDEA"
   first_take.disabled=not audio_supported;first_take.set_meta("permitted",audio_supported);takes.add_child(first_take)
   if not audio_supported:notes.add_child(C.paper_label("Audio samples are not available for this style. Read the written part below.",16))
   if phase in ["response","decision"]:
    var has_audio: bool=str(_view.get("candidate_id"))!="cast_arjun" and owner_state.game.genre=="Indie rock"
-   var adjusted: Button=_button("▶ NEW TAKE" if has_audio else "WRITTEN ONLY","AuditionPlayAdjusted",_hear_version.bind(false))
-   adjusted.disabled=not has_audio;adjusted.set_meta("permitted",has_audio);takes.add_child(adjusted)
-  var stop: Button=_button("■ STOP PLAYBACK","AuditionStopTakes",_stop_takes)
-  notes.add_child(stop)
+   var adjusted: Button=_button("▶ NEW" if has_audio else "WRITTEN ONLY","AuditionPlayAdjusted",_hear_version.bind(false))
+   adjusted.disabled=not has_audio;adjusted.set_meta("permitted",has_audio);adjusted.visible=has_audio;takes.add_child(adjusted)
+   if not has_audio:
+    var written_response: Label=C.paper_label("ADJUSTED PART · WRITTEN ONLY",16);written_response.name="AuditionWrittenResponse";notes.add_child(written_response)
+  var stop: Button=_button("■ STOP","AuditionStopTakes",_stop_takes)
+  takes.add_child(stop)
   var written:=VBoxContainer.new();written.name="AuditionWrittenParts";written.visible=false
-  notes.add_child(_quiet_button("READ THE FOUR BARS","AuditionReadPart",func():written.visible=not written.visible,true))
+  var read_part: Button=_quiet_button("READ THE FOUR BARS","AuditionReadPart",func():written.visible=not written.visible,true)
+  notes.add_child(read_part);_details_nodes.append(read_part)
   notes.add_child(written)
   _board=GridContainer.new()
   _board.name="AuditionPhraseBoard"
@@ -246,8 +264,6 @@ func _build() -> void:
    var context_hint: Label=C.paper_label("Backing is an arranged bass-and-drum example, not your recruited band’s performance.")
    context_hint.name="AuditionBackingDisclosure"
    notes.add_child(context_hint)
- if not _view.get("held",false) and not arrival:
-  _question_box=VBoxContainer.new();_question_box.name="AuditionConversation";_question_box.add_theme_constant_override("separation",5);work.add_child(_question_box);_questions(_question_box)
  if not _view.get("held",false):
   preload("res://experiments/playable_flightcase/character_audio.gd").attach(work,str(_view["person"]["id"]),str(_view["person"]["role"]),func():return bool(_audio_context().get("allowed",false)))
  var practical:=VBoxContainer.new()
@@ -258,10 +274,10 @@ func _build() -> void:
  practical.add_child(_label("OUTSIDE THE BAND · "+background["outside_commitment"]))
  practical.add_child(_label(background["availability"]))
  practical.add_child(_label(background["starting_availability"]))
- work.add_child(practical)
  _bio=VBoxContainer.new()
  _bio.name="AuditionBiographyBody"
  _bio.visible=false
+ _bio.add_child(practical)
  var person: Dictionary=_view["person"]
  for key in ["story","strength","friction","ambition"]:_bio.add_child(_label(str(person.get(key,""))))
  work.add_child(_bio)
@@ -273,17 +289,20 @@ func _build() -> void:
  actions.name="AuditionActions"
  actions.add_theme_constant_override("separation",6)
  add_child(actions)
+ _question_box=VBoxContainer.new();_question_box.name="AuditionConversation";_question_box.add_theme_constant_override("separation",6);actions.add_child(_question_box)
+ _questions(_question_box)
+ _music_actions=VBoxContainer.new();_music_actions.name="AuditionMusicActions";_music_actions.add_theme_constant_override("separation",6);actions.add_child(_music_actions)
  if not _view.get("held",false):
   var steps: Dictionary={"arrival":"MEET "+str(_view["person"]["name"]).to_upper(),"tryout":"HEAR THE FIRST PART","response":"COMPARE · INVITE OR PASS","decision":"INVITE OR PASS"}
   var hints: Dictionary={"arrival":"Start when you are ready to try the sketch together.","tryout":"Listen or read, then ask "+str(_view["person"]["name"])+" to try one change.","response":"Compare the original if useful. Their story and commitments are here before you choose.","decision":"Read about "+str(_view["person"]["name"])+" before choosing. Inviting costs the talent shown."}
   var progress:=_label(str(steps.get(phase,"AUDITION")),14)
   progress.name="AuditionProgress"
-  actions.add_child(progress)
+  _music_actions.add_child(progress)
   var guidance:=_label(str(hints.get(phase,"")),14)
   guidance.name="AuditionNextStep"
   guidance.visible=false
-  actions.add_child(guidance)
-  if phase=="arrival":actions.add_child(_button("START AUDITION","AuditionStartTryout",_act.bind("start_tryout","")))
+  _music_actions.add_child(guidance)
+  if phase=="arrival":_music_actions.add_child(_button("START AUDITION","AuditionStartTryout",_act.bind("start_tryout","")))
   elif phase=="tryout":
    var requests:=GridContainer.new()
    requests.name="AuditionRequests"
@@ -292,35 +311,87 @@ func _build() -> void:
    requests.add_theme_constant_override("v_separation",6)
    requests.add_child(_button("Give the vocal more room","AuditionRequestSpace",_act.bind("request","space_for_voice")))
    requests.add_child(_button("Show me an idea of your own","AuditionRequestOwn",_act.bind("request","own_part")))
-   actions.add_child(requests)
+   _music_actions.add_child(requests)
+   var talk_again: Button=_quiet_button("TALK FIRST","AuditionTalkAgain",_show_conversation)
+   _music_actions.add_child(talk_again)
   elif phase in ["response","decision"]:
    var price: int=owner_state.game.incremental_cost(owner_state.game.person_by_id(str(_view["person"]["id"])))
-   actions.add_child(_label("%d TALENT · %d AVAILABLE" % [price,owner_state.remaining()]))
+   var balance: Label=_label("%d TALENT · %d AVAILABLE" % [price,owner_state.remaining()]);balance.name="AuditionTalentBalance";_music_actions.add_child(balance)
    var invite:=_button("INVITE %s · %d TALENT" % [str(_view["person"]["name"]).to_upper(),price],"AuditionInvite",_invite)
    invite.disabled=not owner_state.can_recruit(str(_view["person"]["id"]))
    invite.set_meta("permitted",not invite.disabled)
-   actions.add_child(invite)
-   actions.add_child(_button("PASS FOR NOW","AuditionPass",_pass))
- var exits:=HBoxContainer.new()
- exits.add_theme_constant_override("separation",8)
- if _view.get("ok",false) and _view.get("active",false):exits.add_child(_button("END AUDITION","AuditionAbort",_act.bind("abort","")))
- exits.add_child(_button("PAUSE / MENU","AuditionMenu",_menu))
- actions.add_child(exits)
+   _music_actions.add_child(invite)
+   _music_actions.add_child(_button("PASS FOR NOW","AuditionPass",_pass))
+ if _prior_toggle!=null:_details_nodes.append(_prior_toggle)
+ _apply_stage()
 
 func _questions(parent: Node) -> void:
  var answers: Dictionary=_view.get("conversation",{}).get("answers",{})
  for key in ["working_style","commitment"]:
-  if answers.has(key):parent.add_child(_label("✓ "+str(Connections.LABELS[answers[key]]),16))
- for key in ["commitment","working_style"]:
-  if answers.has(key):
-   parent.add_child(_label(str(_view.person.name)+" · "+Connections.reply(str(_view.candidate_id),key,str(answers[key])),16));break
- for key in ["working_style","commitment"]:
   if answers.has(key):continue
-  parent.add_child(_label(Connections.TITLES[key],17))
+  var prompt: Label=_label(Connections.TITLES[key],19);prompt.name="AuditionCurrentQuestion";parent.add_child(prompt)
   for choice in Connections.QUESTIONS[key]:
    var button: Button=_button(Connections.LABELS[choice],"AuditionTalk_"+key+"_"+str(choice),_act.bind("talk",key+":"+str(choice)))
-   Poster.choice_style(button);parent.add_child(button)
+   preload("res://experiments/playable_flightcase/conversation_panel.gd").reply(button)
+   preload("res://experiments/playable_flightcase/navigation_bar.gd").minimum(button,self)
+   parent.add_child(button)
+   var remaining: int=_turn_ready_at-Time.get_ticks_msec()
+   if remaining>0:
+    button.disabled=true
+    get_tree().create_timer(float(remaining)/1000.0).timeout.connect(_unlock_talk.bind(button))
   break
+ parent.add_child(_button("HEAR THE PART","AuditionHearPart",_show_music))
+
+func _unlock_talk(button: Button) -> void:
+ if is_inside_tree() and is_instance_valid(button) and not button.is_queued_for_deletion() and not _busy and _talking:
+  button.disabled=false
+  _restore_talk_focus()
+
+func _restore_talk_focus() -> void:
+ if not is_inside_tree() or _busy or not _talking:return
+ if Time.get_ticks_msec()<_turn_ready_at:
+  get_tree().create_timer(float(_turn_ready_at-Time.get_ticks_msec())/1000.0+0.01).timeout.connect(_restore_talk_focus)
+  return
+ var current: Control=get_viewport().gui_get_focus_owner()
+ if current!=null and current.is_visible_in_tree() and not current.is_queued_for_deletion() and current.focus_mode!=Control.FOCUS_NONE and (not current is Button or not current.disabled):return
+ for button in _question_box.get_children():
+  if button is Button and button.is_visible_in_tree() and not button.disabled:button.grab_focus();return
+
+func _show_conversation() -> void:
+ if _busy or _finish_voice() or Time.get_ticks_msec()<_turn_ready_at:return
+ if _view.get("phase")!="tryout" or _view.get("conversation",{}).get("answers",{}).size()>=2:return
+ _stop_takes();_talking=true;_apply_stage();call_deferred("_restore_talk_focus")
+
+func _show_music() -> void:
+ if _busy or _finish_voice() or Time.get_ticks_msec()<_turn_ready_at:return
+ _stop_takes();_talking=false
+ _voice.text=str(_view.get("voice",""))
+ if _view.get("phase")=="tryout":
+  var sentence: int=_voice.text.find(".")
+  if sentence>=0:_voice.text=_voice.text.substr(0,sentence+1)
+ _apply_stage()
+
+func _apply_stage() -> void:
+ if is_instance_valid(_question_box):_question_box.visible=_talking and not _view.get("held",false)
+ if is_instance_valid(_music_actions):_music_actions.visible=not _talking
+ if is_instance_valid(_music_paper):_music_paper.visible=not _talking
+ for control in _details_nodes:
+  if is_instance_valid(control):control.visible=_details_open and not _talking
+ var talk_again: Button=find_child("AuditionTalkAgain",true,false) as Button
+ if talk_again!=null:talk_again.visible=not _talking and _view.get("conversation",{}).get("answers",{}).size()<2
+ if is_instance_valid(_bio):_bio.visible=_details_open
+ var ideas: Control=find_child("CharacterRecordedIdeas",true,false) as Control
+ if ideas!=null:
+  # Arjun's primary player keeps its visibility authority; only its optional
+  # controls are disclosed. Hidden owners intentionally refuse playback.
+  ideas.visible=not _talking and (_details_open or str(_view.get("candidate_id",""))=="cast_arjun")
+  for child in ideas.get_children():
+   if child is Control:child.visible=_details_open
+ var written: Control=find_child("AuditionWrittenParts",true,false) as Control
+ if written!=null and (not _details_open or _talking):written.visible=false
+ var scroll: ScrollContainer=find_child("AuditionBodyScroll",true,false) as ScrollContainer
+ if scroll!=null:scroll.set_deferred("scroll_vertical",0)
+
 
 func _stop_takes() -> void:
  if is_instance_valid(_audio):_audio.stop()
@@ -403,7 +474,9 @@ func _toggle_prior() -> void:
  _inspector.text="First try — the same four bars." if _show_prior else "Adjusted try — inspect what "+str(_view["person"]["name"])+" changed."
 
 func _toggle_bio() -> void:
- if not _busy:_bio.visible=not _bio.visible
+ if _busy:return
+ _details_open=not _details_open
+ _apply_stage()
 
 func _finish_voice() -> bool:
  if is_instance_valid(_voice) and _voice.call("is_revealing"):
@@ -421,14 +494,19 @@ func _set_busy(value: bool) -> void:
   if is_instance_valid(button):button.disabled=value or not bool(button.get_meta("permitted",true))
 
 func _act(action: String,request: String) -> void:
- if _busy or _finish_voice():return
+ if _busy or _finish_voice() or (action=="talk" and Time.get_ticks_msec()<_turn_ready_at):return
  _set_busy(true)
  var result: Dictionary=owner_state.audition_action(action,_expected.duplicate(true),request)
  if action=="talk" and result.get("ok",false) and is_instance_valid(_question_box):
   _view=result.view;_expected=result.expected
   for child in _question_box.get_children():
    _question_box.remove_child(child);child.queue_free()
-  _set_busy(false);_questions(_question_box)
+  _set_busy(false)
+  _turn_ready_at=Time.get_ticks_msec()+350
+  var parts: PackedStringArray=request.split(":")
+  if parts.size()==2:_voice.text=Connections.reply(str(_view.candidate_id),str(parts[0]),str(parts[1]));_voice.call("begin",reduced_motion)
+  _questions(_question_box);_apply_stage()
+  get_tree().create_timer(0.36).timeout.connect(_restore_talk_focus)
   return
  _returned(result)
 
@@ -453,7 +531,7 @@ func _returned(result: Dictionary) -> void:
  _notice.visible=true
 
 func _menu() -> void:
- if is_instance_valid(_audio):_audio.stop()
+ _stop_takes()
  if not _busy:menu_requested.emit()
 
 func _audio_context() -> Dictionary:

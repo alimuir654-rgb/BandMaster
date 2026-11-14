@@ -19,7 +19,6 @@ static func render(host,parent: Node,compact: bool) -> void:
   prompt.name="CareerMakePrompt";prompt.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
   parent.add_child(prompt)
   Launcher.render(host,parent,compact)
-  var back: Button=P.quiet("BACK TO YOUR BAND  ↑");back.name="PosterActivitiesAction";back.pressed.connect(host._toggle_poster_activities);parent.add_child(back)
   return
  var mast: Label=P.masthead(str(state.get("band_name","YOUR BAND")).to_upper(),width,68 if compact else 80);mast.name="PosterBandMasthead";parent.add_child(mast)
  var facts: Node=parent

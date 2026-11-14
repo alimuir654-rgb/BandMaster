@@ -29,27 +29,24 @@ const ROUTES := [
  {"label":"SONGBOOK","destination":"songs","node":"CareerHome_songs","icon":"notebook-pen.svg","color":"eee8d8"}
 ]
 static func render(host,parent: Node,compact: bool) -> void:
- var grid:=GridContainer.new();grid.name="CareerLauncherGrid";grid.columns=2 if compact else 3
+ var group: String=str(host.launcher_group)
+ var groups: Dictionary={"music":["create","practice","recording"],"out":["gigs","promotion","offstage"],"people":["band","songs","manage"],"manage":["calendar","gear","finance"]}
+ var labels: Dictionary={"music":"MAKE MUSIC","out":"GET OUT THERE","people":"YOUR BAND","manage":"BAND ADMIN"}
+ var choices: Array=groups.get(group,["music","out","people"])
+ var grid:=VBoxContainer.new();grid.name="CareerLauncherGrid"
  grid.size_flags_horizontal=Control.SIZE_EXPAND_FILL;grid.mouse_filter=Control.MOUSE_FILTER_PASS
- grid.add_theme_constant_override("h_separation",10);grid.add_theme_constant_override("v_separation",10);parent.add_child(grid)
- for entry in ROUTES:
-  var destination: String=entry.destination
-  var route: Callable=host._practice.bind("tighten") if destination=="practice" else (host._practice.bind("create") if destination=="create" else (host._open_poster_demo if destination in ["recording","promotion"] else host._navigate.bind(destination)))
-  var tile: Button=P.button("" if destination in ["create","practice","gigs","recording","promotion","offstage"] else entry.label,false,Color(entry.color));tile.name=entry.node;tile.disabled=host.busy;tile.pressed.connect(route)
-  tile.custom_minimum_size.y=146 if destination in ["create","practice","gigs","recording","promotion","offstage"] else 54
-  tile.set_meta("career_destination",destination);tile.tooltip_text=entry.label;grid.add_child(tile)
-  if destination not in ["create","practice","gigs","recording","promotion","offstage"]:continue
-  var margin:=MarginContainer.new();margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);margin.mouse_filter=Control.MOUSE_FILTER_IGNORE
-  for side in ["left","right","top","bottom"]:margin.add_theme_constant_override("margin_"+side,16)
-  tile.add_child(margin)
-  var box:=VBoxContainer.new();box.mouse_filter=Control.MOUSE_FILTER_IGNORE;margin.add_child(box)
-  var icon:=TextureRect.new();icon.name="CareerLauncherIcon_"+destination;icon.custom_minimum_size=Vector2(38,38);icon.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;icon.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;icon.mouse_filter=Control.MOUSE_FILTER_IGNORE;icon.modulate=P.PAPER if P.stock_index(Color(entry.color)) in [2,3] else P.INK
-  var path: String=ICON_ROOT+"native48/"+str(entry.icon).replace(".svg",".png")
-  icon.texture=icon_texture(path)
-  if icon.texture==null:
-   path=ICON_ROOT+entry.icon;icon.texture=icon_texture(path)
-  icon.set_meta("source",path);box.add_child(icon)
-  var words: String=str({"create":"WRITE\nA SONG","recording":"RECORD\nA DEMO","promotion":"SPREAD\nTHE WORD"}.get(destination,entry.label))
-  var label: Label=P.label(words,28,P.PAPER if P.stock_index(Color(entry.color)) in [2,3] else P.INK)
-  label.add_theme_font_override("font",P.FONT)
-  label.name="CareerLauncherLabel_"+destination;label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;label.size_flags_vertical=Control.SIZE_EXPAND_FILL;label.vertical_alignment=VERTICAL_ALIGNMENT_CENTER;box.add_child(label)
+ grid.add_theme_constant_override("separation",10);parent.add_child(grid)
+ for destination in choices:
+  if groups.has(destination):
+   var category: Button=host._button(str(labels[destination]),"CareerLauncherGroup_"+str(destination),host._choose_launcher_group.bind(str(destination)))
+   category.custom_minimum_size.y=64
+   grid.add_child(category)
+   preload("res://experiments/playable_flightcase/navigation_bar.gd").minimum(category,host)
+   continue
+  for entry in ROUTES:
+   if entry.destination!=destination:continue
+   var route: Callable=host._practice.bind("tighten") if destination=="practice" else (host._practice.bind("create") if destination=="create" else (host._open_poster_demo if destination in ["recording","promotion"] else host._navigate.bind(destination)))
+   var tile: Button=host._button(str(entry.label),str(entry.node),route)
+   tile.custom_minimum_size.y=64;tile.set_meta("career_destination",destination);grid.add_child(tile)
+   preload("res://experiments/playable_flightcase/navigation_bar.gd").minimum(tile,host)
+   break
