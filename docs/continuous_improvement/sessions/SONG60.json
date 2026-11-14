@@ -7,8 +7,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
   },
   "issue_log_review": {
-    "bytes": 2322330,
-    "sha256": "db584f7667ba66feb1bfb85ea392e9e28ec140d1922b6fe681d88ee4c6da80db"
+    "bytes": 2325990,
+    "sha256": "b6f43a5d45e26ea823ab753e71b887eac947ec09402bdd0b73075020ca58f88d"
   },
   "lesson_ids": [
     "BM-01",
@@ -45,7 +45,7 @@
     "scope": "R2\u2013R7 in dependency order with bounded committed passes; no promise all stages finish."
   },
   "id": "SONG60",
-  "status": "active",
+  "status": "closed",
   "baseline_sha": "fd7a5e24b34b17cf741c4aab14a8c7798e17ddc5",
   "hypothesis": "Expose local canonical collaborator selection beside the existing note, stage pending leader/partner/direction atomically in the original owner, and show validated retained ideas after completion without changing scoring or existing visuals.",
   "controlled_comparison": "Same Jack/Zoe/Casey formation and same recipe/cost/calendar at four actual native viewports. Capture actual baseline writing card before candidate; inspect early phone/short then complete native selection, dirty exit failure/retry,3paidstages,typedreload and retained/declined callback.",
@@ -83,12 +83,13 @@
   ],
   "writer": {
     "owner": "root-SONG60",
-    "status": "active",
+    "status": "released",
     "source_writers": 1,
     "claimed_at": "2026-11-14T03:03:28.514628+00:00",
-    "expires_at": "2026-11-14T03:49:00+00:00"
+    "expires_at": null,
+    "released_at": "2026-11-14T03:42:46.737967+00:00"
   },
-  "next_action": "Start bounded R3 song/version/actual-participant rehearsal only after the SONG60 co-writing UI/native gates pass.",
+  "next_action": "Start bounded R3 song/version/actual-participant rehearsal from the live branch, reusing the verified R2 identity and co-writing owners.",
   "queue_task_ids": [
     "SONG53-R2"
   ],
@@ -129,5 +130,38 @@
       "Costs/actions remain reachable and actual input works",
       "Callback names actual retained person/field afterreload, no fabricated legacy data"
     ]
+  },
+  "closed_at": "2026-11-14T03:42:46.737967+00:00",
+  "reviewers": [
+    {
+      "agent": "/root/au01_source_review",
+      "role": "independent predesign/source/early+final visual",
+      "verdict": "CLEAR",
+      "actual_opens": "5early originals plus8final native-v5 originals",
+      "released": true
+    },
+    {
+      "agent": "/root/foundation_tests",
+      "role": "fresh read-only source/evidence/owner audit",
+      "verdict": "Scoped CLEAR",
+      "actual_opens": 0,
+      "released": true
+    }
+  ],
+  "closeout": {
+    "tested_sha": "c88d49ee14ee708d1cab55e43d727057799658a4",
+    "candidate_sha": "8f506b52a84ccd10dca9f5fbdda038966b6c4200",
+    "evidence": [
+      "docs/continuous_improvement/SONG60_RESULTS.json",
+      "docs/continuous_improvement/SONG60_REVIEW.json",
+      "docs/continuous_improvement/evidence/SONG60/",
+      "https://github.com/alimuir654-rgb/BandMaster/actions/runs/43551880246"
+    ],
+    "visual_verdict": "internal_pass",
+    "technical_verdict": "scoped pass",
+    "owner_approved": false,
+    "release_verdict": "no APK/release",
+    "next_action": "Start bounded R3 song/version/actual-participant rehearsal from the live branch, reusing the verified R2 identity and co-writing owners.",
+    "new_issue_review": "All appended opaque-ID issues reviewed; held baseline/theme/QA/API/legacy-CI diagnostics preserved, final resolution appended. No history rewritten."
   }
 }

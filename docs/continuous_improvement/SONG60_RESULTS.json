@@ -1,0 +1,1165 @@
+{
+  "session": "SONG60",
+  "tested_sha": "c88d49ee14ee708d1cab55e43d727057799658a4",
+  "candidate_sha": "8f506b52a84ccd10dca9f5fbdda038966b6c4200",
+  "preflight_sha": "9a8ab053afa9b0cf97f02077073f1adae4dbe7cc",
+  "CI": [
+    {
+      "id": 43551880308,
+      "name": "Mandatory improvement gate",
+      "conclusion": "success",
+      "head_sha": "c88d49ee14ee708d1cab55e43d727057799658a4",
+      "url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/43551880308"
+    },
+    {
+      "id": 43551880218,
+      "name": "Structure",
+      "conclusion": "success",
+      "head_sha": "c88d49ee14ee708d1cab55e43d727057799658a4",
+      "url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/43551880218"
+    },
+    {
+      "id": 43551880246,
+      "name": "Models/legacy/identity/co-writing",
+      "conclusion": "success",
+      "head_sha": "c88d49ee14ee708d1cab55e43d727057799658a4",
+      "url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/43551880246"
+    },
+    {
+      "id": 43551880209,
+      "name": "Headless regressions",
+      "conclusion": "success",
+      "head_sha": "c88d49ee14ee708d1cab55e43d727057799658a4",
+      "url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/43551880209"
+    }
+  ],
+  "model_artifact": {
+    "id": 14096458079,
+    "bytes": 106919,
+    "metadata_digest": "sha256:1eea3e8aa13520aaa1215c804ce4668163f196550b797e201f8d738545cd1370",
+    "download_claim": false
+  },
+  "native_final": {
+    "phone": {
+      "name": "candidate-phone",
+      "exit_code": 0,
+      "seconds": 15.41,
+      "log": "/tmp/bandmaster-song60-20261114/native-v5/logs/candidate-phone.log",
+      "errors": [],
+      "pass": true,
+      "result": {
+        "baseline": false,
+        "checks": 190,
+        "failures": [],
+        "images": [
+          {
+            "height": 844,
+            "path": "/tmp/bandmaster-song60-20261114/native-v5/candidate/phone/sound-off-pending-person.png",
+            "state": "sound-off-pending-person",
+            "width": 390
+          },
+          {
+            "height": 844,
+            "path": "/tmp/bandmaster-song60-20261114/native-v5/candidate/phone/local-role-swap.png",
+            "state": "local-role-swap",
+            "width": 390
+          },
+          {
+            "height": 844,
+            "path": "/tmp/bandmaster-song60-20261114/native-v5/candidate/phone/chosen-casey.png",
+            "state": "chosen-casey",
+            "width": 390
+          },
+          {
+            "height": 844,
+            "path": "/tmp/bandmaster-song60-20261114/native-v5/candidate/phone/free-save-failure.png",
+            "state": "free-save-failure",
+            "width": 390
+          },
+          {
+            "height": 844,
+            "path": "/tmp/bandmaster-song60-20261114/native-v5/candidate/phone/paid-save-failure.png",
+            "state": "paid-save-failure",
+            "width": 390
+          },
+          {
+            "height": 844,
+            "path": "/tmp/bandmaster-song60-20261114/native-v5/candidate/phone/retained-idea-after-reload.png",
+            "state": "retained-idea-after-reload",
+            "width": 390
+          }
+        ],
+        "ok": true,
+        "successful_paid_settlements": 3,
+        "trace": []
+      }
+    },
+    "short": {
+      "name": "candidate-short",
+      "exit_code": 0,
+      "seconds": 15.94,
+      "log": "/tmp/bandmaster-song60-20261114/native-v5/logs/candidate-short.log",
+      "errors": [],
+      "pass": true,
+      "result": {
+        "baseline": false,
+        "checks": 190,
+        "failures": [],
+        "images": [
+          {
+            "height": 720,
+            "path": "/tmp/bandmaster-song60-20261114/native-v5/candidate/short/sound-off-pending-person.png",
+            "state": "sound-off-pending-person",
+            "width": 1280
+          },
+          {
+            "height": 720,
+            "path": "/tmp/bandmaster-song60-20261114/native-v5/candidate/short/local-role-swap.png",
+            "state": "local-role-swap",
+            "width": 1280
+          },
+          {
+            "height": 720,
+            "path": "/tmp/bandmaster-song60-20261114/native-v5/candidate/short/chosen-casey.png",
+            "state": "chosen-casey",
+            "width": 1280
+          },
+          {
+            "height": 720,
+            "path": "/tmp/bandmaster-song60-20261114/native-v5/candidate/short/free-save-failure.png",
+            "state": "free-save-failure",
+            "width": 1280
+          },
+          {
+            "height": 720,
+            "path": "/tmp/bandmaster-song60-20261114/native-v5/candidate/short/paid-save-failure.png",
+            "state": "paid-save-failure",
+            "width": 1280
+          },
+          {
+            "height": 720,
+            "path": "/tmp/bandmaster-song60-20261114/native-v5/candidate/short/retained-idea-after-reload.png",
+            "state": "retained-idea-after-reload",
+            "width": 1280
+          }
+        ],
+        "ok": true,
+        "successful_paid_settlements": 3,
+        "trace": []
+      }
+    },
+    "tall": {
+      "name": "candidate-tall",
+      "exit_code": 0,
+      "seconds": 16.48,
+      "log": "/tmp/bandmaster-song60-20261114/native-v5/logs/candidate-tall.log",
+      "errors": [],
+      "pass": true,
+      "result": {
+        "baseline": false,
+        "checks": 190,
+        "failures": [],
+        "images": [
+          {
+            "height": 1280,
+            "path": "/tmp/bandmaster-song60-20261114/native-v5/candidate/tall/sound-off-pending-person.png",
+            "state": "sound-off-pending-person",
+            "width": 720
+          },
+          {
+            "height": 1280,
+            "path": "/tmp/bandmaster-song60-20261114/native-v5/candidate/tall/local-role-swap.png",
+            "state": "local-role-swap",
+            "width": 720
+          },
+          {
+            "height": 1280,
+            "path": "/tmp/bandmaster-song60-20261114/native-v5/candidate/tall/chosen-casey.png",
+            "state": "chosen-casey",
+            "width": 720
+          },
+          {
+            "height": 1280,
+            "path": "/tmp/bandmaster-song60-20261114/native-v5/candidate/tall/free-save-failure.png",
+            "state": "free-save-failure",
+            "width": 720
+          },
+          {
+            "height": 1280,
+            "path": "/tmp/bandmaster-song60-20261114/native-v5/candidate/tall/paid-save-failure.png",
+            "state": "paid-save-failure",
+            "width": 720
+          },
+          {
+            "height": 1280,
+            "path": "/tmp/bandmaster-song60-20261114/native-v5/candidate/tall/retained-idea-after-reload.png",
+            "state": "retained-idea-after-reload",
+            "width": 720
+          }
+        ],
+        "ok": true,
+        "successful_paid_settlements": 3,
+        "trace": []
+      }
+    },
+    "wide": {
+      "name": "candidate-wide",
+      "exit_code": 0,
+      "seconds": 17.71,
+      "log": "/tmp/bandmaster-song60-20261114/native-v5/logs/candidate-wide.log",
+      "errors": [],
+      "pass": true,
+      "result": {
+        "baseline": false,
+        "checks": 190,
+        "failures": [],
+        "images": [
+          {
+            "height": 900,
+            "path": "/tmp/bandmaster-song60-20261114/native-v5/candidate/wide/sound-off-pending-person.png",
+            "state": "sound-off-pending-person",
+            "width": 1600
+          },
+          {
+            "height": 900,
+            "path": "/tmp/bandmaster-song60-20261114/native-v5/candidate/wide/local-role-swap.png",
+            "state": "local-role-swap",
+            "width": 1600
+          },
+          {
+            "height": 900,
+            "path": "/tmp/bandmaster-song60-20261114/native-v5/candidate/wide/chosen-casey.png",
+            "state": "chosen-casey",
+            "width": 1600
+          },
+          {
+            "height": 900,
+            "path": "/tmp/bandmaster-song60-20261114/native-v5/candidate/wide/free-save-failure.png",
+            "state": "free-save-failure",
+            "width": 1600
+          },
+          {
+            "height": 900,
+            "path": "/tmp/bandmaster-song60-20261114/native-v5/candidate/wide/paid-save-failure.png",
+            "state": "paid-save-failure",
+            "width": 1600
+          },
+          {
+            "height": 900,
+            "path": "/tmp/bandmaster-song60-20261114/native-v5/candidate/wide/retained-idea-after-reload.png",
+            "state": "retained-idea-after-reload",
+            "width": 1600
+          }
+        ],
+        "ok": true,
+        "successful_paid_settlements": 3,
+        "trace": []
+      }
+    }
+  },
+  "model_results": {
+    "baseline": {
+      "exit_code": 0,
+      "errors": [],
+      "result": {
+        "checks": 100,
+        "failure_count": 0,
+        "failures": [],
+        "legacy_receipts_checked": 0,
+        "monotonic_failures": 0,
+        "ok": true,
+        "owner_transactions": 6
+      },
+      "log_sha256": "06b169081cd1009978d2d4970260625bead12686161dead0fdce80d3a42653ab",
+      "inputs": 72
+    },
+    "candidate": {
+      "exit_code": 0,
+      "errors": [],
+      "result": {
+        "checks": 380,
+        "failure_count": 0,
+        "failures": [],
+        "legacy_receipts_checked": 0,
+        "monotonic_failures": 0,
+        "ok": true,
+        "owner_transactions": 15
+      },
+      "log_sha256": "03cd42df4d8b0f71db061f3af59683852575f3f31716c989f6308438c6787093",
+      "inputs": 72
+    }
+  },
+  "native_source_manifest": "docs/continuous_improvement/evidence/SONG60/native-v5-candidate-SOURCE.json",
+  "native_source_manifest_sha256": "35f8b1ad04f3545816031f49a62c1ba7f1be15f757918cfde56b7015e266222d",
+  "source_protection": {
+    "baseline": "fd7a5e24b34b17cf741c4aab14a8c7798e17ddc5",
+    "product_tested_source": "c88d49ee14ee708d1cab55e43d727057799658a4",
+    "changed_existing": [
+      ".github/workflows/song55-native-proof.yml",
+      ".github/workflows/song57-model-proof.yml",
+      "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+      "docs/asset_base/STATE.json",
+      "docs/continuous_improvement/CURRENT.json",
+      "docs/continuous_improvement/ISSUES.jsonl",
+      "docs/handover/START_HERE.md",
+      "experiments/playable_flightcase/mixing_desk.gd",
+      "experiments/playable_flightcase/opening_state.gd",
+      "experiments/playable_flightcase/song_audio.gd",
+      "experiments/playable_flightcase/song_workbench.gd",
+      "experiments/playable_flightcase/ui.gd"
+    ],
+    "protected_scripts": 54,
+    "protected_art_font_audio": 632,
+    "all_protected_exact": true,
+    "source_hashes": {
+      "experiments/playable_flightcase/mixing_desk.gd": "9f41706d65a36e2a912a1aabe108a8d0b3730e011e638ff3cb4b58ac421768c7",
+      "experiments/playable_flightcase/song_workbench.gd": "c4177664d13cd655a2e037f066f66db5a2b74282c2231f8e19ec338d569253e0",
+      "experiments/playable_flightcase/opening_state.gd": "4dc21e60c3912559a12d06ff08b8bd3d1303373ba586aa233d0d0836a47f859e",
+      "experiments/playable_flightcase/song_audio.gd": "5c4bd93d8f00b7853e400c2e2ac8d5743d136d216b68356f5d414dce3f9881fe",
+      "experiments/playable_flightcase/ui.gd": "10bad3442b652ae062a22647b714723059227a9ba5efeba53be72a22d6331f4d",
+      "tests/song60_native.gd": "870d0f3de25d936e8f0012da95f7f215d780bd53cd7bbd423125d596b0b66eb7",
+      "tests/song60_models.gd": "c60ba6a50d5f9ed413c3abd0f09d00fc44cffeeefc6007518a919d8f64ad7c0b",
+      "tools/song60_verify.py": "f3b88cba72ad40ab854b070a3bc8921e03c183083cf638523e13b593a47fbd34"
+    },
+    "primary_free": 625475584,
+    "tmp_free": 5336326144
+  },
+  "evidence_files": [
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-phone-chosen-casey.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate/phone/chosen-casey.png",
+      "encoding": "base64",
+      "bytes": 392051,
+      "sha256": "e988f810484832852fc5ca4f71a0ea13f8a60c741a2f5bb7bc8ed99232157daf",
+      "git_blob": "1e7a48625b4840871cab091e336e010277e2afa3"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-phone-free-save-failure.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate/phone/free-save-failure.png",
+      "encoding": "base64",
+      "bytes": 305572,
+      "sha256": "f51a9b854487f2c1b0521830210050e8387b1d6eeb367b5eb55aa6c9eebf24da",
+      "git_blob": "5990d785f32b48dc290d33f330d454a4c914e9f1"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-phone-local-role-swap.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate/phone/local-role-swap.png",
+      "encoding": "base64",
+      "bytes": 380862,
+      "sha256": "6bc4df3b593606decd396baac2d91438e7e3b8357ecb81777441691996fd1553",
+      "git_blob": "625d2aad86bd939af15400f2ebd7dfafd6abc498"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-phone-paid-save-failure.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate/phone/paid-save-failure.png",
+      "encoding": "base64",
+      "bytes": 360878,
+      "sha256": "d35567b32a73528daf41198d535e90efca0dbe8b1eb293b4f0a08803758befa5",
+      "git_blob": "bda5e63902fb524bc1e5aa39c14a9368080b315a"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-phone-retained-idea-after-reload.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate/phone/retained-idea-after-reload.png",
+      "encoding": "base64",
+      "bytes": 335374,
+      "sha256": "89f3028f7645b9069889e9d7c0a9990b27555e9e3213d39c36ac48f4a3145092",
+      "git_blob": "42d415807bddf74acfa4385a7b383fe6d1b9729f"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-phone-sound-off-pending-person.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate/phone/sound-off-pending-person.png",
+      "encoding": "base64",
+      "bytes": 390275,
+      "sha256": "3068d8096ebc18e8962117c181479a2b151d91a480a50967a5bf233c862076f7",
+      "git_blob": "1859fb9ca27dc6a71d98192de25e312196284dfe"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-short-chosen-casey.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate/short/chosen-casey.png",
+      "encoding": "base64",
+      "bytes": 1055474,
+      "sha256": "5e798a50ae44208960102f3fc51d9afa853382b726c1eeb44ece0f18f1f62b50",
+      "git_blob": "24a403586572252a12bce45526071a5c0564d835"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-short-free-save-failure.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate/short/free-save-failure.png",
+      "encoding": "base64",
+      "bytes": 596594,
+      "sha256": "0db1a7cd0079fe9514acc5de7e302d4c10b235aca1e2475078e79b0610e61ec8",
+      "git_blob": "3d65e7f68cb22311e47b473183212ac6aa07b85a"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-short-local-role-swap.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate/short/local-role-swap.png",
+      "encoding": "base64",
+      "bytes": 1055181,
+      "sha256": "69a6f53300b13566c75515523fe6ec7bfecdd7f80d242ed0c05b64af09a6b89e",
+      "git_blob": "594cc3fed1a00378568b17543538adb521786e28"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-short-paid-save-failure.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate/short/paid-save-failure.png",
+      "encoding": "base64",
+      "bytes": 1014748,
+      "sha256": "8a3fc97a77329455aedba059735b0a96c638b1c7c02c6725aacdc0e1cb993fc4",
+      "git_blob": "1c8ac98619d0e86f8c0749f5ae5feeb67b63d55d"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-short-retained-idea-after-reload.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate/short/retained-idea-after-reload.png",
+      "encoding": "base64",
+      "bytes": 705218,
+      "sha256": "7ac30e799d0b57f9ffc4e4ddfd6e198643940e8894cac71f0bff57db7260d53b",
+      "git_blob": "29b761b7bb69288540197224bf8cf1590d1aa95f"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-short-sound-off-pending-person.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate/short/sound-off-pending-person.png",
+      "encoding": "base64",
+      "bytes": 1050959,
+      "sha256": "20709db8129728ec7d2246428a3ab0a0e4d67870bbe266663f061c8a0ea923ed",
+      "git_blob": "4b8ec8a87e1b7d1deafc2496c57e18cc16d49e52"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-tall-chosen-casey.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate/tall/chosen-casey.png",
+      "encoding": "base64",
+      "bytes": 992322,
+      "sha256": "c46c03d91fdcbf2ba9a7152d2e1b4fd3ad6477a33b9b782b01d21a1da81761f5",
+      "git_blob": "25090e5c603c3862baaf795f507fde3cd6779858"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-tall-free-save-failure.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate/tall/free-save-failure.png",
+      "encoding": "base64",
+      "bytes": 717535,
+      "sha256": "83bc2db041ab7ebc15606c7636e9313fdba33f9086a63e6ee53a4cff7c20e6e7",
+      "git_blob": "e7558054058487bc8a421add08ace1d96c5c88ca"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-tall-local-role-swap.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate/tall/local-role-swap.png",
+      "encoding": "base64",
+      "bytes": 975836,
+      "sha256": "facbf41f7fefa7d5b255b46b5709edd6484036a22294d3ae0eb01acdeeba5b67",
+      "git_blob": "91dc57405239ad89d61b804677e6392dfa3ece35"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-tall-paid-save-failure.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate/tall/paid-save-failure.png",
+      "encoding": "base64",
+      "bytes": 886155,
+      "sha256": "08d17d0b23ac2fa1188f5f8222b8dbc22ee8a9ae45f6343684c12c446682b368",
+      "git_blob": "7beb972f66f7878bdb429f5b60d8d0fbc11014d1"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-tall-retained-idea-after-reload.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate/tall/retained-idea-after-reload.png",
+      "encoding": "base64",
+      "bytes": 799868,
+      "sha256": "6410b76765a6189907d2f8b5f3d7f18940cc2e12960503a48d56f2bfe53b54d2",
+      "git_blob": "b09bb3572d05153633aaf9352b3c7ee6b9e6723a"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-tall-sound-off-pending-person.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate/tall/sound-off-pending-person.png",
+      "encoding": "base64",
+      "bytes": 987742,
+      "sha256": "f99e7b25aed25583de9bc16a360c70026b6b6c86fa35e66f4d94210eefc266ba",
+      "git_blob": "c29267e59fdbda853ae012f89dfe372874d38f24"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-wide-chosen-casey.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate/wide/chosen-casey.png",
+      "encoding": "base64",
+      "bytes": 1520043,
+      "sha256": "292c044396b6134d6f4ad79492359bd9172087529add4acc6a3a27f7801a17ba",
+      "git_blob": "af095fce825546f4ff4ad121309d3f5b1de88096"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-wide-free-save-failure.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate/wide/free-save-failure.png",
+      "encoding": "base64",
+      "bytes": 854515,
+      "sha256": "dcb71a22a3bc873bbbcde8be0de3a55ca7c8b915d2a8a76a7f5537ac7f0b00c5",
+      "git_blob": "7dae54b465416806744a00f19ca71a9a7c37be49"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-wide-local-role-swap.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate/wide/local-role-swap.png",
+      "encoding": "base64",
+      "bytes": 1520187,
+      "sha256": "4eba9fff3a2bfe94817b69e994b6d276327a5a6d91666f657585d6e280cb6b0d",
+      "git_blob": "29f013e1165c957f190a096cc839b961ace31071"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-wide-paid-save-failure.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate/wide/paid-save-failure.png",
+      "encoding": "base64",
+      "bytes": 1463055,
+      "sha256": "d01932005104e568a55e9af41be09ca8c88f1a373043762ff45dc05fe0034ccf",
+      "git_blob": "31c819047ce9b9161ac5a99c98cf83f39c7838dc"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-wide-retained-idea-after-reload.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate/wide/retained-idea-after-reload.png",
+      "encoding": "base64",
+      "bytes": 995909,
+      "sha256": "80345772e664df0361a810896fde05af293c728b30894da82868277dcf80ef9b",
+      "git_blob": "b3e9072f965a3fdca3c73948bdde0611ff573429"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/final-wide-sound-off-pending-person.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate/wide/sound-off-pending-person.png",
+      "encoding": "base64",
+      "bytes": 1514140,
+      "sha256": "472dc2bbfbce26fd371b86e29775a4f4c728ddd0c27cb77617fe39231d48ba1b",
+      "git_blob": "fa877e2282e9c0261a98badfa06b577061d0db18"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/baseline-phone-baseline-writing-card.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v2/baseline/phone/baseline-writing-card.png",
+      "encoding": "base64",
+      "bytes": 399408,
+      "sha256": "9e38d9385aeb31f0da017fbd09b63f253ecf4e0b645af99eeb0b7ff1a21d917f",
+      "git_blob": "a5af206d30fd26b0ce0e045c6f64cfe1b9f0a798"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/baseline-short-baseline-writing-card.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v2/baseline/short/baseline-writing-card.png",
+      "encoding": "base64",
+      "bytes": 1050644,
+      "sha256": "d62e7245b3def36e69cb3e9a0da4072c512bee8602e1c7f909e77da04307dbd2",
+      "git_blob": "04bdef5b598f05f7d553e75587befaa5a856f47c"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/held-bare-callback-phone.png",
+      "source": "/tmp/bandmaster-song60-20261114/native-v2/candidate/phone/retained-idea-after-reload.png",
+      "encoding": "base64",
+      "bytes": 7596,
+      "sha256": "bdece16a66aaf5d204359d95f49eca4329e460f40cce395d8f2c49c0962fc021",
+      "git_blob": "c6e00dd98e064d746c73cccdb067c74facf60324"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v1-baseline-SOURCE.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v1/baseline-SOURCE.json",
+      "encoding": "utf-8",
+      "bytes": 275995,
+      "sha256": "bb4f4d7c797e518a816e96b53ce43d122316de90fe4a214ffefeacb296d810a9",
+      "git_blob": "e5f4b65a510dfcc8dfcc7398ae3d905344f54780"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v1-baseline-phone.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v1/logs/baseline-phone.log",
+      "encoding": "utf-8",
+      "bytes": 725,
+      "sha256": "87b59a2e9841bb787e5b32d5f1b7dd3642ca7d702e4a7f3a34616bbb8dd9a663",
+      "git_blob": "97ea6e751d060cdf6dd6b77712a58b7c2628ca61"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v1-baseline-Xorg-101.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v1/logs/baseline-Xorg-101.log",
+      "encoding": "utf-8",
+      "bytes": 52963,
+      "sha256": "fe7607e5d41cd13fec24ab97eff13398ff3ac8a7ec4f6a7c21404dbea23ece4d",
+      "git_blob": "f01591faef372bcf6bd0b30f4a74fd17368feb60"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v1-baseline-import.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v1/logs/baseline-import.log",
+      "encoding": "utf-8",
+      "bytes": 185851,
+      "sha256": "9084c9fb85f34245ebb0f3fa64e8f3329de614385df4c9ccb37132fa2674c9b5",
+      "git_blob": "92b585f1b7b71a2623fd103dbf4afd32d39393af"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v1-baseline-final-signing-guard.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v1/logs/baseline-final-signing-guard.result.json",
+      "encoding": "utf-8",
+      "bytes": 68,
+      "sha256": "c8ba6b9fb9d27e1b75cf093a1480f5f8e3c0f023ca8ff92d6b50fbfa8e9665c8",
+      "git_blob": "b37662f3bf717b3acf58d5769522a274c2a3e317"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v1-baseline-phone.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v1/logs/baseline-phone.result.json",
+      "encoding": "utf-8",
+      "bytes": 431,
+      "sha256": "293d8cd3a31758fa90a790226433459a85d5f8d0cc16fb17bbffac08cea5c581",
+      "git_blob": "575a56375c10c0c3b429240afa118a5042ae73b4"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v1-baseline-import.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v1/logs/baseline-import.result.json",
+      "encoding": "utf-8",
+      "bytes": 181,
+      "sha256": "4126da983beafc173a0a0c236c30371f21884c600b10eee6e726bd4e772afffb",
+      "git_blob": "e0dac071295be8cf9718479238d280860f3c5f02"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v2-candidate-SOURCE.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v2/candidate-SOURCE.json",
+      "encoding": "utf-8",
+      "bytes": 275995,
+      "sha256": "df1230273105fb5b46667b499fc07affbbb0af8930ad8fadfa2dc45bba1c2731",
+      "git_blob": "cee0a0427199a4284b61136c0cad9c6474a88f6a"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v2-baseline-SOURCE.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v2/baseline-SOURCE.json",
+      "encoding": "utf-8",
+      "bytes": 275995,
+      "sha256": "f8990836a543e5853070fdbf2a48be561d8b38342c2b55dec5fa3f92f5ff371d",
+      "git_blob": "bd36285f0ba7a5b1f5b6cc6a1d2cd5aba16c8992"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v2-candidate-short.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v2/logs/candidate-short.log",
+      "encoding": "utf-8",
+      "bytes": 1080,
+      "sha256": "d3945bf880c4fd578ae35df60314956f74baf5ee508b87aefccac92206e1169b",
+      "git_blob": "ae68e9ccdc5150d24812a85f61d466ee3478367c"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v2-candidate-phone.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v2/logs/candidate-phone.log",
+      "encoding": "utf-8",
+      "bytes": 1076,
+      "sha256": "1739731bfbff63764a0eb03acf231a011c58dff00408aeaae17600be7059b6aa",
+      "git_blob": "d81490638df30ac8dbe511940efc6cb5bed414b6"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v2-candidate-Xorg-101.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v2/logs/candidate-Xorg-101.log",
+      "encoding": "utf-8",
+      "bytes": 53319,
+      "sha256": "c78b2f189a7e916ea0c50f921818094889849a20c64d780a61bf6b8a05bc17a3",
+      "git_blob": "b942c2d16ab39ef218851b4fdc8e8a77a08cd486"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v2-candidate-import.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v2/logs/candidate-import.log",
+      "encoding": "utf-8",
+      "bytes": 185851,
+      "sha256": "9084c9fb85f34245ebb0f3fa64e8f3329de614385df4c9ccb37132fa2674c9b5",
+      "git_blob": "92b585f1b7b71a2623fd103dbf4afd32d39393af"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v2-baseline-short.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v2/logs/baseline-short.log",
+      "encoding": "utf-8",
+      "bytes": 641,
+      "sha256": "e9da26b3874dfcafb37030e725cbed06a058cbe16a54ed77cfbb44f96dd1e875",
+      "git_blob": "24f766596b2e61a8f32330d4db112974cb956270"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v2-baseline-phone.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v2/logs/baseline-phone.log",
+      "encoding": "utf-8",
+      "bytes": 640,
+      "sha256": "28cf7f02ad270bd6ddfcbe1fd746ff2c87a5546b3099fba36063f7800c8e20d5",
+      "git_blob": "2f85e23fdd42616c4f7c95c855d709ce8b654d21"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v2-baseline-Xorg-101.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v2/logs/baseline-Xorg-101.log",
+      "encoding": "utf-8",
+      "bytes": 52946,
+      "sha256": "590999d9a8e5b8012b53a871f9c9e3835e4872307f08f3b98c1f8371f395e77c",
+      "git_blob": "efb13e1dc1ef1d1dfc08755a1a6f8739f68f974a"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v2-baseline-import.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v2/logs/baseline-import.log",
+      "encoding": "utf-8",
+      "bytes": 185851,
+      "sha256": "9084c9fb85f34245ebb0f3fa64e8f3329de614385df4c9ccb37132fa2674c9b5",
+      "git_blob": "92b585f1b7b71a2623fd103dbf4afd32d39393af"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v2-candidate-final-signing-guard.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v2/logs/candidate-final-signing-guard.result.json",
+      "encoding": "utf-8",
+      "bytes": 68,
+      "sha256": "c8ba6b9fb9d27e1b75cf093a1480f5f8e3c0f023ca8ff92d6b50fbfa8e9665c8",
+      "git_blob": "b37662f3bf717b3acf58d5769522a274c2a3e317"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v2-candidate-short.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v2/logs/candidate-short.result.json",
+      "encoding": "utf-8",
+      "bytes": 181,
+      "sha256": "0a819181d719e0012f619937558d6922494c2a38c71ee233be963a668b3fc82b",
+      "git_blob": "60147bfbeb3b20dddfd88baa7e0794defc968809"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v2-candidate-phone.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v2/logs/candidate-phone.result.json",
+      "encoding": "utf-8",
+      "bytes": 180,
+      "sha256": "6e5c989f3bf04070981080c1ffc449ea73f86f6b634eca8feffeced080398160",
+      "git_blob": "71aa67e0be9de5ab8b6cf2587f95d7d83121b7db"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v2-candidate-import.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v2/logs/candidate-import.result.json",
+      "encoding": "utf-8",
+      "bytes": 183,
+      "sha256": "68e8fad59eed69c48118fddb1bb30321b5b8986761fa0d3434dc4047e10bfaa2",
+      "git_blob": "29f1725cc7face0a1203ac363793c53b422a87b2"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v2-baseline-final-signing-guard.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v2/logs/baseline-final-signing-guard.result.json",
+      "encoding": "utf-8",
+      "bytes": 68,
+      "sha256": "c8ba6b9fb9d27e1b75cf093a1480f5f8e3c0f023ca8ff92d6b50fbfa8e9665c8",
+      "git_blob": "b37662f3bf717b3acf58d5769522a274c2a3e317"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v2-baseline-short.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v2/logs/baseline-short.result.json",
+      "encoding": "utf-8",
+      "bytes": 178,
+      "sha256": "ed87f7323586923c2bbf389c2da3bc0f8ffdcf9d571f43466c8af9a67374211a",
+      "git_blob": "9e86c438e1378f8efb52352e284ed2db1c0f3f87"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v2-baseline-phone.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v2/logs/baseline-phone.result.json",
+      "encoding": "utf-8",
+      "bytes": 178,
+      "sha256": "afdf5191cdf0fca0bc4289a6e11ab33947645836a0d0ad883d6f172bdc122400",
+      "git_blob": "c63d16956c40dce175a0bc6346bd7a9afa0aa9c7"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v2-baseline-import.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v2/logs/baseline-import.result.json",
+      "encoding": "utf-8",
+      "bytes": 181,
+      "sha256": "8bd9b8445fe441d9d70b41e98a041bd57f90480499b0da8dc5810f41c13eef0c",
+      "git_blob": "6fbfb44b0d46eba958959df8dbcd379bda141d35"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v3-candidate-SOURCE.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v3/candidate-SOURCE.json",
+      "encoding": "utf-8",
+      "bytes": 275995,
+      "sha256": "509a59d2dfd57103ef3bbf48ac1c51731c2d2390e6aafdea1dfb04bd876a166d",
+      "git_blob": "f0178c9cf4eed53292fa8d56c6d7a7925ed134ee"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v3-candidate-wide.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v3/logs/candidate-wide.log",
+      "encoding": "utf-8",
+      "bytes": 1216,
+      "sha256": "42830c4046e796a3c7dcf554903dc40c7b3b11a2e9b46fdc3963d5c174fd941e",
+      "git_blob": "38ad72b254aa8d3ec872d88b77cd51600f42c54e"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v3-candidate-tall.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v3/logs/candidate-tall.log",
+      "encoding": "utf-8",
+      "bytes": 1216,
+      "sha256": "73bcf5be3f8b6086604221c5ea9f4d22b3eeff3e72aeaeb4323fbf4840443f40",
+      "git_blob": "67429391d45725b42607a7bebcc64ee44e82811c"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v3-candidate-short.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v3/logs/candidate-short.log",
+      "encoding": "utf-8",
+      "bytes": 1221,
+      "sha256": "2d946351d6b323a0a41011594a24ac9376885c91c20b43548a821aa0f0f83c80",
+      "git_blob": "3dd453bddfd7c065ca1177c6d2222d882fbcfdc8"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v3-candidate-phone.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v3/logs/candidate-phone.log",
+      "encoding": "utf-8",
+      "bytes": 1216,
+      "sha256": "84be3c651d0263a75904248d92651ba9e79c076a5781d585640c0b0c939a659f",
+      "git_blob": "29d04c26c1cf7c0848df1b701f6a6a6c87475d62"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v3-candidate-Xorg-101.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v3/logs/candidate-Xorg-101.log",
+      "encoding": "utf-8",
+      "bytes": 54063,
+      "sha256": "d235e4a83bd25e0e38aac5805dc31e1b7e744a5aa9d1e0d2492b9e18a9e688e7",
+      "git_blob": "f662d9085b1e34e2d6ccd91041146b38d35f947a"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v3-candidate-import.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v3/logs/candidate-import.log",
+      "encoding": "utf-8",
+      "bytes": 185851,
+      "sha256": "9084c9fb85f34245ebb0f3fa64e8f3329de614385df4c9ccb37132fa2674c9b5",
+      "git_blob": "92b585f1b7b71a2623fd103dbf4afd32d39393af"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v3-candidate-final-signing-guard.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v3/logs/candidate-final-signing-guard.result.json",
+      "encoding": "utf-8",
+      "bytes": 68,
+      "sha256": "c8ba6b9fb9d27e1b75cf093a1480f5f8e3c0f023ca8ff92d6b50fbfa8e9665c8",
+      "git_blob": "b37662f3bf717b3acf58d5769522a274c2a3e317"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v3-candidate-wide.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v3/logs/candidate-wide.result.json",
+      "encoding": "utf-8",
+      "bytes": 179,
+      "sha256": "49b944607ecb9a6db5a52bce3a60ab86628ef628b71b2dc3c4fef666e02d7696",
+      "git_blob": "1d139ed974e974c49b920de27ed66c15f4f3917f"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v3-candidate-tall.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v3/logs/candidate-tall.result.json",
+      "encoding": "utf-8",
+      "bytes": 179,
+      "sha256": "1eb1984a637b85fd740b14570ac754c07242cbc4ca72cf59486d2b34a9d112ae",
+      "git_blob": "682747768199b99b98ad2ab83c4fb5a708c8c1f7"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v3-candidate-short.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v3/logs/candidate-short.result.json",
+      "encoding": "utf-8",
+      "bytes": 181,
+      "sha256": "6f28d33aa5dd844d3e4b0dbb13b61bc5c2c34791b50ffee6f1afc951e51843bd",
+      "git_blob": "fe700dbcd618561e1da34387dcedd70f051505b7"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v3-candidate-phone.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v3/logs/candidate-phone.result.json",
+      "encoding": "utf-8",
+      "bytes": 181,
+      "sha256": "387ed832f16eccf69d1ce57e05a734c7627a57b5c25d0af619a67294a40fe4d6",
+      "git_blob": "ba2db38f46836303322a8906e7eb09f889a94661"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v3-candidate-import.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v3/logs/candidate-import.result.json",
+      "encoding": "utf-8",
+      "bytes": 183,
+      "sha256": "7cf6c255116749915f981c858b738a0a3d64c886c95d6ed7f092dc0026446001",
+      "git_blob": "74b7f1d1b053cb4603f6c0c6b1287e15468352a1"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v4-candidate-SOURCE.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v4/candidate-SOURCE.json",
+      "encoding": "utf-8",
+      "bytes": 275995,
+      "sha256": "ce56f2537064b776db1a9caa557c4ffd1e35f034103b24eb92158ec5b6c36ec0",
+      "git_blob": "48c2cf7266633b0ea671b5c0670df7d97bb1f11d"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v4-candidate-wide.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v4/logs/candidate-wide.log",
+      "encoding": "utf-8",
+      "bytes": 1216,
+      "sha256": "b5765fb1fed6bf092ccd6f016c59d1f78bcb4edca4a815d85fd7373d10595514",
+      "git_blob": "2454fcbc47f00938da9279e3fd76a810ccb69573"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v4-candidate-tall.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v4/logs/candidate-tall.log",
+      "encoding": "utf-8",
+      "bytes": 1216,
+      "sha256": "05d7e5712cceb6d4a4b5d5290d77b04bf1c70b293185fdb2f839d236ade66027",
+      "git_blob": "258d7b7604f7fd40edde52d2d66b686006fbe18e"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v4-candidate-short.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v4/logs/candidate-short.log",
+      "encoding": "utf-8",
+      "bytes": 1221,
+      "sha256": "969f522025c59a81add554a353ceb33a1b715bc95302564026aaf3da8930ac44",
+      "git_blob": "766d09969d037002919a1cc0ba5da13e8c627a23"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v4-candidate-phone.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v4/logs/candidate-phone.log",
+      "encoding": "utf-8",
+      "bytes": 1216,
+      "sha256": "f12a01124f7be6180559b76657738f9e04dd5b954f716c3bb6318423300bc7a9",
+      "git_blob": "0f0235e9cd38246d912ae7b2a3da593b301453a9"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v4-candidate-Xorg-101.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v4/logs/candidate-Xorg-101.log",
+      "encoding": "utf-8",
+      "bytes": 54063,
+      "sha256": "02580a9c190cf8d393bf5e9d9e071379c6390c0277d437946042be72d0b3aa5c",
+      "git_blob": "5d62ac3d038ed61cb6ab2264be004b2a23295e68"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v4-candidate-import.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v4/logs/candidate-import.log",
+      "encoding": "utf-8",
+      "bytes": 185851,
+      "sha256": "9084c9fb85f34245ebb0f3fa64e8f3329de614385df4c9ccb37132fa2674c9b5",
+      "git_blob": "92b585f1b7b71a2623fd103dbf4afd32d39393af"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v4-candidate-final-signing-guard.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v4/logs/candidate-final-signing-guard.result.json",
+      "encoding": "utf-8",
+      "bytes": 68,
+      "sha256": "c8ba6b9fb9d27e1b75cf093a1480f5f8e3c0f023ca8ff92d6b50fbfa8e9665c8",
+      "git_blob": "b37662f3bf717b3acf58d5769522a274c2a3e317"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v4-candidate-wide.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v4/logs/candidate-wide.result.json",
+      "encoding": "utf-8",
+      "bytes": 178,
+      "sha256": "8302283ec40a39814537105a6a535e176e0a6e2176d81aa0cdc4df146a18cced",
+      "git_blob": "09466383b2427753f468caeddfaa61c478e97845"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v4-candidate-tall.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v4/logs/candidate-tall.result.json",
+      "encoding": "utf-8",
+      "bytes": 178,
+      "sha256": "8078c69af244fbeff40eddb562cb7f4eba8eb85796a03e46404ee98c73c71e23",
+      "git_blob": "cc6149133e346e2ed4e12637b5739021faefaa2f"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v4-candidate-short.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v4/logs/candidate-short.result.json",
+      "encoding": "utf-8",
+      "bytes": 181,
+      "sha256": "47d2a258210d1d09f033150a9ff3342fe31c047ac66664e04ae597d4dc47ca1e",
+      "git_blob": "a4a3c585014e4a349e371b77261b25398b48fa94"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v4-candidate-phone.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v4/logs/candidate-phone.result.json",
+      "encoding": "utf-8",
+      "bytes": 181,
+      "sha256": "20fd1cb1f8065a487dd8d4eb49a5f844f063e8598f5ae7f72a2271d9d8362999",
+      "git_blob": "ed16fd42d0aae545e1256ae54bd292ca5aa3a6c8"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v4-candidate-import.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v4/logs/candidate-import.result.json",
+      "encoding": "utf-8",
+      "bytes": 183,
+      "sha256": "f50f26c7b3d226a5184b0d51b2b5cee6057cef44480a55b8bc07cf2b37c69bb4",
+      "git_blob": "4593a6b7eaf7947bb945d8752dca02494a366d1d"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v5-candidate-SOURCE.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/candidate-SOURCE.json",
+      "encoding": "utf-8",
+      "bytes": 275995,
+      "sha256": "35f8b1ad04f3545816031f49a62c1ba7f1be15f757918cfde56b7015e266222d",
+      "git_blob": "9df8b5021799d10e028d26331f68ae937743495e"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v5-candidate-wide.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/logs/candidate-wide.log",
+      "encoding": "utf-8",
+      "bytes": 1374,
+      "sha256": "38460ae7bafa41f132ab39dde09f792a0e32d41ff83d253d3faeea08bf047c42",
+      "git_blob": "f9195ba850e4d0fe3c535eb6779fe5f31395056a"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v5-candidate-tall.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/logs/candidate-tall.log",
+      "encoding": "utf-8",
+      "bytes": 1374,
+      "sha256": "f50d374248698e878dcda86572e40b9c7bf920ee9f2adec36836083013181993",
+      "git_blob": "47f10f3b3c2127e3575fae403f5540292eab3e22"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v5-candidate-short.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/logs/candidate-short.log",
+      "encoding": "utf-8",
+      "bytes": 1380,
+      "sha256": "ad61953c7ead7f37ab8b39f240b079124c7b90a496a462440fea6c87b872de7a",
+      "git_blob": "8002a89b6300f422c01dd8061ed42b9cb60d26a1"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v5-candidate-phone.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/logs/candidate-phone.log",
+      "encoding": "utf-8",
+      "bytes": 1374,
+      "sha256": "2a26205e24f1e7049e12b0efabc75396eb410bc614a4fd3c60166b2230cdbdc2",
+      "git_blob": "562f0f88315257285e5417c0cee4e299e8d580e1"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v5-candidate-Xorg-101.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/logs/candidate-Xorg-101.log",
+      "encoding": "utf-8",
+      "bytes": 54063,
+      "sha256": "ade456bbe8bb143179c0f6927b47abbd19a94461997921c224017b7d775770f6",
+      "git_blob": "4d2bd1450770819c818f55e8ef8f2c7f59ea873f"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v5-candidate-import.log",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/logs/candidate-import.log",
+      "encoding": "utf-8",
+      "bytes": 185851,
+      "sha256": "9084c9fb85f34245ebb0f3fa64e8f3329de614385df4c9ccb37132fa2674c9b5",
+      "git_blob": "92b585f1b7b71a2623fd103dbf4afd32d39393af"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v5-candidate-final-signing-guard.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/logs/candidate-final-signing-guard.result.json",
+      "encoding": "utf-8",
+      "bytes": 68,
+      "sha256": "c8ba6b9fb9d27e1b75cf093a1480f5f8e3c0f023ca8ff92d6b50fbfa8e9665c8",
+      "git_blob": "b37662f3bf717b3acf58d5769522a274c2a3e317"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v5-candidate-wide.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/logs/candidate-wide.result.json",
+      "encoding": "utf-8",
+      "bytes": 179,
+      "sha256": "b01b1275bf6c98367216e231eccae4032b9ed637ba752aeb7afad4ef8d96506d",
+      "git_blob": "229eb265ba7aaa185b33a8a3a34489523af005c5"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v5-candidate-tall.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/logs/candidate-tall.result.json",
+      "encoding": "utf-8",
+      "bytes": 179,
+      "sha256": "6d37a0a0da7c32b400265832134e2f495abb2e492bdfd4e4e00fa4d52bf217cf",
+      "git_blob": "01a0918f9ae84651466b5ceb31a4bf422164acb7"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v5-candidate-short.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/logs/candidate-short.result.json",
+      "encoding": "utf-8",
+      "bytes": 181,
+      "sha256": "22518f66f8ec41b7aa76f36ec42acfc0c95d1d8b9792e357e3a1160ae77dd65a",
+      "git_blob": "f132085fbc342db63a3b47d1ff37508aed8fad62"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v5-candidate-phone.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/logs/candidate-phone.result.json",
+      "encoding": "utf-8",
+      "bytes": 181,
+      "sha256": "28d1fe900f2b15c2ac8d9a80c1f66d18edbc75d5ec5690c8affb6b0670dce11d",
+      "git_blob": "926651f0a4358011e62892c49a94426c4d946592"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/native-v5-candidate-import.result.json",
+      "source": "/tmp/bandmaster-song60-20261114/native-v5/logs/candidate-import.result.json",
+      "encoding": "utf-8",
+      "bytes": 182,
+      "sha256": "f413115e4a59ea3a37420896335cca41ecf9490cffad57abb986812457252c42",
+      "git_blob": "6ef21ba0776d6844151df20da9d042fc1181aa2b"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/models-v1-RUN.json",
+      "source": "/tmp/bandmaster-song60-20261114/models-v1/RUN.json",
+      "encoding": "utf-8",
+      "bytes": 18337,
+      "sha256": "39bd4945f5d78343f73e031d667ef4ff23e99c347630b7c0275ea2cf667e9f19",
+      "git_blob": "474d0bc91fc4bb6fc04e4ab48495eaf0a9c5db1b"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/models-v1-baseline.log",
+      "source": "/tmp/bandmaster-song60-20261114/models-v1/logs/baseline.log",
+      "encoding": "utf-8",
+      "bytes": 218,
+      "sha256": "06b169081cd1009978d2d4970260625bead12686161dead0fdce80d3a42653ab",
+      "git_blob": "5a92a887ac27e32cecbada78cd7a040dca54526a"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG60/models-v1-candidate.log",
+      "source": "/tmp/bandmaster-song60-20261114/models-v1/logs/candidate.log",
+      "encoding": "utf-8",
+      "bytes": 219,
+      "sha256": "03cd42df4d8b0f71db061f3af59683852575f3f31716c989f6308438c6787093",
+      "git_blob": "0e3672ffaab4d2c6b55a39f3e01f33dfacad4711"
+    }
+  ],
+  "evidence_summary": {
+    "durable_files": 94,
+    "durable_PNG_originals": 27,
+    "durable_bytes": 25463617,
+    "final_PNGs": 24,
+    "baseline_PNGs": 2,
+    "held_bare_callback_PNGs": 1,
+    "other_intermediate_PNGs": "Retained immutable in TMP; not uploaded or reconstructed."
+  },
+  "native_execution_limits": [
+    "Actual controlled MixingDesk component with native pointer/key/emulatedtouch/scroll. QA write_requested handler executes real owner ticket/original write/Situation/Live/Finance/finish. Production RootUI._commit_session path is unchanged and source-reviewed, not executed by these native writing runs.",
+    "Callback is mounted in actual ui.gd Finished Originals, after actual3paidwritingstages and realownerreload. Public formation fixtures used; not whole initial-menu journeys.",
+    "Each native profile records3successfulpaidsettlements, not total IO/save-call counts. Literal economic cost-chain/once-save supported by unchanged original owners and reconciliation, not a separate counted-I/O spy.",
+    "Four profiles include normal/reduced configuration, actual master mute/preference restore and written path; Dummy is not listening or physicaltouch.",
+    "One VSync graphics-driver warning per final native log; raw logs retained. No ERROR/leak/still-in-use lines in final native evidence."
+  ],
+  "local_engine_history": {
+    "total": 25,
+    "execution_strict": 24,
+    "held_engine": 1,
+    "note": "6imports+17nativeinvocations+2modelruns. Firstbaseline native refused new staticQA API; held. Early bare callback executed strictly but visualHOLD; true production host replaces it. Intermediate v3/v4 retained, finalv5 only used forcurrentwhole-task claims."
+  },
+  "held_history": [
+    "native-v1 baseline static-API parser refusal",
+    "native-v2 bare callback theme/context visualHOLD",
+    "Unused QA sound callback guessed nonexistent owner method; replaced with existing audio preference/bus API and exercised",
+    "Historical SONG56run43551880195 failed pinned-session preflight before engine; not a gameplay/native failure or promoted PASS."
+  ],
+  "historical_trigger_audit": {
+    "failed_run": 43551880195,
+    "failure": "Pinned SONG56 current-session assertion before native execution",
+    "job_body_sha256_before_after": "1e804212537fd20c579ddd546ecbd8c2e8fb17e1e6a5734199446c53baf1d27e",
+    "job_assertions_and_native_steps_byte_identical": true,
+    "new_push_paths": [
+      "docs/continuous_improvement/sessions/SONG56.json"
+    ],
+    "independent_review": "CLEAR; no assertions weakened; earlier failure retained"
+  },
+  "resource_plan": {
+    "scope": "SONG60 R2 UI selection and saved contribution callback",
+    "at": "2026-11-14T02:59:57.172052+00:00",
+    "primary_new_bytes": 0,
+    "tmp_cap_bytes": 3221225472,
+    "floor_bytes": 629145600,
+    "budgets": {
+      "retained_source_and_early_producers": 1700000000,
+      "fresh_final_project": 450000000,
+      "one_failed_full_project_tail": 450000000,
+      "PNGs_models_closeout": 150000000
+    },
+    "critical_git": "Durable GitHub Git Data only; original checkout and older closed producers untouched",
+    "amended_at": "2026-11-14T03:14:22.307045+00:00",
+    "observed_owned_tmp_bytes": 1649790011,
+    "observed_global_tmp_free": 6625234944,
+    "amendment": "Prospective fresh final native project plus one complete failed-proof tail; no cleanup or primary allocation. Existing early/baseline producers retained.",
+    "observed_workspace_free": 625475584
+  },
+  "primary_observation": {
+    "initial_free": 625479680,
+    "final_observed_free": 625475584,
+    "global_delta": 4096,
+    "note": "No source/Git/cache allocation made on primary. A4096B global filesystem delta is observed; cause unproved. Original checkout/durable dirty metadata untouched; no cleanup."
+  },
+  "signing": "No signing/export/key use; all isolated signing guards pass. Original key availability/private-media blocker from SONG58 unchanged.",
+  "closed_at": "2026-11-14T03:42:46.737967+00:00",
+  "owner_approved": false,
+  "release_approved": false,
+  "candidate_CI": [
+    {
+      "id": 43552639776,
+      "conclusion": "success",
+      "head_sha": "8f506b52a84ccd10dca9f5fbdda038966b6c4200"
+    },
+    {
+      "id": 43552639712,
+      "conclusion": "success",
+      "head_sha": "8f506b52a84ccd10dca9f5fbdda038966b6c4200"
+    },
+    {
+      "id": 43552639670,
+      "conclusion": "success",
+      "head_sha": "8f506b52a84ccd10dca9f5fbdda038966b6c4200"
+    }
+  ]
+}

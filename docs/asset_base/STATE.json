@@ -4,10 +4,10 @@
   "session_path": "docs/continuous_improvement/sessions/SONG60.json",
   "canonical_current": "docs/continuous_improvement/CURRENT.json",
   "branch": "feature/playtest-polish-v20",
-  "status": "active",
-  "writer": "root-SONG60",
+  "status": "closed",
+  "writer": null,
   "owner_approved": false,
-  "updated_at": "2026-11-14T03:03:28.514628+00:00",
-  "next_single_action": "Start bounded R3 song/version/actual-participant rehearsal only after the SONG60 co-writing UI/native gates pass.",
+  "updated_at": "2026-11-14T03:42:46.737967+00:00",
+  "next_single_action": "Start bounded R3 song/version/actual-participant rehearsal from the live branch, reusing the verified R2 identity and co-writing owners.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json"
 }

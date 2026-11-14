@@ -1,8 +1,8 @@
 # BandMaster — sole execution queue
 
-Latest session: **SONG57 — CLOSED**. Versioned craft fairness is verified at `858d6c9`; writer released. Stable identity and selected co-writing remain open. SONG56 remains the internally verified presentation baseline; owner acceptance is pending.
+Latest session: **SONG60 — CLOSED**. Scoped R2 selector/retained-idea UI and owner/model/native proof internally verified at `c88d49e`; writer released. R3 is next. Full-app/uncoached integration, physical/listening and owner experience acceptance remain pending.
 
-**Next action:** Resume the remaining R2 identity and selected co-writing slice from the live feature branch, checking original test-build access at the start of the next hourly pass.
+**Next action:** Start bounded R3 song/version/actual-participant rehearsal from the live branch, reusing the verified R2 identity and co-writing owners.
 
 ## Linked songs and band life
 
@@ -12,7 +12,7 @@ The [roadmap](../ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md) defines dependencies and
 |---|---|---|
 | SONG53-R0 | Reconcile the actual latest source; classify existing/presentation/new-model work | COMPLETE — RECOVER54; published source d5e1662 verified directly on GitHub; full mapping/inventory in RECOVER54_SOURCE_RECONCILIATION.json |
 | SONG53-R1 | Reusable honest song summary with explicit legacy unknowns | FUNCTIONALLY VERIFIED — SONG55; SONG56 visual revision INTERNALLY VERIFIED on665cb95; owner visual acceptance pending |
-| SONG53-R2 | Stable song/revision/participant identity; one meaningful co-writing contribution; skill fairness | PARTIAL — SONG57 fairness, SONG58 canonical identity and SONG59 selected collaborator/retained contribution OWNER CONTRACT VERIFIED; player-facing selector/callback and native proof AUTHORISED / NEXT |
+| SONG53-R2 | Stable song/revision/participant identity; one meaningful co-writing contribution; skill fairness | INTERNALLY VERIFIED — SONG57–60 fairness/identity/co-writing owner+selector+retained callback; scoped four-size native/real-owner proof complete; full-app/uncoached integration remains R7; owner acceptance pending |
 | SONG53-R3 | Song-specific purposeful rehearsal and proportionate preparation transfer | AUTHORISED / QUEUED — dependency gate; after R2 |
 | SONG53-R4 | Preparedness into live delivery, grounded feedback and character aftermath | AUTHORISED / QUEUED — dependency gate; after R3 |
 | SONG53-R5 | Immutable take and genuine recording-execution quality | AUTHORISED / QUEUED — dependency gate; after R2–R4 |

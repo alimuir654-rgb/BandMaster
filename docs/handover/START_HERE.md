@@ -1,40 +1,33 @@
 # BandMaster current handover
 <!-- session: SONG60 -->
-<!-- status: active -->
+<!-- status: closed -->
 
-Use only `feature/playtest-polish-v20` and its live remote head. Do not reset to the candidates below or the original environment's older checkout.
+Use only `feature/playtest-polish-v20` and its live remote head. Never reset to a cached checkpoint, main or the original environment's older checkout.
 
 ## Verified candidate
 
-**SONG59 closed; writer released.** Exact tested source `0d3d5ff5001acc411b175f788370c454f1fa24ff`; product source unchanged from `3637bfa9e7e8ba853412d573dba77be3f9970505` (later commit adds the precise chronology test).
+**SONG60 closed; writer released.** Product tested at `c88d49ee14ee708d1cab55e43d727057799658a4`. Candidate `8f506b52a84ccd10dca9f5fbdda038966b6c4200` has identical game/test inputs plus durable evidence and a historical CI-trigger correction; final handover metadata may be newer.
 
-The owner/API now supports `workbench_action("select_collaborator", expected, {"candidate_id": ...})`: one current active catalogue person, distinct from the lead, using canonical candidate identity. Selection invalidates the previous response and persists through original Save/Try and paid progression. Original UI is unchanged and does not yet expose this choice.
+Writing now exposes NEXT IDEA PARTNER beside the actual person's name/role. Pending leader and collaborator resolve together inside original Save/Commit; changing person invalidates the response without discarding other edits. Existing four-field payload remains valid. Finished Originals shows a validated retained person/field/session callback after reload; known empty and untracked legacy evidence stay distinct. Original credits/scoring/art/fonts/54Scripts and2–3track demo rules unchanged.
 
-Known selected paid rows require `co_write_v1` with the exact validated response. Completed songs retain `co_writing_v1`, bound to canonical song/composition/revision. Only actual paid TRY adoption can retain a field/person. KEEP/dismiss adds no attribution; a later paid overwrite removes it, and returning to its older value does not resurrect ownership. Original credits and scoring remain unchanged. This is not performer, royalty or legal-credit evidence. Legacy absence stays untracked.
+Models100/380 pass. Final native-v5:190checks per390×844,720×1280,1280×720,1600×900; each completes3actual paid stages, free/paid realFSfailure/retry, duplicate refusal, typedreload, pointer/key/emulatedtouch/wheel, pending swaps and actual mute/preference restore. Native writing mounts real MixingDesk with QA handler executing the actual originalowner/Situation/Live/Finance chain; production RootUI._commit_session is source-reviewed, not directly executed. Callback is mounted in actual ui.gd Finished Originals. These are public formation fixtures, not whole-menu journeys;3counts paid settlements, not all IO/saves. Each native log has1VSync driver warning, noERROR. No listening/device/human acceptance.
 
-Final local baseline100/candidate368 checks pass. Five public formation fixtures then15 successful original paid settlements, not five whole-menu journeys or15 total save calls. Real free failure1/final-paid failures5, retry, duplicate refusal, typed reload, actual baseline completed songs, distinct Casey/Zoe contributions and paid A→B→A are proved. All four exact-source CI pass. Model43545815430/artifact14093698030 retains prior fairness/identity and new co-writing proofs. Two independent read-only reviewers CLEAR; all71 inputs in each final proof graph rehashed exact. Earlier source/proof review holds remain in append-only history. No new native/listening/device acceptance or APK.
+Four current exact-source CI workflows pass atc88; model43551880246/artifact14096458079. Historical SONG56 visual run43551880195 failed its pinned CURRENT=SONG56 check BEFORE engines. It remains failed; its obsolete broad source trigger now arms only on explicit SONG56 session work. All historical job assertions/native steps unchanged. Current generic gates and scoped native evidence remain required; do not rerun completed R1.
 
-Evidence: [results](../continuous_improvement/SONG59_RESULTS.json), [review](../continuous_improvement/SONG59_REVIEW.json), [session](../continuous_improvement/sessions/SONG59.json).
+Two independent reviews CLEAR.94durable evidence files include27exactPNG originals (24final,2baseline,1held bare callback) and raw receipts/source manifests; intermediate originals remain immutable in TMP. [Results](../continuous_improvement/SONG60_RESULTS.json), [review](../continuous_improvement/SONG60_REVIEW.json), [evidence](../continuous_improvement/evidence/SONG60/), [session](../continuous_improvement/sessions/SONG60.json). Technical/internal scoped PASS; ownerfalse/no APK/release. Body scrolling, concise callback and sparse archive remain.
 
 ## Next bounded pass
 
-Connect the verified SONG59 collaborator/contribution owner contract to the existing writing UI and prove its four-size native flow before starting R3.
+Start bounded R3 song/version/actual-participant rehearsal from the live branch, reusing the verified R2 identity and co-writing owners.
 
-R2 is PARTIAL; do not start R3–R7 yet. R0/R1/SONG56, SONG57 fairness, SONG58 identity and SONG59 owner contract are complete within their scopes; do not redo them. [S80](../continuous_improvement/S80_EXECUTION_QUEUE.md) is the sole queue; [roadmap](../ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md) supplies acceptance.
+R2 is internally verified within this scope; full-app/uncoached experience remains R7. R0/R1 and SONG57–60 are closed—do not redo fairness or co-writing. [S80](../continuous_improvement/S80_EXECUTION_QUEUE.md) is the sole queue; [roadmap](../ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md) supplies dependencies. R3 must reuse original rehearsal owner/cost/attendance and canonical song/revision/person IDs; no duplicate scheduler, economy or transaction. Absent members gain no invented practice; legacy preparation stays unknown; no blanket transfer/reset.
 
-For UI, keep collaborator selection local with other pending controls. Include canonical ID in target cache, dirty payload, saved decision and exact owner preparation. Stage selection inside existing prepare_mixing_local/Save/Commit rollback without extra paid saves; retain old payload compatibility. Changing person clears stale response. Expose established role/context and a validated retained-idea callback through existing writing/finished-song surfaces. Do not directly display unchecked metadata or discard pending edits. Require early390phone/1280short then all four native sizes and whole-task input/scroll/FSfailure/retry/reload evidence. REVIEW holds the source-backed next UI contract.
+## Delivery/resources
 
-## Test delivery and resources
+Original signer was verified available in SONG58 with certificate83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2 and unchanged file hash/mtime. No signing/export/key generation or transfer this pass. Existing app/save identity remains required.
 
-SONG58 verified the original private signing key accessible,2048-bit RSA/certificate83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2, unchanged file hash/mtime. Do not generate/replace/transfer it. No new signing/export/APK in SONG59; preserve existing app/save identity.
+Nine current private audio/JSON dependencies remain missing (SONG58_RESULTS lists them); original Dropbox/BandMaster listing empty and restricted network lacks custom allowed hosts. No repeated unchanged probes. Restore only existing approved private media before claiming a complete audio APK; continue independent source work meanwhile.
 
-Nine literal private audio/JSON dependencies remain missing (SONG58_RESULTS lists them). Current original environment Dropbox `/BandMaster` listing was empty and network policy lacks custom allowed hosts. No repeated unchanged download/signing probe this pass. Restore only existing approved media through an available authorised route before claiming a complete audio build; continue independent source work meanwhile.
+Primary free observed625475584B versus625479680B baseline:4KiB global delta, cause unproved; no source/Git/cache allocation on primary. Preserve original checkout19df671/durable dirty metadata. Prospective SONG60 TMPcap3GiB; large native/evidence files TMP, all critical Git durable on GitHub. All SONG60 and older producers/caches permanently closed; never resume/write them. Fund each next complete source/cache/PNG/failed-tail/Git/closeout scope before allocation; no cleanup/gc/reset. Local Git mutations disable gc.auto/maintenance.auto.
 
-Primary625479680B free unchanged; no primary allocation. Preserve original checkout19df671 and durable dirty metadata. SONG59 fresh pinned export/model copies used~553MB TMP under prospective2GiB cap; all critical new Git objects durable on GitHub via expected-head/non-force publication. All10 SONG59 private model projects and all earlier producers are permanently closed; never resume/write caches. Fund each next complete scope before allocation; no cleanup/gc/reset. Local Git mutations disable gc.auto/maintenance.auto.
-
-Run context start, relevant lessons/new issues, gate and context checks. Same finite programme: no new systems07:00; readiness08:00; handover08:50; stop all mutations09:00 Europe/London14November. No new queue/extension or continuous-compute claim.
-
-Exact historical bytes remain in [the manifest](archive/SONG56_5be37ae/MANIFEST.json); archived leases/approvals are inactive.
-
-SONG60 UI pass active until03:49; source/native proof pending.
-Start bounded R3 song/version/actual-participant rehearsal only after the SONG60 co-writing UI/native gates pass.
+Run context start, relevant lessons/newissues, improvement_gate/context checks. Same finite schedule: no new systems07:00; readiness08:00; candidate/handover08:50; stop mutations09:00 Europe/London14November. No extra queue/extension/continuous-compute claim. [Historical manifest](archive/SONG56_5be37ae/MANIFEST.json) preserves exact past bytes; archived leases/approvals inactive.

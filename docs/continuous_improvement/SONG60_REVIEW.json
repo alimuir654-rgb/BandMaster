@@ -1,0 +1,79 @@
+{
+  "tested_sha": "c88d49ee14ee708d1cab55e43d727057799658a4",
+  "candidate_sha": "8f506b52a84ccd10dca9f5fbdda038966b6c4200",
+  "technical_verdict": "pass for scoped R2 source/native/model proof",
+  "internal_visual_verdict": "CLEAR for added selector/error/callback states; overall app remains partial",
+  "owner_verdict": "not reviewed",
+  "release_verdict": "not approved; no APK",
+  "reviewers": [
+    {
+      "agent": "/root/au01_source_review",
+      "role": "independent predesign/source/early+final visual",
+      "verdict": "CLEAR",
+      "actual_opens": "5early originals plus8final native-v5 originals",
+      "released": true
+    },
+    {
+      "agent": "/root/foundation_tests",
+      "role": "fresh read-only source/evidence/owner audit",
+      "verdict": "Scoped CLEAR",
+      "actual_opens": 0,
+      "released": true
+    }
+  ],
+  "root_actual_opens": [
+    "SONG56/songbook-phone.png retained reference",
+    "native-v2 baselinephone/short writing-card",
+    "native-v2 candidatephone/short chosen-casey, phone free-save-failure and held bare callback",
+    "native-v3 phone/short productioncallback, tall chosen-casey, wide local-role-swap (retained intermediate references)",
+    "native-v5 phone sound-off-pending-person, phone/tall/wide retained-idea-after-reload"
+  ],
+  "independent_final_opens": [
+    "native-v5 callbacks phone/short/tall/wide",
+    "native-v5 phone sound-off-pending-person/free-save-failure",
+    "native-v5 wide local-role-swap",
+    "native-v5 tall chosen-casey"
+  ],
+  "simulated_lenses": [
+    {
+      "label": "New player",
+      "explicitly_simulated": true,
+      "finding": "Chosen person/role and day commitment are clear."
+    },
+    {
+      "label": "Songwriter",
+      "explicitly_simulated": true,
+      "finding": "Pending selection is separate from saved attribution."
+    },
+    {
+      "label": "Returning player",
+      "explicitly_simulated": true,
+      "finding": "Reload exposes retained person/session callback."
+    },
+    {
+      "label": "Accessibility",
+      "explicitly_simulated": true,
+      "finding": "Added controls and error choices readable; body scrolling still necessary."
+    },
+    {
+      "label": "Reliability",
+      "explicitly_simulated": true,
+      "finding": "Atomic preparation, legacy payload compatibility and validated callback boundaries intact."
+    }
+  ],
+  "proof_limits": [
+    "Actual controlled MixingDesk component with native pointer/key/emulatedtouch/scroll. QA write_requested handler executes real owner ticket/original write/Situation/Live/Finance/finish. Production RootUI._commit_session path is unchanged and source-reviewed, not executed by these native writing runs.",
+    "Callback is mounted in actual ui.gd Finished Originals, after actual3paidwritingstages and realownerreload. Public formation fixtures used; not whole initial-menu journeys.",
+    "Each native profile records3successfulpaidsettlements, not total IO/save-call counts. Literal economic cost-chain/once-save supported by unchanged original owners and reconciliation, not a separate counted-I/O spy.",
+    "Four profiles include normal/reduced configuration, actual master mute/preference restore and written path; Dummy is not listening or physicaltouch.",
+    "One VSync graphics-driver warning per final native log; raw logs retained. No ERROR/leak/still-in-use lines in final native evidence."
+  ],
+  "material_gaps": [
+    "Concise generic energy-idea wording; archive remains sparse.",
+    "Native writing uses controlled component/real-owner QA bridge; production RootUI writing integration source-reviewed only. R7 must prove the connected full-app experience.",
+    "No listening, physical phone, device install/retention or uncoached human understanding acceptance.",
+    "Private media dependencies remain missing; no APK thispass."
+  ],
+  "historical_CI": "Failed oldSONG56run retained. Only its broad auto-trigger was retired; exact historical assertions/native steps remain byte-identical.",
+  "next_action": "Start bounded R3 song/version/actual-participant rehearsal from the live branch, reusing the verified R2 identity and co-writing owners."
+}
