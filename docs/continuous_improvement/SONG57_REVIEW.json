@@ -1,0 +1,98 @@
+{
+  "session": "SONG57",
+  "source": "858d6c91965c4e62581debc649fb468cd7eb3190",
+  "technical_verdict": "pass",
+  "reviewers": [
+    {
+      "agent": "r2_design_review",
+      "role": "independent read-only source/legacy review",
+      "verdict": "pass",
+      "evidence": "All3 product source hashes matched; unknown model IDs stay rejected; song_audio.gd delegates receipt validation without an old-model-only consumer."
+    },
+    {
+      "agent": "roadmap_audit",
+      "role": "independent read-only evidence/continuity review",
+      "verdict": "pass after closed-session next-action alignment",
+      "evidence": "All70 CI source inputs and3 log hashes verified.3584 receipts and2 whole historical snapshots. Earlier local regression is source-hash-equivalent, not originally launched at publishedSHA."
+    }
+  ],
+  "source_hashes": {
+    "experiments/playable_flightcase/producer_recipe.gd": "0db4ed876c070e83e96d82e0baa3498891f932751d4abe4424025665a4119b6c",
+    "experiments/playable_flightcase/mixing_recipe.gd": "5d82c1bc03338b05321ba22d482937e345067c0d80c66ab3c94a2d19ee07808f",
+    "experiments/playable_flightcase/song_workbench.gd": "bb65ec7b75f50cd0fe4aa43fdca034d619528b722efe58e07d09dcd25a734fbc",
+    "tests/song57_craft_fairness.gd": "5d65b4ae62eefb1845b0b4b4ee57e968728ec36b61804c6add1522c8e1b8828f",
+    "tools/song57_verify.py": "12c9a108839ecc1786fc2b6747c4d0871480481c7aaa98d1dbe4670a68c75142"
+  },
+  "simulated_lenses": [
+    {
+      "lens": "SIMULATED game critic",
+      "verdict": "pass within scope",
+      "finding": "Removes an arbitrary penalty for capable bands choosing restraint. R2 identity and selected co-writing remain unfinished."
+    },
+    {
+      "lens": "SIMULATED musician",
+      "verdict": "pass within scope",
+      "finding": "More capability cannot lower craft for the same tested arrangement; overreach still matters. No audible change or listening approval claimed."
+    },
+    {
+      "lens": "SIMULATED save engineer",
+      "verdict": "pass within tested cases",
+      "finding": "New craft IDs retain original arithmetic for old IDs. Genuine historical whole-song reload and real save rollback/retry/duplicate guards pass."
+    },
+    {
+      "lens": "SIMULATED QA engineer",
+      "verdict": "pass",
+      "finding": "Actual old source exposes744 monotonic failures; corrected source has0. All70 model-source hashes, CI logs and fixture digest verified; fixture normalization uses the real production codec."
+    },
+    {
+      "lens": "SIMULATED UX reviewer",
+      "verdict": "unchanged presentation",
+      "finding": "No UI/art/control changes. The previously verified SONG56 presentation remains the baseline; no new native or owner visual acceptance is claimed."
+    }
+  ],
+  "owner_approved": false,
+  "remaining": [
+    "R2 stable composition revisions, selected collaborator and retained credit still required.",
+    "Original signing environment/private media access must be checked by the next worker for actual09:00 delivery.",
+    "Physical Android, listening and owner visual acceptance remain unverified."
+  ],
+  "next_r2_source_notes": [
+    {
+      "topic": "Stable identity",
+      "source": "Scripts/career_actions.gd:_write_original; song_workbench.gd:seal_paid; song_summary.gd:_unique_id",
+      "instruction": "Reuse original:<songs count>, fragment/project provenance and stable candidate_id. Slot is a locator. Composition revision must not depend on title/current skill/lineup. Keep legacy identity unknown rather than synthesising history."
+    },
+    {
+      "topic": "Chosen collaborator must survive all paths",
+      "source": "song_workbench.gd:_target,_participants_ok,begin,checkpoint,prepare_mixing_local; opening_state.gd:begin_workbench,save_mixing_sketch; mixing_desk.gd:_target,_payload,has_local_edits,refresh_saved",
+      "instruction": "Current validator reselects first non-leader. A UI-only picker will fail or silently revert. Revalidate leader/collaborator replacement and every free/paid checkpoint. Preserve old targets and receipts."
+    },
+    {
+      "topic": "Retained credit ownership",
+      "source": "song_workbench.gd:seal_paid,paid_receipts,feedback_history,producer_decision",
+      "instruction": "Free feedback is trimmed to3 trials and latest decision replaces prior stages. Capture actual retained decisions in existing paid receipts; distinguish accepted then superseded from final retained contribution. Keep decline valid; never credit all performers."
+    },
+    {
+      "topic": "Historical offer identities",
+      "source": "Producer.offer; Mixing.offer; song_workbench.gd:_trial_ok,_decision_ok",
+      "instruction": "Offer fields and hashes are recomputed during legacy validation. Version any role-specific suggestion policy; do not change historical offers in place."
+    },
+    {
+      "topic": "Fixture decoding",
+      "source": "opening_state.gd:_load_draft_owned; tests/song57_craft_fairness.gd:_decode",
+      "instruction": "Use the real game._restore_integral_numbers codec before domain validators. Preserve genuine fractions and original fixtures; do not relax production validation to accept a test-only raw JSON path."
+    },
+    {
+      "topic": "Native proof",
+      "source": ".github/workflows/song55-native-proof.yml; tools/song55_verify.py",
+      "instruction": "Old native workflow is bound to SONG56. Scope session/baseline for changed UI. Reuse original materials and the four established viewports; inspect real screenshots after actual input."
+    }
+  ],
+  "closeout_review": {
+    "redundant_next_action": "aligned with CURRENT/closeout/START_HERE/S80",
+    "writer": "released",
+    "r2_status": "partial",
+    "cutoffs": "07:00 new systems;08:50 candidate/handover;09:00 hard stop",
+    "test_delivery": "original signer/private media required; no replacement key, app identity or main/public release"
+  }
+}

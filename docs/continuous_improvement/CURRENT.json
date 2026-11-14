@@ -4,25 +4,36 @@
   "session": "docs/continuous_improvement/sessions/SONG57.json",
   "active_session": "SONG57",
   "branch": "feature/playtest-polish-v20",
-  "status": "active",
-  "scope": "SONG53-R2 first bounded slice: versioned craft fairness; remaining identity/co-writing follows. Finite overnight programme to09:00.",
+  "status": "closed",
+  "scope": "SONG57 versioned craft fairness foundation is complete; remaining R2 identity/selected co-writing continues under the finite hourly programme.",
   "authority": "14 November 2026 owner: Pick up bandmaster roadmap work. Split into hourly chunks to target a 9am test for me. Automate through and make as much progress as possible until then. I won't be available for reviews or approvals until then.",
-  "updated_at": "2026-11-14T00:19:24.463259+00:00",
-  "writer": "root-SONG57",
+  "updated_at": "2026-11-14T00:39:08.830153+00:00",
+  "writer": null,
   "owner_approved": false,
   "source": {
-    "baseline_sha": "dd5bf4a9ab968d9c3e730300fd65d0d46f2cda71",
-    "previous_verified_runtime": "665cb9584c358cff07042c7ae8b7a6a7eebd91ee",
-    "verification": "Preflight committed before implementation; no new source result yet.",
-    "previous_results": "docs/continuous_improvement/SONG56_RESULTS.json"
+    "implementation_sha": "858d6c91965c4e62581debc649fb468cd7eb3190",
+    "verification": "Exact-source model proof and all4 CI runs passed. Historical receipts/whole songs and real writing rollback/retry verified.",
+    "model_run": 43534998504,
+    "model_artifact": 14089485410,
+    "final_results": "docs/continuous_improvement/SONG57_RESULTS.json",
+    "review": "docs/continuous_improvement/SONG57_REVIEW.json",
+    "unchanged_visual_baseline": "665cb9584c358cff07042c7ae8b7a6a7eebd91ee"
   },
   "roadmap": "docs/ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md",
   "queue": "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
-  "next_action": "Implement and verify versioned craft fairness for new songs while preserving historical receipts, then hand off the remaining R2 identity and selected-contributor work.",
+  "next_action": "Resume the remaining R2 identity and selected co-writing slice from the live feature branch, checking original test-build access at the start of the next hourly pass.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json",
   "limitations": [
-    "Owner visual acceptance remains pending.",
-    "No new APK or signing; original signer/private media not available in this checkout.",
-    "Hourly automation configured; future runs are not yet evidence of completion."
-  ]
+    "R2 identity/selected contributor work is not yet complete.",
+    "No new APK; first hourly worker checks original signer/private media and the established test-delivery route.",
+    "No new native pixels, physical-device or listening proof. Owner acceptance remains pending."
+  ],
+  "overnight": {
+    "automation_id": "6ae532c5fe9c819190f587a022c54052",
+    "next_run": "2026-11-14T01:00:00+00:00",
+    "last_run_slot": "2026-11-14T09:00:00+00:00",
+    "new_feature_stop": "07:00 Europe/London",
+    "test_handover_ready_target": "08:50 Europe/London",
+    "hard_stop": "09:00 Europe/London,14 November2026"
+  }
 }

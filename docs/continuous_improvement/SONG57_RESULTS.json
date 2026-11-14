@@ -1,0 +1,160 @@
+{
+  "session": "SONG57",
+  "status": "complete bounded foundation",
+  "roadmap_item": "SONG53-R2",
+  "r2_complete": false,
+  "tested_sha": "858d6c91965c4e62581debc649fb468cd7eb3190",
+  "preflight_sha": "f077696bc0fa36b5db2874061290eb3d9cd94860",
+  "source_hashes": {
+    "experiments/playable_flightcase/producer_recipe.gd": "0db4ed876c070e83e96d82e0baa3498891f932751d4abe4424025665a4119b6c",
+    "experiments/playable_flightcase/mixing_recipe.gd": "5d82c1bc03338b05321ba22d482937e345067c0d80c66ab3c94a2d19ee07808f",
+    "experiments/playable_flightcase/song_workbench.gd": "bb65ec7b75f50cd0fe4aa43fdca034d619528b722efe58e07d09dcd25a734fbc",
+    "tests/song57_craft_fairness.gd": "5d65b4ae62eefb1845b0b4b4ee57e968728ec36b61804c6add1522c8e1b8828f",
+    "tools/song57_verify.py": "12c9a108839ecc1786fc2b6747c4d0871480481c7aaa98d1dbe4670a68c75142"
+  },
+  "technical_verdict": "pass",
+  "implementation": [
+    "New raw craft uses producer_raw_craft_v3; new mixing craft uses mixing_craft_v2.",
+    "Only demand above capacity is penalised for new results.",
+    "Historical model identifiers preserve their original arithmetic, reason and saved final score.",
+    "No recipe/offer identity, transaction owner, UI, artwork, audio, economy price or app/save identity change."
+  ],
+  "verification": {
+    "ci_runs": [
+      {
+        "id": 43534998393,
+        "name": "Mandatory continuous-improvement gate",
+        "conclusion": "success",
+        "sha": "858d6c91965c4e62581debc649fb468cd7eb3190",
+        "url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/43534998393"
+      },
+      {
+        "id": 43534998394,
+        "name": "Validate BandMaster structure",
+        "conclusion": "success",
+        "sha": "858d6c91965c4e62581debc649fb468cd7eb3190",
+        "url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/43534998394"
+      },
+      {
+        "id": 43534998504,
+        "name": "Linked-song craft and legacy-save proof",
+        "conclusion": "success",
+        "sha": "858d6c91965c4e62581debc649fb468cd7eb3190",
+        "url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/43534998504"
+      },
+      {
+        "id": 43534998426,
+        "name": "Godot headless validation",
+        "conclusion": "success",
+        "sha": "858d6c91965c4e62581debc649fb468cd7eb3190",
+        "url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/43534998426"
+      }
+    ],
+    "model_result": {
+      "checks": 179892,
+      "failure_count": 0,
+      "failures": [],
+      "legacy_receipts_checked": 3584,
+      "monotonic_failures": 0,
+      "ok": true,
+      "owner_transactions": 6
+    },
+    "old_source_negative_control": {
+      "source": "f077696bc0fa36b5db2874061290eb3d9cd94860",
+      "monotonic_failures": 744,
+      "expected_exit": 1,
+      "purpose": "Demonstrates test detects pre-existing unfairness."
+    },
+    "genuine_legacy_fixtures": {
+      "receipts": 3584,
+      "complete_owner_snapshots": 2,
+      "sha256": "23565ac63b335488d23523e5d782dc5b3f5c14ec9a0351d1042af217ed573ce2"
+    },
+    "owner_integration": {
+      "paid_stages": 6,
+      "real_final_save_failure": true,
+      "memory_and_disk_rollback": true,
+      "successful_retry": true,
+      "duplicate_settlement_rejected": true,
+      "actual_save_reload": true
+    },
+    "model_artifact": {
+      "run_id": 43534998504,
+      "artifact_id": 14089485410,
+      "sha256": "b1c518e8b91f3e24398e3a6fd727d19f5483ad8cf207be6c76eb814b44edfb58",
+      "bytes": 63087,
+      "source_inputs_verified": 70,
+      "log_hashes_verified": 3
+    },
+    "local_regression": {
+      "recorded_run_head": "f077696bc0fa36b5db2874061290eb3d9cd94860",
+      "equivalent_published_source": "858d6c91965c4e62581debc649fb468cd7eb3190",
+      "binding": "All changed product hashes and186 materialized code/scene/JSON source hashes match the published source. The run began before publication.",
+      "fixture_checks": 196,
+      "summary_checks": 1735,
+      "recording_checks": 337,
+      "import": "pass",
+      "native_script_parse": "pass"
+    },
+    "native_ui": "No new native run. UI/art/control source is unchanged from SONG56; its previous four-size evidence remains the presentation baseline."
+  },
+  "retained_attempts": [
+    {
+      "path": "song57-old-control",
+      "result": "cancelled during over-broad source materialisation; no tests ran"
+    },
+    {
+      "path": "song57-old-models",
+      "result": "actual old-source fairness negative control; future contract intentionally fails on old source"
+    },
+    {
+      "path": "song57-candidate-01",
+      "result": "held due to fixture codec mismatch; not a pass",
+      "diagnosis": "Raw JSON floats bypassed the original owner integer normalizer. Independent diagnostic confirmed both old receipt models after real codec. Production validation was not loosened."
+    },
+    {
+      "path": "song57-candidate-02",
+      "result": "pass",
+      "source_binding": "858d6c91965c4e62581debc649fb468cd7eb3190"
+    }
+  ],
+  "originals_opened": [
+    "docs/continuous_improvement/evidence/SONG56/songbook-phone.png"
+  ],
+  "review": "docs/continuous_improvement/SONG57_REVIEW.json",
+  "simulated_lenses": [
+    {
+      "lens": "SIMULATED game critic",
+      "verdict": "pass within scope",
+      "finding": "Removes an arbitrary penalty for capable bands choosing restraint. R2 identity and selected co-writing remain unfinished."
+    },
+    {
+      "lens": "SIMULATED musician",
+      "verdict": "pass within scope",
+      "finding": "More capability cannot lower craft for the same tested arrangement; overreach still matters. No audible change or listening approval claimed."
+    },
+    {
+      "lens": "SIMULATED save engineer",
+      "verdict": "pass within tested cases",
+      "finding": "New craft IDs retain original arithmetic for old IDs. Genuine historical whole-song reload and real save rollback/retry/duplicate guards pass."
+    },
+    {
+      "lens": "SIMULATED QA engineer",
+      "verdict": "pass",
+      "finding": "Actual old source exposes744 monotonic failures; corrected source has0. All70 model-source hashes, CI logs and fixture digest verified; fixture normalization uses the real production codec."
+    },
+    {
+      "lens": "SIMULATED UX reviewer",
+      "verdict": "unchanged presentation",
+      "finding": "No UI/art/control changes. The previously verified SONG56 presentation remains the baseline; no new native or owner visual acceptance is claimed."
+    }
+  ],
+  "owner_approved": false,
+  "release_verdict": "not released; feature-branch source only",
+  "new_APK": false,
+  "production_saves_used": false,
+  "private_signing_material_accessed": false,
+  "main_or_PR199_changed": false,
+  "next_action": "Resume the remaining R2 identity and selected co-writing slice from the live feature branch, checking original test-build access at the start of the next hourly pass.",
+  "completed_at": "2026-11-14T00:39:08.830153+00:00"
+}

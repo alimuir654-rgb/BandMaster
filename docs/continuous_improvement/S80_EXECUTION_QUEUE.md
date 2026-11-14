@@ -1,8 +1,8 @@
 # BandMaster — sole execution queue
 
-Latest session: **SONG57 — ACTIVE**. One writer `root-SONG57`; versioned musical-fairness foundation for R2. SONG56 remains internally verified; owner acceptance is pending.
+Latest session: **SONG57 — CLOSED**. Versioned craft fairness is verified at `858d6c9`; writer released. Stable identity and selected co-writing remain open. SONG56 remains the internally verified presentation baseline; owner acceptance is pending.
 
-**Next action:** Implement and verify versioned craft fairness for new songs while preserving historical receipts, then hand off the remaining R2 identity and selected-contributor work.
+**Next action:** Resume the remaining R2 identity and selected co-writing slice from the live feature branch, checking original test-build access at the start of the next hourly pass.
 
 ## Linked songs and band life
 
@@ -12,7 +12,7 @@ The [roadmap](../ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md) defines dependencies and
 |---|---|---|
 | SONG53-R0 | Reconcile the actual latest source; classify existing/presentation/new-model work | COMPLETE — RECOVER54; published source d5e1662 verified directly on GitHub; full mapping/inventory in RECOVER54_SOURCE_RECONCILIATION.json |
 | SONG53-R1 | Reusable honest song summary with explicit legacy unknowns | FUNCTIONALLY VERIFIED — SONG55; SONG56 visual revision INTERNALLY VERIFIED on665cb95; owner visual acceptance pending |
-| SONG53-R2 | Stable song/revision/participant identity; one meaningful co-writing contribution; skill fairness | AUTHORISED / ACTIVE — SONG57 craft-fairness foundation; identity and co-writing remain |
+| SONG53-R2 | Stable song/revision/participant identity; one meaningful co-writing contribution; skill fairness | PARTIAL — SONG57 fairness foundation VERIFIED; identity, selected co-writing and retained credits AUTHORISED / NEXT |
 | SONG53-R3 | Song-specific purposeful rehearsal and proportionate preparation transfer | AUTHORISED / QUEUED — dependency gate; after R2 |
 | SONG53-R4 | Preparedness into live delivery, grounded feedback and character aftermath | AUTHORISED / QUEUED — dependency gate; after R3 |
 | SONG53-R5 | Immutable take and genuine recording-execution quality | AUTHORISED / QUEUED — dependency gate; after R2–R4 |
@@ -25,19 +25,19 @@ The [roadmap](../ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md) defines dependencies and
 
 ## Evidence and boundaries
 
-[Closed session](sessions/SONG56.json) · [SONG56 results](SONG56_RESULTS.json) · [SONG55 results](SONG55_RESULTS.json) · [Source recovery mapping](RECOVER54_SOURCE_RECONCILIATION.json).
+[SONG57 results](SONG57_RESULTS.json) · [SONG57 session](sessions/SONG57.json) · [Prior SONG56 session](sessions/SONG56.json) · [SONG56 results](SONG56_RESULTS.json) · [SONG55 results](SONG55_RESULTS.json) · [Source recovery mapping](RECOVER54_SOURCE_RECONCILIATION.json).
 
-Final SONG56 proof passed at `665cb95` in [run43530378163](https://github.com/alimuir654-rgb/BandMaster/actions/runs/43530378163):622 candidate native checks per profile across phone/short/tall/wide;18 final originals independently inspected and all128 PNG hashes verified. The clipped archive caption is resolved. Owner visual acceptance remains false. Preserve existing models, saves, art/audio and APK hold.
+Final SONG56 proof passed at `665cb95` in [run43530378163](https://github.com/alimuir654-rgb/BandMaster/actions/runs/43530378163):622 candidate native checks per profile across phone/short/tall/wide;18 final originals independently inspected and all128 PNG hashes verified. The clipped archive caption is resolved. Owner visual acceptance remains false. Preserve old receipts, saves and art/audio. Any new owner test candidate uses the original signing/build process after its own gates; no new APK exists from SONG57.
 
-The14November owner request now authorises finite hourly progression through R2–R7 with their dependency/quality gates. It does not mark any unimplemented stage complete or grant artistic/release/merge acceptance.
+The 14 November owner request now authorises finite hourly progression through R2–R7 with their dependency/quality gates. It does not mark any unimplemented stage complete or grant artistic/release/merge acceptance.
 
-## Finite hourly programme —14 November2026
+## Finite hourly programme — 14 November 2026
 
-Confirmed automation: `6ae532c5fe9c819190f587a022c54052`, enabled, Europe/London,01:00–09:00,COUNT9. This reuses the attached BandMaster worker with a fresh prompt; old November5–6 instructions are superseded. No parallel queue. Times are priorities, not promises or permission to skip dependencies.
+Confirmed automation: `6ae532c5fe9c819190f587a022c54052`, enabled, Europe/London, 01:00–09:00, COUNT 9. This reuses the attached BandMaster worker with a fresh prompt; old November 5–6 instructions are superseded. No parallel queue. Times are priorities, not promises or permission to skip dependencies.
 
 | Window | Priority |
 |---|---|
-| Now–01:00 | SONG57 versioned fairness foundation; safe legacy-receipt checks; publish/release writer |
+| Now–01:00 | COMPLETE — SONG57 versioned fairness; actual legacy/transaction proof; source published and writer released |
 | 01:00–02:00 | Probe original build/media access first; next unfinished R2 identity/selected collaborator |
 | 02:00–03:00 | R2 retained contribution, callback, actual native review and closeout |
 | 03:00–04:00 | R3 purposeful song/version/participant rehearsal if R2 passes |
@@ -45,10 +45,10 @@ Confirmed automation: `6ae532c5fe9c819190f587a022c54052`, enabled, Europe/London
 | 05:00–06:00 | R5 immutable take/execution evidence if upstream passes |
 | 06:00–07:00 | R6 lead-take promotion only after upstream gates; otherwise finish current slice |
 | 07:00–08:00 | No new systems; connected regression/native review and concrete repairs |
-| 08:00–09:00 | Freeze candidate; verify actual test access; concise playtest handover |
+| 08:00–09:00 | Freeze candidate; verify actual test access; handover ready by 08:50 |
 | 09:00 | Read-only final report; hard stop, no extension |
 
-If a dependency overruns, finish it and cut later breadth. If writer remains active, review read-only rather than overlap. Do not await owner review overnight; keep owner_approved=false and defer genuine external/signing blocks. An unavailable new Android build is a delivery blocker, not a reason to stop safe source/native work or mislabel screenshots as a playable build.
+Each pass allows at most 50 minutes including closeout. If a dependency overruns, finish it and cut later breadth. If writer remains active, review read-only rather than overlap. Do not await owner review overnight; keep owner_approved=false and defer genuine external/signing blocks. An unavailable new Android build is a delivery blocker, not a reason to stop safe source/native work or mislabel screenshots as a playable build.
 
 ## Preserved history and deferred work
 
