@@ -34,7 +34,7 @@
     "locator": "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/phone/selected-long-title.png",
     "original_sha256": "3c60ed1a13aa050efa44a4b548776c6e1c47ef063300982c8bbff11dbb7d5d5a",
     "pixels_inspected": true,
-    "purpose": "Actual retained final native original opened. UI/assets unchanged; no new native execution or artistic acceptance claimed by this model-only pass."
+    "purpose": "Retained reference opened; eight fresh originals also inspected. Unchanged UI executes new v2 receipt consumer at four sizes; no artistic/device acceptance."
   },
   "overnight": {
     "automation_id": "6ae532c5fe9c819190f587a022c54052",
@@ -45,7 +45,7 @@
     "scope": "R2\u2013R7 in dependency order with bounded committed passes; no promise all stages finish."
   },
   "id": "SONG63",
-  "status": "active",
+  "status": "closed",
   "baseline_sha": "0f2762740babb5586ec68e95ad6900a108b8c0f1",
   "hypothesis": "Saving validated material with future paid rehearsal receipts permits conservative section provenance without changing original effects or rewriting legacy rows; global producer recipe differences never imply partial musical equivalence.",
   "controlled_comparison": "Genuine previous source songs/legacy v1 receipts against new prospective owner receipts; exact original cost/day/action/Finance/save and typedFSfailure/retry. Controlled material projections are explicit rule fixtures, not earned rewrite gameplay.",
@@ -79,12 +79,13 @@
   ],
   "writer": {
     "owner": "root-SONG63",
-    "status": "active",
-    "source_writers": 1,
+    "status": "released",
+    "source_writers": 0,
     "claimed_at": "2026-11-14T06:02:20.229999+00:00",
-    "expires_at": "2026-11-14T06:48:00+00:00"
+    "expires_at": "2026-11-14T06:48:00+00:00",
+    "released_at": "2026-11-14T06:31:54.184795+00:00"
   },
-  "next_action": "Verify and publish conservative section-source receipts and familiarity projection; keep unsupported earned rewriting/R3 completion and R4 explicitly held.",
+  "next_action": "Run the 07:00 integration/regression audit of the implemented writing/rehearsal slice; fix only evidenced defects and retain unfinished-stage and Android delivery holds.",
   "queue_task_ids": [
     "SONG53-R3"
   ],
@@ -134,5 +135,24 @@
     "verdict": "CLEAR_PROVENANCE_FOUNDATION_ONLY",
     "finding": "Capturevalidatedfullmaterial/hashboundrevision;selfidentifyingv2rows/legacyexactv1unchanged;persection provenanceonly;producerfullrecipebound;nofabricatedearnedrewrite/readiness.",
     "integration_addendum": "Unchanged UI reads changed validator/new receipt data, so exercise saved recap production owner once on new source rather than claim prior native proof current."
+  },
+  "tested_sha": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
+  "closed_at": "2026-11-14T06:31:54.184795+00:00",
+  "results": "docs/continuous_improvement/SONG63_RESULTS.json",
+  "review": "docs/continuous_improvement/SONG63_REVIEW.json",
+  "technical_verdict": "PASS_SCOPED_MODEL_NATIVE_SOURCE_CI",
+  "visual_verdict": "internal_pass_unchanged_UI",
+  "overall_verdict": "PARTIAL",
+  "closeout": {
+    "tested_sha": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
+    "evidence": [
+      "docs/continuous_improvement/SONG63_RESULTS.json",
+      "docs/continuous_improvement/SONG63_REVIEW.json",
+      "docs/continuous_improvement/evidence/SONG63/"
+    ],
+    "visual_verdict": "internal_pass",
+    "next_action": "Run the 07:00 integration/regression audit of the implemented writing/rehearsal slice; fix only evidenced defects and retain unfinished-stage and Android delivery holds.",
+    "new_issue_review": "No new issue events; all9local executions strict, no failed proof thispass; unchanged verified cursor.",
+    "owner_approved": false
   }
 }

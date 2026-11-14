@@ -1,9 +1,23 @@
 # BandMaster current handover
 <!-- session: SONG63 -->
-<!-- status: active -->
+<!-- status: closed -->
 
-Root SONG63 owns the bounded model-only section-source pass until06:48.
+Branch ONLY `feature/playtest-polish-v20`. Source **7ae8667071c4aa8f2aefd8de891f498ad9d09118**; SONG63 closed, writer released. Read CURRENT and `SONG63_RESULTS.json` / `SONG63_REVIEW.json` for evidence; sole queue S80, roadmap holds acceptance/dependencies. Start from live branch, never reset to these historical checkpoints.
 
-Verify and publish conservative section-source receipts and familiarity projection; keep unsupported earned rewriting/R3 completion and R4 explicitly held.
+**Next action:** Run the 07:00 integration/regression audit of the implemented writing/rehearsal slice; fix only evidenced defects and retain unfinished-stage and Android delivery holds.
 
-Previous verified product1291b335/handover0f276274; all prior producers closed. R3 remains partial; no new UI/native/rewrite/score/music/APK scope. Read CURRENT and session for current preflight.
+07:00 no new gameplay systems;08:00 freeze/readiness;08:50 handover;09:00 Europe/London14Nov2026 stop mutations. Same sole automation `6ae532c5fe9c819190f587a022c54052`, COUNT9; no extension/extra controller. At most50minutes per pass. One writer/GL; inspect live lease and dirty work before acting.
+
+## Ready source / honest stage boundary
+R0 recovered. R1 presentation and R2 fairness/identities/retained chosen co-writing internally verified in prior sessions. R3 **PARTIAL**: original paid atomic song-specific rehearsal, selector/current preview/saved exact-version/person recap; SONG63 adds prospective self-identifying v2 source-material receipt and pure per-person section evidence. Legacyv1 exact unchanged, no fabricated backfill. Canonical song/composition/person matching; material hash bound to revision; whole producer recipe bound to both sections. Title and roster order do not determine identity. No skill/readiness score or added bonus/save.
+
+No supported earned finished-song rewrite, player-facing changed-section transfer or musical-equivalence experience. Controlled future-material fixtures are not earned gameplay. R4–R7 dependencies remain unpassed; do not claim live/take/promotion/integrated-two-song completion or skip upstream gates. Current visuals/cast/art/fonts/audio/54Scripts/Finance/Game/save owners unchanged. Keep uncertainty before decisions and original costs/2–3track demo rules.
+
+## Exact proof
+Final fresh model baseline328/candidate483, source73bindings. Earlier v1candidate441 retained. Real original paid transactions/FSfailure-retry/typedreload/legacy and future-schema guards. Native fresh empty import then390x844,720x1280,1280x720,1600x900:303mixedchecks each, raw0/ERRORempty; genuine production UI consumes newv2receipts.36PNGs encoded-byte/RGBAexact toSONG62;907runtime and source bindings,906unchanged+Preparation changed. SourceCI4PASS; modelrun43565499612/artifact14101858963. Nine localGodot=9strict/0held.77evidencefiles40,824,338B durably committed. Root9actualoriginals/independent8, fiveSIMULATEDlenses; ownerfalse/overallPARTIAL. Counts include controlled setup, not303nativeactions or whole-menu journeys. Reducedmotion/Dummy/emulatedtouch do not establish device/listening/install/IME/uncoached acceptance.
+
+## Android / private assets
+Original signer verified accessible earlier: existing2048RSA JKS aliasandroiddebugkey/cert83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2. Never export/print key/password, replace key or change app identity `com.bandmaster.ownerplaytest.s40`. No new APK exists. Nine processed audio dependencies still missing: character_indie29/manifest.json;crowd37/cheer.ogg;formation_next32/manifest.json;recorded_dgad_v1/manifest.json;recorded_indie29/manifest.json;recorded_indie39/characters.json;recorded_rehearsal_v1/manifest.json;recorded_steady_v2/manifest.json;title_indie29.ogg under experiment audio. Dropbox `/BandMaster` empty at lastcheck, `/audio files` has33rawstems across6titles; rawstems are not processed assets and their rights not established by old LastBusGone acceptance. No unchanged probes/downloads/banks/Suno/paid tools/public release for activity.
+
+## Preservation / resources
+AllSONG63 fiveproducerprojects/4473files CLOSED IMMUTABLE; all previous producers remainclosed. No engine/import/resume/write cached bytes. OwnXorg stopped/socketgone;three normalpins exact/GLfree. Sourceexport/QA under `/tmp/bandmaster-song63-20261114`; source-critical Git durable onGitHub. Original `/workspace/BandMaster` stays old19df671 dirty metadata/UID work untouched; no reset/switch/cleanup/gc/repack/prune. Every Gitmutation gc.auto=0 maintenance.auto=false. Primaryfree625471488B pre-existing below629145600floor, unchangedTHISpass; no primary allocations. ProspectiveTMPcap1825361100B from2493292544B leaves667931444B; owned~1164731432B/free~1308483584B at proofclose, checkfresh. Closedcaps do not fund new work. Issuecursor unchanged2338169B/SHA6d5f7b4e2650720bd1be921a3b8e6f1e8149f4adf5bf67ff918c149d5681eb43; no newevents thispass.

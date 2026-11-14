@@ -1,0 +1,80 @@
+{
+  "session": "SONG63",
+  "tested_sha": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
+  "technical": "PASS_SCOPED_MODEL_NATIVE_SOURCE_CI",
+  "internal_visual": "CLEAR_UNCHANGED_UI_NEW_DATA_CONSUMER",
+  "overall": "PARTIAL",
+  "owner_approved": false,
+  "release_approved": false,
+  "root_originals_opened": [
+    "docs/continuous_improvement/evidence/SONG62/native-v3/candidate/phone/selected-long-title.png",
+    "native-v1/candidate/phone/selected-long-title.png",
+    "native-v1/candidate/phone/typed-reload-recap.png",
+    "native-v1/candidate/short/selected-long-title.png",
+    "native-v1/candidate/short/typed-reload-recap.png",
+    "native-v1/candidate/tall/selected-long-title.png",
+    "native-v1/candidate/tall/typed-reload-recap.png",
+    "native-v1/candidate/wide/selected-long-title.png",
+    "native-v1/candidate/wide/typed-reload-recap.png"
+  ],
+  "root_actual_opens": 9,
+  "root_unique_count": 9,
+  "independent_source_visual": {
+    "agent": "/root/au01_source_review",
+    "status": "completed_released",
+    "actual_original_opens": 8,
+    "names": [
+      "native-v1/candidate/phone/selected-long-title.png",
+      "native-v1/candidate/phone/typed-reload-recap.png",
+      "native-v1/candidate/short/selected-long-title.png",
+      "native-v1/candidate/short/typed-reload-recap.png",
+      "native-v1/candidate/tall/selected-long-title.png",
+      "native-v1/candidate/tall/typed-reload-recap.png",
+      "native-v1/candidate/wide/selected-long-title.png",
+      "native-v1/candidate/wide/typed-reload-recap.png"
+    ],
+    "finding": "Predesign, source and early/final native CLEAR for provenance foundation only."
+  },
+  "independent_receipts": {
+    "agent": "/root/foundation_tests",
+    "status": "completed_released",
+    "actual_image_opens": 0,
+    "finding": "73 model inputs and 907 native source/runtime bindings rehashed; four v2 consumer careers, raw logs/receipts and 36 encoded PNG pairs exact. No artistic judgment claimed."
+  },
+  "five_simulated_lenses": [
+    {
+      "lens": "Legacy continuity",
+      "explicitly_simulated": true,
+      "finding": "Old v1 receipt bytes and types preserved; no material backfill."
+    },
+    {
+      "lens": "Musician",
+      "explicitly_simulated": true,
+      "finding": "Source-section evidence is not skill/readiness; full producer recipe differences invalidate both sections."
+    },
+    {
+      "lens": "Player/accessibility",
+      "explicitly_simulated": true,
+      "finding": "Unchanged four-size UI consumes genuine new v2 receipts; 48px targets and pointer/key/emulated touch/wheel verified."
+    },
+    {
+      "lens": "Reliability",
+      "explicitly_simulated": true,
+      "finding": "Original paid owner, Finance and sole save unchanged; real failure/retry and typed reload preserved."
+    },
+    {
+      "lens": "Maintainer",
+      "explicitly_simulated": true,
+      "finding": "Canonical song/composition/person and hash-bound material validation; future schemas refuse and pure queries do not mutate careers."
+    }
+  ],
+  "material_gaps": [
+    "R3 PARTIAL: source-material provenance only; no supported earned finished-song rewrite, player-facing changed-section transfer, readiness/ability score or preparation bonus. R4–R7 dependencies not passed.",
+    "Controlled future material projections are rule fixtures, not earned rewrites. Literal original uses three actual paid writing days then rehearsal. Producer-axis sweeps are individual alternatives, not a Cartesian recipe sweep.",
+    "Native careers use public formation/writing fixtures, not whole initial-menu journeys. Reload calls the real RootUI._load_original handler directly; no played Menu/Continue claim.",
+    "303 checks per profile include setup; nine writing-helper settlements are setup counts, not nine native rehearsals. Each native career has two selected and one general paid rehearsal plus one real selected FS failure/retry.",
+    "Reduced-motion desktop/Dummy proofs do not establish physical phone/touch, listening, normal-motion, install/save-retention, IME, OS interruption or uncoached acceptance.",
+    "Existing body scrolling, sparse wide presentation, static portraits and inherited ellipsised rehearsal excerpts remain.",
+    "Original signer accessible, but nine processed media dependencies remain missing. Raw Dropbox stems are not those dependencies; no new APK or public release."
+  ]
+}

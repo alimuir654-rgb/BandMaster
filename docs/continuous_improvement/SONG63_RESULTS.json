@@ -1,0 +1,149 @@
+{
+  "session": "SONG63",
+  "tested_sha": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
+  "baseline_sha": "0f2762740babb5586ec68e95ad6900a108b8c0f1",
+  "preflight_sha": "301a501f0fb4f2850f2eb84ceb607022671a02a6",
+  "technical_verdict": "PASS_SCOPED_MODEL_NATIVE_SOURCE_CI",
+  "visual_verdict": "internal_pass_unchanged_UI",
+  "overall_verdict": "PARTIAL",
+  "owner_verdict": "NOT_ACCEPTED",
+  "release_verdict": "NO_NEW_APK",
+  "owner_approved": false,
+  "changed": "Only production song_preparation.gd: prospective self-identifying v2 material source on new paid rehearsal rows, strict hash/schema/canonical identity checks and pure per-person exact/retained/untracked section evidence. Legacy v1 unchanged. Full producer recipe bound to both sections. Original UI/owners/Game/Finance/save/scoring/art/audio unchanged.",
+  "models": {
+    "earlier_v1": {
+      "baseline_checks": 328,
+      "candidate_checks": 441
+    },
+    "final_v2": {
+      "baseline_checks": 328,
+      "candidate_checks": 483,
+      "exit_codes": [
+        0,
+        0
+      ],
+      "errors": [],
+      "source_inputs": 73,
+      "RUN_sha256": "6ad7fabad39e4c04d8463372c3d565175c3392572a96bde7f9713d8ec897814b"
+    },
+    "counts_note": "Nine successful linked rehearsals across controlled candidate careers: six inherited, two mixed-history, one literal. owner_transactions=15 counts successful writing-helper settlements, not rehearsals or total IO. Baseline writing-helper count12.",
+    "scope": "Genuine old v1 histories; mixed v1/v2 real failed save/retry/typed reload; literal three-paid-writing-day original; section/recipe/canonical person/composition/future-policy/digest/purity checks. Future rewrite materials are controlled projections only."
+  },
+  "native": {
+    "profiles": {
+      "phone": [
+        390,
+        844
+      ],
+      "tall": [
+        720,
+        1280
+      ],
+      "short": [
+        1280,
+        720
+      ],
+      "wide": [
+        1600,
+        900
+      ]
+    },
+    "checks_each": 303,
+    "exit_codes": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "errors": [],
+    "known_warnings": "One VSync driver warning per profile; no leaks.",
+    "pngs": 36,
+    "encoded_byte_exact_to_SONG62": 36,
+    "RGBA_exact_to_SONG62": 36,
+    "source_bindings": 907,
+    "unchanged_vs_SONG62": 906,
+    "changed_leaf": "song_preparation.gd",
+    "new_data_consumer": "All four private QA careers contain two linked receipts each, both source version2; first full trio and later actual Zoe/Casey attendance while Jack works.",
+    "input": "Pointer, consecutive Enter/Space, emulated touch, positive wheel, 48 physical pixel targets; actual production RootUI paid owner/FS retry and typed reload."
+  },
+  "local_Godot": {
+    "actual": 9,
+    "execution_strict": 9,
+    "held": 0,
+    "breakdown": "Four model executions (v1/v2 baseline+candidate), one native empty import, four native profiles."
+  },
+  "source_ci": {
+    "tested_sha": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
+    "success_runs": [
+      43565499583,
+      43565499640,
+      43565499644,
+      43565499612
+    ],
+    "model_artifact": {
+      "id": 14101858963,
+      "bytes": 141959,
+      "digest": "sha256:1cb99d45235f4fb0fdde80b43a092ab2418537951d4a5dadc1ee220f188d8d2d",
+      "inspection": "Metadata readback only; archive not downloaded/opened."
+    }
+  },
+  "evidence": {
+    "directory": "docs/continuous_improvement/evidence/SONG63/",
+    "files": 77,
+    "bytes": 40824338,
+    "models": "models-v2/RUN.json",
+    "protection": "source-protection.json",
+    "native_consumer": "native-data-consumer.json",
+    "closure": "closed-producers.json",
+    "reuse": "All36 current PNG encoded bytes match priorSONG62, reusing exact existing Git blobs after local SHA1 verification."
+  },
+  "protection": "792 prior protected Script/image/audio/font files exact (includes historical QA PNGs, not792productionassets); production change only Preparation. Original dirty primary checkout preserved.",
+  "closure": {
+    "producer_projects": 5,
+    "closed_files": 4473,
+    "immutable": true,
+    "GL": "free",
+    "own_Xorg": "stopped/socket gone",
+    "pins": "All three existing Xorg/config/driver pins exact"
+  },
+  "funding": {
+    "scope": "SONG63 prospective section-source receipts and conservative section familiarity queries; model-only/no UI/rewrite/score/APK",
+    "at": "2026-11-14T06:00:48.142900+00:00",
+    "baseline_sha": "0f2762740babb5586ec68e95ad6900a108b8c0f1",
+    "primary_new_bytes": 0,
+    "tmp_cap_bytes": 1825361100,
+    "floor_bytes": 629145600,
+    "tmp_free_before": 2493292544,
+    "workspace_free_before": 625471488,
+    "budgets": {
+      "source_archive_export": 750000000,
+      "models": 50000000,
+      "fresh_native_runtime_cache": 450000000,
+      "one_full_failed_native_tail": 450000000,
+      "PNGs_and_durable_copies": 100000000,
+      "closeout": 10000000
+    },
+    "critical_git": "DurableGitHubGitDataonly; originaldirtycheckout/closedproducersuntouched",
+    "deadline": "2026-11-14T06:48:00+00:00",
+    "amended_at": "2026-11-14T06:15:35.530403+00:00",
+    "amendment": "New leaf is consumed by unchanged RootUI saved-recap validator; fresh source-bound native data-integration proof, no newUI/features/oldcache sharing. Onecurrent regularprivate project plus complete failedtail funded before allocation."
+  },
+  "new_issue_review": {
+    "new_events": 0,
+    "failures_this_pass": 0,
+    "cursor_bytes": 2338169,
+    "cursor_sha256": "6d5f7b4e2650720bd1be921a3b8e6f1e8149f4adf5bf67ff918c149d5681eb43",
+    "note": "No new defect or recurrence found; no manufactured issue/lesson entry."
+  },
+  "material_gaps": [
+    "R3 PARTIAL: source-material provenance only; no supported earned finished-song rewrite, player-facing changed-section transfer, readiness/ability score or preparation bonus. R4–R7 dependencies not passed.",
+    "Controlled future material projections are rule fixtures, not earned rewrites. Literal original uses three actual paid writing days then rehearsal. Producer-axis sweeps are individual alternatives, not a Cartesian recipe sweep.",
+    "Native careers use public formation/writing fixtures, not whole initial-menu journeys. Reload calls the real RootUI._load_original handler directly; no played Menu/Continue claim.",
+    "303 checks per profile include setup; nine writing-helper settlements are setup counts, not nine native rehearsals. Each native career has two selected and one general paid rehearsal plus one real selected FS failure/retry.",
+    "Reduced-motion desktop/Dummy proofs do not establish physical phone/touch, listening, normal-motion, install/save-retention, IME, OS interruption or uncoached acceptance.",
+    "Existing body scrolling, sparse wide presentation, static portraits and inherited ellipsised rehearsal excerpts remain.",
+    "Original signer accessible, but nine processed media dependencies remain missing. Raw Dropbox stems are not those dependencies; no new APK or public release."
+  ],
+  "review": "docs/continuous_improvement/SONG63_REVIEW.json",
+  "next_action": "Run the 07:00 integration/regression audit of the implemented writing/rehearsal slice; fix only evidenced defects and retain unfinished-stage and Android delivery holds."
+}

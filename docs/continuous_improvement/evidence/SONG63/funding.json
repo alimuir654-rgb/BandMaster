@@ -1,0 +1,22 @@
+{
+  "scope": "SONG63 prospective section-source receipts and conservative section familiarity queries; model-only/no UI/rewrite/score/APK",
+  "at": "2026-11-14T06:00:48.142900+00:00",
+  "baseline_sha": "0f2762740babb5586ec68e95ad6900a108b8c0f1",
+  "primary_new_bytes": 0,
+  "tmp_cap_bytes": 1825361100,
+  "floor_bytes": 629145600,
+  "tmp_free_before": 2493292544,
+  "workspace_free_before": 625471488,
+  "budgets": {
+    "source_archive_export": 750000000,
+    "models": 50000000,
+    "fresh_native_runtime_cache": 450000000,
+    "one_full_failed_native_tail": 450000000,
+    "PNGs_and_durable_copies": 100000000,
+    "closeout": 10000000
+  },
+  "critical_git": "DurableGitHubGitDataonly; originaldirtycheckout/closedproducersuntouched",
+  "deadline": "2026-11-14T06:48:00+00:00",
+  "amended_at": "2026-11-14T06:15:35.530403+00:00",
+  "amendment": "New leaf is consumed by unchanged RootUI saved-recap validator; fresh source-bound native data-integration proof, no newUI/features/oldcache sharing. Onecurrent regularprivate project plus complete failedtail funded before allocation."
+}

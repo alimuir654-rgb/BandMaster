@@ -4,15 +4,16 @@
   "session_path": "docs/continuous_improvement/sessions/SONG63.json",
   "canonical_current": "docs/continuous_improvement/CURRENT.json",
   "branch": "feature/playtest-polish-v20",
-  "status": "active",
-  "writer": "root-SONG63",
+  "status": "closed",
+  "writer": null,
   "owner_approved": false,
-  "updated_at": "2026-11-14T06:02:20.229999+00:00",
-  "next_single_action": "Verify and publish conservative section-source receipts and familiarity projection; keep unsupported earned rewriting/R3 completion and R4 explicitly held.",
+  "updated_at": "2026-11-14T06:31:54.184795+00:00",
+  "next_single_action": "Run the 07:00 integration/regression audit of the implemented writing/rehearsal slice; fix only evidenced defects and retain unfinished-stage and Android delivery holds.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json",
   "base_head": "0f2762740babb5586ec68e95ad6900a108b8c0f1",
   "claimed_at": "2026-11-14T06:02:20.229999+00:00",
   "expires_at": "2026-11-14T06:48:00+00:00",
   "claim_basis": "14 November 2026 owner: Pick up bandmaster roadmap work. Split into hourly chunks to target a 9am test for me. Automate through and make as much progress as possible until then. I won't be available for reviews or approvals until then.",
-  "tested_source": "1291b3357538a1330df14766a5f35906d0b1e442"
+  "tested_source": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
+  "released_at": "2026-11-14T06:31:54.184795+00:00"
 }

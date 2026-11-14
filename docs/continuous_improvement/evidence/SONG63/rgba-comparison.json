@@ -1,0 +1,290 @@
+[
+  {
+    "profile": "phone",
+    "state": "failed-save-selection-retained",
+    "current_sha256": "37aec9a75fc1051ba0f7cba1e36fe09b4326272798d4482cd3af91293c480b83",
+    "baseline_sha256": "37aec9a75fc1051ba0f7cba1e36fe09b4326272798d4482cd3af91293c480b83",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "phone",
+    "state": "general-rehearsal",
+    "current_sha256": "2c14bbee132a600d75bde48ae61521f9d1a8410050498e6d833a4be66ef9812e",
+    "baseline_sha256": "2c14bbee132a600d75bde48ae61521f9d1a8410050498e6d833a4be66ef9812e",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "phone",
+    "state": "ordinary-rehearsal-result",
+    "current_sha256": "aa1003dd9cbc2e9264e296636472046216634185116ae6bfadb0deb09b806278",
+    "baseline_sha256": "aa1003dd9cbc2e9264e296636472046216634185116ae6bfadb0deb09b806278",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "phone",
+    "state": "partial-attendance-review",
+    "current_sha256": "38d543c83d199c6d4db6d0fafd52687115a347e79642e9721e0e262997954c16",
+    "baseline_sha256": "38d543c83d199c6d4db6d0fafd52687115a347e79642e9721e0e262997954c16",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "phone",
+    "state": "partial-saved-song-rehearsal",
+    "current_sha256": "82baa2f58706485fb16cf47e15356f407f14eef00ebdf9f6837c6b8935f8c0e2",
+    "baseline_sha256": "82baa2f58706485fb16cf47e15356f407f14eef00ebdf9f6837c6b8935f8c0e2",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "phone",
+    "state": "saved-song-rehearsal",
+    "current_sha256": "b99b8313f95fb10713dd4ee5bb8e1167f40c35abf2212d5f32e6b401e67d415c",
+    "baseline_sha256": "b99b8313f95fb10713dd4ee5bb8e1167f40c35abf2212d5f32e6b401e67d415c",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "phone",
+    "state": "selected-long-title",
+    "current_sha256": "3c60ed1a13aa050efa44a4b548776c6e1c47ef063300982c8bbff11dbb7d5d5a",
+    "baseline_sha256": "3c60ed1a13aa050efa44a4b548776c6e1c47ef063300982c8bbff11dbb7d5d5a",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "phone",
+    "state": "stale-arrangement-held",
+    "current_sha256": "cc089d6c154d48fc9323741eb3ab69a09bc049cb7f8da5e4a20e176dce969d59",
+    "baseline_sha256": "cc089d6c154d48fc9323741eb3ab69a09bc049cb7f8da5e4a20e176dce969d59",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "phone",
+    "state": "typed-reload-recap",
+    "current_sha256": "3c26a4f649a6d087e94a978f1ddccd060fa199df207122d4d64eab606f638395",
+    "baseline_sha256": "3c26a4f649a6d087e94a978f1ddccd060fa199df207122d4d64eab606f638395",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "short",
+    "state": "failed-save-selection-retained",
+    "current_sha256": "4111c7cdd596631105fd26c1a743c9a2a15c0e6f533cfed8e044db3ca081bf51",
+    "baseline_sha256": "4111c7cdd596631105fd26c1a743c9a2a15c0e6f533cfed8e044db3ca081bf51",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "short",
+    "state": "general-rehearsal",
+    "current_sha256": "ce48bd8dc94b1934fc97e06c98c1307d99816691cf257cd008fb8695421c1c28",
+    "baseline_sha256": "ce48bd8dc94b1934fc97e06c98c1307d99816691cf257cd008fb8695421c1c28",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "short",
+    "state": "ordinary-rehearsal-result",
+    "current_sha256": "ae90067157c4c7f29877a345263da47bfe943dfb37d2ead19600f23ea8d9eb11",
+    "baseline_sha256": "ae90067157c4c7f29877a345263da47bfe943dfb37d2ead19600f23ea8d9eb11",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "short",
+    "state": "partial-attendance-review",
+    "current_sha256": "5ee0d50cecf120f29f61b7911ae7f3cb76ceebb0a2f065123028e6cb87d786a0",
+    "baseline_sha256": "5ee0d50cecf120f29f61b7911ae7f3cb76ceebb0a2f065123028e6cb87d786a0",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "short",
+    "state": "partial-saved-song-rehearsal",
+    "current_sha256": "42fcf609e204a0f82ee16866ae53353758ed610ac6fc4fd2aae1f1405918f7a6",
+    "baseline_sha256": "42fcf609e204a0f82ee16866ae53353758ed610ac6fc4fd2aae1f1405918f7a6",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "short",
+    "state": "saved-song-rehearsal",
+    "current_sha256": "089fd306870466f980119e02bcce447b455b48164a88ea9de6c3c757d66ff39e",
+    "baseline_sha256": "089fd306870466f980119e02bcce447b455b48164a88ea9de6c3c757d66ff39e",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "short",
+    "state": "selected-long-title",
+    "current_sha256": "04573b7b8f760cb5ce8f8913960c3cc168c6e6f1e23d8738b66e94b363527d52",
+    "baseline_sha256": "04573b7b8f760cb5ce8f8913960c3cc168c6e6f1e23d8738b66e94b363527d52",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "short",
+    "state": "stale-arrangement-held",
+    "current_sha256": "49be03354ca3e621e4284dbb79858cd220467cd3fc9b2a25200fea6261010b05",
+    "baseline_sha256": "49be03354ca3e621e4284dbb79858cd220467cd3fc9b2a25200fea6261010b05",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "short",
+    "state": "typed-reload-recap",
+    "current_sha256": "24d96fc27b6349f87f03fef833cef8eb4c08dd714b89e67221276db8ee70e6ad",
+    "baseline_sha256": "24d96fc27b6349f87f03fef833cef8eb4c08dd714b89e67221276db8ee70e6ad",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "tall",
+    "state": "failed-save-selection-retained",
+    "current_sha256": "7218d9c7c13814ff85e23a5188d0672b6310afd50c5a1c3f32a8f14723fc3233",
+    "baseline_sha256": "7218d9c7c13814ff85e23a5188d0672b6310afd50c5a1c3f32a8f14723fc3233",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "tall",
+    "state": "general-rehearsal",
+    "current_sha256": "80742ab11fb823f3b2f453c6305ea4b811a2ecc289cd43cafb8a8dc18077d22a",
+    "baseline_sha256": "80742ab11fb823f3b2f453c6305ea4b811a2ecc289cd43cafb8a8dc18077d22a",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "tall",
+    "state": "ordinary-rehearsal-result",
+    "current_sha256": "17bca9d54e23e5e6a70147608f19c549841838e40a8918fed466d38d18201a8f",
+    "baseline_sha256": "17bca9d54e23e5e6a70147608f19c549841838e40a8918fed466d38d18201a8f",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "tall",
+    "state": "partial-attendance-review",
+    "current_sha256": "27741fc99899e087b0cabc865461cae868cb00f1fec47346734d13a8520fac87",
+    "baseline_sha256": "27741fc99899e087b0cabc865461cae868cb00f1fec47346734d13a8520fac87",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "tall",
+    "state": "partial-saved-song-rehearsal",
+    "current_sha256": "549223ea34d4f57f491b3972769f7317870ca016c86a44e7b73a6c68084a5468",
+    "baseline_sha256": "549223ea34d4f57f491b3972769f7317870ca016c86a44e7b73a6c68084a5468",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "tall",
+    "state": "saved-song-rehearsal",
+    "current_sha256": "cd6671bdba0fba03afb3455766b7c9b1912623008bc3a684205bb633a38bb6ac",
+    "baseline_sha256": "cd6671bdba0fba03afb3455766b7c9b1912623008bc3a684205bb633a38bb6ac",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "tall",
+    "state": "selected-long-title",
+    "current_sha256": "5dec3afabd5586d3b597bd4e1eb2e2df93e44d440f95138531861253dfa27b01",
+    "baseline_sha256": "5dec3afabd5586d3b597bd4e1eb2e2df93e44d440f95138531861253dfa27b01",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "tall",
+    "state": "stale-arrangement-held",
+    "current_sha256": "08396018d6f82e5ffde1b3bd18d8602120651f5513e00ed9b42d290ab4b716e3",
+    "baseline_sha256": "08396018d6f82e5ffde1b3bd18d8602120651f5513e00ed9b42d290ab4b716e3",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "tall",
+    "state": "typed-reload-recap",
+    "current_sha256": "c73180da14bcdda3493e4a0fc9853752d8bf13de211e74690b7d696916845de8",
+    "baseline_sha256": "c73180da14bcdda3493e4a0fc9853752d8bf13de211e74690b7d696916845de8",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "wide",
+    "state": "failed-save-selection-retained",
+    "current_sha256": "f2bea19008ef375a933e71f6234542ed887ea1e0acb65dbeaec2f7004b88f9e5",
+    "baseline_sha256": "f2bea19008ef375a933e71f6234542ed887ea1e0acb65dbeaec2f7004b88f9e5",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "wide",
+    "state": "general-rehearsal",
+    "current_sha256": "c3c44eb4eafe69e776d1d2d4e7b0bb0038c80afb506a476fdb3f2e1b7e43e853",
+    "baseline_sha256": "c3c44eb4eafe69e776d1d2d4e7b0bb0038c80afb506a476fdb3f2e1b7e43e853",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "wide",
+    "state": "ordinary-rehearsal-result",
+    "current_sha256": "8b4a2f831920d542a752d46c1479e15530b6634dd0ccbaf48292b3c7a279a9d1",
+    "baseline_sha256": "8b4a2f831920d542a752d46c1479e15530b6634dd0ccbaf48292b3c7a279a9d1",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "wide",
+    "state": "partial-attendance-review",
+    "current_sha256": "ee15e072a8c4bc13463ebb186b0fece8209d897204455ecf10de9968dd0e8efa",
+    "baseline_sha256": "ee15e072a8c4bc13463ebb186b0fece8209d897204455ecf10de9968dd0e8efa",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "wide",
+    "state": "partial-saved-song-rehearsal",
+    "current_sha256": "ff90c6b42acd37940147e6e5b749dbeddd5591562fd04781dbbc6fd0ce08fa28",
+    "baseline_sha256": "ff90c6b42acd37940147e6e5b749dbeddd5591562fd04781dbbc6fd0ce08fa28",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "wide",
+    "state": "saved-song-rehearsal",
+    "current_sha256": "e8dedcc6cc3f1aa2edb9b7bc55cbd93192df96fea8cef7d26223db85ad9eb400",
+    "baseline_sha256": "e8dedcc6cc3f1aa2edb9b7bc55cbd93192df96fea8cef7d26223db85ad9eb400",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "wide",
+    "state": "selected-long-title",
+    "current_sha256": "c780615de9620709720e45bac2f1b62a1a45b304d89d722fce6040cd3cfc7f7f",
+    "baseline_sha256": "c780615de9620709720e45bac2f1b62a1a45b304d89d722fce6040cd3cfc7f7f",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "wide",
+    "state": "stale-arrangement-held",
+    "current_sha256": "13499dc4bf3575191a359c7e1196c258ade2cf3ca5abe8739d2378906501d60c",
+    "baseline_sha256": "13499dc4bf3575191a359c7e1196c258ade2cf3ca5abe8739d2378906501d60c",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  },
+  {
+    "profile": "wide",
+    "state": "typed-reload-recap",
+    "current_sha256": "674a8a957576581e2837f07c232debd8d57ef40d044e4093e8aec65c0dc85fbd",
+    "baseline_sha256": "674a8a957576581e2837f07c232debd8d57ef40d044e4093e8aec65c0dc85fbd",
+    "RGBA_exact": true,
+    "bytes_exact": true
+  }
+]

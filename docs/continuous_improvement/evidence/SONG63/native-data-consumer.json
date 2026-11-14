@@ -1,0 +1,98 @@
+[
+  {
+    "path": "native-v1/environment/candidate-phone/data/BandMasterSONG55IsolatedQA/c27_opening_draft.json",
+    "isolation": "harness-generatedQAonly_not_owner_save",
+    "rows": 2,
+    "source_versions": [
+      2,
+      2
+    ],
+    "song_ids": [
+      "original:2",
+      "original:1"
+    ],
+    "actual_people": [
+      [
+        "cast_jack",
+        "cast_zoe",
+        "cast_casey"
+      ],
+      [
+        "cast_zoe",
+        "cast_casey"
+      ]
+    ]
+  },
+  {
+    "path": "native-v1/environment/candidate-short/data/BandMasterSONG55IsolatedQA/c27_opening_draft.json",
+    "isolation": "harness-generatedQAonly_not_owner_save",
+    "rows": 2,
+    "source_versions": [
+      2,
+      2
+    ],
+    "song_ids": [
+      "original:2",
+      "original:1"
+    ],
+    "actual_people": [
+      [
+        "cast_jack",
+        "cast_zoe",
+        "cast_casey"
+      ],
+      [
+        "cast_zoe",
+        "cast_casey"
+      ]
+    ]
+  },
+  {
+    "path": "native-v1/environment/candidate-tall/data/BandMasterSONG55IsolatedQA/c27_opening_draft.json",
+    "isolation": "harness-generatedQAonly_not_owner_save",
+    "rows": 2,
+    "source_versions": [
+      2,
+      2
+    ],
+    "song_ids": [
+      "original:2",
+      "original:1"
+    ],
+    "actual_people": [
+      [
+        "cast_jack",
+        "cast_zoe",
+        "cast_casey"
+      ],
+      [
+        "cast_zoe",
+        "cast_casey"
+      ]
+    ]
+  },
+  {
+    "path": "native-v1/environment/candidate-wide/data/BandMasterSONG55IsolatedQA/c27_opening_draft.json",
+    "isolation": "harness-generatedQAonly_not_owner_save",
+    "rows": 2,
+    "source_versions": [
+      2,
+      2
+    ],
+    "song_ids": [
+      "original:2",
+      "original:1"
+    ],
+    "actual_people": [
+      [
+        "cast_jack",
+        "cast_zoe",
+        "cast_casey"
+      ],
+      [
+        "cast_zoe",
+        "cast_casey"
+      ]
+    ]
+  }
+]
