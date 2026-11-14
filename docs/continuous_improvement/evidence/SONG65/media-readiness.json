@@ -1,0 +1,17 @@
+{
+  "checked_source": "frozen candidate sourceexport bound to liveGit",
+  "processed_files_present": {
+    "character_indie29/manifest.json": false,
+    "crowd37/cheer.ogg": false,
+    "formation_next32/manifest.json": false,
+    "recorded_dgad_v1/manifest.json": false,
+    "recorded_indie29/manifest.json": false,
+    "recorded_indie39/characters.json": false,
+    "recorded_rehearsal_v1/manifest.json": false,
+    "recorded_steady_v2/manifest.json": false,
+    "title_indie29.ogg": false
+  },
+  "missing": 9,
+  "APK_build_attempted": false,
+  "reason": "Missing approved processed dependencies; rawstems are not approved processed replacements."
+}

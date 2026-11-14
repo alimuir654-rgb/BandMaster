@@ -1,0 +1,155 @@
+{
+  "session": "SONG65",
+  "at": "2026-11-14T08:04:32.930900+00:00",
+  "candidate_revision": "bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
+  "game_source_revision": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
+  "owner_test_status": "BLOCKED_NO_INSTALLABLE_BUILD_OR_OWNER_LAUNCH_TARGET",
+  "installable_APK": null,
+  "owner_accessible_playable_location": null,
+  "source_review_location": "https://github.com/alimuir654-rgb/BandMaster/tree/bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
+  "native_review_evidence": "https://github.com/alimuir654-rgb/BandMaster/tree/a8be4f33cf22dce41a56fc0d70baf8604a2328b0/docs/continuous_improvement/evidence/SONG63/native-v1",
+  "location_warning": "These links expose source/proof for review, not a playable application. All prior private QA producers are closed immutable and must not be relaunched. No new APK has been built/delivered overnight. The installed phone app has not been verified against this candidate. The repository root launcher differs from the verified isolated opening launcher; a source ZIP is not a direct test app.",
+  "ready": [
+    "For new Workbench completions: stable canonical song/revision/participant identities and versioned skill-fairness receipts. Untracked legacy identities/history remain unknown.",
+    "Current producer/writing-room pilot: player-selected retained co-writing contribution and callback, preserving original paid/save ownership; not all literal/legacy routes expose that selector.",
+    "Song-specific rehearsal selection, purpose and actual-participant saved recap; prospective hash-bound v2 section source receipts and pure section evidence.",
+    "Static model CI triggers repaired:76model/10Python/88exactpaths;7guardmethods and4sourceCIchecks passed."
+  ],
+  "not_ready": [
+    "R3 remainsPARTIAL: no supported earned finished-song rewrite, player-facing section transfer or preparation/readiness effect.",
+    "R4–R7 dependencies unpassed: new connected gig/take/lead-promotion story and uncoached acceptance not complete.",
+    "Android update and physical install/save-retention/listening/touch/IME/OS-interruption tests absent; current selected rehearsal normal-motion acknowledgement also untested."
+  ],
+  "delivery_blocker": {
+    "known_missing_processed_dependencies": {
+      "character_indie29/manifest.json": false,
+      "crowd37/cheer.ogg": false,
+      "formation_next32/manifest.json": false,
+      "recorded_dgad_v1/manifest.json": false,
+      "recorded_indie29/manifest.json": false,
+      "recorded_indie39/characters.json": false,
+      "recorded_rehearsal_v1/manifest.json": false,
+      "recorded_steady_v2/manifest.json": false,
+      "title_indie29.ogg": false
+    },
+    "missing_count": 9,
+    "raw_stems": "Not interchangeable with approved processed banks; six raw titles do not inherit old LastBusGone paid-plan acceptance.",
+    "signer": {
+      "current_access": "Independent stat confirms existing regular readable non-symlink JKS,2178B/mode0600/uidgid1000; key bytes/password not read or modified.",
+      "certificate_binding": "Previously verified original certificate; not reread/reverified in this pass."
+    },
+    "remaining_step": "Restore approved processed dependencies at original paths and verify rights/resources/source; prepare the verified curated checkpoint plus SOURCE_MANIFEST/established owner launcher. Use the established exporter with EXPLICIT original-keystore input and a higher-than-current-installed versionCode, same app/save identity; omitting its optional keystore argument generates a different key and is forbidden. Complete original-app export/signature/update/resource/private-delivery audits. No uninstall/clear-data/new-key/new-app workaround. Packaging and physical retention checks remain outstanding."
+  },
+  "original_app_identity": {
+    "application_id": "com.bandmaster.ownerplaytest.s40",
+    "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "save_folder": "BandMasterOwnerPlaytestS40"
+  },
+  "conditional_uncoached_route": {
+    "available_now": false,
+    "prerequisite": "An actual verified original-app update or separately permitted owner-accessible launch target must exist first.",
+    "route": [
+      "Complete an original and choose whether to retain a bandmate’s idea.",
+      "Leave and return through ordinary navigation; describe whose idea survived.",
+      "Rehearse that song for a purpose you choose, then describe the song and people recorded in the saved result."
+    ],
+    "neutral_questions": [
+      "What did you expect?",
+      "What happened?",
+      "Where did you hesitate?"
+    ],
+    "not_a_result": "This is a proposed human test route. It has not been run uncoached and is not a claim of Menu/Continue, listening or device acceptance."
+  },
+  "proof": {
+    "fresh_readiness_source_bindings": {
+      "native": 907,
+      "models": 73,
+      "union": 909,
+      "media_missing": 9
+    },
+    "reused_model_checks": {
+      "baseline": 328,
+      "candidate": 483,
+      "current_execution": false
+    },
+    "reused_native": {
+      "tested_game_source": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
+      "checks_each": 303,
+      "profiles": [
+        "390x844",
+        "720x1280",
+        "1280x720",
+        "1600x900"
+      ],
+      "PNGs": 36,
+      "current_execution": false,
+      "limits": "Controlled formation/writing fixtures, reduced motion, Dummy; directrealRootUIloadhandler rather than actualMenu/Continue."
+    },
+    "source_CI_run": 43569650238,
+    "model_artifact": [
+      {
+        "id": 14102959577,
+        "name": "song57-models-bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6-1",
+        "size_in_bytes": 141956,
+        "digest": "sha256:8d287c9f34aa1ae4257b6d686fa54faed4f24cd2eef33678f1abb6f554d46af0",
+        "expired": false
+      }
+    ],
+    "base_metadata_CI": [
+      {
+        "id": 43570117204,
+        "status": "completed",
+        "conclusion": "success",
+        "name": "Godot headless validation"
+      },
+      {
+        "id": 43570117214,
+        "status": "completed",
+        "conclusion": "success",
+        "name": "Mandatory continuous-improvement gate"
+      },
+      {
+        "id": 43570117182,
+        "status": "completed",
+        "conclusion": "success",
+        "name": "Validate BandMaster structure"
+      }
+    ],
+    "source_CI_exact_readback": {
+      "tested_sha": "bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
+      "runs": [
+        {
+          "id": 43569650238,
+          "name": "Linked-song craft and legacy-save proof",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 43569650374,
+          "name": "Godot headless validation",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 43569650327,
+          "name": "Mandatory continuous-improvement gate",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 43569650371,
+          "name": "Validate BandMaster structure",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  },
+  "owner_approved": false,
+  "release_approved": false,
+  "next_action": "At09:00 deliver the read-only final report and stop mutations; do not extend the programme.",
+  "reviewed_issue_cursor": {
+    "bytes": 2344217,
+    "sha256": "a170ea9f9acf0542842e084dadc5c82d0cb490f7201a78f478f4eb4e64dee5f3"
+  }
+}

@@ -7,8 +7,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
   },
   "issue_log_review": {
-    "bytes": 2343013,
-    "sha256": "527ee8d39ed644a7f9604487abb9781cb94ca9a2d36e258c98d3336eeb3bad22"
+    "bytes": 2344217,
+    "sha256": "a170ea9f9acf0542842e084dadc5c82d0cb490f7201a78f478f4eb4e64dee5f3"
   },
   "lesson_ids": [
     "BM-01",
@@ -42,10 +42,10 @@
     "new_feature_stop": "2026-11-14T07:00:00+00:00",
     "mutation_stop": "2026-11-14T09:00:00+00:00",
     "user_unavailable": true,
-    "scope": "R2\u2013R7 in dependency order with bounded committed passes; no promise all stages finish."
+    "scope": "R2–R7 in dependency order with bounded committed passes; no promise all stages finish."
   },
   "id": "SONG65",
-  "status": "active",
+  "status": "closed",
   "baseline_sha": "a8be4f33cf22dce41a56fc0d70baf8604a2328b0",
   "hypothesis": "A frozen source/evidence binding and explicit installable-build hold gives the owner an accurate09:00 test handover without substituting screenshots or stale history for a playable update.",
   "controlled_comparison": "Live remote candidate and current proof/artifact metadata versus local source byte identities and exact current handover/cursor; no fresh gameplay/native run.",
@@ -72,12 +72,13 @@
   ],
   "writer": {
     "owner": "root-SONG65",
-    "status": "active",
-    "source_writers": 1,
+    "status": "released",
+    "source_writers": 0,
     "claimed_at": "2026-11-14T08:01:14.179663+00:00",
-    "expires_at": "2026-11-14T08:48:00+00:00"
+    "expires_at": "2026-11-14T08:48:00+00:00",
+    "released_at": "2026-11-14T08:08:42.794245+00:00"
   },
-  "next_action": "Freeze and publish accurate09:00 test handover; preserve Android/media and unfinished-stage holds.",
+  "next_action": "At09:00 deliver the read-only final report and stop mutations; do not extend the programme.",
   "queue_task_ids": [
     "SONG53-R3"
   ],
@@ -115,7 +116,33 @@
       "/root/au01_source_review",
       "/root/foundation_tests"
     ],
-    "status": "readonlyreadinessreview_in_progress",
-    "acceptance": "NoAPKwithoutdependencies; noowner/device/listeningclaims; no unsupported R3completion/R4\u2013R7; exactcurrentcursor/source and finite09:00 stop."
+    "status": "completed_released",
+    "acceptance": "NoAPKwithoutdependencies; noowner/device/listeningclaims; no unsupported R3completion/R4–R7; exactcurrentcursor/source and finite09:00 stop.",
+    "verdict": "CLEAR_READINESS_HONESTY_NOT_PLAYABLE_ACCEPTANCE"
+  },
+  "tested_sha": "bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
+  "closed_at": "2026-11-14T08:08:42.794245+00:00",
+  "results": "docs/continuous_improvement/SONG65_RESULTS.json",
+  "review": "docs/continuous_improvement/SONG65_REVIEW.json",
+  "closeout": {
+    "tested_sha": "bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
+    "evidence": [
+      "docs/continuous_improvement/SONG65_TEST_HANDOVER.json",
+      "docs/continuous_improvement/SONG65_RESULTS.json",
+      "docs/continuous_improvement/SONG65_REVIEW.json"
+    ],
+    "visual_verdict": "partial",
+    "next_action": "At09:00 deliver the read-only final report and stop mutations; do not extend the programme.",
+    "new_issue_review": {
+      "events": [
+        "bf65df3a-2ad5-4039-9ef3-2b899f1ca160",
+        "7a801593-44da-4ab6-b16b-50e6e440bd41"
+      ],
+      "disposition": "Stalehandovermetadata resolved; no newgameplayfailure or unavailable-deviceproof invented.",
+      "reviewed_cursor": {
+        "bytes": 2344217,
+        "sha256": "a170ea9f9acf0542842e084dadc5c82d0cb490f7201a78f478f4eb4e64dee5f3"
+      }
+    }
   }
 }

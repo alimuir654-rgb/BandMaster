@@ -1,0 +1,65 @@
+{
+  "session": "SONG65",
+  "tested_sha": "bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
+  "game_source_sha": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
+  "technical_verdict": "PASS_FROZEN_SOURCE_AND_READINESS_AUDIT",
+  "internal_verdict": "PARTIAL_UNCHANGED_SOURCE_PROOF_REUSED",
+  "owner_approved": false,
+  "release_approved": false,
+  "hands_on_verdict": "BLOCKED_NO_INSTALLABLE_UPDATE_OR_LAUNCH_TARGET",
+  "root_actual_originals_opened": [
+    "docs/continuous_improvement/evidence/SONG63/native-v1/candidate/phone/selected-long-title.png",
+    "docs/continuous_improvement/evidence/SONG63/native-v1/candidate/short/typed-reload-recap.png"
+  ],
+  "root_actual_opens": 2,
+  "new_native_images": 0,
+  "reviewers": [
+    {
+      "agent": "/root/au01_source_review",
+      "status": "completed_released",
+      "image_opens_thispass": 0,
+      "finding": "Final releasehonestyCLEAR; explicitunavailablelaunch/conditionaluncoachedroute; newWorkbenchidentity andcurrentproducerpilot coveragequalified."
+    },
+    {
+      "agent": "/root/foundation_tests",
+      "status": "completed_released",
+      "image_opens_thispass": 0,
+      "finding": "909independentcurrentbindingrehashes exact;9missingprocessedentries;originalJKSstatonly; packagingexplicitoriginalkey/highercode/curatedopeninglauncher required."
+    }
+  ],
+  "five_simulated_lenses": [
+    {
+      "lens": "Player",
+      "explicitly_simulated": true,
+      "finding": "Source/evidence links are review locations, not a playable app. Proposed route unavailable until verified update exists."
+    },
+    {
+      "lens": "Reliability",
+      "explicitly_simulated": true,
+      "finding": "Current909sourcebindings exact; priorpaid/save/nativeproofs reused, not rerun; unknownlegacy data preserved."
+    },
+    {
+      "lens": "Musician",
+      "explicitly_simulated": true,
+      "finding": "No newlistening/musicalquality acceptance; existing processedbank absence is not remedied by unrelatedrawstems."
+    },
+    {
+      "lens": "Release engineer",
+      "explicitly_simulated": true,
+      "finding": "Originalsignerreadable, notsigned; explicitcuratedmanifest/launcher/originalkey/highercode/resource/update/private-delivery gates remain."
+    },
+    {
+      "lens": "Producer",
+      "explicitly_simulated": true,
+      "finding": "R3partial/R4–R7held; actualfinite09:00stop; no screenshotsasAPK, no newfeatures or automaticextension."
+    }
+  ],
+  "material_gaps": [
+    "R3 remainsPARTIAL: no supported earned finished-song rewrite, player-facing section transfer or preparation/readiness effect.",
+    "R4–R7 dependencies unpassed: new connected gig/take/lead-promotion story and uncoached acceptance not complete.",
+    "Android update and physical install/save-retention/listening/touch/IME/OS-interruption tests absent; current selected rehearsal normal-motion acknowledgement also untested.",
+    "All nativeQA producers remainclosed/immutable; no currently owner-accessible playable build.",
+    "Normal-motion selected-rehearsal acknowledgement remains untested; priorfourview proof reducedmotion/Dummy andcontrolledformation/writingfixtures."
+  ],
+  "next_action": "At09:00 deliver the read-only final report and stop mutations; do not extend the programme."
+}

@@ -1,0 +1,17 @@
+{
+  "frozen_candidate": "bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
+  "game_source": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
+  "native_source_bindings": 907,
+  "model_source_bindings": 73,
+  "unique_source_bindings": 909,
+  "local_Godot_executions": 0,
+  "new_PNGs": 0,
+  "APK_build_sign_or_upload": false,
+  "keys_modified": false,
+  "cached_producers_restarted": false,
+  "workspace_free": 625471488,
+  "TMP_free": 1307594752,
+  "GL": "free atflockcheck",
+  "live_engines": "none atprocessinspection",
+  "prior_producers": "remainclosedimmutable; no runtimecache writes"
+}

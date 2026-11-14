@@ -1,0 +1,15 @@
+{
+  "head": {
+    "returncode": 0,
+    "stdout_sha256": "76fe41ec4518b4fc3be3af63fcc3787531820a68d99c9e03cfa49be7a9943b9b",
+    "lines": 1,
+    "stderr": "",
+    "value": "19df671f2946a9a3c675bc879aa4c8a854544e57"
+  },
+  "status": {
+    "returncode": 0,
+    "stdout_sha256": "c24eb0213b90a81690f09d8377a10efe9b96ab9ea70434ebe5b1c2df8e3419ee",
+    "lines": 205,
+    "stderr": "error: unable to normalize alternate object path: /tmp/bandmaster-s87-audio-20261103/git-objects"
+  }
+}

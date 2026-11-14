@@ -4,27 +4,29 @@
   "session": "docs/continuous_improvement/sessions/SONG65.json",
   "active_session": "SONG65",
   "branch": "feature/playtest-polish-v20",
-  "status": "active",
+  "status": "closed",
   "scope": "08:00 candidate freeze/readiness/handover only; no product, QA, UI, asset, engine, audio or APK changes.",
   "authority": "14 November 2026 owner: Pick up bandmaster roadmap work. Split into hourly chunks to target a 9am test for me. Automate through and make as much progress as possible until then. I won't be available for reviews or approvals until then.",
-  "updated_at": "2026-11-14T08:01:14.179663+00:00",
-  "writer": "root-SONG65",
+  "updated_at": "2026-11-14T08:08:42.794245+00:00",
+  "writer": null,
   "owner_approved": false,
   "source": {
     "implementation_sha": "bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
-    "verification": "CItriggerrepair7testmethods/4sourceCIpass; unchanged870productionfiles/907nativebindings; nofreshnativeexecution; R3PARTIAL.",
-    "final_results": "docs/continuous_improvement/SONG64_RESULTS.json",
-    "review": "docs/continuous_improvement/SONG64_REVIEW.json",
+    "verification": "909readinessbindings independentlyexact; sourceCI4PASS/basemetadataCI3PASS; unchanged native/modelproofreused; Android blocked9processeddependencies.",
+    "final_results": "docs/continuous_improvement/SONG65_RESULTS.json",
+    "review": "docs/continuous_improvement/SONG65_REVIEW.json",
     "native_evidence": "docs/continuous_improvement/evidence/SONG63/",
     "game_source_sha": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
-    "ci_evidence": "docs/continuous_improvement/evidence/SONG64/"
+    "ci_evidence": "docs/continuous_improvement/evidence/SONG64/",
+    "frozen_candidate_sha": "bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
+    "test_handover": "docs/continuous_improvement/SONG65_TEST_HANDOVER.json"
   },
   "roadmap": "docs/ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md",
   "queue": "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
-  "next_action": "Freeze and publish accurate09:00 test handover; preserve Android/media and unfinished-stage holds.",
+  "next_action": "At09:00 deliver the read-only final report and stop mutations; do not extend the programme.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json",
   "limitations": [
-    "R3 PARTIAL: source-material provenance only; no supported earned finished-song rewrite, player-facing changed-section transfer, readiness/ability score or preparation bonus. R4\u2013R7 dependencies not passed.",
+    "R3 PARTIAL: source-material provenance only; no supported earned finished-song rewrite, player-facing changed-section transfer, readiness/ability score or preparation bonus. R4–R7 dependencies not passed.",
     "Controlled future material projections are rule fixtures, not earned rewrites. Literal original uses three actual paid writing days then rehearsal. Producer-axis sweeps are individual alternatives, not a Cartesian recipe sweep.",
     "Native careers use public formation/writing fixtures, not whole initial-menu journeys. Reload calls the real RootUI._load_original handler directly; no played Menu/Continue claim.",
     "303 checks per profile include setup; nine writing-helper settlements are setup counts, not nine native rehearsals. Each native career has two selected and one general paid rehearsal plus one real selected FS failure/retry.",
@@ -41,5 +43,6 @@
     "test_handover_ready_target": "08:50 Europe/London",
     "hard_stop": "09:00 Europe/London,14 November2026",
     "first_slot": "2026-11-14T01:00:00+00:00"
-  }
+  },
+  "owner_test_status": "BLOCKED_NO_INSTALLABLE_BUILD_OR_OWNER_LAUNCH_TARGET"
 }

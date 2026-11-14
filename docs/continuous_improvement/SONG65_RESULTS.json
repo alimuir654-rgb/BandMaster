@@ -1,0 +1,183 @@
+{
+  "session": "SONG65",
+  "tested_sha": "bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
+  "game_source_sha": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
+  "base_handover_sha": "a8be4f33cf22dce41a56fc0d70baf8604a2328b0",
+  "preflight_sha": "24abfc6d430d3a8692b506a9910787802fd0cf1a",
+  "technical_verdict": "PASS_FROZEN_SOURCE_AND_READINESS_AUDIT",
+  "visual_verdict": "internal_pass_unchanged_source_reuse",
+  "overall_verdict": "PARTIAL_HANDS_ON_BLOCKED",
+  "owner_approved": false,
+  "release_verdict": "NO_NEW_APK_OR_PLAYABLE_OWNER_TARGET",
+  "changed": "Readiness/handover metadata only; frozen product/test/CI/workflow/art/audio files untouched. Corrected stalehandover tail.",
+  "test_handover": "docs/continuous_improvement/SONG65_TEST_HANDOVER.json",
+  "review": "docs/continuous_improvement/SONG65_REVIEW.json",
+  "readiness": {
+    "frozen_candidate": "bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
+    "game_source": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
+    "base_handover": "a8be4f33cf22dce41a56fc0d70baf8604a2328b0",
+    "base_CI": [
+      {
+        "id": 43570117204,
+        "status": "completed",
+        "conclusion": "success",
+        "name": "Godot headless validation"
+      },
+      {
+        "id": 43570117214,
+        "status": "completed",
+        "conclusion": "success",
+        "name": "Mandatory continuous-improvement gate"
+      },
+      {
+        "id": 43570117182,
+        "status": "completed",
+        "conclusion": "success",
+        "name": "Validate BandMaster structure"
+      }
+    ],
+    "source_binding": {
+      "native": 907,
+      "models": 73,
+      "union": 909,
+      "media_missing": 9
+    },
+    "model_artifacts": [
+      {
+        "id": 14102959577,
+        "name": "song57-models-bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6-1",
+        "size_in_bytes": 141956,
+        "digest": "sha256:8d287c9f34aa1ae4257b6d686fa54faed4f24cd2eef33678f1abb6f554d46af0",
+        "expired": false
+      }
+    ],
+    "artifact_inspection": "Metadata readback only; no artifact ZIP download/open.",
+    "candidate_source_url": "https://github.com/alimuir654-rgb/BandMaster/tree/bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
+    "native_evidence_url": "https://github.com/alimuir654-rgb/BandMaster/tree/a8be4f33cf22dce41a56fc0d70baf8604a2328b0/docs/continuous_improvement/evidence/SONG63/native-v1",
+    "source_CI_exact_readback": {
+      "tested_sha": "bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
+      "runs": [
+        {
+          "id": 43569650238,
+          "name": "Linked-song craft and legacy-save proof",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 43569650374,
+          "name": "Godot headless validation",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 43569650327,
+          "name": "Mandatory continuous-improvement gate",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 43569650371,
+          "name": "Validate BandMaster structure",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  },
+  "proof_reuse": "907native+73model inputs/909unique rehashed andliveGitblobbound; independentlymatched. Priorfourview303checks/36PNG andmodel328/483 reused, notexecutedthispass. SourceCIbd28fourPASS; previousmetadataa8bethreePASS.",
+  "key_access": "Independentstatonly:existingoriginalJKS regular/readable/nonsymlink; priorpubliccertbindingretained, no keybytes/passwordread, certificate reverification, signing or keymodification.",
+  "media": {
+    "checked_source": "frozen candidate sourceexport bound to liveGit",
+    "processed_files_present": {
+      "character_indie29/manifest.json": false,
+      "crowd37/cheer.ogg": false,
+      "formation_next32/manifest.json": false,
+      "recorded_dgad_v1/manifest.json": false,
+      "recorded_indie29/manifest.json": false,
+      "recorded_indie39/characters.json": false,
+      "recorded_rehearsal_v1/manifest.json": false,
+      "recorded_steady_v2/manifest.json": false,
+      "title_indie29.ogg": false
+    },
+    "missing": 9,
+    "APK_build_attempted": false,
+    "reason": "Missing approved processed dependencies; rawstems are not approved processed replacements."
+  },
+  "local_Godot_executions": 0,
+  "new_PNGs": 0,
+  "APK_operations": 0,
+  "owner_playable_location": null,
+  "evidence": [
+    {
+      "path": "docs/continuous_improvement/evidence/SONG65/media-readiness.json",
+      "bytes": 651,
+      "sha256": "af37baab8cc85a2b2c8fe6f6d0be857f2ffa613df8a6efde121cb7613639407e"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG65/primary-checkout.json",
+      "bytes": 480,
+      "sha256": "09b645f44486d9258c0fe19588f6e12fc23e57e8f29d58a0906019028d8ca450"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG65/protection.json",
+      "bytes": 579,
+      "sha256": "1073303d25122a4cdee80906b18ad269f66df94d17ec5df68b8ba80de7530183"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG65/readiness.json",
+      "bytes": 1413,
+      "sha256": "e785e01932ddeef23e10027d930b9b2c1ea39f2a63a820fdee36435583352c8e"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG65/source-bindings.json",
+      "bytes": 134621,
+      "sha256": "b754ddd5ad4345cc27a7b0ba14c3a0feb4a561d2fe1bce46428e37a794b2a665"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG65/source-ci-readback.json",
+      "bytes": 669,
+      "sha256": "c27fac25f8c87b7ab57237455fb923cc25d3ac6e7e0ed363f49fdfd17afa5c17"
+    }
+  ],
+  "evidence_files": 6,
+  "evidence_bytes": 138413,
+  "resource_plan": {
+    "at": "2026-11-14T08:01:14.179663+00:00",
+    "primary_new_bytes": 0,
+    "TMP_new_cap_bytes": 10485760,
+    "TMP_free_before": 1307893760,
+    "workspace_free_before": 625471488,
+    "floor_bytes": 629145600,
+    "budget": "10MiB compacthandover/metadata/sourcehashes/failedproof/GitData closeout; no sourcearchive/runtime/cache/images/audio/APK allocation. Primarybelowfloorpreexisting: no primary allocations.",
+    "deadline": "08:48 Europe/London14Nov2026"
+  },
+  "protection": {
+    "frozen_candidate": "bd28cdde2ccf6c4cc77831dce24dc773b5b44bb6",
+    "game_source": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
+    "native_source_bindings": 907,
+    "model_source_bindings": 73,
+    "unique_source_bindings": 909,
+    "local_Godot_executions": 0,
+    "new_PNGs": 0,
+    "APK_build_sign_or_upload": false,
+    "keys_modified": false,
+    "cached_producers_restarted": false,
+    "workspace_free": 625471488,
+    "TMP_free": 1307594752,
+    "GL": "free atflockcheck",
+    "live_engines": "none atprocessinspection",
+    "prior_producers": "remainclosedimmutable; no runtimecache writes"
+  },
+  "new_issue_review": {
+    "events": [
+      "bf65df3a-2ad5-4039-9ef3-2b899f1ca160",
+      "7a801593-44da-4ab6-b16b-50e6e440bd41"
+    ],
+    "disposition": "Stalehandovermetadata resolved; no newgameplayfailure or unavailable-deviceproof invented.",
+    "reviewed_cursor": {
+      "bytes": 2344217,
+      "sha256": "a170ea9f9acf0542842e084dadc5c82d0cb490f7201a78f478f4eb4e64dee5f3"
+    }
+  },
+  "next_action": "At09:00 deliver the read-only final report and stop mutations; do not extend the programme."
+}
