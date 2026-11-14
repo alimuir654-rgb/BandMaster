@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "id": "UX70",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Review and tidy BandMaster UI/UX across the game: fixed navigation position, less text and fewer simultaneous options, particularly auditions and songwriting. Put each interacting character front and centre, one speech/question with about three player replies, then reveal the next exchange in the same scene; use similar pacing for rehearsal.",
+  "scope": "Presentation-only first cleanup: shared top navigation in career/practice/audition/writing; grouped destination choices; character-first audition, musician and promoter conversations; staged existing songwriting/rehearsal decisions. Existing models, authored content, art/audio, save schema and settlement remain protected.",
+  "baseline_sha": "3c85758dadf9d17fece8a4ab6e693f41660c047c",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "2c13c9b0605a4f3b50b0ff2f99d0613cff2f67810be0d9e233af56695e047423",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
+  },
+  "issue_log_review": {
+    "bytes": 2358958,
+    "sha256": "5df6d6b5c57a1e7f3cc87b4fc0cd6d9e671cfeed53c8b1194b999ad305afbc3a"
+  },
+  "lesson_ids": [
+    "BM-05",
+    "BM-17",
+    "BM-21",
+    "BM-22",
+    "BM-24",
+    "BM-25",
+    "BM-26",
+    "BM-30",
+    "BM-32",
+    "BM-33",
+    "BM-34",
+    "BM-35",
+    "BM-36",
+    "BM-43"
+  ],
+  "dominant_issue": "BM-21",
+  "target": {
+    "locator": "docs/continuous_improvement/evidence/SONG63/native-v1/candidate/phone/selected-long-title.png",
+    "original_sha256": "3c60ed1a13aa050efa44a4b548776c6e1c47ef063300982c8bbff11dbb7d5d5a",
+    "pixels_inspected": true,
+    "purpose": "Actual retained phone/short originals reopened; source-confirmed excessive simultaneous options and moving navigation. Latest owner conversational direction defines the new presentation target, without claiming an approved new mockup."
+  },
+  "hypothesis": "A fixed top return/title/Menu row plus character-first turns and free local disclosure of one decision at a time will remove competing choices while retaining all existing options and exact original commitment owners.",
+  "controlled_comparison": "Same pinned source, canonical cast, QA fixtures, viewport, state, background and source art. Capture actual baseline/current first folds and the same complete tasks at 390x844,720x1280,1280x720,1600x900. Explicitly record layout changes; no claim of pixel identity for redesigned regions.",
+  "stop_condition": "Hold any essential hidden/clipped context/action, unsafe dirty exit, unintentional saved choice on rapid repeat, changed gameplay/content fingerprint, duplicated settlement or save loss. Log defects before iteration and change method after two ineffective attempts. No APK/rebuild/signing/new art/new dialogue content.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/navigation_bar.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "experiments/playable_flightcase/ui.gd",
+    "experiments/playable_flightcase/audition_desk.gd",
+    "experiments/playable_flightcase/mixing_desk.gd",
+    "experiments/playable_flightcase/song_workbench_desk.gd",
+    "experiments/playable_flightcase/musician_chat_desk.gd",
+    "experiments/playable_flightcase/gig_booking_desk.gd",
+    "experiments/playable_flightcase/career_launcher.gd",
+    "experiments/playable_flightcase/poster_home.gd",
+    "experiments/playable_flightcase/opening_ui.gd",
+    "tests/ux70_native.gd",
+    "tools/ux70_verify.py",
+    "docs/continuous_improvement/sessions/UX70.json",
+    "docs/continuous_improvement/UX70_RESULTS.json",
+    "docs/continuous_improvement/UX70_REVIEW.json",
+    "docs/continuous_improvement/UX70_UX_REVIEW.md",
+    "docs/continuous_improvement/evidence/UX70/*",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/handover/START_HERE.md"
+  ],
+  "validation_commands": [
+    "Pinned Godot4.7.2 isolated clean import and script-error check with protected signing tools and custom user directory",
+    "tools/ux70_verify.py: matched native baseline/candidate, early phone and short followed by tall/wide",
+    "Actual pointer/key/scroll, first-fold character/dialogue/replies, fixed navigation, hidden-focus and physical target checks",
+    "Whole owner/file equality on free phase/disclosure; dirty Save/Discard/Keep and actual filesystem failure/retry; original one-day and selected-song £15 settlement/reload guards",
+    "Unchanged model/art/audio/save dependency hashes and explicitly source-bound reuse of prior model proofs",
+    "python3 tools/project_context.py check",
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/UX70.json --before PREFLIGHT_SHA --require-prior-record"
+  ],
+  "writer": {
+    "owner": "root-UX70",
+    "status": "active",
+    "claimed_at": "2026-11-14T18:48:03.772323+00:00",
+    "expires_at": null,
+    "source_writers": 1
+  },
+  "next_action": "Implement and verify UX70 character-first conversations, progressive choices and fixed navigation against the pinned baseline.",
+  "queue_task_ids": [
+    "UX70"
+  ],
+  "predesign": {
+    "reviewers": [
+      "/root/r2_design_review",
+      "/root/test_readiness",
+      "/root/roadmap_audit"
+    ],
+    "status": "read_only_source_and_original_review_complete",
+    "findings": "Career destinations switch top/bottom; audition presents talk/music/decision simultaneously; main writing buries 48px partner after controls; rehearsal shows song/focus/pace/reference together. Authored audition questions have two choices, so retain two plus truthful noncommitting path; no fabricated third reply.",
+    "visible_acceptance": [
+      "Return and Menu at consistent top coordinates, outside scroll; explicit END AUDITION preserves abort semantics",
+      "Existing character portrait and one source-backed speech precede at most three current conversation replies",
+      "A reply reveals the next local stage without navigating away or committing another action",
+      "Rehearsal song/focus/pace/review remain local until original explicit costed start",
+      "Optional conversation stays optional; no repeated click reaches a second answer or a paid commitment",
+      "No reduced type, altered protected art/controls, hidden financial/time commitments, false saved/current meaning"
+    ]
+  },
+  "player_task": {
+    "goal": "Understand the current person or musical decision and take the next intended action without getting lost.",
+    "start": "Saved band home or canonical audition candidate; same current source fixtures.",
+    "end": "Saved original audition result, writing stage or selected-song rehearsal recap, then safe return/resume.",
+    "commitments": "Owner audition_action talk/abort/invite; explicit workbench commit; selected-song rehearsal owner. Presentation changes never own gameplay settlement.",
+    "interruptions": [
+      "Menu/Continue",
+      "dirty local title/recipe/partner exits",
+      "failed save and retry",
+      "resize",
+      "partial attendance",
+      "held/stale saved state",
+      "rapid repeated inputs"
+    ]
+  },
+  "risk_matrix": [
+    "normal and reduced motion",
+    "long Unicode titles and explicit selected partner",
+    "available/unavailable/held/empty states",
+    "keyboard focus and scroll drag",
+    "dirty local edits and true filesystem failure",
+    "one-save original settlement and exact typed reload"
+  ],
+  "resource_plan": {
+    "work_root": "../ux70-proof",
+    "new_bytes_budget": 8000000000,
+    "minimum_free_bytes": 2000000000,
+    "preserve": "All prior sources, originals, saves, V26 artifact and signing material; fresh isolated imports only."
+  },
+  "protected": [
+    "All authored content and fingerprints, canonical cast/bios and source art/fonts/passive meters",
+    "All gameplay/resolver/economy and owner save files remain byte-identical",
+    "Original app ID, production save directory, unsigned/signed V26 and original key remain untouched"
+  ]
+}

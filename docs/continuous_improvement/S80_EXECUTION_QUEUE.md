@@ -1,10 +1,8 @@
 # BandMaster — sole execution queue
 
-Latest session: **DELIVER69 — CLOSED**. Complete signed V26 privately delivered to Dropbox, exact remote hash/size verified. Official signature,16KiB alignment, unchanged2134payload entries and V24 update/save identity pass. No rebuild/key operation; writer released. Physical owner test remains pending.
+Latest session: **UX70 — ACTIVE**. Owner-directed UI/UX cleanup; fixed navigation, character-first conversations and progressive choices. Root is the only writer; navigation, audition and writing reviewers are read-only. V26 delivery remains complete.
 
-**Next action:** Install the standalone V26 APK as an update without uninstalling or clearing storage, then check Continue and restored audio.
-
-[Results](DELIVER69_RESULTS.json) · [Review](DELIVER69_REVIEW.json) · [Delivery](evidence/DELIVER69/dropbox-delivery.json) · [Recovery](../signing/RECOVERY.md).
+**Next action:** Implement and verify UX70 character-first conversations, progressive choices and fixed navigation against the pinned baseline.
 
 ## Linked songs and band life
 
@@ -12,6 +10,7 @@ The [roadmap](../ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md) defines dependencies and
 
 | ID | Scope | Disposition |
 |---|---|---|
+| UX70 | Fixed navigation and character-first progressive UI, especially auditions/songwriting/rehearsal | ACTIVE — bounded presentation pass; native and owner acceptance pending |
 | SONG53-R0 | Reconcile the actual latest source; classify existing/presentation/new-model work | COMPLETE — RECOVER54; published source d5e1662 verified directly on GitHub; full mapping/inventory in RECOVER54_SOURCE_RECONCILIATION.json |
 | SONG53-R1 | Reusable honest song summary with explicit legacy unknowns | FUNCTIONALLY VERIFIED — SONG55; SONG56 visual revision INTERNALLY VERIFIED on665cb95; owner visual acceptance pending |
 | SONG53-R2 | Stable song/revision/participant identity; one meaningful co-writing contribution; skill fairness | INTERNALLY VERIFIED — SONG57–60 fairness/identity/co-writing owner+selector+retained callback; scoped four-size native/real-owner proof complete; full-app/uncoached integration remains R7; owner acceptance pending |

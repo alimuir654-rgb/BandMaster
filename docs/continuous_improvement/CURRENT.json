@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
   "context_schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/DELIVER69.json",
-  "active_session": "DELIVER69",
+  "session": "docs/continuous_improvement/sessions/UX70.json",
+  "active_session": "UX70",
   "branch": "feature/playtest-polish-v20",
-  "status": "closed",
-  "scope": "V26 detached-signature assembly, official Android verification, immutable payload/update identity checks and private Dropbox delivery; no rebuild, key operation or game change.",
-  "authority": "Finish V26 using docs/signing/BandMaster-V26-signature-response.json on feature/playtest-polish-v20. Assemble the retained unsigned APK, run official signature/update/alignment checks, and deliver the signed update privately to Dropbox. Preserve the original key and app ID; do not rebuild or generate a key.",
-  "updated_at": "2026-11-14T14:39:12.947457+00:00",
-  "writer": null,
+  "status": "active",
+  "scope": "Presentation-only first cleanup: shared top navigation in career/practice/audition/writing; grouped destination choices; character-first audition, musician and promoter conversations; staged existing songwriting/rehearsal decisions. Existing models, authored content, art/audio, save schema and settlement remain protected.",
+  "authority": "Review and tidy BandMaster UI/UX across the game: fixed navigation position, less text and fewer simultaneous options, particularly auditions and songwriting. Put each interacting character front and centre, one speech/question with about three player replies, then reveal the next exchange in the same scene; use similar pacing for rehearsal.",
+  "updated_at": "2026-11-14T18:48:03.772323+00:00",
+  "writer": "root-UX70",
   "owner_approved": false,
   "source": {
     "implementation_sha": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
@@ -32,16 +32,18 @@
     "recovery_escrow_review": "docs/continuous_improvement/ESCROW68_REVIEW.json",
     "assembly_results": "docs/continuous_improvement/DELIVER69_RESULTS.json",
     "assembly_review": "docs/continuous_improvement/DELIVER69_REVIEW.json",
-    "signed_apk_sha256": "dfe7e644a73b8ead1f80485ccf4cd5741bace466d1c73fc3eaf121b97f52dd9f"
+    "signed_apk_sha256": "dfe7e644a73b8ead1f80485ccf4cd5741bace466d1c73fc3eaf121b97f52dd9f",
+    "baseline_sha": "3c85758dadf9d17fece8a4ab6e693f41660c047c",
+    "previous_delivery": "docs/continuous_improvement/DELIVER69_RESULTS.json"
   },
   "roadmap": "docs/ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md",
   "queue": "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
-  "next_action": "Install the standalone V26 APK as an update without uninstalling or clearing storage, then check Continue and restored audio.",
+  "next_action": "Implement and verify UX70 character-first conversations, progressive choices and fixed navigation against the pinned baseline.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json",
   "limitations": [
-    "Physical in-place update, Continue and listening await the owner phone test.",
-    "R3 remains partial; R4\u2013R7 held by roadmap dependencies.",
-    "Three superseded private archive parts remain in Dropbox; use the standalone APK."
+    "UX70 implementation and new native proof pending; no new APK.",
+    "V26 signed package remains the delivered version.",
+    "Roadmap R3 remains partial; R4–R7 held."
   ],
   "overnight": {
     "automation_id": "6ae532c5fe9c819190f587a022c54052",
