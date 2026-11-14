@@ -1,0 +1,1100 @@
+{
+  "schema_version": 1,
+  "session": "SONG56",
+  "roadmap_stage": "SONG53-R1 visual revision plus approved continuity cleanup",
+  "status": "complete_internal_review",
+  "closed_at": "2026-11-14T00:05:17.245128+00:00",
+  "owner_approved": false,
+  "branch": "feature/playtest-polish-v20",
+  "tested_source_sha": "665cb9584c358cff07042c7ae8b7a6a7eebd91ee",
+  "tested_source_tree": "5287a45fcf481c5d16e77a8392cd283b72b3fdc5",
+  "baseline_sha": "a0e0194e884fa5b562b303d16d639fd1581a27c9",
+  "publication_note": "The later closeout commit contains documentation and retained evidence only. Tested runtime remains665cb9584c358cff07042c7ae8b7a6a7eebd91ee. Git history records the exact publication parent and closeout commit; no self-referential commit SHA is invented.",
+  "changes": [
+    "Visual Songbook cards, saved-value meters, Notes disclosures and ordered demo slots from the owner-requested SONG56 implementation.",
+    "Compact archive sleeve with full adjacent identity; clipped landscape duplicate caption repaired.",
+    "Bounded current-state records with exact archived history; one resume reader and CI consistency check."
+  ],
+  "source_sha256": {
+    "experiments/playable_flightcase/career_desk.gd": "9de853692eee34507e9b2fd627fe904918f5ce2def4269f0606c3adac3b484c9",
+    "experiments/playable_flightcase/recording_desk.gd": "c09f234f6eb37eaffe0dd384e313083eb00414860aca16780f5abff2ab8211a4",
+    "experiments/playable_flightcase/song_summary_view.gd": "8b1c56a39fb3fdaf25a9b1227a27ccae2f5cd0f186c79a5e67b063b778beff1b",
+    "tests/song55_native.gd": "f40c78f41914e586ded700a989af52368088f79a0622706f642508886c0caf8e"
+  },
+  "protected_source": {
+    "comparison_since_continuation_start": "5be37ae719e836fc5189a8e34f972d8ab03b6ffa",
+    "only_runtime_path_changed_in_continuation": "experiments/playable_flightcase/recording_desk.gd",
+    "protected_models_art_fonts_audio_save_schema_unchanged": true,
+    "original_improvement_gate_code_and_tests_unchanged": true,
+    "native_candidate_manifest_source_files": 905,
+    "native_candidate_manifest_sha256": "41d6e8c22cc266aa12ceec2abdcfef102798b9a461e061f55758091cf22900d2",
+    "native_candidate_project_sha256": "28e50cf8a2e7bee9c2eec370086f2ffe645138b64b4332332c8900cd9dbf8107",
+    "test_only_transforms": []
+  },
+  "verification": {
+    "ci": [
+      {
+        "name": "SONG56 visual Song and Demo proof",
+        "run": 43530378163,
+        "status": "success"
+      },
+      {
+        "name": "Mandatory continuous-improvement gate",
+        "run": 43530378168,
+        "status": "success"
+      },
+      {
+        "name": "Validate BandMaster structure",
+        "run": 43530378142,
+        "status": "success"
+      },
+      {
+        "name": "Godot headless validation",
+        "run": 43530378377,
+        "status": "success"
+      }
+    ],
+    "native": {
+      "run_id": 43530378163,
+      "url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/43530378163",
+      "artifact_id": 14087890207,
+      "artifact_url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/43530378163/artifacts/14087890207",
+      "artifact_bytes": 140699661,
+      "artifact_sha256": "20fd47956621f12d38bfecd25f7dda3b7df7a313d88c426bd04a3da700f6bcc9",
+      "artifact_expires": "2026-11-27",
+      "run_receipt_sha256": "5035ba075286dc429af9dbf8b43ed8ca7125d13749f0776d19aa83079de3c02a",
+      "engine_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+      "profiles": [
+        {
+          "profile": "baseline-phone",
+          "viewport": [
+            390,
+            844
+          ],
+          "checks": 566,
+          "pass": true,
+          "image_count": 16,
+          "minimum_measured_action_height_px": 48.0,
+          "known_baseline_defects": [],
+          "result_sha256": "1bb3c8fad50d157257815c0e62db4640193f3eb66147bd95af9662c8848289db"
+        },
+        {
+          "profile": "baseline-short",
+          "viewport": [
+            1280,
+            720
+          ],
+          "checks": 566,
+          "pass": true,
+          "image_count": 16,
+          "minimum_measured_action_height_px": 40.9478759765625,
+          "known_baseline_defects": [
+            "Original action SongSummary_book_0_Toggle measures 1170.77 x 40.95 physical px; new SONG56 minimum is not a historical baseline pass.",
+            "Original action SongSummary_book_0_Toggle measures 1170.77 x 40.95 physical px; new SONG56 minimum is not a historical baseline pass.",
+            "Original action SongSummary_record_original_1_Toggle measures 672.43 x 40.95 physical px; new SONG56 minimum is not a historical baseline pass.",
+            "Original action SongSummary_record_original_1_Toggle measures 672.43 x 40.95 physical px; new SONG56 minimum is not a historical baseline pass.",
+            "Original action SongSummary_record_original_1_Toggle measures 672.43 x 40.95 physical px; new SONG56 minimum is not a historical baseline pass.",
+            "Original action SongSummary_record_original_1_Toggle measures 672.43 x 40.95 physical px; new SONG56 minimum is not a historical baseline pass."
+          ],
+          "result_sha256": "7b54ed95ddb4170276c35a7f9d67c632364515b899c90c012bfcf8f3db109913"
+        },
+        {
+          "profile": "baseline-tall",
+          "viewport": [
+            720,
+            1280
+          ],
+          "checks": 566,
+          "pass": true,
+          "image_count": 16,
+          "minimum_measured_action_height_px": 72.7962036132812,
+          "known_baseline_defects": [],
+          "result_sha256": "69450597ada45e4d1a2afbb0518a86844cbde151e3f398ceab917216c696b8df"
+        },
+        {
+          "profile": "baseline-wide",
+          "viewport": [
+            1600,
+            900
+          ],
+          "checks": 566,
+          "pass": true,
+          "image_count": 16,
+          "minimum_measured_action_height_px": 51.184814453125,
+          "known_baseline_defects": [],
+          "result_sha256": "e1058638c6459ae3bea473a49cca1c6ea00180004d1193a520e8d3bc540d4d1d"
+        },
+        {
+          "profile": "candidate-phone",
+          "viewport": [
+            390,
+            844
+          ],
+          "checks": 622,
+          "pass": true,
+          "image_count": 16,
+          "minimum_measured_action_height_px": 52.0,
+          "known_baseline_defects": [],
+          "result_sha256": "21f7fff3d34557585b1e32cca94d160184473fdfa2f3a4f9a734c19abff94691"
+        },
+        {
+          "profile": "candidate-short",
+          "viewport": [
+            1280,
+            720
+          ],
+          "checks": 622,
+          "pass": true,
+          "image_count": 16,
+          "minimum_measured_action_height_px": 44.3601684570312,
+          "known_baseline_defects": [],
+          "result_sha256": "9de4c19ee1a44d12e394905ec8a6fcfa5c2f1f4ef526c62e7ccef3da60a7e7f5"
+        },
+        {
+          "profile": "candidate-tall",
+          "viewport": [
+            720,
+            1280
+          ],
+          "checks": 622,
+          "pass": true,
+          "image_count": 16,
+          "minimum_measured_action_height_px": 78.862548828125,
+          "known_baseline_defects": [],
+          "result_sha256": "600ac43703e7bff0db33af76a43ed4b2a4dc719346b11c9196ba5e1256c78f2d"
+        },
+        {
+          "profile": "candidate-wide",
+          "viewport": [
+            1600,
+            900
+          ],
+          "checks": 622,
+          "pass": true,
+          "image_count": 16,
+          "minimum_measured_action_height_px": 55.4502258300781,
+          "known_baseline_defects": [],
+          "result_sha256": "64664b0b786e03b11c4cbf07f1027779983e5b17735d34906b6f92765c5dfdba"
+        }
+      ],
+      "candidate_checks_total": 2488,
+      "baseline_checks_total": 2264,
+      "image_hashes_verified": 128,
+      "image_hash_source": "RUN.json runs[profile].receipt.images; raw results/*/result.json does not contain the runner-added hash fields.",
+      "method": "Explicit original-model QA fixtures; real retained opening UI; pointer/Enter/touch; exact owner and save-byte guards; actual Menu/Continue plus fresh owner reload. Baseline known defects remain observations, not candidate passes. No paid UI commitment or new gameplay-model claim.",
+      "claims": {
+        "APK": false,
+        "audio_listening": false,
+        "physical_phone": false,
+        "visual_acceptance": false,
+        "fixture_is_explicit_QA_setup": true
+      },
+      "signing_guards": {
+        "baseline-import": {
+          "pass": true,
+          "key_paths": [],
+          "key_contents_read": false
+        },
+        "candidate-import": {
+          "pass": true,
+          "key_paths": [],
+          "key_contents_read": false
+        },
+        "native-final": {
+          "pass": true,
+          "key_paths": [],
+          "key_contents_read": false
+        }
+      }
+    },
+    "reused_model_proof": {
+      "source": "b4587e4ee876c8e7eff002a6e0499afab84bf5bd",
+      "run_id": 43523337054,
+      "artifact_id": 14084735534,
+      "artifact_sha256": "04bc3c8f789daf99c4074104fc2b84093565b2cfe269dc8dfb15eef715728907",
+      "summary_checks": 1735,
+      "recording_checks": 337,
+      "fixture_checks": 196,
+      "model_checks": "pass",
+      "overall_run": "failed at display startup; not recorded as an overall pass",
+      "binding": "Only recording_desk.gd and song_summary_view.gd differ within protected runtime/model/art inputs since this proof; unchanged models reuse the earlier proof. Changed UI has fresh four-profile native proof."
+    },
+    "continuity": "docs/continuous_improvement/SONG56_CONTINUITY_REVIEW.json",
+    "context_tests": 11,
+    "original_gate_tests": 24
+  },
+  "retained_attempts": [
+    {
+      "run": 43523337054,
+      "source": "b4587e4ee876c8e7eff002a6e0499afab84bf5bd",
+      "status": "failed display readiness; no UI rendered",
+      "model_checks": "196fixture,1735summary,337recording passed; imports/parse pass",
+      "artifact": 14084735534,
+      "sha256": "04bc3c8f789daf99c4074104fc2b84093565b2cfe269dc8dfb15eef715728907"
+    },
+    {
+      "run": 43523766364,
+      "source": "e5e2f0ca82d13200b63ca306d902dffb5b6599fb",
+      "status": "baseline-short old48logical target fails new44physical requirement; candidate not reached",
+      "baseline_phone_checks": 598,
+      "baseline_phone_images": 16,
+      "artifact": 14083607832,
+      "sha256": "16d3da8b0226a26fe700118f8c52d31ff64285e4fa3ed0e661979da27ed6e308"
+    },
+    {
+      "run": 43524469210,
+      "source": "5be37ae719e836fc5189a8e34f972d8ab03b6ffa",
+      "status": "early phone/short native pass; visual review identified landscape sleeve-caption clipping",
+      "candidate_checks_per_profile": 619,
+      "artifact": 14084761866,
+      "sha256": "db995bae6bd7704d6a0b0dba310f335a08d11e29e2f3966285e89438b2d9e2a4"
+    }
+  ],
+  "visual_review": "docs/continuous_improvement/SONG56_VISUAL_REVIEW.json",
+  "visual_verdict": "internal_pass",
+  "final_unique_originals_opened": 18,
+  "simulated_review_lenses": [
+    {
+      "lens": "SIMULATED player/game-critic clarity",
+      "finding": "Numbered cards, saved-strength graphics and track slots reduce repeated prose; the next actions and commitment costs stay visible. This is an internal judgement, not uncoached player comprehension."
+    },
+    {
+      "lens": "SIMULATED musician/songwriter",
+      "finding": "Existing song names, ordered selections, saved credits and honest unknowns remain available. Notes holds secondary detail. The UI makes no new co-writing or sound-quality claim."
+    },
+    {
+      "lens": "SIMULATED producer/archive",
+      "finding": "Current song91 and captured take72 retain separate titles and meanings. A compact sleeve supports archive identity; no recording-execution metric is invented."
+    },
+    {
+      "lens": "SIMULATED accessibility/navigation",
+      "finding": "Actual pointer, Enter and touch paths and physical control bounds passed on four native viewports; long titles and commitment areas were inspected. This is not a complete accessibility audit or physical-device test."
+    },
+    {
+      "lens": "SIMULATED reliability/maintenance",
+      "finding": "Source and artifact hashes, owner/save-byte guards, once-only models and exact historical archives are preserved. A bounded resume command and CI consistency checks make a future handover verifiable."
+    }
+  ],
+  "remaining_source_or_visual_blockers": [],
+  "remaining_acceptance": [
+    "Owner visual acceptance pending.",
+    "Physical Android/build acceptance belongs to a separately authorized delivery pass."
+  ],
+  "limitations": [
+    "Internal visual judgement is not owner acceptance or a human playtest.",
+    "Native desktop viewports are not physical Android verification.",
+    "No new APK, signing, audio listening or gameplay-model work was performed.",
+    "Branch-protection administration was not changed or verified."
+  ],
+  "new_APK": false,
+  "production_saves_used": false,
+  "owner_signing_material_accessed": false,
+  "main_or_PR199_changed": false,
+  "merge_or_force_update": false,
+  "writer_released": true,
+  "next_action": "Scope SONG53-R2 stable song/revision/participant identity and co-writing as a separate pass from the verified SONG56 source; owner visual acceptance remains pending.",
+  "retained_originals": [
+    {
+      "path": "docs/continuous_improvement/evidence/SONG56/songbook-phone.png",
+      "artifact_original": "results/candidate-phone/songbook-entry.png",
+      "sha256": "1cfc4b157356dcc98e5f6861593a4d4b62abbe8c02268f7282d527e30ca78c40",
+      "bytes": 459940,
+      "edited": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG56/demo-selection-phone.png",
+      "artifact_original": "results/candidate-phone/recording-selection-entry.png",
+      "sha256": "f9bcb30c4b42de5a277d081429e4551168cb12b73bb6a2b3b088604f2f42fe56",
+      "bytes": 501880,
+      "edited": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG56/demo-archive-short.png",
+      "artifact_original": "results/candidate-short/recording-archive-entry.png",
+      "sha256": "25aba42bdc2488e1e3ff3bff23cd29e28f931d651dc87d76c8be8b62e473b516",
+      "bytes": 1149628,
+      "edited": false
+    }
+  ],
+  "image_manifest": [
+    {
+      "path": "results/baseline-phone/songbook-entry.png",
+      "sha256": "da156bc0af7edd2ba2747c5c5551360489ff6cc2c440b37e5dad164cffd93865",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/baseline-phone/songbook-details.png",
+      "sha256": "556ec202785ffc7152bf4f1b8a9706d1dc26181269e83d42abb9d4019efa644e",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/baseline-phone/recording-selection-entry.png",
+      "sha256": "fe28145779a9f347b29a0498e17fabe7e2b1af888edad97f895ce104aa382cbf",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/baseline-phone/recording-selection-details.png",
+      "sha256": "e1aa6e53fcf7308bcb665d3546086f535b33fcddd6e45352b5472271cb6ac5c4",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/baseline-phone/recording-selected-details.png",
+      "sha256": "c95e0571fd05bc689a95785c7ea7c216cbb8af6aa231ee45ab46f68e691d5583",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/baseline-phone/recording-selected-order.png",
+      "sha256": "89bb4be95df8a7617f68f98a216840c5d584aa1128db5c7e6feb4c0f7c0e5439",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/baseline-phone/recording-archive-entry.png",
+      "sha256": "e00bf84ae4763a7ff6aae1ef9d150dc55c0c4d208a07c5f4b41e22c6cac7b613",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/baseline-phone/recording-archive-open.png",
+      "sha256": "7df560fac0c434820fc30f2978906e6c293744fc6ab1a95bf806061c83d75583",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/baseline-phone/recording-captured-strength.png",
+      "sha256": "7df560fac0c434820fc30f2978906e6c293744fc6ab1a95bf806061c83d75583",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/baseline-phone/recording-captured-details.png",
+      "sha256": "675ae3cb5f589c8c0f9dc980f08ab8ae3585782a0b39ce71a6525b46d33d2a3d",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/baseline-phone/rehearsal-entry.png",
+      "sha256": "f1aced766e02bf95e0eb3aba56b8bc3684cae682d0dda030c1c5c209c84ec84c",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/baseline-phone/rehearsal-originals-details.png",
+      "sha256": "53459df86a504147685fea09895fd07f184a7b35def21c38c294caf464658d16",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/baseline-phone/setlist-entry.png",
+      "sha256": "7b3c9625df3cf2895ddde1256f4e88f2ca891aeb47f06dfdd1f5bd4ed9e68f59",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/baseline-phone/setlist-details.png",
+      "sha256": "87fadbf0ff0068556d46d5dea2df4c1449e6a38d25a535828d6d00e793f9de5a",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/baseline-phone/setlist-selected-details.png",
+      "sha256": "9e582d4a9477b86022fc2e2d1b65f465bef584e2575eda366d743ef4fff08034",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/baseline-phone/setlist-selected-order.png",
+      "sha256": "f939c9a8ff625a7b0a1bdff26994632391393acd7014fa2931aa78dc25caa3e7",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/baseline-short/songbook-entry.png",
+      "sha256": "7059b729ebcee2e33559d849e74800f3ae939f948257c6cb4fbbb68f39da93b6",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/baseline-short/songbook-details.png",
+      "sha256": "611918ed4c0bdbe20ae0fdc420c5aa913852b29792076ed9b654ec0a3a83fab2",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/baseline-short/recording-selection-entry.png",
+      "sha256": "2fe35cc6b75da2181aab1144cd473542e556f4098772099ad6a01572ba3dfa0a",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/baseline-short/recording-selection-details.png",
+      "sha256": "227d7c083e0c491923b06b0746b5064cf1a1046a379fee74f40272072e94fb7a",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/baseline-short/recording-selected-details.png",
+      "sha256": "0c1a32261978585f898ea963e33ae7668d784a374274e41e5975bd86812918f7",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/baseline-short/recording-selected-order.png",
+      "sha256": "43075eec2d0b01e8d4255be37b3604324dffdce5d983257b8651dee1efb32bc2",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/baseline-short/recording-archive-entry.png",
+      "sha256": "b83f24ac5f80f18afc4d210751f8cafb922fcc541041d1d5ea6429d97bd72dbf",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/baseline-short/recording-archive-open.png",
+      "sha256": "2f11e0b8c06504fb1058379bc1dc7ea05fdd5fe143d9b8f3371b9fb7b2afab25",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/baseline-short/recording-captured-strength.png",
+      "sha256": "4f7527a1372dc5b666808a24c62f1d09e309cdc6b3a3a059e4f2dce1e7086663",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/baseline-short/recording-captured-details.png",
+      "sha256": "3d2099e5146a6c717908e6a4f0fd917920a8fb8308ddcccbe634153a68637555",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/baseline-short/rehearsal-entry.png",
+      "sha256": "164ca4ef7137fade853e055708067d2b2551285d654acb73261e9b069d21518b",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/baseline-short/rehearsal-originals-details.png",
+      "sha256": "aedf9b24b206c231ec770da204d7a4fce2fac1bf46526a56a12a8e68f6705169",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/baseline-short/setlist-entry.png",
+      "sha256": "e84fc12f036542e6c1b6db55dc01e0efdb72d86f54e978463a70ade12cb364a7",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/baseline-short/setlist-details.png",
+      "sha256": "01c1517bed06d9ff41a28f6671f071f219f90d608b3c08acd5070f5a41fb7e72",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/baseline-short/setlist-selected-details.png",
+      "sha256": "45b7366016459be60bf060c25db63efed64a40a77e9bd287cef235835a4a7667",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/baseline-short/setlist-selected-order.png",
+      "sha256": "fbeafdbd805d1ecd40156948ffdbac6543466cb9e45110046e6025b798bf2790",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/baseline-tall/songbook-entry.png",
+      "sha256": "24e619d916fc026cccc42d54151beee08270534da39fa2a351a405e39e1afdeb",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/baseline-tall/songbook-details.png",
+      "sha256": "73a4cb5a97fd9d885dfd2b11c3a1105c77f64b61869a116e2af0cd411b813605",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/baseline-tall/recording-selection-entry.png",
+      "sha256": "7d04975ffb73b9ae85cb67ee6ca35efe23461774eb695e0ca32273e9992ea04f",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/baseline-tall/recording-selection-details.png",
+      "sha256": "83c412c021f1e437bd76542e7bc4142ce549f7bbfac6673e7ff42b9c5ebd12af",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/baseline-tall/recording-selected-details.png",
+      "sha256": "bbbe6c51725e59dce3737a46c2adfb8e1b510b86394ad2c86469197a17242c25",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/baseline-tall/recording-selected-order.png",
+      "sha256": "4fc33225cbda0308578d4fbe8447e7673e89e6de59220a65041d3ef448f612fa",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/baseline-tall/recording-archive-entry.png",
+      "sha256": "83de6eb8f0680378c452dd9325ebfceaa3ee06363ad53f29c2e05d64b9d0f712",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/baseline-tall/recording-archive-open.png",
+      "sha256": "b7ddf83d66c429ff8d7e7553297034e833e9212f2350d9ca9207e103ecbbf59f",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/baseline-tall/recording-captured-strength.png",
+      "sha256": "b7ddf83d66c429ff8d7e7553297034e833e9212f2350d9ca9207e103ecbbf59f",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/baseline-tall/recording-captured-details.png",
+      "sha256": "53d3271e198b6420d2b702f1e23d029fca1946a6082b9bed470736b7fd5a7e5b",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/baseline-tall/rehearsal-entry.png",
+      "sha256": "a1069506b7270de7010f3946966a80be032bcc937da046f8b5d2caa20c90262d",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/baseline-tall/rehearsal-originals-details.png",
+      "sha256": "320592e9c5961b232add9aabf9f5d4edfccc0227de696198f17a490386f588aa",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/baseline-tall/setlist-entry.png",
+      "sha256": "73128ce9932d2003eb0200fe441feff8a59dec713000165c7b1d24b1f0dd2bda",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/baseline-tall/setlist-details.png",
+      "sha256": "28b151f5659819aea21598569d857769c8f07f779e44c6debb14bdc128c19979",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/baseline-tall/setlist-selected-details.png",
+      "sha256": "a259ede6d53ca707ef16935242696c00c602dd25410c0aa44cde5bbe82b48e45",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/baseline-tall/setlist-selected-order.png",
+      "sha256": "06509a78e0877bb47e8e02bab2939cd26e7c48d7ed619e79db0550b727344167",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/baseline-wide/songbook-entry.png",
+      "sha256": "5ac84bff38b375301c90979b8c7244d15d4046b2e610134e8a2ef3e8f8605524",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/baseline-wide/songbook-details.png",
+      "sha256": "bd9c937e519d193231160f158a57cb83860351a323430844e7917e193fa1a73c",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/baseline-wide/recording-selection-entry.png",
+      "sha256": "e74f3e0771acf8d47f525435ea4ca72655a0d6c18a37339789553ef0a02f8ba6",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/baseline-wide/recording-selection-details.png",
+      "sha256": "b2a955cd8daf4e25f3847d479064181b8af79e0a9a6bc3ec4a4e710f343e954f",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/baseline-wide/recording-selected-details.png",
+      "sha256": "3c4b973ee7a3f9078613932af51134e3fbb8eef833663f185b025994d7ae3f54",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/baseline-wide/recording-selected-order.png",
+      "sha256": "3f04b75fadcb27b9dad9b01e1e7df62ae3b80fff6f8d963756b3d6200a4bf041",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/baseline-wide/recording-archive-entry.png",
+      "sha256": "41b04629cc4922e94b915c227bbf68293431a3e4c3e37b868a10949d95742574",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/baseline-wide/recording-archive-open.png",
+      "sha256": "4a67628aba8c48c11aaa387fc5f3c09f1497e571d6040860cf24ab066f996300",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/baseline-wide/recording-captured-strength.png",
+      "sha256": "3d23869b463cec6bb25c71172f10ad1ccec247252163fcad6b067a1e59774af4",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/baseline-wide/recording-captured-details.png",
+      "sha256": "7f98fd3fa7ca50f3c1479310eff2de52e0c63845462a7e5e5fd002b5067d2d54",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/baseline-wide/rehearsal-entry.png",
+      "sha256": "16121f12a1b690a5c2597cbe764540b140b47ca0f8aab831ce55d10a77dc9074",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/baseline-wide/rehearsal-originals-details.png",
+      "sha256": "9b4f9261b23d94d7af6a8bc2a8c3f4cb0ad53a0d2ade86d692b087f77392ff5e",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/baseline-wide/setlist-entry.png",
+      "sha256": "24f2a188f2e7d0392c30817294f4ae1c4c928db783e168b48c3baba2a503074b",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/baseline-wide/setlist-details.png",
+      "sha256": "571d4a2738d0a22c968414c04ad612d59bdd01e074c5ac4159cd63c66506b08f",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/baseline-wide/setlist-selected-details.png",
+      "sha256": "def89b3e5c484bb74b5868e88729cda0ea71712a8d51c787490f0227e571966a",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/baseline-wide/setlist-selected-order.png",
+      "sha256": "8858689736b83a52f71d8db4c9bf3bb593606ed3705743a0154c079f6ebb2426",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/candidate-phone/songbook-entry.png",
+      "sha256": "1cfc4b157356dcc98e5f6861593a4d4b62abbe8c02268f7282d527e30ca78c40",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/candidate-phone/songbook-details.png",
+      "sha256": "584e1e0f9a4c4a3ff2abef23921aa4a180f17a8d4c40079a1b8cd9ec94800510",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/candidate-phone/recording-selection-entry.png",
+      "sha256": "f9bcb30c4b42de5a277d081429e4551168cb12b73bb6a2b3b088604f2f42fe56",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/candidate-phone/recording-selection-details.png",
+      "sha256": "4db6e70cebb07f1dced3216a573ff0aac5ea9df70ee006b896ca87a48a070671",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/candidate-phone/recording-selected-details.png",
+      "sha256": "e00dc15a9efb538befafb50d3f7406d2fdc36208188ce0c735254c93bd96dfa8",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/candidate-phone/recording-selected-order.png",
+      "sha256": "5783313a0f158aa6fe7913e0be386b984822c9527e22be4ee31421870b336011",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/candidate-phone/recording-archive-entry.png",
+      "sha256": "1740c55f8003fa70a390067e012eab3b41f4ffd0d3d75215a2dde117419b3ae4",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/candidate-phone/recording-archive-open.png",
+      "sha256": "86cc9a2c478115d27aee0691c53d3faf4b2ee368ce53c67eac518eaa42e8c156",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/candidate-phone/recording-captured-strength.png",
+      "sha256": "5b418e825eaecd02a4572ef907a62525aa2135ec0d9afd173acee9f2106181d0",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/candidate-phone/recording-captured-details.png",
+      "sha256": "7a882abbef88bb99cec7c3d177b7d3b6975795100ceffd6f25e1bbc2f50c892a",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/candidate-phone/rehearsal-entry.png",
+      "sha256": "f1aced766e02bf95e0eb3aba56b8bc3684cae682d0dda030c1c5c209c84ec84c",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/candidate-phone/rehearsal-originals-details.png",
+      "sha256": "53459df86a504147685fea09895fd07f184a7b35def21c38c294caf464658d16",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/candidate-phone/setlist-entry.png",
+      "sha256": "7b3c9625df3cf2895ddde1256f4e88f2ca891aeb47f06dfdd1f5bd4ed9e68f59",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/candidate-phone/setlist-details.png",
+      "sha256": "87fadbf0ff0068556d46d5dea2df4c1449e6a38d25a535828d6d00e793f9de5a",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/candidate-phone/setlist-selected-details.png",
+      "sha256": "9e582d4a9477b86022fc2e2d1b65f465bef584e2575eda366d743ef4fff08034",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/candidate-phone/setlist-selected-order.png",
+      "sha256": "f939c9a8ff625a7b0a1bdff26994632391393acd7014fa2931aa78dc25caa3e7",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "path": "results/candidate-short/songbook-entry.png",
+      "sha256": "f8e312291713bf959f0af3960b0b5373feb65a06ee0374403d34793ed5eeac89",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/candidate-short/songbook-details.png",
+      "sha256": "c99de28697b7ed09dde4a69f351e07573044fff6272c25a14f2e6e740207ceb5",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/candidate-short/recording-selection-entry.png",
+      "sha256": "3bf1a63b1ced57b7ff229e64defa9ee74703f0fe89a0af7cf78c84ac92d8105f",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/candidate-short/recording-selection-details.png",
+      "sha256": "15f14db9f8487cd1dbac77f4c5181c21487f92fac361d3acacfbef00918f7e24",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/candidate-short/recording-selected-details.png",
+      "sha256": "7e9dfacda671ae346252b61684f89eb57c8528daead91e4d19e274e25fafb225",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/candidate-short/recording-selected-order.png",
+      "sha256": "9c0a2e819e0db0199879d0f2f8a34e352b373e9f6bc7059c8d5f16b23589518f",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/candidate-short/recording-archive-entry.png",
+      "sha256": "25aba42bdc2488e1e3ff3bff23cd29e28f931d651dc87d76c8be8b62e473b516",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/candidate-short/recording-archive-open.png",
+      "sha256": "903e9605683036504c01bc337732b66fc7bf8f0f52779328c2f96f558df9e599",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/candidate-short/recording-captured-strength.png",
+      "sha256": "1ce62a39ae4fdf8b0a88260cdcc978a194f9a8ecd68a7cadb11ed669c0c7dab0",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/candidate-short/recording-captured-details.png",
+      "sha256": "58b46835734fc61bb1d5cd4352290f2d77145a8c81b6f2c784adb984c66761ba",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/candidate-short/rehearsal-entry.png",
+      "sha256": "f9bc42e1a0449f0139e7e3e2366e75bec79b62eaa3648e32d82b299312c51fe8",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/candidate-short/rehearsal-originals-details.png",
+      "sha256": "8602f71ace0a173748c3fd9e3deb62d2c8f0976e14347e647c90ba6f64b135d3",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/candidate-short/setlist-entry.png",
+      "sha256": "e84fc12f036542e6c1b6db55dc01e0efdb72d86f54e978463a70ade12cb364a7",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/candidate-short/setlist-details.png",
+      "sha256": "01c1517bed06d9ff41a28f6671f071f219f90d608b3c08acd5070f5a41fb7e72",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/candidate-short/setlist-selected-details.png",
+      "sha256": "45b7366016459be60bf060c25db63efed64a40a77e9bd287cef235835a4a7667",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/candidate-short/setlist-selected-order.png",
+      "sha256": "fbeafdbd805d1ecd40156948ffdbac6543466cb9e45110046e6025b798bf2790",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "results/candidate-tall/songbook-entry.png",
+      "sha256": "c338047868752e335f5765cf856e5533d72d98988749ca217bd28cd70b428d01",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/candidate-tall/songbook-details.png",
+      "sha256": "5b617aa876e07b14f6e344292a4ad3e355ee15eda112bab8f9628bfb9b839510",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/candidate-tall/recording-selection-entry.png",
+      "sha256": "5e5194cd9d09c016dec714ce8f645a97ca5971782d02a51bb036a2eea449296a",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/candidate-tall/recording-selection-details.png",
+      "sha256": "8711417f3b7dff69f39cccca1a719d1f11e90867fba6becab1754c39e92d6890",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/candidate-tall/recording-selected-details.png",
+      "sha256": "20f4d47c508a6c2756560cae58cf4fa835477455c76e00a53c0cb5efb6e2bb2a",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/candidate-tall/recording-selected-order.png",
+      "sha256": "446d1b43f8048e817a5905308d908ee1971706c3429e04e613758e6c41f3f488",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/candidate-tall/recording-archive-entry.png",
+      "sha256": "6c36d542a3e93da8a84a6af30acdbfbc39d483acdaf9ae86a40c1b711a2fa09d",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/candidate-tall/recording-archive-open.png",
+      "sha256": "2d067a9a96f67285de584fc48caf8b0c1e96584691e7e909af432e8826a44ba0",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/candidate-tall/recording-captured-strength.png",
+      "sha256": "56b5164062339ffe0caee590c1117415f7575ef3d4cfa371e4de5111c36e860d",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/candidate-tall/recording-captured-details.png",
+      "sha256": "afb53a2c18c9a8d7de4526ba97e4cd7606bc143363f5904c24336181f690b5c6",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/candidate-tall/rehearsal-entry.png",
+      "sha256": "a1069506b7270de7010f3946966a80be032bcc937da046f8b5d2caa20c90262d",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/candidate-tall/rehearsal-originals-details.png",
+      "sha256": "320592e9c5961b232add9aabf9f5d4edfccc0227de696198f17a490386f588aa",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/candidate-tall/setlist-entry.png",
+      "sha256": "73128ce9932d2003eb0200fe441feff8a59dec713000165c7b1d24b1f0dd2bda",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/candidate-tall/setlist-details.png",
+      "sha256": "28b151f5659819aea21598569d857769c8f07f779e44c6debb14bdc128c19979",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/candidate-tall/setlist-selected-details.png",
+      "sha256": "a259ede6d53ca707ef16935242696c00c602dd25410c0aa44cde5bbe82b48e45",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/candidate-tall/setlist-selected-order.png",
+      "sha256": "06509a78e0877bb47e8e02bab2939cd26e7c48d7ed619e79db0550b727344167",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "path": "results/candidate-wide/songbook-entry.png",
+      "sha256": "2c6b7f250fa4e199f015b89717bb001d0acfa1c7c559909bd3ae6769e0a58d04",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/candidate-wide/songbook-details.png",
+      "sha256": "e9e59b82bea572e9178e0f3634b5ae7558ed7633194b7fb2cebe79b5d5dafc22",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/candidate-wide/recording-selection-entry.png",
+      "sha256": "19645e950ccba355df00d1d43a89bbe0a35e3c86a15a2a49f5f004603ab0754a",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/candidate-wide/recording-selection-details.png",
+      "sha256": "add4d511366354d202b45a428cfc19b98224efa2eb9a5d8fc876fe25b43ba1a0",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/candidate-wide/recording-selected-details.png",
+      "sha256": "a05b97279d108f01a5cee107204461146c8d84906b154abfd1a91f68577b6346",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/candidate-wide/recording-selected-order.png",
+      "sha256": "0e29adee3d835cbb51d8a5f2ea462988bd7f563839d020a7f4f9aaa2c1bb00f4",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/candidate-wide/recording-archive-entry.png",
+      "sha256": "35bee0813c514a898b05366244f1c872d3cdda898fad8b83f78635623f91c101",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/candidate-wide/recording-archive-open.png",
+      "sha256": "c5bc3534e8bbfe952402715d13f4e828c67b229ae96f8ced8ef52153fd1d2a22",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/candidate-wide/recording-captured-strength.png",
+      "sha256": "6d14b6b0a5ecceeff846f4b8b8eaad347a0ad395341de802417da8992fb4f495",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/candidate-wide/recording-captured-details.png",
+      "sha256": "b46e674aa38587d813fd865458af859f8c6f25c1595e072966b97634a59f1505",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/candidate-wide/rehearsal-entry.png",
+      "sha256": "cc1b816c04616d8c7b8460b86b3f21cc6f8566a931efb3a67b4af5369cdbb621",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/candidate-wide/rehearsal-originals-details.png",
+      "sha256": "8917ac53f99ed8a3c0644d515eac0b46a124d5fce41b0ed839d92962605e46a3",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/candidate-wide/setlist-entry.png",
+      "sha256": "355beec7391a733f4e1a45c6453d6aff68356eb49cd2f846e166f1080280874e",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/candidate-wide/setlist-details.png",
+      "sha256": "896f59f712e6a8fe429f2a2a6c991fdad4efb038b98b397f44b671bdf4ece96b",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/candidate-wide/setlist-selected-details.png",
+      "sha256": "ff568834bc160b3d16c213c2f8526e5c86e291f82bb96204b25ddae896dc2b4e",
+      "width": 1600,
+      "height": 900
+    },
+    {
+      "path": "results/candidate-wide/setlist-selected-order.png",
+      "sha256": "78423a29042a29901154e0983c085e480fcb31ea1411a085b6831b764cb1b874",
+      "width": 1600,
+      "height": 900
+    }
+  ],
+  "metadata_closeout_review": {
+    "reviewer": "continuity_review",
+    "verdict": "pass",
+    "reviewed_at": "2026-11-14T00:06:53.225125+00:00",
+    "findings": "Closed state, released writer, tested source/evidence counts, policy/history hashes and separate R2 scope all agree. No blocker.",
+    "local_context_check": "pass",
+    "local_improvement_gate": "pass",
+    "context_regression_tests": 11,
+    "original_gate_regression_tests": 24,
+    "runtime_changes_after_tested_source": 0
+  }
+}

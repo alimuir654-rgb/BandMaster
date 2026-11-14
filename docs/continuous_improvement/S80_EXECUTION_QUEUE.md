@@ -1,8 +1,8 @@
 # BandMaster — sole execution queue
 
-Current session: **SONG56**. Owner authorised continuity cleanup and completion of the visual Songbook/Demo revision. One writer: `root-SONG56`; `song56_review` and `continuity_review` are read-only reviewers.
+Latest session: **SONG56 — CLOSED**. Visual Songbook/Demo revision and approved continuity cleanup are internally complete. Writer released; independent source/pixel and continuity reviews recorded. Owner visual acceptance is pending.
 
-**Next action:** Complete the SONG56 archive-thumbnail repair and four-profile native review, verify compact continuity records, then publish the evidence and close this session.
+**Next action:** Scope SONG53-R2 stable song/revision/participant identity and co-writing as a separate pass from the verified SONG56 source; owner visual acceptance remains pending.
 
 ## Linked songs and band life
 
@@ -11,7 +11,7 @@ The [roadmap](../ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md) defines dependencies and
 | ID | Scope | Disposition |
 |---|---|---|
 | SONG53-R0 | Reconcile the actual latest source; classify existing/presentation/new-model work | COMPLETE — RECOVER54; published source d5e1662 verified directly on GitHub; full mapping/inventory in RECOVER54_SOURCE_RECONCILIATION.json |
-| SONG53-R1 | Reusable honest song summary with explicit legacy unknowns | FUNCTIONALLY VERIFIED — SONG55; SONG56 visual revision ACTIVE following owner text-heavy feedback |
+| SONG53-R1 | Reusable honest song summary with explicit legacy unknowns | FUNCTIONALLY VERIFIED — SONG55; SONG56 visual revision INTERNALLY VERIFIED on665cb95; owner visual acceptance pending |
 | SONG53-R2 | Stable song/revision/participant identity; one meaningful co-writing contribution; skill fairness | PROPOSED / NOT SCHEDULED; after R0, reuse R1 |
 | SONG53-R3 | Song-specific purposeful rehearsal and proportionate preparation transfer | PROPOSED / NOT SCHEDULED; after R2 |
 | SONG53-R4 | Preparedness into live delivery, grounded feedback and character aftermath | PROPOSED / NOT SCHEDULED; after R3 |
@@ -25,9 +25,9 @@ The [roadmap](../ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md) defines dependencies and
 
 ## Evidence and boundaries
 
-[Active session](sessions/SONG56.json) · [SONG55 results](SONG55_RESULTS.json) · [Source recovery mapping](RECOVER54_SOURCE_RECONCILIATION.json).
+[Closed session](sessions/SONG56.json) · [SONG56 results](SONG56_RESULTS.json) · [SONG55 results](SONG55_RESULTS.json) · [Source recovery mapping](RECOVER54_SOURCE_RECONCILIATION.json).
 
-Early SONG56 phone/short proof passed at `5be37ae` in run43524469210. Its original pixels were reviewed; the archive thumbnail needs a bounded caption repair before final four-profile proof. Owner visual acceptance remains false. Preserve existing models, saves, art/audio and APK hold.
+Final SONG56 proof passed at `665cb95` in [run43530378163](https://github.com/alimuir654-rgb/BandMaster/actions/runs/43530378163):622 candidate native checks per profile across phone/short/tall/wide;18 final originals independently inspected and all128 PNG hashes verified. The clipped archive caption is resolved. Owner visual acceptance remains false. Preserve existing models, saves, art/audio and APK hold.
 
 This pass does not implement R2–R7 or authorise release, merge, new assets or schedules. The next roadmap candidate after SONG56 is R2, to be scoped separately from the latest source.
 

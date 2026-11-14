@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "SONG56",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "baseline_sha": "a0e0194e884fa5b562b303d16d639fd1581a27c9",
   "local_baseline_equivalent": "e93497ecf318b5af13522558852ec1e22ca53cc6",
@@ -36,11 +36,11 @@
   ],
   "reviewed_documents": {
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492",
-    "docs/continuous_improvement/LESSONS.md": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c"
+    "docs/continuous_improvement/LESSONS.md": "2c13c9b0605a4f3b50b0ff2f99d0613cff2f67810be0d9e233af56695e047423"
   },
   "issue_log_review": {
-    "bytes": 2292094,
-    "sha256": "befd1e9290a33519bdcf3bf6785c0aa6c5dc84f30bc1585625848cb87eb2e2a0"
+    "bytes": 2295395,
+    "sha256": "1757046a18895a6bef045e8f64047201849167de24117e81082d1a839ca06056"
   },
   "target": {
     "locator": "Owner text-heavy feedback; existing print_materials_v1.png original inspected plus final SONG55 phone songbook-entry/details, recording-selection-entry and captured-strength originals. No new owner mockup supplied; reference is an explicit revision of these rejected layouts.",
@@ -49,7 +49,7 @@
     "visual_changes": true,
     "reference_limit": "No new owner-approved composition is claimed. Existing material/icon/sleeve bytes remain unchanged."
   },
-  "controlled_comparison": "Same retained SONG55 owner fixture, 91 current/72 captured contrast, viewport, source art/fonts/background and outer navigation bounds; baseline a0e0194 and candidate. Common summary and scroll assertions run on BOTH since baseline already includes SONG55. New visual-card assertions are candidate-only. Early phone/short pixels before full four-profile proof.",
+  "controlled_comparison": "Retained SONG55 original-model QA fixture,91current/72captured contrast, source art/fonts/background/navigation; baseline a0e0194 and candidate665cb95 at390x844,1280x720,720x1280,1600x900. Common baseline assertions retained; candidate-only visual/44physical-pixel checks remain explicit. Known baseline short-target defect is not a candidate pass.",
   "hypothesis": "Separating songs into compact printed cards with numerical strength graphics, using a sleeve plus short ordered demo tracks, and moving secondary prose into a single disclosure makes the screens visibly more scannable and musical without hiding commitment information or inventing data.",
   "stop_condition": "Hold clipping, unreadable full titles, inaccessible/undersized controls, fabricated metric/audio/identity implications, changed transaction/save/art bytes or unrelated screen regression. After two ineffective corrections change method. No R2 model, APK/signing/export, main/PR199, merge, paid assets or force update.",
   "allowed_paths": [
@@ -76,7 +76,11 @@
     "docs/continuous_improvement/SONG56_VISUAL_REVIEW.json",
     "tools/project_context.py",
     "tests/test_project_context.py",
-    ".github/workflows/continuous-improvement.yml"
+    ".github/workflows/continuous-improvement.yml",
+    "docs/continuous_improvement/evidence/SONG56/songbook-phone.png",
+    "docs/continuous_improvement/evidence/SONG56/demo-selection-phone.png",
+    "docs/continuous_improvement/evidence/SONG56/demo-archive-short.png",
+    "docs/continuous_improvement/LESSONS.md"
   ],
   "validation_commands": [
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/SONG56.json",
@@ -94,20 +98,21 @@
   ],
   "writer": {
     "owner": "root-SONG56",
-    "status": "active",
+    "status": "released",
     "source_writers": 1,
-    "resumed_at": "2026-11-13T23:44:58.357934+00:00"
+    "resumed_at": "2026-11-13T23:44:58.357934+00:00",
+    "released_at": "2026-11-14T00:05:17.245128+00:00"
   },
   "reviewers": [
     {
       "agent": "song56_review",
       "role": "read-only source/pixel review",
-      "status": "early phone/short17originals inspected; one concrete P2 thumbnail-caption defect"
+      "status": "Final source/pixel internal pass;18 original screenshots inspected across all4 candidate layouts and matched final tall/wide baselines; no blocker."
     },
     {
       "agent": "continuity_review",
       "role": "read-only continuity/schema-consumer review",
-      "status": "active CURRENT consumers require session; historical state archived byte-exact, keep explicit writer fields and all session/history gates"
+      "status": "Final independent read-only continuity/schema and closeout review passed; source/evidence/status/writer/next action and policy/history hashes agree; no blocker."
     }
   ],
   "player_task": {
@@ -229,7 +234,28 @@
     "new_validation": "Real four-profile native proof after bounded archive-thumbnail repair; existing model evidence reused only for byte-identical protected model inputs.",
     "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json",
     "preflight_commit": "7de57531d4e87033708504384f33bbceffe2f1fd",
-    "review_disposition": "Both independent reviewers cleared the focused source/continuity implementation after dated-lesson and archive-link fixes; final native pixels pending."
+    "review_disposition": "Final native success and independent internal visual pass; exact source665cb95, all128 screenshot hashes verified,18 final originals opened by read-only reviewer."
   },
-  "next_action": "Complete the SONG56 archive-thumbnail repair and four-profile native review, verify compact continuity records, then publish the evidence and close this session."
+  "next_action": "Scope SONG53-R2 stable song/revision/participant identity and co-writing as a separate pass from the verified SONG56 source; owner visual acceptance remains pending.",
+  "closed_at": "2026-11-14T00:05:17.245128+00:00",
+  "closeout": {
+    "tested_sha": "665cb9584c358cff07042c7ae8b7a6a7eebd91ee",
+    "tested_tree": "5287a45fcf481c5d16e77a8392cd283b72b3fdc5",
+    "evidence": [
+      "docs/continuous_improvement/SONG56_RESULTS.json",
+      "docs/continuous_improvement/SONG56_VISUAL_REVIEW.json",
+      "docs/continuous_improvement/SONG56_CONTINUITY_REVIEW.json",
+      "https://github.com/alimuir654-rgb/BandMaster/actions/runs/43530378163"
+    ],
+    "visual_verdict": "internal_pass",
+    "owner_approved": false,
+    "next_action": "Scope SONG53-R2 stable song/revision/participant identity and co-writing as a separate pass from the verified SONG56 source; owner visual acceptance remains pending.",
+    "new_issue_review": "Two observed preflight defects resolved; two reader-review defects fixed before publication. Final artifacts/source binding and two resolution events reviewed; no unresolved source/visual blocker. Earlier failed attempts retained.",
+    "final_native_run": 43530378163,
+    "final_artifact": 14087890207,
+    "artifact_sha256": "20fd47956621f12d38bfecd25f7dda3b7df7a313d88c426bd04a3da700f6bcc9",
+    "candidate_native_checks": 2488,
+    "final_unique_originals_opened": 18,
+    "writer_released": true
+  }
 }

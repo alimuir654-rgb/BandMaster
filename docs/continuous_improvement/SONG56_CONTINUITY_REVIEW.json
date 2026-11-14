@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "session": "SONG56",
-  "status": "implementation_reviewed_native_closeout_pending",
+  "status": "verified_internal",
   "source_baseline": "5be37ae719e836fc5189a8e34f972d8ab03b6ffa",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json",
   "original_core_bytes": 1044165,
-  "compact_core_bytes": 5511,
+  "compact_core_bytes": 5854,
   "archive_files": 7,
   "original_issue_history_preserved": true,
   "original_gate_implementation_unchanged": true,
@@ -26,8 +26,19 @@
     "Use caption-free landscape archive thumbnail with adjacent full title."
   ],
   "current_limitations": [
-    "Final four-profile native run and exact-source pixels pending.",
     "Branch-protection administration was not changed or verified.",
     "Owner visual approval remains false."
-  ]
+  ],
+  "tested_source_sha": "665cb9584c358cff07042c7ae8b7a6a7eebd91ee",
+  "closed_at": "2026-11-14T00:05:17.245128+00:00",
+  "ci_run": 43530378168,
+  "final_native_run": 43530378163,
+  "closeout_check": "PASS: closed-state context check, original improvement gate,11 context regressions and24 original gate tests; independent read-only closeout review found no blocker. Source and scope verified documentation/evidence-only since665cb95.",
+  "lessons_update": {
+    "path": "docs/continuous_improvement/LESSONS.md",
+    "original_prefix_bytes": 58557,
+    "original_prefix_sha256": "68ae091b6b2f04526a21e4d871d389f12cfe1b84fddf678a57428e3740a8493c",
+    "change": "One concise BM-43 extension tied to actual reader/consistency checks."
+  },
+  "closeout_reviewed_at": "2026-11-14T00:06:53.225125+00:00"
 }

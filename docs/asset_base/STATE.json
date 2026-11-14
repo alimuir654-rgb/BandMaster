@@ -4,10 +4,10 @@
   "session_path": "docs/continuous_improvement/sessions/SONG56.json",
   "canonical_current": "docs/continuous_improvement/CURRENT.json",
   "branch": "feature/playtest-polish-v20",
-  "status": "active",
-  "writer": "root-SONG56",
+  "status": "closed",
+  "writer": null,
   "owner_approved": false,
-  "updated_at": "2026-11-13T23:49:23.598597+00:00",
-  "next_single_action": "Complete the SONG56 archive-thumbnail repair and four-profile native review, verify compact continuity records, then publish the evidence and close this session.",
+  "updated_at": "2026-11-14T00:05:17.245128+00:00",
+  "next_single_action": "Scope SONG53-R2 stable song/revision/participant identity and co-writing as a separate pass from the verified SONG56 source; owner visual acceptance remains pending.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json"
 }

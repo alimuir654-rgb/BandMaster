@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "session": "SONG56",
+  "tested_source_sha": "665cb9584c358cff07042c7ae8b7a6a7eebd91ee",
+  "run_id": 43530378163,
+  "artifact_id": 14087890207,
+  "verdict": "internal_pass",
+  "owner_approved": false,
+  "reviewed_at": "2026-11-14T00:05:17.245128+00:00",
+  "final_unique_originals_opened": 18,
+  "final_original_hashes_verified": 128,
+  "reviews": [
+    {
+      "reviewer": "song56_review",
+      "role": "independent read-only agent source/pixel reviewer",
+      "opened": [
+        "results/candidate-phone/songbook-entry.png",
+        "results/candidate-phone/recording-selection-entry.png",
+        "results/candidate-phone/recording-archive-entry.png",
+        "results/candidate-short/songbook-entry.png",
+        "results/candidate-short/recording-selection-entry.png",
+        "results/candidate-short/recording-archive-entry.png",
+        "results/candidate-tall/songbook-entry.png",
+        "results/candidate-tall/recording-selection-entry.png",
+        "results/candidate-tall/recording-archive-entry.png",
+        "results/candidate-wide/songbook-entry.png",
+        "results/candidate-wide/recording-selection-entry.png",
+        "results/candidate-wide/recording-archive-entry.png",
+        "results/baseline-tall/songbook-entry.png",
+        "results/baseline-tall/recording-selection-entry.png",
+        "results/baseline-tall/recording-archive-entry.png",
+        "results/baseline-wide/songbook-entry.png",
+        "results/baseline-wide/recording-selection-entry.png",
+        "results/baseline-wide/recording-archive-entry.png"
+      ],
+      "verdict": "internal_pass"
+    },
+    {
+      "reviewer": "root",
+      "role": "implementation owner, direct final pixel verification",
+      "opened": [
+        "results/candidate-short/recording-archive-entry.png",
+        "results/candidate-tall/songbook-entry.png",
+        "results/candidate-wide/recording-selection-entry.png",
+        "results/candidate-phone/recording-selection-entry.png",
+        "results/candidate-phone/songbook-entry.png"
+      ],
+      "verdict": "internal_pass"
+    }
+  ],
+  "comparisons": "All four final candidate core views; matched final tall/wide baseline views. Phone/short comparisons additionally use17 earlier originals inspected from run43524469210. Early and final images are counted separately.",
+  "resolved_defect": "Short-landscape archive sleeve duplicate lettering was clipped at180logical pixels. The archive caller now uses160; redundant caption is hidden while the full adjacent identity remains readable. Original cover/art code unchanged.",
+  "observations": [
+    "Full titles and91current/72captured values remain distinct.",
+    "Commitment prices, duration, selection requirements and navigation remain visible.",
+    "Partial following cards at scroll boundaries are expected viewport behaviour."
+  ],
+  "outstanding_source_or_visual_blockers": [],
+  "simulated_review_lenses": [
+    {
+      "lens": "SIMULATED player/game-critic clarity",
+      "finding": "Numbered cards, saved-strength graphics and track slots reduce repeated prose; the next actions and commitment costs stay visible. This is an internal judgement, not uncoached player comprehension."
+    },
+    {
+      "lens": "SIMULATED musician/songwriter",
+      "finding": "Existing song names, ordered selections, saved credits and honest unknowns remain available. Notes holds secondary detail. The UI makes no new co-writing or sound-quality claim."
+    },
+    {
+      "lens": "SIMULATED producer/archive",
+      "finding": "Current song91 and captured take72 retain separate titles and meanings. A compact sleeve supports archive identity; no recording-execution metric is invented."
+    },
+    {
+      "lens": "SIMULATED accessibility/navigation",
+      "finding": "Actual pointer, Enter and touch paths and physical control bounds passed on four native viewports; long titles and commitment areas were inspected. This is not a complete accessibility audit or physical-device test."
+    },
+    {
+      "lens": "SIMULATED reliability/maintenance",
+      "finding": "Source and artifact hashes, owner/save-byte guards, once-only models and exact historical archives are preserved. A bounded resume command and CI consistency checks make a future handover verifiable."
+    }
+  ],
+  "limitations": [
+    "Internal visual judgement is not owner acceptance or a human playtest.",
+    "Native desktop viewports are not physical Android verification.",
+    "No new APK, signing, audio listening or gameplay-model work was performed.",
+    "Branch-protection administration was not changed or verified."
+  ],
+  "retained_originals": [
+    {
+      "path": "docs/continuous_improvement/evidence/SONG56/songbook-phone.png",
+      "artifact_original": "results/candidate-phone/songbook-entry.png",
+      "sha256": "1cfc4b157356dcc98e5f6861593a4d4b62abbe8c02268f7282d527e30ca78c40",
+      "bytes": 459940,
+      "edited": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG56/demo-selection-phone.png",
+      "artifact_original": "results/candidate-phone/recording-selection-entry.png",
+      "sha256": "f9bcb30c4b42de5a277d081429e4551168cb12b73bb6a2b3b088604f2f42fe56",
+      "bytes": 501880,
+      "edited": false
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/SONG56/demo-archive-short.png",
+      "artifact_original": "results/candidate-short/recording-archive-entry.png",
+      "sha256": "25aba42bdc2488e1e3ff3bff23cd29e28f931d651dc87d76c8be8b62e473b516",
+      "bytes": 1149628,
+      "edited": false
+    }
+  ]
+}

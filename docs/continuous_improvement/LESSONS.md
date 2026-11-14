@@ -418,3 +418,8 @@ An exact binary fractional fingerprint needs a save encoder that preserves the a
 A one-line count can conceal an ellipsized ordinary name. Measure the complete decorated string in its actual native font against the real allocated width, and reserve the displayed brand width rather than an obsolete larger slot. Make changed fitting explicitly opt-in at the intended caller: a shared compact flag also controls naming and identity previews. Protected raw-RGBA comparisons caught that unintended spread.
 
 Character-first reports need a short-landscape reading spread and the original longest six-member case. Keep complete reasons in Details instead of shrinking type to pack duplicate explanation, voices and saved values into one fold. Native scrollbar chrome lies outside its ScrollContainer content clip; a content-node visibility helper cannot prove the scrollbar itself visible. Test its measured chrome rect and actual pointer/key receiver, then separately require the content portrait to be inside every clip.
+
+
+## 14 November compact continuation and verified review cursors — BM-43
+
+Current state is a bounded working summary: retain exact archived bytes and one current task, source, writer and next action. Preserve historical links through the original pinned path. Read selected lessons (including matching dated extensions when requested) and new issue events from a newline-aligned, hashed cursor; reading must never advance the reviewed cursor. Validate agreement among current state, session, lock and handover in CI, alongside the original preflight/history gate. SONG56 adds regression checks for stale pointers, closed writers, Unicode pagination, dated extensions and altered history. Archive growth is not a reason to reload history into every chat.
