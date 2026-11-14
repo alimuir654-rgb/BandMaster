@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "owner_approved": false,
+  "owner_request": "14 November 2026 owner: Pick up bandmaster roadmap work. Split into hourly chunks to target a 9am test for me. Automate through and make as much progress as possible until then. I won't be available for reviews or approvals until then.",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "2c13c9b0605a4f3b50b0ff2f99d0613cff2f67810be0d9e233af56695e047423",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
+  },
+  "issue_log_review": {
+    "bytes": 2318088,
+    "sha256": "b807c002ea3355a28ae6439b35ded8ea1fa4c37cbd4b7896eede6a7d332da7ad"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-29",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-39",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "dominant_issue": "BM-33",
+  "target": {
+    "locator": "docs/continuous_improvement/evidence/SONG56/songbook-phone.png",
+    "original_sha256": "1cfc4b157356dcc98e5f6861593a4d4b62abbe8c02268f7282d527e30ca78c40",
+    "pixels_inspected": true,
+    "purpose": "Actual retained SONG56 original opened for typography/context; capture original baseline writing scene then compare the scoped new selector and retained-idea callback. No owner art acceptance inferred."
+  },
+  "overnight": {
+    "automation_id": "6ae532c5fe9c819190f587a022c54052",
+    "schedule": "01:00 through09:00 Europe/London 2026-11-14;9 finite opportunities;09:00 read-only handover",
+    "new_feature_stop": "2026-11-14T07:00:00+00:00",
+    "mutation_stop": "2026-11-14T09:00:00+00:00",
+    "user_unavailable": true,
+    "scope": "R2\u2013R7 in dependency order with bounded committed passes; no promise all stages finish."
+  },
+  "id": "SONG60",
+  "status": "active",
+  "baseline_sha": "fd7a5e24b34b17cf741c4aab14a8c7798e17ddc5",
+  "hypothesis": "Expose local canonical collaborator selection beside the existing note, stage pending leader/partner/direction atomically in the original owner, and show validated retained ideas after completion without changing scoring or existing visuals.",
+  "controlled_comparison": "Same Jack/Zoe/Casey formation and same recipe/cost/calendar at four actual native viewports. Capture actual baseline writing card before candidate; inspect early phone/short then complete native selection, dirty exit failure/retry,3paidstages,typedreload and retained/declined callback.",
+  "stop_condition": "Hold unreadable/clipped selection or costs, discarded local edits, wrongperson/credit, extra settlement, unsafe save/reload, missing original dependencies or inability to close by03:49. Aftertwo ineffective attempts change method/HOLD.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/mixing_desk.gd",
+    "experiments/playable_flightcase/song_workbench.gd",
+    "experiments/playable_flightcase/opening_state.gd",
+    "experiments/playable_flightcase/song_audio.gd",
+    "experiments/playable_flightcase/ui.gd",
+    "tests/song60_native.gd",
+    "tests/song60_models.gd",
+    "tools/song60_verify.py",
+    ".github/workflows/song57-model-proof.yml",
+    "docs/continuous_improvement/sessions/SONG60.json",
+    "docs/continuous_improvement/SONG60_RESULTS.json",
+    "docs/continuous_improvement/SONG60_REVIEW.json",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/handover/START_HERE.md"
+  ],
+  "validation_commands": [
+    "project_context check and improvement_gate committed preflight",
+    "Pinned Godot4.7.2 fresh private import/Dummy/privateXDG/signing guards/one nativeGLlock",
+    "Actual baseline and early390phone/1280short native originals; exactfinal390x844/720x1280/1280x720/1600x900 whole-task nativepointer/key/emulatedtouch/scroll/FSfailure-retry/typedreload/legacyfallback",
+    "Existing deterministic/legacy/once-only CI, new exact-source model/native source protection, independent readonly source/visual reviews and nonforceexpected-head readback"
+  ],
+  "writer": {
+    "owner": "root-SONG60",
+    "status": "active",
+    "source_writers": 1,
+    "claimed_at": "2026-11-14T03:03:28.514628+00:00",
+    "expires_at": "2026-11-14T03:49:00+00:00"
+  },
+  "next_action": "Start bounded R3 song/version/actual-participant rehearsal only after the SONG60 co-writing UI/native gates pass.",
+  "queue_task_ids": [
+    "SONG53-R2"
+  ],
+  "resource_plan": {
+    "scope": "SONG60 R2 UI selection and saved contribution callback",
+    "at": "2026-11-14T02:59:57.172052+00:00",
+    "primary_new_bytes": 0,
+    "tmp_cap_bytes": 2147483648,
+    "floor_bytes": 629145600,
+    "budgets": {
+      "archive_export": 650000000,
+      "private_native_source_import_cache": 700000000,
+      "proof_PNG_failed_tail": 650000000,
+      "closeout": 20000000
+    },
+    "critical_git": "Durable GitHub Git Data only; original checkout and older closed producers untouched"
+  },
+  "scope": "R2 collaborator UI/local payload and read-only retained-idea callback; no new music/scoring/art/key/APK.",
+  "player_task": {
+    "start": "Existing workbench draft",
+    "goal": "Choose an actual bandmate, compare/adopt or decline, complete original3paidwritingdays and recognise saved retained idea",
+    "commit": "Original paid writing owner only",
+    "important_states": [
+      "pendingperson/leader swap",
+      "stale response cleared",
+      "dirtyexit/cancel/FSfailretry",
+      "SoundOff/reduced/scroll",
+      "retained/empty/legacy callback"
+    ],
+    "visible_acceptance": [
+      "Names/role and48pxselector readable beside note",
+      "Pending choices do not alter saved facts beforeSave/Commit",
+      "Costs/actions remain reachable and actual input works",
+      "Callback names actual retained person/field afterreload, no fabricated legacy data"
+    ]
+  }
+}

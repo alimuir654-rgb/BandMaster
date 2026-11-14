@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "session": "SONG59",
-  "session_path": "docs/continuous_improvement/sessions/SONG59.json",
+  "session": "SONG60",
+  "session_path": "docs/continuous_improvement/sessions/SONG60.json",
   "canonical_current": "docs/continuous_improvement/CURRENT.json",
   "branch": "feature/playtest-polish-v20",
-  "status": "closed",
-  "writer": null,
+  "status": "active",
+  "writer": "root-SONG60",
   "owner_approved": false,
-  "updated_at": "2026-11-14T02:29:13.902537+00:00",
-  "next_single_action": "Connect the verified SONG59 collaborator/contribution owner contract to the existing writing UI and prove its four-size native flow before starting R3.",
+  "updated_at": "2026-11-14T03:03:28.514628+00:00",
+  "next_single_action": "Start bounded R3 song/version/actual-participant rehearsal only after the SONG60 co-writing UI/native gates pass.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json"
 }

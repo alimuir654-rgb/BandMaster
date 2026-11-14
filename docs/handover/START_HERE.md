@@ -1,6 +1,6 @@
 # BandMaster current handover
-<!-- session: SONG59 -->
-<!-- status: closed -->
+<!-- session: SONG60 -->
+<!-- status: active -->
 
 Use only `feature/playtest-polish-v20` and its live remote head. Do not reset to the candidates below or the original environment's older checkout.
 
@@ -35,3 +35,6 @@ Primary625479680B free unchanged; no primary allocation. Preserve original check
 Run context start, relevant lessons/new issues, gate and context checks. Same finite programme: no new systems07:00; readiness08:00; handover08:50; stop all mutations09:00 Europe/London14November. No new queue/extension or continuous-compute claim.
 
 Exact historical bytes remain in [the manifest](archive/SONG56_5be37ae/MANIFEST.json); archived leases/approvals are inactive.
+
+SONG60 UI pass active until03:49; source/native proof pending.
+Start bounded R3 song/version/actual-participant rehearsal only after the SONG60 co-writing UI/native gates pass.
