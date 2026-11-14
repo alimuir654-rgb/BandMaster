@@ -16,6 +16,8 @@ on:
       - tests/song59_cowriting.gd
       - experiments/playable_flightcase/song_preparation.gd
       - experiments/playable_flightcase/opening_state.gd
+      - tests/song63_sections.gd
+      - tools/song63_verify.py
       - tests/song61_preparation.gd
       - tools/song61_verify.py
       - tests/song60_models.gd
@@ -138,6 +140,19 @@ jobs:
             --godot "$BM57_TOOLCHAIN/Godot_v4.7.2-stable_linux.x86_64" \
             --work "$BM57_WORK/song61-proof"
 
+      - name: Prove conservative section provenance and legacy rehearsal compatibility
+        shell: bash
+        run: |
+          set -euo pipefail
+          baseline_source="$BM57_WORK/song63-baseline-source"
+          mkdir "$baseline_source"
+          git archive 0f2762740babb5586ec68e95ad6900a108b8c0f1 | tar -x -C "$baseline_source"
+          python3 tools/song63_verify.py \
+            --repo "$GITHUB_WORKSPACE" \
+            --baseline-source "$baseline_source" \
+            --godot "$BM57_TOOLCHAIN/Godot_v4.7.2-stable_linux.x86_64" \
+            --work "$BM57_WORK/song63-proof"
+
       - name: Retain source hashes, logs and isolated model fixtures
         if: always()
         uses: actions/upload-artifact@v4
@@ -163,3 +178,6 @@ jobs:
             ${{ env.BM57_WORK }}/song61-proof/RUN.json
             ${{ env.BM57_WORK }}/song61-proof/logs/*.log
             ${{ env.BM57_WORK }}/song61-proof/baseline-songs.json
+            ${{ env.BM57_WORK }}/song63-proof/RUN.json
+            ${{ env.BM57_WORK }}/song63-proof/logs/*.log
+            ${{ env.BM57_WORK }}/song63-proof/baseline-songs.json

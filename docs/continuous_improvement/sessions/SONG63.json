@@ -65,14 +65,17 @@
     "docs/asset_base/STATE.json",
     "docs/asset_base/CONTROL_SPRINT_LOCK.json",
     "docs/asset_base/LEDGER.md",
-    "docs/handover/START_HERE.md"
+    "docs/handover/START_HERE.md",
+    "tests/song62_native.gd",
+    "tools/song62_verify.py"
   ],
   "validation_commands": [
     "project_context start/newissues/relevantlessons/check; committed improvement_gate",
     "Pinned4.7.2 fresh private model copies/Dummy/privateXDG; actual originalowner paidrehearsal/FSfailure/retry/reentrantcounter/typedreload and genuine oldv1receipt compatibility",
     "Controlled per-section projection fixtures: literal line/refrain changes, fullrecipe changes, rename/order/person/composition guards, mixedhistory/malformeddigest/futurepolicy and purity",
-    "No changed UI; literal unchanged UI/visibleprojection/owner source hashes; retain prior907native graph as earlier proof only, changed Preparation leaf fresh models",
-    "Independent readonly source/receipt review, exactsourceCI/publication/readback; no unchanged engine suites/audio/APK foractivity"
+    "UI code unchanged; first phone/short then exact4sizes execute production RootUI with NEWv2receipts in fresh private project; previous907graph remains reference only",
+    "Independent readonly source/receipt review, exactsourceCI/publication/readback; no unchanged engine suites/audio/APK foractivity",
+    "Existing unchanged song62_native.gd/song62_verify.py pinned from live0f276 source; newPreparation leaf and runtime907binding verified; no privatebank/audio/export acquisition."
   ],
   "writer": {
     "owner": "root-SONG63",
@@ -90,20 +93,24 @@
     "at": "2026-11-14T06:00:48.142900+00:00",
     "baseline_sha": "0f2762740babb5586ec68e95ad6900a108b8c0f1",
     "primary_new_bytes": 0,
-    "tmp_cap_bytes": 1342177280,
+    "tmp_cap_bytes": 1825361100,
     "floor_bytes": 629145600,
     "tmp_free_before": 2493292544,
     "workspace_free_before": 625471488,
     "budgets": {
-      "source_archive_export": 900000000,
-      "isolated_models": 100000000,
-      "failed_proof_tail": 100000000,
-      "evidence_closeout": 100000000
+      "source_archive_export": 750000000,
+      "models": 50000000,
+      "fresh_native_runtime_cache": 450000000,
+      "one_full_failed_native_tail": 450000000,
+      "PNGs_and_durable_copies": 100000000,
+      "closeout": 10000000
     },
     "critical_git": "DurableGitHubGitDataonly; originaldirtycheckout/closedproducersuntouched",
-    "deadline": "2026-11-14T06:48:00+00:00"
+    "deadline": "2026-11-14T06:48:00+00:00",
+    "amended_at": "2026-11-14T06:15:35.530403+00:00",
+    "amendment": "New leaf is consumed by unchanged RootUI saved-recap validator; fresh source-bound native data-integration proof, no newUI/features/oldcache sharing. Onecurrent regularprivate project plus complete failedtail funded before allocation."
   },
-  "scope": "R3 model-only prospective section-source receipt and exact/retained/untracked per-person familiarity projection; no UI/rewrite/readiness/scoring/audio/APK.",
+  "scope": "R3 model-only prospective section-source receipt and exact/retained/untracked per-person familiarity projection; no UI/rewrite/readiness/scoring/audio/APK. Fresh unchanged-UI data-integration proof because saved recap consumes the changed validator.",
   "player_task": {
     "start": "Current canonical finished original",
     "goal": "Prospective rehearsal records exact source material for actual people; pure query distinguishes source-section evidence",
@@ -125,6 +132,7 @@
   "predesign": {
     "reviewer": "/root/au01_source_review",
     "verdict": "CLEAR_PROVENANCE_FOUNDATION_ONLY",
-    "finding": "Capturevalidatedfullmaterial/hashboundrevision;selfidentifyingv2rows/legacyexactv1unchanged;persection provenanceonly;producerfullrecipebound;nofabricatedearnedrewrite/readiness."
+    "finding": "Capturevalidatedfullmaterial/hashboundrevision;selfidentifyingv2rows/legacyexactv1unchanged;persection provenanceonly;producerfullrecipebound;nofabricatedearnedrewrite/readiness.",
+    "integration_addendum": "Unchanged UI reads changed validator/new receipt data, so exercise saved recap production owner once on new source rather than claim prior native proof current."
   }
 }

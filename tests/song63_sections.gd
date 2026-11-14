@@ -1,0 +1,158 @@
+extends "res://tests/song61_preparation.gd"
+func _initialize() -> void:
+ for arg in OS.get_cmdline_user_args():
+  if arg.begins_with("--work-root="):work_root=arg.trim_prefix("--work-root=")
+ if not _check(work_root.is_absolute_path() and ProjectSettings.globalize_path(Owner.SAVE_PATH).begins_with(work_root+"/"),"isolated owner saves"):_finish();return
+ var Preparation=load("res://experiments/playable_flightcase/song_preparation.gd")
+ var originals: Array=_integration(false)
+ if not _check(originals.size()==2,"two genuinely completed original fixtures"):_finish();return
+ var snapshots: Array=[]
+ for original in originals:
+  _linked(original,Preparation)
+  snapshots.append(owner.snapshot())
+ if "--baseline" in OS.get_cmdline_user_args():
+  var file=FileAccess.open(work_root+"/baseline-songs.json",FileAccess.WRITE);file.store_string(JSON.stringify(snapshots,"",true,true));file.close();_finish();return
+ for saved in snapshots:_prospective(saved,Preparation)
+ var old: Variant=_decode(FileAccess.get_file_as_string(work_root+"/baseline-songs.json"))
+ if _check(old is Array and old.size()==2,"actual previous-source v1 rehearsal histories"):
+  for saved in old:_mixed(saved,Preparation)
+ _literal_sections(Preparation)
+ _finish()
+
+func _identity(material: Dictionary,base: Dictionary) -> Dictionary:
+ var result: Dictionary=base.duplicate(true)
+ result.revision_id=result.composition_id+":material:"+Workbench._hash(material)
+ return result
+func _status(result: Dictionary,verse: String,chorus: String,message: String) -> void:
+ _check(result.get("ok",false) and result.sections.verse.status==verse and result.sections.chorus.status==chorus,message)
+
+func _prospective(saved: Dictionary,Preparation) -> void:
+ owner=Owner.new();if not _check(owner.restore(saved),"new source receipt restores"):return
+ var ref: Dictionary=Workbench.finished(owner.snapshot()).items[0].reference
+ var target: Dictionary=Preparation.target(owner.snapshot(),ref)
+ var rows: Array=owner.game.career[Preparation.KEY].receipts
+ _check(rows.size()==3,"actual three recorded rehearsals")
+ for row in rows:
+  _check(row.has(Preparation.SOURCE_KEY) and row[Preparation.SOURCE_KEY].version==2,"prospective receipts self-identify v2")
+  _check(Preparation.source_valid(row[Preparation.SOURCE_KEY],target.identity),"stored material hash bound to exact earned revision")
+ var query: Dictionary=Preparation.section_evidence(owner.snapshot(),ref,"cast_zoe")
+ _status(query,"exact","exact","actual present musician has exact source facts")
+ var material: Dictionary=rows[0][Preparation.SOURCE_KEY].material.duplicate(true)
+ var recipe: Dictionary=material.producer_recipe.duplicate(true)
+ if int(recipe.version)==2:recipe.pace="urgent" if recipe.pace=="driving" else "driving"
+ else:
+  var values: Array=Mixing.VALUES[1]
+  recipe.pace=values[posmod(values.find(recipe.pace)+1,values.size())]
+ var changed: Dictionary=Producer.material(recipe)
+ _check(Preparation.material_valid(changed),"controlled existing-recipe alternative is valid source material")
+ _status(Preparation._project_sections(owner.game.career,_identity(changed,target.identity),changed,"cast_zoe"),"untracked","untracked","any global producer pace change refreshes both sections; no lyric-only musical transfer")
+ # Every finite control of both genuinely saved producer formats, not only pace.
+ var original_recipe: Dictionary=material.producer_recipe
+ var fields: Array=Producer.FIELDS if int(original_recipe.version)==2 else Mixing.FIELDS
+ var domains: Array=Producer.VALUES if int(original_recipe.version)==2 else Mixing.VALUES
+ for axis in range(fields.size()):
+  for choice in domains[axis]:
+   if choice==original_recipe[fields[axis]]:continue
+   var variant: Dictionary=original_recipe.duplicate(true);variant[fields[axis]]=choice
+   var candidate_material: Dictionary=Producer.material(variant)
+   _check(Preparation.material_valid(candidate_material),"finite original control alternative valid "+str(fields[axis]))
+   _status(Preparation._project_sections(owner.game.career,_identity(candidate_material,target.identity),candidate_material,"cast_zoe"),"untracked","untracked","whole recipe binds changed "+str(fields[axis])+"="+str(choice))
+ if int(original_recipe.version)==4:
+  for hook in Mixing.HOOKS:
+   if hook==original_recipe.hook:continue
+   var variant: Dictionary=original_recipe.duplicate(true);variant.hook=hook
+   var candidate_material: Dictionary=Producer.material(variant)
+   _check(Preparation.material_valid(candidate_material),"existing alternate foundation valid")
+   _status(Preparation._project_sections(owner.game.career,_identity(candidate_material,target.identity),candidate_material,"cast_zoe"),"untracked","untracked","different global foundation cannot inherit musical section evidence")
+ var stale: Dictionary=ref.duplicate(true);stale.fragment_sha256="stale"
+ _check(not Preparation.section_evidence(owner.snapshot(),stale,"cast_zoe").ok,"public projection requires current exact finished reference")
+ var bytes: PackedByteArray=var_to_bytes([owner.snapshot(),material])
+ Preparation.section_evidence(owner.snapshot(),ref,"cast_zoe")
+ Preparation._project_sections(owner.game.career,_identity(changed,target.identity),changed,"cast_zoe")
+ _check(var_to_bytes([owner.snapshot(),material])==bytes,"queries never alter material, receipts or owner")
+ for value in [null,42,[],{}, {"version":3,"policy":Preparation.SOURCE_POLICY,"material":material}]:
+  var bad: Dictionary=owner.game.career[Preparation.KEY].duplicate(true);bad.receipts[0][Preparation.SOURCE_KEY]=value
+  _check(not Preparation.valid(bad),"malformed/future source wrapper refuses")
+ var bad: Dictionary=owner.game.career[Preparation.KEY].duplicate(true);bad.receipts[0][Preparation.SOURCE_KEY].material.producer_recipe=recipe
+ _check(not Preparation.valid(bad),"snapshot changed without matching revision digest refuses")
+ bad=owner.game.career[Preparation.KEY].duplicate(true);bad.receipts[0][Preparation.SOURCE_KEY].material["unrecognised"]="future"
+ _check(not Preparation.valid(bad),"unknown material schema not silently reduced")
+
+func _mixed(saved: Dictionary,Preparation) -> void:
+ owner=CountedOwner.new()
+ if not _check(owner.restore(saved) and _available(),"real old v1 career/availability"):return
+ var old_rows: Array=owner.game.career[Preparation.KEY].receipts.duplicate(true)
+ for row in old_rows:_check(not row.has(Preparation.SOURCE_KEY),"baseline genuinely lacks material snapshots")
+ var ref: Dictionary=Workbench.finished(owner.snapshot()).items[0].reference
+ var identity: Dictionary=Preparation.target(owner.snapshot(),ref).identity
+ var material: Dictionary=Workbench._material(Workbench.read_finished(owner.snapshot(),ref).fragment.fragment)
+ _status(Preparation.section_evidence(owner.snapshot(),ref,"cast_zoe"),"exact","exact","v1 exact-revision facts remain usable without backfill")
+ var changed: Dictionary=material.duplicate(true)
+ var recipe: Dictionary=changed.producer_recipe.duplicate(true)
+ if int(recipe.version)==2:recipe.pace="urgent" if recipe.pace=="driving" else "driving"
+ else:
+  var values: Array=Mixing.VALUES[1];recipe.pace=values[posmod(values.find(recipe.pace)+1,values.size())]
+ changed=Producer.material(recipe)
+ _status(Preparation._project_sections(owner.game.career,_identity(changed,identity),changed,"cast_zoe"),"untracked","untracked","v1 cannot invent cross-revision source familiarity")
+ var expected: String=owner.song_rehearsal_expected();var before: Dictionary=owner.snapshot()
+ var blocker: String=ProjectSettings.globalize_path(Owner.SAVE_PATH+".identity-tmp")
+ _check(owner.save_draft(),"write isolated old career before failure")
+ var disk: PackedByteArray=FileAccess.get_file_as_bytes(Owner.SAVE_PATH);var count: int=owner.save_calls
+ _check(DirAccess.make_dir_recursive_absolute(blocker)==OK,"real mixed-history write blocker")
+ _check(not owner.rehearse_song(ref,{"focus":"precision","effort":"steady"},expected).ok,"new source receipt save failure held")
+ _check(Workbench._exact(owner.snapshot(),before) and FileAccess.get_file_as_bytes(Owner.SAVE_PATH)==disk and owner.save_calls==count+1,"full old rows/owner/file rollback with one attempted write")
+ _check(DirAccess.remove_absolute(blocker)==OK,"remove only isolated blocker")
+ var result: Dictionary=owner.rehearse_song(ref,{"focus":"precision","effort":"steady"},expected)
+ if not _check(result.ok,"same expected mixed-history retry commits"):return
+ var now_rows: Array=owner.game.career[Preparation.KEY].receipts
+ _check(now_rows.size()==old_rows.size()+1 and owner.save_calls==count+2,"new source snapshot adds no second save")
+ for i in range(old_rows.size()):_check(Workbench._exact(now_rows[i],old_rows[i]),"old v1 receipt bytes/types unchanged")
+ _check(now_rows[-1].has(Preparation.SOURCE_KEY),"only newly paid receipt receives source snapshot")
+ var reload=Owner.new();_check(reload.load_draft() and Workbench._exact(reload.snapshot(),owner.snapshot()),"mixed v1/v2 real typed reload")
+
+func _literal_sections(Preparation) -> void:
+ if not _check(_fixture() and _available(),"actual literal-song formation/availability"):return
+ var title: String="WORDS IN THE WINDOW"
+ if not _check(owner.begin_workbench(title,0,owner.workbench_expected()).ok,"original literal workbench begins"):return
+ var text: String="The last bus left a space beside the rain\nYour window kept its light above the street"
+ for _stage in range(3):
+  if not _check(_available(),"literal original actual writing evening"):return
+  var payload: Dictionary={"text":text,"refrain_line_id":"hook:2","title":title,"leader_index":0}
+  if not _check(owner.workbench_action("try",owner.workbench_expected(),payload).ok,"original literal take and note"):return
+  if not _check(_paid().ok,"original paid literal writing day"):return
+ if not _check(_available(),"literal rehearsal actual availability"):return
+ var ref: Dictionary=Workbench.finished(owner.snapshot()).items[0].reference
+ if not _check(owner.rehearse_song(ref,{"focus":"listening","effort":"steady"},owner.song_rehearsal_expected()).ok,"actual paid literal rehearsal"):return
+ var career: Dictionary=owner.game.career.duplicate(true)
+ var original_career_bytes: PackedByteArray=var_to_bytes(career)
+ var identity: Dictionary=Preparation.target(owner.snapshot(),ref).identity
+ var material: Dictionary=career[Preparation.KEY].receipts[-1][Preparation.SOURCE_KEY].material.duplicate(true)
+ _status(Preparation.section_evidence(owner.snapshot(),ref,"cast_zoe"),"exact","exact","actual literal source has exact section evidence")
+ # Explicit controlled FUTURE-material projections, not a claimed earned rewrite.
+ var changed: Dictionary=material.duplicate(true);changed.lines[0].text="We took a different road beside the rain"
+ _status(Preparation._project_sections(career,_identity(changed,identity),changed,"cast_zoe"),"untracked","retained","one changed literal verse preserves only unchanged chorus source facts")
+ var answer: Dictionary=Preparation._project_sections(career,_identity(changed,identity),changed,"cast_zoe")
+ _check(answer.sections.chorus.retained_actions==[career[Preparation.KEY].receipts[-1].action_id] and answer.sections.verse.exact_actions.is_empty(),"retained evidence names actual source action, not an aggregate score")
+ changed=material.duplicate(true);changed.lines[1].text="The street fell quiet when your light went out"
+ _status(Preparation._project_sections(career,_identity(changed,identity),changed,"cast_zoe"),"retained","untracked","one changed chorus preserves only unchanged verse source facts")
+ changed=material.duplicate(true);changed.refrain_line_id="hook:1";changed.sections={"verse":"hook:2","chorus":"hook:1"}
+ _status(Preparation._project_sections(career,_identity(changed,identity),changed,"cast_zoe"),"untracked","untracked","section/refrain reassignment requires refresh in both roles")
+ var other: Dictionary=identity.duplicate(true);other.song_id="original:999";other.composition_id="workbench:999";other.revision_id=other.composition_id+":material:"+Workbench._hash(material)
+ _status(Preparation._project_sections(career,other,material,"cast_zoe"),"untracked","untracked","identical material in another song/composition does not inherit")
+ _status(Preparation._project_sections(career,identity,material,"cast_arjun"),"untracked","untracked","replacement person cannot inherit another musician's source facts")
+ var reordered: Dictionary=career.duplicate(true);reordered.members.reverse()
+ _status(Preparation._project_sections(reordered,identity,material,"cast_zoe"),"exact","exact","roster order does not erase canonical person's facts")
+ var renamed: Dictionary=owner.snapshot();renamed.game.career.song_catalogue[0].title="A NEW DISPLAY NAME"
+ _status(Preparation.section_evidence(renamed,Workbench.finished(renamed).items[0].reference,"cast_zoe"),"exact","exact","cosmetic title keeps existing source familiarity")
+ var old_bytes: PackedByteArray=var_to_bytes(career)
+ Preparation._project_sections(career,identity,material,"cast_zoe")
+ _check(var_to_bytes(career)==old_bytes and var_to_bytes(career)==original_career_bytes,"all partial projections and return to previous version never rewrite receipts")
+ # Future/malformed optional row data is preserved on load, then refuses before any owner write.
+ var healthy: Dictionary=owner.snapshot();var disk: PackedByteArray=FileAccess.get_file_as_bytes(Owner.SAVE_PATH)
+ for broken in [42,{"version":3,"policy":Preparation.SOURCE_POLICY,"material":material}]:
+  var corrupt: Dictionary=healthy.duplicate(true);corrupt.game.career[Preparation.KEY].receipts[0][Preparation.SOURCE_KEY]=broken
+  var guarded=CountedOwner.new()
+  _check(guarded.restore(corrupt),"unknown optional source schema preserved by original loader")
+  _check(not guarded.rehearse_song(ref,{"focus":"precision","effort":"steady"},guarded.song_rehearsal_expected()).ok,"future source row cannot be advanced by current owner")
+  _check(guarded.save_calls==0 and Workbench._exact(guarded.snapshot(),corrupt) and FileAccess.get_file_as_bytes(Owner.SAVE_PATH)==disk,"refused future row keeps all unknown bytes with zero save/day/cash effects")
+  _check(not Preparation.section_evidence(guarded.snapshot(),ref,"cast_zoe").ok,"future source schema cannot produce a familiar-section claim")
