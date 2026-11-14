@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "session": "UX70",
+  "status": "source_and_scoped_native_verified",
+  "tested_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791",
+  "baseline_sha": "3c85758dadf9d17fece8a4ab6e693f41660c047c",
+  "completed_at": "2026-11-14T21:27:27.851896+00:00",
+  "changed": [
+    "Completed verification of the committed fixed top navigation, character-first conversations and staged existing writing/rehearsal choices.",
+    "Restored visible keyboard focus after closing Shape and changing a reply.",
+    "Re-armed an early review callback against its monotonic deadline so a valid Commit action cannot remain disabled."
+  ],
+  "verification": {
+    "native_checks": 4750,
+    "native_profiles": 5,
+    "native_originals": 125,
+    "clean_import": true,
+    "counterexample_before_failed_after_passed": true,
+    "python_tests": 35,
+    "protected_tracked_inputs": 1358
+  },
+  "evidence": "docs/continuous_improvement/evidence/UX70/native-summary.json",
+  "source_protection": "docs/continuous_improvement/evidence/UX70/source-protection.json",
+  "review": "docs/continuous_improvement/UX70_REVIEW.json",
+  "private_media": "Used byte-bound existing V26 registry and compiled Arjun samples in isolated proof only; no new audio and no private registry/media in Git.",
+  "release": {
+    "new_APK": false,
+    "V26_remains_delivered": true,
+    "owner_approved": false,
+    "physical_device_tested": false
+  },
+  "manual_check": [
+    "Use a current source build with the existing private media; open a saved band and follow the grouped activity navigation.",
+    "Open Writing: edit Shape, close with Escape or Use this direction, then navigate the visible replies by keyboard.",
+    "Change reply, pause/resume, exercise dirty Keep/Save/Discard, and confirm local choices survive.",
+    "Rehearse a selected song through focus, pace and review; confirm the original displayed cost and saved result.",
+    "Audition Jack/Arjun with optional questions or Hear part; compare available recordings and return through Menu."
+  ],
+  "next_action": "Scope the next bounded R3 song/version/participant rehearsal-preparation transfer slice from the verified UX70 source; preserve the existing ledger and selected-song route."
+}

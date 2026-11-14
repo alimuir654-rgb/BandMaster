@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "tested_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791",
+  "scoped_visual_verdict": "internal_pass",
+  "overall_game_visual_verdict": "partial",
+  "owner_approved": false,
+  "source_reviewer": "/root/ux70_review",
+  "root_opened_final_originals": {
+    "root_exact_current_source": [
+      "candidate-tall/writing-entry.png",
+      "candidate-tall/rehearsal-focus.png",
+      "candidate-tall/audition-response.png",
+      "candidate-wide/writing-entry.png",
+      "candidate-wide/rehearsal-focus.png",
+      "candidate-wide/promoter.png",
+      "candidate-wide/audition-entry.png"
+    ],
+    "root_byte_bound_prior_phone": [
+      "writing-entry.png",
+      "rehearsal-focus.png",
+      "promoter.png",
+      "writing-shape-escape.png",
+      "arjun-default-recording.png",
+      "audition-entry.png"
+    ],
+    "read_only_reviewer_phone": [
+      "promoter.png",
+      "rehearsal-review.png",
+      "rehearsal-save-failure.png",
+      "audition-entry.png",
+      "arjun-default-recording.png",
+      "writing-shape-escape.png"
+    ],
+    "read_only_reviewer_short": [
+      "writing-entry.png",
+      "writing-shape-escape.png",
+      "rehearsal-focus.png",
+      "promoter.png",
+      "audition-entry.png",
+      "audition-response.png"
+    ],
+    "binding": "All25phone and all25short current originals are byte-identical to c298b50 originals actually opened by root/reviewer; source-bound verification remains separate from owner acceptance.",
+    "read_only_reviewer_exact_current_tall_wide": [
+      "candidate-tall/writing-entry.png",
+      "candidate-tall/rehearsal-focus.png",
+      "candidate-tall/audition-response.png",
+      "candidate-wide/writing-entry.png",
+      "candidate-wide/rehearsal-focus.png",
+      "candidate-wide/audition-entry.png"
+    ]
+  },
+  "phone_short_prior_visual_binding": "All 25 final phone originals at the earlier focus fix matched the next timing-fix phone originals byte-for-byte; retained selected originals are current-source copies.",
+  "five_simulated_lenses": {
+    "first_time_player": "Character and one exchange precede current choices; optional audition conversation stays optional. Internal task completion is not uncoached comprehension evidence.",
+    "musician": "Canonical chosen collaborator, actual retained suggestion and honest original-versus-written audition response remain. No new music or human listening acceptance.",
+    "accessibility": "Actual keyboard focus survives Shape Escape/Done and Change Reply; fixed navigation and physical targets pass four native sizes. Physical Android remains untested.",
+    "godot_engineer": "Reuses original model/owner/save APIs. Early timer counterexample now releases through original eligibility refresh after monotonic expiry; no force-enable or settlement.",
+    "release_qa": "Exact-source clean import, four reduced-motion native journeys, one normal-motion journey and save failure/retry/reload pass. New APK/export/signing and owner acceptance remain false."
+  },
+  "remaining": [
+    "Specialized onboarding, complex gig controls and unrelated modal flows are outside this priority UI pass.",
+    "R3 remains partial; R4-R7 remain dependency-held.",
+    "Physical-phone comfort, audio taste and owner acceptance remain pending."
+  ]
+}

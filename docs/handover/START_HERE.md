@@ -1,13 +1,13 @@
 # BandMaster — current handover
 <!-- session: UX70 -->
-<!-- status: active -->
+<!-- status: closed -->
 
-**UX70 is the current owner-requested UI/UX cleanup.** Fixed top return/title/Menu; character-first authored conversations; fewer simultaneous choices, with songwriting and rehearsal progressing in place. Root is the sole implementation writer; three helpers review read-only.
+**UX70 source verification is complete.** Fixed top navigation, character-first conversations and staged existing writing/rehearsal choices pass all four native sizes and a normal-motion phone journey. The resumed pass fixed lost keyboard focus after Shape/Change Reply and an early-timer callback that could leave Commit disabled.
 
-**Next:** Implement and verify UX70 character-first conversations, progressive choices and fixed navigation against the pinned baseline.
+Tested source: `acb912e5d8288d4d54d5cd3f0f18c5845dcb5791`. [Results](../continuous_improvement/UX70_RESULTS.json) · [Review](../continuous_improvement/UX70_REVIEW.json) · [Sole queue](../continuous_improvement/S80_EXECUTION_QUEUE.md).
 
-Baseline: `3c85758dadf9d17fece8a4ab6e693f41660c047c`. [Preflight](../continuous_improvement/sessions/UX70.json) · [Review](../continuous_improvement/UX70_UX_REVIEW.md) · [Sole queue](../continuous_improvement/S80_EXECUTION_QUEUE.md).
+**Next:** Scope the next bounded R3 song/version/participant rehearsal-preparation transfer slice from the verified UX70 source; preserve the existing ledger and selected-song route.
 
-V26 remains signed, officially verified and privately delivered as the unchanged standalone Dropbox APK. [Delivery results](../continuous_improvement/DELIVER69_RESULTS.json). No new APK/export/signing is part of UX70. All prior CI at the DELIVER69 head completed successfully.
+R0 complete; R1/R2 internally verified with owner acceptance pending; R3 partial; R4–R7 dependency-held. UX70 does not complete song-specific preparation transfer or authorise a new gameplay model by itself.
 
-Protect original models, content fingerprints, art/fonts/audio, saves and once-only transactions. Native verification uses isolated source-bound fixtures; owner acceptance remains false. R2 internally verified; R3 partial; R4–R7 held. Finite overnight automation remains disabled.
+V26 remains signed, verified and privately delivered. No new APK/export/signing was performed. Existing private V26 Arjun media was restored only for isolated proof and remains outside Git. Protected models, cast/content, art/fonts/audio and save/once-only owners are unchanged. Owner acceptance and physical-phone/listening remain pending. Root writer released; finite automation remains disabled.

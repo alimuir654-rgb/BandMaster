@@ -1,0 +1,2019 @@
+{
+  "schema_version": 1,
+  "tested_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791",
+  "baseline_sha": "3c85758dadf9d17fece8a4ab6e693f41660c047c",
+  "profiles": {
+    "phone": {
+      "pass": true,
+      "checks": 950,
+      "failures": [],
+      "viewport": [
+        390,
+        844
+      ],
+      "images": [
+        {
+          "state": "real-home-return",
+          "sha256": "4f46e70259cf40ddbac5802931b8ecabff701f19ccf04aaf1fcd8065c2ad595c",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "state": "home",
+          "sha256": "eb153163cc0bca2386a81419a934fcfcbfb0da6d5d5c592a19d9cdc365903765",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "state": "songbook",
+          "sha256": "7d76b52815418e675a1c9c80bcd565a36b65df6a5a0d46082fb6e9fa6caf9300",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "state": "musician",
+          "sha256": "2f3e195aa207553d61d8bba478a8bcdce5ecccd06120eb43fecfc69d400d4c0e",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "state": "promoter",
+          "sha256": "8ebe3a77241a5d7f6131472e3473ea88d204a0a2bffd969c94c4149276115cf6",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "state": "rehearsal-entry",
+          "sha256": "55621aaeb3e5ccf4bd07d6fbbd4321a607cba81e872095caf34705e122f22165",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "state": "rehearsal-selected",
+          "sha256": "97d439201c3b76a5549efa34798c8ce122a656890a06b0fd01e82d3ea47e20c3",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "state": "rehearsal-focus",
+          "sha256": "b2f7c7c421fe17c6fab4623bbf7b1104ced3eaeb95455fcc93798fcb79937c1e",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "state": "rehearsal-review",
+          "sha256": "23cb48c7de1e1a8a4ec27a5f8ba7ae902640ac1b145584f88c09809c44eae731",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "state": "rehearsal-save-failure",
+          "sha256": "0a37418f4308253a687b9c3b9a6494a319b561262ed42733ccd35508b566cc3b",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "state": "rehearsal-saved-song",
+          "sha256": "14a8ab48a5cd6722570a867f8fcb70a68efa18ca9d7039f5763951483be532a0",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "state": "rehearsal-attendance",
+          "sha256": "a8eb7c683666fdee0827e22da89c56e291a3e4fcece44b209b3ff2a7dbbcbaf3",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "state": "writing-entry",
+          "sha256": "19c80ac27486cdd4033d32be56c8681992e6c0ebae881ab7b116574a0e0be6c0",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "state": "writing-shape",
+          "sha256": "edf6e1d9c968d99a9e4056993f26e4d4bbe61e2e1f38be0949090b77b95e716d",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "state": "writing-shape-escape",
+          "sha256": "75c54d8a5bdd27b14c1ab27153acb9f2b40651bb021ef29164d0818403a0ba01",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "state": "writing-reply",
+          "sha256": "4c661ce82df08b3378a26741ba428e3cbe43dd700f011aea9942e287818dc277",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "state": "writing-save-failure",
+          "sha256": "da425513a2a4614b720a34d77f8b28dd429af4a1f31a1d11555ad401f7e278b6",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "state": "writing-saved-stage",
+          "sha256": "c7209de673da1b6452524817b90b6b561210a456742252c6ab148c4c1ddc8a8e",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "state": "writing-held-review",
+          "sha256": "1abd2e84e340762221719d71e1dbcfad41956e680d1c39d331bf25f310645b0a",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "state": "audition-entry",
+          "sha256": "0edd249076af4a99b332ac7394d55880d1e7baad241cbe30e83e213b4d57f8e7",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "state": "audition-second-question",
+          "sha256": "eab73ebc56eff4c276623fa46124b1af0e8ac53f1bb2b604c5048b2572730f74",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "state": "audition-response",
+          "sha256": "84ca19f92fccd0e062d5cb0f20b17061492499f59b4bcbd338870df299271df1",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "state": "audition-invited",
+          "sha256": "24912bcc8f3fad0196cb499e2a9a63a840b5f308eba87162fc258fa5328fcd26",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "state": "arjun-default-recording",
+          "sha256": "920eb733c5e1a416dedd9a956236a19aef75dce34edf33a2fc4b0c5fb95c0a25",
+          "width": 390,
+          "height": 844
+        },
+        {
+          "state": "arjun-written-response",
+          "sha256": "234819d85a3505c6eb5fa6c4f89d32a91de7d10b2140dc55942f613561247500",
+          "width": 390,
+          "height": 844
+        }
+      ],
+      "fixed_navigation": [
+        {
+          "frame": "real-home-return",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "home",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "songbook",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "musician",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "promoter",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "rehearsal-entry",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "rehearsal-selected",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "rehearsal-focus",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "rehearsal-review",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "rehearsal-save-failure",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "rehearsal-saved-song",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "rehearsal-attendance",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "writing-entry",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "writing-shape",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "writing-shape-escape",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "writing-reply",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "writing-save-failure",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "writing-saved-stage",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "writing-held-review",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "audition-entry",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "audition-second-question",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "audition-response",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "audition-invited",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "arjun-default-recording",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "arjun-written-response",
+          "rect": [
+            12.0,
+            12.0,
+            366.0,
+            52.0
+          ]
+        }
+      ],
+      "focus": [
+        {
+          "disabled": false,
+          "focus": "musician route",
+          "name": "ChatBack",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "changed topic",
+          "name": "ChatBack",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "career Menu Resume",
+          "name": "CareerMenuAction",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "rehearsal focus question",
+          "name": "RehearsalIntent_focus_precision",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "rehearsal pace question",
+          "name": "RehearsalIntent_effort_steady",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "writing Shape Escape",
+          "name": "MixingResponse_try",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "writing Shape Done",
+          "name": "MixingResponse_try",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "writing review",
+          "name": "MixingHear",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "writing Change Reply",
+          "name": "MixingResponse_try",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "dirty Keep",
+          "name": "MixingHear",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "audition next question",
+          "name": "AuditionTalk_commitment_dates",
+          "visible": true
+        }
+      ],
+      "explicit_timing_fixtures": [
+        {
+          "disabled": false,
+          "fixture": "early review callback",
+          "remaining_ms": -152
+        }
+      ]
+    },
+    "short": {
+      "pass": true,
+      "checks": 950,
+      "failures": [],
+      "viewport": [
+        1280,
+        720
+      ],
+      "images": [
+        {
+          "state": "real-home-return",
+          "sha256": "9f5b2361902423cafbbf37276116077966ddc30af8a5739526fb63c78245c3f0",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "state": "home",
+          "sha256": "4b792dfcdb71bd646f62f3749eb1e19e36647d046e268728ba7a01a8e09a564b",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "state": "songbook",
+          "sha256": "58eca15ae5f8305ef059329875e8b761b93e8201f7b53f6b90decc7def4c7cf8",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "state": "musician",
+          "sha256": "5e364e3162900fda5a5c395396cadc02581cdd9717640f6455bd8b49fffa10a3",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "state": "promoter",
+          "sha256": "57c80b2f78e23ca8f405549ba6e3078cd51eb078aeb1c4fb47177c36c98476b0",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "state": "rehearsal-entry",
+          "sha256": "52b2190eb53d639c5b07e27d43ca2f1b646b99d7d3efbdf5ca5933d4cecb562f",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "state": "rehearsal-selected",
+          "sha256": "53d39a50618fd6e40cebedaeb5cdbd83944a5829fa3fbc20cb5472ce4493d776",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "state": "rehearsal-focus",
+          "sha256": "7b65874abe370cfbca457021dc103d5244817985ee1163b0b7864ed9d98edfb3",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "state": "rehearsal-review",
+          "sha256": "4070751b8f65acaf6e3142fed12404958b90b0986da6169114326005cbebad1c",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "state": "rehearsal-save-failure",
+          "sha256": "2990738acb7f930a9edf899b2b0ef8d81676dcdb137fd5414b913513fa00c877",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "state": "rehearsal-saved-song",
+          "sha256": "35e632ac9accf8f2a7dfd2ba808ea4aeb97c5c98199d36b3061dd743b18e57c4",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "state": "rehearsal-attendance",
+          "sha256": "17230300248fcc7438fb2c663158bf5f9128e64c6e6d502dfd1f909098bda072",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "state": "writing-entry",
+          "sha256": "817dffe1bdb63ed80f5522990935848cfbe47b89dd061b0918d00e45e750fb7f",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "state": "writing-shape",
+          "sha256": "d19cc6dd0cfb75bb4b25a8d515bd7cbd3b55573d3375fac9352415f04e193193",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "state": "writing-shape-escape",
+          "sha256": "d2ade569b471f55222e4afaacbd571349c9e1b54084d6533c9af605d6dfd3c5b",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "state": "writing-reply",
+          "sha256": "d4d6fc43a6f9e6bae4f9fada2a0bbe49256a669d72d87862bf4c1814ef7e10fe",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "state": "writing-save-failure",
+          "sha256": "d933997314cef2cdc394ed9092a0bbf71674130fac64903bec5fc38da66494a0",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "state": "writing-saved-stage",
+          "sha256": "c87a4a49ddec13aa555ea1caf84fcad8f0048ada264735c68f46deb1d929b572",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "state": "writing-held-review",
+          "sha256": "f24e779c67349cd97b357b121d359ba18a08a9a7c591d5389a2e9d43ba5fb685",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "state": "audition-entry",
+          "sha256": "362dd734e67a32a648dcc19e2ba26040a70014e8b3c0985f767fe548acdb65e5",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "state": "audition-second-question",
+          "sha256": "8bc93c8e904f58b67d02a15e737a4084cbad2d362c365bc5aabf16891621de95",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "state": "audition-response",
+          "sha256": "8d6146c85e09d044e8a1fb6c36487c73f6b8bd616ad18cbf8708da0d12ef0576",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "state": "audition-invited",
+          "sha256": "ea9f896134cc11bdfaf00ce4585f78fd5a6478506900b4e230027bafb6dbb7a2",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "state": "arjun-default-recording",
+          "sha256": "f2bf66f5265db49bca0ba34efbf2405f0c257a62100da91612d6d1e178ab907e",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "state": "arjun-written-response",
+          "sha256": "83591fe8e40edb752d227fa1cfb7aaf577331b66e5ecd8b907d64e6afdc2c574",
+          "width": 1280,
+          "height": 720
+        }
+      ],
+      "fixed_navigation": [
+        {
+          "frame": "real-home-return",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        },
+        {
+          "frame": "home",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        },
+        {
+          "frame": "songbook",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        },
+        {
+          "frame": "musician",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        },
+        {
+          "frame": "promoter",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        },
+        {
+          "frame": "rehearsal-entry",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        },
+        {
+          "frame": "rehearsal-selected",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        },
+        {
+          "frame": "rehearsal-focus",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        },
+        {
+          "frame": "rehearsal-review",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        },
+        {
+          "frame": "rehearsal-save-failure",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        },
+        {
+          "frame": "rehearsal-saved-song",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        },
+        {
+          "frame": "rehearsal-attendance",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        },
+        {
+          "frame": "writing-entry",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        },
+        {
+          "frame": "writing-shape",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        },
+        {
+          "frame": "writing-shape-escape",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        },
+        {
+          "frame": "writing-reply",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        },
+        {
+          "frame": "writing-save-failure",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        },
+        {
+          "frame": "writing-saved-stage",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        },
+        {
+          "frame": "writing-held-review",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        },
+        {
+          "frame": "audition-entry",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        },
+        {
+          "frame": "audition-second-question",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        },
+        {
+          "frame": "audition-response",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        },
+        {
+          "frame": "audition-invited",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        },
+        {
+          "frame": "arjun-default-recording",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        },
+        {
+          "frame": "arjun-written-response",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            57.0
+          ]
+        }
+      ],
+      "focus": [
+        {
+          "disabled": false,
+          "focus": "musician route",
+          "name": "ChatBack",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "changed topic",
+          "name": "ChatBack",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "career Menu Resume",
+          "name": "CareerMenuAction",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "rehearsal focus question",
+          "name": "RehearsalIntent_focus_precision",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "rehearsal pace question",
+          "name": "RehearsalIntent_effort_steady",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "writing Shape Escape",
+          "name": "MixingResponse_try",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "writing Shape Done",
+          "name": "MixingResponse_try",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "writing review",
+          "name": "MixingHear",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "writing Change Reply",
+          "name": "MixingResponse_try",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "dirty Keep",
+          "name": "MixingHear",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "audition next question",
+          "name": "AuditionTalk_commitment_dates",
+          "visible": true
+        }
+      ],
+      "explicit_timing_fixtures": [
+        {
+          "disabled": false,
+          "fixture": "early review callback",
+          "remaining_ms": -153
+        }
+      ]
+    },
+    "tall": {
+      "pass": true,
+      "checks": 950,
+      "failures": [],
+      "viewport": [
+        720,
+        1280
+      ],
+      "images": [
+        {
+          "state": "real-home-return",
+          "sha256": "08f734195cb746e363b8136a377dfe037dbd0f68e8012396122dd8d091052d61",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "state": "home",
+          "sha256": "4ab1afcde0542d0aabdc112ca12294560cf2d01d264968e8c55d8ee391dca864",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "state": "songbook",
+          "sha256": "3321c312cf6468d46e06b7f17fd8e27aa4a222278cacdaf5094a1c4855014027",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "state": "musician",
+          "sha256": "0644c9fd135fa41fb8b887a06fedeece3fdeac7e6e821123ee6d66bb2beef282",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "state": "promoter",
+          "sha256": "5e845a7e38ad27b67cd44312527e54bb1a1b0e0b57e9443a03bf4394d99a1352",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "state": "rehearsal-entry",
+          "sha256": "0938ad11324008e7568147f196e8502f9d02721404f88e057db235fe814d6c7c",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "state": "rehearsal-selected",
+          "sha256": "af83353095c14a9ca1202b3eb93c36ec42295ae483af2388302a25b0b4c9692a",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "state": "rehearsal-focus",
+          "sha256": "62147db9257776d8dd49c7aa38ecb016113ec82bba2018c20660358fe6c9d8c9",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "state": "rehearsal-review",
+          "sha256": "34c5660d016d0eee0e3239c5b3b02301f2441e4c41452588fe10666f3a8b7bc0",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "state": "rehearsal-save-failure",
+          "sha256": "727d8d6d771fcef4ff836d6fec526440476c983ae4100526c5b75663da0083a6",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "state": "rehearsal-saved-song",
+          "sha256": "7a098c79c1798026f9264bd0a8a069e8aa28985b8a682ab6873effeb7026f528",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "state": "rehearsal-attendance",
+          "sha256": "b32b2da28d932e7226c1eae2e4041819fb5f6d0314758c2872b8c4ebe4763fca",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "state": "writing-entry",
+          "sha256": "689ca2e2bbbd90e27bc6913456bbf3f354656e27a39c810d844d36a1870073e6",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "state": "writing-shape",
+          "sha256": "ffd0b058aec3c0ac900d8231ddcb856ce60ae8ca8cb357cd5a90288b1259b8a3",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "state": "writing-shape-escape",
+          "sha256": "db7f929a595448d823d95489c8b708bc2b464a1a14df91d3513f0dd9169f1274",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "state": "writing-reply",
+          "sha256": "00ff87509bc7ba5d1c01a70789abea5e23b697ce1fd8926f255758ebed1c0b6c",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "state": "writing-save-failure",
+          "sha256": "f808890dc3748611dddcd9bdc256e905184c47b3b922d4af0c3d8afae9829c1e",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "state": "writing-saved-stage",
+          "sha256": "5df0795dba36637fddbbd205f61259e328a15a668d360e54edd063164d4e2e4a",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "state": "writing-held-review",
+          "sha256": "58c4250afaa6d93a73ab24ab6d043ce8fe53bdffe3a835159f3131d37a7c2122",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "state": "audition-entry",
+          "sha256": "77a79465abe5a3e44dd5ba95863ac2e58f00423b69058d17238ad4fea7af8902",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "state": "audition-second-question",
+          "sha256": "628a840ef65c841907504de9f16b62888063850ad34e41b7a213060b04b52ba8",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "state": "audition-response",
+          "sha256": "376d6739ed3534af30541238842ee7fad59a1d90dfac4b0787b6a944bc5754ac",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "state": "audition-invited",
+          "sha256": "2f781a9eaa0618fdc5f1acfa3c1c2e27d0da49d6c024667d40995eb47c379d77",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "state": "arjun-default-recording",
+          "sha256": "d90ff43409b1555092ea91b748fb18078cdf28f75485c432659a18a1faa1dda3",
+          "width": 720,
+          "height": 1280
+        },
+        {
+          "state": "arjun-written-response",
+          "sha256": "6c03bf56528cfad1b2b8bdc6223a4238a5083186e050ab5ca5d9707ae7465cde",
+          "width": 720,
+          "height": 1280
+        }
+      ],
+      "fixed_navigation": [
+        {
+          "frame": "real-home-return",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "home",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "songbook",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "musician",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "promoter",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "rehearsal-entry",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "rehearsal-selected",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "rehearsal-focus",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "rehearsal-review",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "rehearsal-save-failure",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "rehearsal-saved-song",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "rehearsal-attendance",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "writing-entry",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "writing-shape",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "writing-shape-escape",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "writing-reply",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "writing-save-failure",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "writing-saved-stage",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "writing-held-review",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "audition-entry",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "audition-second-question",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "audition-response",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "audition-invited",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "arjun-default-recording",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "arjun-written-response",
+          "rect": [
+            12.0,
+            12.0,
+            450.0,
+            52.0
+          ]
+        }
+      ],
+      "focus": [
+        {
+          "disabled": false,
+          "focus": "musician route",
+          "name": "ChatBack",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "changed topic",
+          "name": "ChatBack",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "career Menu Resume",
+          "name": "CareerMenuAction",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "rehearsal focus question",
+          "name": "RehearsalIntent_focus_precision",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "rehearsal pace question",
+          "name": "RehearsalIntent_effort_steady",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "writing Shape Escape",
+          "name": "MixingResponse_try",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "writing Shape Done",
+          "name": "MixingResponse_try",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "writing review",
+          "name": "MixingHear",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "writing Change Reply",
+          "name": "MixingResponse_try",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "dirty Keep",
+          "name": "MixingHear",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "audition next question",
+          "name": "AuditionTalk_commitment_dates",
+          "visible": true
+        }
+      ],
+      "explicit_timing_fixtures": [
+        {
+          "disabled": false,
+          "fixture": "early review callback",
+          "remaining_ms": -157
+        }
+      ]
+    },
+    "wide": {
+      "pass": true,
+      "checks": 950,
+      "failures": [],
+      "viewport": [
+        1600,
+        900
+      ],
+      "images": [
+        {
+          "state": "real-home-return",
+          "sha256": "f658cbdbfac27bdb6b0ba60978b0656693a4b2c5f37a93e6a979183aaf3f547e",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "state": "home",
+          "sha256": "e3f92d64de724cf2949e8979a216d77687b32a6c9d4f77998cb7f4921d040439",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "state": "songbook",
+          "sha256": "360451439282cbe0585e5e017d917bec6375df1809d1af43ea7794e52632d96d",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "state": "musician",
+          "sha256": "ded61b69b2f20f92bb6063936df703b82c305113b241c012a3d22521e3a9ec70",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "state": "promoter",
+          "sha256": "cdafdd5956a29953f89d0a3ee866a43177c2db24031c68bed7f0b6a65ffff2d5",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "state": "rehearsal-entry",
+          "sha256": "b291d58976820bf8a61644ce511c09649344fa894af24e6e54fbb03042dbc9cd",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "state": "rehearsal-selected",
+          "sha256": "061ee86733162d0ba16c67a0aea14dc75b98d2359c6f413345b0c63432dee269",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "state": "rehearsal-focus",
+          "sha256": "57961f100e94146d9284271e927e0f37662a2d86c6d68a08ca64def9bf51e63a",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "state": "rehearsal-review",
+          "sha256": "936992ad6dd3a7bcaa22ab1e395ad6bb82174b9811ad948735813ef057056db3",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "state": "rehearsal-save-failure",
+          "sha256": "25d3f6415a562228edf09ab674f391cc1b49c6ac19f2d0d00c18aace8597749e",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "state": "rehearsal-saved-song",
+          "sha256": "72e832b20633f972424f8ae8210f32bc3fcac5cb66a2b4dc313dd3c572562571",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "state": "rehearsal-attendance",
+          "sha256": "aa45fcd0d9168ab4baa898dc458bcd30674da06d5e14b0b58ed4b949e29b51a9",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "state": "writing-entry",
+          "sha256": "c050b6aebf4e31a78e79e8d87a45a870a9f00cfb652710819ba446ef52152240",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "state": "writing-shape",
+          "sha256": "e2a23e7a0f97790b977c90ffd366c2afa929572c2c7902bf44c44f0c2b6c1968",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "state": "writing-shape-escape",
+          "sha256": "3601bc3060da41636ff419c749b4f94eb77fab7f2f07e3e7aa0f8632346b973a",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "state": "writing-reply",
+          "sha256": "3d3101c70ca30b560be7fa6adc002aa49909aaeac73bbeed33375cc5e3a4b3ad",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "state": "writing-save-failure",
+          "sha256": "334acd862a1616db73a7ae99ffa052118946a67ed35409237e5551c9d1e89859",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "state": "writing-saved-stage",
+          "sha256": "ca36902bd15de61d8caff69f580ed1d9d68740f5f6a7014637d7a0cd63698c4c",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "state": "writing-held-review",
+          "sha256": "fb84e5973e079d40c906ea6dd2b7cf14bb622f8f803d733c2a5d5e56fd112d2a",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "state": "audition-entry",
+          "sha256": "400905ecb7c642fdd7455025a2cd0d64ffde03f8589ce6eeceed828b6d5ddd11",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "state": "audition-second-question",
+          "sha256": "6ace200e4d4e74d637c5a5e621a645b16d6343d54fc3558605842650e46d1b5c",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "state": "audition-response",
+          "sha256": "0be19c88bb2997a85f17108dd52843a762c0740c51290c746c7a19a972eea9f9",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "state": "audition-invited",
+          "sha256": "093e179342eeb89b7629257a586c1bebba6cc1bfeddcdcba0ff8e17be0b72498",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "state": "arjun-default-recording",
+          "sha256": "b5b52ff5409dbb33a314468ba8f3b9f20d6963ddb39b43689bb77691f3d28d5a",
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "state": "arjun-written-response",
+          "sha256": "0dd4f9d27b67bf87ea6fe76dd3a69aa484e7bb20bf8a0fb906d3ad21af7314a3",
+          "width": 1600,
+          "height": 900
+        }
+      ],
+      "fixed_navigation": [
+        {
+          "frame": "real-home-return",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "home",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "songbook",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "musician",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "promoter",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "rehearsal-entry",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "rehearsal-selected",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "rehearsal-focus",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "rehearsal-review",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "rehearsal-save-failure",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "rehearsal-saved-song",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "rehearsal-attendance",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "writing-entry",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "writing-shape",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "writing-shape-escape",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "writing-reply",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "writing-save-failure",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "writing-saved-stage",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "writing-held-review",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "audition-entry",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "audition-second-question",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "audition-response",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "audition-invited",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "arjun-default-recording",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        },
+        {
+          "frame": "arjun-written-response",
+          "rect": [
+            20.0,
+            20.0,
+            1460.0,
+            52.0
+          ]
+        }
+      ],
+      "focus": [
+        {
+          "disabled": false,
+          "focus": "musician route",
+          "name": "ChatBack",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "changed topic",
+          "name": "ChatBack",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "career Menu Resume",
+          "name": "CareerMenuAction",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "rehearsal focus question",
+          "name": "RehearsalIntent_focus_precision",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "rehearsal pace question",
+          "name": "RehearsalIntent_effort_steady",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "writing Shape Escape",
+          "name": "MixingResponse_try",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "writing Shape Done",
+          "name": "MixingResponse_try",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "writing review",
+          "name": "MixingHear",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "writing Change Reply",
+          "name": "MixingResponse_try",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "dirty Keep",
+          "name": "MixingHear",
+          "visible": true
+        },
+        {
+          "disabled": false,
+          "focus": "audition next question",
+          "name": "AuditionTalk_commitment_dates",
+          "visible": true
+        }
+      ],
+      "explicit_timing_fixtures": [
+        {
+          "disabled": false,
+          "fixture": "early review callback",
+          "remaining_ms": -157
+        }
+      ]
+    }
+  },
+  "normal_motion_phone": {
+    "checks": 950,
+    "pass": true,
+    "images": 25,
+    "reduced_motion": false,
+    "source_receipt": "/workspace/work/ux70-normal-proof/RUN.json"
+  },
+  "early_callback_counterexample": {
+    "before_pass": false,
+    "after_pass": true,
+    "checks": 130,
+    "after_trace": [
+      {
+        "busy": false,
+        "cost": "Uses 1 day · No studio hire · Session 1 of 3",
+        "disabled": false,
+        "explicit_presentation_fixture": "early monotonic cooldown callback, not a gameplay event",
+        "first": {
+          "disabled": true,
+          "remaining_ms": 67
+        },
+        "held": false,
+        "remaining_ms": -154
+      }
+    ],
+    "presentation_fixture_not_native_input": true
+  },
+  "python_checks": {
+    "project_context_unit_tests": 11,
+    "improvement_gate_unit_tests": 24,
+    "pass": true
+  },
+  "engine_sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+  "clean_import": true,
+  "physical_device": false,
+  "audio_listening": false,
+  "new_APK": false,
+  "selected_public_originals": [
+    {
+      "path": "docs/continuous_improvement/evidence/UX70/final-phone-writing-entry.png",
+      "sha256": "19c80ac27486cdd4033d32be56c8681992e6c0ebae881ab7b116574a0e0be6c0",
+      "source_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/UX70/final-phone-writing-shape-escape.png",
+      "sha256": "75c54d8a5bdd27b14c1ab27153acb9f2b40651bb021ef29164d0818403a0ba01",
+      "source_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/UX70/final-phone-rehearsal-focus.png",
+      "sha256": "b2f7c7c421fe17c6fab4623bbf7b1104ced3eaeb95455fcc93798fcb79937c1e",
+      "source_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/UX70/final-phone-promoter.png",
+      "sha256": "8ebe3a77241a5d7f6131472e3473ea88d204a0a2bffd969c94c4149276115cf6",
+      "source_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/UX70/final-phone-audition-entry.png",
+      "sha256": "0edd249076af4a99b332ac7394d55880d1e7baad241cbe30e83e213b4d57f8e7",
+      "source_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/UX70/final-short-writing-entry.png",
+      "sha256": "817dffe1bdb63ed80f5522990935848cfbe47b89dd061b0918d00e45e750fb7f",
+      "source_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/UX70/final-short-writing-shape-escape.png",
+      "sha256": "d2ade569b471f55222e4afaacbd571349c9e1b54084d6533c9af605d6dfd3c5b",
+      "source_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/UX70/final-short-rehearsal-focus.png",
+      "sha256": "7b65874abe370cfbca457021dc103d5244817985ee1163b0b7864ed9d98edfb3",
+      "source_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/UX70/final-short-promoter.png",
+      "sha256": "57c80b2f78e23ca8f405549ba6e3078cd51eb078aeb1c4fb47177c36c98476b0",
+      "source_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/UX70/final-short-audition-entry.png",
+      "sha256": "362dd734e67a32a648dcc19e2ba26040a70014e8b3c0985f767fe548acdb65e5",
+      "source_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/UX70/final-tall-writing-entry.png",
+      "sha256": "689ca2e2bbbd90e27bc6913456bbf3f354656e27a39c810d844d36a1870073e6",
+      "source_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/UX70/final-tall-writing-shape-escape.png",
+      "sha256": "db7f929a595448d823d95489c8b708bc2b464a1a14df91d3513f0dd9169f1274",
+      "source_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/UX70/final-tall-rehearsal-focus.png",
+      "sha256": "62147db9257776d8dd49c7aa38ecb016113ec82bba2018c20660358fe6c9d8c9",
+      "source_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/UX70/final-tall-promoter.png",
+      "sha256": "5e845a7e38ad27b67cd44312527e54bb1a1b0e0b57e9443a03bf4394d99a1352",
+      "source_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/UX70/final-tall-audition-entry.png",
+      "sha256": "77a79465abe5a3e44dd5ba95863ac2e58f00423b69058d17238ad4fea7af8902",
+      "source_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/UX70/final-wide-writing-entry.png",
+      "sha256": "c050b6aebf4e31a78e79e8d87a45a870a9f00cfb652710819ba446ef52152240",
+      "source_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/UX70/final-wide-writing-shape-escape.png",
+      "sha256": "3601bc3060da41636ff419c749b4f94eb77fab7f2f07e3e7aa0f8632346b973a",
+      "source_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/UX70/final-wide-rehearsal-focus.png",
+      "sha256": "57961f100e94146d9284271e927e0f37662a2d86c6d68a08ca64def9bf51e63a",
+      "source_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/UX70/final-wide-promoter.png",
+      "sha256": "cdafdd5956a29953f89d0a3ee866a43177c2db24031c68bed7f0b6a65ffff2d5",
+      "source_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791"
+    },
+    {
+      "path": "docs/continuous_improvement/evidence/UX70/final-wide-audition-entry.png",
+      "sha256": "400905ecb7c642fdd7455025a2cd0d64ffde03f8589ce6eeceed828b6d5ddd11",
+      "source_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791"
+    }
+  ],
+  "retained_failed_proofs": [
+    "initial-native-summary.json",
+    "keyboard-focus-failure.json",
+    "tall-disabled-commit-failure.json",
+    "early-unlock-before.json"
+  ],
+  "total_native_checks": 4750,
+  "wrapper_receipt_recovery": {
+    "original_manifest_sha256": "150452b45aab5efd24ff0d313c8ccd7aedb4d329823545c1e204bafee789f910",
+    "wide_exit_and_result_retained": true,
+    "native_engine_rerun": false,
+    "reason": "Execution session was no longer available; original RUN stopped after tall, but wide process/result were retained with exit0 and pass. Preserve original manifest; reconstruct remaining metadata only."
+  },
+  "existing_media_dependency": {
+    "source_apk_sha256": "dfe7e644a73b8ead1f80485ccf4cd5741bace466d1c73fc3eaf121b97f52dd9f",
+    "compiled_inputs": 4,
+    "registry_byte_identical_to_delivered_V26": true,
+    "source_manifest_or_media_contents_published": false,
+    "raw_source_audio_identity_claimed": false,
+    "compiled_overlay_receipt": "/workspace/work/ux70-complete-proof/V26_COMPILED_MEDIA_OVERLAY.json"
+  }
+}

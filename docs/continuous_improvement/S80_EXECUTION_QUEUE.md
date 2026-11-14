@@ -1,8 +1,8 @@
 # BandMaster — sole execution queue
 
-Latest session: **UX70 — ACTIVE**. Owner-directed UI/UX cleanup; fixed navigation, character-first conversations and progressive choices. Root is the only writer; navigation, audition and writing reviewers are read-only. V26 delivery remains complete.
+**UX70 — INTERNALLY VERIFIED.** Fixed navigation, character-first conversations and staged choices pass the completed native proof. Keyboard focus and early cooldown recovery are corrected. V26 remains the delivered APK; owner acceptance pending. Writer released.
 
-**Next action:** Implement and verify UX70 character-first conversations, progressive choices and fixed navigation against the pinned baseline.
+**Next action:** Scope the next bounded R3 song/version/participant rehearsal-preparation transfer slice from the verified UX70 source; preserve the existing ledger and selected-song route.
 
 ## Linked songs and band life
 
@@ -10,7 +10,7 @@ The [roadmap](../ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md) defines dependencies and
 
 | ID | Scope | Disposition |
 |---|---|---|
-| UX70 | Fixed navigation and character-first progressive UI, especially auditions/songwriting/rehearsal | ACTIVE — bounded presentation pass; native and owner acceptance pending |
+| UX70 | Fixed navigation and character-first progressive UI, especially auditions/songwriting/rehearsal | INTERNALLY VERIFIED — four native sizes plus normal-motion phone; focus/cooldown regressions corrected; owner acceptance pending |
 | SONG53-R0 | Reconcile the actual latest source; classify existing/presentation/new-model work | COMPLETE — RECOVER54; published source d5e1662 verified directly on GitHub; full mapping/inventory in RECOVER54_SOURCE_RECONCILIATION.json |
 | SONG53-R1 | Reusable honest song summary with explicit legacy unknowns | FUNCTIONALLY VERIFIED — SONG55; SONG56 visual revision INTERNALLY VERIFIED on665cb95; owner visual acceptance pending |
 | SONG53-R2 | Stable song/revision/participant identity; one meaningful co-writing contribution; skill fairness | INTERNALLY VERIFIED — SONG57–60 fairness/identity/co-writing owner+selector+retained callback; scoped four-size native/real-owner proof complete; full-app/uncoached integration remains R7; owner acceptance pending |

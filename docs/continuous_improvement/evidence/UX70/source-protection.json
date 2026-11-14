@@ -1,0 +1,20 @@
+{
+  "baseline_sha": "3c85758dadf9d17fece8a4ab6e693f41660c047c",
+  "tested_candidate_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791",
+  "protected_tracked_paths": 1358,
+  "all_protected_blob_ids_unchanged": true,
+  "models_cast_content_fonts_art_public_audio_save_owners_unchanged": true,
+  "changed_game_paths": [
+    "experiments/playable_flightcase/audition_desk.gd",
+    "experiments/playable_flightcase/career_desk.gd",
+    "experiments/playable_flightcase/career_launcher.gd",
+    "experiments/playable_flightcase/gig_booking_desk.gd",
+    "experiments/playable_flightcase/mixing_desk.gd",
+    "experiments/playable_flightcase/musician_chat_desk.gd",
+    "experiments/playable_flightcase/navigation_bar.gd",
+    "experiments/playable_flightcase/poster_home.gd",
+    "experiments/playable_flightcase/song_workbench_desk.gd",
+    "experiments/playable_flightcase/ui.gd"
+  ],
+  "private_media_published": false
+}

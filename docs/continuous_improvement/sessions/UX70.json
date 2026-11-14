@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "UX70",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Review and tidy BandMaster UI/UX across the game: fixed navigation position, less text and fewer simultaneous options, particularly auditions and songwriting. Put each interacting character front and centre, one speech/question with about three player replies, then reveal the next exchange in the same scene; use similar pacing for rehearsal.",
   "scope": "Presentation-only first cleanup: shared top navigation in career/practice/audition/writing; grouped destination choices; character-first audition, musician and promoter conversations; staged existing songwriting/rehearsal decisions. Existing models, authored content, art/audio, save schema and settlement remain protected.",
@@ -11,8 +11,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
   },
   "issue_log_review": {
-    "bytes": 2367432,
-    "sha256": "d1bf00be99495108bda0de9899f833499a16d2989989e81ba041c5338eedd593"
+    "bytes": 2370150,
+    "sha256": "96683ae7c0750561db59872ec4b1d86a92558fec1c2ad12b5a2d4a35e61d3b64"
   },
   "lesson_ids": [
     "BM-05",
@@ -78,13 +78,14 @@
   ],
   "writer": {
     "owner": "root-UX70",
-    "status": "active",
+    "status": "released",
     "claimed_at": "2026-11-14T18:48:03.772323+00:00",
     "expires_at": null,
     "source_writers": 1,
-    "resumed_at": "2026-11-14T20:56:49.379354+00:00"
+    "resumed_at": "2026-11-14T20:56:49.379354+00:00",
+    "released_at": "2026-11-14T21:27:27.851896+00:00"
   },
-  "next_action": "Implement and verify UX70 character-first conversations, progressive choices and fixed navigation against the pinned baseline.",
+  "next_action": "Scope the next bounded R3 song/version/participant rehearsal-preparation transfer slice from the verified UX70 source; preserve the existing ledger and selected-song route.",
   "queue_task_ids": [
     "UX70"
   ],
@@ -151,5 +152,12 @@
     ],
     "scope": "Verify committed UX70, fix only evidenced in-scope defects, and close with source-bound evidence before progressing to R3.",
     "verification_extension": "Explicit motion receipt; normal-motion phone journey plus existing reduced-motion four-size proof; genuine keyboard focus after Shape close and Change Reply."
+  },
+  "closeout": {
+    "tested_sha": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791",
+    "evidence": "docs/continuous_improvement/UX70_RESULTS.json",
+    "visual_verdict": "internal_pass",
+    "next_action": "Scope the next bounded R3 song/version/participant rehearsal-preparation transfer slice from the verified UX70 source; preserve the existing ledger and selected-song route.",
+    "new_issue_review": "All observed failures retained; focus and timing corrections verified. Source/media setup and failed identifier invocation remain factual history."
   }
 }

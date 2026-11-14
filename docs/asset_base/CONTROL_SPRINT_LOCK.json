@@ -4,16 +4,17 @@
   "session_path": "docs/continuous_improvement/sessions/UX70.json",
   "canonical_current": "docs/continuous_improvement/CURRENT.json",
   "branch": "feature/playtest-polish-v20",
-  "status": "active",
-  "writer": "root-UX70",
+  "status": "closed",
+  "writer": null,
   "owner_approved": false,
-  "updated_at": "2026-11-14T20:56:49.379354+00:00",
-  "next_single_action": "Implement and verify UX70 character-first conversations, progressive choices and fixed navigation against the pinned baseline.",
+  "updated_at": "2026-11-14T21:27:27.851896+00:00",
+  "next_single_action": "Scope the next bounded R3 song/version/participant rehearsal-preparation transfer slice from the verified UX70 source; preserve the existing ledger and selected-song route.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json",
   "base_head": "3c85758dadf9d17fece8a4ab6e693f41660c047c",
   "claimed_at": "2026-11-14T18:48:03.772323+00:00",
   "expires_at": null,
   "claim_basis": "Review and tidy BandMaster UI/UX across the game: fixed navigation position, less text and fewer simultaneous options, particularly auditions and songwriting. Put each interacting character front and centre, one speech/question with about three player replies, then reveal the next exchange in the same scene; use similar pacing for rehearsal.",
-  "tested_source": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
-  "game_source": "7ae8667071c4aa8f2aefd8de891f498ad9d09118"
+  "tested_source": "acb912e5d8288d4d54d5cd3f0f18c5845dcb5791",
+  "game_source": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
+  "released_at": "2026-11-14T21:27:27.851896+00:00"
 }
