@@ -63,13 +63,15 @@
     "docs/asset_base/STATE.json",
     "docs/asset_base/CONTROL_SPRINT_LOCK.json",
     "docs/asset_base/LEDGER.md",
-    "docs/handover/START_HERE.md"
+    "docs/handover/START_HERE.md",
+    ".github/workflows/song57-model-proof.yml"
   ],
   "validation_commands": [
     "python3 tools/project_context.py check",
     "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/SONG58.json",
     "Pinned Godot4.7.2 isolated real owner three-day completion/reload/FS failure-retry/duplicate settlement and identity mutation tests; legacy extension acceptance; unchanged UI source proof",
-    "Independent read-only review; durable GitHub Git Data committed preflight/expected-head publication/readback"
+    "Independent read-only review; durable GitHub Git Data committed preflight/expected-head publication/readback",
+    "Extend existing model CI with genuine f95 baseline + SONG58 exact pushed identity proof; retain logs/fixtures in the existing artifact, no new workflow/controller."
   ],
   "writer": {
     "owner": "root-SONG58",
