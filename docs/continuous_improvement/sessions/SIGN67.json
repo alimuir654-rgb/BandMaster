@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "owner_approved": false,
+  "owner_request": "Owner: sign exact V26 request42fb4c51238778f681adb86fdff6cd6648b1062c56d4249fbe31faf62c9fcff0 with original key, verify certificate, encrypt/preserve originalkeystore/passwords, testbackuprecovery, configure portable detachedsigning and commit nonsecret recoveryrunbook. No key rotation/newapp/secrets inchat/Git/publicfiles.",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "2c13c9b0605a4f3b50b0ff2f99d0613cff2f67810be0d9e233af56695e047423",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
+  },
+  "issue_log_review": {
+    "bytes": 2349104,
+    "sha256": "640f543b33e8f9a6652ec402ab6b5d151ddb4b2b989417611af596b7a6b98177"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-29",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-39",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "dominant_issue": "BM-34",
+  "target": {
+    "locator": "docs/continuous_improvement/evidence/SONG63/native-v1/candidate/phone/selected-long-title.png",
+    "original_sha256": "3c60ed1a13aa050efa44a4b548776c6e1c47ef063300982c8bbff11dbb7d5d5a",
+    "pixels_inspected": true,
+    "purpose": "Actually opened unchanged SONG63 reference for presentation protection; this pass targets asset recovery, not visual change."
+  },
+  "id": "SIGN67",
+  "status": "active",
+  "baseline_sha": "831b01e639b67824c3a732fe7f084490398f6ac6",
+  "hypothesis": "Encrypted authenticated ownerbackup plus separately bound recoverysecret can recover exactoriginalJKS/passwords and use existing pinnedJava signer for smallpublicrequests without APK/keytransfer.",
+  "controlled_comparison": "Exact originalJKS bytes/cert vs authenticated backup recovery in newprivate tempdir; exactV26message884B/hash and independentlyverified256BRSAsignature; negativetamper/wrongsecret/policyrefusal tests.",
+  "stop_condition": "Refuse differingrequest/cert/app/alias, unverifiedsignature or backupbyte mismatch. Nevergenerate/rotateAPKkey, uploadsecret plaintext or claim durablebinding before configured/retested.",
+  "allowed_paths": [
+    "tools/detached_sign_request.py",
+    "tools/signing_backup.py",
+    "tests/signing_backup_test.py",
+    "docs/signing/RECOVERY.md",
+    "docs/signing/README.md",
+    "docs/signing/BandMaster-V26-signature-response.json",
+    "docs/continuous_improvement/sessions/SIGN67.json",
+    "docs/continuous_improvement/SIGN67_RESULTS.json",
+    "docs/continuous_improvement/SIGN67_REVIEW.json",
+    "docs/continuous_improvement/evidence/SIGN67/*",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/handover/START_HERE.md"
+  ],
+  "validation_commands": [
+    "PinnedpublicV26request/hash/exactAPK-v2structure checks; keytooloriginalcert pin before signing",
+    "Authenticatedencryptedbackup+isolatedrecovery hash/cert compare; originalJavaSHA256withRSA signatureselfcheck+Python verify; no APKrequired",
+    "Existingpublic17signerregressions plus focussedbackup negativecases; independentreadonlysecurityreview",
+    "PrivateDropboxencryptedonlyupload/readback metadata/contenthash and downloadedciphertext recovery ifnetworkavailable; no sharedlinks",
+    "project_context/improvementgates; nonforceedexpectedhead publication; no secretsinpublicdiff"
+  ],
+  "writer": {
+    "owner": "root-SIGN67",
+    "status": "active",
+    "claimed_at": "2026-11-14T11:09:37.866941+00:00",
+    "expires_at": null
+  },
+  "next_action": "Return verifiedV26detachedsignature and truthful encryptedbackup/recovery runbook; identify owner-only securebinding setup if unavailable.",
+  "queue_task_ids": [
+    "RESTORE66-private-media"
+  ],
+  "resource_plan": {
+    "primary_new_bytes": 0,
+    "TMP_new_cap_bytes": 16777216,
+    "TMP_free_before": 1303232512,
+    "workspace_free_before": 625471488,
+    "floor_bytes": 629145600,
+    "private_stage": "/tmp/bandmaster-sign26-private mode0700; backup/recoverysecret0600, no secretinpublicexport; originalJKSunchanged",
+    "owner_backup": "/BandMasterSigningPrivate/BandMaster-original-signing-v1.bmk (authenticatedencryptedonly)",
+    "secret_storage": "No platformsecret/filebindings configured; toolcannotcreatebindings. Ownerpublishsecurebindingremains explicitdependency."
+  },
+  "scope": "Originalkey V26detachedsignature + encryptedbackup/recovery/portablehelper; no APKtransfer/build/assembly or game/audio changes.",
+  "player_task": {
+    "goal": "Existing music, character ideas and cues are available to the current game with their original identity/provenance",
+    "visible_acceptance": [
+      "No lost audio features or new musical material",
+      "No claimed playable build until complete export/signature/delivery checks"
+    ]
+  },
+  "predesign": {
+    "reviewer": "/root/foundation_tests",
+    "status": "readonlysecurityreview_requested",
+    "scope": "Publicrequest/helper/backup threatmodel; no secretreads"
+  },
+  "tested_sha": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
+  "results": "docs/continuous_improvement/RESTORE66_RESULTS.json",
+  "review": "docs/continuous_improvement/RESTORE66_REVIEW.json"
+}
