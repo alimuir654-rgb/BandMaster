@@ -1,6 +1,6 @@
 # BandMaster — resume here
-<!-- session: SONG57 -->
-<!-- status: closed -->
+<!-- session: SONG58 -->
+<!-- status: active -->
 
 Repository: `alimuir654-rgb/BandMaster` · Branch: `feature/playtest-polish-v20`.
 
@@ -25,3 +25,6 @@ Run `python3 tools/project_context.py start`; read task-relevant lessons and new
 Record exact source/evidence, independent reviews, useful issues and one next action. Run both context/improvement gates, release the writer, publish non-force against expected head and verify readback. Keep reports to changed / checked / remaining / next.
 
 [Roadmap](../ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md) · [Current session](../continuous_improvement/sessions/SONG57.json) · [Preserved history](archive/SONG56_5be37ae/README.md).
+
+SONG58 bounded identity foundation active until01:50; original local checkout untouched.
+Complete the selected collaborator and retained contribution part of R2 using the saved SONG58 identity contract before starting rehearsal links.

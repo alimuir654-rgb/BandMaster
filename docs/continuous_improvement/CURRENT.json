@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
   "context_schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/SONG57.json",
-  "active_session": "SONG57",
+  "session": "docs/continuous_improvement/sessions/SONG58.json",
+  "active_session": "SONG58",
   "branch": "feature/playtest-polish-v20",
-  "status": "closed",
+  "status": "active",
   "scope": "SONG57 versioned craft fairness foundation is complete; remaining R2 identity/selected co-writing continues under the finite hourly programme.",
   "authority": "14 November 2026 owner: Pick up bandmaster roadmap work. Split into hourly chunks to target a 9am test for me. Automate through and make as much progress as possible until then. I won't be available for reviews or approvals until then.",
-  "updated_at": "2026-11-14T00:39:08.830153+00:00",
-  "writer": null,
+  "updated_at": "2026-11-14T01:13:05.178520+00:00",
+  "writer": "root-SONG58",
   "owner_approved": false,
   "source": {
     "implementation_sha": "858d6c91965c4e62581debc649fb468cd7eb3190",
@@ -21,7 +21,7 @@
   },
   "roadmap": "docs/ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md",
   "queue": "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
-  "next_action": "Resume the remaining R2 identity and selected co-writing slice from the live feature branch, checking original test-build access at the start of the next hourly pass.",
+  "next_action": "Complete the selected collaborator and retained contribution part of R2 using the saved SONG58 identity contract before starting rehearsal links.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json",
   "limitations": [
     "R2 identity/selected contributor work is not yet complete.",
