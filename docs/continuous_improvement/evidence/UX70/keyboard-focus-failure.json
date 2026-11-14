@@ -1,0 +1,46 @@
+{
+  "source_sha": "47e9843",
+  "checks": 522,
+  "failures": [
+    "writing Shape Escape visible enabled focus"
+  ],
+  "focus_trace": [
+    {
+      "disabled": false,
+      "focus": "musician route",
+      "name": "ChatBack",
+      "visible": true
+    },
+    {
+      "disabled": false,
+      "focus": "changed topic",
+      "name": "ChatBack",
+      "visible": true
+    },
+    {
+      "disabled": false,
+      "focus": "career Menu Resume",
+      "name": "CareerMenuAction",
+      "visible": true
+    },
+    {
+      "disabled": false,
+      "focus": "rehearsal focus question",
+      "name": "RehearsalIntent_focus_precision",
+      "visible": true
+    },
+    {
+      "disabled": false,
+      "focus": "rehearsal pace question",
+      "name": "RehearsalIntent_effort_steady",
+      "visible": true
+    },
+    {
+      "disabled": false,
+      "focus": "writing Shape Escape",
+      "name": "NONE",
+      "visible": false
+    }
+  ],
+  "original_result": "/workspace/work/ux70-focus-probe/results/candidate-phone/result.json"
+}
