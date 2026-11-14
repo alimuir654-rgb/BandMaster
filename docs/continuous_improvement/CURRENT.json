@@ -4,19 +4,20 @@
   "session": "docs/continuous_improvement/sessions/SONG58.json",
   "active_session": "SONG58",
   "branch": "feature/playtest-polish-v20",
-  "status": "active",
-  "scope": "SONG57 versioned craft fairness foundation is complete; remaining R2 identity/selected co-writing continues under the finite hourly programme.",
+  "status": "closed",
+  "scope": "SONG58 new-workbench canonical composition/revision and paid writing-role identity foundation complete; chosen collaborator/retained contribution remains next R2.",
   "authority": "14 November 2026 owner: Pick up bandmaster roadmap work. Split into hourly chunks to target a 9am test for me. Automate through and make as much progress as possible until then. I won't be available for reviews or approvals until then.",
-  "updated_at": "2026-11-14T01:13:05.178520+00:00",
-  "writer": "root-SONG58",
+  "updated_at": "2026-11-14T01:31:21.806132+00:00",
+  "writer": null,
   "owner_approved": false,
   "source": {
-    "implementation_sha": "858d6c91965c4e62581debc649fb468cd7eb3190",
-    "verification": "Exact-source model proof and all4 CI runs passed. Historical receipts/whole songs and real writing rollback/retry verified.",
-    "model_run": 43534998504,
-    "model_artifact": 14089485410,
-    "final_results": "docs/continuous_improvement/SONG57_RESULTS.json",
-    "review": "docs/continuous_improvement/SONG57_REVIEW.json",
+    "implementation_sha": "5d6d9ebe5e38b661bc1fae8809870b97ebd22d36",
+    "product_source_sha": "3282b7ab0e8ce85176f0f861ba7e5df2034d3253",
+    "verification": "Local baseline102/candidate203 strict; all four exact-source CI success; independent source/workflow CLEAR.",
+    "model_run": 43540493343,
+    "model_artifact": 14091741730,
+    "final_results": "docs/continuous_improvement/SONG58_RESULTS.json",
+    "review": "docs/continuous_improvement/SONG58_REVIEW.json",
     "unchanged_visual_baseline": "665cb9584c358cff07042c7ae8b7a6a7eebd91ee"
   },
   "roadmap": "docs/ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md",
@@ -24,16 +25,16 @@
   "next_action": "Complete the selected collaborator and retained contribution part of R2 using the saved SONG58 identity contract before starting rehearsal links.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json",
   "limitations": [
-    "R2 identity/selected contributor work is not yet complete.",
-    "No new APK; first hourly worker checks original signer/private media and the established test-delivery route.",
-    "No new native pixels, physical-device or listening proof. Owner acceptance remains pending."
+    "R2 chosen collaborator and retained contribution still unfinished; R3\u2013R7 dependency gates remain.",
+    "No new native UI/listening/device proof or APK.",
+    "Original signer available unchanged; nine literal private media dependencies absent; current Dropbox /BandMaster listing empty."
   ],
   "overnight": {
     "automation_id": "6ae532c5fe9c819190f587a022c54052",
-    "next_run": "2026-11-14T01:00:00+00:00",
     "last_run_slot": "2026-11-14T09:00:00+00:00",
     "new_feature_stop": "07:00 Europe/London",
     "test_handover_ready_target": "08:50 Europe/London",
-    "hard_stop": "09:00 Europe/London,14 November2026"
+    "hard_stop": "09:00 Europe/London,14 November2026",
+    "first_slot": "2026-11-14T01:00:00+00:00"
   }
 }

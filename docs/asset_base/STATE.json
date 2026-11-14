@@ -4,10 +4,10 @@
   "session_path": "docs/continuous_improvement/sessions/SONG58.json",
   "canonical_current": "docs/continuous_improvement/CURRENT.json",
   "branch": "feature/playtest-polish-v20",
-  "status": "active",
-  "writer": "root-SONG58",
+  "status": "closed",
+  "writer": null,
   "owner_approved": false,
-  "updated_at": "2026-11-14T01:13:05.178520+00:00",
+  "updated_at": "2026-11-14T01:31:21.806132+00:00",
   "next_single_action": "Complete the selected collaborator and retained contribution part of R2 using the saved SONG58 identity contract before starting rehearsal links.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json"
 }

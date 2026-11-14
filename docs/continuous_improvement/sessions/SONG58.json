@@ -7,8 +7,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
   },
   "issue_log_review": {
-    "bytes": 2309398,
-    "sha256": "7df2ce9b84ec5fc555f81b47ed9bb50fbf37ef88b328d98502af7f76822d2765"
+    "bytes": 2313625,
+    "sha256": "4a25a7989d520d8318ccda046b7f3fcc7acb87e09693fccbf1a31c252799cac2"
   },
   "lesson_ids": [
     "BM-01",
@@ -34,7 +34,7 @@
     "locator": "docs/continuous_improvement/evidence/SONG56/songbook-phone.png",
     "original_sha256": "1cfc4b157356dcc98e5f6861593a4d4b62abbe8c02268f7282d527e30ca78c40",
     "pixels_inspected": true,
-    "purpose": "Preserved current verified Songbook presentation; this pass changes only new-song craft scoring and legacy receipt validation, not UI."
+    "purpose": "Retained verified SONG56 Songbook visual context actually opened; SONG58 adds canonical identity metadata only. Song scoring, current UI and assets remain unchanged."
   },
   "overnight": {
     "automation_id": "6ae532c5fe9c819190f587a022c54052",
@@ -45,7 +45,7 @@
     "scope": "R2\u2013R7 in dependency order with bounded committed passes; no promise all stages finish."
   },
   "id": "SONG58",
-  "status": "active",
+  "status": "closed",
   "baseline_sha": "f95a19618c3d30b21628f5150bfa5f97be270e12",
   "hypothesis": "Add immutable canonical song/revision identity at the existing paid completion owner without changing legacy receipts, song scores, UI or save counts.",
   "controlled_comparison": "Same original paid sessions and entire owner snapshots; old extensions remain valid and untouched; title and roster slots do not define new composition identity. Prior SONG56 songbook original actually opened; UI unchanged.",
@@ -75,10 +75,11 @@
   ],
   "writer": {
     "owner": "root-SONG58",
-    "status": "active",
+    "status": "released",
     "source_writers": 1,
     "claimed_at": "2026-11-14T01:13:05.178520+00:00",
-    "expires_at": "2026-11-14T01:50:00+00:00"
+    "expires_at": null,
+    "released_at": "2026-11-14T01:31:21.806132+00:00"
   },
   "next_action": "Complete the selected collaborator and retained contribution part of R2 using the saved SONG58 identity contract before starting rehearsal links.",
   "queue_task_ids": [
@@ -102,5 +103,29 @@
   "test_build_access": {
     "original_signer": "Existing original JKS present at original private path; certificate binding to be checked without key transfer.",
     "private_media": "Original environment restricted network has no added allowed hosts; Git source export accessible; binary Dropbox transfer remains unavailable. No APK readiness claim."
+  },
+  "closed_at": "2026-11-14T01:31:21.806132+00:00",
+  "reviewers": [
+    {
+      "agent": "/root/au01_source_review",
+      "role": "independent read-only predesign/source/workflow review",
+      "status": "CLEAR; released"
+    }
+  ],
+  "closeout": {
+    "tested_sha": "5d6d9ebe5e38b661bc1fae8809870b97ebd22d36",
+    "evidence": [
+      "docs/continuous_improvement/SONG58_RESULTS.json",
+      "docs/continuous_improvement/SONG58_REVIEW.json",
+      "https://github.com/alimuir654-rgb/BandMaster/actions/runs/43540493343"
+    ],
+    "visual_verdict": "internal_pass",
+    "visual_basis": "One retained SONG56 original actually opened; UI/assets byte-identical. No new native visual proof.",
+    "technical_verdict": "pass",
+    "internal_verdict": "pass for narrow identity contract; R2 partial",
+    "owner_approved": false,
+    "release_verdict": "not approved/no APK",
+    "next_action": "Complete the selected collaborator and retained contribution part of R2 using the saved SONG58 identity contract before starting rehearsal links.",
+    "new_issue_review": "All appended SONG58 issue events reviewed; failed harness, command and metadata publication retained separately from final passing proof; final verified resolution appended."
   }
 }

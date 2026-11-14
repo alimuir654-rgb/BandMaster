@@ -12,7 +12,7 @@ The [roadmap](../ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md) defines dependencies and
 |---|---|---|
 | SONG53-R0 | Reconcile the actual latest source; classify existing/presentation/new-model work | COMPLETE — RECOVER54; published source d5e1662 verified directly on GitHub; full mapping/inventory in RECOVER54_SOURCE_RECONCILIATION.json |
 | SONG53-R1 | Reusable honest song summary with explicit legacy unknowns | FUNCTIONALLY VERIFIED — SONG55; SONG56 visual revision INTERNALLY VERIFIED on665cb95; owner visual acceptance pending |
-| SONG53-R2 | Stable song/revision/participant identity; one meaningful co-writing contribution; skill fairness | PARTIAL — SONG57 fairness foundation VERIFIED; identity, selected co-writing and retained credits AUTHORISED / NEXT |
+| SONG53-R2 | Stable song/revision/participant identity; one meaningful co-writing contribution; skill fairness | PARTIAL — SONG57 fairness and SONG58 new-workbench canonical identity foundation VERIFIED; selected co-writing and retained credits AUTHORISED / NEXT |
 | SONG53-R3 | Song-specific purposeful rehearsal and proportionate preparation transfer | AUTHORISED / QUEUED — dependency gate; after R2 |
 | SONG53-R4 | Preparedness into live delivery, grounded feedback and character aftermath | AUTHORISED / QUEUED — dependency gate; after R3 |
 | SONG53-R5 | Immutable take and genuine recording-execution quality | AUTHORISED / QUEUED — dependency gate; after R2–R4 |

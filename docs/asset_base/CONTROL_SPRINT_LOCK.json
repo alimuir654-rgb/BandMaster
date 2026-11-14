@@ -4,16 +4,16 @@
   "session_path": "docs/continuous_improvement/sessions/SONG58.json",
   "canonical_current": "docs/continuous_improvement/CURRENT.json",
   "branch": "feature/playtest-polish-v20",
-  "status": "active",
-  "writer": "root-SONG58",
+  "status": "closed",
+  "writer": null,
   "owner_approved": false,
-  "updated_at": "2026-11-14T01:13:05.178520+00:00",
+  "updated_at": "2026-11-14T01:31:21.806132+00:00",
   "next_single_action": "Complete the selected collaborator and retained contribution part of R2 using the saved SONG58 identity contract before starting rehearsal links.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json",
-  "base_head": "dd5bf4a9ab968d9c3e730300fd65d0d46f2cda71",
-  "claimed_at": "2026-11-14T00:19:24.463259+00:00",
+  "base_head": "f95a19618c3d30b21628f5150bfa5f97be270e12",
+  "claimed_at": "2026-11-14T01:13:05.178520+00:00",
   "expires_at": null,
   "claim_basis": "14 November 2026 owner: Pick up bandmaster roadmap work. Split into hourly chunks to target a 9am test for me. Automate through and make as much progress as possible until then. I won't be available for reviews or approvals until then.",
-  "released_at": "2026-11-14T00:39:08.830153+00:00",
-  "tested_source": "858d6c91965c4e62581debc649fb468cd7eb3190"
+  "released_at": "2026-11-14T01:31:21.806132+00:00",
+  "tested_source": "5d6d9ebe5e38b661bc1fae8809870b97ebd22d36"
 }

@@ -1,0 +1,423 @@
+{
+  "session": "SONG58",
+  "tested_sha": "5d6d9ebe5e38b661bc1fae8809870b97ebd22d36",
+  "preflight_sha": "7ffc4803ecc23263cce95663d2dee5e2ff4c7d79",
+  "ci_scope_amendment": "91b59bda6bdd8e4fea717e1d6c39499a6ca8fcb1",
+  "product_source_sha": "3282b7ab0e8ce85176f0f861ba7e5df2034d3253",
+  "final_local_proof": "proof-v7",
+  "final_result": {
+    "baseline": {
+      "exit_code": 0,
+      "errors": [],
+      "result": {
+        "checks": 102,
+        "failure_count": 0,
+        "failures": [],
+        "legacy_receipts_checked": 0,
+        "monotonic_failures": 0,
+        "ok": true,
+        "owner_transactions": 6
+      },
+      "log_sha256": "a0169b2cc0e527ab08b0afc20db6e67fd07eb69342dc4111aef16ff05c28793f",
+      "raw_log": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nSONG57_RESULT {\"checks\":102,\"failure_count\":0,\"failures\":[],\"legacy_receipts_checked\":0,\"monotonic_failures\":0,\"ok\":true,\"owner_transactions\":6}\n",
+      "closure_files": 71,
+      "workbench_sha256": "bb65ec7b75f50cd0fe4aa43fdca034d619528b722efe58e07d09dcd25a734fbc",
+      "test_sha256": "aefa7302b6ec2e0d5ba39224536a5467aa4e6baea0cc2cc4122064118f9ede8a"
+    },
+    "candidate": {
+      "exit_code": 0,
+      "errors": [],
+      "result": {
+        "checks": 203,
+        "failure_count": 0,
+        "failures": [],
+        "legacy_receipts_checked": 0,
+        "monotonic_failures": 0,
+        "ok": true,
+        "owner_transactions": 6
+      },
+      "log_sha256": "850f2d55f1ad5fab822b156bb962fa10e17447b6862c5c0d307fe1b2f46c8dc9",
+      "raw_log": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nSONG57_RESULT {\"checks\":203,\"failure_count\":0,\"failures\":[],\"legacy_receipts_checked\":0,\"monotonic_failures\":0,\"ok\":true,\"owner_transactions\":6}\n",
+      "closure_files": 71,
+      "workbench_sha256": "f9a5955c1c1ac4ef9a5e49cd034fe2f1ffda671fc6b627f1ee5604b10b14ebe9",
+      "test_sha256": "aefa7302b6ec2e0d5ba39224536a5467aa4e6baea0cc2cc4122064118f9ede8a"
+    }
+  },
+  "all_local_runs": {
+    "proof-v1": {
+      "baseline": {
+        "exit_code": 1,
+        "errors": [
+          "SCRIPT ERROR: Parse Error: Static function \"_composition_identity()\" not found in base \"res://experiments/playable_flightcase/song_workbench.gd\".",
+          "SCRIPT ERROR: Parse Error: Static function \"_composition_identity()\" not found in base \"res://experiments/playable_flightcase/song_workbench.gd\".",
+          "SCRIPT ERROR: Parse Error: Static function \"_composition_identity()\" not found in base \"res://experiments/playable_flightcase/song_workbench.gd\".",
+          "ERROR: Failed to load script \"res://tests/song58_identity.gd\" with error \"Parse error\"."
+        ],
+        "result": {},
+        "log_sha256": "fb93e9444b3f228e2ee018ded4b48464ebcf03e89ebce3b351d2ac5a19e3826e",
+        "raw_log": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nSCRIPT ERROR: Parse Error: Static function \"_composition_identity()\" not found in base \"res://experiments/playable_flightcase/song_workbench.gd\".\n          at: GDScript::reload (res://tests/song58_identity.gd:34)\nSCRIPT ERROR: Parse Error: Static function \"_composition_identity()\" not found in base \"res://experiments/playable_flightcase/song_workbench.gd\".\n          at: GDScript::reload (res://tests/song58_identity.gd:37)\nSCRIPT ERROR: Parse Error: Static function \"_composition_identity()\" not found in base \"res://experiments/playable_flightcase/song_workbench.gd\".\n          at: GDScript::reload (res://tests/song58_identity.gd:38)\nERROR: Failed to load script \"res://tests/song58_identity.gd\" with error \"Parse error\".\n   at: load (modules/gdscript/gdscript_resource_format.cpp:46)\n",
+        "closure_files": 71,
+        "workbench_sha256": "bb65ec7b75f50cd0fe4aa43fdca034d619528b722efe58e07d09dcd25a734fbc",
+        "test_sha256": "35f7ee10cccbe28dc03e45078c56ae03148ef1d26a58c60063e107958c94f878"
+      }
+    },
+    "proof-v2": {
+      "baseline": {
+        "exit_code": 0,
+        "errors": [],
+        "result": {
+          "checks": 102,
+          "failure_count": 0,
+          "failures": [],
+          "legacy_receipts_checked": 0,
+          "monotonic_failures": 0,
+          "ok": true,
+          "owner_transactions": 6
+        },
+        "log_sha256": "a0169b2cc0e527ab08b0afc20db6e67fd07eb69342dc4111aef16ff05c28793f",
+        "raw_log": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nSONG57_RESULT {\"checks\":102,\"failure_count\":0,\"failures\":[],\"legacy_receipts_checked\":0,\"monotonic_failures\":0,\"ok\":true,\"owner_transactions\":6}\n",
+        "closure_files": 71,
+        "workbench_sha256": "bb65ec7b75f50cd0fe4aa43fdca034d619528b722efe58e07d09dcd25a734fbc",
+        "test_sha256": "4a65b0d08c4d8a0319b8889a1f5881fb39af6041e49ebfa19b70bf5dfd3220a6"
+      },
+      "candidate": {
+        "exit_code": 1,
+        "errors": [],
+        "result": {
+          "checks": 131,
+          "failure_count": 2,
+          "failures": [
+            "genuine prechange completed song readable",
+            "genuine prechange completed song readable"
+          ],
+          "legacy_receipts_checked": 0,
+          "monotonic_failures": 0,
+          "ok": false,
+          "owner_transactions": 6
+        },
+        "log_sha256": "7a80eefdd512638eed936109202f5306fbe30134eb356dd7fab9ab5e8898b348",
+        "raw_log": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nSONG57_RESULT {\"checks\":131,\"failure_count\":2,\"failures\":[\"genuine prechange completed song readable\",\"genuine prechange completed song readable\"],\"legacy_receipts_checked\":0,\"monotonic_failures\":0,\"ok\":false,\"owner_transactions\":6}\n",
+        "closure_files": 71,
+        "workbench_sha256": "b7cb69655a1c3d268daaa671240e94ab8c2730aaa37fd32d9e0772b4abf5dc1a",
+        "test_sha256": "4a65b0d08c4d8a0319b8889a1f5881fb39af6041e49ebfa19b70bf5dfd3220a6"
+      }
+    },
+    "proof-v3": {
+      "baseline": {
+        "exit_code": 0,
+        "errors": [],
+        "result": {
+          "checks": 102,
+          "failure_count": 0,
+          "failures": [],
+          "legacy_receipts_checked": 0,
+          "monotonic_failures": 0,
+          "ok": true,
+          "owner_transactions": 6
+        },
+        "log_sha256": "a0169b2cc0e527ab08b0afc20db6e67fd07eb69342dc4111aef16ff05c28793f",
+        "raw_log": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nSONG57_RESULT {\"checks\":102,\"failure_count\":0,\"failures\":[],\"legacy_receipts_checked\":0,\"monotonic_failures\":0,\"ok\":true,\"owner_transactions\":6}\n",
+        "closure_files": 71,
+        "workbench_sha256": "bb65ec7b75f50cd0fe4aa43fdca034d619528b722efe58e07d09dcd25a734fbc",
+        "test_sha256": "83fedfe90aec85f8e2e7d0b6be7737b88f1ef0d0037e9486910c3d8656899a3f"
+      },
+      "candidate": {
+        "exit_code": 0,
+        "errors": [],
+        "result": {
+          "checks": 133,
+          "failure_count": 0,
+          "failures": [],
+          "legacy_receipts_checked": 0,
+          "monotonic_failures": 0,
+          "ok": true,
+          "owner_transactions": 6
+        },
+        "log_sha256": "88a82169ae2722f002615649a4fd07da330b83019d484bbeb47c0da7cddc79d6",
+        "raw_log": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nSONG57_RESULT {\"checks\":133,\"failure_count\":0,\"failures\":[],\"legacy_receipts_checked\":0,\"monotonic_failures\":0,\"ok\":true,\"owner_transactions\":6}\n",
+        "closure_files": 71,
+        "workbench_sha256": "b7cb69655a1c3d268daaa671240e94ab8c2730aaa37fd32d9e0772b4abf5dc1a",
+        "test_sha256": "83fedfe90aec85f8e2e7d0b6be7737b88f1ef0d0037e9486910c3d8656899a3f"
+      }
+    },
+    "proof-v4": {
+      "baseline": {
+        "exit_code": 0,
+        "errors": [],
+        "result": {
+          "checks": 102,
+          "failure_count": 0,
+          "failures": [],
+          "legacy_receipts_checked": 0,
+          "monotonic_failures": 0,
+          "ok": true,
+          "owner_transactions": 6
+        },
+        "log_sha256": "a0169b2cc0e527ab08b0afc20db6e67fd07eb69342dc4111aef16ff05c28793f",
+        "raw_log": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nSONG57_RESULT {\"checks\":102,\"failure_count\":0,\"failures\":[],\"legacy_receipts_checked\":0,\"monotonic_failures\":0,\"ok\":true,\"owner_transactions\":6}\n",
+        "closure_files": 71,
+        "workbench_sha256": "bb65ec7b75f50cd0fe4aa43fdca034d619528b722efe58e07d09dcd25a734fbc",
+        "test_sha256": "6aaea895dac9fa6a7a74dbea0f1777f69ffdd14550933597c33adaf497f6cbd1"
+      },
+      "candidate": {
+        "exit_code": -15,
+        "errors": [
+          "SCRIPT ERROR: Invalid access to property or key 'revision_id' on a base object of type 'Dictionary'."
+        ],
+        "result": {},
+        "log_sha256": "c340f5f66ac618ee547ffbe54efea00daee3f3ab144ec6adf5fcbbc6c3a8b3c5",
+        "raw_log": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nSCRIPT ERROR: Invalid access to property or key 'revision_id' on a base object of type 'Dictionary'.\n          at: _initialize (res://tests/song58_identity.gd:46)\n          GDScript backtrace (most recent call first):\n              [0] _initialize (res://tests/song58_identity.gd:46)\n",
+        "closure_files": 71,
+        "workbench_sha256": "211465c80d05c2dd48690172420634a2e362699b68a9e6b236a14683cb3984a9",
+        "test_sha256": "6aaea895dac9fa6a7a74dbea0f1777f69ffdd14550933597c33adaf497f6cbd1"
+      }
+    },
+    "proof-v5": {
+      "baseline": {
+        "exit_code": 0,
+        "errors": [],
+        "result": {
+          "checks": 102,
+          "failure_count": 0,
+          "failures": [],
+          "legacy_receipts_checked": 0,
+          "monotonic_failures": 0,
+          "ok": true,
+          "owner_transactions": 6
+        },
+        "log_sha256": "a0169b2cc0e527ab08b0afc20db6e67fd07eb69342dc4111aef16ff05c28793f",
+        "raw_log": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nSONG57_RESULT {\"checks\":102,\"failure_count\":0,\"failures\":[],\"legacy_receipts_checked\":0,\"monotonic_failures\":0,\"ok\":true,\"owner_transactions\":6}\n",
+        "closure_files": 71,
+        "workbench_sha256": "bb65ec7b75f50cd0fe4aa43fdca034d619528b722efe58e07d09dcd25a734fbc",
+        "test_sha256": "8c37b96a027df34b8038a6d66f16aa01b6d5b9b25a8c5d9bd0a9343643ba0d7f"
+      },
+      "candidate": {
+        "exit_code": 0,
+        "errors": [],
+        "result": {
+          "checks": 173,
+          "failure_count": 0,
+          "failures": [],
+          "legacy_receipts_checked": 0,
+          "monotonic_failures": 0,
+          "ok": true,
+          "owner_transactions": 6
+        },
+        "log_sha256": "defac53f23694c8bb964af5857cd2adf4e18036a91221b3ba75039ac0b5249cc",
+        "raw_log": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nSONG57_RESULT {\"checks\":173,\"failure_count\":0,\"failures\":[],\"legacy_receipts_checked\":0,\"monotonic_failures\":0,\"ok\":true,\"owner_transactions\":6}\n",
+        "closure_files": 71,
+        "workbench_sha256": "8e2b133acfe1513f02f5536ce4384aba37c56cd87fa9caa4ecc155a74eeb036a",
+        "test_sha256": "8c37b96a027df34b8038a6d66f16aa01b6d5b9b25a8c5d9bd0a9343643ba0d7f"
+      }
+    },
+    "proof-v6": {
+      "baseline": {
+        "exit_code": 0,
+        "errors": [],
+        "result": {
+          "checks": 102,
+          "failure_count": 0,
+          "failures": [],
+          "legacy_receipts_checked": 0,
+          "monotonic_failures": 0,
+          "ok": true,
+          "owner_transactions": 6
+        },
+        "log_sha256": "a0169b2cc0e527ab08b0afc20db6e67fd07eb69342dc4111aef16ff05c28793f",
+        "raw_log": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nSONG57_RESULT {\"checks\":102,\"failure_count\":0,\"failures\":[],\"legacy_receipts_checked\":0,\"monotonic_failures\":0,\"ok\":true,\"owner_transactions\":6}\n",
+        "closure_files": 71,
+        "workbench_sha256": "bb65ec7b75f50cd0fe4aa43fdca034d619528b722efe58e07d09dcd25a734fbc",
+        "test_sha256": "fc18c5124eb65919b01806398195bbf58cfbef3a1a6e53301f1484d0c7bdc125"
+      },
+      "candidate": {
+        "exit_code": 0,
+        "errors": [],
+        "result": {
+          "checks": 175,
+          "failure_count": 0,
+          "failures": [],
+          "legacy_receipts_checked": 0,
+          "monotonic_failures": 0,
+          "ok": true,
+          "owner_transactions": 6
+        },
+        "log_sha256": "7de99382095a8e7ebf2019eca25a211d2bb773978179ff9e5c9147bdcb4ee97e",
+        "raw_log": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nSONG57_RESULT {\"checks\":175,\"failure_count\":0,\"failures\":[],\"legacy_receipts_checked\":0,\"monotonic_failures\":0,\"ok\":true,\"owner_transactions\":6}\n",
+        "closure_files": 71,
+        "workbench_sha256": "f9a5955c1c1ac4ef9a5e49cd034fe2f1ffda671fc6b627f1ee5604b10b14ebe9",
+        "test_sha256": "fc18c5124eb65919b01806398195bbf58cfbef3a1a6e53301f1484d0c7bdc125"
+      }
+    },
+    "proof-v7": {
+      "baseline": {
+        "exit_code": 0,
+        "errors": [],
+        "result": {
+          "checks": 102,
+          "failure_count": 0,
+          "failures": [],
+          "legacy_receipts_checked": 0,
+          "monotonic_failures": 0,
+          "ok": true,
+          "owner_transactions": 6
+        },
+        "log_sha256": "a0169b2cc0e527ab08b0afc20db6e67fd07eb69342dc4111aef16ff05c28793f",
+        "raw_log": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nSONG57_RESULT {\"checks\":102,\"failure_count\":0,\"failures\":[],\"legacy_receipts_checked\":0,\"monotonic_failures\":0,\"ok\":true,\"owner_transactions\":6}\n",
+        "closure_files": 71,
+        "workbench_sha256": "bb65ec7b75f50cd0fe4aa43fdca034d619528b722efe58e07d09dcd25a734fbc",
+        "test_sha256": "aefa7302b6ec2e0d5ba39224536a5467aa4e6baea0cc2cc4122064118f9ede8a"
+      },
+      "candidate": {
+        "exit_code": 0,
+        "errors": [],
+        "result": {
+          "checks": 203,
+          "failure_count": 0,
+          "failures": [],
+          "legacy_receipts_checked": 0,
+          "monotonic_failures": 0,
+          "ok": true,
+          "owner_transactions": 6
+        },
+        "log_sha256": "850f2d55f1ad5fab822b156bb962fa10e17447b6862c5c0d307fe1b2f46c8dc9",
+        "raw_log": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nSONG57_RESULT {\"checks\":203,\"failure_count\":0,\"failures\":[],\"legacy_receipts_checked\":0,\"monotonic_failures\":0,\"ok\":true,\"owner_transactions\":6}\n",
+        "closure_files": 71,
+        "workbench_sha256": "f9a5955c1c1ac4ef9a5e49cd034fe2f1ffda671fc6b627f1ee5604b10b14ebe9",
+        "test_sha256": "aefa7302b6ec2e0d5ba39224536a5467aa4e6baea0cc2cc4122064118f9ede8a"
+      }
+    }
+  },
+  "local_engine_executions": {
+    "total": 13,
+    "execution_strict": 10,
+    "held": 3,
+    "note": "v3 candidate execution strict but subsequently held by independent source review. Only v7 is final exact current test harness. One additional flock refusal started no engine."
+  },
+  "protection": {
+    "baseline": "f95a19618c3d30b21628f5150bfa5f97be270e12",
+    "candidate": "5d6d9ebe5e38b661bc1fae8809870b97ebd22d36",
+    "changed_existing": [
+      ".github/workflows/song57-model-proof.yml",
+      "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+      "docs/asset_base/STATE.json",
+      "docs/continuous_improvement/CURRENT.json",
+      "docs/continuous_improvement/ISSUES.jsonl",
+      "docs/handover/START_HERE.md",
+      "experiments/playable_flightcase/song_workbench.gd"
+    ],
+    "unchanged_files": 1718,
+    "original_scripts": 54,
+    "art_font_audio_files": 632,
+    "all_protected_exact": true,
+    "source_hashes": {
+      "experiments/playable_flightcase/song_workbench.gd": "f9a5955c1c1ac4ef9a5e49cd034fe2f1ffda671fc6b627f1ee5604b10b14ebe9",
+      "tests/song58_identity.gd": "aefa7302b6ec2e0d5ba39224536a5467aa4e6baea0cc2cc4122064118f9ede8a",
+      "tools/song58_verify.py": "bfd1418064a27adf57187a3c844961238363e28e904f43fb76701efd99136c85",
+      ".github/workflows/song57-model-proof.yml": "764def281984541a0e0a553716950e19200e4735a2919fd1f4f7c23c7a422652"
+    }
+  },
+  "published_blob_readback": "All six inspected exact Git blob IDs/sizes matched local bytes at5d6d9eb, including2309398-byte complete issue prefix. Later closeout events append only.",
+  "claims": {
+    "UI_changed": false,
+    "fresh_native_screenshots": 0,
+    "physical_device_test": false,
+    "listening_test": false,
+    "APK": false,
+    "owner_approved": false,
+    "release_approval": false
+  },
+  "test_build_access": {
+    "original_signer": "READ-ONLY VERIFIED: existing JKS opens;2048-bit RSA/cert83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2; original file hash and mtime unchanged. No key transfer/new key/signing.",
+    "private_media": "Nine literal audio/JSON source dependencies absent from live source and original workspace search. Dropbox /BandMaster current listing empty, has_more=false. Restricted cloud policy has no custom allowed hosts; no binary download retry or bypass. Full playable audio packaging remains blocked until existing approved media restored.",
+    "missing": [
+      "character_indie29/manifest.json",
+      "crowd37/cheer.ogg",
+      "formation_next32/manifest.json",
+      "recorded_dgad_v1/manifest.json",
+      "recorded_indie29/manifest.json",
+      "recorded_indie39/characters.json",
+      "recorded_rehearsal_v1/manifest.json",
+      "recorded_steady_v2/manifest.json",
+      "title_indie29.ogg"
+    ]
+  },
+  "funding": {
+    "at": "2026-11-14T01:11:25.218110+00:00",
+    "scope": "SONG58 bounded R2 identity foundation",
+    "primary_new_bytes": 0,
+    "tmp_cap_bytes": 2147483648,
+    "tmp_free_before": 9441325056,
+    "floor_bytes": 629145600,
+    "budget": {
+      "archive_and_export": 600000000,
+      "model_private_copy_cache": 500000000,
+      "proof_failed_tail": 500000000,
+      "closeout": 10000000
+    },
+    "critical_git": "GitHub Git Data durable objects only; no local Git object store; original checkout untouched"
+  },
+  "CI": [
+    {
+      "id": 43540493339,
+      "name": "Mandatory continuous-improvement gate",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "5d6d9ebe5e38b661bc1fae8809870b97ebd22d36",
+      "url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/43540493339"
+    },
+    {
+      "id": 43540493491,
+      "name": "Validate BandMaster structure",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "5d6d9ebe5e38b661bc1fae8809870b97ebd22d36",
+      "url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/43540493491"
+    },
+    {
+      "id": 43540493343,
+      "name": "Linked-song craft and legacy-save proof",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "5d6d9ebe5e38b661bc1fae8809870b97ebd22d36",
+      "url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/43540493343"
+    },
+    {
+      "id": 43540493350,
+      "name": "Godot headless validation",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "5d6d9ebe5e38b661bc1fae8809870b97ebd22d36",
+      "url": "https://github.com/alimuir654-rgb/BandMaster/actions/runs/43540493350"
+    }
+  ],
+  "CI_artifact": {
+    "id": 14091741730,
+    "name": "song57-models-5d6d9ebe5e38b661bc1fae8809870b97ebd22d36-1",
+    "bytes": 77430,
+    "metadata_digest": "sha256:ccd273685a399a4add6d0fae1a2ce925cefd3161635c9a1be61d0017f57ffd42",
+    "expires": "2026-11-28T01:26:20Z",
+    "download_claim": false
+  },
+  "held_publication_CI": {
+    "sha": "0bd2aad910854ca052634aaa9922217eac947826",
+    "gate": {
+      "run": 43539958237,
+      "conclusion": "failure"
+    },
+    "model": {
+      "run": 43539958227,
+      "conclusion": "failure"
+    },
+    "disposition": "Held incomplete issue-prefix publication; corrected complete tree and all final CI pass."
+  },
+  "closed_at": "2026-11-14T01:31:21.806132+00:00",
+  "process_release": {
+    "live_Godot_Xorg": 0,
+    "GL_lock": "free",
+    "all_SONG58_model_projects": "closed/immutable; no resume",
+    "tmp_bytes_observed": 565379072,
+    "workspace_free_bytes": 625479680,
+    "new_primary_bytes": 0,
+    "old_local_checkout": "19df671f2946a9a3c675bc879aa4c8a854544e57 and durable dirty metadata untouched; all critical new Git durable on GitHub"
+  }
+}
