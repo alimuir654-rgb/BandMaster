@@ -4,16 +4,17 @@
   "session_path": "docs/continuous_improvement/sessions/DELIVER69.json",
   "canonical_current": "docs/continuous_improvement/CURRENT.json",
   "branch": "feature/playtest-polish-v20",
-  "status": "active",
-  "writer": "root-DELIVER69",
+  "status": "closed",
+  "writer": null,
   "owner_approved": false,
-  "updated_at": "2026-11-14T14:36:58.624128+00:00",
-  "next_single_action": "Complete and verify the private Dropbox transfer of the signed V26 APK, then test the in-place update and Continue.",
+  "updated_at": "2026-11-14T14:39:12.947457+00:00",
+  "next_single_action": "Install the standalone V26 APK as an update without uninstalling or clearing storage, then check Continue and restored audio.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json",
   "base_head": "7231f56602e6bd9222b8cfb831733c0bf6466d0d",
   "claimed_at": "2026-11-14T14:14:30.930197+00:00",
   "expires_at": null,
   "tested_source": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
   "game_source": "7ae8667071c4aa8f2aefd8de891f498ad9d09118",
-  "claim_basis": "Finish V26 using docs/signing/BandMaster-V26-signature-response.json on feature/playtest-polish-v20. Assemble the retained unsigned APK, run official signature/update/alignment checks, and deliver the signed update privately to Dropbox. Preserve the original key and app ID; do not rebuild or generate a key."
+  "claim_basis": "Finish V26 using docs/signing/BandMaster-V26-signature-response.json on feature/playtest-polish-v20. Assemble the retained unsigned APK, run official signature/update/alignment checks, and deliver the signed update privately to Dropbox. Preserve the original key and app ID; do not rebuild or generate a key.",
+  "released_at": "2026-11-14T14:39:12.947457+00:00"
 }

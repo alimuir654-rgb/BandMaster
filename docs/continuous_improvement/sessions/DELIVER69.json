@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "DELIVER69",
-  "status": "active",
+  "status": "closed",
   "owner_approved": false,
   "owner_request": "Finish V26 using docs/signing/BandMaster-V26-signature-response.json on feature/playtest-polish-v20. Assemble the retained unsigned APK, run official signature/update/alignment checks, and deliver the signed update privately to Dropbox. Preserve the original key and app ID; do not rebuild or generate a key.",
   "scope": "V26 detached-signature assembly, official Android verification, immutable payload/update identity checks and private Dropbox delivery; no rebuild, key operation or game change.",
@@ -11,8 +11,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
   },
   "issue_log_review": {
-    "bytes": 2357336,
-    "sha256": "0d97f9aee902c48621389c8c03999ba0244113a080841b911856fcfa17b82f5a"
+    "bytes": 2358958,
+    "sha256": "5df6d6b5c57a1e7f3cc87b4fc0cd6d9e671cfeed53c8b1194b999ad305afbc3a"
   },
   "lesson_ids": [
     "BM-17",
@@ -55,11 +55,12 @@
   ],
   "writer": {
     "owner": "root-DELIVER69",
-    "status": "active",
+    "status": "released",
     "claimed_at": "2026-11-14T14:14:30.930197+00:00",
-    "expires_at": null
+    "expires_at": null,
+    "released_at": "2026-11-14T14:39:12.947457+00:00"
   },
-  "next_action": "Complete and verify the private Dropbox transfer of the signed V26 APK, then test the in-place update and Continue.",
+  "next_action": "Install the standalone V26 APK as an update without uninstalling or clearing storage, then check Continue and restored audio.",
   "queue_task_ids": [
     "SIGN67"
   ],
@@ -83,5 +84,16 @@
     "unsigned_apk_sha256": "3ba53963494717c1cce448e6a630dc519125df4719fc49acf46f6a94d9e9b39c",
     "request_sha256": "42fb4c51238778f681adb86fdff6cd6648b1062c56d4249fbe31faf62c9fcff0",
     "response_sha256": "6e2d6f1f55fe8f62aab0b52ec0acedc28330882e01b10e0cf6ebc4b756c1b4dd"
+  },
+  "completed_at": "2026-11-14T14:39:12.947457+00:00",
+  "tested_sha": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
+  "results": "docs/continuous_improvement/DELIVER69_RESULTS.json",
+  "review": "docs/continuous_improvement/DELIVER69_REVIEW.json",
+  "closeout": {
+    "tested_sha": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
+    "evidence": "docs/continuous_improvement/DELIVER69_RESULTS.json",
+    "visual_verdict": "partial",
+    "next_action": "Install the standalone V26 APK as an update without uninstalling or clearing storage, then check Continue and restored audio.",
+    "new_issue_review": "Two transfer-timeout recurrence records retained; full standalone APK completion/readback resolves delivery. First event-schema refusal corrected before any log write. No build, game, key, save or artistic change."
   }
 }

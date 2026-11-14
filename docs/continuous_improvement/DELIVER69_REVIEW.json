@@ -34,8 +34,8 @@
     },
     {
       "lens": "Player experience reviewer \u2014 SIMULATED",
-      "verdict": "DELIVERY_PENDING",
-      "finding": "Complete verified signed APK is saved privately and available to the owner. Dropbox has three verified archive parts; full APK delivery through a saved-file route is still pending."
+      "verdict": "PASS_DELIVERY_DEVICE_PENDING",
+      "finding": "Single complete APK is privately delivered to Dropbox and its size/content hash verified. Install as an update, preserve storage and check Continue; physical test remains pending."
     },
     {
       "lens": "Privacy reviewer \u2014 SIMULATED",
@@ -44,9 +44,10 @@
     }
   ],
   "unresolved": [
-    "Dropbox completion/readback pending; the standalone verified APK is already available privately to the owner.",
     "Physical Android update, Continue and listening acceptance pending.",
-    "R3 remains partial; R4\u2013R7 held."
+    "R3 remains partial; R4\u2013R7 held.",
+    "Three private partial archive files remain from the abandoned fallback; use the single APK."
   ],
-  "next_action": "Finish private delivery readback, then install V26 as an update without uninstalling or clearing storage and check Continue plus audio."
+  "next_action": "Install the standalone V26 APK as an update without uninstalling or clearing storage, then check Continue and restored audio.",
+  "delivery_verdict": "PASS_PRIVATE_COMPLETE_APK_HASH_VERIFIED"
 }

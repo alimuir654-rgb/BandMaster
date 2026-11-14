@@ -1,0 +1,41 @@
+{
+  "status": "superseded_by_verified_single_APK",
+  "complete_archive": false,
+  "uploaded_parts_retained": [
+    {
+      "name": "BandMaster-V26.7z.001",
+      "id": "id:6rRaLzqs6O4AAAAAAAABOw",
+      "path": "ns:13916460209//BandMaster/BandMaster-V26.7z.001",
+      "path_display": "/BandMaster/BandMaster-V26.7z.001",
+      "size": 50331648,
+      "content_hash": "bb0f2ad182570e43e18194903d050981d89c89e92d0ccf0d54ef9e71ebfe8cc2",
+      "local_sha256": "2214271c6cda9d354093db875a196028dfac30c88aed3fa65c7b118ed570608e",
+      "remote_hash_matches": true
+    },
+    {
+      "name": "BandMaster-V26.7z.002",
+      "id": "id:6rRaLzqs6O4AAAAAAAABPA",
+      "path": "ns:13916460209//BandMaster/BandMaster-V26.7z.002",
+      "path_display": "/BandMaster/BandMaster-V26.7z.002",
+      "size": 50331648,
+      "content_hash": "f544296727b29b16b39d66c82dd362e12c041d77a04387d2aed2fa9fc1d49bf5",
+      "local_sha256": "59e37bb46fbc6a6d2c3c544b13597bc00521bc4ff0f538d8aa57ec83e756f5af",
+      "remote_hash_matches": true
+    },
+    {
+      "name": "BandMaster-V26.7z.008",
+      "id": "id:6rRaLzqs6O4AAAAAAAABOg",
+      "path": "ns:13916460209//BandMaster/BandMaster-V26.7z.008",
+      "path_display": "/BandMaster/BandMaster-V26.7z.008",
+      "size": 20541380,
+      "content_hash": "27a69122451afcc94c8812337d077acf738b6291cd95d79033930e10367fb266",
+      "local_sha256": "07079f292776c7c8d52b18fa5ab6d66349d4c812ffa67fa584cfbd64e3025acb",
+      "remote_hash_matches": true
+    }
+  ],
+  "guide_uploaded": false,
+  "remaining_parts_uploaded": false,
+  "new_public_link": false,
+  "instruction": "Use the verified standalone BandMaster-Playtest-v26-arm64.apk; no archive extraction is required.",
+  "reason_retained": "No cleanup requested; three completed private transport parts left untouched."
+}

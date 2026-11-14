@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "session": "DELIVER69",
-  "status": "signed_verified_eight_part_private_delivery_in_progress",
-  "updated_at": "2026-11-14T14:36:16.258352+00:00",
+  "status": "signed_verified_privately_delivered",
+  "updated_at": "2026-11-14T14:39:12.947457+00:00",
   "owner_approved": false,
   "authority": "Owner explicitly requested final assembly of retained V26 with committed signature response, official signature/update/alignment verification and private Dropbox delivery; no rebuild or new key.",
   "baseline_sha": "7231f56602e6bd9222b8cfb831733c0bf6466d0d",
@@ -59,24 +59,31 @@
     "record": "docs/continuous_improvement/evidence/DELIVER69/proof-reuse.json"
   },
   "delivery": {
-    "status": "partial_parts_and_full_APK_transfer_pending",
-    "destination": "/BandMaster",
+    "status": "completed",
+    "file_id": "id:6rRaLzqs6O4AAAAAAAABPQ",
+    "name": "BandMaster-Playtest-v26-arm64.apk",
+    "path": "ns:13916460209//BandMaster/BandMaster-Playtest-v26-arm64.apk",
+    "path_display": "/BandMaster/BandMaster-Playtest-v26-arm64.apk",
+    "bytes": 372862746,
+    "dropbox_content_hash": "0fcbfdaeb99b4f5c64e9659d81cd9e6976f815186f1ac20ae715360fbf00de76",
+    "local_sha256": "dfe7e644a73b8ead1f80485ccf4cd5741bace466d1c73fc3eaf121b97f52dd9f",
+    "remote_hash_matches": true,
+    "open_in_dropbox_url": "https://www.dropbox.com/preview/BandMaster/BandMaster-Playtest-v26-arm64.apk",
+    "server_modified": "2026-11-14T14:35:30Z",
+    "direct_shared_links": 0,
+    "shared_links_pagination_complete": true,
+    "has_explicit_shared_members": null,
     "sharing_changed": false,
     "public_link_created": false,
-    "privacy_review": "docs/continuous_improvement/evidence/DELIVER69/private-destination-review.json",
-    "archive_parts": 8,
-    "guide": "V26-ANDROID-INSTALL.txt",
-    "full_standalone_APK_present": false,
-    "full_upload_failure": "300000 ms file-parameter transfer timeout; terminal destination check NOT_FOUND",
-    "transport_manifest": "docs/continuous_improvement/evidence/DELIVER69/transport-manifest.json",
-    "exact_clean_extraction": true,
-    "verified_canaries": [
+    "evidence": "docs/continuous_improvement/evidence/DELIVER69/dropbox-delivery.json",
+    "full_standalone_APK_present": true,
+    "archive_extraction_required": false,
+    "partial_archive_files_retained": [
       "BandMaster-V26.7z.001",
       "BandMaster-V26.7z.002",
       "BandMaster-V26.7z.008"
     ],
-    "complete_signed_APK_available_privately": true,
-    "web_fallback": "Requires user sign-in; no authentication or upload performed"
+    "complete_signed_APK_also_saved_privately": true
   },
   "physical_android_tested": false,
   "listening_verified": false,
@@ -87,8 +94,10 @@
     "R4_to_R7": "held_by_dependencies"
   },
   "remaining": [
-    "Complete Dropbox delivery; three archive parts are verified and the full-APK transfer from the saved copy is pending.",
-    "Physical in-place update, Continue and listening test on owner phone."
+    "Physical in-place update, Continue and restored-audio listening test on the owner phone.",
+    "Roadmap R3 remains partial; R4\u2013R7 remain held by their existing dependencies."
   ],
-  "next_action": "Finish private delivery readback, then install V26 as an update without uninstalling or clearing storage and check Continue plus audio."
+  "next_action": "Install the standalone V26 APK as an update without uninstalling or clearing storage, then check Continue and restored audio.",
+  "completed_at": "2026-11-14T14:39:12.947457+00:00",
+  "publication_scope": "Public Git contains source helper and non-secret audit/continuity metadata only. Signed APK, archive parts and all private key material are excluded."
 }

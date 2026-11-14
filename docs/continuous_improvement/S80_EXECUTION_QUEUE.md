@@ -1,10 +1,10 @@
 # BandMaster — sole execution queue
 
-Latest session: **DELIVER69 — ACTIVE**. V26 signed/officially verified with exact payload, original app/certificate/save identity and no rebuild. Complete APK is privately available to the owner; Dropbox transfer completion remains active after bridge timeouts.
+Latest session: **DELIVER69 — CLOSED**. Complete signed V26 privately delivered to Dropbox, exact remote hash/size verified. Official signature,16KiB alignment, unchanged2134payload entries and V24 update/save identity pass. No rebuild/key operation; writer released. Physical owner test remains pending.
 
-**Next action:** Complete and verify the private Dropbox transfer of the signed V26 APK, then test the in-place update and Continue.
+**Next action:** Install the standalone V26 APK as an update without uninstalling or clearing storage, then check Continue and restored audio.
 
-[Results](DELIVER69_RESULTS.json) · [Review](DELIVER69_REVIEW.json) · [Recovery](../signing/RECOVERY.md).
+[Results](DELIVER69_RESULTS.json) · [Review](DELIVER69_REVIEW.json) · [Delivery](evidence/DELIVER69/dropbox-delivery.json) · [Recovery](../signing/RECOVERY.md).
 
 ## Linked songs and band life
 
