@@ -11,8 +11,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
   },
   "issue_log_review": {
-    "bytes": 2359989,
-    "sha256": "5a5990cf3ba4ffa96d50528166967c9a0cea39ec29f76e9bd6a30723364e0e09"
+    "bytes": 2361133,
+    "sha256": "e2817b4bbd153078059922262ea3d5723bc985ea7305b51a2524802de9bfd463"
   },
   "lesson_ids": [
     "BM-05",
@@ -149,6 +149,7 @@
       "docs/continuous_improvement/evidence/SONG63/native-v1/candidate/phone/selected-long-title.png",
       "docs/continuous_improvement/evidence/SONG60/final-phone-chosen-casey.png"
     ],
-    "scope": "Verify committed UX70, fix only evidenced in-scope defects, and close with source-bound evidence before progressing to R3."
+    "scope": "Verify committed UX70, fix only evidenced in-scope defects, and close with source-bound evidence before progressing to R3.",
+    "verification_extension": "Explicit motion receipt; normal-motion phone journey plus existing reduced-motion four-size proof; genuine keyboard focus after Shape close and Change Reply."
   }
 }
