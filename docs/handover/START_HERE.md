@@ -1,10 +1,13 @@
 # BandMaster current handover
-<!-- session: SONG61 -->
-<!-- status: closed -->
+<!-- session: SONG62 -->
+<!-- status: active -->
 
-Use ONLY `feature/playtest-polish-v20` live remote head; no reset to cached source/main/original dirty checkout. **SONG61 closed; writer released.** Tested product `0b730048f4fa77fcd4a4a06093549aa5bc862b81`; later metadata/evidence commits may be newer.
+RootSONG62 owns bounded UI rehearsal pass until05:48.
 
-## Ready and remaining
+Verify and publish R3 selected-song rehearsal UI through its original atomic owner; leave unsupported transfer and R4 explicitly held.
+
+## Previous verified candidate
+
 
 R2/SONG57–60 remains internally verified. SONG61 adds PARTIAL R3: optional factual exact song/composition/revision/actual-candidate rehearsal ledger and shared OpeningState.rehearse_song owner. Original rehearsal/Situation→Live→Finance→private save runs once; sharedbusy, wholeopening rollback/retry and stale token duplicate guards. No extra reward/readiness formula, invented legacy preparation, UI or music change. Ordinary existing rehearsal callers unchanged. Bounded256records refuse further linked writes rather than erase history.
 

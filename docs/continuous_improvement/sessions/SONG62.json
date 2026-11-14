@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "owner_approved": false,
+  "owner_request": "14 November 2026 owner: Pick up bandmaster roadmap work. Split into hourly chunks to target a 9am test for me. Automate through and make as much progress as possible until then. I won't be available for reviews or approvals until then.",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "2c13c9b0605a4f3b50b0ff2f99d0613cff2f67810be0d9e233af56695e047423",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
+  },
+  "issue_log_review": {
+    "bytes": 2330586,
+    "sha256": "a1459943a65cb6ea4e9e5cd81b583da62870f3f4e5efd7bf991585ee8a14d177"
+  },
+  "lesson_ids": [
+    "BM-01",
+    "BM-02",
+    "BM-05",
+    "BM-06",
+    "BM-17",
+    "BM-20",
+    "BM-21",
+    "BM-22",
+    "BM-29",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-39",
+    "BM-41",
+    "BM-43",
+    "BM-44",
+    "BM-45"
+  ],
+  "dominant_issue": "BM-33",
+  "target": {
+    "locator": "docs/continuous_improvement/evidence/SONG56/songbook-phone.png",
+    "original_sha256": "1cfc4b157356dcc98e5f6861593a4d4b62abbe8c02268f7282d527e30ca78c40",
+    "pixels_inspected": true,
+    "purpose": "Retained actual SONG56 poster songbook original opened for protected typography; new rehearsal target must preserve actual fresh baseline screen. Baseline native rehearsal captured/opened before product edit; no owner acceptance."
+  },
+  "overnight": {
+    "automation_id": "6ae532c5fe9c819190f587a022c54052",
+    "schedule": "01:00 through09:00 Europe/London 2026-11-14;9 finite opportunities;09:00 read-only handover",
+    "new_feature_stop": "2026-11-14T07:00:00+00:00",
+    "mutation_stop": "2026-11-14T09:00:00+00:00",
+    "user_unavailable": true,
+    "scope": "R2\u2013R7 in dependency order with bounded committed passes; no promise all stages finish."
+  },
+  "id": "SONG62",
+  "status": "active",
+  "baseline_sha": "ff13f6c45875a7cb0f6ff5843a603e90714bd4be",
+  "hypothesis": "A local exact finished-song selector and existing rehearsal purpose can produce one original paid atomic rehearsal with an honest saved song/attendance callback; choosing general rehearsal preserves original behaviour.",
+  "controlled_comparison": "Fresh original RootUI baseline at390phone/1280short, matching two actual finished originals/availability; early candidate thenfinal four native sizes with real production commit, cancel/FSfailure/retry/reload/input.",
+  "stop_condition": "HOLD wrong song/actual people, duplicate resolver/account/save, stale selection fallback, lost selection on failure, unreachable/clipped cost/actions or failure to close by05:48. Aftertwo ineffective attempts change method/HOLD.",
+  "allowed_paths": [
+    "experiments/playable_flightcase/ui.gd",
+    "tests/song62_native.gd",
+    "tools/song62_verify.py",
+    "docs/continuous_improvement/sessions/SONG62.json",
+    "docs/continuous_improvement/SONG62_RESULTS.json",
+    "docs/continuous_improvement/SONG62_REVIEW.json",
+    "docs/continuous_improvement/evidence/SONG62/*",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/handover/START_HERE.md"
+  ],
+  "validation_commands": [
+    "project_context start/newissues/lessons/check; improvement_gate committed scopedpreflight",
+    "Fresh pinned4.7.2 Dummy/privateXDG/normalXorg/oneGL native baselinephone/short thenearlycandidatephone/short independently inspected",
+    "Exact four native390x844/720x1280/1280x720/1600x900 productionRootUI whole-task pointer/key/emulatedtouch/wheel/FSfailure-retry/typedreload/stale/partial-conflict; unchanged model proof literalclosure reuse",
+    "Independent readonly source/visual/receipt audits; sourceprotection; expectedhead nonforce publication/readback"
+  ],
+  "writer": {
+    "owner": "root-SONG62",
+    "status": "active",
+    "source_writers": 1,
+    "claimed_at": "2026-11-14T05:01:14.953181+00:00",
+    "expires_at": "2026-11-14T05:48:00+00:00"
+  },
+  "next_action": "Verify and publish R3 selected-song rehearsal UI through its original atomic owner; leave unsupported transfer and R4 explicitly held.",
+  "queue_task_ids": [
+    "SONG53-R3"
+  ],
+  "resource_plan": {
+    "scope": "SONG62 bounded R3 rehearsal selection and actual-owner native proof; transfer remains separately gated if no supported rewrite path",
+    "at": "2026-11-14T04:58:45.883890+00:00",
+    "baseline_sha": "ff13f6c45875a7cb0f6ff5843a603e90714bd4be",
+    "primary_new_bytes": 0,
+    "tmp_cap_bytes": 2952790016,
+    "tmp_free_before": 4722417664,
+    "workspace_free_before": 625475584,
+    "floor_bytes": 629145600,
+    "budgets": {
+      "source_archive_export": 700000000,
+      "baseline_early_final_native": 1350000000,
+      "one_failed_proof_tail": 450000000,
+      "PNG_models_closeout": 150000000
+    },
+    "critical_git": "Durable GitHub GitData only; original checkout/closed producers immutable",
+    "deadline": "2026-11-14T05:48:00+00:00"
+  },
+  "scope": "R3 actual song selection/original-owner delegation/persisted recap and selected preview; no preparation score/transfer/new music/APK.",
+  "player_task": {
+    "start": "Existing rehearsal page with actual finished originals",
+    "goal": "Choose song/purpose, review actual people and\u00a315/day, commit once and recognise saved song/session afterreload",
+    "commit": "Original shared OpeningState.rehearse_song only for selected track",
+    "important_states": [
+      "general/selected/stale",
+      "longtitle",
+      "partial-conflict-cancel/proceed",
+      "FSfailure/retry",
+      "recap/reload",
+      "scroll/touch/key"
+    ],
+    "visible_acceptance": [
+      "Selected title/arrangement/purpose/actualpeople readable; bandreadiness labelledgeneral",
+      "Fixed cost/action reachable48px, selected audio context matches song",
+      "No silent fallback or loss of free selection on failure",
+      "Saved recap matches ledger action, not local selection"
+    ]
+  },
+  "predesign": {
+    "reviewer": "/root/au01_source_review",
+    "verdict": "CLEAR narrowUI",
+    "critical": "Delegate after original priority/attendance-dialog gates inside_commit_session; original atomicowner already charges/saves; selected path mustreturn throughpresentationonly."
+  }
+}
