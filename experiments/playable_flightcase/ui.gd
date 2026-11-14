@@ -70,6 +70,7 @@ var _work_expected: Dictionary = {}
 var _work_epoch := 0
 var practice_activity := "create"
 var rehearsal_direction: Dictionary={"focus":"precision","effort":"steady"}
+var rehearsal_reference: Dictionary={} # Free local exact-version selection; empty explicitly means general live set.
 var _workbench_desk
 var _workbench_finished := false
 var _workbench_finished_ref: Dictionary={}
@@ -959,6 +960,7 @@ func _practice_page(root_box: VBoxContainer, mobile: bool) -> void:
  elif practice_activity=="tighten":
   action = _button("START REHEARSAL  •  £15",_rehearse)
   action.name = "RehearseAction"
+  _rehearsal_target_minimum(action)
  elif practice_activity=="jam":
   var available: Dictionary=Situation.inspect_rehearsal(game.career)
   var count: int=available.get("attendee_indices",[]).size()
@@ -1125,9 +1127,10 @@ func _rehearsal_workspace(body: VBoxContainer, kind: String) -> void:
   body.add_child(_ink("Review a quiet evening, solo practice or a free jam with whoever is here. Planning your week stays free and uses no day.",16))
   return
  body.add_child(_ink("TONIGHT AT REHEARSAL" if kind=="tighten" else "CLEAR THE AIR",22))
- body.add_child(_ink("Work through the set together: starts, stops and the places that need another pass." if kind=="tighten" else "Make time to hear where everyone stands and talk through the tension in the room.",16,true))
+ body.add_child(_ink("Pick a song, then work on how you play it together." if kind=="tighten" else "Make time to hear where everyone stands and talk through the tension in the room.",16,true))
  body.add_child(_ink("£15 ROOM HIRE  •  USES 1 DAY" if kind=="tighten" else "NO ROOM FEE  •  USES 1 DAY",16))
  if kind=="tighten":
+  _rehearsal_song_choice(body)
   var poster=preload("res://experiments/playable_flightcase/poster_components.gd")
   for axis in ["focus","effort"]:
    body.add_child(_ink("WORK ON" if axis=="focus" else "HOW WE PLAY IT",17))
@@ -1154,23 +1157,93 @@ func _rehearsal_workspace(body: VBoxContainer, kind: String) -> void:
  var gap := Control.new()
  gap.custom_minimum_size.y = 8
  body.add_child(gap)
- for row in [["readiness","READINESS"],["morale","MORALE"],["tension","TENSION"]]:
+ for row in [["readiness","BAND READINESS"],["morale","MORALE"],["tension","TENSION"]]:
   var line: Label = _ink("%s  %d%s" % [str(row[1]),int(game.career.get(str(row[0]),0))," / 100" if str(row[0])=="readiness" else ""],18)
   line.name = "PracticeCurrent_"+str(row[0])
   body.add_child(line)
  body.add_child(_ink("Results depend on the band's actual preparation, traits and relationships.",16,true))
  if kind=="tighten":
   var song_audio=preload("res://experiments/playable_flightcase/song_audio.gd")
-  for saved in game.career.get("song_catalogue",[]):
-   if saved is Dictionary and not song_audio.recipe(saved).is_empty():
-    var pin: String=Workbench._hash(saved)
-    var id: String=str(saved.get("id",""))
-    song_audio.attach(body,saved,func():
-     if practice_activity!="tighten" or session_busy:return false
-     for current in game.career.get("song_catalogue",[]):
-      if current is Dictionary and str(current.get("id",""))==id:return Workbench._hash(current)==pin
-     return false)
-    break
+  var saved: Dictionary=_rehearsal_audio_song()
+  if not saved.is_empty():
+   var pin: String=Workbench._hash(saved)
+   var id: String=str(saved.get("id",""))
+   song_audio.attach(body,saved,func():
+    return practice_activity=="tighten" and not session_busy and _rehearsal_audio_song().get("id")==id and Workbench._hash(_rehearsal_audio_song())==pin)
+
+func _rehearsal_target_minimum(button: Button) -> void:
+ var physical_scale: Vector2=(get_viewport().get_final_transform()*get_global_transform_with_canvas()).get_scale().abs()
+ button.custom_minimum_size=button.custom_minimum_size.max(Vector2(ceilf(48.0/maxf(0.01,physical_scale.x)),ceilf(48.0/maxf(0.01,physical_scale.y))))
+
+func _rehearsal_songs() -> Array:
+ if opening_owner==null:return []
+ var choices: Array=[]
+ var Preparation=preload("res://experiments/playable_flightcase/song_preparation.gd")
+ var opening: Dictionary=opening_owner.snapshot()
+ for item in Workbench.finished(opening).items:
+  if Preparation.target(opening,item.reference).ok:choices.append(item)
+ return choices
+
+func _rehearsal_song_choice(body: VBoxContainer) -> void:
+ if opening_owner==null:return
+ body.add_child(_ink("WHAT WE'RE PLAYING",17))
+ var row:=HBoxContainer.new();row.add_theme_constant_override("separation",6);body.add_child(row)
+ var label: Label=_ink("THE LIVE SET\nGeneral rehearsal",18)
+ label.name="RehearsalSongTitle";label.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ var valid: bool=rehearsal_reference.is_empty()
+ var choices: Array=_rehearsal_songs()
+ for item in choices:
+  if Workbench._same(item.reference,rehearsal_reference):
+   label.text=str(item.title)+"\nSaved arrangement";valid=true
+ if not valid:label.text="ARRANGEMENT CHANGED\nChoose the song again"
+ for direction in [-1,1]:
+  var button: Button=_button("‹" if direction<0 else "›",_cycle_rehearsal_song.bind(direction),"tab")
+  button.name="RehearsalSongPrevious" if direction<0 else "RehearsalSongNext"
+  _rehearsal_target_minimum(button);button.size_flags_horizontal=Control.SIZE_SHRINK_CENTER;button.disabled=session_busy or choices.is_empty()
+  button.tooltip_text="Choose a saved song arrangement, or the general live set. Choosing is free."
+  if direction<0:row.add_child(button);row.add_child(label)
+  else:row.add_child(button)
+ var context: String="General rehearsal keeps no song-specific record." if rehearsal_reference.is_empty() else ("Only the people here are recorded for this arrangement." if valid else "Choose the song again before starting.")
+ var note: Label=_ink(context,16,true)
+ note.name="RehearsalSongContext";body.add_child(note)
+
+func _cycle_rehearsal_song(step: int) -> void:
+ if session_busy or practice_activity!="tighten":return
+ var choices: Array=[{"reference":{}}];choices.append_array(_rehearsal_songs())
+ if choices.size()==1:return
+ var current: int=0
+ for index in range(choices.size()):
+  if Workbench._same(choices[index].reference,rehearsal_reference):current=index
+ rehearsal_reference=choices[posmod(current+step,choices.size())].reference.duplicate(true)
+ _rebuild()
+
+func _rehearsal_audio_song() -> Dictionary:
+ if not rehearsal_reference.is_empty():
+  if opening_owner==null or not Workbench.read_finished(opening_owner.snapshot(),rehearsal_reference).ok:return {}
+  return game.career.song_catalogue[int(rehearsal_reference.catalogue_index)].duplicate(true)
+ for song in game.career.get("song_catalogue",[]):
+  if song is Dictionary and not preload("res://experiments/playable_flightcase/song_audio.gd").recipe(song).is_empty():return song.duplicate(true)
+ return {}
+
+func _rehearsal_saved_context(report: Dictionary) -> String:
+ var Preparation=preload("res://experiments/playable_flightcase/song_preparation.gd")
+ if not game.career.has(Preparation.KEY) or not Preparation.valid(game.career[Preparation.KEY]):return ""
+ for receipt in game.career[Preparation.KEY].receipts:
+  if receipt.action_id!=report.get("action_id"):continue
+  var title: String="Previously saved arrangement"
+  var matches: Array=[]
+  if opening_owner!=null:
+   var opening: Dictionary=opening_owner.snapshot()
+   for item in Workbench.finished(opening).items:
+    var target: Dictionary=Preparation.target(opening,item.reference)
+    if target.ok and target.identity.song_id==receipt.song_id and target.identity.composition_id==receipt.composition_id and target.identity.revision_id==receipt.revision_id:matches.append(item)
+  if matches.size()==1:title=str(matches[0].title)
+  var names: PackedStringArray=[]
+  for id in receipt.participants:
+   for person in Workbench.Cast.combined_people():
+    if person.id==id:names.append(str(person.name));break
+  return "REHEARSED · "+title+"\nRecorded arrangement · "+", ".join(names)
+ return ""
 
 
 func _choose_rehearsal_intent(axis: String,value: String) -> void:
@@ -1234,7 +1307,7 @@ func _refresh_practice_commitment() -> void:
    write.name="WorkbenchBeginAction" if start_pilot else "WriteAction"
    write.disabled = not bool(preview.get("ok",false))
  elif practice_activity=="tighten":
-  summary.text = "Readiness %d/100  •  Morale %d  •  Tension %d" % [int(game.career.get("readiness",0)),int(game.career.get("morale",0)),int(game.career.get("tension",0))]
+  summary.text = "Band readiness %d/100  •  Morale %d  •  Tension %d" % [int(game.career.get("readiness",0)),int(game.career.get("morale",0)),int(game.career.get("tension",0))]
   cost.text = "Uses 1 day  •  £15 room hire"
   var rehearse: Button = find_child("RehearseAction",true,false) as Button
   if rehearse!=null:
@@ -1286,11 +1359,15 @@ func _rehearsal_result_page(root_box: VBoxContainer, mobile: bool, report: Dicti
   # still grow the scroll content and remain readable from its top.
   center.size_flags_vertical = Control.SIZE_EXPAND_FILL
  scroll.add_child(center)
+ var report_body:=VBoxContainer.new();report_body.add_theme_constant_override("separation",8);center.add_child(report_body)
+ var saved_context: String=_rehearsal_saved_context(report)
+ if not saved_context.is_empty():
+  var linked: Label=_label(saved_context,18);linked.name="RehearsalSavedSong";linked.custom_minimum_size.x=minf(760.0,maxf(270.0,size.x-64.0));report_body.add_child(linked)
  var press: Variant = RehearsalPress.new()
  press.configure(report,game.career.get("members",[]),mobile,recap_details_expanded,tall_tablet,short_landscape,true,_new_session_notes and not reduced_motion)
  press.details_toggled.connect(_toggle_recap_details)
  press.custom_minimum_size.x = minf(850.0,maxf(270.0,size.x-(48.0 if mobile else 88.0)))
- center.add_child(press)
+ report_body.add_child(press)
  var dock := VBoxContainer.new()
  dock.name = "RecapDecisionDock"
  dock.add_theme_constant_override("separation",6)
@@ -1555,6 +1632,15 @@ func _commit_session(kind: String, expected: Dictionary = {}, workbench_request:
   if situation.conflict and expected.is_empty():
    _open_work_conflict(situation)
    return
+ if kind=="tighten" and not rehearsal_reference.is_empty():
+  if opening_owner==null:
+   last_message="This song needs its saved band context before rehearsal.";_rebuild();return
+  session_busy=true
+  var linked: Dictionary=opening_owner.rehearse_song(rehearsal_reference,rehearsal_direction.duplicate(true),opening_owner.song_rehearsal_expected())
+  if not linked.ok:
+   session_busy=false;last_message=str(linked.message);_rebuild();return
+  _present_committed_session(kind,linked.result)
+  return # Original atomic owner already resolved Situation/Live/Finance and saved once.
  # Set before the synchronous resolver: rapid pointer/key events cannot queue
  # another legitimate day while this committed result is being presented.
  session_busy = true
@@ -1644,6 +1730,9 @@ func _commit_session(kind: String, expected: Dictionary = {}, workbench_request:
   # Only a successful original paid seal resolves these local decisions.
   # Failed-save paths above return with the exact local direction retained.
   _workbench_desk.refresh_saved(false)
+ _present_committed_session(kind,result)
+
+func _present_committed_session(kind: String,result: Dictionary) -> void:
  last_message = _outcome_line(result)
  recap_expanded = true
  recap_details_expanded = false
