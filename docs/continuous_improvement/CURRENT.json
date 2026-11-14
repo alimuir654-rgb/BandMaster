@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
   "context_schema_version": 1,
-  "session": "docs/continuous_improvement/sessions/ESCROW68.json",
-  "active_session": "ESCROW68",
+  "session": "docs/continuous_improvement/sessions/DELIVER69.json",
+  "active_session": "DELIVER69",
   "branch": "feature/playtest-polish-v20",
-  "status": "closed",
-  "scope": "Owner-only recovery-secret fileescrow on separateGoogleDrive + remote-onlyisolatedrecovery proof/runbook. No originalprivateRSA/keyplaintextinpublic, noAPK/game changes.",
-  "authority": "Owner authorised signing independence and durableownercontrolled encryptedbackup, saidGoahead, then reportsphonecannotimportsecretfile/accessTMP and asksfurtherhelp. Use existingconnectedowneraccounts; no secretvaluesinchat/Git/publicfiles; no signingkeygeneration/rotation.",
-  "updated_at": "2026-11-14T13:57:55.636697+00:00",
-  "writer": null,
+  "status": "active",
+  "scope": "V26 detached-signature assembly, official Android verification, immutable payload/update identity checks and private Dropbox delivery; no rebuild, key operation or game change.",
+  "authority": "Finish V26 using docs/signing/BandMaster-V26-signature-response.json on feature/playtest-polish-v20. Assemble the retained unsigned APK, run official signature/update/alignment checks, and deliver the signed update privately to Dropbox. Preserve the original key and app ID; do not rebuild or generate a key.",
+  "updated_at": "2026-11-14T14:14:30.930197+00:00",
+  "writer": "root-DELIVER69",
   "owner_approved": false,
   "source": {
     "implementation_sha": "e887c35147b39fc3d12ef11ce2f8d322553991e1",
@@ -33,7 +33,7 @@
   },
   "roadmap": "docs/ROADMAP_LINKED_SONGS_AND_BAND_LIFE.md",
   "queue": "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
-  "next_action": "Use the existing V26 public response for final APK assembly and official verification; future signing retrieves the two private cloud escrow files through owner connections.",
+  "next_action": "Assemble the exact retained V26 APK with the committed public response, verify signature/update/alignment and unchanged payload, then deliver privately to Dropbox.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json",
   "limitations": [
     "Privatefileescrow verified; bothownercloudconnections/runtime required, notmanagedvault.",
@@ -52,5 +52,5 @@
     "automation_enabled": false,
     "programme_ended": true
   },
-  "owner_test_status": "V26_SIGNATURE_READY_APK_ASSEMBLY_OFFICIAL_VERIFY_PENDING"
+  "owner_test_status": "V26_ASSEMBLY_AND_PRIVATE_DELIVERY_IN_PROGRESS"
 }

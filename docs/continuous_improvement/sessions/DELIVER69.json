@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "id": "DELIVER69",
+  "status": "active",
+  "owner_approved": false,
+  "owner_request": "Finish V26 using docs/signing/BandMaster-V26-signature-response.json on feature/playtest-polish-v20. Assemble the retained unsigned APK, run official signature/update/alignment checks, and deliver the signed update privately to Dropbox. Preserve the original key and app ID; do not rebuild or generate a key.",
+  "scope": "V26 detached-signature assembly, official Android verification, immutable payload/update identity checks and private Dropbox delivery; no rebuild, key operation or game change.",
+  "baseline_sha": "7231f56602e6bd9222b8cfb831733c0bf6466d0d",
+  "reviewed_documents": {
+    "docs/continuous_improvement/LESSONS.md": "2c13c9b0605a4f3b50b0ff2f99d0613cff2f67810be0d9e233af56695e047423",
+    "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
+  },
+  "issue_log_review": {
+    "bytes": 2354838,
+    "sha256": "9042a07fbce933011748167c73c33f3d6d77f0e813df4be8db33b059de8a758c"
+  },
+  "lesson_ids": [
+    "BM-17",
+    "BM-30",
+    "BM-33",
+    "BM-34",
+    "BM-40",
+    "BM-43"
+  ],
+  "dominant_issue": "BM-34",
+  "target": {
+    "locator": "docs/continuous_improvement/evidence/SONG63/native-v1/candidate/phone/selected-long-title.png",
+    "original_sha256": "3c60ed1a13aa050efa44a4b548776c6e1c47ef063300982c8bbff11dbb7d5d5a",
+    "pixels_inspected": true,
+    "purpose": "Reopened unchanged original as protected presentation reference; no new UI acceptance or rendering claimed in this package-only pass."
+  },
+  "hypothesis": "The validated original-key public response can complete the retained exact unsigned V26 without changing any app payload, app identity or save configuration.",
+  "controlled_comparison": "Pinned unsigned APK SHA256, request, response and policy; byte-for-byte payload and ZIP metadata equality, original certificate and V24 version/app/save continuity using official SDK tools.",
+  "stop_condition": "Hold on any hash, certificate, app, signature, alignment, payload or private destination mismatch. No rebuild, re-signing, new key, secret access, source packaging, permission change or public link.",
+  "allowed_paths": [
+    "docs/continuous_improvement/sessions/DELIVER69.json",
+    "docs/continuous_improvement/DELIVER69_RESULTS.json",
+    "docs/continuous_improvement/DELIVER69_REVIEW.json",
+    "docs/continuous_improvement/evidence/DELIVER69/*",
+    "docs/continuous_improvement/ISSUES.jsonl",
+    "docs/continuous_improvement/CURRENT.json",
+    "docs/asset_base/STATE.json",
+    "docs/asset_base/CONTROL_SPRINT_LOCK.json",
+    "docs/asset_base/LEDGER.md",
+    "docs/continuous_improvement/S80_EXECUTION_QUEUE.md",
+    "docs/handover/START_HERE.md"
+  ],
+  "validation_commands": [
+    "Exact retained unsigned APK/request/response/policy/source proof hashes and public RSA verification",
+    "python3 tools/detached_apk_v2.py assemble with existing v26-policy.json and public-reference",
+    "Official apksigner verify --verbose --print-certs --min-sdk-version 24; zipalign -c -P 16 4; aapt manifest/permissions/ABI checks",
+    "Unchanged payload and ZIP structure; original V24 certificate/app/save identity and monotonically increasing version; reuse exact compiled 510-check proof",
+    "Private owner Dropbox folder/link inspection, upload exact APK, verify provider hash and size",
+    "python3 tools/improvement_gate.py check --session docs/continuous_improvement/sessions/DELIVER69.json; python3 tools/project_context.py check"
+  ],
+  "writer": {
+    "owner": "root-DELIVER69",
+    "status": "active",
+    "claimed_at": "2026-11-14T14:14:30.930197+00:00",
+    "expires_at": null
+  },
+  "next_action": "Assemble the exact retained V26 APK with the committed public response, verify signature/update/alignment and unchanged payload, then deliver privately to Dropbox.",
+  "queue_task_ids": [
+    "SIGN67"
+  ],
+  "resource_plan": {
+    "new_artifact_cap_bytes": 1200000000,
+    "minimum_free_bytes": 1073741824,
+    "destination": "/BandMaster/BandMaster-Playtest-v26-arm64.apk",
+    "retained_inputs": "Original unsigned APK, V24 reference, compiled proof, private media and all signing/recovery material remain unchanged."
+  },
+  "predesign": {
+    "reviewer": "/root/test_readiness",
+    "status": "read_only_review_complete",
+    "acceptance": "Exact request/response/policy and retained payload; official original identity/alignment; no physical-device claim.",
+    "verdict": "CLEAR_TO_ASSEMBLE"
+  },
+  "protected": {
+    "app_id": "com.bandmaster.ownerplaytest.s40",
+    "save_directory": "BandMasterOwnerPlaytestS40",
+    "certificate_sha256": "83c797fe8db043b49ebdc705a3ca7a0326db19d0b9bf613c8cb1db1ea0c3cbf2",
+    "unsigned_apk_sha256": "3ba53963494717c1cce448e6a630dc519125df4719fc49acf46f6a94d9e9b39c",
+    "request_sha256": "42fb4c51238778f681adb86fdff6cd6648b1062c56d4249fbe31faf62c9fcff0",
+    "response_sha256": "6e2d6f1f55fe8f62aab0b52ec0acedc28330882e01b10e0cf6ebc4b756c1b4dd"
+  }
+}

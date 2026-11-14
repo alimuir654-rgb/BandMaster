@@ -1,10 +1,10 @@
 # BandMaster — sole execution queue
 
-Latest session: **ESCROW68 — CLOSED**. PrivateDriveowner-only32B recoverysecret plus encryptedownerDropboxbackup nowprovide remote-backedrecovery withoutphoneimport. Freshsame-hoststagefrombothremotes reproducedunchangedV26response; no originalchatkey/passwordfilesused. Notmanagedvault/newmachinetest. TemporarytransferURLdiagnostic retained; advertisedexpiryelapsed/accessunknown. Writerreleased.
+Latest session: **DELIVER69 — ACTIVE**. Assemble the retained V26 with the original-key public response; official signature, update identity, alignment and unchanged-payload checks before private Dropbox delivery. No rebuild or key operation.
 
-**Next action:** Use the existing V26 public response for final APK assembly and official verification; future signing retrieves the two private cloud escrow files through owner connections.
+**Next action:** Assemble the exact retained V26 APK with the committed public response, verify signature/update/alignment and unchanged payload, then deliver privately to Dropbox.
 
-[Phone-friendlyrunbook](../signing/RECOVERY.md) · [Results](ESCROW68_RESULTS.json) · [Signature](../signing/BandMaster-V26-signature-response.json).
+[Session](sessions/DELIVER69.json) · [Signature](../signing/BandMaster-V26-signature-response.json) · [Recovery runbook](../signing/RECOVERY.md).
 
 ## Linked songs and band life
 
