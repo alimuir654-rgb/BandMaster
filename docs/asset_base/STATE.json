@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "session": "SONG60",
-  "session_path": "docs/continuous_improvement/sessions/SONG60.json",
+  "session": "SONG61",
+  "session_path": "docs/continuous_improvement/sessions/SONG61.json",
   "canonical_current": "docs/continuous_improvement/CURRENT.json",
   "branch": "feature/playtest-polish-v20",
-  "status": "closed",
-  "writer": null,
+  "status": "active",
+  "writer": "root-SONG61",
   "owner_approved": false,
-  "updated_at": "2026-11-14T03:42:46.737967+00:00",
-  "next_single_action": "Start bounded R3 song/version/actual-participant rehearsal from the live branch, reusing the verified R2 identity and co-writing owners.",
+  "updated_at": "2026-11-14T04:11:58.545052+00:00",
+  "next_single_action": "Complete R3 exact-revision rehearsal owner/model foundation; then integrate selector and proportionate transfer before advancing R4.",
   "history_manifest": "docs/handover/archive/SONG56_5be37ae/MANIFEST.json"
 }

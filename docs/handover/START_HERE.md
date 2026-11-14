@@ -1,10 +1,12 @@
 # BandMaster current handover
-<!-- session: SONG60 -->
-<!-- status: closed -->
+<!-- session: SONG61 -->
+<!-- status: active -->
 
-Use only `feature/playtest-polish-v20` and its live remote head. Never reset to a cached checkpoint, main or the original environment's older checkout.
+SONG61 root owns bounded R3 owner/model foundation until04:50. No UI/scoring/audio/art changes.
 
-## Verified candidate
+Complete R3 exact-revision rehearsal owner/model foundation; then integrate selector and proportionate transfer before advancing R4.
+
+
 
 **SONG60 closed; writer released.** Product tested at `c88d49ee14ee708d1cab55e43d727057799658a4`. Candidate `8f506b52a84ccd10dca9f5fbdda038966b6c4200` has identical game/test inputs plus durable evidence and a historical CI-trigger correction; final handover metadata may be newer.
 
