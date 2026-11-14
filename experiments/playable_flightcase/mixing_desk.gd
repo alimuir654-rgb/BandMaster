@@ -290,10 +290,14 @@ func _change_answer() -> void:
  call_deferred("_restore_visible_focus")
 
 func _unlock_review() -> void:
- if is_inside_tree():
-  _refresh()
-  var current: Control=get_viewport().gui_get_focus_owner()
-  if current==null or not current.is_visible_in_tree():_restore_visible_focus()
+ if not is_inside_tree():return
+ var remaining: int=_review_ready_at-Time.get_ticks_msec()
+ if remaining>0:
+  get_tree().create_timer(float(remaining)/1000.0+0.01).timeout.connect(_unlock_review)
+  return
+ _refresh()
+ var current: Control=get_viewport().gui_get_focus_owner()
+ if current==null or not current.is_visible_in_tree():_restore_visible_focus()
 
 func _restore_visible_focus() -> void:
  var choices: Array=[_title] if _shape_open else (_responses+[_hear,_change_reply,_shape_toggle])

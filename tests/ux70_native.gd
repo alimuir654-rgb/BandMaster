@@ -341,6 +341,15 @@ func _candidate_writing() -> void:
  check(desk._decision.get("choice")=="try","rapid reply repeat cannot undo or commit")
  await _ready_turn();_visible_focus("writing review")
  _free(before,disk,saves,"writing reply and review")
+ # Explicit timing counterexample: an early presentation callback must not
+ # leave eligible controls disabled after its monotonic guard has expired.
+ desk._review_ready_at=Time.get_ticks_msec()+80
+ desk._refresh();desk._unlock_review()
+ var until: int=Time.get_ticks_msec()+220
+ while Time.get_ticks_msec()<until:await process_frame
+ trace.append({"fixture":"early review callback","remaining_ms":desk._review_ready_at-Time.get_ticks_msec(),"disabled":desk._commit.disabled})
+ check(not desk._commit.disabled,"early callback eventually releases valid commit")
+ _free(before,disk,saves,"early review callback")
  await _record_frame("writing-reply")
  if not await activate("MixingChangeReply"):return
  _visible_focus("writing Change Reply")
