@@ -7,8 +7,8 @@
     "docs/continuous_improvement/CHECK_BEFORE_WORK.md": "e4b0283ae5d4a4ffcf3dc078f970d112523ba71cc881ad53b42bb553cb964492"
   },
   "issue_log_review": {
-    "bytes": 2321061,
-    "sha256": "e111b4c36841cd119fade2af9d52b8b549beeda6459dc6228974419d86104f38"
+    "bytes": 2322330,
+    "sha256": "db584f7667ba66feb1bfb85ea392e9e28ec140d1922b6fe681d88ee4c6da80db"
   },
   "lesson_ids": [
     "BM-01",
@@ -70,14 +70,16 @@
     "docs/asset_base/CONTROL_SPRINT_LOCK.json",
     "docs/asset_base/LEDGER.md",
     "docs/handover/START_HERE.md",
-    "docs/continuous_improvement/evidence/SONG60/*"
+    "docs/continuous_improvement/evidence/SONG60/*",
+    ".github/workflows/song55-native-proof.yml"
   ],
   "validation_commands": [
     "project_context check and improvement_gate committed preflight",
     "Pinned Godot4.7.2 fresh private import/Dummy/privateXDG/signing guards/one nativeGLlock",
     "Actual baseline and early390phone/1280short native originals; exactfinal390x844/720x1280/1280x720/1600x900 whole-task nativepointer/key/emulatedtouch/scroll/FSfailure-retry/typedreload/legacyfallback",
     "Existing deterministic/legacy/once-only CI, new exact-source model/native source protection, independent readonly source/visual reviews and nonforceexpected-head readback",
-    "Publish exact native PNG originals/raw receipts under existing evidence convention, all hashes read back; images are QA evidence, not an app release."
+    "Publish exact native PNG originals/raw receipts under existing evidence convention, all hashes read back; images are QA evidence, not an app release.",
+    "Preserve SONG56 job assertions and failed run; retire broad automatic source trigger in favour of explicit SONG56 session work, independently reviewed."
   ],
   "writer": {
     "owner": "root-SONG60",
