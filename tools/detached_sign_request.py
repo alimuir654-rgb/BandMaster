@@ -100,11 +100,12 @@ def make_response(value, signature):
     return response
 
 
-def sign_original(value, keystore, alias, output):
+def sign_original(value, keystore, alias, output, password_env=None):
     cert, message = validate_public(value)
     v2.require(keystore.is_file(), 'original keystore missing; do not create a replacement')
     v2.require(not output.exists(), 'response output already exists')
-    v2.require(all(os.environ.get(k) for k in ['BM_STORE_PASSWORD', 'BM_KEY_PASSWORD']),
+    environment = os.environ.copy() if password_env is None else password_env
+    v2.require(all(environment.get(k) for k in ['BM_STORE_PASSWORD', 'BM_KEY_PASSWORD']),
                'original environment must supply BM_STORE_PASSWORD and BM_KEY_PASSWORD securely')
     helper = Path(__file__).with_name('BandMasterDetachedSigner.java')
     # Only public material and the returned signature are written to temporary files.
@@ -114,7 +115,7 @@ def sign_original(value, keystore, alias, output):
         (work / 'message.bin').write_bytes(message)
         result = subprocess.run(['java', str(helper), str(keystore.resolve()), alias,
                                  str(work / 'message.bin'), str(work / 'certificate.der'),
-                                 str(work / 'signature.bin')], capture_output=True, text=True, timeout=90)
+                                 str(work / 'signature.bin')], capture_output=True, text=True, timeout=90, env=environment)
         v2.require(result.returncode == 0, 'original-key helper refused: ' + result.stderr.strip())
         response = make_response(value, (work / 'signature.bin').read_bytes())
     # Exclusive create; never overwrite a previous signature or request.
@@ -125,23 +126,32 @@ def sign_original(value, keystore, alias, output):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('action', choices=['check', 'sign'])
+    parser.add_argument('action', choices=['check', 'sign', 'recover-sign'])
     parser.add_argument('--request', type=Path, required=True)
     parser.add_argument('--request-sha256', required=True,
                         help='Copy the separately reviewed exact file hash, not a hash calculated blindly')
-    parser.add_argument('--keystore', type=Path)
-    parser.add_argument('--alias')
+    parser.add_argument('--keystore', type=Path, default=os.environ.get('BM_SIGNING_KEYSTORE_FILE'))
+    parser.add_argument('--backup', type=Path, default=os.environ.get('BM_SIGNING_BACKUP_FILE'))
+    parser.add_argument('--recovery-key-file', type=Path, default=os.environ.get('BM_SIGNING_RECOVERY_KEY_FILE'))
+    parser.add_argument('--alias', default=os.environ.get('BM_SIGNING_ALIAS', 'androiddebugkey'))
     parser.add_argument('--output', type=Path)
     args = parser.parse_args()
     try:
         value = read_request(args.request, args.request_sha256)
-        if args.action == 'sign':
+        if args.action == 'recover-sign':
+            v2.require(args.backup and args.recovery_key_file and args.output,
+                       'recover-sign requires encrypted backup, secure recovery-key file and output')
+            v2.require(not args.output.exists(), 'response output already exists')
+            from signing_backup import recovered_store
+            with recovered_store(args.backup, args.recovery_key_file) as (store, alias, environment):
+                sign_original(value, store, alias, args.output, environment)
+        elif args.action == 'sign':
             v2.require(args.keystore and args.alias and args.output, 'sign requires original keystore, alias and output')
             sign_original(value, args.keystore, args.alias, args.output)
         print(json.dumps(dict(public_request_valid=True, request_id=value['request_id'],
                               request_sha256=args.request_sha256, action=args.action,
                               apk_independently_verified_here=False,
-                              response_written=str(args.output) if args.action == 'sign' else None)))
+                              response_written=str(args.output) if args.action in {'sign', 'recover-sign'} else None)))
     except Exception as error:
         raise SystemExit('STOP: ' + type(error).__name__ + ': ' + str(error)) from error
 

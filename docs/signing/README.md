@@ -1,3 +1,9 @@
+# Current V26 signing / backup status
+
+See [the short recovery runbook](RECOVERY.md) for the verified V26 response, encrypted owner Dropbox backup, exact commands and pending secure-file binding setup. The original key was verified and V26 signed from authenticated recovery. Chat-independent recovery is not complete until the owner publishes the recovery-secret binding; no new APK assembly is claimed here.
+
+The following records are retained historical handoffs. Their environment-availability statements do not override the current runbook.
+
 # Original-key detached APK signing
 
 This workflow removes the need to transfer the large unsigned APK or private key
